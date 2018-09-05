@@ -70,9 +70,14 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ## Snippets for Visual Studio Code
 
-Lorem
+Because the PlantUML support inside of Visual Studio Code is excellend with the [PlantUML extension](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml), you can also find VS Code snippets for C4-PlantUML at [.vscode/snippets/diagram.json](.vscode/snippets/diagram.json).
 
-https://medium.com/hack-visual-studio-code/share-snippets-with-your-team-in-vs-code-817801e853fb
+It is possible to save them directly inside VS Code: [Creating your own snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets).
+
+Or you can use the [Project Snippets extension](https://marketplace.visualstudio.com/items?itemName=rebornix.project-snippets).
+Now it is possible to have workspace/project level code snippets.
+
+![C4-PlantUML Snippets Video](images/vscode_c4plantuml_snippets.gif)
 
 ## Layout Options
 

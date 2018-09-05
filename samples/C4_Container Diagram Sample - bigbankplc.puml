@@ -1,0 +1,48 @@
+@startuml "bigbankplc"
+!include ..\C4_Container.puml
+
+LAYOUT_TOP_DOWN
+'LAYOUT_AS_SKETCH
+LAYOUT_WITH_LEGEND
+
+
+Person(customer, Customer, "A customer of the bank, with personal bank accounts")
+
+package "Internet Banking System" <<boundary>> as c1 {
+
+    Container(web_app, "Web Application", "Java, Spring MVC", "Delivers the static content and the Internet banking SPA")
+
+    Container(spa, "Single-Page App", "JavaScript, Angular", "Provides all the Internet banking functionality to cutomers via their web browser")
+
+    Container(mobile_app, "Mobile App", "C#, Xamarin", "Provides a limited subset of the Internet banking functionality to customers via their mobile device")
+
+    Container(backend_api, "API Application", "Java, Docker Container", "Provides Internet banking functionality via API")
+
+    Container(database, "Database", "SQL Database", "Stores user registraion information, hased auth credentials, access logs, etc.")
+}
+
+System(email_system, "E-Mail System", "The internal Microsoft Exchange system")
+System(banking_system, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
+
+Rel(customer, web_app, "Uses", "HTTPS")
+Rel(customer, spa, "Uses", "HTTPS")
+Rel(customer, mobile_app, "Uses")
+
+Rel_R(web_app, spa, "Delivers")
+
+Rel(spa, backend_api, "Uses", "async, JSON/HTTPS")
+
+Rel(mobile_app, backend_api, "Uses", "async, JSON/HTTPS")
+
+Rel_L(backend_api, database, "Reads from and writes to", "sync, JDBC")
+Rel_R(backend_api, banking_system, "Uses", "sync/async, XML/HTTPS")
+Rel_U(backend_api, email_system, "Sends e-mails using", "sync, SMTP")
+
+Rel(email_system, customer, "Sends e-mails to")
+
+rectangle test
+email_system -UP-> test
+test -LEFT-> customer
+hide test
+
+@enduml

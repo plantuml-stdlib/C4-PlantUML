@@ -1,0 +1,86 @@
+{
+	"C4_Person": {
+		"prefix": "Person",
+		"body": [
+			"Person(${1:alias}, \"${2:label}\")",
+			"$0"
+		],
+		"description": "Add Person to C4 diagram"
+	},
+	"C4_Person_Descr": {
+		"prefix": "Person with Description",
+		"body": [
+			"Person(${1:alias}, \"${2:label}\", \"${3:description}\")",
+			"$0"
+		],
+		"description": "Add Person with Description to C4 diagram"
+	},
+
+	"C4_Container": {
+		"prefix": "Container",
+		"body": [
+			"Container(${1:alias}, \"${2:label}\", \"${3:technology}\")",
+			"$0"
+		],
+		"description": "Add Container to C4 diagram"
+	},
+	"C4_Container_Descr": {
+		"prefix": "Container with Description",
+		"body": [
+			"Container(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
+			"$0"
+		],
+		"description": "Add Container with Description to C4 diagram"
+	},
+
+	"C4_System": {
+		"prefix": "System",
+		"body": [
+			"System(${1:alias}, \"${2:label}\")",
+			"$0"
+		],
+		"description": "Add System to C4 diagram"
+	},
+	"C4_System_Descr": {
+		"prefix": "System with Description",
+		"body": [
+			"System(${1:alias}, \"${2:label}\", \"${3:description}\")",
+			"$0"
+		],
+		"description": "Add System with Description to C4 diagram"
+	},
+
+	"C4_Relationship": {
+		"prefix": "Relationship",
+		"body": [
+			"Rel(${1:from_alias}, ${2:to_alias}, \"${3:label}\")",
+			"$0"
+		],
+		"description": "Add unidirectional Relationship to C4 diagram"
+	},
+	"C4_Relationship_Techn": {
+		"prefix": "Relationship with Technology",
+		"body": [
+			"Rel(${1:from_alias}, ${2:to_alias}, \"${3:label}\", \"${4:technology}\")",
+			"$0"
+		],
+		"description": "Add unidirectional Relationship with Technology to C4 diagram"
+	},
+
+	"C4_Layout_Right": {
+		"prefix": "Layout to Right side",
+		"body": [
+			"Lay_R(${1:from_alias}, ${2:to_alias})",
+			"$0"
+		],
+		"description": "Add hidden layout line to put {to} to the right of {from}"
+	},
+	"C4_Layout_Left": {
+		"prefix": "Layout to Left side",
+		"body": [
+			"Lay_L(${1:from_alias}, ${2:to_alias})",
+			"$0"
+		],
+		"description": "Add hidden layout line to put {to} to the left of {from}"
+	}
+}

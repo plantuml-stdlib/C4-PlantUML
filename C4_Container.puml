@@ -1,0 +1,109 @@
+' Colors
+' ##################################
+
+!define PERSON_BG_COLOR #08427B
+!define CONTAINER_BG_COLOR #438DD5
+!define SYSTEM_BG_COLOR #999999
+!define ELEMENT_FONT_COLOR #FFFFFF
+
+!define TECHN_FONT_SIZE 12
+
+' Styling
+' ##################################
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 200
+
+skinparam rectangle {
+    StereotypeFontSize 12
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+}
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor PERSON_BG_COLOR
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor CONTAINER_BG_COLOR
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor SYSTEM_BG_COLOR
+    BorderColor #8A8A8A
+}
+
+skinparam package<<boundary>> {
+    StereotypeFontSize 0
+    FontColor #999999
+    BorderColor #cccccc
+}
+
+' Layout
+' ##################################
+
+!definelong LAYOUT_AS_SKETCH
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+skinparam defaultFontName "Comic Sans MS"
+center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
+!enddefinelong
+
+!definelong LAYOUT_WITH_LEGEND
+hide stereotype
+legend right
+|=              |= Type |
+|<PERSON_BG_COLOR>      | person |
+|<CONTAINER_BG_COLOR>   | container |
+|<SYSTEM_BG_COLOR>      | external system |
+endlegend
+!enddefinelong
+
+!define LAYOUT_TOP_DOWN top to bottom direction
+!define LAYOUT_LEFT_RIGHT left to right direction
+
+' Elements
+' ##################################
+
+!define Person(e_alias, e_label) rectangle "==e_label" <<person>> as e_alias
+!define Person(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<person>> as e_alias
+
+!define Container(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
+!define Container(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
+
+!define System(e_alias, e_label) rectangle "==e_label" <<system>> as e_alias
+!define System(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<system>> as e_alias
+
+
+!define Rel_(e_from,e_to, e_label, e_direction="") e_from -e_direction-> e_to : "===e_label"
+!define Rel_(e_from,e_to, e_label, e_techn, e_direction="") e_from -e_direction-> e_to : "===e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//"
+
+!define Rel(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "")
+!define Rel(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "")
+
+!define Rel_D(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "DOWN")
+!define Rel_D(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "DOWN")
+
+!define Rel_U(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "UP")
+!define Rel_U(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "UP")
+
+!define Rel_L(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "LEFT")
+!define Rel_L(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "LEFT")
+
+!define Rel_R(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "RIGHT")
+!define Rel_R(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "RIGHT")
+
+!define Lay_R(e_from, e_to) e_from -[hidden]R- e_to
+!define Lay_L(e_from, e_to) e_from -[hidden]L- e_to

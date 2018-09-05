@@ -1,5 +1,5 @@
-@startuml "bigbankplc"
-!include ..\C4_Container.puml
+@startuml "techtribesjs"
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
 
 LAYOUT_TOP_DOWN
 'LAYOUT_AS_SKETCH

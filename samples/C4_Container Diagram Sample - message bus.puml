@@ -1,5 +1,5 @@
 @startuml "bigbankplc"
-!include ..\C4_Container.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
 
 skinparam wrapWidth 200
 skinparam maxMessageSize 200

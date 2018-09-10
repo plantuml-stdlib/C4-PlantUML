@@ -6,14 +6,15 @@
 !define SYSTEM_BG_COLOR #999999
 !define ELEMENT_FONT_COLOR #FFFFFF
 
-!define TECHN_FONT_SIZE 12
-
 ' Styling
 ' ##################################
+
+!define TECHN_FONT_SIZE 12
+
 skinparam defaultTextAlignment center
 
 skinparam wrapWidth 200
-skinparam maxMessageSize 200
+skinparam maxMessageSize 150
 
 skinparam rectangle {
     StereotypeFontSize 12
@@ -22,6 +23,7 @@ skinparam rectangle {
 skinparam Arrow {
     Color #666666
     FontColor #666666
+    FontSize 12
 }
 
 skinparam rectangle<<person>> {
@@ -107,3 +109,5 @@ endlegend
 
 !define Lay_R(e_from, e_to) e_from -[hidden]R- e_to
 !define Lay_L(e_from, e_to) e_from -[hidden]L- e_to
+!define Lay_D(e_from, e_to) e_from -[hidden]D- e_to
+!define Lay_U(e_from, e_to) e_from -[hidden]U- e_to

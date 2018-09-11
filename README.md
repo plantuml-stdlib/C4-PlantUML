@@ -14,12 +14,13 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
   * [LAYOUT_AS_SKETCH](#layout_as_sketch)
 * [Advanced Samples](#advanced-samples)
 * [Background](#background)
+* [License](#license)
 
 ## Getting Started
 
-At the top of your C4 PlantUML `.puml` file, you need to include the `C4_Container.puml` file found in the `root` of this repo.
+At the top of your C4-PlantUML `.puml` file, you need to include the `C4_Container.puml` file found in the `root` of this repo.
 
-To be independent of any internet connectifity, you can also download `C4_Container.puml` and reference it locally with
+To be independent of any internet connectivity, you can also download `C4_Container.puml` and reference it locally with
 
 ```c#
 !include path/to/C4_Container.puml
@@ -236,3 +237,7 @@ More information can be found here:
 * [REAL WORLD PlantUML - Sample Gallery](https://real-world-plantuml.com/)
 * [Visualising and documenting software architecture cheat sheets](http://www.codingthearchitecture.com/2017/04/27/visualising_and_documenting_software_architecture_cheat_sheets.html)
 * [PlantUML and Structurizr - Create models not diagrams](http://www.codingthearchitecture.com/2016/12/08/plantuml_and_structurizr.html)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

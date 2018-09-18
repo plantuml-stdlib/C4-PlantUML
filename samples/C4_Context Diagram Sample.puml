@@ -1,0 +1,15 @@
+@startuml
+!include ../C4.puml
+
+LAYOUT_WITH_LEGEND
+
+title System Context Diagram
+
+Person(client, "Client", "A user of a system")
+System(platform, "Platform", "Distributed system of independent Machines")
+ExtSystem(3rdparty, "3rd Party Platform", "Implements actual business logic")
+
+Rel(client, platform, "Uses")
+Rel(client, 3rdparty, "Uses")
+Rel(3rdparty, platform, "Depends on", "SDK, REST API")
+@enduml

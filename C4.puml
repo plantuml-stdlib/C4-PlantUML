@@ -3,7 +3,9 @@
 
 !define PERSON_BG_COLOR #08427B
 !define CONTAINER_BG_COLOR #438DD5
-!define SYSTEM_BG_COLOR #999999
+!define EXTERNAL_SYSTEM_BG_COLOR #999999
+!define SYSTEM_BG_COLOR #1168BD
+!define COMPONENT_BG_COLOR #85BBF0
 !define ELEMENT_FONT_COLOR #FFFFFF
 
 ' Styling
@@ -40,10 +42,24 @@ skinparam rectangle<<container>> {
     BorderColor #3C7FC0
 }
 
+skinparam rectangle<<component>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor COMPONENT_BG_COLOR
+    BorderColor #3C7FC0
+}
+
 skinparam rectangle<<system>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
     FontColor ELEMENT_FONT_COLOR
     BackgroundColor SYSTEM_BG_COLOR
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor EXTERNAL_SYSTEM_BG_COLOR
     BorderColor #8A8A8A
 }
 
@@ -57,20 +73,23 @@ skinparam package<<boundary>> {
 ' ##################################
 
 !definelong LAYOUT_AS_SKETCH
-skinparam backgroundColor #EEEBDC
-skinparam handwritten true
-skinparam defaultFontName "Comic Sans MS"
-center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
+    skinparam backgroundColor #EEEBDC
+    skinparam handwritten true
+    skinparam defaultFontName "Comic Sans MS"
+    center footer
+    <font color=red>Warning:</font> Created for discussion, needs to be validated
 !enddefinelong
 
 !definelong LAYOUT_WITH_LEGEND
-hide stereotype
-legend right
-|=              |= Type |
-|<PERSON_BG_COLOR>      | person |
-|<CONTAINER_BG_COLOR>   | container |
-|<SYSTEM_BG_COLOR>      | external system |
-endlegend
+    hide stereotype
+    legend right
+        |=              |= Type |
+        |<PERSON_BG_COLOR>      | person |
+        |<SYSTEM_BG_COLOR>   | system |
+        |<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
+        |<CONTAINER_BG_COLOR>   | container |
+        |<COMPONENT_BG_COLOR>   | component |
+    endlegend
 !enddefinelong
 
 !define LAYOUT_TOP_DOWN top to bottom direction
@@ -85,8 +104,14 @@ endlegend
 !define Container(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
 !define Container(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
 
+!define Component(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<component>> as e_alias
+!define Component(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<component>> as e_alias
+
 !define System(e_alias, e_label) rectangle "==e_label" <<system>> as e_alias
 !define System(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<system>> as e_alias
+
+!define ExtSystem(e_alias, e_label) rectangle "==e_label" <<external_system>> as e_alias
+!define ExtSystem(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_system>> as e_alias
 
 ' Relationship
 ' ##################################

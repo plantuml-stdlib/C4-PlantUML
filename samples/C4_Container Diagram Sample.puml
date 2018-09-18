@@ -1,0 +1,19 @@
+@startuml
+!include ../C4.puml
+
+LAYOUT_WITH_LEGEND
+
+title Container Diagram
+
+Person(client, "Client", "A user of a system")
+package "Platform" <<boundary>> as platform {
+    Container(api_app, "Mobile App", "Android / IOS", "Uses SDK for direct calls")
+    Container(api_dash, "Web App", "asp.net", "Covers one or more business needs")
+}
+ExtSystem(3rdparty, "3rd Party Platform", "Implements actual business logic")
+
+Rel(client, platform, "Uses")
+Rel(client, 3rdparty, "Uses")
+Rel(api_dash, 3rdparty, "Uses", "REST API")
+Rel(api_app, 3rdparty, "Uses", "SDK")
+@enduml

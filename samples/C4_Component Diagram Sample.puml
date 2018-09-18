@@ -3,7 +3,7 @@
 
 LAYOUT_WITH_LEGEND
 
-title Container Diagram
+title Component Diagram
 
 Person(client, "Client", "A user of a system")
 package "Platform:system" <<boundary>> as platform {

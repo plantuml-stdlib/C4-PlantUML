@@ -15,7 +15,22 @@
 		],
 		"description": "Add Person with Description to C4 diagram"
 	},
-
+	"C4_Person_Ext": {
+		"prefix": "External Person",
+		"body": [
+			"Person_Ext(${1:alias}, \"${2:label}\")",
+			"$0"
+		],
+		"description": "Add External Person to C4 diagram"
+	},
+	"C4_Person_Ext_Descr": {
+		"prefix": "External Person with Description",
+		"body": [
+			"Person_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")",
+			"$0"
+		],
+		"description": "Add External Person with Description to C4 diagram"
+	},
 	"C4_Container": {
 		"prefix": "Container",
 		"body": [
@@ -32,7 +47,31 @@
 		],
 		"description": "Add Container with Description to C4 diagram"
 	},
-
+	"C4_Container_Boundary": {
+		"prefix": "Container Boundary",
+		"body": [
+			"Container_Boundary(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a Container Boundary to C4 diagram"
+	},
+	"C4_Component": {
+		"prefix": "Component",
+		"body": [
+			"Component(${1:alias}, \"${2:label}\", \"${3:technology}\")",
+			"$0"
+		],
+		"description": "Add Component to C4 diagram"
+	},
+	"C4_Component_Descr": {
+		"prefix": "Component with Description",
+		"body": [
+			"Component(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
+			"$0"
+		],
+		"description": "Add Component with Description to C4 diagram"
+	},
 	"C4_System": {
 		"prefix": "System",
 		"body": [
@@ -49,7 +88,31 @@
 		],
 		"description": "Add System with Description to C4 diagram"
 	},
-
+	"C4_System_Ext": {
+		"prefix": "External System",
+		"body": [
+			"System_Ext(${1:alias}, \"${2:label}\")",
+			"$0"
+		],
+		"description": "Add External System to C4 diagram"
+	},
+	"C4_System_Ext_Descr": {
+		"prefix": "External System with Description",
+		"body": [
+			"System_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")",
+			"$0"
+		],
+		"description": "Add External System with Description to C4 diagram"
+	},
+	"C4_System_Boundary": {
+		"prefix": "System Boundary",
+		"body": [
+			"System_Boundary(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a System Boundary to C4 diagram"
+	},
 	"C4_Relationship": {
 		"prefix": "Relationship",
 		"body": [
@@ -66,7 +129,6 @@
 		],
 		"description": "Add unidirectional Relationship with Technology to C4 diagram"
 	},
-
 	"C4_Layout_Right": {
 		"prefix": "Layout to Right side",
 		"body": [

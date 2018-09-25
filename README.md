@@ -17,29 +17,32 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
 
 ## Getting Started
 
-At the top of your C4 PlantUML `.puml` file, you need to include the `C4_Container.puml` file found in the `root` of this repo.
+At the top of your C4 PlantUML `.puml` file, you need to include the `C4.puml` file found in the `root` of this repo.
 
-To be independent of any internet connectifity, you can also download `C4_Container.puml` and reference it locally with
+To be independent of any internet connectifity, you can also download `C4.puml` and reference it locally with
 
 ```c#
-!include path/to/C4_Container.puml
+!include path/to/C4.puml
 ```
 
 If you want to use the always up-to-date version in this repo, use the following:
 
 ```c#
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 ```
 
-After you have inlcluded `C4_Container.puml` you can use the defined macro definitions for the C4 elements: `Person`, `System`, `Container`, `Relationship`.
+After you have inlcluded `C4.puml` you can use the defined macro definitions for the C4 elements: `Person`, `Person_Ext`, `System`, `System_Ext`, `Container`, `Component`, `Relationship`.
 
 ```csharp
 @startuml C4_Elements
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 
 Person(personAlias, "Label", "Optional Description")
-Container(containerAlias, "Label", "Technology", "Optional Description")
+Person_Ext(personAlias, "Label", "Optional Description")
 System(systemAlias, "Label", "Optional Description")
+System_Ext(systemAlias, "Label", "Optional Description")
+Container(containerAlias, "Label", "Technology", "Optional Description")
+Component(containerAlias, "Label", "Technology", "Optional Description")
 
 Rel(personAlias, containerAlias, "Label", "Optional Technology")
 @enduml
@@ -47,16 +50,33 @@ Rel(personAlias, containerAlias, "Label", "Optional Technology")
 
 ![C4_Elements](http://www.plantuml.com/plantuml/png/ZL31IWCn4Bq7yW_hdbQecqjFdYhRtgejLSybpGxTm6GICXDA_zwmO554yVJU36_UUyoAnMOf0PjXUTmW121XhUuyEImZb8pD99BuqPXiB_tPorHEXI6xI5ArlOl17BopUOml7XAW6POFUxGaxyzR4omBvBew3bLlFK7kKqtJIgizP8xKfHcUq5jUDEtMdW3RIdP9V2IBpHhOPJzFxRrMDv_EVR8Vjs_W9eeOpzU_d5wljLleU8P_vsjr0FnU-lSYDvClZQh72cYiJ_W0 "C4_Elements")
 
-In addition to this, it is also possible to define a system boundary.
+In addition to this, it is also possible to define a system or component boundary.
 
 Take a look a look at the following sample of a C4 Container Diagram:
 
 ```csharp
 @startuml Basic Sample
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 
 Person(admin, "Administrator")
 package "Sample System" <<boundary>> as c1 {
+    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
+}
+System(twitter, "Twitter")
+
+Rel(admin, web_app, "Uses", "HTTPS")
+Rel(web_app, twitter, "Gets tweets from", "HTTPS")
+@enduml
+```
+
+or
+
+```csharp
+@startuml Basic Sample
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
+
+Person(admin, "Administrator")
+System_Boundary(c1, "Sample System") {
     Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
 }
 System(twitter, "Twitter")
@@ -93,7 +113,7 @@ With the two macros `LAYOUT_TOP_DOWN` and `LAYOUT_LEFT_RIGHT` it is possible to 
 
 ```csharp
 @startuml LAYOUT_TOP_DOWN Sample
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 
 /' Not needed because this is the default '/
 LAYOUT_TOP_DOWN
@@ -115,7 +135,7 @@ Using `LAYOUT_LEFT_RIGHT`
 
 ```csharp
 @startuml LAYOUT_LEFT_RIGHT Sample
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 
 LAYOUT_LEFT_RIGHT
 
@@ -142,7 +162,7 @@ This can be enabled with `LAYOUT_WITH_LEGEND`.
 
 ```csharp
 @startuml LAYOUT_WITH_LEGEND Sample
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 
 LAYOUT_WITH_LEGEND
 
@@ -175,7 +195,7 @@ With `LAYOUT_AS_SKETCH` you can make a difference.
 
 ```csharp
 @startuml LAYOUT_AS_SKETCH Sample
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 
 LAYOUT_AS_SKETCH
 

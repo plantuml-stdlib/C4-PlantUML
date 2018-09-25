@@ -1,19 +1,31 @@
 @startuml
 !include ../C4.puml
+' !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 
 LAYOUT_WITH_LEGEND
 
-title Container Diagram
+title Container diagram for Internet Banking System
 
-Person(client, "Client", "A user of a system")
-package "Platform" <<boundary>> as platform {
-    Container(api_app, "Mobile App", "Android / IOS", "Uses SDK for direct calls")
-    Container(api_dash, "Web App", "asp.net", "Covers one or more business needs")
+Person(pbc, "Personal Banking Customer", "A customer of the bank, with personal bank accounts.")
+System_Ext(es, "E-mail system", "The internal Microsoft Exchange e-mail system.")
+System_Ext(mbs, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
+System_Boundary(ibs, "Internet Banking") {
+    Container(wa, "Web Application", "java and Spring MVC", "Delivers the static content and the internet banking single page application.")
+    Container(spa, "Single Page Application", "javascript and angular", "Provides all the internet banking functionality to customers via their web browser.")
+    Container(ma, "Mobile App", "Xamarin", "Provides a limited subset ot the internet banking functionality to customers via their mobile mobile device.")
+    Container(db, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
+    Container(api, "API Application", "java and String MVC", "Provides internet banking functionality via a JSON/HTTP API.")
+
+    Rel(api, es, "Sends e-mails", "SMTP")
+    Rel(api, mbs, "Uses", "XML/HTTPS")
+    Rel(api, db, "Reads & writes to", "JDBC")
+    Rel(wa, spa, "Delivers")
+    Rel(spa, api, "Uses", "JSON/HTTPS")
+    Rel(ma, api, "Uses", "JSON/HTTPS")
 }
-ExtSystem(3rdparty, "3rd Party Platform", "Implements actual business logic")
 
-Rel(client, platform, "Uses")
-Rel(client, 3rdparty, "Uses")
-Rel(api_dash, 3rdparty, "Uses", "REST API")
-Rel(api_app, 3rdparty, "Uses", "SDK")
+Rel(pbc, wa, "Uses", "HTTPS")
+Rel(pbc, spa, "Uses")
+Rel(pbc, ma, "Uses")
+Rel(es, pbc, "Sends e-mails to")
 @enduml

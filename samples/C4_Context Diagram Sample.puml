@@ -1,15 +1,18 @@
 @startuml
 !include ../C4.puml
+' !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 
 LAYOUT_WITH_LEGEND
 
-title System Context Diagram
+title System Context diagram for Internet Banking System
 
-Person(client, "Client", "A user of a system")
-System(platform, "Platform", "Distributed system of independent Machines")
-ExtSystem(3rdparty, "3rd Party Platform", "Implements actual business logic")
+Person(pbc, "Personal Banking Customer", "A customer of the bank, with personal bank accounts.")
+System(ibs, "Internet Banking System", "Allows customers to view information about their bank accounts, and make payments.")
+System_Ext(es, "E-mail system", "The internal Microsoft Exchange e-mail system.")
+System_Ext(mbs, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
 
-Rel(client, platform, "Uses")
-Rel(client, 3rdparty, "Uses")
-Rel(3rdparty, platform, "Depends on", "SDK, REST API")
+Rel(pbc, ibs, "Uses")
+Rel(es, pbc, "Sends e-mails to")
+Rel(ibs, es, "Sends e-mails", "SMTP")
+Rel(ibs, mbs, "Uses")
 @enduml

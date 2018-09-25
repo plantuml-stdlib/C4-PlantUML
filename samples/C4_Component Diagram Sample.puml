@@ -1,24 +1,31 @@
 @startuml
 !include ../C4.puml
+' !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 
 LAYOUT_WITH_LEGEND
 
-title Component Diagram
+title Component diagram for Internet Banking System - API Application
 
-Person(client, "Client", "A user of a system")
-package "Platform:system" <<boundary>> as platform {
-    Container(api_app, "Mobile App", "Android / IOS", "Uses SDK for direct calls")
-    package "Web App:container" <<boundary>> as api_dash {
-        Component(c1, "User Controller", "MVC REST Controller", "Lorem ipsum")
-        Component(c2, "Product Controller", "MVC REST Controller", "Lorem ipsum")
-    }
+Container(spa, "Single Page Application", "javascript and angular", "Provides all the internet banking functionality to customers via their web browser.")
+Container(ma, "Mobile App", "Xamarin", "Provides a limited subset ot the internet banking functionality to customers via their mobile mobile device.")
+Container(db, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
+System_Ext(mbs, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
+
+Container_Boundary(api, "API Application") {
+    Component(sign, "Sign In Controller", "MVC Rest Controlle", "Allows users to sign in to the internet banking system")
+    Component(accounts, "Accounts Summary Controller", "MVC Rest Controlle", "Provides customers with a summory of their bank accounts")
+    Component(security, "Security Component", "Spring Bean", "Provides functionality related to singing in, changing passwords, etc.")
+    Component(mbsfacade, "Mainframe Banking System Facade", "Spring Bean", "A facade onto the mainframe banking system.")
+
+    Rel(sign, security, "Uses")
+    Rel(accounts, mbsfacade, "Uses")
+    Rel(security, db, "Read & write to", "JDBC")
+    Rel(mbsfacade, mbs, "Uses", "XML/HTTPS")
 }
-ExtSystem(3rdparty, "3rd Party Platform", "Implements actual business logic")
 
-Rel(client, platform, "Uses")
-Rel(client, 3rdparty, "Uses")
-Rel(api_dash, 3rdparty, "Uses", "REST API")
-Rel(api_app, 3rdparty, "Uses", "SDK")
-Rel(api_app, c2, "Query", "SDK")
-Rel(api_app, c1, "Query", "SDK")
+Rel(spa, sign, "Uses", "JSON/HTTPS")
+Rel(spa, accounts, "Uses", "JSON/HTTPS")
+
+Rel(ma, sign, "Uses", "JSON/HTTPS")
+Rel(ma, accounts, "Uses", "JSON/HTTPS")
 @enduml

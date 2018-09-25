@@ -1,5 +1,6 @@
 @startuml "bigbankplc"
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!include ../C4.puml
+' !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 
 skinparam wrapWidth 200
 skinparam maxMessageSize 200
@@ -11,7 +12,7 @@ LAYOUT_WITH_LEGEND
 
 Person(customer, Customer, "A customer")
 
-package "Customer Information System" <<boundary>> as c1 {
+System_Boundary(c1, "Customer Information") {
 
     Container(app, "Customer Application", "Javascript, Angular", "Allows customers to manage their profile")
 

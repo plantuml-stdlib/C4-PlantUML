@@ -1,6 +1,5 @@
 @startuml "bigbankplc"
-!include ../C4.puml
-' !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
 
 LAYOUT_TOP_DOWN
 'LAYOUT_AS_SKETCH

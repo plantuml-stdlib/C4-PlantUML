@@ -185,7 +185,19 @@
 		"scope": "diagram",
 		"prefix": "Boundary",
 		"body": [
-			"package \"${1:alias}\" <<boundary>> as ${2:alias} {",
+			"Boundary(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a generic boundary to C4 diagram."
+	},
+	"C4_Boundary_Type": {
+		"scope": "diagram",
+		"prefix": [
+			"Boundary with type"
+		]
+		"body": [
+			"Boundary(${1:alias}, \"${2:label}\", \"${3:type}\"){",
 			"\t$0",
 			"}"
 		],

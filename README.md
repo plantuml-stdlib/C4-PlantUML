@@ -14,6 +14,7 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
   * [LAYOUT_AS_SKETCH](#layout_as_sketch)
 * [Advanced Samples](#advanced-samples)
 * [Background](#background)
+* [License](#license)
 
 ## Getting Started
 
@@ -240,3 +241,7 @@ More information can be found here:
 * [REAL WORLD PlantUML - Sample Gallery](https://real-world-plantuml.com/)
 * [Visualising and documenting software architecture cheat sheets](http://www.codingthearchitecture.com/2017/04/27/visualising_and_documenting_software_architecture_cheat_sheets.html)
 * [PlantUML and Structurizr - Create models not diagrams](http://www.codingthearchitecture.com/2016/12/08/plantuml_and_structurizr.html)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

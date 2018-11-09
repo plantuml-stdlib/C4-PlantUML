@@ -1,5 +1,7 @@
 @startuml "bigbankplc"
 !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Container.puml
 
 LAYOUT_TOP_DOWN
 'LAYOUT_AS_SKETCH
@@ -8,7 +10,7 @@ LAYOUT_WITH_LEGEND
 
 Person(customer, Customer, "A customer of the bank, with personal bank accounts")
 
-package "Internet Banking System" <<boundary>> as c1 {
+System_Boundary(c1, "Internet Banking") {
 
     Container(web_app, "Web Application", "Java, Spring MVC", "Delivers the static content and the Internet banking SPA")
 
@@ -21,8 +23,8 @@ package "Internet Banking System" <<boundary>> as c1 {
     Container(database, "Database", "SQL Database", "Stores user registraion information, hased auth credentials, access logs, etc.")
 }
 
-System(email_system, "E-Mail System", "The internal Microsoft Exchange system")
-System(banking_system, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
+System_Ext(email_system, "E-Mail System", "The internal Microsoft Exchange system")
+System_Ext(banking_system, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
 
 Rel(customer, web_app, "Uses", "HTTPS")
 Rel(customer, spa, "Uses", "HTTPS")

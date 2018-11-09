@@ -1,17 +1,19 @@
 @startuml "techtribesjs"
 !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Container.puml
 
 LAYOUT_TOP_DOWN
 'LAYOUT_AS_SKETCH
 LAYOUT_WITH_LEGEND
 
 
-Person(anonymous_user, "Anonymous User")
+Person_Ext(anonymous_user, "Anonymous User")
 Person(aggregated_user, "Aggregated User")
 Person(administration_user, "Administration User")
 
-package "techtribes.js" <<boundary>> as c1 {
-
+System_Boundary(c1, "techtribes.js"){
+    
     Container(web_app, "Web Application", "Java, Spring MVC, Tomcat 7.x", "Allows users to view people, tribes, content, events, jobs, etc. from the local tech, digital and IT sector")
 
     Container(rel_db, "Relational Database", "MySQL 5.5.x", "Stores people, tribes, tribe membership, talks, events, jobs, badges, GitHub repos, etc.")
@@ -23,9 +25,9 @@ package "techtribes.js" <<boundary>> as c1 {
     Container(updater, "Updater", "Java 7 Console App", "Updates profiles, tweets, GitHub repos and content on a scheduled basis")
 }
 
-System(twitter, "Twitter")
-System(github, "GitHub")
-System(blogs, "Blogs")
+System_Ext(twitter, "Twitter")
+System_Ext(github, "GitHub")
+System_Ext(blogs, "Blogs")
 
 
 Rel(anonymous_user, web_app, "Uses", "HTTPS")

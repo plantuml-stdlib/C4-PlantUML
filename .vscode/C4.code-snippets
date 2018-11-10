@@ -195,7 +195,7 @@
 		"scope": "diagram",
 		"prefix": [
 			"Boundary with type"
-		]
+		],
 		"body": [
 			"Boundary(${1:alias}, \"${2:label}\", \"${3:type}\"){",
 			"\t$0",

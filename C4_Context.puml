@@ -78,4 +78,5 @@ endlegend
 ' Boundaries
 ' ##################################
 
+!define Enterprise_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Enterprise")
 !define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System")

@@ -46,4 +46,4 @@ endlegend
 ' Boundaries
 ' ##################################
 
-!define Container_Boundary(e_alias, e_label) rectangle "==e_label [Container]" <<boundary>> as e_alias
+!define Container_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Container")

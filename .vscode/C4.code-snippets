@@ -145,6 +145,19 @@
 		],
 		"description": "Add a System Boundary to C4 diagram"
 	},
+	"C4_Enterprise_Boundary": {
+		"scope": "diagram",
+		"prefix": [
+			"Enterprise Boundary",
+			"Boundary for Enterprise"
+		],
+		"body":[
+			"Enterprise_Boundary(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add an Enterprise Boundary to C4 diagram"
+	},
 	"C4_Relationship": {
 		"scope": "diagram",
 		"prefix": "Relationship",

@@ -58,35 +58,35 @@ center footer <font color=red>Warning:</font> Created for discussion, needs to b
 !define Rel_(e_alias1, e_alias2, e_label, e_direction="") e_alias1 e_direction e_alias2 : "===e_label"
 !define Rel_(e_alias1, e_alias2, e_label, e_techn, e_direction="") e_alias1 e_direction e_alias2 : "===e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//"
 
-!define Rel(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-->")
-!define Rel(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-->")
+!define Rel(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-[dashed]->>")
+!define Rel(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-[dashed]->>")
 
-!define Rel_Back(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<--")
-!define Rel_Back(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<--")
+!define Rel_Back(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<<-[dashed]-")
+!define Rel_Back(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<<-[dashed]-")
 
-!define Rel_Neighbor(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "->")
-!define Rel_Neighbor(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "->")
+!define Rel_Neighbor(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-[dashed]>>")
+!define Rel_Neighbor(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-[dashed]>>")
 
-!define Rel_Back_Neighbor(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<-")
-!define Rel_Back_Neighbor(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<-")
+!define Rel_Back_Neighbor(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<<[dashed]-")
+!define Rel_Back_Neighbor(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<<[dashed]-")
 
-!define Rel_D(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-DOWN->")
-!define Rel_D(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-DOWN->")
+!define Rel_D(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-[dashed]DOWN->>")
+!define Rel_D(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-[dashed]DOWN->>")
 !define Rel_Down(e_from,e_to, e_label) Rel_D(e_from,e_to, e_label)
 !define Rel_Down(e_from,e_to, e_label, e_techn) Rel_D(e_from,e_to, e_label, e_techn)
 
-!define Rel_U(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-UP->")
-!define Rel_U(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-UP->")
+!define Rel_U(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-[dashed]UP->>")
+!define Rel_U(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-[dashed]UP->>")
 !define Rel_Up(e_from,e_to, e_label) Rel_U(e_from,e_to, e_label)
 !define Rel_Up(e_from,e_to, e_label, e_techn) Rel_U(e_from,e_to, e_label, e_techn)
 
-!define Rel_L(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-LEFT->")
-!define Rel_L(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-LEFT->")
+!define Rel_L(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-[dashed]LEFT->>")
+!define Rel_L(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-[dashed]LEFT->>")
 !define Rel_Left(e_from,e_to, e_label) Rel_L(e_from,e_to, e_label)
 !define Rel_Left(e_from,e_to, e_label, e_techn) Rel_L(e_from,e_to, e_label, e_techn)
 
-!define Rel_R(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-RIGHT->")
-!define Rel_R(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-RIGHT->")
+!define Rel_R(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-[dashed]RIGHT->>")
+!define Rel_R(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-[dashed]RIGHT->>")
 !define Rel_Right(e_from,e_to, e_label) Rel_R(e_from,e_to, e_label)
 !define Rel_Right(e_from,e_to, e_label, e_techn) Rel_R(e_from,e_to, e_label, e_techn)
 

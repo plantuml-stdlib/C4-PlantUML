@@ -1,0 +1,42 @@
+@startuml "enterprise"
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Context.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Context.puml
+
+LAYOUT_TOP_DOWN
+'LAYOUT_AS_SKETCH
+LAYOUT_WITH_LEGEND
+
+Person(customer, "Customer", "A customer of Widgets Limited.")
+
+Enterprise_Boundary(c0, "Widgets Limited") {
+    Person(csa, "Customer Service Agent", "Deals with customer enquiries.")
+
+    System(ecommerce, "E-commerce System", "Allows customers to buy widgts online via the widgets.com website.")
+
+    System(fulfilment, "Fulfilment System", "Responsible for processing and shipping of customer orders.")
+}
+
+System(taxamo, "Taxamo", "Calculates local tax (for EU B2B customers) and acts as a front-end for Braintree Payments.")
+
+System(braintree, "Braintree Payments", "Processes credit card payments on behalf of Widgets Limited.")
+
+System(post, "Jersey Post", "Calculates worldwide shipping costs for packages.")
+
+Rel_R(customer, csa, "Asks questions to", "Telephone")
+
+Rel_R(customer, ecommerce, "Places orders for widgets using")
+
+Rel(csa, ecommerce, "Looks up order information using")
+
+Rel_R(ecommerce, fulfilment, "Sends order information to")
+
+Rel_D(fulfilment, post, "Gets shipping charges from")
+
+Rel_D(ecommerce, taxamo, "Delegates credit card processing to")
+
+Rel_L(taxamo, braintree, "Uses for credit card processing")
+
+Lay_D(customer, braintree)
+
+@enduml

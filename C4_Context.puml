@@ -78,4 +78,5 @@ endlegend
 ' Boundaries
 ' ##################################
 
-!define System_Boundary(e_alias, e_label) rectangle "==e_label [System]" <<boundary>> as e_alias
+!define Enterprise_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Enterprise")
+!define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System")

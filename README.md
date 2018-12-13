@@ -73,9 +73,9 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ## Supported Diagram Types
 
-* System Context diagram
+* System Context & System Landscape diagrams
   * Import: `!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Context.puml`
-  * Macros: `Person`, `Person_Ext`, `System`, `System_Ext`, `Boundary`, `System_Boundary`
+  * Macros: `Person`, `Person_Ext`, `System`, `System_Ext`, `Boundary`, `System_Boundary`, `Enterprise_Boundary`
 * Container diagram
   * Import: `!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml`
   * Additional Macros: `Container`, `Container_Boundary`
@@ -83,7 +83,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
   * Import: `!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml`
   * Additional Macros: `Component`
 
-Take a look at each of the [C4 Model Core Diagram Samples](samples/C4CoreDiagrams.md).
+Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).
 
 ## Snippets for Visual Studio Code
 

@@ -75,13 +75,13 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 * System Context & System Landscape diagrams
   * Import: `!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Context.puml`
-  * Macros: `Person`, `Person_Ext`, `System`, `System_Ext`, `Boundary`, `System_Boundary`, `Enterprise_Boundary`
+  * Macros: `Person`, `Person_Ext`, `System`, `System_Ext`, `SystemDb`, `SystemDb_Ext`, `Boundary`, `System_Boundary`, `Enterprise_Boundary`
 * Container diagram
   * Import: `!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml`
-  * Additional Macros: `Container`, `Container_Boundary`
+  * Additional Macros: `Container`, `ContainerDb`, `Container_Boundary`
 * Component diagram
   * Import: `!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml`
-  * Additional Macros: `Component`
+  * Additional Macros: `Component`, `ComponentDb`
 
 Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).
 

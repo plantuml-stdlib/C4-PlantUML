@@ -18,6 +18,11 @@ skinparam rectangle {
     shadowing false
 }
 
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
 skinparam Arrow {
     Color #666666
     FontColor #666666

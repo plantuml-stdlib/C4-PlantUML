@@ -25,9 +25,9 @@ System_Boundary(c1, "Customer Information") {
 
     Container(audit_service, "Audit Service", "C#/.NET", "Provides organisation-wide auditing facilities")
 
-    Container(customer_db, "Customer Database", "Oracle 12c", "Stores customer information")
+    ContainerDb(customer_db, "Customer Database", "Oracle 12c", "Stores customer information")
 
-    Container(reporting_db, "Reporting Database", "MySQL", "Stores a normalized version of all business data for ad hoc reporting purposes")
+    ContainerDb(reporting_db, "Reporting Database", "MySQL", "Stores a normalized version of all business data for ad hoc reporting purposes")
 
     Container(audit_store, "Audit Store", "Event Store", "Stores information about events that have happened")
 }

@@ -46,6 +46,20 @@ skinparam rectangle<<external_system>> {
     BorderColor #8A8A8A
 }
 
+skinparam database<<system>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor SYSTEM_BG_COLOR
+    BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor EXTERNAL_SYSTEM_BG_COLOR
+    BorderColor #8A8A8A
+}
+
 ' Layout
 ' ##################################
 
@@ -74,6 +88,12 @@ endlegend
 
 !define System_Ext(e_alias, e_label) rectangle "==e_label" <<external_system>> as e_alias
 !define System_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_system>> as e_alias
+
+!define SystemDb(e_alias, e_label) database "==e_label" <<system>> as e_alias
+!define SystemDb(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<system>> as e_alias
+
+!define SystemDb_Ext(e_alias, e_label) database "==e_label" <<external_system>> as e_alias
+!define SystemDb_Ext(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<external_system>> as e_alias
 
 ' Boundaries
 ' ##################################

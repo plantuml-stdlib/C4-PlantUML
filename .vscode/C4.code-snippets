@@ -59,6 +59,24 @@
 		],
 		"description": "Add Container with Description to C4 diagram"
 	},
+	"C4_ContainerDb": {
+		"scope": "diagram",
+		"prefix": "Database Container",
+		"body": [
+			"ContainerDb(${1:alias}, \"${2:label}\", \"${3:technology}\")",
+			"$0"
+		],
+		"description": "Add Database Container to C4 diagram"
+	},
+	"C4_ContainerDb_Descr": {
+		"scope": "diagram",
+		"prefix": "Database Container with Description",
+		"body": [
+			"ContainerDb(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
+			"$0"
+		],
+		"description": "Add Database Container with Description to C4 diagram"
+	},
 	"C4_Container_Boundary": {
 		"scope": "diagram",
 		"prefix": [

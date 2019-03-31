@@ -62,8 +62,8 @@ center footer <font color=red>Warning:</font> Created for discussion, needs to b
 ' Relationship
 ' ##################################
 
-!define Rel_(e_alias1, e_alias2, e_label, e_direction="") e_alias1 e_direction e_alias2 : "===e_label"
-!define Rel_(e_alias1, e_alias2, e_label, e_techn, e_direction="") e_alias1 e_direction e_alias2 : "===e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//"
+!define Rel_(e_alias1, e_alias2, e_label, e_direction="") e_alias1 e_direction e_alias2 : e_label
+!define Rel_(e_alias1, e_alias2, e_label, e_techn, e_direction="") e_alias1 e_direction e_alias2 : e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//
 
 !define Rel(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-->")
 !define Rel(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-->")

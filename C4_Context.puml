@@ -1,4 +1,4 @@
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
+!include https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 ' uncomment the following line and comment the first to use locally
 ' !include C4.puml
 
@@ -10,93 +10,121 @@
 ' Colors
 ' ##################################
 
-!define PERSON_BG_COLOR #08427B
-!define EXTERNAL_PERSON_BG_COLOR #686868
-!define SYSTEM_BG_COLOR #1168BD
-!define EXTERNAL_SYSTEM_BG_COLOR #999999
+!global $PERSON_BG_COLOR = "#08427B"
+!global $EXTERNAL_PERSON_BG_COLOR = "#686868"
+!global $SYSTEM_BG_COLOR = "#1168BD"
+!global $EXTERNAL_SYSTEM_BG_COLOR = "#999999"
 
 ' Styling
 ' ##################################
 
 skinparam rectangle<<person>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
-    BackgroundColor PERSON_BG_COLOR
-    BorderColor #073B6F
+StereotypeFontColor $ELEMENT_FONT_COLOR
+FontColor $ELEMENT_FONT_COLOR
+BackgroundColor $PERSON_BG_COLOR
+BorderColor #073B6F
 }
 
 skinparam rectangle<<external_person>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
-    BackgroundColor EXTERNAL_PERSON_BG_COLOR
-    BorderColor #8A8A8A
+StereotypeFontColor $ELEMENT_FONT_COLOR
+FontColor $ELEMENT_FONT_COLOR
+BackgroundColor $EXTERNAL_PERSON_BG_COLOR
+BorderColor #8A8A8A
 }
 
 skinparam rectangle<<system>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
-    BackgroundColor SYSTEM_BG_COLOR
-    BorderColor #3C7FC0
+StereotypeFontColor $ELEMENT_FONT_COLOR
+FontColor $ELEMENT_FONT_COLOR
+BackgroundColor $SYSTEM_BG_COLOR
+BorderColor #3C7FC0
 }
 
 skinparam rectangle<<external_system>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
-    BackgroundColor EXTERNAL_SYSTEM_BG_COLOR
-    BorderColor #8A8A8A
+StereotypeFontColor $ELEMENT_FONT_COLOR
+FontColor $ELEMENT_FONT_COLOR
+BackgroundColor $EXTERNAL_SYSTEM_BG_COLOR
+BorderColor #8A8A8A
 }
 
 skinparam database<<system>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
-    BackgroundColor SYSTEM_BG_COLOR
-    BorderColor #3C7FC0
+StereotypeFontColor $ELEMENT_FONT_COLOR
+FontColor $ELEMENT_FONT_COLOR
+BackgroundColor $SYSTEM_BG_COLOR
+BorderColor #3C7FC0
 }
 
 skinparam database<<external_system>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
-    BackgroundColor EXTERNAL_SYSTEM_BG_COLOR
-    BorderColor #8A8A8A
+StereotypeFontColor $ELEMENT_FONT_COLOR
+FontColor $ELEMENT_FONT_COLOR
+BackgroundColor $EXTERNAL_SYSTEM_BG_COLOR
+BorderColor #8A8A8A
 }
 
 ' Layout
 ' ##################################
 
-!definelong LAYOUT_WITH_LEGEND
+!function LAYOUT_WITH_LEGEND()
 hide stereotype
 legend right
 |=              |= Type |
-|<PERSON_BG_COLOR>      | person |
-|<EXTERNAL_PERSON_BG_COLOR>      | external person |
-|<SYSTEM_BG_COLOR>   | system |
-|<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
+|<$PERSON_BG_COLOR>      | person |
+|<$EXTERNAL_PERSON_BG_COLOR>      | external person |
+|<$SYSTEM_BG_COLOR>   | system |
+|<$EXTERNAL_SYSTEM_BG_COLOR>      | external system |
 endlegend
-!enddefinelong
+!endfunction
 
 ' Elements
 ' ##################################
 
-!define Person(e_alias, e_label) rectangle "==e_label" <<person>> as e_alias
-!define Person(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<person>> as e_alias
+!unquoted function Person($alias, $label)
+rectangle "==$label" <<person>> as $alias
+!endfunction
+!unquoted function Person($alias, $label, $descr)
+rectangle "==$label\n\n $descr" <<person>> as $alias
+!endfunction
 
-!define Person_Ext(e_alias, e_label) rectangle "==e_label" <<external_person>> as e_alias
-!define Person_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_person>> as e_alias
+!unquoted function Person_Ext($alias, $label)
+rectangle "==$label" <<external_person>> as $alias
+!endfunction
+!unquoted function Person_Ext($alias, $label, $descr)
+rectangle "==$label\n\n $descr" <<external_person>> as $alias
+!endfunction
 
-!define System(e_alias, e_label) rectangle "==e_label" <<system>> as e_alias
-!define System(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<system>> as e_alias
+!unquoted function System($alias, $label)
+rectangle "==$label" <<system>> as $alias
+!endfunction
+!unquoted function System($alias, $label, $descr)
+rectangle "==$label\n\n $descr" <<system>> as $alias
+!endfunction
 
-!define System_Ext(e_alias, e_label) rectangle "==e_label" <<external_system>> as e_alias
-!define System_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_system>> as e_alias
+!unquoted function System_Ext($alias, $label)
+rectangle "==$label" <<external_system>> as $alias
+!endfunction
+!unquoted function System_Ext($alias, $label, $descr)
+rectangle "==$label\n\n $descr" <<external_system>> as $alias
+!endfunction
 
-!define SystemDb(e_alias, e_label) database "==e_label" <<system>> as e_alias
-!define SystemDb(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<system>> as e_alias
+!unquoted function SystemDb($alias, $label)
+database "==$label" <<system>> as $alias
+!endfunction
+!unquoted function SystemDb($alias, $label, $descr)
+database "==$label\n\n $descr" <<system>> as $alias
+!endfunction
 
-!define SystemDb_Ext(e_alias, e_label) database "==e_label" <<external_system>> as e_alias
-!define SystemDb_Ext(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<external_system>> as e_alias
+!unquoted function SystemDb_Ext($alias, $label)
+database "==$label" <<external_system>> as $alias
+!endfunction
+!unquoted function SystemDb_ext($alias, $label, $descr)
+database "==$label\n\n $descr" <<external_system>> as $alias
+!endfunction
 
 ' Boundaries
 ' ##################################
 
-!define Enterprise_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Enterprise")
-!define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System")
+!unquoted function Enterprise_Boundary($alias, $label)
+!return Boundary($alias, $label, "Enterprise")
+!endfunction
+!unquoted function System_Boundary($alias, $label)
+!return Boundary($alias, $label, "System")
+!endfunction

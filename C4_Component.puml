@@ -1,4 +1,4 @@
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
 ' uncomment the following line and comment the first to use locally
 ' !include C4_Container.puml
 
@@ -10,46 +10,54 @@
 ' Colors
 ' ##################################
 
-!define COMPONENT_BG_COLOR #85BBF0
+!global $COMPONENT_BG_COLOR = "#85BBF0"
 
 ' Styling
 ' ##################################
 
 skinparam rectangle<<component>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor $ELEMENT_FONT_COLOR
     FontColor #000000
-    BackgroundColor COMPONENT_BG_COLOR
+    BackgroundColor $COMPONENT_BG_COLOR
     BorderColor #78A8D8
 }
 
 skinparam database<<component>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor $ELEMENT_FONT_COLOR
     FontColor #000000
-    BackgroundColor COMPONENT_BG_COLOR
+    BackgroundColor $COMPONENT_BG_COLOR
     BorderColor #78A8D8
 }
 
 ' Layout
 ' ##################################
 
-!definelong LAYOUT_WITH_LEGEND
+!function LAYOUT_WITH_LEGEND()
 hide stereotype
 legend right
 |=              |= Type |
-|<PERSON_BG_COLOR>      | person |
-|<EXTERNAL_PERSON_BG_COLOR>      | external person |
-|<SYSTEM_BG_COLOR>   | system |
-|<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
-|<CONTAINER_BG_COLOR>   | container |
-|<COMPONENT_BG_COLOR>   | component |
+|<$PERSON_BG_COLOR>      | person |
+|<$EXTERNAL_PERSON_BG_COLOR>      | external person |
+|<$SYSTEM_BG_COLOR>   | system |
+|<$EXTERNAL_SYSTEM_BG_COLOR>      | external system |
+|<$CONTAINER_BG_COLOR>   | container |
+|<$COMPONENT_BG_COLOR>   | component |
 endlegend
-!enddefinelong
+!endfunction
 
 ' Elements
 ' ##################################
 
-!define Component(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<component>> as e_alias
-!define Component(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<component>> as e_alias
+!unquoted function Component($alias, $label, $techn)
+rectangle "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//" <<component>> as $alias
+!endfunction
+!unquoted function Component($alias, $label, $techn, $descr)
+rectangle "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//\n\n $descr" <<component>> as $alias
+!endfunction
 
-!define ComponentDb(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<component>> as e_alias
-!define ComponentDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<component>> as e_alias
+!unquoted function ComponentDb($alias, $label, $techn)
+database "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//" <<component>> as $alias
+!endfunction
+!unquoted function ComponentDb($alias, $label, $techn, $descr)
+database "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//\n\n $descr" <<component>> as $alias
+!endfunction

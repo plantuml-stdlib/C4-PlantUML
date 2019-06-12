@@ -12,7 +12,7 @@ With the two macros `LAYOUT_TOP_DOWN()` and `LAYOUT_LEFT_RIGHT()` it is possible
 
 ```csharp
 @startuml LAYOUT_TOP_DOWN Sample
-!include https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
 
 /' Not needed because this is the default '/
 LAYOUT_TOP_DOWN()
@@ -34,7 +34,7 @@ Using `LAYOUT_LEFT_RIGHT`
 
 ```csharp
 @startuml LAYOUT_LEFT_RIGHT Sample
-!include https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
 
 LAYOUT_LEFT_RIGHT()
 
@@ -61,7 +61,7 @@ This can be enabled with `LAYOUT_WITH_LEGEND()`.
 
 ```csharp
 @startuml LAYOUT_WITH_LEGEND Sample
-!include https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
 
 LAYOUT_WITH_LEGEND()
 
@@ -93,7 +93,7 @@ With `LAYOUT_AS_SKETCH()` you can make a difference.
 
 ```csharp
 @startuml LAYOUT_AS_SKETCH Sample
-!include https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
 
 LAYOUT_AS_SKETCH()
 

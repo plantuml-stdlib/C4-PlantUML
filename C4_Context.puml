@@ -1,4 +1,4 @@
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
+!includeurl https://raw.githubusercontent.com/UKHomeOffice/C4-PlantUML/master/C4.puml
 ' uncomment the following line and comment the first to use locally
 ' !include C4.puml
 

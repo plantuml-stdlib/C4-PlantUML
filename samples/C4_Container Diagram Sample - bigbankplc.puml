@@ -4,7 +4,7 @@
 ' !include C4_Container.puml
 
 LAYOUT_TOP_DOWN
-'LAYOUT_AS_SKETCH
+'LAYOUT_AS_SKETCH()
 LAYOUT_WITH_LEGEND()
 
 title Container diagram for Internet Banking System

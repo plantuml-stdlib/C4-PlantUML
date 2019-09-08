@@ -5,7 +5,7 @@
 
 LAYOUT_TOP_DOWN
 'LAYOUT_AS_SKETCH
-LAYOUT_WITH_LEGEND
+LAYOUT_WITH_LEGEND()
 
 
 Person_Ext(anonymous_user, "Anonymous User")
@@ -13,7 +13,7 @@ Person(aggregated_user, "Aggregated User")
 Person(administration_user, "Administration User")
 
 System_Boundary(c1, "techtribes.js"){
-    
+
     Container(web_app, "Web Application", "Java, Spring MVC, Tomcat 7.x", "Allows users to view people, tribes, content, events, jobs, etc. from the local tech, digital and IT sector")
 
     ContainerDb(rel_db, "Relational Database", "MySQL 5.5.x", "Stores people, tribes, tribe membership, talks, events, jobs, badges, GitHub repos, etc.")

@@ -5,7 +5,7 @@
 
 LAYOUT_TOP_DOWN
 'LAYOUT_AS_SKETCH
-LAYOUT_WITH_LEGEND
+LAYOUT_WITH_LEGEND()
 
 Person(customer, "Customer", "A customer of Widgets Limited.")
 

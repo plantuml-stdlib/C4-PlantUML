@@ -1,0 +1,12 @@
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Component.puml
+
+' Scope: An enterprise, software system or container.
+' Primary and supporting elements: Depends on the diagram scope - 
+'     enterprise - people and software systems related to the enterprise in scope 
+'     software system - see system context or container diagrams, 
+'     container - see component diagram.
+' Intended audience: Technical and non-technical people, inside and outside of the software development team.
+
+' Dynamic diagram introduces no new elements, the container and component elements are enough

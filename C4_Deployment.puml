@@ -1,0 +1,67 @@
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Component.puml
+
+' Scope: A single software system.
+' Primary elements: Deployment nodes and containers within the software system in scope.
+' Intended audience: Technical people inside and outside of the software development team; including software architects, developers and operations/support staff.
+
+' Colors
+' ##################################
+
+!define INSTANCE_BG_COLOR  #438DD5
+!define NODE_FONT_COLOR    #888888
+!define NODE_BG_COLOR      #FFFFFF
+
+' Styling
+' ##################################
+
+skinparam rectangle<<instance>> {
+  roundCorner 10
+  Shadowing true
+  FontColor ELEMENT_FONT_COLOR
+  BackgroundColor INSTANCE_BG_COLOR
+  BorderColor #3C7FC0
+}
+
+skinparam database<<instance>> {
+  roundCorner 10
+  Shadowing true
+  FontColor ELEMENT_FONT_COLOR
+  BackgroundColor INSTANCE_BG_COLOR
+  BorderColor #3C7FC0
+}
+
+skinparam rectangle<<node>> {
+  roundCorner 10
+  Shadowing true
+  FontColor NODE_FONT_COLOR
+  BackgroundColor NODE_BG_COLOR
+  BorderColor #444444
+}
+
+' Layout
+' ##################################
+
+!definelong LAYOUT_WITH_LEGEND
+hide stereotype
+legend right
+|=                    |= Type               |
+|<NODE_BG_COLOR>      | deployment node     |
+|<INSTANCE_BG_COLOR>  | deployment instance |
+endlegend
+!enddefinelong
+
+' Instances
+' ##################################
+!define ContainerInstance(e_alias, e_label, e_techn) rectangle "==e_label\n<size:TECHN_FONT_SIZE>Instance: [e_techn]</size>" <<instance>> as e_alias
+!define ContainerInstance(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n<size:TECHN_FONT_SIZE>Instance: [e_techn]</size>\n\n e_descr" <<instance>> as e_alias
+
+!define ContainerInstanceDb(e_alias, e_label, e_techn) database "==e_label\n<size:TECHN_FONT_SIZE>Instance: [e_techn]</size>" <<instance>> as e_alias
+!define ContainerInstanceDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n<size:TECHN_FONT_SIZE>Instance: [e_techn]</size>\n\n e_descr" <<instance>> as e_alias
+
+' Nodes
+' ##################################
+' PlantUML does not support automatic line breaks of container, if e_techn is very long insert line breaks with 
+' "</size>\n<size:TECHN_FONT_SIZE>"
+!define Deployment_Node(e_alias, e_label, e_techn) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_techn]</size>" <<node>> as e_alias

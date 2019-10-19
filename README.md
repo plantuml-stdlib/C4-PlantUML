@@ -86,7 +86,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
   * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Component.puml`
   * Additional Macros: `Component`, `ComponentDb`
 * Deployment diagram
-  * Import: `!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Deployment.puml`
+  * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Deployment.puml`
   * Additional Macros: `Deployment_Node`
 
 Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).

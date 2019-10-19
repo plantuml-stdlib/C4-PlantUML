@@ -215,5 +215,27 @@
 			"}"
 		],
 		"description": "Add a generic boundary to C4 diagram."
+	},
+	"C4_Deployment_Node": {
+		"scope": "diagram",
+		"prefix": "Deployment Node",
+		"body": [
+			"Deployment_Node(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a deployment node to C4 diagram."
+	},
+	"C4_Deployment_Node_Type": {
+		"scope": "diagram",
+		"prefix": [
+			"Deployment Node with type"
+		],
+		"body": [
+			"Deployment_Node(${1:alias}, \"${2:label}\", \"${3:type}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a deployment node to C4 diagram."
 	}
 }

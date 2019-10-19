@@ -1,4 +1,4 @@
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
 ' uncomment the following line and comment the first to use locally
 ' !include C4_Container.puml
 
@@ -15,5 +15,9 @@ skinparam rectangle<<node>> {
 
 ' Elements
 ' ##################################
-!define Deployment_Node(e_alias, e_label) rectangle "==e_label" <<node>> as e_alias
-!define Deployment_Node(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<node>> as e_alias
+!unquoted function Deployment_Node($alias, $label)
+!return 'rectangle "=='+$label+'" <<node>> as '+$alias
+!endfunction
+!unquoted function Deployment_Node($alias, $label, $type)
+!return 'rectangle "=='+$label+'\n<size:'+$TECHN_FONT_SIZE+'>['+$type+']</size>" <<node>> as '+$alias
+!endfunction

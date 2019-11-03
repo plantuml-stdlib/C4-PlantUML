@@ -11,34 +11,34 @@ title Internet Banking System - Deployment
 
 LAYOUT_WITH_LEGEND()
 
-Deployment_Node(Deployment__Live__BigBankplc__3f81fb2, "Big Bank plc", "Big Bank plc data center") {
-  Deployment_Node(Deployment__Live__BigBankplc__bigbankweb***__23f0eac, "bigbank-web*** (x4)", "Ubuntu 16.04 LTS") {
-    Deployment_Node(Deployment__Live__BigBankplc__bigbankweb***__ApacheTomcat__a4474, "Apache Tomcat", "Apache Tomcat 8.x") {
+Node(Deployment__Live__BigBankplc__3f81fb2, "Big Bank plc", "Big Bank plc data center") {
+  Node(Deployment__Live__BigBankplc__bigbankweb***__23f0eac, "bigbank-web*** (x4)", "Ubuntu 16.04 LTS") {
+    Node(Deployment__Live__BigBankplc__bigbankweb***__ApacheTomcat__a4474, "Apache Tomcat", "Apache Tomcat 8.x") {
       ContainerInstance(InternetBankingSystem__WebApplication2__2493dd9, "Web Application", "Java and Spring MVC", "Delivers the static content and the Internet banking single page application.")
     }
   }
-  Deployment_Node(Deployment__Live__BigBankplc__bigbankapi***__24ec565, "bigbank-api*** (x8)", "Ubuntu 16.04 LTS") {
-    Deployment_Node(Deployment__Live__BigBankplc__bigbankapi***__ApacheTomcat__389f399, "Apache Tomcat", "Apache Tomcat 8.x") {
+  Node(Deployment__Live__BigBankplc__bigbankapi***__24ec565, "bigbank-api*** (x8)", "Ubuntu 16.04 LTS") {
+    Node(Deployment__Live__BigBankplc__bigbankapi***__ApacheTomcat__389f399, "Apache Tomcat", "Apache Tomcat 8.x") {
       ContainerInstance(InternetBankingSystem__APIApplication2__1b73d2e, "API Application", "Java and Spring MVC", "Provides Internet banking functionality via a JSON/HTTPS API.")
     }
   }
-  Deployment_Node(Deployment__Live__BigBankplc__bigbankdb01__1cc9f55, "bigbank-db01", "Ubuntu 16.04 LTS") {
-    Deployment_Node(Deployment__Live__BigBankplc__bigbankdb01__OraclePrimary__28f79f6, "Oracle - Primary", "Oracle 12c") {
+  Node(Deployment__Live__BigBankplc__bigbankdb01__1cc9f55, "bigbank-db01", "Ubuntu 16.04 LTS") {
+    Node(Deployment__Live__BigBankplc__bigbankdb01__OraclePrimary__28f79f6, "Oracle - Primary", "Oracle 12c") {
       ContainerInstanceDb(InternetBankingSystem__Database2__1f227f4, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
     }
   }
-  Deployment_Node(Deployment__Live__BigBankplc__bigbankdb02__2eae566, "bigbank-db02", "Ubuntu 16.04 LTS") {
-    Deployment_Node(Deployment__Live__BigBankplc__bigbankdb02__OracleSecondary__24d13de, "Oracle - Secondary", "Oracle 12c") {
+  Node(Deployment__Live__BigBankplc__bigbankdb02__2eae566, "bigbank-db02", "Ubuntu 16.04 LTS") {
+    Node(Deployment__Live__BigBankplc__bigbankdb02__OracleSecondary__24d13de, "Oracle - Secondary", "Oracle 12c") {
       ContainerInstanceDb(InternetBankingSystem__Database3__3296ca6, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
     }
   }
 }
-Deployment_Node(Deployment__Live__Customer'scomputer__2c36bed, "Customer's computer", "Microsoft Windows or Apple </size>\n<size:TECHN_FONT_SIZE>macOS") {
-  Deployment_Node(Deployment__Live__Customer'scomputer__WebBrowser__18307f7, "Web Browser", "Google Chrome, Mozilla </size>\n<size:TECHN_FONT_SIZE>Firefox, Apple Safari or </size>\n<size:TECHN_FONT_SIZE>Microsoft Edge") {
+Node(Deployment__Live__Customer'scomputer__2c36bed, "Customer's computer", "Microsoft Windows or Apple </size>\n<size:TECHN_FONT_SIZE>macOS") {
+  Node(Deployment__Live__Customer'scomputer__WebBrowser__18307f7, "Web Browser", "Google Chrome, Mozilla </size>\n<size:TECHN_FONT_SIZE>Firefox, Apple Safari or </size>\n<size:TECHN_FONT_SIZE>Microsoft Edge") {
     ContainerInstance(InternetBankingSystem__SinglePageApplication2__22cc62b, "Single-Page Application", "JavaScript and Angular", "Provides all of the Internet banking functionality to customers via their web browser.")
   }
 }
-Deployment_Node(Deployment__Live__Customer'smobiledevice__38a070b, "Customer's mobile device", "Apple iOS or Android") {
+Node(Deployment__Live__Customer'smobiledevice__38a070b, "Customer's mobile device", "Apple iOS or Android") {
   ContainerInstance(InternetBankingSystem__MobileApp1__1bb919c, "Mobile App", "Xamarin", "Provides a limited subset of the Internet banking functionality to customers via their mobile device.")
 }
 Rel(InternetBankingSystem__APIApplication2__1b73d2e, InternetBankingSystem__Database2__1f227f4, "Reads from and writes to", "JDBC")

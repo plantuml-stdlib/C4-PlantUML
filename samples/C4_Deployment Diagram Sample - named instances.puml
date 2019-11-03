@@ -1,0 +1,35 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/kirchsth/C4-PlantUML/master/C4_Deployment.puml
+' uncomment the following line and comment the first to use locally
+' !include <C4/C4_Deployment>
+
+' ContainerInstance2 and ContainerInstanceDb2 supports explicit instance, samples see below
+
+title Multi Tenant System - Deployment
+
+LAYOUT_WITH_LEGEND()
+
+  Node(Deployment__Order__mobiledevice***__23f0eac,  "Customer's mobile device", "Apple iOS or Android") {
+    ContainerInstance(OrderSystem__MobileApp1__2493dd9, "Mobile App", "Xamarin", "Provides order functionality to customers via their mobile device.")
+  }
+
+Node(Deployment__Order__3f81fb2, "Multi Tenant Order plc", "Multi Tenant Order plc center") {
+  Node(Deployment__Order__api***__24ec565, "order-api*** (x8)", "Ubuntu 16.04 LTS") {
+    Node(Deployment__Order__api***__ApacheTomcat__389f399, "Apache Tomcat", "Apache Tomcat 8.x") {
+      ContainerInstance(OrderSystem__APIApplication2__1b73d2e, "API Application", "Java and Spring MVC", "Provides Internet banking functionality via a JSON/HTTPS API.")
+    }
+  }
+  Node(Deployment__Order__db01__1cc9f55, "order-db0", "Ubuntu 16.04 LTS") {
+    Node(Deployment__Order__db01__OraclePrimary__28f79f6, "Oracle - Primary", "Oracle 12c") {
+      ContainerInstanceDb(OrderSystem__Catalog1__1f227f4, "Database", "Relational Database Schema", "Stores common information")
+      ContainerInstanceDb2(OrderSystem__Tenant1__1f227f4, "Tenant1", "Database", "Relational Database Schema", "Stores Tenant1 related information")
+      ContainerInstanceDb2(OrderSystem__Tenant2__1f227f4, "Tenant2", "Database", "Relational Database Schema", "Stores user Tenant2 related information")
+    }
+  }
+}
+
+Rel(OrderSystem__MobileApp1__2493dd9, OrderSystem__APIApplication2__1b73d2e, "Makes API calls to", "JSON/HTTPS")
+Rel(OrderSystem__APIApplication2__1b73d2e, OrderSystem__Catalog1__1f227f4, "Reads common information from", "JDBC")
+Rel(OrderSystem__APIApplication2__1b73d2e, OrderSystem__Tenant1__1f227f4, "Writes Tenant1 information to", "JDBC")
+Rel(OrderSystem__APIApplication2__1b73d2e, OrderSystem__Tenant2__1f227f4, "Writes Tenant2 information to", "JDBC")
+@enduml

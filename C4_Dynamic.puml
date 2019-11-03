@@ -36,138 +36,138 @@
 
 ' Interact
 ' ##################################
-!define Interact2(e_from, e_to, e_label, e_index) Rel(e_from, e_to, "e_index: e_label")
-!define Interact2(e_from, e_to, e_label, e_techn, e_index) Rel(e_from, e_to, "e_index: e_label", e_techn)
+!define Interact2(e_index, e_from, e_to, e_label) Rel(e_from, e_to, "e_index: e_label")
+!define Interact2(e_index, e_from, e_to, e_label, e_techn) Rel(e_from, e_to, "e_index: e_label", e_techn)
 
-!define Interact2_Back(e_from, e_to, e_label, e_index) Rel_Back(e_from, e_to, "e_index: e_label")
-!define Interact2_Back(e_from, e_to, e_label, e_techn, e_index) Rel_Back(e_from, e_to, "e_index: e_label", e_techn)
+!define Interact2_Back(e_index, e_from, e_to, e_label) Rel_Back(e_from, e_to, "e_index: e_label")
+!define Interact2_Back(e_index, e_from, e_to, e_label, e_techn) Rel_Back(e_from, e_to, "e_index: e_label", e_techn)
 
-!define Interact2_Neighbor(e_from, e_to, e_label, e_index) Rel_Neighbor(e_from, e_to, "e_index: e_label")
-!define Interact2_Neighbor(e_from, e_to, e_label, e_techn, e_index) Rel_Neighbor(e_from, e_to, "e_index: e_label", e_techn)
+!define Interact2_Neighbor(e_index, e_from, e_to, e_label) Rel_Neighbor(e_from, e_to, "e_index: e_label")
+!define Interact2_Neighbor(e_index, e_from, e_to, e_label, e_techn) Rel_Neighbor(e_from, e_to, "e_index: e_label", e_techn)
 
-!define Interact2_Back_Neighbor(e_from, e_to, e_label, e_index) Rel_Back_Neighbor(e_from, e_to, "e_index: e_label")
-!define Interact2_Back_Neighbor(e_from, e_to, e_label, e_techn, e_index) Rel_Back_Neighbor(e_from, e_to, "e_index: e_label", e_techn)
+!define Interact2_Back_Neighbor(e_index, e_from, e_to, e_label) Rel_Back_Neighbor(e_from, e_to, "e_index: e_label")
+!define Interact2_Back_Neighbor(e_index, e_from, e_to, e_label, e_techn) Rel_Back_Neighbor(e_from, e_to, "e_index: e_label", e_techn)
 
-!define Interact2_D(e_from, e_to, e_label, e_index) Rel_D(e_from, e_to, "e_index: e_label")
-!define Interact2_D(e_from, e_to, e_label, e_techn, e_index) Rel_D(e_from, e_to, "e_index: e_label", e_techn)
-!define Interact2_Down(e_from, e_to, e_label, e_index) Rel_Down(e_from, e_to, "e_index: e_label")
-!define Interact2_Down(e_from, e_to, e_label, e_techn, e_index) Rel_Down(e_from, e_to, "e_index: e_label", e_techn)
+!define Interact2_D(e_index, e_from, e_to, e_label) Rel_D(e_from, e_to, "e_index: e_label")
+!define Interact2_D(e_index, e_from, e_to, e_label, e_techn) Rel_D(e_from, e_to, "e_index: e_label", e_techn)
+!define Interact2_Down(e_index, e_from, e_to, e_label) Rel_Down(e_from, e_to, "e_index: e_label")
+!define Interact2_Down(e_index, e_from, e_to, e_label, e_techn) Rel_Down(e_from, e_to, "e_index: e_label", e_techn)
 
-!define Interact2_U(e_from, e_to, e_label, e_index) Rel_U(e_from, e_to, "e_index: e_label")
-!define Interact2_U(e_from, e_to, e_label, e_techn, e_index) Rel_U(e_from, e_to, "e_index: e_label", e_techn)
-!define Interact2_Up(e_from, e_to, e_label, e_index) Rel_Up(e_from, e_to, "e_index: e_label")
-!define Interact2_Up(e_from, e_to, e_label, e_techn, e_index) Rel_Up(e_from, e_to, "e_index: e_label", e_techn)
+!define Interact2_U(e_index, e_from, e_to, e_label) Rel_U(e_from, e_to, "e_index: e_label")
+!define Interact2_U(e_index, e_from, e_to, e_label, e_techn) Rel_U(e_from, e_to, "e_index: e_label", e_techn)
+!define Interact2_Up(e_index, e_from, e_to, e_label) Rel_Up(e_from, e_to, "e_index: e_label")
+!define Interact2_Up(e_index, e_from, e_to, e_label, e_techn) Rel_Up(e_from, e_to, "e_index: e_label", e_techn)
 
-!define Interact2_L(e_from, e_to, e_label, e_index) Rel_L(e_from, e_to, "e_index: e_label")
-!define Interact2_L(e_from, e_to, e_label, e_techn, e_index) Rel_L(e_from, e_to, "e_index: e_label", e_techn)
-!define Interact2_Left(e_from, e_to, e_label, e_index) Rel_Left(e_from, e_to, "e_index: e_label")
-!define Interact2_Left(e_from, e_to, e_label, e_techn, e_index) Rel_Left(e_from, e_to, "e_index: e_label", e_techn)
+!define Interact2_L(e_index, e_from, e_to, e_label) Rel_L(e_from, e_to, "e_index: e_label")
+!define Interact2_L(e_index, e_from, e_to, e_label, e_techn) Rel_L(e_from, e_to, "e_index: e_label", e_techn)
+!define Interact2_Left(e_index, e_from, e_to, e_label) Rel_Left(e_from, e_to, "e_index: e_label")
+!define Interact2_Left(e_index, e_from, e_to, e_label, e_techn) Rel_Left(e_from, e_to, "e_index: e_label", e_techn)
 
-!define Interact2_R(e_from, e_to, e_label, e_index) Rel_R(e_from, e_to, "e_index: e_label")
-!define Interact2_R(e_from, e_to, e_label, e_techn, e_index) Rel_R(e_from, e_to, "e_index: e_label", e_techn)
-!define Interact2_Right(e_from, e_to, e_label, e_index) Rel_Right(e_from, e_to, "e_index: e_label")
-!define Interact2_Right(e_from, e_to, e_label, e_techn, e_index) Rel_Right(e_from, e_to, "e_index: e_label", e_techn)
+!define Interact2_R(e_index, e_from, e_to, e_label) Rel_R(e_from, e_to, "e_index: e_label")
+!define Interact2_R(e_index, e_from, e_to, e_label, e_techn) Rel_R(e_from, e_to, "e_index: e_label", e_techn)
+!define Interact2_Right(e_index, e_from, e_to, e_label) Rel_Right(e_from, e_to, "e_index: e_label")
+!define Interact2_Right(e_index, e_from, e_to, e_label, e_techn) Rel_Right(e_from, e_to, "e_index: e_label", e_techn)
 
 !unquoted function Interact($e_from, $e_to, $e_label) 
-  Interact2("$e_from", "$e_to", "$e_label", $index)
+  Interact2($index, "$e_from", "$e_to", "$e_label")
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact($e_from, $e_to, $e_label, $e_techn) 
-  Interact2("$e_from", "$e_to", "$e_label", $e_techn, $index)
+  Interact2($index, "$e_from", "$e_to", "$e_label", $e_techn)
   !$index=$inc_($index)
 !endfunction
 
 !unquoted function Interact_Back($e_from, $e_to, $e_label) 
-  Interact2_Back("$e_from", "$e_to", "$e_label", $index)
+  Interact2_Back($index, "$e_from", "$e_to", "$e_label")
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_Back($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Back("$e_from", "$e_to", "$e_label", $e_techn, $index)
+  Interact2_Back($index, "$e_from", "$e_to", "$e_label", $e_techn)
   !$index=$inc_($index)
 !endfunction
 
 !unquoted function Interact_Neighbor($e_from, $e_to, $e_label) 
-  Interact2_Neighbor("$e_from", "$e_to", "$e_label", $index)
+  Interact2_Neighbor($index, "$e_from", "$e_to", "$e_label")
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_Neighbor($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Neighbor("$e_from", "$e_to", "$e_label", $e_techn, $index)
+  Interact2_Neighbor($index, "$e_from", "$e_to", "$e_label", $e_techn)
   !$index=$inc_($index)
 !endfunction
 
 !unquoted function Interact_Back_Neighbor($e_from, $e_to, $e_label) 
-  Interact2_Back_Neighbor("$e_from", "$e_to", "$e_label", $index)
+  Interact2_Back_Neighbor($index, "$e_from", "$e_to", "$e_label")
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_Back_Neighbor($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Back_Neighbor("$e_from", "$e_to", "$e_label", $e_techn, $index)
+  Interact2_Back_Neighbor($index, "$e_from", "$e_to", "$e_label", $e_techn)
   !$index=$inc_($index)
 !endfunction
 
 !unquoted function Interact_D($e_from, $e_to, $e_label) 
-  Interact2_D("$e_from", "$e_to", "$e_label", $index)
+  Interact2_D($index, "$e_from", "$e_to", "$e_label")
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_D($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_D("$e_from", "$e_to", "$e_label", $e_techn, $index)
+  Interact2_D($index, "$e_from", "$e_to", "$e_label", $e_techn)
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_Down($e_from, $e_to, $e_label) 
-  Interact2_Down("$e_from", "$e_to", "$e_label", $index)
+  Interact2_Down($index, "$e_from", "$e_to", "$e_label")
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_Down($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Down("$e_from", "$e_to", "$e_label", $e_techn, $index)
+  Interact2_Down($index, "$e_from", "$e_to", "$e_label", $e_techn)
   !$index=$inc_($index)
 !endfunction
 
 !unquoted function Interact_U($e_from, $e_to, $e_label) 
-  Interact2_U("$e_from", "$e_to", "$e_label", $index)
+  Interact2_U($index, "$e_from", "$e_to", "$e_label")
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_U($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_U("$e_from", "$e_to", "$e_label", $e_techn, $index)
+  Interact2_U($index, "$e_from", "$e_to", "$e_label", $e_techn)
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_Up($e_from, $e_to, $e_label) 
-  Interact2_Up("$e_from", "$e_to", "$e_label", $index)
+  Interact2_Up($index, "$e_from", "$e_to", "$e_label")
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_Up($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Up("$e_from", "$e_to", "$e_label", $e_techn, $index)
+  Interact2_Up($index, "$e_from", "$e_to", "$e_label", $e_techn)
   !$index=$inc_($index)
 !endfunction
 
 !unquoted function Interact_L($e_from, $e_to, $e_label) 
-  Interact2_L("$e_from", "$e_to", "$e_label", $index)
+  Interact2_L($index, "$e_from", "$e_to", "$e_label")
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_L($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_L("$e_from", "$e_to", "$e_label", $e_techn, $index)
+  Interact2_L($index, "$e_from", "$e_to", "$e_label", $e_techn)
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_Left($e_from, $e_to, $e_label) 
-  Interact2_Left("$e_from", "$e_to", "$e_label", $index)
+  Interact2_Left($index, "$e_from", "$e_to", "$e_label")
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_Left($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Left("$e_from", "$e_to", "$e_label", $e_techn, $index)
+  Interact2_Left($index, "$e_from", "$e_to", "$e_label", $e_techn)
   !$index=$inc_($index)
 !endfunction
 
 !unquoted function Interact_R($e_from, $e_to, $e_label) 
-  Interact2_R("$e_from", "$e_to", "$e_label", $index)
+  Interact2_R($index, "$e_from", "$e_to", "$e_label")
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_R($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_R("$e_from", "$e_to", "$e_label", $e_techn, $index)
+  Interact2_R($index, "$e_from", "$e_to", "$e_label", $e_techn)
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_Right($e_from, $e_to, $e_label) 
-  Interact2_Right("$e_from", "$e_to", "$e_label", $index)
+  Interact2_Right($index, "$e_from", "$e_to", "$e_label")
   !$index=$inc_($index)
 !endfunction
 !unquoted function Interact_Right($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Right("$e_from", "$e_to", "$e_label", $e_techn, $index)
+  Interact2_Right($index, "$e_from", "$e_to", "$e_label", $e_techn)
   !$index=$inc_($index)
 !endfunction

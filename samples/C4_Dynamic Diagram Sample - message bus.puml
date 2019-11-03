@@ -25,15 +25,15 @@ Interact(app, customer_service, "Updates customer information using", "JSON/HTTP
 Interact(customer_service, customer_db, "Stores data in", "JDBC")
 
 'specific order with Interact2; GetIndex(0)..change auto increment value to 0; "..."..custom index format
-Interact2_Right(customer_service, message_bus, "Sends customer update events to", "async", "GetIndex(0)-1")
+Interact2_Right("GetIndex(0)-1", customer_service, message_bus, "Sends customer update events to", "async")
 'GetIndex().. increment +1
-Interact2_Up(customer_service, app, "Confirm update to", "async", "GetIndex()-2")
+Interact2_Up("GetIndex()-2", customer_service, app, "Confirm update to", "async")
 
-Interact2(message_bus, reporting_service, "Sends customer update events to", "async", "GetIndex()-1")
-Interact2(reporting_service, reporting_db, "Stores data in","GetIndex()-1")
+Interact2("GetIndex()-1", message_bus, reporting_service, "Sends customer update events to", "async")
+Interact2("GetIndex()-1", reporting_service, reporting_db, "Stores data in")
 
 ' specify a new index
 SetIndex(5)
-Interact2(message_bus, audit_service, "Sends customer update events to", "async", "GetIndex()-2")
-Interact2(audit_service, audit_store, "Stores events in","GetIndex()-2")
+Interact2("GetIndex()-2", message_bus, audit_service, "Sends customer update events to", "async")
+Interact2("GetIndex()-2", audit_service, audit_store, "Stores events in")
 @enduml

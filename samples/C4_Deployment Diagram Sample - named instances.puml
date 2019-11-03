@@ -20,10 +20,10 @@ Node(Deployment__Order__3f81fb2, "Multi Tenant Order plc", "Multi Tenant Order p
     }
   }
   Node(Deployment__Order__db01__1cc9f55, "order-db0", "Ubuntu 16.04 LTS") {
-    Node(Deployment__Order__db01__OraclePrimary__28f79f6, "Oracle - Primary", "Oracle 12c") {
-      ContainerInstanceDb(OrderSystem__Catalog1__1f227f4, "Database", "Relational Database Schema", "Stores common information")
-      ContainerInstanceDb2(OrderSystem__Tenant1__1f227f4, "Tenant1", "Database", "Relational Database Schema", "Stores Tenant1 related information")
-      ContainerInstanceDb2(OrderSystem__Tenant2__1f227f4, "Tenant2", "Database", "Relational Database Schema", "Stores user Tenant2 related information")
+    Node(Deployment__Order__db01__OraclePrimary__28f79f6, "Oracle", "Oracle 12c") {
+      ContainerInstanceDb(OrderSystem__Catalog1__1f227f4, "Catalog Database", "Relational Database Schema", "Stores common information")
+      ContainerInstanceDb2(OrderSystem__Tenant1__1f227f4, "Tenant1", "Tenant Database", "Relational Database Schema", "Stores Tenant1 related information")
+      ContainerInstanceDb2(OrderSystem__Tenant2__1f227f4, "Tenant2", "Tenant Database", "Relational Database Schema", "Stores Tenant2 related information")
     }
   }
 }

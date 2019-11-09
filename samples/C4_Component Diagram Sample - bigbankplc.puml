@@ -3,7 +3,7 @@
 ' uncomment the following line and comment the first to use locally
 ' !include C4_Component.puml
 
-LAYOUT_WITH_LEGEND
+LAYOUT_WITH_LEGEND()
 
 title Component diagram for Internet Banking System - API Application
 

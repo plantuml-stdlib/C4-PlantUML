@@ -8,35 +8,13 @@
 
 ' Colors
 ' ##################################
-
-!define INSTANCE_BG_COLOR  #438DD5
-
 !define NODE_FONT_COLOR    #444444
 !define NODE_BG_COLOR      #FFFFFF
 
 ' Styling
 ' ##################################
 
-skinparam rectangle<<instance>> {
-  roundCorner 8
-  Shadowing false
-  StereotypeFontColor ELEMENT_FONT_COLOR
-  FontColor ELEMENT_FONT_COLOR
-  BackgroundColor INSTANCE_BG_COLOR
-  BorderColor #3C7FC0
-}
-
-skinparam database<<instance>> {
-  roundCorner 8
-  Shadowing false
-  StereotypeFontColor ELEMENT_FONT_COLOR
-  FontColor ELEMENT_FONT_COLOR
-  BackgroundColor INSTANCE_BG_COLOR
-  BorderColor #3C7FC0
-}
-
 skinparam rectangle<<node>> {
-  roundCorner 8
   Shadowing false
   StereotypeFontSize 0
   FontColor NODE_FONT_COLOR
@@ -50,23 +28,11 @@ skinparam rectangle<<node>> {
 !definelong LAYOUT_WITH_LEGEND
 hide stereotype
 legend right
-|=                    |= Type               |
-|<NODE_BG_COLOR>      | deployment node     |
-|<INSTANCE_BG_COLOR>  | deployment instance |
+|=                    |= Type                |
+|<NODE_BG_COLOR>      | deployment node      |
+|<CONTAINER_BG_COLOR> | deployment container |
 endlegend
 !enddefinelong
-
-' Instances
-' ##################################
-!define ContainerInstance(e_alias, e_label, e_techn) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_techn]</size>" <<instance>> as e_alias
-!define ContainerInstance(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_techn]</size>\n e_descr" <<instance>> as e_alias
-!define ContainerInstanceDb(e_alias, e_label, e_techn) database "==e_label\n<size:TECHN_FONT_SIZE>[e_techn]</size>" <<instance>> as e_alias
-!define ContainerInstanceDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n<size:TECHN_FONT_SIZE>[e_techn]</size>\n e_descr" <<instance>> as e_alias
-
-!define ContainerInstance2(e_alias, e_instance, e_label, e_techn) rectangle "==e_label\n<size:TECHN_FONT_SIZE>Instance: e_instance</size>\n<size:TECHN_FONT_SIZE>[e_techn]</size>" <<instance>> as e_alias
-!define ContainerInstance2(e_alias, e_instance, e_label, e_techn, e_descr) rectangle "==e_label\n<size:TECHN_FONT_SIZE>Instance: e_instance</size>\n<size:TECHN_FONT_SIZE>[e_techn]</size>\n e_descr" <<instance>> as e_alias
-!define ContainerInstanceDb2(e_alias, e_instance, e_label, e_techn) database "==e_label\n<size:TECHN_FONT_SIZE>Instance: e_instance</size>\n<size:TECHN_FONT_SIZE>[e_techn]</size>" <<instance>> as e_alias
-!define ContainerInstanceDb2(e_alias, e_instance, e_label, e_techn, e_descr) database "==e_label\n<size:TECHN_FONT_SIZE>Instance: e_instance</size>\n<size:TECHN_FONT_SIZE>[e_techn]</size>\n e_descr" <<instance>> as e_alias
 
 ' Nodes
 ' ##################################

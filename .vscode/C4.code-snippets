@@ -1,219 +1,402 @@
 {
-	"C4_Person": {
-		"scope": "diagram",
-		"prefix": "Person",
-		"body": [
-			"Person(${1:alias}, \"${2:label}\")",
-			"$0"
-		],
-		"description": "Add Person to C4 diagram"
-	},
-	"C4_Person_Descr": {
-		"scope": "diagram",
-		"prefix": "Person with Description",
-		"body": [
-			"Person(${1:alias}, \"${2:label}\", \"${3:description}\")",
-			"$0"
-		],
-		"description": "Add Person with Description to C4 diagram"
-	},
-	"C4_Person_Ext": {
-		"scope": "diagram",
-		"prefix": [
-			"External Person",
-			"Person (External)"
-		],
-		"body": [
-			"Person_Ext(${1:alias}, \"${2:label}\")",
-			"$0"
-		],
-		"description": "Add External Person to C4 diagram"
-	},
-	"C4_Person_Ext_Descr": {
-		"scope": "diagram",
-		"prefix": [
-			"External Person with Description",
-			"Person (External) with Description"
-		],
-		"body": [
-			"Person_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")",
-			"$0"
-		],
-		"description": "Add External Person with Description to C4 diagram"
-	},
-	"C4_Container": {
-		"scope": "diagram",
-		"prefix": "Container",
-		"body": [
-			"Container(${1:alias}, \"${2:label}\", \"${3:technology}\")",
-			"$0"
-		],
-		"description": "Add Container to C4 diagram"
-	},
-	"C4_Container_Descr": {
-		"scope": "diagram",
-		"prefix": "Container with Description",
-		"body": [
-			"Container(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
-			"$0"
-		],
-		"description": "Add Container with Description to C4 diagram"
-	},
-	"C4_Container_Boundary": {
-		"scope": "diagram",
-		"prefix": [
-			"Container Boundary",
-			"Boundary for Container"
-		],
-		"body": [
-			"Container_Boundary(${1:alias}, \"${2:label}\"){",
-			"\t$0",
-			"}"
-		],
-		"description": "Add a Container Boundary to C4 diagram"
-	},
-	"C4_Component": {
-		"scope": "diagram",
-		"prefix": "Component",
-		"body": [
-			"Component(${1:alias}, \"${2:label}\", \"${3:technology}\")",
-			"$0"
-		],
-		"description": "Add Component to C4 diagram"
-	},
-	"C4_Component_Descr": {
-		"scope": "diagram",
-		"prefix": "Component with Description",
-		"body": [
-			"Component(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
-			"$0"
-		],
-		"description": "Add Component with Description to C4 diagram"
-	},
-	"C4_System": {
-		"scope": "diagram",
-		"prefix": "System",
-		"body": [
-			"System(${1:alias}, \"${2:label}\")",
-			"$0"
-		],
-		"description": "Add System to C4 diagram"
-	},
-	"C4_System_Descr": {
-		"scope": "diagram",
-		"prefix": "System with Description",
-		"body": [
-			"System(${1:alias}, \"${2:label}\", \"${3:description}\")",
-			"$0"
-		],
-		"description": "Add System with Description to C4 diagram"
-	},
-	"C4_System_Ext": {
-		"scope": "diagram",
-		"prefix": [
-			"External System",
-			"System (External)"
-		],
-		"body": [
-			"System_Ext(${1:alias}, \"${2:label}\")",
-			"$0"
-		],
-		"description": "Add External System to C4 diagram"
-	},
-	"C4_System_Ext_Descr": {
-		"scope": "diagram",
-		"prefix": [
-			"External System with Description",
-			"System (External) with Description"
-		],
-		"body": [
-			"System_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")",
-			"$0"
-		],
-		"description": "Add External System with Description to C4 diagram"
-	},
-	"C4_System_Boundary": {
-		"scope": "diagram",
-		"prefix": [
-			"System Boundary",
-			"Boundary for System"
-		],
-		"body": [
-			"System_Boundary(${1:alias}, \"${2:label}\"){",
-			"\t$0",
-			"}"
-		],
-		"description": "Add a System Boundary to C4 diagram"
-	},
-	"C4_Enterprise_Boundary": {
-		"scope": "diagram",
-		"prefix": [
-			"Enterprise Boundary",
-			"Boundary for Enterprise"
-		],
-		"body":[
-			"Enterprise_Boundary(${1:alias}, \"${2:label}\"){",
-			"\t$0",
-			"}"
-		],
-		"description": "Add an Enterprise Boundary to C4 diagram"
-	},
-	"C4_Relationship": {
-		"scope": "diagram",
-		"prefix": "Relationship",
-		"body": [
-			"Rel(${1:from_alias}, ${2:to_alias}, \"${3:label}\")",
-			"$0"
-		],
-		"description": "Add unidirectional Relationship to C4 diagram"
-	},
-	"C4_Relationship_Techn": {
-		"scope": "diagram",
-		"prefix": "Relationship with Technology",
-		"body": [
-			"Rel(${1:from_alias}, ${2:to_alias}, \"${3:label}\", \"${4:technology}\")",
-			"$0"
-		],
-		"description": "Add unidirectional Relationship with Technology to C4 diagram"
-	},
-	"C4_Layout_Right": {
-		"scope": "diagram",
-		"prefix": "Layout to Right side",
-		"body": [
-			"Lay_R(${1:from_alias}, ${2:to_alias})",
-			"$0"
-		],
-		"description": "Add hidden layout line to put {to} to the right of {from}"
-	},
-	"C4_Layout_Left": {
-		"scope": "diagram",
-		"prefix": "Layout to Left side",
-		"body": [
-			"Lay_L(${1:from_alias}, ${2:to_alias})",
-			"$0"
-		],
-		"description": "Add hidden layout line to put {to} to the left of {from}"
-	},
-	"C4_Boundary": {
-		"scope": "diagram",
-		"prefix": "Boundary",
-		"body": [
-			"Boundary(${1:alias}, \"${2:label}\"){",
-			"\t$0",
-			"}"
-		],
-		"description": "Add a generic boundary to C4 diagram."
-	},
-	"C4_Boundary_Type": {
-		"scope": "diagram",
-		"prefix": [
-			"Boundary with type"
-		],
-		"body": [
-			"Boundary(${1:alias}, \"${2:label}\", \"${3:type}\"){",
-			"\t$0",
-			"}"
-		],
-		"description": "Add a generic boundary to C4 diagram."
-	}
+  "C4_Include_stdlib": {
+    "scope": "diagram",
+    "prefix": "include C4 diagram definitions (via stdlib, supports no C4_Deployment and C4_Dynamic atm)",
+    "body": [
+      "!include <C4/${1|C4_Component,C4_Container,C4_Context|}>",
+      "$0"
+    ],
+    "description": "Add C4 diagram specific include (via stdlib, supports no C4_Deployment and C4_Dynamic atm)"
+  },
+  "C4_Include_url": {
+    "scope": "diagram",
+    "prefix": "include C4 diagram definitions (via specific url)",
+    "body": [
+      "!includeurl https://${1:url}/${2|C4_Component,C4_Container,C4_Context,C4_Deployment,C4_Dynamic|}.puml",
+      "$0"
+    ],
+    "description": "Add C4 diagram specific include (via url)"
+  },
+  "C4_Include_RicardoNiepel": {
+    "scope": "diagram",
+    "prefix": "include C4 diagram definitions (via github RicardoNiepel, supports no C4_Deployment and C4_Dynamic atm)",
+    "body": [
+      "!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/${1|C4_Component,C4_Container,C4_Context|}.puml",
+      "$0"
+    ],
+    "description": "Add C4 diagram specific include (via github RicardoNiepel, supports no C4_Deployment and C4_Dynamic atm)"
+  },
+  "C4_Include_kirchsth": {
+    "scope": "diagram",
+    "prefix": "include C4 diagram definitions (via github kirchsth, it supports C4_Dynamic and C4_Deployment)",
+    "body": [
+      "!includeurl https://raw.githubusercontent.com/kirchsth/C4-PlantUML/master/${1|C4_Component,C4_Container,C4_Context,C4_Deployment,C4_Dynamic|}.puml",
+      "$0"
+    ],
+    "description": "Add C4 diagram specific include (via github kirchsth, it supports C4_Dynamic and C4_Deployment)"
+  },
+
+  "C4_Person": {
+    "scope": "diagram",
+    "prefix": "Person",
+    "body": [
+      "Person(${1:alias}, \"${2:label}\")",
+      "$0"
+    ],
+    "description": "Add Person to C4 diagram"
+  },
+  "C4_Person_Descr": {
+    "scope": "diagram",
+    "prefix": "Person with Description",
+    "body": [
+      "Person(${1:alias}, \"${2:label}\", \"${3:description}\")",
+      "$0"
+    ],
+    "description": "Add Person with Description to C4 diagram"
+  },
+  "C4_Person_Ext": {
+    "scope": "diagram",
+    "prefix": [
+      "External Person",
+      "Person (External)"
+    ],
+    "body": [
+      "Person_Ext(${1:alias}, \"${2:label}\")",
+      "$0"
+    ],
+    "description": "Add External Person to C4 diagram"
+  },
+  "C4_Person_Ext_Descr": {
+    "scope": "diagram",
+    "prefix": [
+      "External Person with Description",
+      "Person (External) with Description"
+    ],
+    "body": [
+      "Person_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")",
+      "$0"
+    ],
+    "description": "Add External Person with Description to C4 diagram"
+  },
+  "C4_Container": {
+    "scope": "diagram",
+    "prefix": "Container",
+    "body": [
+      "Container(${1:alias}, \"${2:label}\", \"${3:technology}\")",
+      "$0"
+    ],
+    "description": "Add Container to C4 diagram"
+  },
+  "C4_Container_Descr": {
+    "scope": "diagram",
+    "prefix": "Container with Description",
+    "body": [
+      "Container(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
+      "$0"
+    ],
+    "description": "Add Container with Description to C4 diagram"
+  },
+  "C4_Container_Boundary": {
+    "scope": "diagram",
+    "prefix": [
+      "Container Boundary",
+      "Boundary for Container"
+    ],
+    "body": [
+      "Container_Boundary(${1:alias}, \"${2:label}\"){",
+      "\t$0",
+      "}"
+    ],
+    "description": "Add a Container Boundary to C4 diagram"
+  },
+  "C4_Component": {
+    "scope": "diagram",
+    "prefix": "Component",
+    "body": [
+      "Component(${1:alias}, \"${2:label}\", \"${3:technology}\")",
+      "$0"
+    ],
+    "description": "Add Component to C4 diagram"
+  },
+  "C4_Component_Descr": {
+    "scope": "diagram",
+    "prefix": "Component with Description",
+    "body": [
+      "Component(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
+      "$0"
+    ],
+    "description": "Add Component with Description to C4 diagram"
+  },
+  "C4_System": {
+    "scope": "diagram",
+    "prefix": "System",
+    "body": [
+      "System(${1:alias}, \"${2:label}\")",
+      "$0"
+    ],
+    "description": "Add System to C4 diagram"
+  },
+  "C4_System_Descr": {
+    "scope": "diagram",
+    "prefix": "System with Description",
+    "body": [
+      "System(${1:alias}, \"${2:label}\", \"${3:description}\")",
+      "$0"
+    ],
+    "description": "Add System with Description to C4 diagram"
+  },
+  "C4_System_Ext": {
+    "scope": "diagram",
+    "prefix": [
+      "External System",
+      "System (External)"
+    ],
+    "body": [
+      "System_Ext(${1:alias}, \"${2:label}\")",
+      "$0"
+    ],
+    "description": "Add External System to C4 diagram"
+  },
+  "C4_System_Ext_Descr": {
+    "scope": "diagram",
+    "prefix": [
+      "External System with Description",
+      "System (External) with Description"
+    ],
+    "body": [
+      "System_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")",
+      "$0"
+    ],
+    "description": "Add External System with Description to C4 diagram"
+  },
+  "C4_System_Boundary": {
+    "scope": "diagram",
+    "prefix": [
+      "System Boundary",
+      "Boundary for System"
+    ],
+    "body": [
+      "System_Boundary(${1:alias}, \"${2:label}\"){",
+      "\t$0",
+      "}"
+    ],
+    "description": "Add a System Boundary to C4 diagram"
+  },
+  "C4_Enterprise_Boundary": {
+    "scope": "diagram",
+    "prefix": [
+      "Enterprise Boundary",
+      "Boundary for Enterprise"
+    ],
+    "body": [
+      "Enterprise_Boundary(${1:alias}, \"${2:label}\"){",
+      "\t$0",
+      "}"
+    ],
+    "description": "Add an Enterprise Boundary to C4 diagram"
+  },
+  "C4_Relationship": {
+    "scope": "diagram",
+    "prefix": "Relationship",
+    "body": [
+      "Rel(${1:from_alias}, ${2:to_alias}, \"${3:label}\")",
+      "$0"
+    ],
+    "description": "Add unidirectional Relationship to C4 diagram"
+  },
+  "C4_Relationship_Techn": {
+    "scope": "diagram",
+    "prefix": "Relationship with Technology",
+    "body": [
+      "Rel(${1:from_alias}, ${2:to_alias}, \"${3:label}\", \"${4:technology}\")",
+      "$0"
+    ],
+    "description": "Add unidirectional Relationship with Technology to C4 diagram"
+  },
+  "C4_Relationship_Direction": {
+    "scope": "diagram",
+    "prefix": "Relationship with layout direction",
+    "body": [
+      "Rel_${4|Right,Left,Up,Down,Back,Neighbor,Back_Neighbor|}(${1:from_alias}, ${2:to_alias}, \"${3:label}\")",
+      "$0"
+    ],
+    "description": "Add unidirectional Relationship to C4 diagram with specific direction (R..Right, L..Left, U..Up, D..Down, Back, Neighbor, Back_Neighbor)"
+  },
+  "C4_Relationship_Techn_Direction": {
+    "scope": "diagram",
+    "prefix": "Relationship with Technology and layout direction",
+    "body": [
+      "Rel_${5|Right,Left,Up,Down,Back,Neighbor,Back_Neighbor|}(${1:from_alias}, ${2:to_alias}, \"${3:label}\", \"${4:technology}\")",
+      "$0"
+    ],
+    "description": "Add unidirectional Relationship with Technology to C4 diagram with specific direction (R..Right, L..Left, U..Up, D..Down, Back, Neighbor, Back_Neighbor"
+  },
+  "C4_Layout_Right": {
+    "scope": "diagram",
+    "prefix": "Layout to Right side",
+    "body": [
+      "Lay_R(${1:from_alias}, ${2:to_alias})",
+      "$0"
+    ],
+    "description": "Add hidden layout line to put {to} to the right of {from}"
+  },
+  "C4_Layout_Left": {
+    "scope": "diagram",
+    "prefix": "Layout to Left side",
+    "body": [
+      "Lay_L(${1:from_alias}, ${2:to_alias})",
+      "$0"
+    ],
+    "description": "Add hidden layout line to put {to} to the left of {from}"
+  },
+  "C4_Layout_Up": {
+    "scope": "diagram",
+    "prefix": "Layout to Up side",
+    "body": [
+      "Lay_U(${1:from_alias}, ${2:to_alias})",
+      "$0"
+    ],
+    "description": "Add hidden layout line to put {to} to the up of {from}"
+  },
+  "C4_Layout_Down": {
+    "scope": "diagram",
+    "prefix": "Layout to Down side",
+    "body": [
+      "Lay_D(${1:from_alias}, ${2:to_alias})",
+      "$0"
+    ],
+    "description": "Add hidden layout line to put {to} to the down of {from}"
+  },
+  "C4_Boundary": {
+    "scope": "diagram",
+    "prefix": "Boundary",
+    "body": [
+      "Boundary(${1:alias}, \"${2:label}\"){",
+      "\t$0",
+      "}"
+    ],
+    "description": "Add a generic boundary to C4 diagram."
+  },
+  "C4_Boundary_Type": {
+    "scope": "diagram",
+    "prefix": [
+      "Boundary with type"
+    ],
+    "body": [
+      "Boundary(${1:alias}, \"${2:label}\", \"${3:type}\"){",
+      "\t$0",
+      "}"
+    ],
+    "description": "Add a generic boundary to C4 diagram."
+  },
+
+  "C4_Interact": {
+    "scope": "diagram",
+    "prefix": "Interact",
+    "body": [
+      "Interact(${1:from_alias}, ${2:to_alias}, \"${3:label}\")",
+      "$0"
+    ],
+    "description": "Add automatic numbered Interaction to C4 dynamic diagram"
+  },
+  "C4_Interact_Techn": {
+    "scope": "diagram",
+    "prefix": "Interact with Technology",
+    "body": [
+      "Interact(${1:from_alias}, ${2:to_alias}, \"${3:label}\", \"${4:technology}\")",
+      "$0"
+    ],
+    "description": "Add automatic numbered Interact with Technology to C4 dynamic diagram"
+  },
+  "C4_Interact_Direction": {
+    "scope": "diagram",
+    "prefix": "Interact with layout direction",
+    "body": [
+      "Interact_${4|Right,Left,Up,Down,Back,Neighbor,Back_Neighbor|}(${1:from_alias}, ${2:to_alias}, \"${3:label}\")",
+      "$0"
+    ],
+    "description": "Add automatic numbered Interact to C4 dynamic diagram with specific direction (R..Right, L..Left, U..Up, D..Down, Back, Neighbor, Back_Neighbor)"
+  },
+  "C4_Interact_Techn_Direction": {
+    "scope": "diagram",
+    "prefix": "Interact with Technology and layout direction",
+    "body": [
+      "Interact_${5|Right,Left,Up,Down,Back,Neighbor,Back_Neighbor|}(${1:from_alias}, ${2:to_alias}, \"${3:label}\", \"${4:technology}\")",
+      "$0"
+    ],
+    "description": "Add automatic numbered Interact with Technology to C4 dynamic diagram with specific direction (R..Right, L..Left, U..Up, D..Down, Back, Neighbor, Back_Neighbor"
+  },
+  "C4_Numbered_Interact": {
+    "scope": "diagram",
+    "prefix": "Interact (specific index)",
+    "body": [
+      "Interact2(\"${1:GetIndex(0)-1}\", ${2:from_alias}, ${3:to_alias}, \"${4:label}\")",
+      "$0"
+    ],
+    "description": "Add numbered Interaction to C4 dynamic diagram"
+  },
+  "C4_Numbered_Interact_Techn": {
+    "scope": "diagram",
+    "prefix": "Interact (specific index) with Technology",
+    "body": [
+      "Interact2(\"${1:GetIndex(0)-1}\", ${2:from_alias}, ${3:to_alias}, \"${4:label}\", \"${5:technology}\")",
+      "$0"
+    ],
+    "description": "Add numbered Interact with Technology to C4 dynamic diagram"
+  },
+  "C4_Numbered_Interact_Direction": {
+    "scope": "diagram",
+    "prefix": "Interact (specific index) with layout direction",
+    "body": [
+      "Interact2_${5|Right,Left,Up,Down,Back,Neighbor,Back_Neighbor|}(\"${1:GetIndex(0)-1}\", ${2:from_alias}, ${3:to_alias}, \"${4:label}\")",
+      "$0"
+    ],
+    "description": "Add numbered Interact to C4 dynamic diagram with specific direction (R..Right, L..Left, U..Up, D..Down, Back, Neighbor, Back_Neighbor)"
+  },
+  "C4_Numbered_Interact_Techn_Direction": {
+    "scope": "diagram",
+    "prefix": "Interact (specific index) with Technology and layout direction",
+    "body": [
+      "Interact2_${6|Right,Left,Up,Down,Back,Neighbor,Back_Neighbor|}(\"${1:GetIndex(0)-1}\", ${2:from_alias}, ${3:to_alias}, \"${4:label}\", \"${5:technology}\")",
+      "$0"
+    ],
+    "description": "Add numbered Interact with Technology to C4 dynamic diagram with specific direction (R..Right, L..Left, U..Up, D..Down, Back, Neighbor, Back_Neighbor"
+  },
+  "C4_SetIndex": {
+    "scope": "diagram",
+    "prefix": "SetIndex of next Interact",
+    "body": [
+      "SetIndex(${1:new_index})",
+      "$0"
+    ],
+    "description": "Set the index which will be used by the next automatic numbered Interaction"
+  },
+  "C4_GetIndex": {
+    "scope": "diagram",
+    "prefix": "GetIndex (used by Interaction)",
+    "body": [
+      "GetIndex()",
+      "$0"
+    ],
+    "description": "Returns the current index and increase it automatically with default 1"
+  },
+  "C4_GetIndex_SetIncrement": {
+    "scope": "diagram",
+    "prefix": "GetIndex and auto increment (used by Interaction)",
+    "body": [
+      "GetIndex(${1:$auto_increase})",
+      "$0"
+    ],
+    "description": "Returns the current index and increase it automatically with the given number (default 1)"
+  },
+  "C4_Node": {
+    "scope": "diagram",
+    "prefix": "Node",
+    "body": [
+      "Node(${1:alias}, \"${2:label}\", \"${3:technology}\"){",
+      "\t$0",
+      "}"
+    ],
+    "description": "Add Node to C4 deployment diagram"
+  }
 }

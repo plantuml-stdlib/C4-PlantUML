@@ -1,6 +1,6 @@
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
+' !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 ' uncomment the following line and comment the first to use locally
-' !include C4.puml
+!include C4.puml
 
 ' Scope: A single software system.
 ' Primary elements: The software system in scope.
@@ -63,7 +63,7 @@ skinparam database<<external_system>> {
 ' Layout
 ' ##################################
 
-!definelong LAYOUT_WITH_LEGEND
+!function $LAYOUT_WITH_LEGEND()
 hide stereotype
 legend right
 |=              |= Type |
@@ -72,7 +72,7 @@ legend right
 |<SYSTEM_BG_COLOR>   | system |
 |<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
 endlegend
-!enddefinelong
+!endfunction
 
 ' Elements
 ' ##################################

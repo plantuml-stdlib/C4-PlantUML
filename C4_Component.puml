@@ -1,6 +1,6 @@
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+' !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
 ' uncomment the following line and comment the first to use locally
-' !include C4_Container.puml
+!include C4_Container.puml
 
 ' Scope: A single container.
 ' Primary elements: Components within the container in scope.
@@ -10,7 +10,7 @@
 ' Colors
 ' ##################################
 
-!define COMPONENT_BG_COLOR #85BBF0
+!function $COMPONENT_BG_COLOR() return "#85BBF0"
 
 ' Styling
 ' ##################################
@@ -18,21 +18,21 @@
 skinparam rectangle<<component>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
     FontColor #000000
-    BackgroundColor COMPONENT_BG_COLOR
+    BackgroundColor $COMPONENT_BG_COLOR()
     BorderColor #78A8D8
 }
 
 skinparam database<<component>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
     FontColor #000000
-    BackgroundColor COMPONENT_BG_COLOR
+    BackgroundColor $COMPONENT_BG_COLOR()
     BorderColor #78A8D8
 }
 
 ' Layout
 ' ##################################
 
-!definelong LAYOUT_WITH_LEGEND
+!function $LAYOUT_WITH_LEGEND()
 hide stereotype
 legend right
 |=              |= Type |
@@ -41,9 +41,9 @@ legend right
 |<SYSTEM_BG_COLOR>   | system |
 |<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
 |<CONTAINER_BG_COLOR>   | container |
-|<COMPONENT_BG_COLOR>   | component |
+|<$COMPONENT_BG_COLOR()>   | component |
 endlegend
-!enddefinelong
+!endfunction
 
 ' Elements
 ' ##################################

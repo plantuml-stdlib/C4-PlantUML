@@ -1,0 +1,20 @@
+@startuml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Dynamic.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Dynamic.puml
+
+' Structurizr.DynamicView: SignIn
+title API Application - Dynamic
+
+LAYOUT_WITH_LEGEND()
+
+ContainerDb(InternetBankingSystem__Database__1edef6c, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
+Container(InternetBankingSystem__SinglePageApplication__23f6823, "Single-Page Application", "JavaScript and Angular", "Provides all of the Internet banking functionality to customers via their web browser.")
+Container_Boundary(InternetBankingSystem__APIApplication__31f1f25, "API Application") {
+  Component(InternetBankingSystem__APIApplication__SecurityComponent__10c9772, "Security Component", "Spring Bean", "Provides functionality Related to signing in, changing passwords, etc.")
+  Component(InternetBankingSystem__APIApplication__SignInController__1fa4f18, "Sign In Controller", "Spring MVC Rest Controller", "Allows users to sign in to the Internet Banking System.")
+}
+Rel_R(InternetBankingSystem__SinglePageApplication__23f6823, InternetBankingSystem__APIApplication__SignInController__1fa4f18, "Submits credentials to", "JSON/HTTPS")
+Rel(InternetBankingSystem__APIApplication__SignInController__1fa4f18, InternetBankingSystem__APIApplication__SecurityComponent__10c9772, "Calls isAuthenticated() on")
+Rel_R(InternetBankingSystem__APIApplication__SecurityComponent__10c9772, InternetBankingSystem__Database__1edef6c, "select * from users where username = ?", "JDBC")
+@enduml

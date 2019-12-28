@@ -1,4 +1,40 @@
 {
+	"C4_Include_Context": {
+		"scope": "diagram",
+		"prefix": "Include C4 Context Diagram",
+		"body": [
+			"!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Context.puml",
+			"$0"
+		],
+		"description": "Include C4 Context Diagram"
+	},
+	"C4_Include_Container": {
+		"scope": "diagram",
+		"prefix": "Include C4 Container Diagram",
+		"body": [
+			"!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml",
+			"$0"
+		],
+		"description": "Include C4 Container Diagram"
+	},
+	"C4_Include_Component": {
+		"scope": "diagram",
+		"prefix": "Include C4 Component Diagram",
+		"body": [
+			"!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Component.puml",
+			"$0"
+		],
+		"description": "Include C4 Component Diagram"
+	},
+	"C4_Include_Deployment": {
+		"scope": "diagram",
+		"prefix": "Include C4 Deployment Diagram",
+		"body": [
+			"!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Deployment.puml",
+			"$0"
+		],
+		"description": "Include C4 Deployment Diagram"
+	},
 	"C4_Person": {
 		"scope": "diagram",
 		"prefix": "Person",

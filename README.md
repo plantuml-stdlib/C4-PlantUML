@@ -8,7 +8,7 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
 
 * [Getting Started](#getting-started)
 * [Supported Diagram Types](#supported-diagram-types)
-* [Snippets for Visual Studio Code](#snipptes-for-visual-studio-code)
+* [Snippets for Visual Studio Code](#snippets-for-visual-studio-code)
 * [Layout Options](#layout-options)
 * [Samples](#advanced-samples)
 * [Background](#background)

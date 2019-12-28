@@ -85,6 +85,9 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 * Component diagram
   * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Component.puml`
   * Additional Macros: `Component`, `ComponentDb`
+* Dynamic diagram
+  * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Dynamic.puml`
+  * Additional Macros: `RelIndex`, `increment`, `setIndex`
 * Deployment diagram
   * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Deployment.puml`
   * Additional Macros: `Deployment_Node`

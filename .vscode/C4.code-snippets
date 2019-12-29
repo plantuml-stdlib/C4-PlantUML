@@ -35,6 +35,15 @@
 		],
 		"description": "Include C4 Deployment Diagram"
 	},
+	"C4_Include_Dynamic": {
+		"scope": "diagram",
+		"prefix": "Include C4 Dynamic Diagram",
+		"body": [
+			"!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Dynamic.puml",
+			"$0"
+		],
+		"description": "Include C4 Dynamic Diagram"
+	},
 	"C4_Person": {
 		"scope": "diagram",
 		"prefix": "Person",
@@ -244,6 +253,24 @@
 		"prefix": "Relationship with Technology",
 		"body": [
 			"Rel(${1:from_alias}, ${2:to_alias}, \"${3:label}\", \"${4:technology}\")",
+			"$0"
+		],
+		"description": "Add unidirectional Relationship with Technology to C4 diagram"
+	},
+	"C4_Relationship_Index": {
+		"scope": "diagram",
+		"prefix": "Relationship with Index",
+		"body": [
+			"RelIndex(${1:index}, ${2:from_alias}, ${3:to_alias}, \"${4:label}\")",
+			"$0"
+		],
+		"description": "Add unidirectional Relationship to C4 diagram"
+	},
+	"C4_Relationship_Index_Techn": {
+		"scope": "diagram",
+		"prefix": "Relationship with Technology and Index",
+		"body": [
+			"RelIndex(${1:index}, ${2:from_alias}, ${3:to_alias}, \"${4:label}\", \"${5:technology}\")",
 			"$0"
 		],
 		"description": "Add unidirectional Relationship with Technology to C4 diagram"

@@ -264,7 +264,7 @@
 			"RelIndex(${1:index}, ${2:from_alias}, ${3:to_alias}, \"${4:label}\")",
 			"$0"
 		],
-		"description": "Add unidirectional Relationship to C4 diagram"
+		"description": "Add unidirectional Relationship to C4 Dynamic Diagram"
 	},
 	"C4_Relationship_Index_Techn": {
 		"scope": "diagram",
@@ -273,7 +273,7 @@
 			"RelIndex(${1:index}, ${2:from_alias}, ${3:to_alias}, \"${4:label}\", \"${5:technology}\")",
 			"$0"
 		],
-		"description": "Add unidirectional Relationship with Technology to C4 diagram"
+		"description": "Add unidirectional Relationship with Technology to C4 Dynamic Diagram"
 	},
 	"C4_Layout_Right": {
 		"scope": "diagram",
@@ -336,5 +336,27 @@
 			"}"
 		],
 		"description": "Add a deployment node to C4 diagram."
+	},
+	"C4_Dynamic_Increment": {
+		"scope": "diagram",
+		"prefix": [
+			"Increment index"
+		],
+		"body": [
+			"increment(${1:count})",
+			"$0"
+		],
+		"description": "Increment index of C4 Dynamic Diagram."
+	},
+	"C4_Dynamic_Set_Index": {
+		"scope": "diagram",
+		"prefix": [
+			"Set index"
+		],
+		"body": [
+			"setIndex(${1:value})",
+			"$0"
+		],
+		"description": "Set index of C4 Dynamic Diagram"
 	}
 }

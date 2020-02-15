@@ -358,5 +358,49 @@
 			"$0"
 		],
 		"description": "Set index of C4 Dynamic Diagram"
+	},
+	"C4_Layout_With_Legend": {
+		"scope": "diagram",
+		"prefix": [
+			"Layout with legend",
+			"Legend layout"
+		],
+		"body": [
+			"LAYOUT_WITH_LEGEND()"
+		],
+		"description": "Add legend to C4 diagram."
+	},
+	"C4_Layout_Left_Right": {
+		"scope": "diagram",
+		"prefix": [
+			"Layout left to right",
+			"Left to right layout"
+		],
+		"body": [
+			"LAYOUT_LEFT_RIGHT()"
+		],
+		"description": "Left to right layout for C4 diagram."
+	},
+	"C4_Layout_Top_Down": {
+		"scope": "diagram",
+		"prefix": [
+			"Layout top down",
+			"Top down layout"
+		],
+		"body": [
+			"LAYOUT_TOP_DOWN()"
+		],
+		"description": "Top down layout for C4 diagram."
+	},
+	"C4_Layout_As_Sketch": {
+		"scope": "diagram",
+		"prefix": [
+			"Layout as sketch",
+			"Sketch layout"
+		],
+		"body": [
+			"LAYOUT_AS_SKETCH()"
+		],
+		"description": "Sketch layout for C4 diagram."
 	}
 }

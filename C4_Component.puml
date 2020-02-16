@@ -35,13 +35,13 @@ skinparam database<<component>> {
 !function LAYOUT_WITH_LEGEND()
 hide stereotype
 legend right
-|=              |= Type |
-|<$PERSON_BG_COLOR>      | person |
-|<$EXTERNAL_PERSON_BG_COLOR>      | external person |
-|<$SYSTEM_BG_COLOR>   | system |
-|<$EXTERNAL_SYSTEM_BG_COLOR>      | external system |
-|<$CONTAINER_BG_COLOR>   | container |
-|<$COMPONENT_BG_COLOR>   | component |
+|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
+|<$PERSON_BG_COLOR> person |
+|<$SYSTEM_BG_COLOR> system |
+|<$CONTAINER_BG_COLOR> container |
+|<$COMPONENT_BG_COLOR> component |
+|<$EXTERNAL_PERSON_BG_COLOR> external person |
+|<$EXTERNAL_SYSTEM_BG_COLOR> external system |
 endlegend
 !endfunction
 

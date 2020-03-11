@@ -21,6 +21,14 @@ skinparam rectangle {
     shadowing false
 }
 
+skinparam actor {
+    StereotypeFontSize 12
+    shadowing false
+    Style AWESOME
+    StereoTypeFontColor #666666
+    FontColor #666666
+}
+
 skinparam database {
     StereotypeFontSize 12
     shadowing false

@@ -49,6 +49,10 @@ skinparam rectangle<<boundary>> {
 ' Layout
 ' ##################################
 
+!function HIDE_STEREOTYPE()
+hide stereotype
+!endfunction
+
 !function LAYOUT_AS_SKETCH()
 skinparam backgroundColor #EEEBDC
 skinparam handwritten true

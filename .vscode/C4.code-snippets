@@ -359,6 +359,17 @@
 		],
 		"description": "Set index of C4 Dynamic Diagram"
 	},
+	"C4_Hide_Stereotype": {
+		"scope": "diagram",
+		"prefix": [
+			"Hide stereotype",
+			"No stereotype"
+		],
+		"body": [
+			"HIDE_STEREOTYPE()"
+		],
+		"description": "Hide stereotypes from C4 diagram.."
+	},
 	"C4_Layout_With_Legend": {
 		"scope": "diagram",
 		"prefix": [

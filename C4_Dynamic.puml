@@ -18,13 +18,13 @@
 
 !$index=1
 
-!function increment($step=1)
+!procedure increment($step=1)
 !$index = $index + $step
-!endfunction
+!endprocedure
 
-!function setIndex($new_index)
+!procedure setIndex($new_index)
 !$index=$new_index
-!endfunction
+!endprocedure
 
 ' Relationship override
 ' ##################################
@@ -32,187 +32,187 @@
 ' Relationship
 ' ##################################
 
-!unquoted function Rel_($e_index, $alias1, $alias2, $label, $direction="")
+!unquoted procedure Rel_($e_index, $alias1, $alias2, $label, $direction="")
 $alias1 $direction $alias2 : **$e_index: $label**
-!endfunction
-!unquoted function Rel_($e_index, $alias1, $alias2, $label, $techn, $direction="")
+!endprocedure
+!unquoted procedure Rel_($e_index, $alias1, $alias2, $label, $techn, $direction="")
 $alias1 $direction $alias2 : **$e_index: $label**\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//
-!endfunction
+!endprocedure
 
-!unquoted function Rel($from, $to, $label)
+!unquoted procedure Rel($from, $to, $label)
 Rel_($index, $from, $to, $label, "-->>")
 increment()
-!endfunction
-!unquoted function Rel($from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure Rel($from, $to, $label, $techn)
 Rel_($index, $from, $to, $label, $techn, "-->>")
 increment()
-!endfunction
-!unquoted function RelIndex($e_index, $from, $to, $label)
+!endprocedure
+!unquoted procedure RelIndex($e_index, $from, $to, $label)
 Rel_($e_index, $from, $to, $label, "-->>")
-!endfunction
-!unquoted function RelIndex($e_index, $from, $to, $label, $tech)
+!endprocedure
+!unquoted procedure RelIndex($e_index, $from, $to, $label, $tech)
 Rel_($e_index, $from, $to, $label, $tech, "-->>")
-!endfunction
+!endprocedure
 
-!unquoted function Rel_Back($from, $to, $label)
+!unquoted procedure Rel_Back($from, $to, $label)
 Rel_($index, $from, $to, $label, "<<--")
 increment()
-!endfunction
-!unquoted function Rel_Back($from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure Rel_Back($from, $to, $label, $techn)
 Rel_($index, $from, $to, $label, $techn, "<<--")
 increment()
-!endfunction
-!unquoted function RelIndex_Back($e_index, $from, $to, $label)
+!endprocedure
+!unquoted procedure RelIndex_Back($e_index, $from, $to, $label)
 Rel_($e_index, $from, $to, $label, "<<--")
-!endfunction
-!unquoted function RelIndex_Back($e_index, $from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure RelIndex_Back($e_index, $from, $to, $label, $techn)
 Rel_($e_index, $from, $to, $label, $techn, "<<--")
-!endfunction
+!endprocedure
 
-!unquoted function Rel_Neighbor($from, $to, $label)
+!unquoted procedure Rel_Neighbor($from, $to, $label)
 Rel_($index, $from, $to, $label, "->>")
 increment()
-!endfunction
-!unquoted function Rel_Neighbor($from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure Rel_Neighbor($from, $to, $label, $techn)
 Rel_($index, $from, $to, $label, $techn, "->>")
 increment()
-!endfunction
-!unquoted function RelIndex_Neighbor($e_index, $from, $to, $label)
+!endprocedure
+!unquoted procedure RelIndex_Neighbor($e_index, $from, $to, $label)
 Rel_($e_index, $from, $to, $label, "->>")
-!endfunction
-!unquoted function RelIndex_Neighbor($e_index, $from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure RelIndex_Neighbor($e_index, $from, $to, $label, $techn)
 Rel_($e_index, $from, $to, $label, $techn, "->>")
-!endfunction
+!endprocedure
 
-!unquoted function Rel_Back_Neighbor($from, $to, $label)
+!unquoted procedure Rel_Back_Neighbor($from, $to, $label)
 Rel_($index, $from, $to, $label, "<<-")
 increment()
-!endfunction
-!unquoted function Rel_Back_Neighbor($from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure Rel_Back_Neighbor($from, $to, $label, $techn)
 Rel_($index, $from, $to, $label, $techn, "<<-")
 increment()
-!endfunction
-!unquoted function RelIndex_Back_Neighbor($e_index, $from, $to, $label)
+!endprocedure
+!unquoted procedure RelIndex_Back_Neighbor($e_index, $from, $to, $label)
 Rel_($e_index, $from, $to, $label, "<<-")
-!endfunction
-!unquoted function RelIndex_Back_Neighbor($e_index, $from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure RelIndex_Back_Neighbor($e_index, $from, $to, $label, $techn)
 Rel_($e_index, $from, $to, $label, $techn, "<<-")
-!endfunction
+!endprocedure
 
-!unquoted function Rel_D($from, $to, $label)
+!unquoted procedure Rel_D($from, $to, $label)
 Rel_($index, $from, $to, $label, "-DOWN->>")
 increment()
-!endfunction
-!unquoted function Rel_D($from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure Rel_D($from, $to, $label, $techn)
 Rel_($index, $from, $to, $label, $techn, "-DOWN->>")
 increment()
-!endfunction
-!unquoted function Rel_Down($from, $to, $label)
+!endprocedure
+!unquoted procedure Rel_Down($from, $to, $label)
 Rel_($index, $from, $to, $label, "-DOWN->>")
 increment()
-!endfunction
-!unquoted function Rel_Down($from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure Rel_Down($from, $to, $label, $techn)
 Rel_($index, $from, $to, $label, $techn, "-DOWN->>")
 increment()
-!endfunction
-!unquoted function RelIndex_D($e_index, $from, $to, $label)
+!endprocedure
+!unquoted procedure RelIndex_D($e_index, $from, $to, $label)
 Rel_($e_index, $from, $to, $label, "-DOWN->>")
-!endfunction
-!unquoted function RelIndex_D($e_index, $from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure RelIndex_D($e_index, $from, $to, $label, $techn)
 Rel_($e_index, $from, $to, $label, $techn, "-DOWN->>")
-!endfunction
-!unquoted function RelIndex_Down($e_index, $from, $to, $label)
+!endprocedure
+!unquoted procedure RelIndex_Down($e_index, $from, $to, $label)
 Rel_($e_index, $from, $to, $label, "-DOWN->>")
-!endfunction
-!unquoted function RelIndex_Down($e_index, $from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure RelIndex_Down($e_index, $from, $to, $label, $techn)
 Rel_($e_index, $from, $to, $label, $techn, "-DOWN->>")
-!endfunction
+!endprocedure
 
-!unquoted function Rel_U($from, $to, $label)
+!unquoted procedure Rel_U($from, $to, $label)
 Rel_($index, $from, $to, $label, "-UP->>")
 increment()
-!endfunction
-!unquoted function Rel_U($from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure Rel_U($from, $to, $label, $techn)
 Rel_($index, $from, $to, $label, $techn, "-UP->>")
 increment()
-!endfunction
-!unquoted function Rel_Up($from, $to, $label)
+!endprocedure
+!unquoted procedure Rel_Up($from, $to, $label)
 Rel_($index, $from, $to, $label, "-UP->>")
 increment()
-!endfunction
-!unquoted function Rel_Up($from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure Rel_Up($from, $to, $label, $techn)
 Rel_($index, $from, $to, $label, $techn, "-UP->>")
 increment()
-!endfunction
-!unquoted function RelIndex_U($e_index, $from, $to, $label)
+!endprocedure
+!unquoted procedure RelIndex_U($e_index, $from, $to, $label)
 Rel_($e_index, $from, $to, $label, "-UP->>")
-!endfunction
-!unquoted function RelIndex_U($e_index, $from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure RelIndex_U($e_index, $from, $to, $label, $techn)
 Rel_($e_index, $from, $to, $label, $techn, "-UP->>")
-!endfunction
-!unquoted function RelIndex_Up($e_index, $from, $to, $label)
+!endprocedure
+!unquoted procedure RelIndex_Up($e_index, $from, $to, $label)
 Rel_($e_index, $from, $to, $label, "-UP->>")
-!endfunction
-!unquoted function RelIndex_Up($e_index, $from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure RelIndex_Up($e_index, $from, $to, $label, $techn)
 Rel_($e_index, $from, $to, $label, $techn, "-UP->>")
-!endfunction
+!endprocedure
 
-!unquoted function Rel_L($from, $to, $label)
+!unquoted procedure Rel_L($from, $to, $label)
 Rel_($index, $from, $to, $label, "-LEFT->>")
 increment()
-!endfunction
-!unquoted function Rel_L($from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure Rel_L($from, $to, $label, $techn)
 Rel_($index, $from, $to, $label, $techn, "-LEFT->>")
 increment()
-!endfunction
-!unquoted function Rel_Left($from, $to, $label)
+!endprocedure
+!unquoted procedure Rel_Left($from, $to, $label)
 Rel_($index, $from, $to, $label, "-LEFT->>")
 increment()
-!endfunction
-!unquoted function Rel_Left($from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure Rel_Left($from, $to, $label, $techn)
 Rel_($index, $from, $to, $label, $techn, "-LEFT->>")
 increment()
-!endfunction
-!unquoted function RelIndex_L($e_index, $from, $to, $label)
+!endprocedure
+!unquoted procedure RelIndex_L($e_index, $from, $to, $label)
 Rel_($e_index, $from, $to, $label, "-LEFT->>")
-!endfunction
-!unquoted function RelIndex_L($e_index, $from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure RelIndex_L($e_index, $from, $to, $label, $techn)
 Rel_($e_index, $from, $to, $label, $techn, "-LEFT->>")
-!endfunction
-!unquoted function RelIndex_Left($e_index, $from, $to, $label)
+!endprocedure
+!unquoted procedure RelIndex_Left($e_index, $from, $to, $label)
 Rel_($e_index, $from, $to, $label, "-LEFT->>")
-!endfunction
-!unquoted function RelIndex_Left($e_index, $from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure RelIndex_Left($e_index, $from, $to, $label, $techn)
 Rel_($e_index, $from, $to, $label, $techn, "-LEFT->>")
-!endfunction
+!endprocedure
 
-!unquoted function Rel_R($from, $to, $label)
+!unquoted procedure Rel_R($from, $to, $label)
 Rel_($index, $from, $to, $label, "-RIGHT->>")
 increment()
-!endfunction
-!unquoted function Rel_R($from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure Rel_R($from, $to, $label, $techn)
 Rel_($index, $from, $to, $label, $techn, "-RIGHT->>")
 increment()
-!endfunction
-!unquoted function Rel_Right($from, $to, $label)
+!endprocedure
+!unquoted procedure Rel_Right($from, $to, $label)
 Rel_($index, $from, $to, $label, "-RIGHT->>")
 increment()
-!endfunction
-!unquoted function Rel_Right($from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure Rel_Right($from, $to, $label, $techn)
 Rel_($index, $from, $to, $label, $techn, "-RIGHT->>")
 increment()
-!endfunction
-!unquoted function RelIndex_R($e_index, $from, $to, $label)
+!endprocedure
+!unquoted procedure RelIndex_R($e_index, $from, $to, $label)
 Rel_($e_index, $from, $to, $label, "-RIGHT->>")
-!endfunction
-!unquoted function RelIndex_R($e_index, $from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure RelIndex_R($e_index, $from, $to, $label, $techn)
 Rel_($e_index, $from, $to, $label, $techn, "-RIGHT->>")
-!endfunction
-!unquoted function RelIndex_Right($e_index, $from, $to, $label)
+!endprocedure
+!unquoted procedure RelIndex_Right($e_index, $from, $to, $label)
 Rel_($e_index, $from, $to, $label, "-RIGHT->>")
-!endfunction
-!unquoted function RelIndex_Right($e_index, $from, $to, $label, $techn)
+!endprocedure
+!unquoted procedure RelIndex_Right($e_index, $from, $to, $label, $techn)
 Rel_($e_index, $from, $to, $label, $techn, "-RIGHT->>")
-!endfunction
+!endprocedure
 
 

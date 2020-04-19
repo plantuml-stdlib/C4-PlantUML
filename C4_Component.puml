@@ -32,7 +32,7 @@ skinparam database<<component>> {
 ' Layout
 ' ##################################
 
-!function LAYOUT_WITH_LEGEND()
+!procedure LAYOUT_WITH_LEGEND()
 hide stereotype
 legend right
 |<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
@@ -43,21 +43,21 @@ legend right
 |<$EXTERNAL_PERSON_BG_COLOR> external person |
 |<$EXTERNAL_SYSTEM_BG_COLOR> external system |
 endlegend
-!endfunction
+!endprocedure
 
 ' Elements
 ' ##################################
 
-!unquoted function Component($alias, $label, $techn)
+!unquoted procedure Component($alias, $label, $techn)
 rectangle "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//" <<component>> as $alias
-!endfunction
-!unquoted function Component($alias, $label, $techn, $descr)
+!endprocedure
+!unquoted procedure Component($alias, $label, $techn, $descr)
 rectangle "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//\n\n $descr" <<component>> as $alias
-!endfunction
+!endprocedure
 
-!unquoted function ComponentDb($alias, $label, $techn)
+!unquoted procedure ComponentDb($alias, $label, $techn)
 database "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//" <<component>> as $alias
-!endfunction
-!unquoted function ComponentDb($alias, $label, $techn, $descr)
+!endprocedure
+!unquoted procedure ComponentDb($alias, $label, $techn, $descr)
 database "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//\n\n $descr" <<component>> as $alias
-!endfunction
+!endprocedure

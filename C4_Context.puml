@@ -63,7 +63,7 @@ BorderColor #8A8A8A
 ' Layout
 ' ##################################
 
-!function LAYOUT_WITH_LEGEND()
+!procedure LAYOUT_WITH_LEGEND()
 hide stereotype
 legend right
 |<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
@@ -72,52 +72,52 @@ legend right
 |<$EXTERNAL_PERSON_BG_COLOR> external person |
 |<$EXTERNAL_SYSTEM_BG_COLOR> external system |
 endlegend
-!endfunction
+!endprocedure
 
 ' Elements
 ' ##################################
 
-!unquoted function Person($alias, $label)
+!unquoted procedure Person($alias, $label)
 rectangle "==$label" <<person>> as $alias
-!endfunction
-!unquoted function Person($alias, $label, $descr)
+!endprocedure
+!unquoted procedure Person($alias, $label, $descr)
 rectangle "==$label\n\n $descr" <<person>> as $alias
-!endfunction
+!endprocedure
 
-!unquoted function Person_Ext($alias, $label)
+!unquoted procedure Person_Ext($alias, $label)
 rectangle "==$label" <<external_person>> as $alias
-!endfunction
-!unquoted function Person_Ext($alias, $label, $descr)
+!endprocedure
+!unquoted procedure Person_Ext($alias, $label, $descr)
 rectangle "==$label\n\n $descr" <<external_person>> as $alias
-!endfunction
+!endprocedure
 
-!unquoted function System($alias, $label)
+!unquoted procedure System($alias, $label)
 rectangle "==$label" <<system>> as $alias
-!endfunction
-!unquoted function System($alias, $label, $descr)
+!endprocedure
+!unquoted procedure System($alias, $label, $descr)
 rectangle "==$label\n\n $descr" <<system>> as $alias
-!endfunction
+!endprocedure
 
-!unquoted function System_Ext($alias, $label)
+!unquoted procedure System_Ext($alias, $label)
 rectangle "==$label" <<external_system>> as $alias
-!endfunction
-!unquoted function System_Ext($alias, $label, $descr)
+!endprocedure
+!unquoted procedure System_Ext($alias, $label, $descr)
 rectangle "==$label\n\n $descr" <<external_system>> as $alias
-!endfunction
+!endprocedure
 
-!unquoted function SystemDb($alias, $label)
+!unquoted procedure SystemDb($alias, $label)
 database "==$label" <<system>> as $alias
-!endfunction
-!unquoted function SystemDb($alias, $label, $descr)
+!endprocedure
+!unquoted procedure SystemDb($alias, $label, $descr)
 database "==$label\n\n $descr" <<system>> as $alias
-!endfunction
+!endprocedure
 
-!unquoted function SystemDb_Ext($alias, $label)
+!unquoted procedure SystemDb_Ext($alias, $label)
 database "==$label" <<external_system>> as $alias
-!endfunction
-!unquoted function SystemDb_ext($alias, $label, $descr)
+!endprocedure
+!unquoted procedure SystemDb_ext($alias, $label, $descr)
 database "==$label\n\n $descr" <<external_system>> as $alias
-!endfunction
+!endprocedure
 
 ' Boundaries
 ' ##################################

@@ -32,7 +32,7 @@ skinparam database<<container>> {
 ' Layout
 ' ##################################
 
-!function LAYOUT_WITH_LEGEND()
+!procedure LAYOUT_WITH_LEGEND()
 hide stereotype
 legend right
 |<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
@@ -42,24 +42,24 @@ legend right
 |<$EXTERNAL_PERSON_BG_COLOR> external person |
 |<$EXTERNAL_SYSTEM_BG_COLOR> external system |
 endlegend
-!endfunction
+!endprocedure
 
 ' Elements
 ' ##################################
 
-!unquoted function Container($alias, $label, $techn)
+!unquoted procedure Container($alias, $label, $techn)
 rectangle "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//" <<container>> as $alias
-!endfunction
-!unquoted function Container($alias, $label, $techn, $descr)
+!endprocedure
+!unquoted procedure Container($alias, $label, $techn, $descr)
 rectangle "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//\n\n $descr" <<container>> as $alias
-!endfunction
+!endprocedure
 
-!unquoted function ContainerDb($alias, $label, $techn)
+!unquoted procedure ContainerDb($alias, $label, $techn)
 database "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//" <<container>> as $alias
-!endfunction
-!unquoted function ContainerDb($alias, $label, $techn, $descr)
+!endprocedure
+!unquoted procedure ContainerDb($alias, $label, $techn, $descr)
 database "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//\n\n $descr" <<container>> as $alias
-!endfunction
+!endprocedure
 
 ' Boundaries
 ' ##################################

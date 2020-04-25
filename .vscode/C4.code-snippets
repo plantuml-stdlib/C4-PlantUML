@@ -257,6 +257,24 @@
 		],
 		"description": "Add unidirectional Relationship with Technology to C4 diagram"
 	},
+	"C4_Relationship_Bi": {
+		"scope": "diagram",
+		"prefix": "Bidirectional Relationship",
+		"body": [
+			"BiRel(${1:from_alias}, ${2:to_alias}, \"${3:label}\")",
+			"$0"
+		],
+		"description": "Add bidirectional Relationship to C4 diagram"
+	},
+	"C4_Relationship_Bi_Techn": {
+		"scope": "diagram",
+		"prefix": "Bidirectional Relationship with Technology",
+		"body": [
+			"BiRel(${1:from_alias}, ${2:to_alias}, \"${3:label}\", \"${4:technology}\")",
+			"$0"
+		],
+		"description": "Add bidirectional Relationship with Technology to C4 diagram"
+	},
 	"C4_Relationship_Index": {
 		"scope": "diagram",
 		"prefix": "Relationship with Index",

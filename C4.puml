@@ -95,6 +95,13 @@ Rel_($from, $to, $label, "-->>")
 Rel_($from, $to, $label, $techn, "-->>")
 !endprocedure
 
+!unquoted procedure BiRel($from, $to, $label)
+Rel_($from, $to, $label, "<<-->>")
+!endprocedure
+!unquoted procedure BiRel($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-->>")
+!endprocedure
+
 !unquoted procedure Rel_Back($from, $to, $label)
 Rel_($from, $to, $label, "<<--")
 !endprocedure
@@ -129,6 +136,19 @@ Rel_($from, $to, $label, "-DOWN->>")
 Rel_($from, $to, $label, $techn, "-DOWN->>")
 !endprocedure
 
+!unquoted procedure BiRel_D($from, $to, $label)
+Rel_($from, $to, $label, "<<-DOWN->>")
+!endprocedure
+!unquoted procedure BiRel_D($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-DOWN->>")
+!endprocedure
+!unquoted procedure BiRel_Down($from, $to, $label)
+Rel_($from, $to, $label, "<<-DOWN->>")
+!endprocedure
+!unquoted procedure BiRel_Down($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-DOWN->>")
+!endprocedure
+
 !unquoted procedure Rel_U($from, $to, $label)
 Rel_($from, $to, $label, "-UP->>")
 !endprocedure
@@ -140,6 +160,19 @@ Rel_($from, $to, $label, "-UP->>")
 !endprocedure
 !unquoted procedure Rel_Up($from, $to, $label, $techn)
 Rel_($from, $to, $label, $techn, "-UP->>")
+!endprocedure
+
+!unquoted procedure BiRel_U($from, $to, $label)
+Rel_($from, $to, $label, "<<-UP->>")
+!endprocedure
+!unquoted procedure BiRel_U($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-UP->>")
+!endprocedure
+!unquoted procedure BiRel_Up($from, $to, $label)
+Rel_($from, $to, $label, "<<-UP->>")
+!endprocedure
+!unquoted procedure BiRel_Up($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-UP->>")
 !endprocedure
 
 !unquoted procedure Rel_L($from, $to, $label)
@@ -155,6 +188,19 @@ Rel_($from, $to, $label, "-LEFT->>")
 Rel_($from, $to, $label, $techn, "-LEFT->>")
 !endprocedure
 
+!unquoted procedure BiRel_L($from, $to, $label)
+Rel_($from, $to, $label, "<<-LEFT->>")
+!endprocedure
+!unquoted procedure BiRel_L($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-LEFT->>")
+!endprocedure
+!unquoted procedure BiRel_Left($from, $to, $label)
+Rel_($from, $to, $label, "<<-LEFT->>")
+!endprocedure
+!unquoted procedure BiRel_Left($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-LEFT->>")
+!endprocedure
+
 !unquoted procedure Rel_R($from, $to, $label)
 Rel_($from, $to, $label, "-RIGHT->>")
 !endprocedure
@@ -166,6 +212,19 @@ Rel_($from, $to, $label, "-RIGHT->>")
 !endprocedure
 !unquoted procedure Rel_Right($from, $to, $label, $techn)
 Rel_($from, $to, $label, $techn, "-RIGHT->>")
+!endprocedure
+
+!unquoted procedure BiRel_R($from, $to, $label)
+Rel_($from, $to, $label, "<<-RIGHT->>")
+!endprocedure
+!unquoted procedure BiRel_R($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-RIGHT->>")
+!endprocedure
+!unquoted procedure BiRel_Right($from, $to, $label)
+Rel_($from, $to, $label, "<<-RIGHT->>")
+!endprocedure
+!unquoted procedure BiRel_Right($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-RIGHT->>")
 !endprocedure
 
 ' Layout Helpers

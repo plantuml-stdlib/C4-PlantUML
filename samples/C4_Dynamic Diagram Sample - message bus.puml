@@ -1,10 +1,7 @@
 @startuml
 !include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Dynamic.puml
-' uncomment the following line and comment the first to use locally
-' !include C4_Dynamic.puml
 
 LAYOUT_TOP_DOWN()
-' LAYOUT_AS_SKETCH()
 LAYOUT_WITH_LEGEND()
 
 Person(customer, Customer, "A customer")
@@ -19,7 +16,6 @@ System_Boundary(c1, "Customer Information") {
     Container(audit_store, "Audit Store", "Event Store", "Stores information about events that have happened")
 }
 
-'simple order with Rel
 Rel(customer, app, "Updates his profile using", "HTTPS")
 Rel(app, customer_service, "Updates customer information using", "JSON/HTTPS")
 Rel(customer_service, customer_db, "Stores data in", "JDBC")

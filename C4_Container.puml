@@ -47,18 +47,27 @@ endlegend
 ' Elements
 ' ##################################
 
-!unquoted procedure Container($alias, $label, $techn)
-rectangle "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//" <<container>> as $alias
-!endprocedure
-!unquoted procedure Container($alias, $label, $techn, $descr)
-rectangle "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//\n\n $descr" <<container>> as $alias
+!function $getContainer($label, $techn, $descr, $sprite)
+!if ($descr == "") && ($sprite == "")
+!return '=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//'
+!endif
+!if ($descr == "") && ($sprite != "")
+!return '<$'+$sprite+'>\n=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//'
+!endif
+!if ($descr != "") && ($sprite == "")
+!return '=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//\n\n '+$descr
+!endif
+!if ($descr != "") && ($sprite != "")
+!return '<$'+$sprite+'>\n=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//\n\n '+$descr
+!endif
+!endfunction
+
+!unquoted procedure Container($alias, $label, $techn, $descr="", $sprite="")
+rectangle "$getContainer($label, $techn, $descr, $sprite)" <<container>> as $alias
 !endprocedure
 
-!unquoted procedure ContainerDb($alias, $label, $techn)
-database "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//" <<container>> as $alias
-!endprocedure
-!unquoted procedure ContainerDb($alias, $label, $techn, $descr)
-database "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//\n\n $descr" <<container>> as $alias
+!unquoted procedure ContainerDb($alias, $label, $techn, $descr="", $sprite="")
+database "$getContainer($label, $techn, $descr, $sprite)" <<container>> as $alias
 !endprocedure
 
 ' Boundaries

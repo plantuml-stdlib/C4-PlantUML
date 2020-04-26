@@ -19,45 +19,96 @@
 ' ##################################
 
 skinparam rectangle<<person>> {
-StereotypeFontColor $ELEMENT_FONT_COLOR
-FontColor $ELEMENT_FONT_COLOR
-BackgroundColor $PERSON_BG_COLOR
-BorderColor #073B6F
+    StereotypeFontColor $ELEMENT_FONT_COLOR
+    FontColor $ELEMENT_FONT_COLOR
+    BackgroundColor $PERSON_BG_COLOR
+    BorderColor #073B6F
 }
 
 skinparam rectangle<<external_person>> {
-StereotypeFontColor $ELEMENT_FONT_COLOR
-FontColor $ELEMENT_FONT_COLOR
-BackgroundColor $EXTERNAL_PERSON_BG_COLOR
-BorderColor #8A8A8A
+    StereotypeFontColor $ELEMENT_FONT_COLOR
+    FontColor $ELEMENT_FONT_COLOR
+    BackgroundColor $EXTERNAL_PERSON_BG_COLOR
+    BorderColor #8A8A8A
 }
 
 skinparam rectangle<<system>> {
-StereotypeFontColor $ELEMENT_FONT_COLOR
-FontColor $ELEMENT_FONT_COLOR
-BackgroundColor $SYSTEM_BG_COLOR
-BorderColor #3C7FC0
+    StereotypeFontColor $ELEMENT_FONT_COLOR
+    FontColor $ELEMENT_FONT_COLOR
+    BackgroundColor $SYSTEM_BG_COLOR
+    BorderColor #3C7FC0
 }
 
 skinparam rectangle<<external_system>> {
-StereotypeFontColor $ELEMENT_FONT_COLOR
-FontColor $ELEMENT_FONT_COLOR
-BackgroundColor $EXTERNAL_SYSTEM_BG_COLOR
-BorderColor #8A8A8A
+    StereotypeFontColor $ELEMENT_FONT_COLOR
+    FontColor $ELEMENT_FONT_COLOR
+    BackgroundColor $EXTERNAL_SYSTEM_BG_COLOR
+    BorderColor #8A8A8A
 }
 
 skinparam database<<system>> {
-StereotypeFontColor $ELEMENT_FONT_COLOR
-FontColor $ELEMENT_FONT_COLOR
-BackgroundColor $SYSTEM_BG_COLOR
-BorderColor #3C7FC0
+    StereotypeFontColor $ELEMENT_FONT_COLOR
+    FontColor $ELEMENT_FONT_COLOR
+    BackgroundColor $SYSTEM_BG_COLOR
+    BorderColor #3C7FC0
 }
 
 skinparam database<<external_system>> {
-StereotypeFontColor $ELEMENT_FONT_COLOR
-FontColor $ELEMENT_FONT_COLOR
-BackgroundColor $EXTERNAL_SYSTEM_BG_COLOR
-BorderColor #8A8A8A
+    StereotypeFontColor $ELEMENT_FONT_COLOR
+    FontColor $ELEMENT_FONT_COLOR
+    BackgroundColor $EXTERNAL_SYSTEM_BG_COLOR
+    BorderColor #8A8A8A
+}
+
+sprite $person [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000025788300000000005886410000000000000
+000000000007DFFFFFFD9643347BFFFFFFFB400000000000
+0000000004EFFFFFFFFFFFFFFFFFFFFFFFFFFB1000000000
+000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFD200000000
+00000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE10000000
+0000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0000000
+000000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5000000
+000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD000000
+000009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF200000
+00000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF600000
+00000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF800000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00000EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF700000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+0000008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD3000000
+000000014555555555555555555555555555555300000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
 }
 
 ' Layout
@@ -77,46 +128,58 @@ endlegend
 ' Elements
 ' ##################################
 
-!unquoted procedure Person($alias, $label)
-rectangle "==$label" <<person>> as $alias
-!endprocedure
-!unquoted procedure Person($alias, $label, $descr)
-rectangle "==$label\n\n $descr" <<person>> as $alias
+!function $getPerson($label, $descr, $sprite)
+!if ($descr == "") && ($sprite == "")
+!return '<$person>\n=='+$label
+!endif
+!if ($descr == "") && ($sprite != "")
+!return '<$'+$sprite+'>\n=='+$label
+!endif
+!if ($descr != "") && ($sprite == "")
+!return '<$person>\n=='+$label+'\n\n '+$descr
+!endif
+!if ($descr != "") && ($sprite != "")
+!return '<$'+$sprite+'>\n=='+$label+'\n\n '+$descr
+!endif
+!endfunction
+
+!function $getSystem($label, $descr, $sprite)
+!if ($descr == "") && ($sprite == "")
+!return '=='+$label
+!endif
+!if ($descr == "") && ($sprite != "")
+!return '<$'+$sprite+'>\n=='+$label
+!endif
+!if ($descr != "") && ($sprite == "")
+!return '=='+$label+'\n\n '+$descr
+!endif
+!if ($descr != "") && ($sprite != "")
+!return '<$'+$sprite+'>\n=='+$label+'\n\n '+$descr
+!endif
+!endfunction
+
+!unquoted procedure Person($alias, $label, $descr="", $sprite="")
+rectangle "$getPerson($label, $descr, $sprite)" <<person>> as $alias
 !endprocedure
 
-!unquoted procedure Person_Ext($alias, $label)
-rectangle "==$label" <<external_person>> as $alias
-!endprocedure
-!unquoted procedure Person_Ext($alias, $label, $descr)
-rectangle "==$label\n\n $descr" <<external_person>> as $alias
+!unquoted procedure Person_Ext($alias, $label, $descr="", $sprite="")
+rectangle "$getSystem($label, $descr, $sprite)" <<external_person>> as $alias
 !endprocedure
 
-!unquoted procedure System($alias, $label)
-rectangle "==$label" <<system>> as $alias
-!endprocedure
-!unquoted procedure System($alias, $label, $descr)
-rectangle "==$label\n\n $descr" <<system>> as $alias
+!unquoted procedure System($alias, $label, $descr="", $sprite="")
+rectangle "$getSystem($label, $descr, $sprite)" <<system>> as $alias
 !endprocedure
 
-!unquoted procedure System_Ext($alias, $label)
-rectangle "==$label" <<external_system>> as $alias
-!endprocedure
-!unquoted procedure System_Ext($alias, $label, $descr)
-rectangle "==$label\n\n $descr" <<external_system>> as $alias
+!unquoted procedure System_Ext($alias, $label, $descr="", $sprite="")
+rectangle "$getSystem($label, $descr, $sprite)" <<external_system>> as $alias
 !endprocedure
 
-!unquoted procedure SystemDb($alias, $label)
-database "==$label" <<system>> as $alias
-!endprocedure
-!unquoted procedure SystemDb($alias, $label, $descr)
-database "==$label\n\n $descr" <<system>> as $alias
+!unquoted procedure SystemDb($alias, $label, $descr="", $sprite="")
+database "$getSystem($label, $descr, $sprite)" <<system>> as $alias
 !endprocedure
 
-!unquoted procedure SystemDb_Ext($alias, $label)
-database "==$label" <<external_system>> as $alias
-!endprocedure
-!unquoted procedure SystemDb_ext($alias, $label, $descr)
-database "==$label\n\n $descr" <<external_system>> as $alias
+!unquoted procedure SystemDb_ext($alias, $label, $descr="", $sprite="")
+database "$getSystem($label, $descr, $sprite)" <<external_system>> as $alias
 !endprocedure
 
 ' Boundaries

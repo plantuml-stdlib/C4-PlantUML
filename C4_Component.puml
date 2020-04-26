@@ -48,16 +48,25 @@ endlegend
 ' Elements
 ' ##################################
 
-!unquoted procedure Component($alias, $label, $techn)
-rectangle "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//" <<component>> as $alias
-!endprocedure
-!unquoted procedure Component($alias, $label, $techn, $descr)
-rectangle "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//\n\n $descr" <<component>> as $alias
+!function $getComponent($label, $techn, $descr, $sprite)
+!if ($descr == "") && ($sprite == "")
+!return '=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//'
+!endif
+!if ($descr == "") && ($sprite != "")
+!return '<$'+$sprite+'>\n=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//'
+!endif
+!if ($descr != "") && ($sprite == "")
+!return '=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//\n\n '+$descr
+!endif
+!if ($descr != "") && ($sprite != "")
+!return '<$'+$sprite+'>\n=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//\n\n '+$descr
+!endif
+!endfunction
+
+!unquoted procedure Component($alias, $label, $techn, $descr="", $sprite="")
+rectangle "$getComponent($label, $techn, $descr, $sprite)" <<component>> as $alias
 !endprocedure
 
-!unquoted procedure ComponentDb($alias, $label, $techn)
-database "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//" <<component>> as $alias
-!endprocedure
-!unquoted procedure ComponentDb($alias, $label, $techn, $descr)
-database "==$label\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//\n\n $descr" <<component>> as $alias
+!unquoted procedure ComponentDb($alias, $label, $techn, $descr="", $sprite="")
+database "$getComponent($label, $techn, $descr, $sprite)" <<component>> as $alias
 !endprocedure

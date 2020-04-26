@@ -1,11 +1,8 @@
 # C4-PlantUML
 
-> PlantUML version 1.2020.7 [http://www.plantuml.com/plantuml](http://www.plantuml.com/plantuml)
+> PlantUML version 1.2020.07
 >
-> I apologize for any current breaking diagrams. It's hard to keep up with the online plantuml server. I will create different branches for each plantuml version in order to maintain backward compatibility.
->
-> Ex:
->`!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/1.2020.7/C4_Container.puml`
+> I apologize for any current breaking diagrams. It's hard to keep up with the online plantuml server version.
 >
 > For better control I recommend cloning the local branch and including the files localy  with your diagrams
 

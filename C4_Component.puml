@@ -11,6 +11,7 @@
 ' ##################################
 
 !define COMPONENT_BG_COLOR #85BBF0
+!define EXTERNAL_COMPONENT_BG_COLOR #BBBBBB
 
 ' Styling
 ' ##################################
@@ -29,6 +30,20 @@ skinparam database<<component>> {
     BorderColor #78A8D8
 }
 
+skinparam rectangle<<external_component>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor #000000
+    BackgroundColor EXTERNAL_COMPONENT_BG_COLOR
+    BorderColor #8A8A8A
+}
+
+skinparam database<<external_component>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor #000000
+    BackgroundColor EXTERNAL_COMPONENT_BG_COLOR
+    BorderColor #8A8A8A
+}
+
 ' Layout
 ' ##################################
 
@@ -42,6 +57,8 @@ legend right
 |<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
 |<CONTAINER_BG_COLOR>   | container |
 |<COMPONENT_BG_COLOR>   | component |
+|<EXTERNAL_CONTAINER_BG_COLOR>   | external container |
+|<EXTERNAL_COMPONENT_BG_COLOR>   | external component |
 endlegend
 !enddefinelong
 
@@ -53,3 +70,10 @@ endlegend
 
 !define ComponentDb(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<component>> as e_alias
 !define ComponentDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<component>> as e_alias
+
+
+!define Component_Ext(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<external_component>> as e_alias
+!define Component_Ext(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<external_component>> as e_alias
+
+!define ComponentDb_Ext(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<external_component>> as e_alias
+!define ComponentDb_Ext(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<external_component>> as e_alias

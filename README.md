@@ -96,6 +96,13 @@ It is possible to save them directly inside VS Code: [Creating your own snippets
 
 ![C4-PlantUML Snippets Video](images/vscode_c4plantuml_snippets.gif)
 
+## Live Templates for IntelliJ
+
+Download [IntelliJ Live Templates](https://github.com/stawirej/c4-intellij-live-template) for supporting creation of C4 model diagrams with C4-PlantUML with [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+
+![](https://github.com/stawirej/c4-intellij-live-template/raw/master/images/c4demo1.gif)
+![](https://github.com/stawirej/c4-intellij-live-template/raw/master/images/c4demoall.gif)
+
 ## Layout Options
 
 C4-PlantUML also comes with some layout options to make it easy and reuseable to create nice and useful diagrams:

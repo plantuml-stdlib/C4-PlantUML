@@ -17,29 +17,29 @@
 ' ##################################
 
 skinparam rectangle<<container>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor ELEMENT_FONT_COLOR()
+    FontColor ELEMENT_FONT_COLOR()
     BackgroundColor CONTAINER_BG_COLOR
     BorderColor #3C7FC0
 }
 
 skinparam database<<container>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor ELEMENT_FONT_COLOR()
+    FontColor ELEMENT_FONT_COLOR()
     BackgroundColor CONTAINER_BG_COLOR
     BorderColor #3C7FC0
 }
 
 skinparam rectangle<<external_container>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor ELEMENT_FONT_COLOR()
+    FontColor ELEMENT_FONT_COLOR()
     BackgroundColor EXTERNAL_CONTAINER_BG_COLOR
     BorderColor #8A8A8A
 }
 
 skinparam database<<external_container>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor ELEMENT_FONT_COLOR()
+    FontColor ELEMENT_FONT_COLOR()
     BackgroundColor EXTERNAL_CONTAINER_BG_COLOR
     BorderColor #8A8A8A
 }

@@ -42,7 +42,7 @@ legend right
 |<EXTERNAL_PERSON_BG_COLOR>      | external person |
 |<SYSTEM_BG_COLOR>   | system |
 |<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
-|<CONTAINER_BG_COLOR>   | container |
+|<CONTAINER_BG_COLOR()>   | container |
 |<COMPONENT_BG_COLOR()>   | component |
 endlegend
 !enddefinelong

@@ -10,7 +10,9 @@
 ' Colors
 ' ##################################
 
-!define COMPONENT_BG_COLOR #85BBF0
+!procedure COMPONENT_BG_COLOR()
+    #85BBF0
+!endprocedure
 
 ' Styling
 ' ##################################
@@ -18,14 +20,14 @@
 skinparam rectangle<<component>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
     FontColor #000000
-    BackgroundColor COMPONENT_BG_COLOR
+    BackgroundColor COMPONENT_BG_COLOR()
     BorderColor #78A8D8
 }
 
 skinparam database<<component>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
     FontColor #000000
-    BackgroundColor COMPONENT_BG_COLOR
+    BackgroundColor COMPONENT_BG_COLOR()
     BorderColor #78A8D8
 }
 

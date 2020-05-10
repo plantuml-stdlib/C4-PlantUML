@@ -10,10 +10,21 @@
 ' Colors
 ' ##################################
 
-!define PERSON_BG_COLOR #08427B
-!define EXTERNAL_PERSON_BG_COLOR #686868
-!define SYSTEM_BG_COLOR #1168BD
-!define EXTERNAL_SYSTEM_BG_COLOR #999999
+!procedure PERSON_BG_COLOR()
+#08427B
+!endprocedure
+
+!procedure EXTERNAL_PERSON_BG_COLOR()
+#686868
+!endprocedure
+
+!procedure SYSTEM_BG_COLOR()
+#1168BD
+!endprocedure
+
+!procedure EXTERNAL_SYSTEM_BG_COLOR()
+#999999
+!endprocedure
 
 ' Styling
 ' ##################################
@@ -21,42 +32,42 @@
 skinparam rectangle<<person>> {
     StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor ELEMENT_FONT_COLOR()
-    BackgroundColor PERSON_BG_COLOR
+    BackgroundColor PERSON_BG_COLOR()
     BorderColor #073B6F
 }
 
 skinparam rectangle<<external_person>> {
     StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor ELEMENT_FONT_COLOR()
-    BackgroundColor EXTERNAL_PERSON_BG_COLOR
+    BackgroundColor EXTERNAL_PERSON_BG_COLOR()
     BorderColor #8A8A8A
 }
 
 skinparam rectangle<<system>> {
     StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor ELEMENT_FONT_COLOR()
-    BackgroundColor SYSTEM_BG_COLOR
+    BackgroundColor SYSTEM_BG_COLOR()
     BorderColor #3C7FC0
 }
 
 skinparam rectangle<<external_system>> {
     StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor ELEMENT_FONT_COLOR()
-    BackgroundColor EXTERNAL_SYSTEM_BG_COLOR
+    BackgroundColor EXTERNAL_SYSTEM_BG_COLOR()
     BorderColor #8A8A8A
 }
 
 skinparam database<<system>> {
     StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor ELEMENT_FONT_COLOR()
-    BackgroundColor SYSTEM_BG_COLOR
+    BackgroundColor SYSTEM_BG_COLOR()
     BorderColor #3C7FC0
 }
 
 skinparam database<<external_system>> {
     StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor ELEMENT_FONT_COLOR()
-    BackgroundColor EXTERNAL_SYSTEM_BG_COLOR
+    BackgroundColor EXTERNAL_SYSTEM_BG_COLOR()
     BorderColor #8A8A8A
 }
 
@@ -67,10 +78,10 @@ skinparam database<<external_system>> {
 hide stereotype
 legend right
 |=              |= Type |
-|<PERSON_BG_COLOR>      | person |
-|<EXTERNAL_PERSON_BG_COLOR>      | external person |
-|<SYSTEM_BG_COLOR>   | system |
-|<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
+|<PERSON_BG_COLOR()>      | person |
+|<EXTERNAL_PERSON_BG_COLOR()>      | external person |
+|<SYSTEM_BG_COLOR()>   | system |
+|<EXTERNAL_SYSTEM_BG_COLOR()>      | external system |
 endlegend
 !enddefinelong
 

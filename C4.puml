@@ -4,7 +4,9 @@
 ' Colors
 ' ##################################
 
-!define ELEMENT_FONT_COLOR #FFFFFF
+!procedure ELEMENT_FONT_COLOR()
+#FFFFFF
+!endprocedure
 
 ' Styling
 ' ##################################

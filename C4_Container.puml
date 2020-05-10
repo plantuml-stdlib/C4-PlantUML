@@ -16,15 +16,15 @@
 ' ##################################
 
 skinparam rectangle<<container>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor ELEMENT_FONT_COLOR()
+    FontColor ELEMENT_FONT_COLOR()
     BackgroundColor CONTAINER_BG_COLOR
     BorderColor #3C7FC0
 }
 
 skinparam database<<container>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor ELEMENT_FONT_COLOR()
+    FontColor ELEMENT_FONT_COLOR()
     BackgroundColor CONTAINER_BG_COLOR
     BorderColor #3C7FC0
 }

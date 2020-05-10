@@ -45,15 +45,20 @@ skinparam rectangle<<boundary>> {
 ' Layout
 ' ##################################
 
-!definelong LAYOUT_AS_SKETCH
-skinparam backgroundColor #EEEBDC
-skinparam handwritten true
-skinparam defaultFontName "Comic Sans MS"
-center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
-!enddefinelong
+!procedure LAYOUT_AS_SKETCH()
+    skinparam backgroundColor #EEEBDC
+    skinparam handwritten true
+    skinparam defaultFontName "Comic Sans MS"
+    center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
+!endprocedure
 
-!define LAYOUT_TOP_DOWN top to bottom direction
-!define LAYOUT_LEFT_RIGHT left to right direction
+!procedure LAYOUT_TOP_DOWN()
+    top to bottom direction
+!endprocedure
+
+!procedure LAYOUT_LEFT_RIGHT()
+    left to right direction
+!endprocedure
 
 ' Boundaries
 ' ##################################

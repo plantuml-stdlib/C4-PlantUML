@@ -52,18 +52,18 @@ skinparam database<<external_container>> {
 ' Layout
 ' ##################################
 
-!definelong LAYOUT_WITH_LEGEND
-hide stereotype
-legend right
-|=              |= Type |
-|<PERSON_BG_COLOR()>      | person |
-|<EXTERNAL_PERSON_BG_COLOR()>      | external person |
-|<SYSTEM_BG_COLOR()>   | system |
-|<EXTERNAL_SYSTEM_BG_COLOR()>      | external system |
-|<CONTAINER_BG_COLOR()>   | container |
-|<EXTERNAL_CONTAINER_BG_COLOR()>   | external container |
-endlegend
-!enddefinelong
+!procedure LAYOUT_WITH_LEGEND()
+    hide stereotype
+    legend right
+    |=              |= Type |
+    |<PERSON_BG_COLOR()>      | person |
+    |<EXTERNAL_PERSON_BG_COLOR()>      | external person |
+    |<SYSTEM_BG_COLOR()>   | system |
+    |<EXTERNAL_SYSTEM_BG_COLOR()>      | external system |
+    |<CONTAINER_BG_COLOR()>   | container |
+    |<EXTERNAL_CONTAINER_BG_COLOR()>   | external container |
+    endlegend
+!endprocedure
 
 ' Elements
 ' ##################################

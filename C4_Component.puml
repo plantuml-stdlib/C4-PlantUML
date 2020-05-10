@@ -11,11 +11,11 @@
 ' ##################################
 
 !procedure COMPONENT_BG_COLOR()
-    #85BBF0
+#85BBF0
 !endprocedure
 
 !procedure EXTERNAL_COMPONENT_BG_COLOR()
-    #BBBBBB
+#BBBBBB
 !endprocedure
 
 ' Styling
@@ -61,9 +61,9 @@ legend right
 |<SYSTEM_BG_COLOR>   | system |
 |<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
 |<CONTAINER_BG_COLOR>   | container |
-|<COMPONENT_BG_COLOR>   | component |
+|<COMPONENT_BG_COLOR()>   | component |
 |<EXTERNAL_CONTAINER_BG_COLOR>   | external container |
-|<EXTERNAL_COMPONENT_BG_COLOR>   | external component |
+|<EXTERNAL_COMPONENT_BG_COLOR()>   | external component |
 endlegend
 !enddefinelong
 

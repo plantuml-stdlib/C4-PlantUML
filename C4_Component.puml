@@ -10,8 +10,13 @@
 ' Colors
 ' ##################################
 
-!define COMPONENT_BG_COLOR #85BBF0
-!define EXTERNAL_COMPONENT_BG_COLOR #BBBBBB
+!procedure COMPONENT_BG_COLOR()
+    #85BBF0
+!endprocedure
+
+!procedure EXTERNAL_COMPONENT_BG_COLOR()
+    #BBBBBB
+!endprocedure
 
 ' Styling
 ' ##################################
@@ -19,28 +24,28 @@
 skinparam rectangle<<component>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
     FontColor #000000
-    BackgroundColor COMPONENT_BG_COLOR
+    BackgroundColor COMPONENT_BG_COLOR()
     BorderColor #78A8D8
 }
 
 skinparam database<<component>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
     FontColor #000000
-    BackgroundColor COMPONENT_BG_COLOR
+    BackgroundColor COMPONENT_BG_COLOR()
     BorderColor #78A8D8
 }
 
 skinparam rectangle<<external_component>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
     FontColor #000000
-    BackgroundColor EXTERNAL_COMPONENT_BG_COLOR
+    BackgroundColor EXTERNAL_COMPONENT_BG_COLOR()
     BorderColor #8A8A8A
 }
 
 skinparam database<<external_component>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
     FontColor #000000
-    BackgroundColor EXTERNAL_COMPONENT_BG_COLOR
+    BackgroundColor EXTERNAL_COMPONENT_BG_COLOR()
     BorderColor #8A8A8A
 }
 

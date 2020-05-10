@@ -10,8 +10,13 @@
 ' Colors
 ' ##################################
 
-!define CONTAINER_BG_COLOR #438DD5
-!define EXTERNAL_CONTAINER_BG_COLOR #AAAAAA
+!procedure CONTAINER_BG_COLOR()
+#438DD5
+!endprocedure
+
+!procedure EXTERNAL_CONTAINER_BG_COLOR()
+#AAAAAA
+!endprocedure
 
 ' Styling
 ' ##################################
@@ -19,28 +24,28 @@
 skinparam rectangle<<container>> {
     StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor ELEMENT_FONT_COLOR()
-    BackgroundColor CONTAINER_BG_COLOR
+    BackgroundColor CONTAINER_BG_COLOR()
     BorderColor #3C7FC0
 }
 
 skinparam database<<container>> {
     StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor ELEMENT_FONT_COLOR()
-    BackgroundColor CONTAINER_BG_COLOR
+    BackgroundColor CONTAINER_BG_COLOR()
     BorderColor #3C7FC0
 }
 
 skinparam rectangle<<external_container>> {
     StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor ELEMENT_FONT_COLOR()
-    BackgroundColor EXTERNAL_CONTAINER_BG_COLOR
+    BackgroundColor EXTERNAL_CONTAINER_BG_COLOR()
     BorderColor #8A8A8A
 }
 
 skinparam database<<external_container>> {
     StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor ELEMENT_FONT_COLOR()
-    BackgroundColor EXTERNAL_CONTAINER_BG_COLOR
+    BackgroundColor EXTERNAL_CONTAINER_BG_COLOR()
     BorderColor #8A8A8A
 }
 
@@ -55,8 +60,8 @@ legend right
 |<EXTERNAL_PERSON_BG_COLOR>      | external person |
 |<SYSTEM_BG_COLOR>   | system |
 |<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
-|<CONTAINER_BG_COLOR>   | container |
-|<EXTERNAL_CONTAINER_BG_COLOR>   | external container |
+|<CONTAINER_BG_COLOR()>   | container |
+|<EXTERNAL_CONTAINER_BG_COLOR()>   | external container |
 endlegend
 !enddefinelong
 

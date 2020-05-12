@@ -45,18 +45,18 @@ skinparam rectangle<<boundary>> {
 ' Layout
 ' ##################################
 
-!procedure LAYOUT_AS_SKETCH()
+!procedure layout_as_sketch()
     skinparam backgroundColor #EEEBDC
     skinparam handwritten true
     skinparam defaultFontName "Comic Sans MS"
     center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
 !endprocedure
 
-!procedure LAYOUT_TOP_DOWN()
+!procedure layout_top_down()
     top to bottom direction
 !endprocedure
 
-!procedure LAYOUT_LEFT_RIGHT()
+!procedure layout_left_right()
     left to right direction
 !endprocedure
 

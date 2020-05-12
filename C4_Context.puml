@@ -141,10 +141,10 @@ skinparam database<<external_system>> {
 ' Boundaries
 ' ##################################
 
-!procedure Enterprise_Boundary(e_alias, e_label)
+!unquoted procedure Enterprise_Boundary(e_alias, e_label)
     Boundary(e_alias, e_label, "Enterprise")
 !endprocedure
 
-!procedure System_Boundary(e_alias, e_label)
+!unquoted procedure System_Boundary(e_alias, e_label)
     Boundary(e_alias, e_label, "System")
 !endprocedure

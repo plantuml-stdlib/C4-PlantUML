@@ -70,15 +70,34 @@ skinparam database<<external_component>> {
 ' Elements
 ' ##################################
 
-!define Component(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//" <<component>> as e_alias
-!define Component(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<component>> as e_alias
+!unquoted procedure Component(e_alias, e_label, e_techn)
+    rectangle "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//" <<component>> as e_alias
+!endprocedure
 
-!define ComponentDb(e_alias, e_label, e_techn) database "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//" <<component>> as e_alias
-!define ComponentDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<component>> as e_alias
+!unquoted procedure Component(e_alias, e_label, e_techn, e_descr)
+    rectangle "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<component>> as e_alias
+!endprocedure
 
+!unquoted procedure ComponentDb(e_alias, e_label, e_techn)
+    database "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//" <<component>> as e_alias
+!endprocedure
 
-!define Component_Ext(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//" <<external_component>> as e_alias
-!define Component_Ext(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<external_component>> as e_alias
+!unquoted procedure ComponentDb(e_alias, e_label, e_techn, e_descr)
+    database "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<component>> as e_alias
+!endprocedure
 
-!define ComponentDb_Ext(e_alias, e_label, e_techn) database "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//" <<external_component>> as e_alias
-!define ComponentDb_Ext(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<external_component>> as e_alias
+!unquoted procedure Component_Ext(e_alias, e_label, e_techn)
+    rectangle "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//" <<external_component>> as e_alias
+!endprocedure
+
+!unquoted procedure Component_Ext(e_alias, e_label, e_techn, e_descr)
+    rectangle "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<external_component>> as e_alias
+!endprocedure
+
+!unquoted procedure ComponentDb_Ext(e_alias, e_label, e_techn)
+    database "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//" <<external_component>> as e_alias
+!endprocedure
+
+!unquoted procedure ComponentDb_Ext(e_alias, e_label, e_techn, e_descr)
+    database "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<external_component>> as e_alias
+!endprocedure

@@ -84,4 +84,7 @@ skinparam database<<external_container>> {
 ' Boundaries
 ' ##################################
 
-!define Container_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Container")
+!unquoted procedure Container_Boundary(e_alias, e_label)
+    Boundary(e_alias, e_label, "Container")
+!endprocedure
+

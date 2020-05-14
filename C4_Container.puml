@@ -52,7 +52,7 @@ skinparam database<<external_container>> {
 ' Layout
 ' ##################################
 
-!procedure layout_with_legend()
+!procedure LAYOUT_WITH_LEGEND()
     hide stereotype
     legend right
         |=                               |= Type              |

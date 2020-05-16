@@ -29,7 +29,7 @@ Just remember to change the `!include` statements inside the top of the files.
 If you want to use the always up-to-date version in this repo, use the following:
 
 ```c#
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+!include https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
 ```
 
 Now let's create a C4 Container diagram:
@@ -38,7 +38,7 @@ After you have included `C4_Container.puml` you can use the defined macro defini
 
 ```csharp
 @startuml C4_Elements
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+!include https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
 
 Person(personAlias, "Label", "Optional Description")
 Container(containerAlias, "Label", "Technology", "Optional Description")
@@ -56,7 +56,7 @@ Take a look a look at the following sample of a C4 Container Diagram:
 
 ```csharp
 @startuml Basic Sample
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+!include https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
 
 Person(admin, "Administrator")
 System_Boundary(c1, "Sample System") {
@@ -74,13 +74,13 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 ## Supported Diagram Types
 
 * System Context & System Landscape diagrams
-  * Import: `!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Context.puml`
+  * Import: `!include https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Context.puml`
   * Macros: `Person`, `Person_Ext`, `System`, `System_Ext`, `SystemDb`, `SystemDb_Ext`, `Boundary`, `System_Boundary`, `Enterprise_Boundary`
 * Container diagram
-  * Import: `!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml`
+  * Import: `!include https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml`
   * Additional Macros: `Container`, `ContainerDb`, `Container_Boundary`
 * Component diagram
-  * Import: `!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Component.puml`
+  * Import: `!include https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Component.puml`
   * Additional Macros: `Component`, `ComponentDb`
 
 Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).

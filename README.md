@@ -1,3 +1,51 @@
+# Fork changelog
+
+## Person icon in personas box
+
+Renders Person and Person_Ext with portrait icon inside rectangle. This makes human users of
+software system more clearer in the diagrams.
+![](images/person_icon.png)
+
+## External container and component
+
+For well-designed systems current set of C4-PalntUML artifacts are sufficient.
+When working with monoliths a.k.a "Big Ball of Mud" we have an issue with correctly distinguish which container and/or component
+is under the team responsibility. Some containers/components are relevant from use-case perspective. Therefore, they should be
+present on a diagram to give full use-case picture. In the same time they should be marked as "external"
+as team is not responsible nor develop them. This can be easily achieved by introducing "external" container/component artifacts in C4-PlantUML.
+
+* External container
+  * Import: `!include https://raw.githubusercontent.com/stawirej/C4-PlantUML/master/C4_Container.puml`
+  * Additional Procedures: `Container_Ext`, `ContainerDb_Ext`
+* External component
+  * Import: `!include https://raw.githubusercontent.com/stawirej/C4-PlantUML/master/C4_Component.puml`
+  * Additional Procedures: `Component_Ext`, `ComponentDb_Ext`
+
+
+## Use current plantuml preprocessor
+
+Upgrades C4-PlantUML to work with current plantuml preprocessor.
+
+> The actual preprocessor is an update from some legacy preprocessor.
+Even if some legacy features are still supported with the actual preprocessor, you should not use them any more (they might be removed in some long term future).
+
+> You should not use !define and !definelong anymore. Use !function, !procedure or variable definition instead.
+!define should be replaced by return !function and !definelong should be replaced by !procedure.
+
+> !include now allows multiple inclusions : you don't have to use !include_many anymore
+!include now accepts a URL, so you don't need !includeurl_
+
+* "Migration notes" at https://plantuml.com/preprocessing
+
+## Live Templates for IntelliJ
+
+Download [IntelliJ Live Templates](https://github.com/stawirej/c4-intellij-live-template) for supporting creation of C4 model diagrams with C4-PlantUML with [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+
+![](https://github.com/stawirej/c4-intellij-live-template/raw/master/images/c4demo1.gif)
+![](https://github.com/stawirej/c4-intellij-live-template/raw/master/images/c4demoall.gif)
+
+---
+
 # C4-PlantUML
 
 ![Container diagram for Internet Banking System](http://www.plantuml.com/plantuml/png/pPLjZzCu4CVVzrECojlssbrWsKFTYZwmEX2zwrrw1n8WD4ccgOLZHxQpfHnyztDSDoJhLjp3eYChhTePpzy__psPFj46bIbptj7lcIXGOGufhR7aPaKVp8IpJEGa32Js7wd6ggt2uYLBpGREXyD6FCSF2z8QCuhOHuApXysaeiIWo3Z1dnsmJsGrIPfTGTTIc7t1kSle3QPooqG6Q-IQEf-RW6WmHltVH2PAoQrNc4ak5ToxS8-BL4fXjAd_-TYnHgDObY95jHkF3tHjXbF4ms23MnWFtEEYKwbIKgVYaTbnWXJrXj9Jb0KfBOLZ37cyyBLxQemmEiNaVQQgy_hSyFB1-QDfY3XyT7zwSNsAnROPAO7ytRU1khYi_aAeoqdrTmfAxxIX_AvPpiukBgVpaEN-xD7rRFXLWxuDr8_kEMrG-E9z3_vubE_4dk3E4YkEJ92wQvm7zo_dyuV_qAB_ZyR80eo4M1eZBH6hB69IT3Oi9T0rH8TJHY85nRADwNowWjPZlw_i8lZK-JJoGsRiCx0V6YxbN_KwTMYCvXhVOcEtODymBkwlEQXjhl6dtTVMbjgK9T_pTmmpd61MvrA6MNKLQwdWcQWaoLWNXRsZ328dtQcx1hfNLxDIMwD8lH5l14mWyLz1hi5i269RseCjCnj_AEGk1fWazbgCxa9ZkAEk1Tgx12Ylzonlkz3y1NC2PxvZMW8lAOP9KN2Me67IiWu68yq-qkEpy_7hvtY3FOWALIal_fYz7Gsgt7WmSAUQ4sSt5j4TI1iha3WtIHX0aRfm3HWVl5fEkj1kP0ktfVWT5aN85x7gKt-96LMS8L-KA5QO7an4Ld9Kjn2NIjwmb3GWvyTvrgLmZOoScHqOQOrsFckuOLYLC5NHGQpaLfCwmguB3BaNCcRy2FBiNWzUOOwAYPEem5dE3AMWorXRLBd-s-WwOC_t82dTi8H2Uf-lpVUZnfrXxZ-tJn3z-W8EcLj7Y8nKfA7Kf41HnhHHQFc0YRLKkMkm7cniNGfOcWqaYb8IXY7NlQhnIMlWChDVo2G_XB0rNUZtPFdiQtqybybxKlKxVQfLlkApizRkTeGkHhk1IAsNp0xC5jxJ_W8PzuF2RRVQ433XPzE29KfgkJRmz4EoiLNanrKNmfz5jnVbo0wHzbPs8x5McDEjyTIy8UJyq5M93TGdRLmKO2nBywMbUlLawe5HA3GwJ_nTdUJqoWVIWnpq--F3Im-FA-ohtpNfzhNzj5ejeo-tr6rNwmB_NMMZvHi2tSu1fwNjPvnDsvYhRjpooVrHxqJIW-VHBpyF0fR6zdUYLx-oe_uHiTy8Kmrh9NCtaxUA6T9WP7i3hp-VpewvPfNxhOxpsX49gqtzAbDfTZlDHROg00gAIir4TembMgoMJPQca7MjtLTDumAjWNVlrU95QDuJgrdc_2y0 "Container diagram for Internet Banking System")
@@ -95,13 +143,6 @@ Just include the `C4.code-snippets` file in the `.vscode` folder of your project
 It is possible to save them directly inside VS Code: [Creating your own snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets).
 
 ![C4-PlantUML Snippets Video](images/vscode_c4plantuml_snippets.gif)
-
-## Live Templates for IntelliJ
-
-Download [IntelliJ Live Templates](https://github.com/stawirej/c4-intellij-live-template) for supporting creation of C4 model diagrams with C4-PlantUML with [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-
-![](https://github.com/stawirej/c4-intellij-live-template/raw/master/images/c4demo1.gif)
-![](https://github.com/stawirej/c4-intellij-live-template/raw/master/images/c4demoall.gif)
 
 ## Layout Options
 

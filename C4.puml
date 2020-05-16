@@ -11,7 +11,7 @@
 ' Styling
 ' ##################################
 
-!define TECHN_FONT_SIZE 12
+!$TECHN_FONT_SIZE=12
 
 skinparam defaultTextAlignment center
 

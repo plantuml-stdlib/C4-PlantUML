@@ -1,6 +1,6 @@
-!includeurl https://raw.githubusercontent.com/stawirej/C4-PlantUML/master/C4_Container.puml
+'!include https://raw.githubusercontent.com/stawirej/C4-PlantUML/master/C4_Container.puml
 ' uncomment the following line and comment the first to use locally
-' !include C4_Container.puml
+!include C4_Container.puml
 
 ' Scope: A single container.
 ' Primary elements: Components within the container in scope.
@@ -10,70 +10,94 @@
 ' Colors
 ' ##################################
 
-!define COMPONENT_BG_COLOR #85BBF0
-!define EXTERNAL_COMPONENT_BG_COLOR #BBBBBB
+!procedure COMPONENT_BG_COLOR()
+#85BBF0
+!endprocedure
+
+!procedure EXTERNAL_COMPONENT_BG_COLOR()
+#BBBBBB
+!endprocedure
 
 ' Styling
 ' ##################################
 
 skinparam rectangle<<component>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor #000000
-    BackgroundColor COMPONENT_BG_COLOR
+    BackgroundColor COMPONENT_BG_COLOR()
     BorderColor #78A8D8
 }
 
 skinparam database<<component>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor #000000
-    BackgroundColor COMPONENT_BG_COLOR
+    BackgroundColor COMPONENT_BG_COLOR()
     BorderColor #78A8D8
 }
 
 skinparam rectangle<<external_component>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor #000000
-    BackgroundColor EXTERNAL_COMPONENT_BG_COLOR
+    BackgroundColor EXTERNAL_COMPONENT_BG_COLOR()
     BorderColor #8A8A8A
 }
 
 skinparam database<<external_component>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor ELEMENT_FONT_COLOR()
     FontColor #000000
-    BackgroundColor EXTERNAL_COMPONENT_BG_COLOR
+    BackgroundColor EXTERNAL_COMPONENT_BG_COLOR()
     BorderColor #8A8A8A
 }
 
 ' Layout
 ' ##################################
 
-!definelong LAYOUT_WITH_LEGEND
-hide stereotype
-legend right
-|=              |= Type |
-|<PERSON_BG_COLOR>      | person |
-|<EXTERNAL_PERSON_BG_COLOR>      | external person |
-|<SYSTEM_BG_COLOR>   | system |
-|<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
-|<CONTAINER_BG_COLOR>   | container |
-|<COMPONENT_BG_COLOR>   | component |
-|<EXTERNAL_CONTAINER_BG_COLOR>   | external container |
-|<EXTERNAL_COMPONENT_BG_COLOR>   | external component |
-endlegend
-!enddefinelong
+!procedure LAYOUT_WITH_LEGEND()
+    hide stereotype
+    legend right
+        |=                               |= Type              |
+        |<PERSON_BG_COLOR()>             | person             |
+        |<EXTERNAL_PERSON_BG_COLOR()>    | external person    |
+        |<SYSTEM_BG_COLOR()>             | system             |
+        |<EXTERNAL_SYSTEM_BG_COLOR()>    | external system    |
+        |<CONTAINER_BG_COLOR()>          | container          |
+        |<COMPONENT_BG_COLOR()>          | component          |
+        |<EXTERNAL_CONTAINER_BG_COLOR()> | external container |
+        |<EXTERNAL_COMPONENT_BG_COLOR()> | external component |
+    endlegend
+!endprocedure
 
 ' Elements
 ' ##################################
 
-!define Component(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<component>> as e_alias
-!define Component(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<component>> as e_alias
+!unquoted procedure Component(e_alias, e_label, e_techn)
+    rectangle "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//" <<component>> as e_alias
+!endprocedure
 
-!define ComponentDb(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<component>> as e_alias
-!define ComponentDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<component>> as e_alias
+!unquoted procedure Component(e_alias, e_label, e_techn, e_descr)
+    rectangle "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<component>> as e_alias
+!endprocedure
 
+!unquoted procedure ComponentDb(e_alias, e_label, e_techn)
+    database "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//" <<component>> as e_alias
+!endprocedure
 
-!define Component_Ext(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<external_component>> as e_alias
-!define Component_Ext(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<external_component>> as e_alias
+!unquoted procedure ComponentDb(e_alias, e_label, e_techn, e_descr)
+    database "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<component>> as e_alias
+!endprocedure
 
-!define ComponentDb_Ext(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<external_component>> as e_alias
-!define ComponentDb_Ext(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<external_component>> as e_alias
+!unquoted procedure Component_Ext(e_alias, e_label, e_techn)
+    rectangle "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//" <<external_component>> as e_alias
+!endprocedure
+
+!unquoted procedure Component_Ext(e_alias, e_label, e_techn, e_descr)
+    rectangle "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<external_component>> as e_alias
+!endprocedure
+
+!unquoted procedure ComponentDb_Ext(e_alias, e_label, e_techn)
+    database "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//" <<external_component>> as e_alias
+!endprocedure
+
+!unquoted procedure ComponentDb_Ext(e_alias, e_label, e_techn, e_descr)
+    database "==e_label\n//<size:$TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<external_component>> as e_alias
+!endprocedure

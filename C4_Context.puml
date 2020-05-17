@@ -163,7 +163,7 @@ rectangle "$getPerson($label, $descr, $sprite)" <<person>> as $alias
 !endprocedure
 
 !unquoted procedure Person_Ext($alias, $label, $descr="", $sprite="")
-rectangle "$getSystem($label, $descr, $sprite)" <<external_person>> as $alias
+rectangle "$getPerson($label, $descr, $sprite)" <<external_person>> as $alias
 !endprocedure
 
 !unquoted procedure System($alias, $label, $descr="", $sprite="")

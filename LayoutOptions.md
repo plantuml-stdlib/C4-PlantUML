@@ -1,6 +1,6 @@
 # Layout Options
 
-PlantUML uses [Graphviz](https://www.graphviz.org/) for his graph visualization. Thus the rendering itself is done automatically for you - that it one of the biggest advantages of using PlantUML.
+PlantUML uses [Graphviz](https://www.graphviz.org/) for its graph visualization. Thus the rendering itself is done automatically for you - that it one of the biggest advantages of using PlantUML.
 
 ...and also sometimes one of the biggest disadvantages, if the rendering is not what the user intended.
 

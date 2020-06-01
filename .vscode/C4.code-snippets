@@ -59,6 +59,24 @@
 		],
 		"description": "Add Container with Description to C4 diagram"
 	},
+	"C4_ContainerDb": {
+		"scope": "diagram",
+		"prefix": "ContainerDb",
+		"body": [
+			"ContainerDb(${1:alias}, \"${2:label}\", \"${3:technology}\")",
+			"$0"
+		],
+		"description": "Add ContainerDb to C4 diagram"
+	},
+	"C4_ContainerDb_Descr": {
+		"scope": "diagram",
+		"prefix": "ContainerDb with Description",
+		"body": [
+			"ContainerDb(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
+			"$0"
+		],
+		"description": "Add ContainerDb with description to C4 diagram"
+	},
 	"C4_Container_Boundary": {
 		"scope": "diagram",
 		"prefix": [
@@ -108,6 +126,24 @@
 		],
 		"description": "Add System with Description to C4 diagram"
 	},
+	"C4_SystemDb": {
+		"scope": "diagram",
+		"prefix": "SystemDb",
+		"body": [
+			"SystemDb(${1:alias}, \"${2:label}\")",
+			"$0"
+		],
+		"description": "Add SystemDb to C4 diagram"
+	},
+	"C4_SystemDb_Descr": {
+		"scope": "diagram",
+		"prefix": "SystemDb with Description",
+		"body": [
+			"SystemDb(${1:alias}, \"${2:label}\", \"${3:description}\")",
+			"$0"
+		],
+		"description": "Add SystemDb with Description to C4 diagram"
+	},
 	"C4_System_Ext": {
 		"scope": "diagram",
 		"prefix": [
@@ -131,6 +167,30 @@
 			"$0"
 		],
 		"description": "Add External System with Description to C4 diagram"
+	},
+	"C4_SystemDb_Ext": {
+		"scope": "diagram",
+		"prefix": [
+			"External DB System",
+			"SystemDb (External)"
+		],
+		"body": [
+			"SystemDb_Ext(${1:alias}, \"${2:label}\")",
+			"$0"
+		],
+		"description": "Add External SystemDb to C4 diagram"
+	},
+	"C4_SystemDb_Ext_Descr": {
+		"scope": "diagram",
+		"prefix": [
+			"External SystemDb with Description",
+			"SystemDb (External) with Description"
+		],
+		"body": [
+			"SystemDb_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")",
+			"$0"
+		],
+		"description": "Add External SystemDb with Description to C4 diagram"
 	},
 	"C4_System_Boundary": {
 		"scope": "diagram",

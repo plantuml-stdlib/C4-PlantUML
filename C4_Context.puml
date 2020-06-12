@@ -74,14 +74,23 @@ legend right
 endlegend
 !enddefinelong
 
+' Sprites
+' ##################################
+
+sprite $person [40x55/16z] {
+xTC5RWKn34LHEwmP_xxzhxQCoMqLLL0yOWLDzfQNVaX7B_QXgcVDtfLElN8cOrcJpBTfWJSUMXosAW8GTWW4_0ubU7RhuIxKRJA4ncVtDQ46HIFP9YxajlN1
+OGldwrQDeY03NaK3jg42fKLUG_UYkh5i3r8k9QUd1s3K1dnu7hfyaHJJwHAIhZ8qSzJduwd6qj8UUdOPzTQuw5auJ2Gve62eGGCWXmaY7Q_Z2wisLBDJ6qvu
+5ddHbjAqfGrj6Q4jeM_ev_jt0m
+}
+
 ' Elements
 ' ##################################
 
-!define Person(e_alias, e_label) rectangle "==e_label" <<person>> as e_alias
-!define Person(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<person>> as e_alias
+!define Person(e_alias, e_label) rectangle "==e_label\n<$person>" <<person>> as e_alias
+!define Person(e_alias, e_label, e_descr) rectangle "==e_label\n<$person>\n e_descr" <<person>> as e_alias
 
-!define Person_Ext(e_alias, e_label) rectangle "==e_label" <<external_person>> as e_alias
-!define Person_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_person>> as e_alias
+!define Person_Ext(e_alias, e_label) rectangle "==e_label\n<$person>" <<external_person>> as e_alias
+!define Person_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n<$person>\n e_descr" <<external_person>> as e_alias
 
 !define System(e_alias, e_label) rectangle "==e_label" <<system>> as e_alias
 !define System(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<system>> as e_alias

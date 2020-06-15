@@ -86,7 +86,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
   * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Context.puml`
   * Macros: `Person`, `Person_Ext`, `System`, `System_Ext`, `SystemDb`, `SystemDb_Ext`, `Boundary`, `System_Boundary`, `Enterprise_Boundary`
 * Container diagram
-  * Import: `!include https://raw.githubusercontent.com/adrianvlupu/latest/C4_Container.puml`
+  * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml`
   * Additional Macros: `Container`, `ContainerDb`, `Container_Boundary`
 * Component diagram
   * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Component.puml`

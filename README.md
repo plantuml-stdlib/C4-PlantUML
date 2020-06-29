@@ -20,7 +20,7 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
 
 At the top of your C4 PlantUML `.puml` file, you need to include the `C4_Context.puml`, `C4_Container.puml` or `C4_Component.puml` file found in the `root` of this repo.
 
-To be independent of any internet connectifity, you can also download the files found in the `root` and reference it locally with
+To be independent of any internet connectivity, you can also download the files found in the `root` and reference it locally with
 
 ```c#
 !include path/to/C4_Container.puml

@@ -1,6 +1,6 @@
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
+'!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 ' uncomment the following line and comment the first to use locally
-' !include C4.puml
+!include C4.puml
 
 ' Scope: A single software system.
 ' Primary elements: The software system in scope.

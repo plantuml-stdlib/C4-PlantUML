@@ -1,6 +1,6 @@
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
+'!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4.puml
 ' uncomment the following line and comment the first to use locally
-' !include C4.puml
+!include C4.puml
 
 ' Scope: A single software system.
 ' Primary elements: The software system in scope.
@@ -60,6 +60,9 @@ skinparam database<<external_system>> {
     BorderColor #8A8A8A
 }
 
+!define ICON_SCALE 3
+!define PERSON_ICON <&person,scale=ICON_SCALE>
+
 ' Layout
 ' ##################################
 
@@ -77,11 +80,11 @@ endlegend
 ' Elements
 ' ##################################
 
-!define Person(e_alias, e_label) rectangle "==e_label" <<person>> as e_alias
-!define Person(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<person>> as e_alias
+!define Person(e_alias, e_label) rectangle "PERSON_ICON\n ==e_label" <<person>> as e_alias
+!define Person(e_alias, e_label, e_descr) rectangle "PERSON_ICON\n ==e_label\n\n e_descr" <<person>> as e_alias
 
-!define Person_Ext(e_alias, e_label) rectangle "==e_label" <<external_person>> as e_alias
-!define Person_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_person>> as e_alias
+!define Person_Ext(e_alias, e_label) rectangle "PERSON_ICON\n ==e_label" <<external_person>> as e_alias
+!define Person_Ext(e_alias, e_label, e_descr) rectangle "PERSON_ICON\n ==e_label\n\n e_descr" <<external_person>> as e_alias
 
 !define System(e_alias, e_label) rectangle "==e_label" <<system>> as e_alias
 !define System(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<system>> as e_alias

@@ -167,6 +167,15 @@
 		],
 		"description": "Add unidirectional Relationship to C4 diagram"
 	},
+	"C4_Relationship_Async": {
+		"scope": "diagram",
+		"prefix": "Relationship Async",
+		"body": [
+			"Rel_Async(${1:from_alias}, ${2:to_alias}, \"${3:label}\")",
+			"$0"
+		],
+		"description": "Add unidirectional asynchronous Relationship to C4 diagram"
+	},
 	"C4_Relationship_Techn": {
 		"scope": "diagram",
 		"prefix": "Relationship with Technology",

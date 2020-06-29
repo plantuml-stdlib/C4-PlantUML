@@ -11,6 +11,7 @@
 ' ##################################
 
 !define CONTAINER_BG_COLOR #438DD5
+!define EXTERNAL_CONTAINER_BG_COLOR #AAAAAA
 
 ' Styling
 ' ##################################
@@ -29,6 +30,20 @@ skinparam database<<container>> {
     BorderColor #3C7FC0
 }
 
+skinparam rectangle<<external_container>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor EXTERNAL_CONTAINER_BG_COLOR
+    BorderColor #8A8A8A
+}
+
+skinparam database<<external_container>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor EXTERNAL_CONTAINER_BG_COLOR
+    BorderColor #8A8A8A
+}
+
 ' Layout
 ' ##################################
 
@@ -41,6 +56,7 @@ legend right
 |<SYSTEM_BG_COLOR>   | system |
 |<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
 |<CONTAINER_BG_COLOR>   | container |
+|<EXTERNAL_CONTAINER_BG_COLOR>   | external container |
 endlegend
 !enddefinelong
 
@@ -52,6 +68,12 @@ endlegend
 
 !define ContainerDb(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
 !define ContainerDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
+
+!define Container_Ext(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<external_container>> as e_alias
+!define Container_Ext(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<external_container>> as e_alias
+
+!define ContainerDb_Ext(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<external_container>> as e_alias
+!define ContainerDb_Ext(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<external_container>> as e_alias
 
 ' Boundaries
 ' ##################################

@@ -59,6 +59,30 @@
 		],
 		"description": "Add Container with Description to C4 diagram"
 	},
+	"C4_Container_Ext": {
+		"scope": "diagram",
+		"prefix": [
+			"External Container",
+			"Container (External)"
+		],
+		"body": [
+			"Container_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")",
+			"$0"
+		],
+		"description": "Add External Container to C4 diagram"
+	},
+	"C4_Container_Ext_Descr": {
+		"scope": "diagram",
+		"prefix": [
+			"External Container with Description",
+			"Container (External) with Description"
+		],
+		"body": [
+			"Container_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
+			"$0"
+		],
+		"description": "Add External Container with Description to C4 diagram"
+	},
 	"C4_Container_Boundary": {
 		"scope": "diagram",
 		"prefix": [
@@ -89,6 +113,30 @@
 			"$0"
 		],
 		"description": "Add Component with Description to C4 diagram"
+	},
+	"C4_Component_Ext": {
+		"scope": "diagram",
+		"prefix": [
+			"External Component",
+			"Component (External)"
+		],
+		"body": [
+			"Component_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")",
+			"$0"
+		],
+		"description": "Add External Component to C4 diagram"
+	},
+	"C4_Component_Ext_Descr": {
+		"scope": "diagram",
+		"prefix": [
+			"External Component with Description",
+			"Component (External) with Description"
+		],
+		"body": [
+			"Component_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
+			"$0"
+		],
+		"description": "Add External Component with Description to C4 diagram"
 	},
 	"C4_System": {
 		"scope": "diagram",

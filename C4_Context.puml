@@ -60,7 +60,7 @@ skinparam database<<external_system>> {
     BorderColor #8A8A8A
 }
 
-!define ICON_SCALE 3
+!define ICON_SCALE 4
 !define PERSON_ICON <&person,scale=ICON_SCALE>
 
 ' Layout

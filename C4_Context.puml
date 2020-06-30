@@ -86,11 +86,11 @@ OGldwrQDeY03NaK3jg42fKLUG_UYkh5i3r8k9QUd1s3K1dnu7hfyaHJJwHAIhZ8qSzJduwd6qj8UUdOP
 ' Elements
 ' ##################################
 
-!define Person(e_alias, e_label) rectangle "==e_label\n<$person>" <<person>> as e_alias
-!define Person(e_alias, e_label, e_descr) rectangle "==e_label\n<$person>\n e_descr" <<person>> as e_alias
+!define Person(e_alias, e_label) rectangle "==e_label\n<$person{scale=0.5}>" <<person>> as e_alias
+!define Person(e_alias, e_label, e_descr) rectangle "==e_label\n<$person{scale=0.5}>\n e_descr" <<person>> as e_alias
 
-!define Person_Ext(e_alias, e_label) rectangle "==e_label\n<$person>" <<external_person>> as e_alias
-!define Person_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n<$person>\n e_descr" <<external_person>> as e_alias
+!define Person_Ext(e_alias, e_label) rectangle "==e_label\n<$person{scale=0.5}>" <<external_person>> as e_alias
+!define Person_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n<$person{scale=0.5}>\n e_descr" <<external_person>> as e_alias
 
 !define System(e_alias, e_label) rectangle "==e_label" <<system>> as e_alias
 !define System(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<system>> as e_alias

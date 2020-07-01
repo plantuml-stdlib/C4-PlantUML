@@ -32,7 +32,7 @@ skinparam database<<container>> {
 ' Layout
 ' ##################################
 
-!definelong LAYOUT_WITH_LEGEND
+!procedure LAYOUT_WITH_LEGEND()
 hide stereotype
 legend right
 |=              |= Type |
@@ -42,7 +42,7 @@ legend right
 |<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
 |<CONTAINER_BG_COLOR>   | container |
 endlegend
-!enddefinelong
+!endprocedure
 
 ' Elements
 ' ##################################

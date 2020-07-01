@@ -32,7 +32,7 @@ skinparam database<<component>> {
 ' Layout
 ' ##################################
 
-!definelong LAYOUT_WITH_LEGEND
+!procedure LAYOUT_WITH_LEGEND()
 hide stereotype
 legend right
 |=              |= Type |
@@ -43,7 +43,7 @@ legend right
 |<CONTAINER_BG_COLOR>   | container |
 |<COMPONENT_BG_COLOR>   | component |
 endlegend
-!enddefinelong
+!endprocedure
 
 ' Elements
 ' ##################################

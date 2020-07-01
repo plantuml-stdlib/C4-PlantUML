@@ -15,7 +15,7 @@ With the two macros `LAYOUT_TOP_DOWN` and `LAYOUT_LEFT_RIGHT` it is possible to 
 !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
 
 /' Not needed because this is the default '/
-LAYOUT_TOP_DOWN
+LAYOUT_TOP_DOWN()
 
 Person(admin, "Administrator")
 System_Boundary(c1, 'Sample') {
@@ -36,7 +36,7 @@ Using `LAYOUT_LEFT_RIGHT`
 @startuml LAYOUT_LEFT_RIGHT Sample
 !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
 
-LAYOUT_LEFT_RIGHT
+LAYOUT_LEFT_RIGHT()
 
 Person(admin, "Administrator")
 System_Boundary(c1, 'Sample') {
@@ -63,7 +63,7 @@ This can be enabled with `LAYOUT_WITH_LEGEND`.
 @startuml LAYOUT_WITH_LEGEND Sample
 !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
 
-LAYOUT_WITH_LEGEND
+LAYOUT_WITH_LEGEND()
 
 Person(admin, "Administrator")
 System_Boundary(c1, 'Sample') {
@@ -96,7 +96,7 @@ With `LAYOUT_AS_SKETCH` you can make a difference.
 @startuml LAYOUT_AS_SKETCH Sample
 !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
 
-LAYOUT_AS_SKETCH
+LAYOUT_AS_SKETCH()
 
 Person(admin, "Administrator")
 System_Boundary(c1, 'Sample') {

@@ -63,7 +63,7 @@ skinparam database<<external_system>> {
 ' Layout
 ' ##################################
 
-!definelong LAYOUT_WITH_LEGEND
+!procedure LAYOUT_WITH_LEGEND()
 hide stereotype
 legend right
 |=              |= Type |
@@ -72,7 +72,7 @@ legend right
 |<SYSTEM_BG_COLOR>   | system |
 |<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
 endlegend
-!enddefinelong
+!endprocedure
 
 ' Elements
 ' ##################################

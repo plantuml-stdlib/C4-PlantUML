@@ -3,7 +3,7 @@
 ' uncomment the following line and comment the first to use locally
 ' !include C4_Context.puml
 
-LAYOUT_WITH_LEGEND
+LAYOUT_WITH_LEGEND()
 
 title System Context diagram for Internet Banking System
 

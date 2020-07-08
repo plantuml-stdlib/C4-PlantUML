@@ -362,5 +362,63 @@
 			"}"
 		],
 		"description": "Add a generic boundary to C4 diagram."
+	},
+	"PlantUML_Note": {
+		"scope": "diagram",
+		"prefix": [
+			"Note generic"
+		],
+		"body": [
+			"note \"${1:content}\" as ${2:label}"
+		],
+		"description": "Add a generic note."
+	},
+	"PlantUML_Note_Left": {
+		"scope": "diagram",
+		"prefix": [
+			"Note left of element",
+		],
+		"body": [
+			"note left of ${1:element}",
+			"\t${3:content}"
+			"end note"
+		],
+		"description": "Add a note left of an element."
+	},
+	"PlantUML_Note_Right": {
+		"scope": "diagram",
+		"prefix": [
+			"Note right of element",
+		],
+		"body": [
+			"note right of ${1:element}",
+			"\t${3:content}"
+			"end note"
+		],
+		"description": "Add a note right of an element."
+	},
+	"PlantUML_Note_Top": {
+		"scope": "diagram",
+		"prefix": [
+			"Note above of element",
+		],
+		"body": [
+			"note top of ${1:element}",
+			"\t${3:content}"
+			"end note"
+		],
+		"description": "Add a note above an element."
+	},
+	"PlantUML_Note_Bottom": {
+		"scope": "diagram",
+		"prefix": [
+			"Note below of element",
+		],
+		"body": [
+			"note bottom of ${1:element}",
+			"\t${3:content}"
+			"end note"
+		],
+		"description": "Add a note below an element."
 	}
 }

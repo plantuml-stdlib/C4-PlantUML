@@ -68,66 +68,66 @@ center footer <font color=red>Warning:</font> Created for discussion, needs to b
 !define Rel(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-->")
 !define Rel(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-->")
 
-!define Rel_Async(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "..>")
-!define Rel_Async(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "..>")
+!define Rel_Dotted(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "..>")
+!define Rel_Dotted(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "..>")
 
 !define Rel_Back(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<--")
 !define Rel_Back(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<--")
 
-!define Rel_Back_Async(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<..")
-!define Rel_Back_Async(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<..")
+!define Rel_Back_Dotted(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<..")
+!define Rel_Back_Dotted(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<..")
 
 !define Rel_Neighbor(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, ".>")
 !define Rel_Neighbor(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, ".>")
 
-!define Rel_Neighbor_Async(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, ".>")
-!define Rel_Neighbor_Async(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, ".>")
+!define Rel_Neighbor_Dotted(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, ".>")
+!define Rel_Neighbor_Dotted(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, ".>")
 
 !define Rel_Back_Neighbor(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<-")
 !define Rel_Back_Neighbor(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<-")
 
-!define Rel_Back_Neighbor_Async(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<.")
-!define Rel_Back_Neighbor_Async(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<.")
+!define Rel_Back_Neighbor_Dotted(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<.")
+!define Rel_Back_Neighbor_Dotted(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<.")
 
 !define Rel_D(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-DOWN->")
 !define Rel_D(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-DOWN->")
 !define Rel_Down(e_from,e_to, e_label) Rel_D(e_from,e_to, e_label)
 !define Rel_Down(e_from,e_to, e_label, e_techn) Rel_D(e_from,e_to, e_label, e_techn)
 
-!define Rel_D_Async(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, ".DOWN.>")
-!define Rel_D_Async(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, ".DOWN.>")
-!define Rel_Down_Async(e_from,e_to, e_label) Rel_D_Async(e_from,e_to, e_label)
-!define Rel_Down_Async(e_from,e_to, e_label, e_techn) Rel_D_Async(e_from,e_to, e_label, e_techn)
+!define Rel_D_Dotted(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, ".DOWN.>")
+!define Rel_D_Dotted(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, ".DOWN.>")
+!define Rel_Down_Dotted(e_from,e_to, e_label) Rel_D_Dotted(e_from,e_to, e_label)
+!define Rel_Down_Dotted(e_from,e_to, e_label, e_techn) Rel_D_Dotted(e_from,e_to, e_label, e_techn)
 
 !define Rel_U(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-UP->")
 !define Rel_U(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-UP->")
 !define Rel_Up(e_from,e_to, e_label) Rel_U(e_from,e_to, e_label)
 !define Rel_Up(e_from,e_to, e_label, e_techn) Rel_U(e_from,e_to, e_label, e_techn)
 
-!define Rel_U_Async(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, ".UP.>")
-!define Rel_U_Async(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, ".UP.>")
-!define Rel_Up_Async(e_from,e_to, e_label) Rel_U_Async(e_from,e_to, e_label)
-!define Rel_Up_Async(e_from,e_to, e_label, e_techn) Rel_U_Async(e_from,e_to, e_label, e_techn)
+!define Rel_U_Dotted(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, ".UP.>")
+!define Rel_U_Dotted(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, ".UP.>")
+!define Rel_Up_Dotted(e_from,e_to, e_label) Rel_U_Dotted(e_from,e_to, e_label)
+!define Rel_Up_Dotted(e_from,e_to, e_label, e_techn) Rel_U_Dotted(e_from,e_to, e_label, e_techn)
 
 !define Rel_L(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-LEFT->")
 !define Rel_L(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-LEFT->")
 !define Rel_Left(e_from,e_to, e_label) Rel_L(e_from,e_to, e_label)
 !define Rel_Left(e_from,e_to, e_label, e_techn) Rel_L(e_from,e_to, e_label, e_techn)
 
-!define Rel_L_Async(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, ".LEFT.>")
-!define Rel_L_Async(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, ".LEFT.>")
-!define Rel_Left_Async(e_from,e_to, e_label) Rel_L_Async(e_from,e_to, e_label)
-!define Rel_Left_Async(e_from,e_to, e_label, e_techn) Rel_L_Async(e_from,e_to, e_label, e_techn)
+!define Rel_L_Dotted(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, ".LEFT.>")
+!define Rel_L_Dotted(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, ".LEFT.>")
+!define Rel_Left_Dotted(e_from,e_to, e_label) Rel_L_Dotted(e_from,e_to, e_label)
+!define Rel_Left_Dotted(e_from,e_to, e_label, e_techn) Rel_L_Dotted(e_from,e_to, e_label, e_techn)
 
 !define Rel_R(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-RIGHT->")
 !define Rel_R(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-RIGHT->")
 !define Rel_Right(e_from,e_to, e_label) Rel_R(e_from,e_to, e_label)
 !define Rel_Right(e_from,e_to, e_label, e_techn) Rel_R(e_from,e_to, e_label, e_techn)
 
-!define Rel_R_Async(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, ".RIGHT.>")
-!define Rel_R_Async(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, ".RIGHT.>")
-!define Rel_Right_Async(e_from,e_to, e_label) Rel_R_Async(e_from,e_to, e_label)
-!define Rel_Right_Async(e_from,e_to, e_label, e_techn) Rel_R_Async(e_from,e_to, e_label, e_techn)
+!define Rel_R_Dotted(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, ".RIGHT.>")
+!define Rel_R_Dotted(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, ".RIGHT.>")
+!define Rel_Right_Dotted(e_from,e_to, e_label) Rel_R_Dotted(e_from,e_to, e_label)
+!define Rel_Right_Dotted(e_from,e_to, e_label, e_techn) Rel_R_Dotted(e_from,e_to, e_label, e_techn)
 
 ' Layout Helpers
 ' ##################################

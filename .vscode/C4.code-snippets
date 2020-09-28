@@ -167,14 +167,14 @@
 		],
 		"description": "Add unidirectional Relationship to C4 diagram"
 	},
-	"C4_Relationship_Async": {
+	"C4_Relationship_Dotted": {
 		"scope": "diagram",
-		"prefix": "Relationship Async",
+		"prefix": "Relationship Dotted",
 		"body": [
-			"Rel_Async(${1:from_alias}, ${2:to_alias}, \"${3:label}\")",
+			"Rel_Dotted(${1:from_alias}, ${2:to_alias}, \"${3:label}\")",
 			"$0"
 		],
-		"description": "Add unidirectional asynchronous Relationship to C4 diagram"
+		"description": "Add unidirectional dotted Relationship to C4 diagram"
 	},
 	"C4_Relationship_Techn": {
 		"scope": "diagram",

@@ -17,6 +17,15 @@
 		],
 		"description": "Add Person with Description to C4 diagram"
 	},
+	"C4_Person_Descr_link": {
+		"scope": "diagram",
+		"prefix": "Person with Description",
+		"body": [
+			"Person(${1:alias}, \"${2:label}\", \"${3:description}\", \"${4:url}\")",
+			"$0"
+		],
+		"description": "Add Person with Description and with a linked url to C4 diagram"
+	},
 	"C4_Person_Ext": {
 		"scope": "diagram",
 		"prefix": [
@@ -41,6 +50,18 @@
 		],
 		"description": "Add External Person with Description to C4 diagram"
 	},
+	"C4_Person_Ext_Descr_link": {
+		"scope": "diagram",
+		"prefix": [
+			"External Person with Description",
+			"Person (External) with Description"
+		],
+		"body": [
+			"Person_Ext(${1:alias}, \"${2:label}\", \"${3:description}\", \"${4:url}\")",
+			"$0"
+		],
+		"description": "Add External Person with Description with a linked url to C4 diagram"
+	},
 	"C4_Container": {
 		"scope": "diagram",
 		"prefix": "Container",
@@ -59,6 +80,44 @@
 		],
 		"description": "Add Container with Description to C4 diagram"
 	},
+	"C4_Container_Descr_link": {
+		"scope": "diagram",
+		"prefix": "Container with Description",
+		"body": [
+			"Container(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\", \"${5:url}\")",
+			"$0"
+		],
+		"description": "Add Container with Description with a linked url to C4 diagram"
+	},
+
+	"C4_ContainerDb": {
+		"scope": "diagram",
+		"prefix": "ContainerDb",
+		"body": [
+			"ContainerDb(${1:alias}, \"${2:label}\", \"${3:technology}\")",
+			"$0"
+		],
+		"description": "Add ContainerDb to C4 diagram"
+	},
+	"C4_ContainerDb_Descr": {
+		"scope": "diagram",
+		"prefix": "ContainerDb with Description",
+		"body": [
+			"ContainerDb(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
+			"$0"
+		],
+		"description": "Add ContainerDb with Description to C4 diagram"
+	},
+	"C4_ContainerDb_Descr_link": {
+		"scope": "diagram",
+		"prefix": "ContainerDb with Description",
+		"body": [
+			"ContainerDb(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\", \"${5:url}\")",
+			"$0"
+		],
+		"description": "Add ContainerDb with Description with a linked url to C4 diagram"
+	},
+
 	"C4_Container_Boundary": {
 		"scope": "diagram",
 		"prefix": [
@@ -71,6 +130,19 @@
 			"}"
 		],
 		"description": "Add a Container Boundary to C4 diagram"
+	},
+	"C4_Container_Boundary_link": {
+		"scope": "diagram",
+		"prefix": [
+			"Container Boundary",
+			"Boundary for Container"
+		],
+		"body": [
+			"Container_Boundary(${1:alias}, \"${2:label}\", \"${3:url}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a Container Boundary with a linked url to C4 diagram"
 	},
 	"C4_Component": {
 		"scope": "diagram",
@@ -90,6 +162,44 @@
 		],
 		"description": "Add Component with Description to C4 diagram"
 	},
+	"C4_Component_Descr_link": {
+		"scope": "diagram",
+		"prefix": "Component with Description",
+		"body": [
+			"Component(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\", \"${5:url}\")",
+			"$0"
+		],
+		"description": "Add Component with Description with a linked url to C4 diagram"
+	},
+
+	"C4_ComponentDb": {
+		"scope": "diagram",
+		"prefix": "ComponentDb",
+		"body": [
+			"ComponentDb(${1:alias}, \"${2:label}\", \"${3:technology}\")",
+			"$0"
+		],
+		"description": "Add ComponentDb to C4 diagram"
+	},
+	"C4_ComponentDb_Descr": {
+		"scope": "diagram",
+		"prefix": "ComponentDb with Description",
+		"body": [
+			"ComponentDb(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
+			"$0"
+		],
+		"description": "Add ComponentDb with Description to C4 diagram"
+	},
+	"C4_ComponentDb_Descr_link": {
+		"scope": "diagram",
+		"prefix": "ComponentDb with Description",
+		"body": [
+			"ComponentDb(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\", \"${5:url}\")",
+			"$0"
+		],
+		"description": "Add ComponentDb with Description with a linked url to C4 diagram"
+	},
+
 	"C4_System": {
 		"scope": "diagram",
 		"prefix": "System",
@@ -107,6 +217,15 @@
 			"$0"
 		],
 		"description": "Add System with Description to C4 diagram"
+	},
+	"C4_System_Descr_link": {
+		"scope": "diagram",
+		"prefix": "System with Description",
+		"body": [
+			"System(${1:alias}, \"${2:label}\", \"${3:description}\",\"${4:url}\")",
+			"$0"
+		],
+		"description": "Add System with Description with a linked url to C4 diagram"
 	},
 	"C4_System_Ext": {
 		"scope": "diagram",
@@ -132,6 +251,18 @@
 		],
 		"description": "Add External System with Description to C4 diagram"
 	},
+	"C4_System_Ext_Descr_link": {
+		"scope": "diagram",
+		"prefix": [
+			"External System with Description",
+			"System (External) with Description"
+		],
+		"body": [
+			"System_Ext(${1:alias}, \"${2:label}\", \"${3:description}\",\"${4:url}\")",
+			"$0"
+		],
+		"description": "Add External System with Description with a linked url to C4 diagram"
+	},
 	"C4_System_Boundary": {
 		"scope": "diagram",
 		"prefix": [
@@ -145,6 +276,19 @@
 		],
 		"description": "Add a System Boundary to C4 diagram"
 	},
+	"C4_System_Boundary_link": {
+		"scope": "diagram",
+		"prefix": [
+			"System Boundary",
+			"Boundary for System"
+		],
+		"body": [
+			"System_Boundary(${1:alias}, \"${2:label}\",\"${3:url}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a System Boundary with a linked url to C4 diagram"
+	},
 	"C4_Enterprise_Boundary": {
 		"scope": "diagram",
 		"prefix": [
@@ -157,6 +301,19 @@
 			"}"
 		],
 		"description": "Add an Enterprise Boundary to C4 diagram"
+	},
+	"C4_Enterprise_Boundary_link": {
+		"scope": "diagram",
+		"prefix": [
+			"Enterprise Boundary",
+			"Boundary for Enterprise"
+		],
+		"body":[
+			"Enterprise_Boundary(${1:alias}, \"${2:label}\",\"${3:url}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add an Enterprise Boundary with a linked url to C4 diagram"
 	},
 	"C4_Relationship": {
 		"scope": "diagram",

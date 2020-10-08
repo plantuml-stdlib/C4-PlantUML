@@ -58,6 +58,7 @@ center footer <font color=red>Warning:</font> Created for discussion, needs to b
 
 !define Boundary(e_alias, e_label) rectangle "==e_label" <<boundary>> as e_alias
 !define Boundary(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<boundary>> as e_alias
+!define Boundary(e_alias, e_label, e_type, e_link) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<boundary>> as e_alias [[e_link]]
 
 ' Relationship
 ' ##################################

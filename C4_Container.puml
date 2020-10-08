@@ -49,11 +49,14 @@ endlegend
 
 !define Container(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
 !define Container(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
+!define Container(e_alias, e_label, e_techn, e_descr, e_link) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias [[e_link]]
 
 !define ContainerDb(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
 !define ContainerDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
+!define ContainerDb(e_alias, e_label, e_techn, e_descr, e_link) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias [[e_link]]
 
 ' Boundaries
 ' ##################################
 
 !define Container_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Container")
+!define Container_Boundary(e_alias, e_label,e_link) Boundary(e_alias, e_label, "Container", e_link)

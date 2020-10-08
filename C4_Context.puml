@@ -10,54 +10,86 @@
 ' Colors
 ' ##################################
 
+!ifndef PERSON_FONT_COLOR
+!define PERSON_FONT_COLOR ELEMENT_FONT_COLOR
+!endif
+!ifndef PERSON_BG_COLOR
 !define PERSON_BG_COLOR #08427B
+!endif
+!ifndef PERSON_BORDER_COLOR
+!define PERSON_BORDER_COLOR #073B6F
+!endif
+!ifndef EXTERNAL_PERSON_FONT_COLOR
+!define EXTERNAL_PERSON_FONT_COLOR ELEMENT_FONT_COLOR
+!endif
+!ifndef EXTERNAL_PERSON_BG_COLOR
 !define EXTERNAL_PERSON_BG_COLOR #686868
+!endif
+!ifndef EXTERNAL_PERSON_BORDER_COLOR
+!define EXTERNAL_PERSON_BORDER_COLOR #8A8A8A
+!endif
+!ifndef SYSTEM_FONT_COLOR
+!define SYSTEM_FONT_COLOR ELEMENT_FONT_COLOR
+!endif
+!ifndef SYSTEM_BG_COLOR
 !define SYSTEM_BG_COLOR #1168BD
+!endif
+!ifndef SYSTEM_BORDER_COLOR
+!define SYSTEM_BORDER_COLOR #3C7FC0
+!endif
+!ifndef EXTERNAL_SYSTEM_FONT_COLOR
+!define EXTERNAL_SYSTEM_FONT_COLOR ELEMENT_FONT_COLOR
+!endif
+!ifndef EXTERNAL_SYSTEM_BG_COLOR
 !define EXTERNAL_SYSTEM_BG_COLOR #999999
+!endif
+!ifndef EXTERNAL_SYSTEM_BORDER_COLOR
+!define EXTERNAL_SYSTEM_BORDER_COLOR #8A8A8A
+!endif
 
 ' Styling
 ' ##################################
 
 skinparam rectangle<<person>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor PERSON_FONT_COLOR
+    FontColor PERSON_FONT_COLOR
     BackgroundColor PERSON_BG_COLOR
-    BorderColor #073B6F
+    BorderColor PERSON_BORDER_COLOR
 }
 
 skinparam rectangle<<external_person>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor EXTERNAL_PERSON_FONT_COLOR
+    FontColor EXTERNAL_PERSON_FONT_COLOR
     BackgroundColor EXTERNAL_PERSON_BG_COLOR
-    BorderColor #8A8A8A
+    BorderColor EXTERNAL_PERSON_BORDER_COLOR
 }
 
 skinparam rectangle<<system>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor SYSTEM_FONT_COLOR
+    FontColor SYSTEM_FONT_COLOR
     BackgroundColor SYSTEM_BG_COLOR
-    BorderColor #3C7FC0
+    BorderColor SYSTEM_BORDER_COLOR
 }
 
 skinparam rectangle<<external_system>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor EXTERNAL_SYSTEM_FONT_COLOR
+    FontColor EXTERNAL_SYSTEM_FONT_COLOR
     BackgroundColor EXTERNAL_SYSTEM_BG_COLOR
-    BorderColor #8A8A8A
+    BorderColor EXTERNAL_SYSTEM_BORDER_COLOR
 }
 
 skinparam database<<system>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor SYSTEM_FONT_COLOR
+    FontColor SYSTEM_FONT_COLOR
     BackgroundColor SYSTEM_BG_COLOR
-    BorderColor #3C7FC0
+    BorderColor SYSTEM_BORDER_COLOR
 }
 
 skinparam database<<external_system>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor EXTERNAL_SYSTEM_FONT_COLOR
+    FontColor EXTERNAL_SYSTEM_FONT_COLOR
     BackgroundColor EXTERNAL_SYSTEM_BG_COLOR
-    BorderColor #8A8A8A
+    BorderColor EXTERNAL_SYSTEM_BORDER_COLOR
 }
 
 ' Layout

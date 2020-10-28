@@ -380,7 +380,7 @@
 		],
 		"body": [
 			"note left of ${1:element}",
-			"\t${3:content}"
+			"\t${3:content}",
 			"end note"
 		],
 		"description": "Add a note left of an element."
@@ -392,7 +392,7 @@
 		],
 		"body": [
 			"note right of ${1:element}",
-			"\t${3:content}"
+			"\t${3:content}",
 			"end note"
 		],
 		"description": "Add a note right of an element."
@@ -404,7 +404,7 @@
 		],
 		"body": [
 			"note top of ${1:element}",
-			"\t${3:content}"
+			"\t${3:content}",
 			"end note"
 		],
 		"description": "Add a note above an element."
@@ -416,7 +416,7 @@
 		],
 		"body": [
 			"note bottom of ${1:element}",
-			"\t${3:content}"
+			"\t${3:content}",
 			"end note"
 		],
 		"description": "Add a note below an element."

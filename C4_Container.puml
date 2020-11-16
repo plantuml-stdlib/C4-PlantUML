@@ -29,6 +29,13 @@ skinparam database<<container>> {
     BorderColor #3C7FC0
 }
 
+skinparam queue<<container>> {
+    StereotypeFontColor $ELEMENT_FONT_COLOR
+    FontColor $ELEMENT_FONT_COLOR
+    BackgroundColor $CONTAINER_BG_COLOR
+    BorderColor #3C7FC0
+}
+
 ' Layout
 ' ##################################
 
@@ -68,6 +75,10 @@ rectangle "$getContainer($label, $techn, $descr, $sprite)" <<container>> as $ali
 
 !unquoted procedure ContainerDb($alias, $label, $techn, $descr="", $sprite="")
 database "$getContainer($label, $techn, $descr, $sprite)" <<container>> as $alias
+!endprocedure
+
+!unquoted procedure ContainerQueue($alias, $label, $techn, $descr="", $sprite="")
+queue "$getContainer($label, $techn, $descr, $sprite)" <<container>> as $alias
 !endprocedure
 
 ' Boundaries

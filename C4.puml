@@ -32,6 +32,11 @@ skinparam database {
     shadowing false
 }
 
+skinparam queue {
+    StereotypeFontSize 12
+    shadowing false
+}
+
 skinparam Arrow {
     Color #666666
     FontColor #666666

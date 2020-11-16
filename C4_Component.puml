@@ -29,6 +29,13 @@ skinparam database<<component>> {
     BorderColor #78A8D8
 }
 
+skinparam queue<<component>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor $COMPONENT_BG_COLOR
+    BorderColor #78A8D8
+}
+
 ' Layout
 ' ##################################
 
@@ -69,4 +76,8 @@ rectangle "$getComponent($label, $techn, $descr, $sprite)" <<component>> as $ali
 
 !unquoted procedure ComponentDb($alias, $label, $techn, $descr="", $sprite="")
 database "$getComponent($label, $techn, $descr, $sprite)" <<component>> as $alias
+!endprocedure
+
+!unquoted procedure ComponentQueue($alias, $label, $techn, $descr="", $sprite="")
+queue "$getComponent($label, $techn, $descr, $sprite)" <<component>> as $alias
 !endprocedure

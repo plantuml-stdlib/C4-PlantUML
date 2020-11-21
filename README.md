@@ -32,7 +32,7 @@ Just remember to change the `!include` statements at the top of the files.
 If you want to use the always up-to-date version in this repo, use the following:
 
 ```c#
-!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 ```
 
 Now let's create a C4 Container diagram:
@@ -41,7 +41,7 @@ After you have included `C4_Container.puml` you can use the defined macro defini
 
 ```csharp
 @startuml C4_Elements
-!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
 Person(personAlias, "Label", "Optional Description")
 Container(containerAlias, "Label", "Technology", "Optional Description")
@@ -59,7 +59,7 @@ Take a look a look at the following sample of a C4 Container Diagram:
 
 ```csharp
 @startuml Basic Sample
-!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
 Person(admin, "Administrator")
 System_Boundary(c1, "Sample System") {
@@ -78,7 +78,7 @@ Entities can also be decorated with icons using the last parameter, for example:
 
 ```cs
 @startuml
-!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 ' uncomment the following line and comment the first to use locally
 ' !include C4_Container.puml
 
@@ -108,7 +108,7 @@ Rel_R(api, db, "Reads/Writes")
 ## Supported Diagram Types
 
 * System Context & System Landscape diagrams
-  * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Context.puml`
+  * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
   * Macros: 
     * `Person`
     * `Person_Ext`
@@ -128,7 +128,7 @@ Rel_R(api, db, "Reads/Writes")
     * `ContainerQueue_Ext`
     * `Container_Boundary`
 * Component diagram
-  * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Component.puml`
+  * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
   * Additional Macros: 
     * `Component`
     * `ComponentDb`
@@ -137,13 +137,13 @@ Rel_R(api, db, "Reads/Writes")
     * `ComponentDb_Ext`
     * `ComponentQueue_Ext`
 * Dynamic diagram
-  * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Dynamic.puml`
+  * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml`
   * Additional Macros: 
     * `RelIndex`
     * `increment`
     * `setIndex`
 * Deployment diagram
-  * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Deployment.puml`
+  * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml`
   * Additional Macros: 
     * `Deployment_Node`
 

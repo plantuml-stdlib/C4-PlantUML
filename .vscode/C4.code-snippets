@@ -93,6 +93,28 @@
 		],
 		"description": "Add Container with Description to C4 diagram"
 	},
+	"C4_Container_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Container",
+			"Container (External)"
+		],
+		"body": [
+			"Container_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add External Container to C4 diagram"
+	},
+	"C4_Container_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Container with Description",
+			"Container (External) with Description"
+		],
+		"body": [
+			"Container_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add External Container with Description to C4 diagram"
+	},
 	"C4_ContainerDb": {
 		"scope": "plantuml",
 		"prefix": "Database Container",
@@ -109,6 +131,28 @@
 		],
 		"description": "Add Database Container with Description to C4 diagram"
 	},
+	"C4_ContainerDb_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Database Container",
+			"Database Container (External)"
+		],
+		"body": [
+			"ContainerDb_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add External Database Container to C4 diagram"
+	},
+	"C4_ContainerDb_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Database Container with Description",
+			"Database Container (External) with Description"
+		],
+		"body": [
+			"ContainerDb_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add External Database Container with Description to C4 diagram"
+	},
 	"C4_ContainerQueue": {
 		"scope": "plantuml",
 		"prefix": "Queue Container",
@@ -124,6 +168,28 @@
 			"ContainerQueue(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
 		],
 		"description": "Add Queue Container with Description to C4 diagram"
+	},
+	"C4_ContainerQueue_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Queue Container",
+			"Queue Container (External)"
+		],
+		"body": [
+			"ContainerQueue_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add External Queue Container to C4 diagram"
+	},
+	"C4_ContainerQueue_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Queue Container with Description",
+			"Queue Container (External) with Description"
+		],
+		"body": [
+			"ContainerQueue_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add ExternalQueue Container with Description to C4 diagram"
 	},
 	"C4_Container_Boundary": {
 		"scope": "plantuml",
@@ -154,6 +220,28 @@
 		],
 		"description": "Add Component with Description to C4 diagram"
 	},
+	"C4_Component_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Component",
+			"Component (External)"
+		],
+		"body": [
+			"Component_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add External Component to C4 diagram"
+	},
+	"C4_Component_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Component with Description",
+			"Component (External) with Description"
+		],
+		"body": [
+			"Component_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add External Component with Description to C4 diagram"
+	},
 	"C4_ComponentDb": {
 		"scope": "plantuml",
 		"prefix": "Database Component",
@@ -170,6 +258,28 @@
 		],
 		"description": "Add Database Component with Description to C4 diagram"
 	},
+	"C4_ComponentDb_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Database Component",
+			"Database Component (External)"
+		],
+		"body": [
+			"ComponentDb_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add External Database Component to C4 diagram"
+	},
+	"C4_ComponentDb_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Database Component with Description",
+			"Database Component (External) with Description"
+		],
+		"body": [
+			"ComponentDb_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add External Database Component with Description to C4 diagram"
+	},
 	"C4_ComponentQueue": {
 		"scope": "plantuml",
 		"prefix": "Queue Component",
@@ -185,6 +295,28 @@
 			"ComponentQueue(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
 		],
 		"description": "Add Queue Component with Description to C4 diagram"
+	},
+	"C4_ComponentQueue_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Queue Component",
+			"Queue Component (External)"
+		],
+		"body": [
+			"ComponentQueue_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add External Queue Component to C4 diagram"
+	},
+	"C4_ComponentQueue_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Queue Component with Description",
+			"Queue Component (External) with Description"
+		],
+		"body": [
+			"ComponentQueue_Ext(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add External Queue Component with Description to C4 diagram"
 	},
 	"C4_System": {
 		"scope": "plantuml",

@@ -109,19 +109,37 @@ Rel_R(api, db, "Reads/Writes")
 
 * System Context & System Landscape diagrams
   * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Context.puml`
-  * Macros: `Person`, `Person_Ext`, `System`, `System_Ext`, `SystemDb`, `SystemDb_Ext`, `Boundary`, `System_Boundary`, `Enterprise_Boundary`
+  * Macros: 
+    * `Person`
+    * `Person_Ext`
+    * `System`
+    * `System_Ext`
+    * `Boundary` 
+    * `System_Boundary` 
+    * `Enterprise_Boundary`
 * Container diagram
-  * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml`
-  * Additional Macros: `Container`, `ContainerDb`, `Container_Boundary`
+  * Import: `!include https://raw.githubusercontent.com/adrianvlupu/latest/C4_Container.puml`
+  * Additional Macros: 
+    * `Container`
+    * `ContainerDb`
+    * `ContainerQueue`
+    * `Container_Boundary`
 * Component diagram
   * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Component.puml`
-  * Additional Macros: `Component`, `ComponentDb`
+  * Additional Macros: 
+    * `Component`
+    * `ComponentDb`
+    * `ComponentQueue`
 * Dynamic diagram
   * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Dynamic.puml`
-  * Additional Macros: `RelIndex`, `increment`, `setIndex`
+  * Additional Macros: 
+    * `RelIndex`
+    * `increment`
+    * `setIndex`
 * Deployment diagram
   * Import: `!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Deployment.puml`
-  * Additional Macros: `Deployment_Node`
+  * Additional Macros: 
+    * `Deployment_Node`
 
 Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).
 

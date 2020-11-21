@@ -109,6 +109,22 @@
 		],
 		"description": "Add Database Container with Description to C4 diagram"
 	},
+	"C4_ContainerQueue": {
+		"scope": "plantuml",
+		"prefix": "Queue Container",
+		"body": [
+			"ContainerQueue(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add Queue Container to C4 diagram"
+	},
+	"C4_ContainerQueue_Descr": {
+		"scope": "plantuml",
+		"prefix": "Queue Container with Description",
+		"body": [
+			"ContainerQueue(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add Queue Container with Description to C4 diagram"
+	},
 	"C4_Container_Boundary": {
 		"scope": "plantuml",
 		"prefix": [
@@ -153,6 +169,22 @@
 			"ComponentDb(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
 		],
 		"description": "Add Database Component with Description to C4 diagram"
+	},
+	"C4_ComponentQueue": {
+		"scope": "plantuml",
+		"prefix": "Queue Component",
+		"body": [
+			"ComponentQueue(${1:alias}, \"${2:label}\", \"${3:technology}\")"
+		],
+		"description": "Add Queue Component to C4 diagram"
+	},
+	"C4_ComponentQueue_Descr": {
+		"scope": "plantuml",
+		"prefix": "Queue Component with Description",
+		"body": [
+			"ComponentQueue(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")"
+		],
+		"description": "Add Queue Component with Description to C4 diagram"
 	},
 	"C4_System": {
 		"scope": "plantuml",

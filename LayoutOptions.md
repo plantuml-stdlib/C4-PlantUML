@@ -63,7 +63,7 @@ This can be enabled with `LAYOUT_WITH_LEGEND`.
 @startuml LAYOUT_WITH_LEGEND Sample
 !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
 
-LAYOUT_WITH_LEGEND
+LAYOUT_WITH_LEGEND()
 
 Person(admin, "Administrator")
 System_Boundary(c1, 'Sample') {
@@ -96,7 +96,7 @@ With `LAYOUT_AS_SKETCH` you can make a difference.
 @startuml LAYOUT_AS_SKETCH Sample
 !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
 
-LAYOUT_AS_SKETCH
+LAYOUT_AS_SKETCH()
 
 Person(admin, "Administrator")
 System_Boundary(c1, 'Sample') {

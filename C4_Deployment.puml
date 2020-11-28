@@ -1,0 +1,23 @@
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Container.puml
+
+' Styling
+' ##################################
+
+skinparam rectangle<<node>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #000000
+    BorderColor #A2A2A2
+    BorderStyle solid
+}
+
+' Elements
+' ##################################
+!unquoted function Deployment_Node($alias, $label)
+!return 'rectangle "=='+$label+'" <<node>> as '+$alias
+!endfunction
+!unquoted function Deployment_Node($alias, $label, $type)
+!return 'rectangle "=='+$label+'\n<size:'+$TECHN_FONT_SIZE+'>['+$type+']</size>" <<node>> as '+$alias
+!endfunction

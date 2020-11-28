@@ -1,14 +1,14 @@
-@startuml "bigbankplc"
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+@startuml "messagebus"
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 ' uncomment the following line and comment the first to use locally
 ' !include C4_Container.puml
 
 skinparam wrapWidth 200
 skinparam maxMessageSize 200
 
-LAYOUT_TOP_DOWN
-'LAYOUT_AS_SKETCH
-LAYOUT_WITH_LEGEND
+LAYOUT_TOP_DOWN()
+'LAYOUT_AS_SKETCH()
+LAYOUT_WITH_LEGEND()
 
 
 Person(customer, Customer, "A customer")

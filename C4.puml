@@ -1,20 +1,25 @@
-' C4-PlantUML, version 1.0.0
-' https://github.com/RicardoNiepel/C4-PlantUML
+' C4-PlantUML
 
 ' Colors
 ' ##################################
 
-!define ELEMENT_FONT_COLOR #FFFFFF
+!global $ELEMENT_FONT_COLOR = "#FFFFFF"
+!global $LEGEND_FONT_COLOR = "#FFFFFF"
+!global $LEGEND_TITLE_COLOR = "#000000"
 
 ' Styling
 ' ##################################
 
-!define TECHN_FONT_SIZE 12
+!global $TECHN_FONT_SIZE = 12
 
 skinparam defaultTextAlignment center
 
 skinparam wrapWidth 200
 skinparam maxMessageSize 150
+
+skinparam LegendBorderColor transparent
+skinparam LegendBackgroundColor transparent
+skinparam LegendFontColor $LEGEND_FONT_COLOR
 
 skinparam rectangle {
     StereotypeFontSize 12
@@ -22,6 +27,11 @@ skinparam rectangle {
 }
 
 skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam queue {
     StereotypeFontSize 12
     shadowing false
 }
@@ -43,64 +53,196 @@ skinparam rectangle<<boundary>> {
 ' Layout
 ' ##################################
 
-!definelong LAYOUT_AS_SKETCH
+!procedure HIDE_STEREOTYPE()
+hide stereotype
+!endprocedure
+
+!procedure LAYOUT_AS_SKETCH()
 skinparam backgroundColor #EEEBDC
 skinparam handwritten true
 skinparam defaultFontName "Comic Sans MS"
 center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
-!enddefinelong
+!endprocedure
 
-!define LAYOUT_TOP_DOWN top to bottom direction
-!define LAYOUT_LEFT_RIGHT left to right direction
+!procedure LAYOUT_TOP_DOWN()
+top to bottom direction
+!endprocedure
+
+!procedure LAYOUT_LEFT_RIGHT() 
+left to right direction
+!endprocedure
 
 ' Boundaries
 ' ##################################
 
-!define Boundary(e_alias, e_label) rectangle "==e_label" <<boundary>> as e_alias
-!define Boundary(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<boundary>> as e_alias
+!unquoted function Boundary($alias, $label)
+!return 'rectangle "=='+$label+'" <<boundary>> as '+$alias
+!endfunction
+!unquoted function Boundary($alias, $label, $type)
+!return 'rectangle "=='+$label+'\n<size:'+$TECHN_FONT_SIZE+'>['+$type+']</size>" <<boundary>> as '+$alias
+!endfunction
 
 ' Relationship
 ' ##################################
 
-!define Rel_(e_alias1, e_alias2, e_label, e_direction="") e_alias1 e_direction e_alias2 : "===e_label"
-!define Rel_(e_alias1, e_alias2, e_label, e_techn, e_direction="") e_alias1 e_direction e_alias2 : "===e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//"
+!unquoted procedure Rel_($alias1, $alias2, $label, $direction="")
+$alias1 $direction $alias2 : **$label**
+!endprocedure
+!unquoted procedure Rel_($alias1, $alias2, $label, $techn, $direction="")
+$alias1 $direction $alias2 : **$label**\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//
+!endprocedure
 
-!define Rel(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-->")
-!define Rel(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-->")
+!unquoted procedure Rel($from, $to, $label)
+Rel_($from, $to, $label, "-->>")
+!endprocedure
+!unquoted procedure Rel($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-->>")
+!endprocedure
 
-!define Rel_Back(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<--")
-!define Rel_Back(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<--")
+!unquoted procedure BiRel($from, $to, $label)
+Rel_($from, $to, $label, "<<-->>")
+!endprocedure
+!unquoted procedure BiRel($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-->>")
+!endprocedure
 
-!define Rel_Neighbor(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "->")
-!define Rel_Neighbor(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "->")
+!unquoted procedure Rel_Back($from, $to, $label)
+Rel_($from, $to, $label, "<<--")
+!endprocedure
+!unquoted procedure Rel_Back($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<--")
+!endprocedure
 
-!define Rel_Back_Neighbor(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<-")
-!define Rel_Back_Neighbor(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<-")
+!unquoted procedure Rel_Neighbor($from, $to, $label)
+Rel_($from, $to, $label, "->>")
+!endprocedure
+!unquoted procedure Rel_Neighbor($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "->>")
+!endprocedure
 
-!define Rel_D(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-DOWN->")
-!define Rel_D(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-DOWN->")
-!define Rel_Down(e_from,e_to, e_label) Rel_D(e_from,e_to, e_label)
-!define Rel_Down(e_from,e_to, e_label, e_techn) Rel_D(e_from,e_to, e_label, e_techn)
+!unquoted procedure Rel_Back_Neighbor($from, $to, $label)
+Rel_($from, $to, $label, "<<-")
+!endprocedure
+!unquoted procedure Rel_Back_Neighbor($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-")
+!endprocedure
 
-!define Rel_U(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-UP->")
-!define Rel_U(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-UP->")
-!define Rel_Up(e_from,e_to, e_label) Rel_U(e_from,e_to, e_label)
-!define Rel_Up(e_from,e_to, e_label, e_techn) Rel_U(e_from,e_to, e_label, e_techn)
+!unquoted procedure Rel_D($from, $to, $label)
+Rel_($from, $to, $label, "-DOWN->>")
+!endprocedure
+!unquoted procedure Rel_D($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-DOWN->>")
+!endprocedure
+!unquoted procedure Rel_Down($from, $to, $label)
+Rel_($from, $to, $label, "-DOWN->>")
+!endprocedure
+!unquoted procedure Rel_Down($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-DOWN->>")
+!endprocedure
 
-!define Rel_L(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-LEFT->")
-!define Rel_L(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-LEFT->")
-!define Rel_Left(e_from,e_to, e_label) Rel_L(e_from,e_to, e_label)
-!define Rel_Left(e_from,e_to, e_label, e_techn) Rel_L(e_from,e_to, e_label, e_techn)
+!unquoted procedure BiRel_D($from, $to, $label)
+Rel_($from, $to, $label, "<<-DOWN->>")
+!endprocedure
+!unquoted procedure BiRel_D($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-DOWN->>")
+!endprocedure
+!unquoted procedure BiRel_Down($from, $to, $label)
+Rel_($from, $to, $label, "<<-DOWN->>")
+!endprocedure
+!unquoted procedure BiRel_Down($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-DOWN->>")
+!endprocedure
 
-!define Rel_R(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-RIGHT->")
-!define Rel_R(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-RIGHT->")
-!define Rel_Right(e_from,e_to, e_label) Rel_R(e_from,e_to, e_label)
-!define Rel_Right(e_from,e_to, e_label, e_techn) Rel_R(e_from,e_to, e_label, e_techn)
+!unquoted procedure Rel_U($from, $to, $label)
+Rel_($from, $to, $label, "-UP->>")
+!endprocedure
+!unquoted procedure Rel_U($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-UP->>")
+!endprocedure
+!unquoted procedure Rel_Up($from, $to, $label)
+Rel_($from, $to, $label, "-UP->>")
+!endprocedure
+!unquoted procedure Rel_Up($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-UP->>")
+!endprocedure
+
+!unquoted procedure BiRel_U($from, $to, $label)
+Rel_($from, $to, $label, "<<-UP->>")
+!endprocedure
+!unquoted procedure BiRel_U($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-UP->>")
+!endprocedure
+!unquoted procedure BiRel_Up($from, $to, $label)
+Rel_($from, $to, $label, "<<-UP->>")
+!endprocedure
+!unquoted procedure BiRel_Up($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-UP->>")
+!endprocedure
+
+!unquoted procedure Rel_L($from, $to, $label)
+Rel_($from, $to, $label, "-LEFT->>")
+!endprocedure
+!unquoted procedure Rel_L($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-LEFT->>")
+!endprocedure
+!unquoted procedure Rel_Left($from, $to, $label)
+Rel_($from, $to, $label, "-LEFT->>")
+!endprocedure
+!unquoted procedure Rel_Left($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-LEFT->>")
+!endprocedure
+
+!unquoted procedure BiRel_L($from, $to, $label)
+Rel_($from, $to, $label, "<<-LEFT->>")
+!endprocedure
+!unquoted procedure BiRel_L($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-LEFT->>")
+!endprocedure
+!unquoted procedure BiRel_Left($from, $to, $label)
+Rel_($from, $to, $label, "<<-LEFT->>")
+!endprocedure
+!unquoted procedure BiRel_Left($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-LEFT->>")
+!endprocedure
+
+!unquoted procedure Rel_R($from, $to, $label)
+Rel_($from, $to, $label, "-RIGHT->>")
+!endprocedure
+!unquoted procedure Rel_R($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-RIGHT->>")
+!endprocedure
+!unquoted procedure Rel_Right($from, $to, $label)
+Rel_($from, $to, $label, "-RIGHT->>")
+!endprocedure
+!unquoted procedure Rel_Right($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-RIGHT->>")
+!endprocedure
+
+!unquoted procedure BiRel_R($from, $to, $label)
+Rel_($from, $to, $label, "<<-RIGHT->>")
+!endprocedure
+!unquoted procedure BiRel_R($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-RIGHT->>")
+!endprocedure
+!unquoted procedure BiRel_Right($from, $to, $label)
+Rel_($from, $to, $label, "<<-RIGHT->>")
+!endprocedure
+!unquoted procedure BiRel_Right($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-RIGHT->>")
+!endprocedure
 
 ' Layout Helpers
 ' ##################################
 
-!define Lay_D(e_from, e_to) e_from -[hidden]D- e_to
-!define Lay_U(e_from, e_to) e_from -[hidden]U- e_to
-!define Lay_R(e_from, e_to) e_from -[hidden]R- e_to
-!define Lay_L(e_from, e_to) e_from -[hidden]L- e_to
+!unquoted procedure Lay_D($from, $to)
+$from -[hidden]D- $to
+!endprocedure
+!unquoted procedure Lay_U($from, $to)
+$from -[hidden]U- $to
+!endprocedure
+!unquoted procedure Lay_R($from, $to)
+$from -[hidden]R- $to
+!endprocedure
+!unquoted procedure Lay_L($from, $to)
+$from -[hidden]L- $to
+!endprocedure

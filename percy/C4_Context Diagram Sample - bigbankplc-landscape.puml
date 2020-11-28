@@ -2,8 +2,8 @@
 !include ./../C4_Context.puml
 !include ./../C4.puml
 
-'LAYOUT_TOP_DOWN
-'LAYOUT_AS_SKETCH
+'LAYOUT_TOP_DOWN()
+'LAYOUT_AS_SKETCH()
 LAYOUT_WITH_LEGEND()
 
 title System Landscape diagram for Big Bank plc

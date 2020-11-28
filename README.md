@@ -107,30 +107,32 @@ Rel_R(api, db, "Reads/Writes")
 
 ## Supported Diagram Types
 
+Diagram types 
+
 * System Context & System Landscape diagrams
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
   * Macros: 
-    * `Person`
+    * `Person(alias, label, ?description, ?sprite)`
     * `Person_Ext`
-    * `System`
+    * `System(alias, label, ?description, ?sprite)`
     * `System_Ext`
-    * `Boundary` 
+    * `Boundary(alias, label, ?type)` 
+    * `Enterprise_Boundary(alias, label)`
     * `System_Boundary` 
-    * `Enterprise_Boundary`
 * Container diagram
-  * Import: `!include https://raw.githubusercontent.com/adrianvlupu/latest/C4_Container.puml`
+  * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
   * Additional Macros: 
-    * `Container`
+    * `Container(alias, label, technology, ?description, ?sprite)`
     * `ContainerDb`
     * `ContainerQueue`
     * `Container_Ext`
     * `ContainerDb_Ext`
     * `ContainerQueue_Ext`
-    * `Container_Boundary`
+    * `Container_Boundary(alias, label)`
 * Component diagram
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
   * Additional Macros: 
-    * `Component`
+    * `Component(alias, label, technology, ?description, ?sprite)`
     * `ComponentDb`
     * `ComponentQueue`
     * `Component_Ext`
@@ -139,15 +141,38 @@ Rel_R(api, db, "Reads/Writes")
 * Dynamic diagram
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml`
   * Additional Macros: 
-    * `RelIndex`
-    * `increment`
-    * `setIndex`
+    * `RelIndex(index, from, to, label)`
+    * `increment()`
+    * `setIndex(number)`
 * Deployment diagram
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml`
   * Additional Macros: 
-    * `Deployment_Node`
+    * `Deployment_Node(alias, label, ?type)`
 
 Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).
+
+## Relationship Types
+
+* `Rel(from, to, label, ?technology)`
+* `BiRel` (bidirectional relationship)
+
+You can force the direction of a relationship by using:
+
+* `Rel_U`, `Rel_Up`
+* `Rel_D`, `Rel_Down`
+* `Rel_L`, `Rel_Left`
+* `Rel_R`, `Rel_Right`
+
+In rare cases, you can force the layout using hidden relationships, `Lay_U`, `Lay_D`, `Lay_L`, `Lay_R`.
+
+## Layout Options
+
+C4-PlantUML also comes with some layout options to make it easy and reuseable to create nice and useful diagrams:
+
+* [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT()](LayoutOptions.md#layout_top_down-or-layout_left_right)
+* [LAYOUT_WITH_LEGEND()](LayoutOptions.md#layout_with_legend)
+* [LAYOUT_AS_SKETCH()](LayoutOptions.md#layout_as_sketch)
+* [HIDE_STEREOTYPE()](LayoutOptions.md#hide_stereotype)
 
 ## Snippets for Visual Studio Code
 
@@ -159,15 +184,6 @@ Just include the `C4.code-snippets` file in the `.vscode` folder of your project
 It is possible to save them directly inside VS Code: [Creating your own snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets).
 
 ![C4-PlantUML Snippets Video](images/vscode_c4plantuml_snippets.gif)
-
-## Layout Options
-
-C4-PlantUML also comes with some layout options to make it easy and reuseable to create nice and useful diagrams:
-
-* [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT()](LayoutOptions.md#layout_top_down-or-layout_left_right)
-* [LAYOUT_WITH_LEGEND()](LayoutOptions.md#layout_with_legend)
-* [LAYOUT_AS_SKETCH()](LayoutOptions.md#layout_as_sketch)
-* [HIDE_STEREOTYPE()](LayoutOptions.md#hide_stereotype)
 
 ## Advanced Samples
 

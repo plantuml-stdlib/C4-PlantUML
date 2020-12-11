@@ -1,3 +1,60 @@
+<span style="color:red">
+
+# This master branch is not maintained anymore
+
+The extensions (e.g "Dynamic diagram", "Deployment diagram" and other fixes) are integrated in [github.com/plantuml-stdlib/C4-PlantUML](https://github.com/plantuml-stdlib/C4-PlantUML).
+
+I leave the master branch unchanged that all existing *.puml diagrams remains valid
+(with there **!includeurl https://raw.githubusercontent.com/kirchsth/C4-PlantUML/master/...** references).
+
+With following small changes you can move to [plantuml-stdlib/C4-PlantUML](https://github.com/plantuml-stdlib/C4-PlantUML).
+
+- [ ] in all **!includeurl** ...**kirchsth**... to **!include** ...**plantuml-stdlib**...
+- [ ] **Interact...**(...) to **Rel...**() (C4_Dynamic.puml defines new  Rel...() handling with automatic indexing,...)
+- [ ] **Interact2...***(...) to **RelIndex...**()
+- [ ] update to latest plantuml-server version
+
+
+old
+```
+@startuml
+!includeurl https://raw.githubusercontent.com/kirchsth/C4-PlantUML/master/C4_Dynamic.puml
+
+ContainerDb(c4, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
+Container(c1, "Single-Page Application", "JavaScript and Angular", "Provides all of the Internet banking functionality to customers via their web browser.")
+Container_Boundary(b, "API Application") {
+  Component(c3, "Security Component", "Spring Bean", "Provides functionality related to signing in, changing passwords, etc.")
+  Component(c4, "Sign In Controller", "Spring MVC Rest Controller", "Allows users to sign in to the Internet Banking System.")
+}
+Interact_Right(c1, c2, "Submits credentials to", "JSON/HTTPS")
+Interact(c2, c3, "Calls isAuthenticated() on")
+Interact_Right(c3, c4, "select * from users where username = ?", "JDBC")
+@enduml
+```
+new
+```
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml
+
+ContainerDb(c4, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
+Container(c1, "Single-Page Application", "JavaScript and Angular", "Provides all of the Internet banking functionality to customers via their web browser.")
+Container_Boundary(b, "API Application") {
+  Component(c3, "Security Component", "Spring Bean", "Provides functionality Related to signing in, changing passwords, etc.")
+  Component(c2, "Sign In Controller", "Spring MVC Rest Controller", "Allows users to sign in to the Internet Banking System.")
+}
+Rel_Right(c1, c2, "Submits credentials to", "JSON/HTTPS")
+Rel(c2, c3, "Calls isAuthenticated() on")
+Rel_Right(c3, c4, "select * from users where username = ?", "JDBC")
+@enduml
+```
+
+### [Structurizr based C4PlantUML writer](https://github.com/structurizr/dotnet-extensions/blob/master/docs/c4-plantuml.md)
+
+Related to these *.puml diagrams exists a Structurirz extension [C4PlantUmlWriter](https://github.com/structurizr/dotnet-extensions/blob/master/Structurizr.PlantUML/IO/C4PlantUML/C4PlantUmlWriter.csThe).
+This extension will be updated soon.
+
+</span>
+
 # C4-PlantUML
 
 ![Container diagram for Internet Banking System](http://www.plantuml.com/plantuml/png/pPLjZzCu4CVVzrECojlssbrWsKFTYZwmEX2zwrrw1n8WD4ccgOLZHxQpfHnyztDSDoJhLjp3eYChhTePpzy__psPFj46bIbptj7lcIXGOGufhR7aPaKVp8IpJEGa32Js7wd6ggt2uYLBpGREXyD6FCSF2z8QCuhOHuApXysaeiIWo3Z1dnsmJsGrIPfTGTTIc7t1kSle3QPooqG6Q-IQEf-RW6WmHltVH2PAoQrNc4ak5ToxS8-BL4fXjAd_-TYnHgDObY95jHkF3tHjXbF4ms23MnWFtEEYKwbIKgVYaTbnWXJrXj9Jb0KfBOLZ37cyyBLxQemmEiNaVQQgy_hSyFB1-QDfY3XyT7zwSNsAnROPAO7ytRU1khYi_aAeoqdrTmfAxxIX_AvPpiukBgVpaEN-xD7rRFXLWxuDr8_kEMrG-E9z3_vubE_4dk3E4YkEJ92wQvm7zo_dyuV_qAB_ZyR80eo4M1eZBH6hB69IT3Oi9T0rH8TJHY85nRADwNowWjPZlw_i8lZK-JJoGsRiCx0V6YxbN_KwTMYCvXhVOcEtODymBkwlEQXjhl6dtTVMbjgK9T_pTmmpd61MvrA6MNKLQwdWcQWaoLWNXRsZ328dtQcx1hfNLxDIMwD8lH5l14mWyLz1hi5i269RseCjCnj_AEGk1fWazbgCxa9ZkAEk1Tgx12Ylzonlkz3y1NC2PxvZMW8lAOP9KN2Me67IiWu68yq-qkEpy_7hvtY3FOWALIal_fYz7Gsgt7WmSAUQ4sSt5j4TI1iha3WtIHX0aRfm3HWVl5fEkj1kP0ktfVWT5aN85x7gKt-96LMS8L-KA5QO7an4Ld9Kjn2NIjwmb3GWvyTvrgLmZOoScHqOQOrsFckuOLYLC5NHGQpaLfCwmguB3BaNCcRy2FBiNWzUOOwAYPEem5dE3AMWorXRLBd-s-WwOC_t82dTi8H2Uf-lpVUZnfrXxZ-tJn3z-W8EcLj7Y8nKfA7Kf41HnhHHQFc0YRLKkMkm7cniNGfOcWqaYb8IXY7NlQhnIMlWChDVo2G_XB0rNUZtPFdiQtqybybxKlKxVQfLlkApizRkTeGkHhk1IAsNp0xC5jxJ_W8PzuF2RRVQ433XPzE29KfgkJRmz4EoiLNanrKNmfz5jnVbo0wHzbPs8x5McDEjyTIy8UJyq5M93TGdRLmKO2nBywMbUlLawe5HA3GwJ_nTdUJqoWVIWnpq--F3Im-FA-ohtpNfzhNzj5ejeo-tr6rNwmB_NMMZvHi2tSu1fwNjPvnDsvYhRjpooVrHxqJIW-VHBpyF0fR6zdUYLx-oe_uHiTy8Kmrh9NCtaxUA6T9WP7i3hp-VpewvPfNxhOxpsX49gqtzAbDfTZlDHROg00gAIir4TembMgoMJPQca7MjtLTDumAjWNVlrU95QDuJgrdc_2y0 "Container diagram for Internet Banking System")

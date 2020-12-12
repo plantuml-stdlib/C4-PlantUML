@@ -2,22 +2,71 @@
 ' uncomment the following line and comment the first to use locally
 ' !include C4_Container.puml
 
+' Colors
+' ##################################
+
+!global $NODE_FONT_COLOR = "#000000"
+!global $NODE_BORDER_COLOR = "#A2A2A2"
+
 ' Styling
 ' ##################################
 
 skinparam rectangle<<node>> {
     Shadowing false
     StereotypeFontSize 0
-    FontColor #000000
-    BorderColor #A2A2A2
+    FontColor $NODE_FONT_COLOR
+    BorderColor $NODE_BORDER_COLOR
     BorderStyle solid
 }
+
+' Special
+' ##################################
+
+' PlantUML supports no automatic line breaks of "PlantUML containers" (C4 Deployment_Node is a "PlantUML container")
+' therefore Deployment_Node() implements an automatic line break based on spaces (like in all other objects).
+' If a $type contains \n then the these are used (and no automatic space based line breaks are done)
+' $NODE_TYPE_MAX_CHAR_WIDTH defines the automatic line break position
+!global $NODE_TYPE_MAX_CHAR_WIDTH = 35
 
 ' Elements
 ' ##################################
 !unquoted function Deployment_Node($alias, $label)
 !return 'rectangle "=='+$label+'" <<node>> as '+$alias
 !endfunction
+
 !unquoted function Deployment_Node($alias, $label, $type)
-!return 'rectangle "=='+$label+'\n<size:'+$TECHN_FONT_SIZE+'>['+$type+']</size>" <<node>> as '+$alias
+!$multiLine = ""
+!if (%strpos($type, "\n") >= 0)
+  !while (%strpos($type, "\n") >= 0)
+    !$brPos = %strpos($type, "\n")
+    !$multiLine = $multiLine + %substr($type, 0, $brPos) + '</size>\n<size:'+$TECHN_FONT_SIZE+'>'
+    !$type = %substr($type, $brPos+2)
+  !endwhile
+!else
+  !while (%strlen($type)>$NODE_TYPE_MAX_CHAR_WIDTH)
+    !$brPos = $NODE_TYPE_MAX_CHAR_WIDTH
+    !while ($brPos>0 && %substr($type, $brPos, 1)!= ' ')
+      !$brPos = $brPos - 1
+    !endwhile
+
+    !if ($brPos < 1)
+      !$brPos = %strpos($type, " ")
+    !else
+    !endif
+
+    !if ($brPos > 0)
+      !$multiLine = $multiLine + %substr($type, 0, $brPos) + '</size>\n<size:'+$TECHN_FONT_SIZE+'>'
+      !$type = %substr($type, $brPos)
+    !else
+      !$multiLine = $multiLine+ $type
+      !$type = ""
+    !endif
+  !endwhile
+!endif
+!if (%strlen($type)>0)
+  !$multiLine = $multiLine + $type
+!else
+!endif
+!return 'rectangle "=='+$label+'\n<size:'+$TECHN_FONT_SIZE+'>['+$multiLine+']</size>" <<node>> as '+$alias
 !endfunction
+

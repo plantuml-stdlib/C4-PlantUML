@@ -36,7 +36,7 @@ Deployment_Node(mob, "Customer's mobile device", "Apple IOS or Android"){
 }
 
 Deployment_Node(comp, "Customer's computer", "Mircosoft Windows of Apple macOS"){
-    Deployment_Node(browser, "Web Browser", "Google Chrome, Mozilla Firefox"){
+    Deployment_Node(browser, "Web Browser", "Google Chrome, Mozilla Firefox, Apple Safari or Microsoft Edge"){
         Container(spa, "Single Page Application", "JavaScript and Angular", "Provides all of the Internet Banking functionality to customers via their web browser.")
     }
 }

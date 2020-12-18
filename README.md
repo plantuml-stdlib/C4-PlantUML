@@ -20,7 +20,7 @@ At the top of your C4 PlantUML `.puml` file, you need to include the `C4_Context
 
 To be independent of any internet connectivity, you can also download the files found in the `root` and reference it locally with
 
-```c#
+```csharp
 !include path/to/C4.puml
 !include path/to/C4_Context.puml
 !include path/to/C4_Container.puml
@@ -31,7 +31,7 @@ Just remember to change the `!include` statements at the top of the files.
 
 If you want to use the always up-to-date version in this repo, use the following:
 
-```c#
+```csharp
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 ```
 
@@ -76,7 +76,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 Entities can also be decorated with icons using the last parameter, for example:
 
-```cs
+```csharp
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -110,6 +110,11 @@ Diagram types
 * System Context & System Landscape diagrams
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
   * Macros: 
+    * `PERSON_SPRITE_NONE()`
+    * `PERSON_SPRITE_ACTIVE()`
+    * `PERSON_SPRITE_C4()`
+    * `PERSON_SPRITE_3D()`
+    * `PERSON_SPRITE($person)`
     * `Person(alias, label, ?description, ?sprite)`
     * `Person_Ext`
     * `System(alias, label, ?description, ?sprite)`
@@ -165,12 +170,20 @@ In rare cases, you can force the layout using hidden relationships, `Lay_U`, `La
 
 ## Layout Options
 
-C4-PlantUML also comes with some layout options to make it easy and reuseable to create nice and useful diagrams:
+C4-PlantUML also comes with some layout options to make it easy and reusable to create nice and useful diagrams:
 
 * [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT()](LayoutOptions.md#layout_top_down-or-layout_left_right)
 * [LAYOUT_WITH_LEGEND()](LayoutOptions.md#layout_with_legend)
 * [LAYOUT_AS_SKETCH()](LayoutOptions.md#layout_as_sketch)
 * [HIDE_STEREOTYPE()](LayoutOptions.md#hide_stereotype)
+
+C4-PlantUML also comes with some default person sprite options:
+
+* [PERSON_SPRITE_NONE()](LayoutOptions.md#person_sprite_none)
+* [PERSON_SPRITE_ACTIVE()](LayoutOptions.md#person_sprite_active)
+* [PERSON_SPRITE_C4()](LayoutOptions.md#person_sprite_c4)
+* [PERSON_SPRITE_3D()](LayoutOptions.md#person_sprite_3d)
+* [PERSON_SPRITE($person)](LayoutOptions.md#person_sprite)
 
 ## Snippets for Visual Studio Code
 

@@ -149,8 +149,14 @@ Diagram types
   * Import: `!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Dynamic.puml`
   * Additional Macros: 
     * `RelIndex(index, from, to, label)`
-    * `increment()`
-    * `setIndex(number)`
+    * (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
+    * (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
+    * `LastIndex()`: return the last used index (function which can be used as argument)
+
+    following 2 macros requires V1.2020.24Beta4 (can be already tested with http://www.plantuml.com/plantuml/)
+    * `Index($offset=1)`: returns current index and calculates next index (function which can be used as argument)
+    * `SetIndex($new_index)`: returns new set index and calculates next index (function which can be used as argument)
+
 * Deployment diagram
   * Import: `!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Deployment.puml`
   * Additional Macros: 

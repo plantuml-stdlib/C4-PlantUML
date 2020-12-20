@@ -3,7 +3,7 @@
 ' uncomment the following line and comment the first to use locally
 ' !include C4_Deployment.puml
 
-'LAYOUT_AS_SKETCH
+'LAYOUT_AS_SKETCH()
 LAYOUT_WITH_LEGEND()
 
 title Deployment Diagram for Internet Banking System - Live
@@ -36,16 +36,16 @@ Deployment_Node(mob, "Customer's mobile device", "Apple IOS or Android"){
 }
 
 Deployment_Node(comp, "Customer's computer", "Mircosoft Windows of Apple macOS"){
-    Deployment_Node(browser, "Web Browser", "Google Chrome, Mozilla Firefox"){
+    Deployment_Node(browser, "Web Browser", "Google Chrome, Mozilla Firefox, Apple Safari or Microsoft Edge"){
         Container(spa, "Single Page Application", "JavaScript and Angular", "Provides all of the Internet Banking functionality to customers via their web browser.")
     }
 }
 
 Rel(mobile, api, "Makes API calls to", "json/HTTPS")
 Rel(spa, api, "Makes API calls to", "json/HTTPS")
-Rel(web, spa, "Delivers to the customer's web browser")
+Rel_U(web, spa, "Delivers to the customer's web browser")
 Rel(api, db, "Reads from and writes to", "JDBC")
 Rel(api, db2, "Reads from and writes to", "JDBC")
-Rel(db, db2, "Replicates data to")
+Rel_R(db, db2, "Replicates data to")
 
 @enduml

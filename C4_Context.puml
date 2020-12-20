@@ -1,4 +1,4 @@
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4.puml
 ' uncomment the following line and comment the first to use locally
 ' !include C4.puml
 

@@ -209,7 +209,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ```csharp
 @startuml SHOW_PERSON_SPRITE(sprite) Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 !define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
 !include osaPuml/Common.puml
 !include osaPuml/User/all.puml
@@ -227,5 +227,5 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![SHOW_PERSON_SPRITE(sprite) Sample](http://www.plantuml.com/plantuml/png/ZL1DQzj04BthLspSGsIm9H9wwYckC4sXIOIbD4UnbYRnmduiCoDKK_hVEuiLkvGUgelOUM_UU_FkY3NowAngxfzUkdgxQvuUkwRUVMstEKKq34lLQ1SjP5V6ztOSG1sO8tqgIzHJyMRuCEv70ko3P_1SzC6LqMgVLDV4WpNxilguhjFe-U5RwJGne8owActyu28ACxiQuDLuK85qBU__CAbGqm46P_nGlgklGmHFq8-I_AYnFnY6daU4sxMHNPhTBxVCTcKLd0j-Zl8t-4mIM5jxWhD_LBKGQfS2Tcy8uBkpzMAPPJKW1P_h57Mb5flqDyIeEQ3WpP4ONFSvZ7xGUCpxcvMwFdL-lLG_CoLVgaeR3vXFiEzqZABp0dkrYT6QNhC9VY6ZwiDARPgwUDosieAWReiRzV2zIjZ6sZ2HIY59SL1IOTH2SQDb8rwgdGmpe6BZm8eNIRPVSxgSJw3epBHqs0xi-rMNM58M9R_xjgqROINI6Rt8V04cUKBwlM9mVwxSWHzIqxy1 "SHOW_PERSON_SPRITE(sprite)")
+![SHOW_PERSON_SPRITE(sprite) Sample](http://www.plantuml.com/plantuml/png/ZL1DQzj04BthLspTGnIm9H9wwYckC4sXIOGbDqUnbYRnmduiCxCOK_hVEzieTkcfkYmpx-EzqHsnHaxE5X-C7ssQG1sO8tskQzJ7wjNm8UqJ0Ox1CtYknk3gQBNFcXNnPCs-RZwjshpQFNoldIO6bDNGY48R3rZ5F_uJlCYa0kbMvl-8QL3J0IPd_5I_-wz214ym9ZHyqZWU3CF82U5sPKHBS_xbcZckRe9pmSzL_WLtabnhQz_Wehj_UXxQpRPxUXowTlkjtvGBeGwvuF2A07uuHo-kYw85fE1BdQikrMATNqECcWCAtfs8mGrVGlAJnbCvtYpLLQTTj71rhNuMIhxppogFi1zqZEBp37krZj6QKRC9VY6hvkDIhRksUjpq8a5GjzMDUlZHP6njRJYIoYL9SL1ZS54BnINBHh9KVpJCW8gD0ojP9Dr-pUrAVWF5PwRbmxPWtw-wrDeHKCwxx_ks4rOcdT6BpLTWaX7oyuB1_Isv0pybPty3 "SHOW_PERSON_SPRITE(sprite)")
 

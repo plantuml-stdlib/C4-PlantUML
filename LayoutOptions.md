@@ -209,7 +209,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ```csharp
 @startuml SHOW_PERSON_SPRITE(sprite) Sample
-!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Context.puml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
 !define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
 !include osaPuml/Common.puml
 !include osaPuml/User/all.puml

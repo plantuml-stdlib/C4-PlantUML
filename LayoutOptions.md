@@ -89,7 +89,7 @@ One thing which is often ignored is the fact, that these software architecture s
 Without any proof
 
 * if they are technically possible
-* if they can fullfil all requirements
+* if they can fulfill all requirements
 * if they keep what they promise
 
 More often these sketches are used by many people as facts and are manifested into their documentations.
@@ -139,4 +139,93 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![HIDE_STEREOTYPE Sample](http://www.plantuml.com/plantuml/png/NL1DJ-j03Bplh_3hEpIL-XBrYHEdXX1H90fHau8uHTl4a1NxiTfr52h4VsUZbXPnikmPpuozzCGTzKh2wlOwhyigt-GFrNEHGycLbSZ-2Dt8laNeYAo_J1B7X_XLKDVlUe-kCPfGKzmObRm9rtIUkYIx-5T8hccxlalmFU0jjc5OPu7CXKONs-38s2_BQCPOWSuR7V5M2Js7IJfMuSbnCcuoO-NU4whwolIwvMuVDOivJ0z9fpFuO0009vTem5tDhGqwJxY3r5ef6ax2w4aOPN_da9P5V9zNOSKX_8yNi7xCHYoLqWmUnWCza876ACi3HVMIX9K8rI28q049XL9ez27Rvp5TH0Smw1nf0MGRbDzNdMDjFVhHRrLLHHbO8-c4dcLka7neSImlpgYVAylmtV6PNm00 "HIDE_STEREOTYPE Sample")
 
+
+## HIDE_PERSON_SPRITE() or SHOW_PERSON_SPRITE($sprite="")
+
+With the macros `HIDE_PERSON_SPRITE()` and `SHOW_PERSON_SPRITE()` it is possible to change the person related default sprite. `SHOW_PERSON_SPRITE()` is the default.
+
+- **HIDE_PERSON_SPRITE()**: deactivates the default sprite
+- **SHOW_PERSON_SPRITE()**: activates the default sprite "person"
+- **SHOW_PERSON_SPRITE($sprite)**: activates a specific sprite as default sprite
+
+"person" and "person2" are predefined sprites which can be used as default sprite too.
+
+```csharp
+@startuml predefined sprites Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(userA, "User A", "with predefined sprite person", "person")
+Person(userB, "User B", "with predefined sprite person2", "person2")
+@enduml
+```
+
+![Predefined sprites Sample](http://www.plantuml.com/plantuml/png/XOxDIiKm48NtUOfuLrxmDY2kNFLdgr2GhYLjHXj89c5cGb_VH2m8BbpDOVZupkbPB4c9GMS21nyUmMdEv0LOlzcO0wWxZrie3lGkaldP6B97z-bbBsjXe2sX04gtfMXoiDXiDnON_6gcfzlSNilhYucM1QY-tgU4OciJTRcoIir0dF2-oOO7VLdgrSEbfgEM_1scypVVW9zq_QqOJyNuh-An4MUygXxGrK5V "Predefined sprites Sample")
+
+
+**Using HIDE_PERSON_SPRITE()**
+
+```csharp
+@startuml HIDE_PERSON_SPRITE Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+HIDE_PERSON_SPRITE()
+
+Person(admin, "Administrator")
+System_Boundary(c1, 'Sample') {
+    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
+}
+System(twitter, "Twitter")
+
+Rel(admin, web_app, "Uses", "HTTPS")
+Rel(web_app, twitter, "Gets tweets from", "HTTPS")
+@enduml
+```
+
+![HIDE_PERSON_SPRITE Sample](http://www.plantuml.com/plantuml/png/PL1TgzD047tVNp7MXvj2Ry8LdtowCGPRi3KqgJw6JJBQXVrOTYU48lvtPsbj1VCoPCwPyx6laMIWsMZOxZxLVLCVsw-7lcsEkww6LXglKRnHTjJpX70cyl53KGIvv3yLdUTXZXX6PmajvQCpXTVI9hNdI9DMGr6zVsxIwhJ_KXWP2GEl-eelfB8OSizS8VwtpjP2D1YYivcSZB8RM9LfgaX1aWkhjMWlaT3q7zri9naksVYoWQThugSr_1B0tzqeMt3efVUiynq7ABtNQfIad5tngdgxWR9jyaFTyKb0U9U_mFvRbR1IQxT4I4KZa0DkwILJpAn9iHTqYoB20AGCQlQAdEttBLr6Lv1rRZG6nH7rtrQFMAU8CVbjkwvfcPL8T_GXynafyY-cyICuy-_9AzeflUSV "HIDE_PERSON_SPRITE Sample")
+
+**Using SHOW_PERSON_SPRITE()**
+
+```csharp
+@startuml SHOW_PERSON_SPRITE Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+/' Not needed because this is the default with sprite "person" '/
+SHOW_PERSON_SPRITE()
+
+Person(admin, "Administrator")
+System_Boundary(c1, 'Sample') {
+    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
+}
+System(twitter, "Twitter")
+
+Rel(admin, web_app, "Uses", "HTTPS")
+Rel(web_app, twitter, "Gets tweets from", "HTTPS")
+@enduml
+```
+
+![SHOW_PERSON_SPRITE Sample](http://www.plantuml.com/plantuml/png/PL5DQzmm4BthLqpTWxsmiKdfgQUuPcaApSQidUPeP6lI5UX3I6DCAFtl7JLfjb1V1i-yz-QzqKqY6Mcr1eRR-yUfFvo6--CqzAUlum46QOD1yKwxnQmAuKmKqgUcYNAhVsWwh_EQC2xU4Jgg5s-ROAJBQbU9bD5pqtsywdFhuUvROsKYZDoQEcP8xJ3MWR52D2KSFO53LAXWnaMoBj1P9z29AuB29xaQWestGWfH4q8HC2Rl2YWRyR_vQYT4_mTGIMMrsqFHvgeJHKa-5ZinFBCXEttsgrCoFbVBzHxAbypb3duAuE_DQhNXFCaGMESHPsX3C7gHfDa0jxhtUsY7lZuUHgP4X0_rDTnzx_AiDSPl2VAf4f07lbEG3B4SIFCk63aLOGJI5WtlIkpjrwkxYbw6hFCAuw4ueVcRwcBh8J6Jw-quzWEZCkXjUf7vWfJu5tDvYjx-Ixb1f_AB_0O0 "SHOW_PERSON_SPRITE Sample")
+
+**Using SHOW_PERSON_SPRITE(sprite)**
+
+```csharp
+@startuml SHOW_PERSON_SPRITE(sprite) Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
+!include osaPuml/Common.puml
+!include osaPuml/User/all.puml
+
+SHOW_PERSON_SPRITE("osa_user_green_architect")
+
+Person(admin, "Administrator")
+System_Boundary(c1, 'Sample') {
+    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
+}
+System(twitter, "Twitter")
+
+Rel(admin, web_app, "Uses", "HTTPS")
+Rel(web_app, twitter, "Gets tweets from", "HTTPS")
+@enduml
+```
+
+![SHOW_PERSON_SPRITE(sprite) Sample](http://www.plantuml.com/plantuml/png/ZL1DQzj04BthLspSGsIm9H9wwYckC4sXIOIbD4UnbYRnmduiCoDKK_hVEuiLkvGUgelOUM_UU_FkY3NowAngxfzUkdgxQvuUkwRUVMstEKKq34lLQ1SjP5V6ztOSG1sO8tqgIzHJyMRuCEv70ko3P_1SzC6LqMgVLDV4WpNxilguhjFe-U5RwJGne8owActyu28ACxiQuDLuK85qBU__CAbGqm46P_nGlgklGmHFq8-I_AYnFnY6daU4sxMHNPhTBxVCTcKLd0j-Zl8t-4mIM5jxWhD_LBKGQfS2Tcy8uBkpzMAPPJKW1P_h57Mb5flqDyIeEQ3WpP4ONFSvZ7xGUCpxcvMwFdL-lLG_CoLVgaeR3vXFiEzqZABp0dkrYT6QNhC9VY6ZwiDARPgwUDosieAWReiRzV2zIjZ6sZ2HIY59SL1IOTH2SQDb8rwgdGmpe6BZm8eNIRPVSxgSJw3epBHqs0xi-rMNM58M9R_xjgqROINI6Rt8V04cUKBwlM9mVwxSWHzIqxy1 "SHOW_PERSON_SPRITE(sprite)")
 

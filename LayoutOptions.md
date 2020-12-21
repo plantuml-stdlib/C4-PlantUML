@@ -140,23 +140,35 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 ![HIDE_STEREOTYPE Sample](https://www.plantuml.com/plantuml/png/NL1DIyD05BplhrZheIdKX8edJuqrMC5gQ5B5KzWcJxkmN-o-DHJnl_j2gnNtCl1ctfkPdGSK7gDMV7b_MpHLNQoBf_grB7Wbj5F0pgHfLUo0xn1TkCuoB_hqNU8kRcC0trg3O31jhSv4vwKm7ogwc2skBaeb36vM3vaI205fr2n8BQG1dpgoPEoVPp9Xh0GVh4b4fwMPyb4-e0pe1Le_ch1g7n1qSsEZwOJV9-rioiU7gEC9_sIStgzBqiEs4SxHdHVOyjmv9Lk1qfeHZHRdKvvNPVfOrBJYWL-cCxvwNWnShfJj0nyQ1ewMKpqdIAAZGabUlEub8dYEKeCYhq3Plexf4ZoGTESe8vAjGVsqEiNQ1DeaNDPrMP5g4FsofpDtW1IZXm7UlDL_L-PWElhCRm00 "HIDE_STEREOTYPE Sample")
 
 
-## PERSON_SPRITE_NONE(), PERSON_SPRITE_ACTIVE(), PERSON_SPRITE_C4(), PERSON_SPRITE_3D() or PERSON_SPRITE($person) 
+## HIDE_PERSON_SPRITE() or SHOW_PERSON_SPRITE($sprite="")
 
-With the macros `PERSON_SPRITE_NONE()`, `PERSON_SPRITE_ACTIVE()`, `PERSON_SPRITE_C4()`, `PERSON_SPRITE_3D()` and `PERSON_SPRITE($person)` it is possible to easily change the person related default sprite. `PERSON_SPRITE_ACTIVE()` is the default.
+With the macros `HIDE_PERSON_SPRITE()` and `SHOW_PERSON_SPRITE()` it is possible to change the person related default sprite. `SHOW_PERSON_SPRITE()` is the default.
 
-- **PERSON_SPRITE_NONE()**: deactivates the default sprite
-- **PERSON_SPRITE_ACTIVE()**: (re-)activates the default sprite
-- **PERSON_SPRITE_C4()**, **PERSON_SPRITE_3D()**: activates one of the other prepared sprites
-- **PERSON_SPRITE($person)**: activates a customer specific sprite as default sprite
+- **HIDE_PERSON_SPRITE()**: deactivates the default sprite
+- **SHOW_PERSON_SPRITE()**: activates the default sprite "person"
+- **SHOW_PERSON_SPRITE($sprite)**: activates a specific sprite as default sprite
 
-**Using PERSON_SPRITE_ACTIVE()**
+"person" and "person2" are predefined sprites which can be used as default sprite too.
 
 ```csharp
-@startuml PERSON_SPRITE_ACTIVE Sample
+@startuml predefined sprites Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
-/' Not needed because this is the default '/
-PERSON_SPRITE_ACTIVE()
+Person(userA, "User A", "with predefined sprite person", "person")
+Person(userB, "User B", "with predefined sprite person2", "person2")
+@enduml
+```
+
+![Predefined sprites Sample](http://www.plantuml.com/plantuml/png/XOxDIiKm48NtUOfuLrxmDY2kNFLdgr2GhYLjHXj89c5cGb_VH2m8BbpDOVZupkbPB4c9GMS21nyUmMdEv0LOlzcO0wWxZrie3lGkaldP6B97z-bbBsjXe2sX04gtfMXoiDXiDnON_6gcfzlSNilhYucM1QY-tgU4OciJTRcoIir0dF2-oOO7VLdgrSEbfgEM_1scypVVW9zq_QqOJyNuh-An4MUygXxGrK5V "Predefined sprites Sample")
+
+
+**Using HIDE_PERSON_SPRITE()**
+
+```csharp
+@startuml HIDE_PERSON_SPRITE Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+HIDE_PERSON_SPRITE()
 
 Person(admin, "Administrator")
 System_Boundary(c1, 'Sample') {
@@ -169,16 +181,16 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![PERSON_SPRITE_ACTIVE Sample](http://www.plantuml.com/plantuml/png/RL1DYzim4BthLqpJWnt8scpfgQTrZMaNkgc9lTkZaQr98z27aCQOKFhVEoPfqaDzUNZUnppDKo8PQRO6skRGVTyFNNjuxfkXglldjmOwQOD1yKwxoSmAuKGKqgUoZ78fVcewpUESC4xU4Jeg9c_BOAHRynuIAQF7ilxuqAwZrvTlfPM9CF9egDaXjSDO1DOAKMQmzmGEKQ624IV9kK0ddK0dHWI5HpaRWgmK_skQRuLeCIRlSgciTZlOL2lgH56IZvkjwCwytGwV_UoKZETyUjn1TdbWjeLV0lYxzSeN70SP0kVym16g48oU96dlDZogt--WwjfYt_HiYGWVYaTuUQjNhZB6BmdMkt1p3toK85bYkRtcNT0lcWWZaBPeU5VYRh-lxNAwa9npbJ4f3cZ-lkfUwpMna_5htxSTgrRHZRt7V45A_8ih7AEt_rgUq2a-_ny0 "PERSON_SPRITE_ACTIVE Sample")
+![HIDE_PERSON_SPRITE Sample](http://www.plantuml.com/plantuml/png/PL1TgzD047tVNp7MXvj2Ry8LdtowCGPRi3KqgJw6JJBQXVrOTYU48lvtPsbj1VCoPCwPyx6laMIWsMZOxZxLVLCVsw-7lcsEkww6LXglKRnHTjJpX70cyl53KGIvv3yLdUTXZXX6PmajvQCpXTVI9hNdI9DMGr6zVsxIwhJ_KXWP2GEl-eelfB8OSizS8VwtpjP2D1YYivcSZB8RM9LfgaX1aWkhjMWlaT3q7zri9naksVYoWQThugSr_1B0tzqeMt3efVUiynq7ABtNQfIad5tngdgxWR9jyaFTyKb0U9U_mFvRbR1IQxT4I4KZa0DkwILJpAn9iHTqYoB20AGCQlQAdEttBLr6Lv1rRZG6nH7rtrQFMAU8CVbjkwvfcPL8T_GXynafyY-cyICuy-_9AzeflUSV "HIDE_PERSON_SPRITE Sample")
 
-
-**Using PERSON_SPRITE_NONE()**
+**Using SHOW_PERSON_SPRITE()**
 
 ```csharp
-@startuml PERSON_SPRITE_NONE Sample
+@startuml SHOW_PERSON_SPRITE Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
-PERSON_SPRITE_NONE()
+/' Not needed because this is the default with sprite "person" '/
+SHOW_PERSON_SPRITE()
 
 Person(admin, "Administrator")
 System_Boundary(c1, 'Sample') {
@@ -191,61 +203,18 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![PERSON_SPRITE_NONE Sample](http://www.plantuml.com/plantuml/png/PL1DYwD04BtxAsgpXnX8b2nxsbDSaTs5ZP5eTe_IQisaeJ-QxX89m_ptAKac6HWlXLNluxtU1HAUHgsWAexreMphwlYdAThoK1PG2-qKHb-awTKu89o9NFYHfbvCoREayzYD0Nrl3Q6XfBSwTKgOMMqJQ52oI_FlcsfUdVP_Koq2eUTLcpD3I8C-SOoDei_MyOgtw8CriHYqD6jOPFEKWRmWwnUhgBwmd6v_sj4Cmb_YVhk6vJNnSWKl4V1tDuedx5hX7ElynmuovvJi1Kbh5hpAlwuXgwkaB1gcU8HloHRs__BvbYbbfm1pqG1aWLiwmH0zAfBi1SqaYNi1IOsAlG9dUxsbY-bwP9qRZ8_H4TLxgqUiKs0cpzzDKzMCca7twqFc5rBWNvp7axVw8sM7Pk3tV0C0 "PERSON_SPRITE_NONE Sample")
+![SHOW_PERSON_SPRITE Sample](http://www.plantuml.com/plantuml/png/PL5DQzmm4BthLqpTWxsmiKdfgQUuPcaApSQidUPeP6lI5UX3I6DCAFtl7JLfjb1V1i-yz-QzqKqY6Mcr1eRR-yUfFvo6--CqzAUlum46QOD1yKwxnQmAuKmKqgUcYNAhVsWwh_EQC2xU4Jgg5s-ROAJBQbU9bD5pqtsywdFhuUvROsKYZDoQEcP8xJ3MWR52D2KSFO53LAXWnaMoBj1P9z29AuB29xaQWestGWfH4q8HC2Rl2YWRyR_vQYT4_mTGIMMrsqFHvgeJHKa-5ZinFBCXEttsgrCoFbVBzHxAbypb3duAuE_DQhNXFCaGMESHPsX3C7gHfDa0jxhtUsY7lZuUHgP4X0_rDTnzx_AiDSPl2VAf4f07lbEG3B4SIFCk63aLOGJI5WtlIkpjrwkxYbw6hFCAuw4ueVcRwcBh8J6Jw-quzWEZCkXjUf7vWfJu5tDvYjx-Ixb1f_AB_0O0 "SHOW_PERSON_SPRITE Sample")
 
-**Using PERSON_SPRITE_C4()**
-
-```csharp
-@startuml PERSON_SPRITE_C4 Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-
-PERSON_SPRITE_C4()
-
-Person(admin, "Administrator")
-System_Boundary(c1, 'Sample') {
-    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
-}
-System(twitter, "Twitter")
-
-Rel(admin, web_app, "Uses", "HTTPS")
-Rel(web_app, twitter, "Gets tweets from", "HTTPS")
-@enduml
-```
-
-![PERSON_SPRITE_C4 Sample](http://www.plantuml.com/plantuml/png/NL1DIyD04BtdLupnq0JQX4fFdXf3KS7MqAHw39jajGlxiUnE24NyxyvIjM8kGsRUntkxziWSZaf2jTdNpxkshlQFpQOjLr0pPIMFheJkvJXmE29QVvldZatPky3Zs8sUkzvev1gptgZSIgQ3riBZ84MNbwj55LQ7xLEkc4VkQDMMn612SvTPmaRHV-CafHrttkY43KheESH5cCAZOsXSd4RrYSHKUsT6FJ1tIlhb76RdlBCKFYAWxzSccNZNCcj9vvLtK5WhHSzG61tJghoUGr5NsMxJ4CLnkCcMi7qfmwsGqamUGaqFQ80wMaOGDKeKv0ND991Q0Gh59NbvolRvdIx1yv5qph0GFDfp-TFg4klWYKdpeMcgEau3w1Bw8dFFqTCl3-FD6VMNikPw2A_v1G00 "PERSON_SPRITE_C4 Sample")
-
-**Using PERSON_SPRITE_3D()**
+**Using SHOW_PERSON_SPRITE(sprite)**
 
 ```csharp
-@startuml PERSON_SPRITE_3D Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-
-PERSON_SPRITE_3D()
-
-Person(admin, "Administrator")
-System_Boundary(c1, 'Sample') {
-    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
-}
-System(twitter, "Twitter")
-
-Rel(admin, web_app, "Uses", "HTTPS")
-Rel(web_app, twitter, "Gets tweets from", "HTTPS")
-@enduml
-```
-
-![PERSON_SPRITE_3D Sample](http://www.plantuml.com/plantuml/png/NL1DRzf04BtxLqpf0IE1BTgUUi9rKLkfK0kRvcYjxKbOQJzMksDPACf_pwmW4CMNaUTzl3Ux2IGyZLf1jJtK__PjNHt-DDlswq-eXNOAaq_Iz6eS44v4BdpFSo-cx4dIQUp6WBwtXj1GrbkTEoLCz5e56fJiylBRgeghu-vlhaKWzBngIrO8QT1dZhb9yZ4uNV0EVR0c5OEMPWcp8auPo0koVhP8wZERwVQ77SqW_3djrqkON_hE5_2S07-tc7J2hXNEiSy3Tb0ufsGlI5epurNvUGb5NMNxRSCIZ_0bMyFkVncnGYax1OXd1Y0BVACJJD6Z8ibPq4oI23sGrAWuAt2tbskxb2uW-rnf32O7L6zNtMiT0ojv_cwQgcPM9DtGkyqlfC2_6CUZj_gzP8DcYA_v2W00 "PERSON_SPRITE_3D Sample")
-
-**Using PERSON_SPRITE($person)**
-
-```csharp
-@startuml PERSON_SPRITE Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-
+@startuml SHOW_PERSON_SPRITE(sprite) Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 !define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
 !include osaPuml/Common.puml
 !include osaPuml/User/all.puml
 
-PERSON_SPRITE("osa_user_green_operations")
+SHOW_PERSON_SPRITE("osa_user_green_architect")
 
 Person(admin, "Administrator")
 System_Boundary(c1, 'Sample') {
@@ -258,5 +227,5 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![PERSON_SPRITE Sample](http://www.plantuml.com/plantuml/png/ZP1FRzD04CNl-HJJSAWh9RPQSU94i290eiMANJXQ6tlQhBH_LZDZHH7YkpDBt0R41L-idNapxpVlFOiXcRo3PhjhlpxqRRFxt6sXDJuvN5pPCBXfH3Y897vNLMIEvRELmxIV66c8GJ18EKHV9MT2NhHc6PtTL_NRTPDBZ_TVAczOaBJKrpfXR40gaseNYwiHd_G9aKsZXV_mgSdm0KTlmrYz6AnZmi0uJ6JbP6WuMC519iAxjTLPdW4kvynsLHszZ-7Cya_paPNPE3UZ_XLGiLHLdzdwPq8ClHAG4QjconlL8d4CXScOArXkyj-og2AIzjkJulZ-Gvp2QEXK3BShk3v7Vdq3FnQWtsjInH7tlKb9ztp7FMnISdRuRRNKKlrc1PksAH-sdOuGmbrv2_VVwjpRE1UF39cIGI9eVCcen4zEh7f1TxGYI23MerElpFvpfYlatDGziomVjaFtSjK5IuFYxFUfwvfMLLdqshsi-OZ2-iJyUwBe_npv1G00 "PERSON_SPRITE Sample")
+![SHOW_PERSON_SPRITE(sprite) Sample](http://www.plantuml.com/plantuml/png/ZL1DQzj04BthLspSGsIm9H9wwYckC4sXIOIbD4UnbYRnmduiCoDKK_hVEuiLkvGUgelOUM_UU_FkY3NowAngxfzUkdgxQvuUkwRUVMstEKKq34lLQ1SjP5V6ztOSG1sO8tqgIzHJyMRuCEv70ko3P_1SzC6LqMgVLDV4WpNxilguhjFe-U5RwJGne8owActyu28ACxiQuDLuK85qBU__CAbGqm46P_nGlgklGmHFq8-I_AYnFnY6daU4sxMHNPhTBxVCTcKLd0j-Zl8t-4mIM5jxWhD_LBKGQfS2Tcy8uBkpzMAPPJKW1P_h57Mb5flqDyIeEQ3WpP4ONFSvZ7xGUCpxcvMwFdL-lLG_CoLVgaeR3vXFiEzqZABp0dkrYT6QNhC9VY6ZwiDARPgwUDosieAWReiRzV2zIjZ6sZ2HIY59SL1IOTH2SQDb8rwgdGmpe6BZm8eNIRPVSxgSJw3epBHqs0xi-rMNM58M9R_xjgqROINI6Rt8V04cUKBwlM9mVwxSWHzIqxy1 "SHOW_PERSON_SPRITE(sprite)")
 

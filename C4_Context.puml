@@ -100,7 +100,7 @@ sprite $person [48x48/16] {
 000000000000000000000000000000000000000000000000
 }
 
-sprite $personC4 [48x48/16] {
+sprite $person2 [48x48/16] {
 0000000000000000000049BCCA7200000000000000000000
 0000000000000000006EFFFFFFFFB3000000000000000000
 00000000000000001CFFFFFFFFFFFF700000000000000000
@@ -151,16 +151,6 @@ sprite $personC4 [48x48/16] {
 000000000002578888888888888888888864100000000000
 }
 
-sprite $person3D [64x64/16z] {
-rTH9iYif38LX2_NIhVrljnAP8717u3VpF_yETdQt7-XNQyGYmWZ_We5KfLBbzZL7KQ4HYp9yn-dIY3GNLE0xpbFp5R5yCu35PpMWSin1fMkivYzGEl_rX8Cl
-0w9mUZmFtjhmbTBflwUhuZLGNfX4pZpBtRV5Nn4V_W6HD-UpC6ixyih3u-3JunUUS3Gz7NeHgeM5p_DFFLFLzV1y_F-fUwOPytVNlocNMVIy_yT_O3OvAvw_
-lNDWS_pk_Nl35KyzXmeHYqpDn6fuUdg6gJ1rsRk_l9P9HzpIpLsLYRYg3wYQHz8HD_LmCrNfbhYqkTd9GF7oVM5aLr43UDl7wUgzBcJyVtTJYpwG0LlUCehV
-XI5T8KUeUlG1JzlwovZVkxnJGyGctKUC0TeUx-eZCm-6rXfSrZp6GFh6Qvg5-qpXghcNhlO_85nzzTvkSAFLkssk0APRn3h0022nPf7m-URD_tal5A1PL0T_
-GAQFuRq1Ugov9N_qCVpCgN4yUzsU_vYqzU_dtlEhLxJLPvRVN_yrGt_nyib3tPvOSuxL_wLvukxvyqSV6cj_wR5v1I73uZ6FjOn8sNtvqytZO-wn_G90itGp
-z_VOxEAqumqjm-rzTJgt1fyuD4JIo8ntPMOO8pQ0pxw-rHxP-vjbBzo4YR2rZSVnkVQ8Fl3VLUTH7tIv_7B-Ti2yJ_GwxbfbS_mSgB_0KXDzfDE1cURf-uMQ
-OEbTiCS3JxsVw1j8IzXjuSEWLcO06_l3_Nx_0m
-}
-
 ' Layout
 ' ##################################
 
@@ -175,34 +165,26 @@ legend right
 endlegend
 !endprocedure
 
-!global $defaultPerson = "person"
+!global $defaultPersonSprite = "person"
 
-!procedure PERSON_SPRITE_NONE()
-  !$defaultPerson = ""
+!procedure HIDE_PERSON_SPRITE()
+  !$defaultPersonSprite = ""
 !endprocedure
 
-!procedure PERSON_SPRITE_ACTIVE()
-  !$defaultPerson = "person"
-!endprocedure
-
-!procedure PERSON_SPRITE_C4()
-  !$defaultPerson = "personC4"
-!endprocedure
-
-!procedure PERSON_SPRITE_3D()
-  !$defaultPerson = "person3D"
-!endprocedure
-
-!procedure PERSON_SPRITE($person)
-  !$defaultPerson = $person
+!unquoted procedure SHOW_PERSON_SPRITE($sprite="")
+  !if ($sprite == "")
+    !$defaultPersonSprite = "person"
+  !else
+    !$defaultPersonSprite = $sprite
+  !endif
 !endprocedure
 
 ' Elements
 ' ##################################
 
 !function $getPerson($label, $descr, $sprite)
-!if ($sprite == "") && ($defaultPerson!="")
-  !$sprite = $defaultPerson
+!if ($sprite == "") && ($defaultPersonSprite!="")
+  !$sprite = $defaultPersonSprite
 !endif
 !if ($descr == "") && ($sprite == "")
   !return '=='+$label

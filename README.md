@@ -110,11 +110,6 @@ Diagram types
 * System Context & System Landscape diagrams
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
   * Macros: 
-    * `PERSON_SPRITE_NONE()`
-    * `PERSON_SPRITE_ACTIVE()`
-    * `PERSON_SPRITE_C4()`
-    * `PERSON_SPRITE_3D()`
-    * `PERSON_SPRITE($person)`
     * `Person(alias, label, ?description, ?sprite)`
     * `Person_Ext`
     * `System(alias, label, ?description, ?sprite)`
@@ -179,11 +174,8 @@ C4-PlantUML also comes with some layout options to make it easy and reusable to 
 
 C4-PlantUML also comes with some default person sprite options:
 
-* [PERSON_SPRITE_NONE()](LayoutOptions.md#person_sprite_none)
-* [PERSON_SPRITE_ACTIVE()](LayoutOptions.md#person_sprite_active)
-* [PERSON_SPRITE_C4()](LayoutOptions.md#person_sprite_c4)
-* [PERSON_SPRITE_3D()](LayoutOptions.md#person_sprite_3d)
-* [PERSON_SPRITE($person)](LayoutOptions.md#person_sprite)
+* [HIDE_PERSON_SPRITE()](LayoutOptions.md#hide_person_sprite)
+* [SHOW_PERSON_SPRITE_ACTIVE()](LayoutOptions.md#show_person_sprite)
 
 ## Snippets for Visual Studio Code
 

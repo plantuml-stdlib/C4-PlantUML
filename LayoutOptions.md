@@ -152,21 +152,21 @@ With the macros `HIDE_PERSON_SPRITE()` and `SHOW_PERSON_SPRITE()` it is possible
 
 ```csharp
 @startuml predefined sprites Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
 
 Person(userA, "User A", "with predefined sprite person", "person")
 Person(userB, "User B", "with predefined sprite person2", "person2")
 @enduml
 ```
 
-![Predefined sprites Sample](http://www.plantuml.com/plantuml/png/XOxDIiKm48NtUOfuLrxmDY2kNFLdgr2GhYLjHXj89c5cGb_VH2m8BbpDOVZupkbPB4c9GMS21nyUmMdEv0LOlzcO0wWxZrie3lGkaldP6B97z-bbBsjXe2sX04gtfMXoiDXiDnON_6gcfzlSNilhYucM1QY-tgU4OciJTRcoIir0dF2-oOO7VLdgrSEbfgEM_1scypVVW9zq_QqOJyNuh-An4MUygXxGrK5V "Predefined sprites Sample")
+![Predefined sprites Sample](http://www.plantuml.com/plantuml/png/XSvFYy8m40NmUpz5jgTTs6sWx6bF_NDTeI0zIqn64qpJC9bGFxvJKHGyUCeG7h_tcaGAAKzUH0G31nV0Y1JH4IInLLFqK7oue7qs82nHJ7zIebggeoERzpa1wZaG1AhqFCcJGsqJMTd__WnU1Het_nBE1C60uSzTps759LX5BYsA0J3DuNDrsczHZloAjkHhOVzrauZN_1guNL_FH7SdkhT4_J1gHXfUo8Ck "Predefined sprites Sample")
 
 
 **Using HIDE_PERSON_SPRITE()**
 
 ```csharp
 @startuml HIDE_PERSON_SPRITE Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
 
 HIDE_PERSON_SPRITE()
 
@@ -181,13 +181,13 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![HIDE_PERSON_SPRITE Sample](http://www.plantuml.com/plantuml/png/PL1TgzD047tVNp7MXvj2Ry8LdtowCGPRi3KqgJw6JJBQXVrOTYU48lvtPsbj1VCoPCwPyx6laMIWsMZOxZxLVLCVsw-7lcsEkww6LXglKRnHTjJpX70cyl53KGIvv3yLdUTXZXX6PmajvQCpXTVI9hNdI9DMGr6zVsxIwhJ_KXWP2GEl-eelfB8OSizS8VwtpjP2D1YYivcSZB8RM9LfgaX1aWkhjMWlaT3q7zri9naksVYoWQThugSr_1B0tzqeMt3efVUiynq7ABtNQfIad5tngdgxWR9jyaFTyKb0U9U_mFvRbR1IQxT4I4KZa0DkwILJpAn9iHTqYoB20AGCQlQAdEttBLr6Lv1rRZG6nH7rtrQFMAU8CVbjkwvfcPL8T_GXynafyY-cyICuy-_9AzeflUSV "HIDE_PERSON_SPRITE Sample")
+![HIDE_PERSON_SPRITE Sample](http://www.plantuml.com/plantuml/png/PL1Fxz904BtlfnZnG4cm3SQJ9sfjX4ImeKMFpTAETkF-sUnEKudnkpiD22Q_NYQTz-RzsMqa6MWq6dRxZsLRbQVwox6jgzE-AQ6MnciKhvJjzDWZ34G-li-o8AVqXw9Xl8mHG-SieQMqSoRxgK8tH1goujsRIajBvyFd37yntcFFoxPWibGMG-hPL8YNhibAY0f3T3QHlL5s3OjydYfIaEJ2OYNgQoGqxGStsbw6Qz9jrh2yXLskuBS0_Xv6oOINLdhFEj_m0hdtMdMIbBCBNXMlrv3NLNei6pu926_J3Ho-5ZEMQ-sc27F72EI02th953DgKkm5pQI8C00fWvgz8cVxSq-Nq0radJkDGN52_Q_LCzOvyYNFNTDKDRDcqWDzodn2YloBy_WUdFd_P8ksv_Vy2m00 "HIDE_PERSON_SPRITE Sample")
 
 **Using SHOW_PERSON_SPRITE()**
 
 ```csharp
 @startuml SHOW_PERSON_SPRITE Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
 
 /' Not needed because this is the default with sprite "person" '/
 SHOW_PERSON_SPRITE()
@@ -203,13 +203,13 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![SHOW_PERSON_SPRITE Sample](http://www.plantuml.com/plantuml/png/PL5DQzmm4BthLqpTWxsmiKdfgQUuPcaApSQidUPeP6lI5UX3I6DCAFtl7JLfjb1V1i-yz-QzqKqY6Mcr1eRR-yUfFvo6--CqzAUlum46QOD1yKwxnQmAuKmKqgUcYNAhVsWwh_EQC2xU4Jgg5s-ROAJBQbU9bD5pqtsywdFhuUvROsKYZDoQEcP8xJ3MWR52D2KSFO53LAXWnaMoBj1P9z29AuB29xaQWestGWfH4q8HC2Rl2YWRyR_vQYT4_mTGIMMrsqFHvgeJHKa-5ZinFBCXEttsgrCoFbVBzHxAbypb3duAuE_DQhNXFCaGMESHPsX3C7gHfDa0jxhtUsY7lZuUHgP4X0_rDTnzx_AiDSPl2VAf4f07lbEG3B4SIFCk63aLOGJI5WtlIkpjrwkxYbw6hFCAuw4ueVcRwcBh8J6Jw-quzWEZCkXjUf7vWfJu5tDvYjx-Ixb1f_AB_0O0 "SHOW_PERSON_SPRITE Sample")
+![SHOW_PERSON_SPRITE Sample](http://www.plantuml.com/plantuml/png/PKzDZzCm4BtxLmpXa5GgYHPnuhGXgbWajXirMVOOESwKMFZ3iYSA5UA_CwM58f7BK_pUl8_xH3BIOWrq3qylGxixT4_xeMiFd_eTTD86W-ALTiei4y9C5DBxgefoBRzgcfTnIHYLTuIEIkLjzKr7DIUQg-RTczP8Hy-Fdolyplo44pyE3OkbTXZBmA52L3diFO53P06Cg2HR0iqwWKwC21CUvM88LWw45A8cX2nWJDvba5VY_zx5HeZsjw2GazLk2rbzHfqeIl8nsuZkb0ZjyC4lRfBnLAYxBUINkVa6VWZWxs_LOiLna26mpmkEK8TWj9AakG0_DQ-tK7TjkT_rV18HtfPtyFYbENErCNvDm9DY0lAWl0sI9PO7QSw2dbSHHY1jqN1Mucu_h-qAkf3iSvKnAGve_gowrNfEVCduqFTjnoeMtKhVR3uY9Vx5CnoZj_-UtAER5cj-0G00 "SHOW_PERSON_SPRITE Sample")
 
 **Using SHOW_PERSON_SPRITE(sprite)**
 
 ```csharp
 @startuml SHOW_PERSON_SPRITE(sprite) Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Context.puml
 !define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
 !include osaPuml/Common.puml
 !include osaPuml/User/all.puml
@@ -227,5 +227,5 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![SHOW_PERSON_SPRITE(sprite) Sample](http://www.plantuml.com/plantuml/png/ZL1DQzj04BthLspSGsIm9H9wwYckC4sXIOIbD4UnbYRnmduiCoDKK_hVEuiLkvGUgelOUM_UU_FkY3NowAngxfzUkdgxQvuUkwRUVMstEKKq34lLQ1SjP5V6ztOSG1sO8tqgIzHJyMRuCEv70ko3P_1SzC6LqMgVLDV4WpNxilguhjFe-U5RwJGne8owActyu28ACxiQuDLuK85qBU__CAbGqm46P_nGlgklGmHFq8-I_AYnFnY6daU4sxMHNPhTBxVCTcKLd0j-Zl8t-4mIM5jxWhD_LBKGQfS2Tcy8uBkpzMAPPJKW1P_h57Mb5flqDyIeEQ3WpP4ONFSvZ7xGUCpxcvMwFdL-lLG_CoLVgaeR3vXFiEzqZABp0dkrYT6QNhC9VY6ZwiDARPgwUDosieAWReiRzV2zIjZ6sZ2HIY59SL1IOTH2SQDb8rwgdGmpe6BZm8eNIRPVSxgSJw3epBHqs0xi-rMNM58M9R_xjgqROINI6Rt8V04cUKBwlM9mVwxSWHzIqxy1 "SHOW_PERSON_SPRITE(sprite)")
+![SHOW_PERSON_SPRITE(sprite) Sample](http://www.plantuml.com/plantuml/png/ZL1DQzj04BthLspSGsomjIJqr5DSOPf2amXBQOvYBKsYfVknp8nmJUb_xonsub9wY2vYzhrvxysx8JR8atUgkNruwkhDjdcuxvfw-xNTp2cXPLYenlZaeBYmeNVJ06faJlH9QpJxyiNoEEqc0knZO0XSzj7h7nRxaNZKrSTLxKpWnxjl6duAFi0WZrqbP9dB9DR5nG3FDe2AP6gPtw5VeQ4H1c_3e5_rLp518EWd2NqmuY_PUvuGhbTMTabxGmnuFkDafwleVGodAF-2Z-AiZND7kFXFIpEXTZbWzu80eNkpdYsAeWQa6EOcHrsgsJh_BJ4QZYXuSv18lliSfp0OFCpxgwMwFDPzkL2_2YLVhif8FJZVmwupAOdE4-pKEYLdUyCsXfayLH-MQjtKvVscbHK4TLrUgRllLSRMpiKzgHoI54Sb5IOZ53yvjkAbshrb1bHiFJZn8ids-vHkpaTGT4wqVDWMtEjLvrXI5cM_sxQj6s5bqXjwbla2J392_ZrZz7-lt40OSjD_0000 "SHOW_PERSON_SPRITE(sprite)")
 

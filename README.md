@@ -176,7 +176,45 @@ You can force the direction of a relationship by using:
 * `Rel_L`, `Rel_Left`
 * `Rel_R`, `Rel_Right`
 
-In rare cases, you can force the layout using hidden relationships, `Lay_U`, `Lay_D`, `Lay_L`, `Lay_R`.
+In rare cases, you can force a layout of objects which has no relationship by using:
+
+* `Lay_U`
+* `Lay_D`
+* `Lay_L`
+* `Lay_R`
+
+In following sample a person uses different systems, and group of persons which have no relations
+
+```csharp
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+HIDE_STEREOTYPE()
+
+Person(a, "A")
+Person(b, "B")
+Person(c, "C")
+Person(d, "D")
+Person(e, "E")
+
+Lay_U(a, b)
+Lay_R(a, c)
+Lay_D(a, d)
+Lay_L(a, e)
+
+Person(x, "X")
+System(s1, "S1")
+System(s2, "S2")
+System(s3, "S3")
+System(s4, "S4")
+
+Rel_U(x, s1, "uses")
+Rel_R(x, s2, "uses")
+Rel_D(x, s3, "uses")
+Rel_L(x, s4, "uses")
+@enduml
+```
+
+![Relation versus Layout](http://www.plantuml.com/plantuml/png/LSt1QeD04CRnkq-HvgJGA55FFQLLeGLBHIEq9rbrQ8HrbTrPshnzPmn5Svl_3_RRaq6XqOxIUHXK9sqFkmlYR9w2G8iV_tl0Yssj0TrD2a6XtqrZC4kX-Ct1O2-7DaZYGy5Kl-V1A0o29ceIUY461TgVUV_rBSsQwfoLsSVvgyXSpt4Aq6PIhdZSxP_ttd-sb2zhTfJ9cZrbkYPGPfHEBgvDpLEjjzmbtztjJldkRtVEDwoV_zB09mrKLuCmkkP8NHqt43A46uWOeWt43361Ku9iQfvSPgm1GyfOBXZUOxfWT8_vWl6A9r2z7UKV "Relation versus Layout")
 
 ## Layout Options
 

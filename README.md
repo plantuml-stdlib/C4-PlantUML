@@ -161,7 +161,7 @@ You can force the direction of a relationship by using:
 * `Rel_L`, `Rel_Left`
 * `Rel_R`, `Rel_Right`
 
-In rare cases, you can force a layout of objects which has no relationship by using:
+In rare cases, you can force the layout of objects which have no relationships by using:
 
 * `Lay_U`
 * `Lay_D`

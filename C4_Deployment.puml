@@ -6,18 +6,24 @@
 ' ##################################
 
 !global $NODE_FONT_COLOR = "#000000"
+!global $NODE_BG_COLOR = "#FFFFFF"
 !global $NODE_BORDER_COLOR = "#A2A2A2"
 
 ' Styling
 ' ##################################
 
+' orig was without background
+'UpdateSkinparamsAndLegendEntry("node", $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR)
+UpdateSkinparamsAndLegendEntry("node", $bgColor=$NODE_BG_COLOR, $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR)
 skinparam rectangle<<node>> {
-    Shadowing false
     StereotypeFontSize 0
-    FontColor $NODE_FONT_COLOR
-    BorderColor $NODE_BORDER_COLOR
-    BorderStyle solid
 }
+
+' Layout
+' ##################################
+
+' comment if node should not be added to legend. No dynamic legend extension required
+SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_system\nexternal_container\nnode")
 
 ' Special
 ' ##################################
@@ -30,11 +36,8 @@ skinparam rectangle<<node>> {
 
 ' Elements
 ' ##################################
-!unquoted function Deployment_Node($alias, $label)
-!return 'rectangle "=='+$label+'" <<node>> as '+$alias
-!endfunction
 
-!unquoted function Deployment_Node($alias, $label, $type)
+!unquoted function $breakLine($type)
 !$multiLine = ""
 !if (%strpos($type, "\n") >= 0)
   !while (%strpos($type, "\n") >= 0)
@@ -65,8 +68,19 @@ skinparam rectangle<<node>> {
 !endif
 !if (%strlen($type)>0)
   !$multiLine = $multiLine + $type
-!else
 !endif
-!return 'rectangle "=='+$label+'\n<size:'+$TECHN_FONT_SIZE+'>['+$multiLine+']</size>" <<node>> as '+$alias
+!return $multiLine
 !endfunction
 
+!function $getNode($label, $type)
+  !if ($type == "")
+    !return '==' + $label
+  !endif
+  !if (type != "")
+    !return '==' + $label + '\n<size:' + $TECHN_FONT_SIZE + '>[' + $breakLine($type) + ']</size>'
+  !endif
+!endfunction
+
+!unquoted procedure Deployment_Node($alias, $label, $type="", $tags="")
+rectangle "$getNode($label, $type)" $toStereos("node",$tags) as $alias
+!endprocedure

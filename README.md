@@ -147,17 +147,17 @@ Diagram types
 * System Context & System Landscape diagrams
   * Import: `!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Context.puml`
   * Macros: 
-    * `Person(alias, label, ?description, ?sprite)`
+    * `Person(alias, label, ?description, ?sprite, ?tags)`
     * `Person_Ext`
-    * `System(alias, label, ?description, ?sprite)`
+    * `System(alias, label, ?description, ?sprite, ?tags)`
     * `System_Ext`
-    * `Boundary(alias, label, ?type)` 
-    * `Enterprise_Boundary(alias, label)`
+    * `Boundary(alias, label, ?type, ?tags)` 
+    * `Enterprise_Boundary(alias, label, ?tags)`
     * `System_Boundary` 
 * Container diagram
   * Import: `!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml`
   * Additional Macros: 
-    * `Container(alias, label, technology, ?description, ?sprite)`
+    * `Container(alias, label, technology, ?description, ?sprite, ?tags)`
     * `ContainerDb`
     * `ContainerQueue`
     * `Container_Ext`
@@ -167,7 +167,7 @@ Diagram types
 * Component diagram
   * Import: `!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Component.puml`
   * Additional Macros: 
-    * `Component(alias, label, technology, ?description, ?sprite)`
+    * `Component(alias, label, technology, ?description, ?sprite, ?tags)`
     * `ComponentDb`
     * `ComponentQueue`
     * `Component_Ext`
@@ -188,7 +188,7 @@ Diagram types
 * Deployment diagram
   * Import: `!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Deployment.puml`
   * Additional Macros: 
-    * `Deployment_Node(alias, label, ?type)`
+    * `Deployment_Node(alias, label, ?type, ?tags)`
 
 Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).
 

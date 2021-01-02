@@ -53,7 +53,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 ![LAYOUT_LEFT_RIGHT Sample](http://www.plantuml.com/plantuml/png/PL1DhzCm4BpxLopbq5GgYOeuSMg8IelKGjIa84wHcop4mX-MlL6e4F_zRTI-zadFbvLtPdTcTXr91XgCXdt-yzkfRlQRptLp_BBTrL19upMADygsUkWGUY8VFsPPa6FwMr4_d8U8eNMMq5BQEfFzKQ7j8_LPyU5TgQMbqs6VuL_6E-ousHHCbifYI3rh2l5AD5a8KMA8pYQoCyekOPPFLKKAaboOBKHrYOIc-UG6sybmIThL4kPNh_C5_1F0xwwJZ7XkfFUyvmUU8VTUgrQISdR6hUBj4lAgJBzkQXu92E_J5Ho-5nEMQ-t625F42EI0ytd953DeKgm5zQY8C00fWvgr8dlxVtENq1NaFJSQW-A8-ZdLmzOfyYJNNLsN5RCcqXrzhDaYHVxYL7u5PrwEhFc-VCud "LAYOUT_LEFT_RIGHT Sample")
 
 
-## LAYOUT_WITH_LEGEND()
+## LAYOUT_WITH_LEGEND() or SHOW_DYNAMIC_LEGEND(?hideStereotype)
 
 Colors can help to add additional information or simply to make the diagram more aesthetically pleasing.
 It can also help to save some space.
@@ -80,6 +80,32 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![LAYOUT_WITH_LEGEND Sample](http://www.plantuml.com/plantuml/png/PL1Fxz904BtlfnZnG4cm3SQJ9sebO0BOs2Bnr2pjQ3VkdytkD9KOlxlJW63osyjavxsPzzwi8yb0Wz6mpxzzFjND-LEzQ_QRxURu4Iffl4RnIjbM3nr2J-JZ-omBSan_AEg7on0njCuIMafRPxAVAhHzf3uhthqfjRHqEkmp_CLuXnqtcuB9KbaCgMTH8Lwg9WiXIWpHsKHsHjabpFAfgaX1aWkpXQYkaT0q7znWEnckIRjQmlncThw0tmBuFOII4I-Dz9xtdF42kVTQjPAKipDk5Q-Na5TbUjpKF18GtgOhE7mj9YpNseqHfemHo047z98fPj2aM0lgKH5X0586DMj5zlRdxYwX6yXxxZG6nHVK_r8zRPqYJtBTrNLPCMiYFT3dcYrIv2zEvNjmvl-HDH-Ox_aN "LAYOUT_WITH_LEGEND Sample")
 
+Instead of a static legend (activated with `LAYOUT_WITH_LEGEND()`) a dynamic legend can be activated with `SHOW_DYNAMIC_LEGEND(?hideStereotype)`.
+
+The dynamic legend has following differences:
+* only relevant elements are listed
+* custom tags/stereotypes are supported
+* stereotypes can remain visible (with `SHOW_DYNAMIC_LEGEND(false)`)
+* **`SHOW_DYNAMIC_LEGEND()` has to be last call in the diagram**
+
+```csharp
+@startuml SHOW_DYNAMIC_LEGEND Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(admin, "Administrator")
+System_Boundary(c1, 'Sample') {
+    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
+}
+System(twitter, "Twitter")
+
+Rel(admin, web_app, "Uses", "HTTPS")
+Rel(web_app, twitter, "Gets tweets from", "HTTPS")
+
+SHOW_DYNAMIC_LEGEND()
+@enduml
+```
+
+![SHOW_DYNAMIC_LEGEND Sample](http://www.plantuml.com/plantuml/png/RL5Dgzf05DtFhxYrYnV1bs3fgYlJA5fG6vfOwIfCajiwC1_3p0r1IlzxRz1g5o-RIyx7uHnc5Ka66eo6QlVrtAn_7FF3bwBPRxQRunegQRn6yKxPJWyzmeN8nqzP5kIO_b9q6TeXOkYS9RIKTivaNaixnRr6whLgi-BZQpb1fyC-Cp8I1eQQWXrIMGofPwqG9OReR29xe-m2PlbqLQGWoONPN5HNDfhcinjiByCrwPOBUBbrUvd3Rm7yFIAJ4Tj6UiyvPsmXzrwhJf9oTiPGyNu1ULMcnqtDbe3m8Lt2uNinSRdMRemmJOf03dYFbomnWoRbDK8zAY8CGCgWLXOZT_jpRvVGZUISkun9yGtrlrNFMgV8JhwxkYuhLasY1_kCsI95_iNf_0pE_6yHRxnMCXShjFrWz5y0 "LAYOUT_WITH_LEGEND Sample")
 
 ## LAYOUT_AS_SKETCH()
 

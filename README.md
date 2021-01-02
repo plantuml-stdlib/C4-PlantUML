@@ -115,7 +115,7 @@ Entities can be decorated with tags and explained via dynamic calculated legends
 
 ```cs
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
 
 AddTagSupport("v1.0", $borderColor="#d73027")
 AddTagSupport("v1.1", $fontColor="#d73027")
@@ -137,7 +137,7 @@ SHOW_DYNAMIC_LEGEND()
 @enduml
 ```
 
-![tags](http://www.plantuml.com/plantuml/png/bLDHQnf147xtLsolVJYfyKnR21G25GrDG5Eh2Q5FCdSxwfQztMDdJllpEtiQjSbHoDF2p3VpVVFDx3lZ2bjhL1lcYhvcMO1TVsruK-SrOIYyOtJSBtoPLHOSrwMz8DRMvDdeoyKiXXwdawm4OWmIMewa0ep3qAy4s-aCjNw0zQAkAXyuJRQN_K7IKnzo7pI6aRS-N2VlzTNdmQUhfDk2lepebJHzXUtCC91tQTJPKyce9lOb1i4dC_ILHSKROEKGjQg2rtN196M7Aj2bSG8TnjSG1s3_gXPEIIG9uR6HsXfe0WvtAifKOb7bdPX5KJ73cguR_K9vz2Ib2eHYCHj69d3hsa93-Y2TIe4e8tw75HG70P6XE0ospq4atyc26WMDdUTqWvTqm_CvLJipd7lmHWb70_upDLGcAfZTHSBVi8NuteBJ5ac1jKfkJO14olgrALGQZx9_iXR_C3eotb7tts4_lgGQvwdEfVaO678WZ4HJKmHFViLgyNFIC7khwNcJFTLSeX8rCjtMcmBbNVbG0WjZlBCvsiEHxTVtI4YnJ_Db113pJKRcR4ylvtiF6crp14tPKp2CX_JpCHxNrSvnIhSJTHQtFvwMur_tm-dTQ3cv-NvpFqwxdM_eTFoAVm40 "tags")
+![tags](http://www.plantuml.com/plantuml/png/bLFHRXen47pdAznh7mwLSgIj5AbIf228caYGKaWKzGajvmNS-koJTm_w-LqR0ZH1bVfaoJFUcPrTNnD3uAQohJV6bRRHgDRCDNqfYW3RxihmkbaqXA7qZj5nj_HLySk4SasyBWQVFqmiE7uSZmhyBRX6BPVpWP31E0pTEfPkzRL-WDMigMiVECys5zrUrb7l5Zve30DlVRZAtkhBJxsFbrdx3FiYifTIz1MtDS50tkNHOaTbWuROLnY4dqtGrnOLhu6LGzIg3but9PCysxy2NHadr7uy3N40zg_UmX54aYiy558R0-d2uLP5cqhIgRsJd2WwPbZHLV8laeTCSgf196QJVbG2jsei9D47gLG9HHc9EYoXt1k82kM-iHq6KNmhiqaEKfodShsNSltJFjLvPJZDu3yj70BuHzTGc-XWSXS5Vy86udaBJbia1TOgMJCX4YdhLwPKUTp7xZ7Qj5zalAFstys-VoarNEHw8SM7mB00mYWqDcNmv9UiPjz7ITbRJS-JxAYqYKhSI7SRRqgKS-b31IoASS-cQFTBjXlV8o75Ekct227Y2P4-pyFpwIw3v6sAeAbu2ePn3pylut5SPpMEy7cXrkpsszDy-EE-FxuRp4StNs_kXtcxTOrEnw_u1m00 "tags")
 
 
 ## Supported Diagram Types
@@ -282,7 +282,7 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 
 ```cs
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
 
 AddTagSupport("v1.0", $fontColor="#d73027", $borderColor="#d73027")
 AddTagSupport("v1.1", $fontColor="#ffffbf", $borderColor="#ffffbf")
@@ -304,7 +304,7 @@ SHOW_DYNAMIC_LEGEND(false)
 @enduml
 ```
 
-![merged tags](http://www.plantuml.com/plantuml/png/jLDXQzim5FpkNw5bOoIajHDlh6DGQ4ZBMaYxq3ICVGhFbkneaoMZzvpivq-Avj3KPh0FzHUPUwUxuvvzXGIMcaf5RwJELSC5snBL-2L9BEpZKjAsoHeKDZUQXAOuDrLIAz3-pZaILp9BvX_FbnvQto-I2f24TT1cxcw0rCB6jTUFPfm_GRbgwjfO6WvsqtWoE6Fl2aUR6sNivU0jl_WmIIyycXdBXNs1ZteqfYyr2lTaHLSZuBqQa_UzGXp4fsbNAE1TeGAKoY3_TRXHjkpFXyUnesCVGwpXZ0rMozd07Q3BHe7rhqzRmIf7OLAJi0NaWj4MY973ymR9LCA66UI4RE-MmtOIM5ibGOcNeTZHgTsCLr8xXyF9-ft1poII1JBsVoDeiMTjYSSOqvCOK4kVO7dd3N_23lnv2vehWGoKObc3ZeZ8b2bbpeR-WuoFoapy9g5H6esZ4vUmlR5_6tTCiOOqT9s-MjdZTlEzhQVFQqzVl_SsJDj5z2XK-EB20jOeq5iVVdCt3-EGzH-SpIA8_2rqNNEWBkdncTInW7vwjBhzzdrp_UDXTdyttonkljuyN0zTU1IZw4fetbJg3m00 "merged tags")
+![merged tags](http://www.plantuml.com/plantuml/png/jLHHQzim47xthz2oCHBQsR4trZ4eDAHbBQHTQ1h6diB5acsjicIaSxAVlvCzcpGnWprK3vAu-_pTv-_Eld885kjI1M-aJbND1IiGA_SrYYpimrnYKMzh9sngD0gDOMhAw5dQj71OHFDF7vOADAxl5v7uJNakE0KtSmA3rCA6bQSEPfm_GRwggyfO78zsSJWTdRDt6S7cHXbxENhBBpvEamiVtHhBXJsAJmOuucEEZDOsE-LeuuCSq_U3H1p4v_YKg8sV4cMWr1RIv-Q9l4D_QHQXWzwFiQlWd8rMozc83j1vhS3wwrCXM4aG9ibccq4g61Q0j0cMrWvDAMoRWnGTsrDVs4u2wwn4oDrbQ-paPRaPBwMc2it9XYk3pqc75j3O_vMWnPvr9lOouXSoe99UmVBE5_m5E_3dBMYkX6Fa7QCH8w1pJ9bSfcpiPp7icLapMquQxIO7LRhkdVcRt-BZTqzQhvDNC_kiw_oWwycXxSdh-zw9wRm87eLg9wvjmDe9vqitNpZbATrh_GTcisX9_XgwhZZWAUZnWAetO1WUh6w__zXS_toOtT_DDukRRpSFrsCIxyGak1AQ-t_67m00 "merged tags")
 
 **Custom schema definition**
 
@@ -312,7 +312,7 @@ If the custom (color) schema is defined via `UpdateSkinparamsAndLegendEntry()` t
 
 ```cs
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Context.puml
 
 !$COLOR_A_5 = "#7f3b08"
 !$COLOR_A_4 = "#b35806"
@@ -346,7 +346,7 @@ SHOW_DYNAMIC_LEGEND()
 @enduml
 ```
 
-![custom schema](http://www.plantuml.com/plantuml/png/dPHVRvim5CNV-HIKzI6LceGGag19aHeesYhbJvKiclQ4R7n3KC4WswZfjvy1RtXfkwfHNiBldkDxZf6uum8nKUMPSPNIEAi8c4SXIlvrE6JeUP2aubZXYWEB2og0Ya5SvCCoGxJszBaWMOg7WTj_hD5-jHpcY0jW4aL1xJY9GLcVRbnT1vlbPXijeeavDwqliyCOsvwbSRVXU3pnxAdEnmq7stD6hiwTXXy8zgPZdOzQ3c3ZAUu6wt3_OxjOjiDP_UjclZ8HZo306bTBi8CmSJIkGddsR8nYZQiI4zUPUPx6LMc7sBOhppVs9K42TayfBH53ELzGieG4A0cfO2yzgmJ62shTcjSu2OgiOFFk-YGy55Hqk2jNwmj6W9rvHdB0ZuWKpobDvfPW5LWt7uQ0am16KHQzcyQ_88sywuzNynSk87-pltj1V-SJPTzTxL-msgzN6u_D_VNYYeiY1tPhMYr1cUaZAYCbPg1cyhNicW0zt4vK7kbve7L247yzhL0wb2KAJwANepJhF66_VZQvKfu9wO6X7AHizUV_6sTl8TEIlqgrvy2bJAeY7yLFclJV93kWX9lGvE6cA9Hd3Mbon0Kxg_jVTsjzxT0AgLJ6xllcPtJ_QxrOFGJHClmMhkzxDyOTK59_b7u3 "custom schema")
+![custom schema](http://www.plantuml.com/plantuml/png/dPHVRvim5CNV-HIKzI6HseOGag19aHeesYhbJvKiclQ4R7m3A617jb7JRp_0R7XPkcfHNiBldkDxZf5u519nMHQvSPFHE2y9cAcKH_5vCE3ezI79P5hYKW2F6PL0vKFCYi4Xut4gP3e8tFkN756vMou6S9902P0AHa4jFic7OtsmSNCRh1VhJJIFnkRCj3vDzoDiUvR6tORZqTYp9peVDHnipncwEdSQlYVOcunqFbGSmCOJt0rMuUxRPhvGmsdzwsP-Qo8UGO1rxgXG3iB4qRaAvTdJ4OfrhagCNMVgUJfNfHrYsows36Dt94Z2zf3H8-Ae47DA5f009I6L_Ard7O4BHgqxynOd0SiPdtNNLy4zexB3NRbQppW1VkOPLWEH8i9UCvhCBCbBiFeVXgXV9gSeZzvDur-Hne-67wyMRq92SR6_UqL_vp_AlhlQlsArNwysNfhxwyMbaAm0VcTQYg3Sz16j8YLcqCwilh5j0lImchHvAiyphHE2_ErHmihHMgBm97i5olBE4zxNpwPebMT2kkUeW4gs_FN_mjaRoBNaVwNQ2H1MlrP5FeeFclJF95kWH9ZGv16cPArd1LcIOiRFwlxJhQoN7Af4byhOVbr_Zvv-hERBvo1QX5_2rLElRpm29VL7wIS0 "custom schema")
 
 ## Snippets for Visual Studio Code
 

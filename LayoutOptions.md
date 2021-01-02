@@ -90,7 +90,7 @@ The dynamic legend has following differences:
 
 ```csharp
 @startuml SHOW_DYNAMIC_LEGEND Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
 
 Person(admin, "Administrator")
 System_Boundary(c1, 'Sample') {
@@ -105,7 +105,7 @@ SHOW_DYNAMIC_LEGEND()
 @enduml
 ```
 
-![SHOW_DYNAMIC_LEGEND Sample](http://www.plantuml.com/plantuml/png/RL5Dgzf05DtFhxYrYnV1bs3fgYlJA5fG6vfOwIfCajiwC1_3p0r1IlzxRz1g5o-RIyx7uHnc5Ka66eo6QlVrtAn_7FF3bwBPRxQRunegQRn6yKxPJWyzmeN8nqzP5kIO_b9q6TeXOkYS9RIKTivaNaixnRr6whLgi-BZQpb1fyC-Cp8I1eQQWXrIMGofPwqG9OReR29xe-m2PlbqLQGWoONPN5HNDfhcinjiByCrwPOBUBbrUvd3Rm7yFIAJ4Tj6UiyvPsmXzrwhJf9oTiPGyNu1ULMcnqtDbe3m8Lt2uNinSRdMRemmJOf03dYFbomnWoRbDK8zAY8CGCgWLXOZT_jpRvVGZUISkun9yGtrlrNFMgV8JhwxkYuhLasY1_kCsI95_iNf_0pE_6yHRxnMCXShjFrWz5y0 "LAYOUT_WITH_LEGEND Sample")
+![SHOW_DYNAMIC_LEGEND Sample](http://www.plantuml.com/plantuml/png/JKzDJ-f05DttLypZBIW9hmqlhbnH2m4JmCOMYQjcQAzsudnCPkwa4kD_zpOYE9kJkUSZvymzSeT1oUYFq8qCBR0EqVhRD7MyJru5Tk4OFBZ6Q0IDIMDK-YPSqtdiqlpcNo6vnlrsay8xyIsqTAnp4dEXmILsY8uASDxecBTAw2aRPGCAZuwZSQD9L9uyWghlJD0jTwUucKtPkEJAIXXFs4V4w5qYunwEDRUMSWvmP9crKZGSXT4ZEkL_fomhYsIthCZYWFrFPcpxb0zS9gNfFHlMU8Q6qHJBIQA2H64biAeNYE0O2WLIQF3KxVFSBiPladBECYAZHv0_gwwrzfwSXEkgAafI3Q8BUurP0NhwmW0lpgZVbgXSFnpgnVCkszxdzMQvMkuMyIIQWsw3aby0 "LAYOUT_WITH_LEGEND Sample")
 
 ## LAYOUT_AS_SKETCH()
 

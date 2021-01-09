@@ -1,6 +1,9 @@
-!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
-' uncomment the following line and comment the first to use locally
-' !include C4_Container.puml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
+!else
+  !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
+!endif
 
 ' Scope: A single container.
 ' Primary elements: Components within the container in scope.

@@ -1,7 +1,10 @@
-@startuml "bigbankplc"
-!include ./../C4_Container.puml
-!include ./../C4_Context.puml
-!include ./../C4.puml
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Container.puml
+!else
+  !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
+!endif
 
 skinparam wrapWidth 200
 skinparam maxMessageSize 200
@@ -9,7 +12,6 @@ skinparam maxMessageSize 200
 LAYOUT_TOP_DOWN()
 'LAYOUT_AS_SKETCH()
 LAYOUT_WITH_LEGEND()
-
 
 Person(customer, Customer, "A customer")
 

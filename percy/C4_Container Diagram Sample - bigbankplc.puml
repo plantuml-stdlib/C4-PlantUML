@@ -1,7 +1,10 @@
 @startuml
-!include ./../C4_Container.puml
-!include ./../C4_Context.puml
-!include ./../C4.puml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Container.puml
+!else
+  !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
+!endif
 
 LAYOUT_TOP_DOWN()
 'LAYOUT_AS_SKETCH()

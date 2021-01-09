@@ -1,6 +1,9 @@
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-' uncomment the following line and comment the first to use locally
-' !include C4_Container.puml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!include https://raw.githubu!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!endif
 
 ' Styling
 ' ##################################

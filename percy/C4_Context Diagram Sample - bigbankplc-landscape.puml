@@ -1,6 +1,10 @@
 @startuml
-!include ./../C4_Context.puml
-!include ./../C4.puml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Context.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!endif
 
 'LAYOUT_TOP_DOWN()
 'LAYOUT_AS_SKETCH()

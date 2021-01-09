@@ -1,0 +1,88 @@
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
+!else
+  !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
+!endif
+
+' Scope: A single container.
+' Primary elements: Components within the container in scope.
+' Supporting elements: Containers (within the software system in scope) plus people and software systems directly connected to the components.
+' Intended audience: Software architects and developers.
+
+' Colors
+' ##################################
+
+!global $COMPONENT_FONT_COLOR = "#000000"
+
+!global $COMPONENT_BG_COLOR = "#85BBF0"
+!global $COMPONENT_BORDER_COLOR = "#78A8D8"
+!global $EXTERNAL_COMPONENT_BG_COLOR = "#CCCCCC"
+!global $EXTERNAL_COMPONENT_BORDER_COLOR = "#BFBFBF"
+
+' Styling
+' ##################################
+
+UpdateSkinparamsAndLegendEntry("component", $COMPONENT_BG_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateSkinparamsAndLegendEntry("external_component", $EXTERNAL_COMPONENT_BG_COLOR, $COMPONENT_FONT_COLOR, $EXTERNAL_COMPONENT_BORDER_COLOR)
+
+' Layout
+' ##################################
+
+SetDefaultLegendEntries("person\nsystem\ncontainer\ncomponent\nexternal_person\nexternal_system\nexternal_container\nexternal_component")
+
+!procedure LAYOUT_WITH_LEGEND()
+hide stereotype
+legend right
+|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
+|<$PERSON_BG_COLOR> person |
+|<$SYSTEM_BG_COLOR> system |
+|<$CONTAINER_BG_COLOR> container |
+|<$COMPONENT_BG_COLOR> component |
+|<$EXTERNAL_PERSON_BG_COLOR> external person |
+|<$EXTERNAL_SYSTEM_BG_COLOR> external system |
+|<$EXTERNAL_CONTAINER_BG_COLOR> external container |
+|<$EXTERNAL_COMPONENT_BG_COLOR> external component |
+endlegend
+!endprocedure
+
+' Elements
+' ##################################
+
+!function $getComponent($label, $techn, $descr, $sprite)
+!if ($descr == "") && ($sprite == "")
+!return '=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//'
+!endif
+!if ($descr == "") && ($sprite != "")
+!return '<$'+$sprite+'>\n=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//'
+!endif
+!if ($descr != "") && ($sprite == "")
+!return '=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//\n\n '+$descr
+!endif
+!if ($descr != "") && ($sprite != "")
+!return '<$'+$sprite+'>\n=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//\n\n '+$descr
+!endif
+!endfunction
+
+!unquoted procedure Component($alias, $label, $techn, $descr="", $sprite="", $tags="")
+rectangle "$getComponent($label, $techn, $descr, $sprite)" $toStereos("component",$tags) as $alias
+!endprocedure
+
+!unquoted procedure ComponentDb($alias, $label, $techn, $descr="", $sprite="", $tags="")
+database "$getComponent($label, $techn, $descr, $sprite)" $toStereos("component",$tags) as $alias
+!endprocedure
+
+!unquoted procedure ComponentQueue($alias, $label, $techn, $descr="", $sprite="", $tags="")
+queue "$getComponent($label, $techn, $descr, $sprite)" $toStereos("component",$tags) as $alias
+!endprocedure
+
+!unquoted procedure Component_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
+rectangle "$getComponent($label, $techn, $descr, $sprite)" $toStereos("external_component",$tags) as $alias
+!endprocedure
+
+!unquoted procedure ComponentDb_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
+database "$getComponent($label, $techn, $descr, $sprite)" $toStereos("external_component",$tags) as $alias
+!endprocedure
+
+!unquoted procedure ComponentQueue_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
+queue "$getComponent($label, $techn, $descr, $sprite)" $toStereos("external_component",$tags) as $alias
+!endprocedure

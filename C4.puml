@@ -130,9 +130,9 @@ $tagSkin
   !$tagEntry = $tagEntry + "<" + $bg +">" 
   ' <U+25AF> ..white rectangle
   !if ($borderColor!="")
-    !$tagEntry = $tagEntry + "<color:"+$borderColor+"><U+25AF></color> "
+    !$tagEntry = $tagEntry + "<color:"+$borderColor+"> <U+25AF></color> "
   !else
-    !$tagEntry = $tagEntry + "<color:"+$bg+"><U+25AF></color> "
+    !$tagEntry = $tagEntry + "<color:"+$bg+"> <U+25AF></color> "
   !endif
   !if ($fontColor!="")
     !$tagEntry = $tagEntry + "<color:"+$fontColor+">"

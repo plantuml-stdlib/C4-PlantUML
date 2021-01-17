@@ -132,19 +132,19 @@ endlegend
 !endfunction
 
 !unquoted procedure Person($alias, $label, $descr="", $sprite="", $tags="")
-rectangle "$getPerson($label, $descr, $sprite)" $toStereos("person", $tags) as $alias
+rectangle "$getPerson($label, $descr, $sprite)$getProps()" $toStereos("person", $tags) as $alias
 !endprocedure
 
 !unquoted procedure Person_Ext($alias, $label, $descr="", $sprite="", $tags="")
-rectangle "$getPerson($label, $descr, $sprite)" $toStereos("external_person", $tags) as $alias
+rectangle "$getPerson($label, $descr, $sprite)$getProps()" $toStereos("external_person", $tags) as $alias
 !endprocedure
 
 !unquoted procedure System($alias, $label, $descr="", $sprite="", $tags="")
-rectangle "$getSystem($label, $descr, $sprite)" $toStereos("system", $tags) as $alias
+rectangle "$getSystem($label, $descr, $sprite)$getProps()" $toStereos("system", $tags) as $alias
 !endprocedure
 
 !unquoted procedure System_Ext($alias, $label, $descr="", $sprite="", $tags="")
-rectangle "$getSystem($label, $descr, $sprite)" $toStereos("external_system", $tags) as $alias
+rectangle "$getSystem($label, $descr, $sprite)$getProps()" $toStereos("external_system", $tags) as $alias
 !endprocedure
 
 ' Boundaries

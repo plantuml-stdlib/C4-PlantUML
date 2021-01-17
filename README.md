@@ -183,7 +183,10 @@ Diagram types
 * Deployment diagram
   * Import: `!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Deployment.puml`
   * Additional Macros: 
-    * `Deployment_Node(alias, label, ?type, ?tags)`
+    * `Deployment_Node(alias, label, ?type, ?description, ?sprite, ?tags)`
+    * `Node(alias, label, ?type, ?description, ?sprite, ?tags)`: short name of Deployment_Node()
+    * `Node_L(alias, label, ?type, ?description, ?sprite, ?tags)`: left aligned Node()
+    * `Node_R(alias, label, ?type, ?description, ?sprite, ?tags)`: right aligned Node()
 
 Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).
 
@@ -342,6 +345,48 @@ SHOW_DYNAMIC_LEGEND()
 ```
 
 ![custom schema](http://www.plantuml.com/plantuml/png/dPHVRvim5CNV-HIKzI6HseOGag19aHeesYhbJvKiclQ4R7m3A617jb7JRp_0R7XPkcfHNiBldkDxZf5u519nMHQvSPFHE2y9cAcKH_5vCE3ezI79P5hYKW2F6PL0vKFCYi4Xut4gP3e8tFkN756vMou6S9902P0AHa4jFic7OtsmSNCRh1VhJJIFnkRCj3vDzoDiUvR6tORZqTYp9peVDHnipncwEdSQlYVOcunqFbGSmCOJt0rMuUxRPhvGmsdzwsP-Qo8UGO1rxgXG3iB4qRaAvTdJ4OfrhagCNMVgUJfNfHrYsows36Dt94Z2zf3H8-Ae47DA5f009I6L_Ard7O4BHgqxynOd0SiPdtNNLy4zexB3NRbQppW1VkOPLWEH8i9UCvhCBCbBiFeVXgXV9gSeZzvDur-Hne-67wyMRq92SR6_UqL_vp_AlhlQlsArNwysNfhxwyMbaAm0VcTQYg3Sz16j8YLcqCwilh5j0lImchHvAiyphHE2_ErHmihHMgBm97i5olBE4zxNpwPebMT2kkUeW4gs_FN_mjaRoBNaVwNQ2H1MlrP5FeeFclJF95kWH9ZGv16cPArd1LcIOiRFwlxJhQoN7Af4byhOVbr_Zvv-hERBvo1QX5_2rLElRpm29VL7wIS0 "custom schema")
+
+## Element properties
+
+A model can be extended with (a table of) properties that concrete deployments or more detailed concepts can be documented:
+
+* `SetPropertyHeader(col1Name, col2Name, ?col3Name, ?col4Name)`:
+  The properties table can have up to 4 columns. The default header uses the column names "Name", "Description".
+* `WithoutPropertyHeader()`
+  If no header is used, then the second column is bold.
+* `AddProperty(col1, col2, ?col3, `?col4)`
+  (All columns of) a property which will be added to the next element.
+
+Following sample uses all 3 different property definitions (and the aligned deployment node).
+
+```cs
+@startuml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Deployment.puml
+
+' default header Property, Value
+AddProperty("Name", "Flash")
+AddProperty("Organization", "Zootopia")
+AddProperty("Tool", "Internet Explorer 7.0")
+Person(personAlias, "Label", "Optional Description (with default property header)")
+
+SetPropertyHeader("Property","Value", "Description")
+AddProperty("Prop1", "Value1", "Details1")
+AddProperty("Prop2", "Value2", "Details2")
+Deployment_Node_L(nodeAlias, "Label", "Optional Type", "Optional Description (with custom property header)") {
+
+  WithoutPropertyHeader()
+  AddProperty("PropC1", "ValueC1")
+  AddProperty("PropC2", "ValueC2")
+  Container(containerAlias, "Label", "Technology", "Optional Description (without property header)")
+}
+
+System(systemAlias, "Label", "Optional Description (without properties)")
+
+Rel(personAlias, containerAlias, "Label", "Optional Technology")
+@enduml
+```
+
+![properties sample](http://www.plantuml.com/plantuml/png/ZPB1RXCn48Rl-nHcBsoaaAKH4XAdLYa8fD16443Y4hdh8RRmUYnxh7P1l3jZg-csQG8zUUpvycU-jKyZoK2fjzKpupgR50XDvEERjWtoUhOrfDDLYX0wT0IEPXtsxKyJEXr9jujNBrPMElhoSTd23VSLA3xSd8EtEFIPzpcxUYuK_939aj0W5GIn2kWXq30LNwLDK9qfjJjgwWlPGpqLzJihewud3vkNOIkT-IN9eClGTqH2R-G-jqQqkV_14GG79DxUy501WdWzUydm2a94r_Yod5aZ8yDBUGNbLvS-vqihpY5smPITQAuDwJiJV_jNjqeJpgm-0-qcU5zEctgthwTrKStfzqBtnyxLIMOAd2kcIHeRJmwXypjqVW-TCphUmUO25MoMZUFbkEXwyF0Vyov5mlw0kFXTLK9yOmRJ_WUOSEVHs8jHaSl3oAZ6PKOMwDZESMQtgnxfhA7J3YrkXt-xO3fuWN_u2eT8q3UnBFlvJqiq4Cjh-0JsuViQvpwQEmfmmYaubNhx5m00 "properties sample")
 
 ## Snippets for Visual Studio Code
 

@@ -60,27 +60,27 @@ endlegend
 !endfunction
 
 !unquoted procedure Container($alias, $label, $techn, $descr="", $sprite="", $tags="")
-rectangle "$getContainer($label, $techn, $descr, $sprite)" $toStereos("container", $tags) as $alias
+rectangle "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("container", $tags) as $alias
 !endprocedure
 
 !unquoted procedure ContainerDb($alias, $label, $techn, $descr="", $sprite="", $tags="")
-database "$getContainer($label, $techn, $descr, $sprite)" $toStereos("container", $tags) as $alias
+database "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("container", $tags) as $alias
 !endprocedure
 
 !unquoted procedure ContainerQueue($alias, $label, $techn, $descr="", $sprite="", $tags="")
-queue "$getContainer($label, $techn, $descr, $sprite)" $toStereos("container", $tags) as $alias
+queue "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("container", $tags) as $alias
 !endprocedure
 
 !unquoted procedure Container_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
-rectangle "$getContainer($label, $techn, $descr, $sprite)" $toStereos("external_container", $tags) as $alias
+rectangle "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_container", $tags) as $alias
 !endprocedure
 
 !unquoted procedure ContainerDb_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
-database "$getContainer($label, $techn, $descr, $sprite)" $toStereos("external_container", $tags) as $alias
+database "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_container", $tags) as $alias
 !endprocedure
 
 !unquoted procedure ContainerQueue_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
-queue "$getContainer($label, $techn, $descr, $sprite)" $toStereos("external_container", $tags) as $alias
+queue "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_container", $tags) as $alias
 !endprocedure
 
 ' Boundaries

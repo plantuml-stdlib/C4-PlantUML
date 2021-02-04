@@ -162,3 +162,5 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 Rel_Right(web_app, db, "Stores", "SQL")
 @enduml
 ```
+
+![auto number relationships example](images/AUTONUMBER_RELATIONSHIPS_Sample.png)

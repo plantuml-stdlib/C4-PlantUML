@@ -9,7 +9,7 @@ skinparam maxMessageSize 200
 LAYOUT_TOP_DOWN()
 'LAYOUT_AS_SKETCH()
 LAYOUT_WITH_LEGEND()
-
+AUTONUMBER_RELATIONSHIPS()
 
 Person(customer, Customer, "A customer")
 
@@ -37,13 +37,13 @@ Rel(customer, app, "Uses", "HTTPS")
 Rel_R(app, customer_service, "Updates customer information using", "async, JSON/HTTPS")
 
 Rel_L(customer_service, app, "Sends events to", "WebSocket")
-Rel_R(customer_service, message_bus, "Sends customer update events to")
 Rel(customer_service, customer_db, "Stores data in", "JDBC")
+Rel_R(customer_service, message_bus, "Sends customer update events to")
 
 Rel(message_bus, reporting_service, "Sends customer update events to")
-Rel(message_bus, audit_service, "Sends customer update events to")
-
 Rel(reporting_service, reporting_db, "Stores data in")
+
+Rel(message_bus, audit_service, "Sends customer update events to")
 Rel(audit_service, audit_store, "Stores events in")
 
 Lay_R(reporting_service, audit_service)

@@ -85,11 +85,33 @@ left to right direction
 ' Relationship
 ' ##################################
 
-!unquoted procedure Rel_($alias1, $alias2, $label, $direction="")
-$alias1 $direction $alias2 : **$label**
+!$relationshipIndex = 0
+!$autoNumberRelationships = 0
+
+!procedure AUTONUMBER_RELATIONSHIPS()
+  !$autoNumberRelationships = 1
 !endprocedure
+
+!procedure INCREMENT_RELATIONSHIP_INDEX()
+  !$relationshipIndex = $relationshipIndex + 1
+!endprocedure
+
+!unquoted procedure Rel_($alias1, $alias2, $label, $direction="")
+!if ($autoNumberRelationships)
+  INCREMENT_RELATIONSHIP_INDEX()
+  $alias1 $direction $alias2 : **$relationshipIndex. $label**
+!else
+  $alias1 $direction $alias2 : **$label**
+!endif
+!endprocedure
+
 !unquoted procedure Rel_($alias1, $alias2, $label, $techn, $direction="")
-$alias1 $direction $alias2 : **$label**\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//
+!if ($autoNumberRelationships)
+  INCREMENT_RELATIONSHIP_INDEX()
+  $alias1 $direction $alias2 : **$relationshipIndex. $label**\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//
+!else
+  $alias1 $direction $alias2 : **$label**\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//
+!endif
 !endprocedure
 
 !unquoted procedure Rel($from, $to, $label)

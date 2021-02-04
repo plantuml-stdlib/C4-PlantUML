@@ -55,7 +55,7 @@ Rel(personAlias, containerAlias, "Label", "Optional Technology")
 
 In addition to this, it is also possible to define a system or component boundary.
 
-Take a look a look at the following sample of a C4 Container Diagram:
+Take a look at the following sample of a C4 Container Diagram:
 
 ```csharp
 @startuml Basic Sample

@@ -564,5 +564,16 @@
 			"LAYOUT_AS_SKETCH()"
 		],
 		"description": "Sketch layout for C4 diagram."
-	}
+	},
+	"C4_Auto_Number_Relationships": {
+		"scope": "plantuml",
+		"prefix": [
+			"Autonumber relationships",
+			"Add relationship numbers"
+		],
+		"body": [
+			"AUTONUMBER_RELATIONSHIPS()"
+		],
+		"description": "Automatically add relationship numbers to C4 diagram."
+	},
 }

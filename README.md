@@ -171,6 +171,7 @@ C4-PlantUML also comes with some layout options to make it easy and reuseable to
 * [LAYOUT_WITH_LEGEND()](LayoutOptions.md#layout_with_legend)
 * [LAYOUT_AS_SKETCH()](LayoutOptions.md#layout_as_sketch)
 * [HIDE_STEREOTYPE()](LayoutOptions.md#hide_stereotype)
+* [AUTONUMBER_RELATIONSHIPS()](LayoutOptions.md#autonumber_relationships)
 
 ## Snippets for Visual Studio Code
 

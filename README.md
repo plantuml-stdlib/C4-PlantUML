@@ -18,16 +18,11 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
 
 At the top of your C4 PlantUML `.puml` file, you need to include the `C4_Context.puml`, `C4_Container.puml` or `C4_Component.puml` file found in the `root` of this repo.
 
-To be independent of any internet connectivity, you can also download the files found in the `root` and reference it locally with
+To be independent of any internet connectivity, you can also download the files found in the `root` and activate the local conversion with additional command line argument `-DRELATIVE_INCLUDE="."` (that the local files are included)
 
 ```c#
-!include path/to/C4.puml
-!include path/to/C4_Context.puml
-!include path/to/C4_Container.puml
-!include path/to/C4_Component.puml
+java -jar plantuml.jar -DRELATIVE_INCLUDE="."  ...
 ```
-
-Just remember to change the `!include` statements at the top of the files.
 
 If you want to use the always up-to-date version in this repo, use the following:
 
@@ -102,6 +97,34 @@ Rel_R(api, db, "Reads/Writes")
 
 ![test](https://www.plantuml.com/plantuml/png/hL9DZzCm4BtdLtXxeIjjwmDmuRHLMzXA_Q8VL9ogQJnfZHmxUEnM_7l6QRORM90uS8erx-NDl9dtI05yYAN9xhJDJLGeJY5Kz45A3vV-KOTJF4H2dpiRq8P-xae9ockmPnEhA8VlUai3DcndKsaW80KkxOVC1ctHzwka_KP4op-MB2322KNXZ74NRO_2C4c0LU8NM7lYbnFSM1YNWp4_MECsuUi6sPt28acDnbycmyLy_GykGgpOo5jPfV5PfASPxHNCw57bDLkH9L10BnMU4qQtBXyNyyrWDrulPkF_sgYkmGN9bTXx_tAIPrSIx34QQ4o_Xh_16Vw6bVJTx7coC_x-UykDJBDJizFfuEjYkzdl9fkd_NJyQJmVTU-pRCa4Pxk9-20wmqY1X_KTVY_HLGRvWX24HLIYyax5F502Q-7EVNOxN9SguFfwEKXmOomzDvo0aYb2ymfz0NaZcPAHD-sk6B2skF3Esmhj5b1fHWRBIIAavQJl4yVD80bEbU1RCP68KtRK-OtLqXWTkkh0zH44E01XuinqxXsv8eZrvsajwOoYPxiFmdd58wPKQtjscWreMpXVGj3E9dxh5jmhMw5fzddToPQmtbaTBIOal4QkVlu0xrTNh_MeAmH5SbSdY-57j8hl-HC0 "test")
 
+Entities can be decorated with tags and explained via dynamic calculated legends, for example:
+
+```cs
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+AddTagSupport("v1.0", $borderColor="#d73027")
+AddTagSupport("v1.1", $fontColor="#d73027")
+
+Person(user, "Customer", "People that need products")
+Person(admin, "Administrator", "People that administrates the products via the new v1.1 components", $tags="v1.1")
+Container(spa, "SPA", "angular", "The main interface that the customer interacts with via v1.0", $tags="v1.0")
+Container(spaAdmin, "Admin SPA", "angular", "The administrator interface that the customer interacts with via new v1.1", $tags="v1.1")
+Container(api, "API", "java", "Handles all business logic (incl. new v1.1 extensions)", $tags="v1.0+v1.1")
+ContainerDb(db, "Database", "Microsoft SQL", "Holds product, order and invoice information")
+
+Rel(user, spa, "Uses", "https")
+Rel(spa, api, "Uses", "https")
+Rel_R(api, db, "Reads/Writes")
+Rel(admin, spaAdmin, "Uses", "https")
+Rel(spaAdmin, api, "Uses", "https")
+
+SHOW_DYNAMIC_LEGEND()
+@enduml
+```
+
+![tags](http://www.plantuml.com/plantuml/png/bLDHQnf147xtLsolVJYfyKnR21G25GrDG5Eh2Q5FCdSxwfQztMDdJllpEtiQjSbHoDF2p3VpVVFDx3lZ2bjhL1lcYhvcMO1TVsruK-SrOIYyOtJSBtoPLHOSrwMz8DRMvDdeoyKiXXwdawm4OWmIMewa0ep3qAy4s-aCjNw0zQAkAXyuJRQN_K7IKnzo7pI6aRS-N2VlzTNdmQUhfDk2lepebJHzXUtCC91tQTJPKyce9lOb1i4dC_ILHSKROEKGjQg2rtN196M7Aj2bSG8TnjSG1s3_gXPEIIG9uR6HsXfe0WvtAifKOb7bdPX5KJ73cguR_K9vz2Ib2eHYCHj69d3hsa93-Y2TIe4e8tw75HG70P6XE0ospq4atyc26WMDdUTqWvTqm_CvLJipd7lmHWb70_upDLGcAfZTHSBVi8NuteBJ5ac1jKfkJO14olgrALGQZx9_iXR_C3eotb7tts4_lgGQvwdEfVaO678WZ4HJKmHFViLgyNFIC7khwNcJFTLSeX8rCjtMcmBbNVbG0WjZlBCvsiEHxTVtI4YnJ_Db113pJKRcR4ylvtiF6crp14tPKp2CX_JpCHxNrSvnIhSJTHQtFvwMur_tm-dTQ3cv-NvpFqwxdM_eTFoAVm40 "tags")
+
 
 ## Supported Diagram Types
 
@@ -110,17 +133,17 @@ Diagram types
 * System Context & System Landscape diagrams
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
   * Macros: 
-    * `Person(alias, label, ?description, ?sprite)`
+    * `Person(alias, label, ?description, ?sprite, ?tags)`
     * `Person_Ext`
-    * `System(alias, label, ?description, ?sprite)`
+    * `System(alias, label, ?description, ?sprite, ?tags)`
     * `System_Ext`
-    * `Boundary(alias, label, ?type)` 
-    * `Enterprise_Boundary(alias, label)`
+    * `Boundary(alias, label, ?type, ?tags)` 
+    * `Enterprise_Boundary(alias, label, ?tags)`
     * `System_Boundary` 
 * Container diagram
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
   * Additional Macros: 
-    * `Container(alias, label, technology, ?description, ?sprite)`
+    * `Container(alias, label, technology, ?description, ?sprite, ?tags)`
     * `ContainerDb`
     * `ContainerQueue`
     * `Container_Ext`
@@ -130,7 +153,7 @@ Diagram types
 * Component diagram
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
   * Additional Macros: 
-    * `Component(alias, label, technology, ?description, ?sprite)`
+    * `Component(alias, label, technology, ?description, ?sprite, ?tags)`
     * `ComponentDb`
     * `ComponentQueue`
     * `Component_Ext`
@@ -145,7 +168,10 @@ Diagram types
 * Deployment diagram
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml`
   * Additional Macros: 
-    * `Deployment_Node(alias, label, ?type)`
+    * `Deployment_Node(alias, label, ?type, ?description, ?sprite, ?tags)`
+    * `Node(alias, label, ?type, ?description, ?sprite, ?tags)`: short name of Deployment_Node()
+    * `Node_L(alias, label, ?type, ?description, ?sprite, ?tags)`: left aligned Node()
+    * `Node_R(alias, label, ?type, ?description, ?sprite, ?tags)`: right aligned Node()
 
 Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).
 
@@ -206,9 +232,141 @@ Rel_L(x, s4, "uses")
 C4-PlantUML also comes with some layout options to make it easy and reuseable to create nice and useful diagrams:
 
 * [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT()](LayoutOptions.md#layout_top_down-or-layout_left_right)
-* [LAYOUT_WITH_LEGEND()](LayoutOptions.md#layout_with_legend)
+* [LAYOUT_WITH_LEGEND() or SHOW_DYNAMIC_LEGEND(?hideStereotype)](LayoutOptions.md#layout_with_legend-or-show_dynamic_legend)
 * [LAYOUT_AS_SKETCH()](LayoutOptions.md#layout_as_sketch)
 * [HIDE_STEREOTYPE()](LayoutOptions.md#hide_stereotype)
+
+## Custom tags/stereotypes support and skinparam updates
+
+Additional tags/stereotypes can be added to the existing element stereotypes (component, ...) and highlight,... specific aspects:
+
+* `AddTagSupport(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing)`:
+  After this call the given tag can be used in the diagram, the styles of the tagged elements are updated and the tag is be displayed in the dynamic legend.
+* `UpdateSkinparamsAndLegendEntry(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing)`
+  This call updates the style of the default element stereotypes (component, ...) and creates no additional legend entry.
+
+Each element can be extended with one or multiple custom tags/stereotypes via the keyword argument `$tags="..."`, like `Container(spaAdmin, "Admin SPA", $tags="v1.1")`.
+Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+v1.1")`.
+
+**Comments**
+
+* `SHOW_DYNAMIC_LEGEND()` supports the customized stereotypes
+      (`LAYOUT_WITH_LEGEND()` cannot be used, if the custom tags/stereotypes should be displayed in the legend).
+* `SHOW_DYNAMIC_LEGEND()` has to be last line in diagram.
+* Don't use space between `$tags` and `=` (PlantUML does not support it).
+* Don't use `,` as part of the tag names (PlantUML does not support it in combination with keyword arguments).
+* If 2 tags defines the same skinparameter, the first definition is used.
+* If specific skinparameters have to be merged (e.g. 2 tags change the font color) an additional combined tag has to be defined. Use `&` as part of combined tag names. This convention can be used in other tools.
+
+```cs
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+AddTagSupport("v1.0", $fontColor="#d73027", $borderColor="#d73027")
+AddTagSupport("v1.1", $fontColor="#ffffbf", $borderColor="#ffffbf")
+AddTagSupport("v1.0&v1.1", $fontColor="#fdae61", $borderColor="#fdae61")
+AddTagSupport("fallback", $bgColor="#888888")
+
+Container(spa, "SPA", "angular", "The main interface that the customer interacts with via v1.0", $tags="v1.0")
+Container(spaAdmin, "Admin SPA", "angular", "The administrator interface that the customer interacts with via new v1.1", $tags="v1.1")
+Container(api, "API", "java", "Handles all business logic (incl. new v1.1 extensions)", $tags="v1.0&v1.1+v1.0+v1.1")
+Container(spa2, "SPA2", "angular", "The main interface that the customer interacts with via v1.0", $tags="v1.0+fallback")
+Container(spaAdmin2, "Admin SPA2", "angular", "The administrator interface that the customer interacts with via new v1.1", $tags="fallback+v1.1")
+
+Rel(spa, api, "Uses", "https")
+Rel(spaAdmin, api, "Uses", "https")
+Rel_L(spa, spa2, "Updates", "https")
+Rel_R(spaAdmin, spaAdmin2, "Updates", "https")
+
+SHOW_DYNAMIC_LEGEND(false)
+@enduml
+```
+
+![merged tags](http://www.plantuml.com/plantuml/png/jLDXQzim5FpkNw5bOoIajHDlh6DGQ4ZBMaYxq3ICVGhFbkneaoMZzvpivq-Avj3KPh0FzHUPUwUxuvvzXGIMcaf5RwJELSC5snBL-2L9BEpZKjAsoHeKDZUQXAOuDrLIAz3-pZaILp9BvX_FbnvQto-I2f24TT1cxcw0rCB6jTUFPfm_GRbgwjfO6WvsqtWoE6Fl2aUR6sNivU0jl_WmIIyycXdBXNs1ZteqfYyr2lTaHLSZuBqQa_UzGXp4fsbNAE1TeGAKoY3_TRXHjkpFXyUnesCVGwpXZ0rMozd07Q3BHe7rhqzRmIf7OLAJi0NaWj4MY973ymR9LCA66UI4RE-MmtOIM5ibGOcNeTZHgTsCLr8xXyF9-ft1poII1JBsVoDeiMTjYSSOqvCOK4kVO7dd3N_23lnv2vehWGoKObc3ZeZ8b2bbpeR-WuoFoapy9g5H6esZ4vUmlR5_6tTCiOOqT9s-MjdZTlEzhQVFQqzVl_SsJDj5z2XK-EB20jOeq5iVVdCt3-EGzH-SpIA8_2rqNNEWBkdncTInW7vwjBhzzdrp_UDXTdyttonkljuyN0zTU1IZw4fetbJg3m00 "merged tags")
+
+**Custom schema definition**
+
+If the custom (color) schema is defined via `UpdateSkinparamsAndLegendEntry()` then the legend of existing elements is updated too.
+
+```cs
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+!$COLOR_A_5 = "#7f3b08"
+!$COLOR_A_4 = "#b35806"
+!$COLOR_A_3 = "#e08214"
+!$COLOR_A_2 = "#fdb863"
+!$COLOR_A_1 = "#fee0b6b"
+!$COLOR_NEUTRAL = "#f7f7f7"
+!$COLOR_B_1 = "#d8daeb"
+!$COLOR_B_2 = "#b2abd2"
+!$COLOR_B_3 = "#8073ac"
+!$COLOR_B_4 = "#542788"
+!$COLOR_B_5 = "#2d004b"
+
+UpdateSkinparamsAndLegendEntry("person", $bgColor=$COLOR_A_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_1, $shadowing="true")
+UpdateSkinparamsAndLegendEntry("external_person", $bgColor=$COLOR_B_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_1)
+UpdateSkinparamsAndLegendEntry("system", $bgColor=$COLOR_A_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_2)
+UpdateSkinparamsAndLegendEntry("external_system", $bgColor=$COLOR_B_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_2)
+
+Person(customer, "Personal Banking Customer")
+System(banking_system, "Internet Banking System")
+
+System_Ext(mail_system, "E-mail system")
+System_Ext(mainframe, "Mainframe Banking System")
+
+Rel(customer, banking_system, "Uses")
+Rel_Back(customer, mail_system, "Sends e-mails to")
+Rel_Neighbor(banking_system, mail_system, "Sends e-mails")
+Rel(banking_system, mainframe, "Uses")
+
+SHOW_DYNAMIC_LEGEND()
+@enduml
+```
+
+![custom schema](http://www.plantuml.com/plantuml/png/dPHVRvim5CNV-HIKzI6LceGGag19aHeesYhbJvKiclQ4R7n3KC4WswZfjvy1RtXfkwfHNiBldkDxZf6uum8nKUMPSPNIEAi8c4SXIlvrE6JeUP2aubZXYWEB2og0Ya5SvCCoGxJszBaWMOg7WTj_hD5-jHpcY0jW4aL1xJY9GLcVRbnT1vlbPXijeeavDwqliyCOsvwbSRVXU3pnxAdEnmq7stD6hiwTXXy8zgPZdOzQ3c3ZAUu6wt3_OxjOjiDP_UjclZ8HZo306bTBi8CmSJIkGddsR8nYZQiI4zUPUPx6LMc7sBOhppVs9K42TayfBH53ELzGieG4A0cfO2yzgmJ62shTcjSu2OgiOFFk-YGy55Hqk2jNwmj6W9rvHdB0ZuWKpobDvfPW5LWt7uQ0am16KHQzcyQ_88sywuzNynSk87-pltj1V-SJPTzTxL-msgzN6u_D_VNYYeiY1tPhMYr1cUaZAYCbPg1cyhNicW0zt4vK7kbve7L247yzhL0wb2KAJwANepJhF66_VZQvKfu9wO6X7AHizUV_6sTl8TEIlqgrvy2bJAeY7yLFclJV93kWX9lGvE6cA9Hd3Mbon0Kxg_jVTsjzxT0AgLJ6xllcPtJ_QxrOFGJHClmMhkzxDyOTK59_b7u3 "custom schema")
+
+## Element properties
+
+A model can be extended with (a table of) properties that concrete deployments or more detailed concepts can be documented:
+
+* `SetPropertyHeader(col1Name, col2Name, ?col3Name, ?col4Name)`:
+  The properties table can have up to 4 columns. The default header uses the column names "Name", "Description".
+* `WithoutPropertyHeader()`
+  If no header is used, then the second column is bold.
+* `AddProperty(col1, col2, ?col3, `?col4)`
+  (All columns of) a property which will be added to the next element.
+
+Following sample uses all 3 different property definitions (and the aligned deployment node).
+
+```cs
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+
+' default header Property, Value
+AddProperty("Name", "Flash")
+AddProperty("Organization", "Zootopia")
+AddProperty("Tool", "Internet Explorer 7.0")
+Person(personAlias, "Label", "Optional Description (with default property header)")
+
+SetPropertyHeader("Property","Value", "Description")
+AddProperty("Prop1", "Value1", "Details1")
+AddProperty("Prop2", "Value2", "Details2")
+Deployment_Node_L(nodeAlias, "Label", "Optional Type", "Optional Description (with custom property header)") {
+
+  WithoutPropertyHeader()
+  AddProperty("PropC1", "ValueC1")
+  AddProperty("PropC2", "ValueC2")
+  Container(containerAlias, "Label", "Technology", "Optional Description (without property header)")
+}
+
+System(systemAlias, "Label", "Optional Description (without properties)")
+
+Rel(personAlias, containerAlias, "Label", "Optional Technology")
+@enduml
+```
+
+![properties sample](http://www.plantuml.com/plantuml/png/ZP9HRzCm4CVVyobCNaYbhc4L4X9FcpeGI6Mhe834ItLDZiQIuxFiiqP0V7VEqRfiQO0z-NB--P_xnRa839vZQx9dsbOcrgWQPXTUbwM7syL1SnFtCQ2lo39QNbJKbiw0JMVE0jT6xylLoxDDQdt-i2vR28nUMhihT8QwDXrowGNPSrNZTuY6LODGerSRJmuzTtFr1Kp4xBAkZwqYluOMyxdAtne8JJvxl7dZ3s3rJs1DDa7VY9YSXZ6t9J9f_xrbz1PPlVaXGtdqwjNYXS0Rz85iuVhbqcW80gzXZ_sf6vVomQWh39NN_PCgRZKtzoRkxbLtIZF9p3uX7oTurtUB_FYSp_Easeiz21sFdQhpnFImL8bcq2QSJw7BUtJv05qAEjp1xffgtAqBAylVHRUTm_-OLp4mjHFYwbUMAVLL68hZ3p2JdPEnLuEYbDF8e2PbGbPanSvAPdMiJdIsM3MM31swVxjGdBp0ttA5NM1iYz0lu_od9MeC_T_m4StZ_sjgxb7k82095sZhs9e_ "properties sample")
 
 ## Snippets for Visual Studio Code
 

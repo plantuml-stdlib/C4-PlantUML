@@ -4,8 +4,15 @@
 ' ##################################
 
 !global $ELEMENT_FONT_COLOR = "#FFFFFF"
+
+!global $ARROW_COLOR = "#666666"
+
+!global $BOUNDARY_COLOR = "#444444"
+
 !global $LEGEND_FONT_COLOR = "#FFFFFF"
 !global $LEGEND_TITLE_COLOR = "#000000"
+!global $LEGEND_UNDEFINED_BK_COLOR = "#87AECA"
+!global $LEGEND_UNDEFINED_FONT_COLOR = "#B7DEFA"
 
 ' Styling
 ' ##################################
@@ -37,18 +44,227 @@ skinparam queue {
 }
 
 skinparam Arrow {
-    Color #666666
-    FontColor #666666
+    Color $ARROW_COLOR
+    FontColor $ARROW_COLOR
     FontSize 12
 }
 
 skinparam rectangle<<boundary>> {
     Shadowing false
     StereotypeFontSize 0
-    FontColor #444444
-    BorderColor #444444
+    FontColor $BOUNDARY_COLOR
+    BorderColor $BOUNDARY_COLOR
     BorderStyle dashed
 }
+
+' Legend and Tags
+' ##################################
+!global $tagDefaultLegend = ""
+!global $tagCustomLegend = ""
+
+!unquoted function $toStereos($elementType, $tags)
+  !if (%strlen($tags) == 0)
+    !$stereos = '<<' + $elementType + '>>'
+%set_variable_value("$" + $elementType + "Legend", %true())
+    !return $stereos
+  !endif 
+  !$stereos = ''
+  !$brPos = %strpos($tags, "+")
+  !while ($brPos >= 0)
+    !$tag = %substr($tags, 0, $brPos)
+    !$stereos = $stereos + '<<' + $tag + '>>'
+%set_variable_value("$" + $tag + "Legend", %true())
+    !$tags = %substr($tags, $brPos+1)
+    !$brPos = %strpos($tags, "+")
+  !endwhile
+  !if (%strlen($tags)>0)
+    !$stereos = $stereos + '<<' + $tags + '>>'
+%set_variable_value("$" + $tags + "Legend", %true())
+  !endif
+  ' has to be last, otherwise PlantUML overwrites all tag specific skinparams
+  !$stereos = $stereos + '<<' + $elementType + '>>'
+%set_variable_value("$" + $elementType + "Legend", %true())
+  !return $stereos
+!endfunction
+
+!function $elementTagSkinparams($element, $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$elementSkin = "skinparam " + $element +"<<" + $tagStereo + ">> {" + %newline()
+  !if ($fontColor!="")
+    !$elementSkin = $elementSkin + "    StereotypeFontColor " + $fontColor + %newline()
+    !$elementSkin = $elementSkin + "    FontColor " + $fontColor + %newline()
+  !endif
+  !if ($bgColor!="")
+    !$elementSkin = $elementSkin + "    BackgroundColor " + $bgColor + %newline()
+  !endif
+  !if ($borderColor!="")
+    !$elementSkin = $elementSkin + "    BorderColor " + $borderColor+ %newline()
+  !endif
+  !if ($shadowing == "true")
+    !$elementSkin = $elementSkin + "    Shadowing<<" + $tagStereo + ">> " + "true" + %newline()
+  !endif
+  !if ($shadowing == "false")
+    !$elementSkin = $elementSkin + "    Shadowing<<" + $tagStereo + ">> " + "false" + %newline()
+  !endif
+  !$elementSkin = $elementSkin + "}" + %newline()
+  !return $elementSkin
+!endfunction
+
+!unquoted procedure $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$tagSkin = $elementTagSkinparams("rectangle", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$tagSkin = $tagSkin + $elementTagSkinparams("database", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$tagSkin = $tagSkin + $elementTagSkinparams("queue", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+$tagSkin
+!endprocedure
+
+!function $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$tagEntry = "|"
+  !if ($bgColor!="")
+    !$bg = $bgColor
+  !else
+    !$bg = $LEGEND_UNDEFINED_BK_COLOR
+  !endif
+  ' named colors have to start with # too 
+  !if (%substr($bg, 0, 1) != "#")
+    !$bg = "#" + $bg
+  !endif
+  !$tagEntry = $tagEntry + "<" + $bg +">" 
+  ' <U+25AF> ..white rectangle
+  !if ($borderColor!="")
+    !$tagEntry = $tagEntry + "<color:"+$borderColor+"> <U+25AF></color> "
+  !else
+    !$tagEntry = $tagEntry + "<color:"+$bg+"> <U+25AF></color> "
+  !endif
+  !if ($fontColor!="")
+    !$tagEntry = $tagEntry + "<color:"+$fontColor+">"
+  !else
+    !$tagEntry = $tagEntry + "<color:"+$LEGEND_UNDEFINED_FONT_COLOR+">"
+  !endif
+  !$tagEntry = $tagEntry + " " + $tagStereo + " "
+  !if ($shadowing == "true")
+    !$tagEntry = $tagEntry + "(shadow) "
+  !endif
+  !if ($shadowing == "false")
+    !$tagEntry = $tagEntry + "(no shadow) "
+  !endif
+  !if ($fontColor == "" && $bgColor == "")
+      !$tagEntry = $tagEntry + "(no font, no back color) "
+  !else 
+    !if ($fontColor == "")
+      !$tagEntry = $tagEntry + "(no font color) "
+    !endif
+    !if ($bgColor == "")
+      !$tagEntry = $tagEntry + "(no back color) "
+    !endif
+  !endif
+  !$tagEntry = $tagEntry + "</color> "
+  !$tagEntry = $tagEntry + "|"
+  !return $tagEntry 
+!endfunction
+
+!unquoted procedure $addTagToDynamicLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
+  !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+%set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
+  !$tagCustomLegend = $tagCustomLegend + $tagStereo + "\n"
+!endprocedure
+
+!procedure $showActiveLegendEntries($allDefined)
+  !$brPos = %strpos($allDefined, "\n")
+  !while ($brPos >= 0)
+    !$tagStereo = %substr($allDefined, 0, $brPos)
+    !$allDefined = %substr($allDefined, $brPos+2)
+    !$brPos = %strpos($allDefined, "\n")
+    !if (%variable_exists("$" + $tagStereo + "Legend"))
+%get_variable_value("$" + $tagStereo + "LegendEntry")
+    !endif
+  !endwhile
+  !if (%strlen($allDefined)>0)
+    !$tagStereo = $allDefined
+    !if (%variable_exists("$" + $tagStereo + "Legend"))
+%get_variable_value("$" + $tagStereo + "LegendEntry")
+    !endif
+  !endif
+!endprocedure
+
+' used by new defined tags
+!unquoted procedure AddTagSupport($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
+$defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+$addTagToDynamicLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+!endprocedure
+
+' used by existing elements like person, ...
+!unquoted procedure UpdateSkinparamsAndLegendEntry($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
+$defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+%set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
+!endprocedure
+
+' tags/stereotypes have to be delimited with \n 
+!unquoted procedure SetDefaultLegendEntries($tagStereoEntries)
+  !$tagDefaultLegend = $tagStereoEntries
+!endprocedure
+
+' Element properties
+' ##################################
+
+' collect all defined properties as table rows
+!global $propTable = ""
+!global $propTableCaption = ""
+!global $propColCaption = "="
+
+!unquoted function SetPropertyHeader($col1Name, $col2Name, $col3Name = "", $col4Name = "")
+  !$propColCaption = ""
+  !$propTableCaption = "|= " + $col1Name + " |= " + $col2Name + " |"
+  !if ($col3Name != "")
+    !$propTableCaption = $propTableCaption + "= " + $col3Name + " |"
+  !endif
+  !if ($col4Name != "")
+    !$propTableCaption = $propTableCaption + "= " + $col4Name + " |"
+  !endif
+  !return ""
+!endfunction
+
+!unquoted function WithoutPropertyHeader()
+  !$propTableCaption = ""
+  !$propColCaption = "="
+  !return ""
+!endfunction
+
+!unquoted function AddProperty($col1, $col2, $col3 = "", $col4 = "")
+  !if ($propTable == "")
+    !if ($propTableCaption != "")
+      !$propTable = $propTableCaption + "\n"
+    !endif
+  !else
+    !$propTable = $propTable + "\n"
+  !endif
+  !$propTable = $propTable + "| " + $col1 + " |" + $propColCaption + " " + $col2 + " |"
+  !if ($col3 != "")
+    !$propTable = $propTable + " " + $col3 + " |"
+  !endif
+  !if ($col4 != "")
+    !$propTable = $propTable + " " + $col4 + " |"
+  !endif
+  !return ""
+!endfunction
+
+!unquoted function $getProps($alignedNL = "\n")
+  !if ($propTable != "")
+    !$retTable = $alignedNL + $propTable
+    !$propTable = ""
+    !return $retTable
+  !endif
+  !return ""
+!endfunction
+
+!unquoted function $getProps_L()
+  !return $getProps("\l")
+!endfunction
+
+!unquoted function $getProps_R()
+  !return $getProps("\r")
+!endfunction
+
+SetPropertyHeader("Property","Value")
 
 ' Layout
 ' ##################################
@@ -72,15 +288,33 @@ top to bottom direction
 left to right direction
 !endprocedure
 
+' has to be last call in diagram
+!unquoted procedure SHOW_DYNAMIC_LEGEND($hideStereotype="true")
+!if ($hideStereotype=="true")
+hide stereotype
+!endif
+legend right
+|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
+$showActiveLegendEntries($tagDefaultLegend)
+$showActiveLegendEntries($tagCustomLegend)
+endlegend
+!endprocedure
+
 ' Boundaries
 ' ##################################
 
-!unquoted function Boundary($alias, $label)
-!return 'rectangle "=='+$label+'" <<boundary>> as '+$alias
+!function $getBoundary($label, $type)
+  !if ($type == "")
+    !return '==' + $label
+  !endif
+  !if (type != "")
+    !return '==' + $label + '\n<size:' + $TECHN_FONT_SIZE + '>[' + $type + ']</size>'
+  !endif
 !endfunction
-!unquoted function Boundary($alias, $label, $type)
-!return 'rectangle "=='+$label+'\n<size:'+$TECHN_FONT_SIZE+'>['+$type+']</size>" <<boundary>> as '+$alias
-!endfunction
+
+!unquoted procedure Boundary($alias, $label, $type="", $tags="")
+rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias
+!endprocedure
 
 ' Relationship
 ' ##################################

@@ -4,30 +4,41 @@
 ' !include C4_Deployment.puml
 
 AddTagSupport("fallback", $bgColor="#c0c0c0")
+WithoutPropertyHeader()
 
 ' dynamic legend is used (activated in last line)
 ' LAYOUT_WITH_LEGEND()
 
 title Deployment Diagram for Internet Banking System - Live
 
-Deployment_Node(plc, "Big Bank plc", "Big Bank plc data center"){
-    Deployment_Node(dn, "bigbank-api***\tx8", "Ubuntu 16.04 LTS"){
-        Deployment_Node(apache, "Apache Tomcat", "Apache Tomcat 8.x"){
+Deployment_Node(plc, "Live", "Big Bank plc", "Big Bank plc data center"){
+    AddProperty("Location", "London and Reading")
+    Deployment_Node_L(dn, "bigbank-api***\tx8", "Ubuntu 16.04 LTS", "A web server residing in the web server farm, accessed via F5 BIG-IP LTMs."){
+        AddProperty("Java Version", "8")
+        AddProperty("Xmx", "512M")
+        AddProperty("Xms", "1024M")
+        Deployment_Node_L(apache, "Apache Tomcat", "Apache Tomcat 8.x", "An open source Java EE web server."){
             Container(api, "API Application", "Java and Spring MVC", "Provides Internet Banking functionality via a JSON/HTTPS API.")
         }
     }
-    Deployment_Node(bigbankdb01, "bigbank-db01", "Ubuntu 16.04 LTS"){
-        Deployment_Node(oracle, "Oracle - Primary", "Oracle 12c"){
+    AddProperty("Location", "London")
+    Deployment_Node_L(bigbankdb01, "bigbank-db01", "Ubuntu 16.04 LTS", "The primary database server."){
+        Deployment_Node_L(oracle, "Oracle - Primary", "Oracle 12c", "The primary, live database server."){
             ContainerDb(db, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
         }
     }
-    Deployment_Node(bigbankdb02, "bigbank-db02", "Ubuntu 16.04 LTS", $tags="fallback") {
-        Deployment_Node(oracle2, "Oracle - Secondary", "Oracle 12c", $tags="fallback") {
+    AddProperty("Location", "Reading")
+    Deployment_Node_R(bigbankdb02, "bigbank-db02", "Ubuntu 16.04 LTS", "The secondary database server.", $tags="fallback") {
+        Deployment_Node_R(oracle2, "Oracle - Secondary", "Oracle 12c", "A secondary, standby database server, used for failover purposes only.", $tags="fallback") {
             ContainerDb(db2, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.", $tags="fallback")
         }
     }
-    Deployment_Node(bb2, "bigbank-web***\tx4", "Ubuntu 16.04 LTS"){
-        Deployment_Node(apache2, "Apache Tomcat", "Apache Tomcat 8.x"){
+    AddProperty("Location", "London and Reading")
+    Deployment_Node_R(bb2, "bigbank-web***\tx4", "Ubuntu 16.04 LTS", "A web server residing in the web server farm, accessed via F5 BIG-IP LTMs."){
+        AddProperty("Java Version", "8")
+        AddProperty("Xmx", "512M")
+        AddProperty("Xms", "1024M")
+        Deployment_Node_R(apache2, "Apache Tomcat", "Apache Tomcat 8.x", "An open source Java EE web server."){
             Container(web, "Web Application", "Java and Spring MVC", "Delivers the static content and the Internet Banking single page application.")
         }
     }

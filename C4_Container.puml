@@ -1,6 +1,9 @@
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
-' uncomment the following line and comment the first to use locally
-' !include C4_Context.puml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Context.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!endif
 
 ' Scope: A single software system.
 ' Primary elements: Containers within the software system in scope.
@@ -17,51 +20,13 @@
 
 ' Styling
 ' ##################################
-
-skinparam rectangle<<container>> {
-    StereotypeFontColor $ELEMENT_FONT_COLOR
-    FontColor $ELEMENT_FONT_COLOR
-    BackgroundColor $CONTAINER_BG_COLOR
-    BorderColor $CONTAINER_BORDER_COLOR
-}
-
-skinparam database<<container>> {
-    StereotypeFontColor $ELEMENT_FONT_COLOR
-    FontColor $ELEMENT_FONT_COLOR
-    BackgroundColor $CONTAINER_BG_COLOR
-    BorderColor $CONTAINER_BORDER_COLOR
-}
-
-skinparam queue<<container>> {
-    StereotypeFontColor $ELEMENT_FONT_COLOR
-    FontColor $ELEMENT_FONT_COLOR
-    BackgroundColor $CONTAINER_BG_COLOR
-    BorderColor $CONTAINER_BORDER_COLOR
-}
-
-skinparam rectangle<<external_container>> {
-    StereotypeFontColor $ELEMENT_FONT_COLOR
-    FontColor $ELEMENT_FONT_COLOR
-    BackgroundColor $EXTERNAL_CONTAINER_BG_COLOR
-    BorderColor $EXTERNAL_CONTAINER_BORDER_COLOR
-}
-
-skinparam database<<external_container>> {
-    StereotypeFontColor $ELEMENT_FONT_COLOR
-    FontColor $ELEMENT_FONT_COLOR
-    BackgroundColor $EXTERNAL_CONTAINER_BG_COLOR
-    BorderColor $EXTERNAL_CONTAINER_BORDER_COLOR
-}
-
-skinparam queue<<external_container>> {
-    StereotypeFontColor $ELEMENT_FONT_COLOR
-    FontColor $ELEMENT_FONT_COLOR
-    BackgroundColor $EXTERNAL_CONTAINER_BG_COLOR
-    BorderColor $EXTERNAL_CONTAINER_BORDER_COLOR
-}
+UpdateSkinparamsAndLegendEntry("container", $CONTAINER_BG_COLOR, $ELEMENT_FONT_COLOR, $CONTAINER_BORDER_COLOR)
+UpdateSkinparamsAndLegendEntry("external_container", $EXTERNAL_CONTAINER_BG_COLOR, $ELEMENT_FONT_COLOR, $EXTERNAL_CONTAINER_BORDER_COLOR)
 
 ' Layout
 ' ##################################
+
+SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_system\nexternal_container")
 
 !procedure LAYOUT_WITH_LEGEND()
 hide stereotype
@@ -94,33 +59,33 @@ endlegend
 !endif
 !endfunction
 
-!unquoted procedure Container($alias, $label, $techn, $descr="", $sprite="")
-rectangle "$getContainer($label, $techn, $descr, $sprite)" <<container>> as $alias
+!unquoted procedure Container($alias, $label, $techn, $descr="", $sprite="", $tags="")
+rectangle "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("container", $tags) as $alias
 !endprocedure
 
-!unquoted procedure ContainerDb($alias, $label, $techn, $descr="", $sprite="")
-database "$getContainer($label, $techn, $descr, $sprite)" <<container>> as $alias
+!unquoted procedure ContainerDb($alias, $label, $techn, $descr="", $sprite="", $tags="")
+database "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("container", $tags) as $alias
 !endprocedure
 
-!unquoted procedure ContainerQueue($alias, $label, $techn, $descr="", $sprite="")
-queue "$getContainer($label, $techn, $descr, $sprite)" <<container>> as $alias
+!unquoted procedure ContainerQueue($alias, $label, $techn, $descr="", $sprite="", $tags="")
+queue "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("container", $tags) as $alias
 !endprocedure
 
-!unquoted procedure Container_Ext($alias, $label, $techn, $descr="", $sprite="")
-rectangle "$getContainer($label, $techn, $descr, $sprite)" <<external_container>> as $alias
+!unquoted procedure Container_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
+rectangle "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_container", $tags) as $alias
 !endprocedure
 
-!unquoted procedure ContainerDb_Ext($alias, $label, $techn, $descr="", $sprite="")
-database "$getContainer($label, $techn, $descr, $sprite)" <<external_container>> as $alias
+!unquoted procedure ContainerDb_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
+database "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_container", $tags) as $alias
 !endprocedure
 
-!unquoted procedure ContainerQueue_Ext($alias, $label, $techn, $descr="", $sprite="")
-queue "$getContainer($label, $techn, $descr, $sprite)" <<external_container>> as $alias
+!unquoted procedure ContainerQueue_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
+queue "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_container", $tags) as $alias
 !endprocedure
 
 ' Boundaries
 ' ##################################
 
-!unquoted function Container_Boundary($alias, $label)
-!return Boundary($alias, $label, "Container")
-!endfunction
+!unquoted procedure Container_Boundary($alias, $label, $tags="")
+Boundary($alias, $label, "Container", $tags)
+!endprocedure

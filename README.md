@@ -296,7 +296,7 @@ If the custom (color) schema is defined via `UpdateSkinparamsAndLegendEntry()` t
 !$COLOR_A_4 = "#b35806"
 !$COLOR_A_3 = "#e08214"
 !$COLOR_A_2 = "#fdb863"
-!$COLOR_A_1 = "#fee0b6b"
+!$COLOR_A_1 = "#fee0b6"
 !$COLOR_NEUTRAL = "#f7f7f7"
 !$COLOR_B_1 = "#d8daeb"
 !$COLOR_B_2 = "#b2abd2"
@@ -324,7 +324,7 @@ SHOW_DYNAMIC_LEGEND()
 @enduml
 ```
 
-![custom schema](http://www.plantuml.com/plantuml/png/dPHVRvim5CNV-HIKzI6LceGGag19aHeesYhbJvKiclQ4R7n3KC4WswZfjvy1RtXfkwfHNiBldkDxZf6uum8nKUMPSPNIEAi8c4SXIlvrE6JeUP2aubZXYWEB2og0Ya5SvCCoGxJszBaWMOg7WTj_hD5-jHpcY0jW4aL1xJY9GLcVRbnT1vlbPXijeeavDwqliyCOsvwbSRVXU3pnxAdEnmq7stD6hiwTXXy8zgPZdOzQ3c3ZAUu6wt3_OxjOjiDP_UjclZ8HZo306bTBi8CmSJIkGddsR8nYZQiI4zUPUPx6LMc7sBOhppVs9K42TayfBH53ELzGieG4A0cfO2yzgmJ62shTcjSu2OgiOFFk-YGy55Hqk2jNwmj6W9rvHdB0ZuWKpobDvfPW5LWt7uQ0am16KHQzcyQ_88sywuzNynSk87-pltj1V-SJPTzTxL-msgzN6u_D_VNYYeiY1tPhMYr1cUaZAYCbPg1cyhNicW0zt4vK7kbve7L247yzhL0wb2KAJwANepJhF66_VZQvKfu9wO6X7AHizUV_6sTl8TEIlqgrvy2bJAeY7yLFclJV93kWX9lGvE6cA9Hd3Mbon0Kxg_jVTsjzxT0AgLJ6xllcPtJ_QxrOFGJHClmMhkzxDyOTK59_b7u3 "custom schema")
+![custom schema](https://www.plantuml.com/plantuml/png/dPHVRw905CNV-HIKxODDgY1W9PkOL2ZPROBQw9hDFf4PvegaC92P8Ms_VOS_hUFMRhF65_pTU-uzvsAyvG8nKHUvTf7H9Ay9w7iXAlxTD1bw6gMPsDUuvi2IaWgWOfIKXLdbY3QQ8HSapx0PkCE71cqNaLaWBe1950UDubcCgcQwTd4PhABLEfx74tsc6z-cEmTRdg5mj-NOcNZMZSgTbeFbsMDNvNRBTmHxDuxAnnq7iB0oPnbkVwtdKLURDfz3pUyrn2C8iCgx7TX6cDWgxpnvrjH1YSgx31FNddgUohlCDh4iLyxNjXL10ZQF6QqGGmMVKn912fI4LB2NWL41uoKrhlLBd0PbNhBPuNeIxkHbZt0Vhkal6G7sbsOi2toFIFcKqNHc25Q3SVMb2VdkW56Knv-wySzm8s_zzMh-8dz4nSdyxXdvxVy8--bg_upLVhDQUsZlDqXgBie2sBLkT0Jbke-ej9JgGL-JhsNJ6XZWhjBxaPfxsZW4yQxf6gMYbyJXinWKACiFcd3OVDVvM-Tn8zt9Iu1iMxmzdvYzXbnn_i7LbWENRR8hzb7ogBGUEzd8KtCTMZzS5sMlMKAMxkNXFiJzXxgJdbAy1-fTQPkVgz_ntP_bV74Vn57u8rpU3QwqMpbD_YUz0W00 "custom schema")
 
 ## Element properties
 

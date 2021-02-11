@@ -1,6 +1,9 @@
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-' uncomment the following line and comment the first to use locally
-' !include C4_Container.puml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!endif
 
 ' Scope: A single container.
 ' Primary elements: Components within the container in scope.
@@ -11,6 +14,7 @@
 ' ##################################
 
 !global $COMPONENT_FONT_COLOR = "#000000"
+
 !global $COMPONENT_BG_COLOR = "#85BBF0"
 !global $COMPONENT_BORDER_COLOR = "#78A8D8"
 !global $EXTERNAL_COMPONENT_BG_COLOR = "#CCCCCC"
@@ -19,50 +23,13 @@
 ' Styling
 ' ##################################
 
-skinparam rectangle<<component>> {
-    StereotypeFontColor $COMPONENT_FONT_COLOR
-    FontColor $COMPONENT_FONT_COLOR
-    BackgroundColor $COMPONENT_BG_COLOR
-    BorderColor $COMPONENT_BORDER_COLOR
-}
-
-skinparam database<<component>> {
-    StereotypeFontColor $COMPONENT_FONT_COLOR
-    FontColor $COMPONENT_FONT_COLOR
-    BackgroundColor $COMPONENT_BG_COLOR
-    BorderColor $COMPONENT_BORDER_COLOR
-}
-
-skinparam queue<<component>> {
-    StereotypeFontColor $COMPONENT_FONT_COLOR
-    FontColor $COMPONENT_FONT_COLOR
-    BackgroundColor $COMPONENT_BG_COLOR
-    BorderColor $COMPONENT_BORDER_COLOR
-}
-
-skinparam rectangle<<external_component>> {
-    StereotypeFontColor $COMPONENT_FONT_COLOR
-    FontColor $COMPONENT_FONT_COLOR
-    BackgroundColor $EXTERNAL_COMPONENT_BG_COLOR
-    BorderColor $EXTERNAL_COMPONENT_BORDER_COLOR
-}
-
-skinparam database<<external_component>> {
-    StereotypeFontColor $COMPONENT_FONT_COLOR
-    FontColor $COMPONENT_FONT_COLOR
-    BackgroundColor $EXTERNAL_COMPONENT_BG_COLOR
-    BorderColor $EXTERNAL_COMPONENT_BORDER_COLOR
-}
-
-skinparam queue<<external_component>> {
-    StereotypeFontColor $COMPONENT_FONT_COLOR
-    FontColor $COMPONENT_FONT_COLOR
-    BackgroundColor $EXTERNAL_COMPONENT_BG_COLOR
-    BorderColor $EXTERNAL_COMPONENT_BORDER_COLOR
-}
+UpdateSkinparamsAndLegendEntry("component", $COMPONENT_BG_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateSkinparamsAndLegendEntry("external_component", $EXTERNAL_COMPONENT_BG_COLOR, $COMPONENT_FONT_COLOR, $EXTERNAL_COMPONENT_BORDER_COLOR)
 
 ' Layout
 ' ##################################
+
+SetDefaultLegendEntries("person\nsystem\ncontainer\ncomponent\nexternal_person\nexternal_system\nexternal_container\nexternal_component")
 
 !procedure LAYOUT_WITH_LEGEND()
 hide stereotype
@@ -97,26 +64,26 @@ endlegend
 !endif
 !endfunction
 
-!unquoted procedure Component($alias, $label, $techn, $descr="", $sprite="")
-rectangle "$getComponent($label, $techn, $descr, $sprite)" <<component>> as $alias
+!unquoted procedure Component($alias, $label, $techn, $descr="", $sprite="", $tags="")
+rectangle "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("component",$tags) as $alias
 !endprocedure
 
-!unquoted procedure ComponentDb($alias, $label, $techn, $descr="", $sprite="")
-database "$getComponent($label, $techn, $descr, $sprite)" <<component>> as $alias
+!unquoted procedure ComponentDb($alias, $label, $techn, $descr="", $sprite="", $tags="")
+database "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("component",$tags) as $alias
 !endprocedure
 
-!unquoted procedure ComponentQueue($alias, $label, $techn, $descr="", $sprite="")
-queue "$getComponent($label, $techn, $descr, $sprite)" <<component>> as $alias
+!unquoted procedure ComponentQueue($alias, $label, $techn, $descr="", $sprite="", $tags="")
+queue "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("component",$tags) as $alias
 !endprocedure
 
-!unquoted procedure Component_Ext($alias, $label, $techn, $descr="", $sprite="")
-rectangle "$getComponent($label, $techn, $descr, $sprite)" <<external_component>> as $alias
+!unquoted procedure Component_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
+rectangle "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_component",$tags) as $alias
 !endprocedure
 
-!unquoted procedure ComponentDb_Ext($alias, $label, $techn, $descr="", $sprite="")
-database "$getComponent($label, $techn, $descr, $sprite)" <<external_component>> as $alias
+!unquoted procedure ComponentDb_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
+database "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_component",$tags) as $alias
 !endprocedure
 
-!unquoted procedure ComponentQueue_Ext($alias, $label, $techn, $descr="", $sprite="")
-queue "$getComponent($label, $techn, $descr, $sprite)" <<external_component>> as $alias
+!unquoted procedure ComponentQueue_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
+queue "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_component",$tags) as $alias
 !endprocedure

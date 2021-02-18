@@ -20,13 +20,13 @@ At the top of your C4 PlantUML `.puml` file, you need to include the `C4_Context
 
 To be independent of any internet connectivity, you can also download the files found in the `root` and activate the local conversion with additional command line argument `-DRELATIVE_INCLUDE="."` (that the local files are included)
 
-```c#
+```csharp
 java -jar plantuml.jar -DRELATIVE_INCLUDE="."  ...
 ```
 
 If you want to use the always up-to-date version in this repo, use the following:
 
-```c#
+```csharp
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 ```
 
@@ -71,7 +71,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 Entities can also be decorated with icons using the last parameter, for example:
 
-```cs
+```csharp
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -99,7 +99,7 @@ Rel_R(api, db, "Reads/Writes")
 
 Entities can be decorated with tags and explained via dynamic calculated legends, for example:
 
-```cs
+```csharp
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -235,12 +235,17 @@ Rel_L(x, s4, "uses")
 
 ## Layout Options
 
-C4-PlantUML also comes with some layout options to make it easy and reuseable to create nice and useful diagrams:
+C4-PlantUML also comes with some layout options to make it easy and reusable to create nice and useful diagrams:
 
 * [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT()](LayoutOptions.md#layout_top_down-or-layout_left_right)
 * [LAYOUT_WITH_LEGEND() or SHOW_DYNAMIC_LEGEND(?hideStereotype)](LayoutOptions.md#layout_with_legend-or-show_dynamic_legend)
 * [LAYOUT_AS_SKETCH()](LayoutOptions.md#layout_as_sketch)
 * [HIDE_STEREOTYPE()](LayoutOptions.md#hide_stereotype)
+
+C4-PlantUML also comes with some default person sprite options:
+
+* [HIDE_PERSON_SPRITE()](LayoutOptions.md#hide_person_sprite)
+* [SHOW_PERSON_SPRITE(?sprite)](LayoutOptions.md#show_person_sprite)
 
 ## Custom tags/stereotypes support and skinparam updates
 
@@ -264,7 +269,7 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 * If 2 tags defines the same skinparameter, the first definition is used.
 * If specific skinparameters have to be merged (e.g. 2 tags change the font color) an additional combined tag has to be defined. Use `&` as part of combined tag names. This convention can be used in other tools.
 
-```cs
+```csharp
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -294,7 +299,7 @@ SHOW_DYNAMIC_LEGEND(false)
 
 If the custom (color) schema is defined via `UpdateSkinparamsAndLegendEntry()` then the legend of existing elements is updated too.
 
-```cs
+```csharp
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
@@ -345,7 +350,7 @@ A model can be extended with (a table of) properties that concrete deployments o
 
 Following sample uses all 3 different property definitions (and the aligned deployment node).
 
-```cs
+```csharp
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
 

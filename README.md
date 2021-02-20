@@ -59,7 +59,7 @@ Rel(personAlias, containerAlias, "Label", "Optional Technology")
 
 In addition to this, it is also possible to define a system or component boundary.
 
-Take a look a look at the following sample of a C4 Container Diagram:
+Take a look at the following sample of a C4 Container Diagram:
 
 ```csharp
 @startuml Basic Sample
@@ -108,7 +108,7 @@ Rel_R(api, db, "Reads/Writes")
 
 Entities can be decorated with tags and explained via dynamic calculated legends, for example:
 
-```cs
+```csharp
 @startuml
 !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
 
@@ -254,7 +254,7 @@ C4-PlantUML also comes with some layout options to make it easy and reusable to 
 C4-PlantUML also comes with some default person sprite options:
 
 * [HIDE_PERSON_SPRITE()](LayoutOptions.md#hide_person_sprite)
-* [SHOW_PERSON_SPRITE_ACTIVE()](LayoutOptions.md#show_person_sprite)
+* [SHOW_PERSON_SPRITE(?sprite)](LayoutOptions.md#show_person_sprite)
 
 ## Custom tags/stereotypes support and skinparam updates
 
@@ -278,7 +278,7 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 * If 2 tags defines the same skinparameter, the first definition is used.
 * If specific skinparameters have to be merged (e.g. 2 tags change the font color) an additional combined tag has to be defined. Use `&` as part of combined tag names. This convention can be used in other tools.
 
-```cs
+```csharp
 @startuml
 !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
 
@@ -308,7 +308,7 @@ SHOW_DYNAMIC_LEGEND(false)
 
 If the custom (color) schema is defined via `UpdateSkinparamsAndLegendEntry()` then the legend of existing elements is updated too.
 
-```cs
+```csharp
 @startuml
 !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Context.puml
 
@@ -316,7 +316,7 @@ If the custom (color) schema is defined via `UpdateSkinparamsAndLegendEntry()` t
 !$COLOR_A_4 = "#b35806"
 !$COLOR_A_3 = "#e08214"
 !$COLOR_A_2 = "#fdb863"
-!$COLOR_A_1 = "#fee0b6b"
+!$COLOR_A_1 = "#fee0b6"
 !$COLOR_NEUTRAL = "#f7f7f7"
 !$COLOR_B_1 = "#d8daeb"
 !$COLOR_B_2 = "#b2abd2"
@@ -344,7 +344,7 @@ SHOW_DYNAMIC_LEGEND()
 @enduml
 ```
 
-![custom schema](http://www.plantuml.com/plantuml/png/dPHVRvim5CNV-HIKzI6HseOGag19aHeesYhbJvKiclQ4R7m3A617jb7JRp_0R7XPkcfHNiBldkDxZf5u519nMHQvSPFHE2y9cAcKH_5vCE3ezI79P5hYKW2F6PL0vKFCYi4Xut4gP3e8tFkN756vMou6S9902P0AHa4jFic7OtsmSNCRh1VhJJIFnkRCj3vDzoDiUvR6tORZqTYp9peVDHnipncwEdSQlYVOcunqFbGSmCOJt0rMuUxRPhvGmsdzwsP-Qo8UGO1rxgXG3iB4qRaAvTdJ4OfrhagCNMVgUJfNfHrYsows36Dt94Z2zf3H8-Ae47DA5f009I6L_Ard7O4BHgqxynOd0SiPdtNNLy4zexB3NRbQppW1VkOPLWEH8i9UCvhCBCbBiFeVXgXV9gSeZzvDur-Hne-67wyMRq92SR6_UqL_vp_AlhlQlsArNwysNfhxwyMbaAm0VcTQYg3Sz16j8YLcqCwilh5j0lImchHvAiyphHE2_ErHmihHMgBm97i5olBE4zxNpwPebMT2kkUeW4gs_FN_mjaRoBNaVwNQ2H1MlrP5FeeFclJF95kWH9ZGv16cPArd1LcIOiRFwlxJhQoN7Af4byhOVbr_Zvv-hERBvo1QX5_2rLElRpm29VL7wIS0 "custom schema")
+![custom schema](http://www.plantuml.com/plantuml/png/dP5VRvim5CNV-HGkwqCgjGaXf46J8ZLGj5NAdofPDEq96Nm3A62GRTJssyzWDhmiNRKeB-5tpxdttEi7BZ0JTP4RLncDyve0IeMe-EVHYE6NOPA9j8vg3YmkgG0gXd5PZ8uPYrCkqf7lt3tdc8hzQZc2LradG2GCVIcMtyEgQMnSNVkRvMORBi8fcYFpq-mmYIpNrBZJycWoTQrxdKzQ3fPhZnsTsoq_aCYzd-Xyh3Y05Mbzri7-stQnLBLPy-jhNkSXBi4GwTnMcMmS4LldAfDhpIOurhdQOUhOCzVLkThP9fRboFx6lY9OmEwOqGepNF059Kj8W9A02lOsC2jWlAJcBRgE4h_CIpRlhoVXGLwsn_roZRva1DY9PomBFCMaVCbeCZS5gy6y-J14yvQCuZnyDurtGHfvwuz7ypSke3YxltF1_lP_BFlkQE-2qLupsdXkxpU8QoxA0jWjCXN1EV8mbP4Iv7Sr-IoxDi0WKfKkZ_GyqIOXYDyU9PIEpX86hs9Gu2plFS5TyurufpmHqeEy14ZPwjV_Cxsta6l9_qgrvy2bJAf23yT7JVfdaXrGmX6qUJWIPUTPGvQayd0dw_xJhQpd76g9FfMn-xhv7Zx-M2zMJtwu3Bu4wyV1ZV4WkzL5_XC0 "custom schema")
 
 ## Element properties
 
@@ -359,7 +359,7 @@ A model can be extended with (a table of) properties that concrete deployments o
 
 Following sample uses all 3 different property definitions (and the aligned deployment node).
 
-```cs
+```csharp
 @startuml
 !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Deployment.puml
 

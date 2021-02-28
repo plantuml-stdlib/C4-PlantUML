@@ -223,6 +223,84 @@ $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
   !$tagDefaultLegend = $tagStereoEntries
 !endprocedure
 
+' Line breaks
+' ##################################
+
+' PlantUML supports no DETERMINISTIC/automatic line breaks of "PlantUML line" (C4 Relashionships)
+' therefore Rel...() implements an automatic line break based on spaces (like in all other objects).
+' If a $type contains \n then these are used (and no automatic space based line breaks are done)
+' $REL_TECHN_MAX_CHAR_WIDTH defines the automatic line break position
+!global $REL_TECHN_MAX_CHAR_WIDTH = 35
+!global $REL_DESCR_MAX_CHAR_WIDTH = 32
+
+!unquoted function $breakDescr($descr, $widthStr)
+!$width = %intval($widthStr)
+!$multiLine = ""
+!if (%strpos($descr, "\n") >= 0)
+!else
+  !while (%strlen($descr)>$width)
+    !$brPos = $width 
+    !while ($brPos>0 && %substr($descr, $brPos, 1)!= ' ')
+      !$brPos = $brPos - 1
+    !endwhile
+
+    !if ($brPos < 1)
+      !$brPos = %strpos($descr, " ")
+    !else
+    !endif
+
+    !if ($brPos > 0)
+      !$multiLine = $multiLine + %substr($descr, 0, $brPos) + "\n"
+      !$descr = %substr($descr, $brPos + 1)
+    !else
+      !$multiLine = $multiLine+ $descr
+      !$descr = ""
+    !endif
+  !endwhile
+!endif
+!if (%strlen($descr)>0)
+  !$multiLine = $multiLine + $descr
+!endif
+!return $multiLine
+!endfunction
+
+' $breakTechn() supports //...//; $breakNode() in C4_Deployment supports no //....//
+!unquoted function $breakTechn($techn, $widthStr)
+!$width = %intval($widthStr)
+!$multiLine = ""
+!if (%strpos($techn, "\n") >= 0)
+  !while (%strpos($techn, "\n") >= 0)
+    !$brPos = %strpos($techn, "\n")
+    !$multiLine = $multiLine + %substr($techn, 0, $brPos) + '</size>//\n//<size:'+$TECHN_FONT_SIZE+'>'
+    !$techn = %substr($techn, $brPos+2)
+  !endwhile
+!else
+  !while (%strlen($techn)>$width)
+    !$brPos = $width
+    !while ($brPos>0 && %substr($techn, $brPos, 1)!= ' ')
+      !$brPos = $brPos - 1
+    !endwhile
+
+    !if ($brPos < 1)
+      !$brPos = %strpos($techn, " ")
+    !else
+    !endif
+
+    !if ($brPos > 0)
+      !$multiLine = $multiLine + %substr($techn, 0, $brPos) + '</size>//\n//<size:'+$TECHN_FONT_SIZE+'>'
+      !$techn = %substr($techn, $brPos + 1)
+    !else
+      !$multiLine = $multiLine+ $techn
+      !$techn = ""
+    !endif
+  !endwhile
+!endif
+!if (%strlen($techn)>0)
+  !$multiLine = $multiLine + $techn
+!endif
+!return $multiLine
+!endfunction
+
 ' Element properties
 ' ##################################
 
@@ -355,12 +433,12 @@ rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias
   !endif  
   !$rel = $rel + '**' + $label + '**'
   !if ($techn != "")
-    ' last version of plantuml server supports automatic line breaks (no $breakType() required)
-    !$rel = $rel + '\n//<size:' + $TECHN_FONT_SIZE + '>[' + $techn + ']</size>//'
+    ' line break is not deterministic, calculate it
+    !$rel = $rel + '\n//<size:' + $TECHN_FONT_SIZE + '>[' + $breakTechn($techn, $REL_TECHN_MAX_CHAR_WIDTH) + ']</size>//'
   !endif
   !if ($descr != "")
-    ' last version of plantuml server supports automatic line breaks (no $breakDescr() required)
-    !$rel = $rel + '\n\n' + $descr
+    ' line break is not deterministic, calculate it
+    !$rel = $rel + '\n\n' + $breakDescr($descr, $REL_DESCR_MAX_CHAR_WIDTH)
   !endif
   !return $rel
 !endfunction

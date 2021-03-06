@@ -11,8 +11,15 @@
 
 !global $LEGEND_FONT_COLOR = "#FFFFFF"
 !global $LEGEND_TITLE_COLOR = "#000000"
-!global $LEGEND_UNDEFINED_BK_COLOR = "#87AECA"
-!global $LEGEND_UNDEFINED_FONT_COLOR = "#B7DEFA"
+!global $LEGEND_UNDEFINED_BG_COLOR = "#D5CFEE"
+!global $LEGEND_UNDEFINED_FONT_COLOR = "#8B77E4"
+
+!global $LEGEND_SHADOW_TEXT = "(shadow) "
+!global $LEGEND_NO_SHADOW_TEXT = "(no shadow) "
+!global $LEGEND_NO_FONT_BG_TEXT = "(no text, no back color) "
+!global $LEGEND_NO_FONT_TEXT = "(no text color) "
+!global $LEGEND_NO_BG_TEXT = "(no back color) "
+!global $LEGEND_NO_LINE_TEXT = "(no line color) "
 
 ' Styling
 ' ##################################
@@ -62,12 +69,33 @@ skinparam rectangle<<boundary>> {
 !global $tagDefaultLegend = ""
 !global $tagCustomLegend = ""
 
+' rel specific
+!unquoted function $toStereos($tags)
+  !if (%strlen($tags) == 0)
+    !return ''
+  !endif
+  !$stereos = ''
+  !$brPos = %strpos($tags, "+")
+  !while ($brPos >= 0)
+    !$tag = %substr($tags, 0, $brPos)
+    !$stereos = $stereos + '<<' + $tag + '>>'
+%set_variable_value("$" + $tag + "_LineLegend", %true())
+    !$tags = %substr($tags, $brPos+1)
+    !$brPos = %strpos($tags, "+")
+  !endwhile
+  !if (%strlen($tags)>0)
+    !$stereos = $stereos + '<<' + $tags + '>>'
+%set_variable_value("$" + $tags + "_LineLegend", %true())
+  !endif
+  !return $stereos
+!endfunction
+
 !unquoted function $toStereos($elementType, $tags)
   !if (%strlen($tags) == 0)
     !$stereos = '<<' + $elementType + '>>'
 %set_variable_value("$" + $elementType + "Legend", %true())
     !return $stereos
-  !endif 
+  !endif
   !$stereos = ''
   !$brPos = %strpos($tags, "+")
   !while ($brPos >= 0)
@@ -116,12 +144,26 @@ skinparam rectangle<<boundary>> {
 $tagSkin
 !endprocedure
 
+!unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor)
+  !$elementSkin = "skinparam Arrow<<" + $tagStereo + ">> {" + %newline()
+  !$elementSkin = $elementSkin + "    Color "
+  !if ($lineColor!="")
+    !$elementSkin = $elementSkin + $lineColor
+  !endif
+  !if ($textColor!="")
+    !$elementSkin = $elementSkin + ";text:" + $textColor
+  !endif
+  !$elementSkin = $elementSkin + %newline()
+  !$elementSkin = $elementSkin + "}" + %newline()
+$elementSkin
+!endprocedure
+
 !function $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
   !$tagEntry = "|"
   !if ($bgColor!="")
     !$bg = $bgColor
   !else
-    !$bg = $LEGEND_UNDEFINED_BK_COLOR
+    !$bg = $LEGEND_UNDEFINED_BG_COLOR
   !endif
   ' named colors have to start with # too 
   !if (%substr($bg, 0, 1) != "#")
@@ -141,19 +183,19 @@ $tagSkin
   !endif
   !$tagEntry = $tagEntry + " " + $tagStereo + " "
   !if ($shadowing == "true")
-    !$tagEntry = $tagEntry + "(shadow) "
+    !$tagEntry = $tagEntry + $LEGEND_SHADOW_TEXT
   !endif
   !if ($shadowing == "false")
-    !$tagEntry = $tagEntry + "(no shadow) "
+    !$tagEntry = $tagEntry + $LEGEND_NO_SHADOW_TEXT
   !endif
   !if ($fontColor == "" && $bgColor == "")
-      !$tagEntry = $tagEntry + "(no font, no back color) "
+      !$tagEntry = $tagEntry + $LEGEND_NO_FONT_BG_TEXT
   !else 
     !if ($fontColor == "")
-      !$tagEntry = $tagEntry + "(no font color) "
+      !$tagEntry = $tagEntry + $LEGEND_NO_FONT_TEXT
     !endif
     !if ($bgColor == "")
-      !$tagEntry = $tagEntry + "(no back color) "
+      !$tagEntry = $tagEntry + $LEGEND_NO_BG_TEXT
     !endif
   !endif
   !$tagEntry = $tagEntry + "</color> "
@@ -161,10 +203,54 @@ $tagSkin
   !return $tagEntry 
 !endfunction
 
+!function $tagRelLegendEntry($tagStereo, $textColor, $lineColor)
+  !$tagEntry = "|"
+  !$bg = $LEGEND_UNDEFINED_BG_COLOR
+  ' named colors have to start with # too 
+  !if (%substr($bg, 0, 1) != "#")
+    !$bg = "#" + $bg
+  !endif
+'  !$tagEntry = $tagEntry + "<" + $bg +">" 
+  ' <U+23AF> ..white line
+  !if ($lineColor!="")
+    !$tagEntry = $tagEntry + "<color:"+$lineColor+"> <U+23AF></color> "
+  !else
+'    !$tagEntry = $tagEntry + "<color:"+$bg+"> <U+23AF></color> "
+    !$tagEntry = $tagEntry + " <U+23AF> "
+  !endif
+  !if ($textColor!="")
+    !$tagEntry = $tagEntry + "<color:"+$textColor+">"
+  !else
+    !$tagEntry = $tagEntry + "<color:"+$LEGEND_UNDEFINED_FONT_COLOR+">"
+  !endif
+  !$tagEntry = $tagEntry + " " + $tagStereo + " "
+  !if ($textColor == "")
+    !$tagEntry = $tagEntry + $LEGEND_NO_FONT_TEXT
+  !endif
+  !if ($lineColor == "")
+    !$tagEntry = $tagEntry + $LEGEND_NO_LINE_TEXT
+  !endif
+  !$tagEntry = $tagEntry + "</color> "
+  !$tagEntry = $tagEntry + "|"
+  !return $tagEntry 
+!endfunction
+
 !unquoted procedure $addTagToDynamicLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
-  !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+'' ignore workaround tags with &
+'  !if (%strpos($tagStereo, "&")<0)
+    !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
 %set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
-  !$tagCustomLegend = $tagCustomLegend + $tagStereo + "\n"
+    !$tagCustomLegend = $tagCustomLegend + $tagStereo + "\n"
+'  !endif
+!endprocedure
+
+!unquoted procedure $addRelTagToDynamicLegend($tagStereo, $textColor="", $lineColor="")
+'' ignore workaround tags with &
+'  !if (%strpos($tagStereo, "&")<0)
+    !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor)
+%set_variable_value("$" + $tagStereo + "_LineLegendEntry", $tagEntry)
+    !$tagCustomLegend = $tagCustomLegend + $tagStereo + "_Line\n"
+'  !endif
 !endprocedure
 
 !procedure $showActiveLegendEntries($allDefined)
@@ -191,17 +277,110 @@ $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
 $addTagToDynamicLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
 !endprocedure
 
-' used by existing elements like person, ...
-!unquoted procedure UpdateSkinparamsAndLegendEntry($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
-$defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
-  !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
-%set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
+' used by new defined rel tags
+!unquoted procedure AddRelTagSupport($tagStereo, $textColor="", $lineColor="")
+$defineRelSkinparams($tagStereo, $textColor, $lineColor)
+$addRelTagToDynamicLegend($tagStereo, $textColor, $lineColor)
+!endprocedure
+
+' update the style of existing elements like person, ...
+!unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
+$defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$tagEntry = $tagLegendEntry($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
+%set_variable_value("$" + $elementName + "LegendEntry", $tagEntry)
+!endprocedure
+
+' update the style of default relation, it has to set both properties (combined statement not working)
+!unquoted procedure UpdateRelStyle($textColor, $lineColor)
+  !$elementSkin = "skinparam Arrow {" + %newline()
+  !$elementSkin = $elementSkin + "    Color " + $lineColor + %newline()
+  !$elementSkin = $elementSkin + "    FontColor " + $textColor + %newline()
+  !$elementSkin = $elementSkin + "}" + %newline()
+$elementSkin
 !endprocedure
 
 ' tags/stereotypes have to be delimited with \n 
 !unquoted procedure SetDefaultLegendEntries($tagStereoEntries)
   !$tagDefaultLegend = $tagStereoEntries
 !endprocedure
+
+' Line breaks
+' ##################################
+
+' PlantUML supports no DETERMINISTIC/automatic line breaks of "PlantUML line" (C4 Relashionships)
+' therefore Rel...() implements an automatic line break based on spaces (like in all other objects).
+' If a $type contains \n then these are used (and no automatic space based line breaks are done)
+' $REL_TECHN_MAX_CHAR_WIDTH defines the automatic line break position
+!global $REL_TECHN_MAX_CHAR_WIDTH = 35
+!global $REL_DESCR_MAX_CHAR_WIDTH = 32
+
+!unquoted function $breakDescr($descr, $widthStr)
+!$width = %intval($widthStr)
+!$multiLine = ""
+!if (%strpos($descr, "\n") >= 0)
+!else
+  !while (%strlen($descr)>$width)
+    !$brPos = $width 
+    !while ($brPos>0 && %substr($descr, $brPos, 1)!= ' ')
+      !$brPos = $brPos - 1
+    !endwhile
+
+    !if ($brPos < 1)
+      !$brPos = %strpos($descr, " ")
+    !else
+    !endif
+
+    !if ($brPos > 0)
+      !$multiLine = $multiLine + %substr($descr, 0, $brPos) + "\n"
+      !$descr = %substr($descr, $brPos + 1)
+    !else
+      !$multiLine = $multiLine+ $descr
+      !$descr = ""
+    !endif
+  !endwhile
+!endif
+!if (%strlen($descr)>0)
+  !$multiLine = $multiLine + $descr
+!endif
+!return $multiLine
+!endfunction
+
+' $breakTechn() supports //...//; $breakNode() in C4_Deployment supports no //....//
+!unquoted function $breakTechn($techn, $widthStr)
+!$width = %intval($widthStr)
+!$multiLine = ""
+!if (%strpos($techn, "\n") >= 0)
+  !while (%strpos($techn, "\n") >= 0)
+    !$brPos = %strpos($techn, "\n")
+    !$multiLine = $multiLine + %substr($techn, 0, $brPos) + '</size>//\n//<size:'+$TECHN_FONT_SIZE+'>'
+    !$techn = %substr($techn, $brPos+2)
+  !endwhile
+!else
+  !while (%strlen($techn)>$width)
+    !$brPos = $width
+    !while ($brPos>0 && %substr($techn, $brPos, 1)!= ' ')
+      !$brPos = $brPos - 1
+    !endwhile
+
+    !if ($brPos < 1)
+      !$brPos = %strpos($techn, " ")
+    !else
+    !endif
+
+    !if ($brPos > 0)
+      !$multiLine = $multiLine + %substr($techn, 0, $brPos) + '</size>//\n//<size:'+$TECHN_FONT_SIZE+'>'
+      !$techn = %substr($techn, $brPos + 1)
+    !else
+      !$multiLine = $multiLine+ $techn
+      !$techn = ""
+    !endif
+  !endwhile
+!endif
+!if (%strlen($techn)>0)
+  !$multiLine = $multiLine + $techn
+!endif
+!return $multiLine
+!endfunction
 
 ' Element properties
 ' ##################################
@@ -289,7 +468,7 @@ left to right direction
 !endprocedure
 
 ' has to be last call in diagram
-!unquoted procedure SHOW_DYNAMIC_LEGEND($hideStereotype="true")
+!unquoted procedure SHOW_LEGEND($hideStereotype="true")
 !if ($hideStereotype=="true")
 hide stereotype
 !endif
@@ -319,6 +498,32 @@ rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias
 ' Relationship
 ' ##################################
 
+!function $getRel($direction, $alias1, $alias2, $label, $techn, $descr, $sprite, $tags)
+  !$rel = $alias1 + ' ' + $direction + ' ' + $alias2
+  !if ($tags != "")
+    !$rel = $rel + ' ' + $toStereos($tags)
+  !endif  
+  !$rel = $rel + ' : '
+  !if ($sprite != "")
+    ' if it starts with & it's a OpenIconic, details see https://useiconic.com/open/
+    !if (%substr($sprite, 0, 1) != "&")
+      !$rel = $rel + '<$'+$sprite+'> '
+    !else
+      !$rel = $rel + '<'+$sprite+'> '
+    !endif    
+  !endif  
+  !$rel = $rel + '**' + $label + '**'
+  !if ($techn != "")
+    ' line break is not deterministic, calculate it
+    !$rel = $rel + '\n//<size:' + $TECHN_FONT_SIZE + '>[' + $breakTechn($techn, $REL_TECHN_MAX_CHAR_WIDTH) + ']</size>//'
+  !endif
+  !if ($descr != "")
+    ' line break is not deterministic, calculate it
+    !$rel = $rel + '\n\n' + $breakDescr($descr, $REL_DESCR_MAX_CHAR_WIDTH)
+  !endif
+  !return $rel
+!endfunction
+
 !unquoted procedure Rel_($alias1, $alias2, $label, $direction)
 $alias1 $direction $alias2 : **$label**
 !endprocedure
@@ -326,143 +531,80 @@ $alias1 $direction $alias2 : **$label**
 $alias1 $direction $alias2 : **$label**\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//
 !endprocedure
 
-!unquoted procedure Rel($from, $to, $label)
-Rel_($from, $to, $label, "-->>")
-!endprocedure
-!unquoted procedure Rel($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "-->>")
+!unquoted procedure Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("-->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
 
-!unquoted procedure BiRel($from, $to, $label)
-Rel_($from, $to, $label, "<<-->>")
-!endprocedure
-!unquoted procedure BiRel($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "<<-->>")
+!unquoted procedure BiRel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("<<-->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
 
-!unquoted procedure Rel_Back($from, $to, $label)
-Rel_($from, $to, $label, "<<--")
-!endprocedure
-!unquoted procedure Rel_Back($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "<<--")
+!unquoted procedure Rel_Back($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("<<--", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
 
-!unquoted procedure Rel_Neighbor($from, $to, $label)
-Rel_($from, $to, $label, "->>")
-!endprocedure
-!unquoted procedure Rel_Neighbor($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "->>")
+!unquoted procedure Rel_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
 
-!unquoted procedure Rel_Back_Neighbor($from, $to, $label)
-Rel_($from, $to, $label, "<<-")
-!endprocedure
-!unquoted procedure Rel_Back_Neighbor($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "<<-")
+!unquoted procedure Rel_Back_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("<<-", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
 
-!unquoted procedure Rel_D($from, $to, $label)
-Rel_($from, $to, $label, "-DOWN->>")
+!unquoted procedure Rel_D($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
-!unquoted procedure Rel_D($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "-DOWN->>")
-!endprocedure
-!unquoted procedure Rel_Down($from, $to, $label)
-Rel_($from, $to, $label, "-DOWN->>")
-!endprocedure
-!unquoted procedure Rel_Down($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "-DOWN->>")
+!unquoted procedure Rel_Down($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
 
-!unquoted procedure BiRel_D($from, $to, $label)
-Rel_($from, $to, $label, "<<-DOWN->>")
+!unquoted procedure BiRel_D($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("<<-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
-!unquoted procedure BiRel_D($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "<<-DOWN->>")
-!endprocedure
-!unquoted procedure BiRel_Down($from, $to, $label)
-Rel_($from, $to, $label, "<<-DOWN->>")
-!endprocedure
-!unquoted procedure BiRel_Down($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "<<-DOWN->>")
+!unquoted procedure BiRel_Down($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("<<-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
 
-!unquoted procedure Rel_U($from, $to, $label)
-Rel_($from, $to, $label, "-UP->>")
+!unquoted procedure Rel_U($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
-!unquoted procedure Rel_U($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "-UP->>")
-!endprocedure
-!unquoted procedure Rel_Up($from, $to, $label)
-Rel_($from, $to, $label, "-UP->>")
-!endprocedure
-!unquoted procedure Rel_Up($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "-UP->>")
+!unquoted procedure Rel_Up($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
 
-!unquoted procedure BiRel_U($from, $to, $label)
-Rel_($from, $to, $label, "<<-UP->>")
+!unquoted procedure BiRel_U($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("<<-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
-!unquoted procedure BiRel_U($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "<<-UP->>")
-!endprocedure
-!unquoted procedure BiRel_Up($from, $to, $label)
-Rel_($from, $to, $label, "<<-UP->>")
-!endprocedure
-!unquoted procedure BiRel_Up($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "<<-UP->>")
+!unquoted procedure BiRel_Up($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("<<-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
 
-!unquoted procedure Rel_L($from, $to, $label)
-Rel_($from, $to, $label, "-LEFT->>")
+!unquoted procedure Rel_L($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
-!unquoted procedure Rel_L($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "-LEFT->>")
-!endprocedure
-!unquoted procedure Rel_Left($from, $to, $label)
-Rel_($from, $to, $label, "-LEFT->>")
-!endprocedure
-!unquoted procedure Rel_Left($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "-LEFT->>")
+!unquoted procedure Rel_Left($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
 
-!unquoted procedure BiRel_L($from, $to, $label)
-Rel_($from, $to, $label, "<<-LEFT->>")
+!unquoted procedure BiRel_L($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("<<-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
-!unquoted procedure BiRel_L($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "<<-LEFT->>")
-!endprocedure
-!unquoted procedure BiRel_Left($from, $to, $label)
-Rel_($from, $to, $label, "<<-LEFT->>")
-!endprocedure
-!unquoted procedure BiRel_Left($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "<<-LEFT->>")
+!unquoted procedure BiRel_Left($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("<<-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
 
-!unquoted procedure Rel_R($from, $to, $label)
-Rel_($from, $to, $label, "-RIGHT->>")
+!unquoted procedure Rel_R($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
-!unquoted procedure Rel_R($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "-RIGHT->>")
-!endprocedure
-!unquoted procedure Rel_Right($from, $to, $label)
-Rel_($from, $to, $label, "-RIGHT->>")
-!endprocedure
-!unquoted procedure Rel_Right($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "-RIGHT->>")
+!unquoted procedure Rel_Right($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
 
-!unquoted procedure BiRel_R($from, $to, $label)
-Rel_($from, $to, $label, "<<-RIGHT->>")
+!unquoted procedure BiRel_R($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("<<-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
-!unquoted procedure BiRel_R($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "<<-RIGHT->>")
-!endprocedure
-!unquoted procedure BiRel_Right($from, $to, $label)
-Rel_($from, $to, $label, "<<-RIGHT->>")
-!endprocedure
-!unquoted procedure BiRel_Right($from, $to, $label, $techn)
-Rel_($from, $to, $label, $techn, "<<-RIGHT->>")
+!unquoted procedure BiRel_Right($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
+$getRel("<<-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
 !endprocedure
 
 ' Layout Helpers

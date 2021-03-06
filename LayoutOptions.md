@@ -53,7 +53,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 ![LAYOUT_LEFT_RIGHT Sample](http://www.plantuml.com/plantuml/png/PL1DhzCm4BpxLopbq5GgYOeuSMg8IelKGjIa84wHcop4mX-MlL6e4F_zRTI-zadFbvLtPdTcTXr91XgCXdt-yzkfRlQRptLp_BBTrL19upMADygsUkWGUY8VFsPPa6FwMr4_d8U8eNMMq5BQEfFzKQ7j8_LPyU5TgQMbqs6VuL_6E-ousHHCbifYI3rh2l5AD5a8KMA8pYQoCyekOPPFLKKAaboOBKHrYOIc-UG6sybmIThL4kPNh_C5_1F0xwwJZ7XkfFUyvmUU8VTUgrQISdR6hUBj4lAgJBzkQXu92E_J5Ho-5nEMQ-t625F42EI0ytd953DeKgm5zQY8C00fWvgr8dlxVtENq1NaFJSQW-A8-ZdLmzOfyYJNNLsN5RCcqXrzhDaYHVxYL7u5PrwEhFc-VCud "LAYOUT_LEFT_RIGHT Sample")
 
 
-## LAYOUT_WITH_LEGEND() or SHOW_DYNAMIC_LEGEND(?hideStereotype)
+## LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype)
 
 Colors can help to add additional information or simply to make the diagram more aesthetically pleasing.
 It can also help to save some space.
@@ -80,16 +80,16 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![LAYOUT_WITH_LEGEND Sample](http://www.plantuml.com/plantuml/png/PL1Fxz904BtlfnZnG4cm3SQJ9sebO0BOs2Bnr2pjQ3VkdytkD9KOlxlJW63osyjavxsPzzwi8yb0Wz6mpxzzFjND-LEzQ_QRxURu4Iffl4RnIjbM3nr2J-JZ-omBSan_AEg7on0njCuIMafRPxAVAhHzf3uhthqfjRHqEkmp_CLuXnqtcuB9KbaCgMTH8Lwg9WiXIWpHsKHsHjabpFAfgaX1aWkpXQYkaT0q7znWEnckIRjQmlncThw0tmBuFOII4I-Dz9xtdF42kVTQjPAKipDk5Q-Na5TbUjpKF18GtgOhE7mj9YpNseqHfemHo047z98fPj2aM0lgKH5X0586DMj5zlRdxYwX6yXxxZG6nHVK_r8zRPqYJtBTrNLPCMiYFT3dcYrIv2zEvNjmvl-HDH-Ox_aN "LAYOUT_WITH_LEGEND Sample")
 
-Instead of a static legend (activated with `LAYOUT_WITH_LEGEND()`) a dynamic legend can be activated with `SHOW_DYNAMIC_LEGEND(?hideStereotype)`.
+Instead of a static legend (activated with `LAYOUT_WITH_LEGEND()`) a dynamic legend can be activated with `SHOW_LEGEND(?hideStereotype)`.
 
 The dynamic legend has following differences:
 * only relevant elements are listed
-* custom tags/stereotypes are supported
-* stereotypes can remain visible (with `SHOW_DYNAMIC_LEGEND(false)`)
-* **`SHOW_DYNAMIC_LEGEND()` has to be last call in the diagram**
+* custom tags/styles are supported
+* stereotypes can remain visible (with `SHOW_LEGEND(false)`)
+* **`SHOW_LEGEND()` has to be last call in the diagram**
 
 ```csharp
-@startuml SHOW_DYNAMIC_LEGEND Sample
+@startuml SHOW_LEGEND Sample
 !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
 
 Person(admin, "Administrator")
@@ -101,11 +101,11 @@ System(twitter, "Twitter")
 Rel(admin, web_app, "Uses", "HTTPS")
 Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
-SHOW_DYNAMIC_LEGEND()
+SHOW_LEGEND()
 @enduml
 ```
 
-![SHOW_DYNAMIC_LEGEND Sample](http://www.plantuml.com/plantuml/png/JKzDJ-f05DttLypZBIW9hmqlhbnH2m4JmCOMYQjcQAzsudnCPkwa4kD_zpOYE9kJkUSZvymzSeT1oUYFq8qCBR0EqVhRD7MyJru5Tk4OFBZ6Q0IDIMDK-YPSqtdiqlpcNo6vnlrsay8xyIsqTAnp4dEXmILsY8uASDxecBTAw2aRPGCAZuwZSQD9L9uyWghlJD0jTwUucKtPkEJAIXXFs4V4w5qYunwEDRUMSWvmP9crKZGSXT4ZEkL_fomhYsIthCZYWFrFPcpxb0zS9gNfFHlMU8Q6qHJBIQA2H64biAeNYE0O2WLIQF3KxVFSBiPladBECYAZHv0_gwwrzfwSXEkgAafI3Q8BUurP0NhwmW0lpgZVbgXSFnpgnVCkszxdzMQvMkuMyIIQWsw3aby0 "LAYOUT_WITH_LEGEND Sample")
+![SHOW_LEGEND Sample](http://www.plantuml.com/plantuml/png/JL4z3zem4DtzAwvq84YGYAfJ9z8KmG0qQa8P8oUv5al-iEoB8bJrl_SYAE3bv7iVVa_UH9A11gEXsd-_D8VjRdlw1fKqNgFue6odXnxXIkJZbomBSan_AxeExH0nTCuIMaexPpAlfPriLf5whTgi-BmgfzNvUCYCZ8I1Lqt12gaiXjGpLuWIGtGsaRrHTWcpV9egKf3amcmXgXiBJVFL3RQNuPPqwoNCxzdc2_WZWC_JCXcnRQJtx7F15dBljUeaAMTdl2e-BY6lolIqhLaI43wbQpZ-B2OirzgD4QPA4SW1z_6IAMRGfBn6g4T5X0586TJyLkHiVn_f4hg3xFEWCIX-eFxVwXNh75d9Sr_NPSMiYVH4NpOxfCXNdCQluCoxHBpzKh8G6xJzOFG_ "LAYOUT_WITH_LEGEND Sample")
 
 ## LAYOUT_AS_SKETCH()
 

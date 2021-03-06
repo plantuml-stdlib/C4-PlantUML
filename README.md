@@ -128,7 +128,7 @@ Rel_R(api, db, "Reads/Writes")
 Rel(admin, spaAdmin, "Uses", "https")
 Rel(spaAdmin, api, "Uses", "https")
 
-SHOW_DYNAMIC_LEGEND()
+SHOW_LEGEND()
 @enduml
 ```
 
@@ -247,7 +247,7 @@ Rel_L(x, s4, "uses")
 C4-PlantUML also comes with some layout options to make it easy and reusable to create nice and useful diagrams:
 
 * [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT()](LayoutOptions.md#layout_top_down-or-layout_left_right)
-* [LAYOUT_WITH_LEGEND() or SHOW_DYNAMIC_LEGEND(?hideStereotype)](LayoutOptions.md#layout_with_legend-or-show_dynamic_legend)
+* [LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype)](LayoutOptions.md#layout_with_legend-or-SHOW_LEGEND)
 * [LAYOUT_AS_SKETCH()](LayoutOptions.md#layout_as_sketch)
 * [HIDE_STEREOTYPE()](LayoutOptions.md#hide_stereotype)
 
@@ -262,7 +262,7 @@ Additional tags/stereotypes can be added to the existing element stereotypes (co
 
 * `AddTagSupport(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing)`:
   After this call the given tag can be used in the diagram, the styles of the tagged elements are updated and the tag is be displayed in the dynamic legend.
-* `UpdateSkinparamsAndLegendEntry(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing)`
+* `UpdateElementStyle(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing)`
   This call updates the style of the default element stereotypes (component, ...) and creates no additional legend entry.
 
 Each element can be extended with one or multiple custom tags/stereotypes via the keyword argument `$tags="..."`, like `Container(spaAdmin, "Admin SPA", $tags="v1.1")`.
@@ -270,9 +270,9 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 
 **Comments**
 
-* `SHOW_DYNAMIC_LEGEND()` supports the customized stereotypes
+* `SHOW_LEGEND()` supports the customized stereotypes
       (`LAYOUT_WITH_LEGEND()` cannot be used, if the custom tags/stereotypes should be displayed in the legend).
-* `SHOW_DYNAMIC_LEGEND()` has to be last line in diagram.
+* `SHOW_LEGEND()` has to be last line in diagram.
 * Don't use space between `$tags` and `=` (PlantUML does not support it).
 * Don't use `,` as part of the tag names (PlantUML does not support it in combination with keyword arguments).
 * If 2 tags defines the same skinparameter, the first definition is used.
@@ -298,7 +298,7 @@ Rel(spaAdmin, api, "Uses", "https")
 Rel_L(spa, spa2, "Updates", "https")
 Rel_R(spaAdmin, spaAdmin2, "Updates", "https")
 
-SHOW_DYNAMIC_LEGEND(false)
+SHOW_LEGEND(false)
 @enduml
 ```
 
@@ -306,7 +306,7 @@ SHOW_DYNAMIC_LEGEND(false)
 
 **Custom schema definition**
 
-If the custom (color) schema is defined via `UpdateSkinparamsAndLegendEntry()` then the legend of existing elements is updated too.
+If the custom (color) schema is defined via `UpdateElementStyle()` then the legend of existing elements is updated too.
 
 ```csharp
 @startuml
@@ -324,10 +324,10 @@ If the custom (color) schema is defined via `UpdateSkinparamsAndLegendEntry()` t
 !$COLOR_B_4 = "#542788"
 !$COLOR_B_5 = "#2d004b"
 
-UpdateSkinparamsAndLegendEntry("person", $bgColor=$COLOR_A_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_1, $shadowing="true")
-UpdateSkinparamsAndLegendEntry("external_person", $bgColor=$COLOR_B_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_1)
-UpdateSkinparamsAndLegendEntry("system", $bgColor=$COLOR_A_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_2)
-UpdateSkinparamsAndLegendEntry("external_system", $bgColor=$COLOR_B_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_2)
+UpdateElementStyle("person", $bgColor=$COLOR_A_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_1, $shadowing="true")
+UpdateElementStyle("external_person", $bgColor=$COLOR_B_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_1)
+UpdateElementStyle("system", $bgColor=$COLOR_A_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_2)
+UpdateElementStyle("external_system", $bgColor=$COLOR_B_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_2)
 
 Person(customer, "Personal Banking Customer")
 System(banking_system, "Internet Banking System")
@@ -340,7 +340,7 @@ Rel_Back(customer, mail_system, "Sends e-mails to")
 Rel_Neighbor(banking_system, mail_system, "Sends e-mails")
 Rel(banking_system, mainframe, "Uses")
 
-SHOW_DYNAMIC_LEGEND()
+SHOW_LEGEND()
 @enduml
 ```
 

@@ -11,8 +11,15 @@
 
 !global $LEGEND_FONT_COLOR = "#FFFFFF"
 !global $LEGEND_TITLE_COLOR = "#000000"
-!global $LEGEND_UNDEFINED_BK_COLOR = "#87AECA"
-!global $LEGEND_UNDEFINED_FONT_COLOR = "#B7DEFA"
+!global $LEGEND_UNDEFINED_BG_COLOR = "#D5CFEE"
+!global $LEGEND_UNDEFINED_FONT_COLOR = "#8B77E4"
+
+!global $LEGEND_SHADOW_TEXT = "(shadow) "
+!global $LEGEND_NO_SHADOW_TEXT = "(no shadow) "
+!global $LEGEND_NO_FONT_BG_TEXT = "(no text, no back color) "
+!global $LEGEND_NO_FONT_TEXT = "(no text color) "
+!global $LEGEND_NO_BG_TEXT = "(no back color) "
+!global $LEGEND_NO_LINE_TEXT = "(no line color) "
 
 ' Styling
 ' ##################################
@@ -62,6 +69,7 @@ skinparam rectangle<<boundary>> {
 !global $tagDefaultLegend = ""
 !global $tagCustomLegend = ""
 
+' rel specific
 !unquoted function $toStereos($tags)
   !if (%strlen($tags) == 0)
     !return ''
@@ -71,13 +79,13 @@ skinparam rectangle<<boundary>> {
   !while ($brPos >= 0)
     !$tag = %substr($tags, 0, $brPos)
     !$stereos = $stereos + '<<' + $tag + '>>'
-%set_variable_value("$" + $tag + "LineLegend", %true())
+%set_variable_value("$" + $tag + "_LineLegend", %true())
     !$tags = %substr($tags, $brPos+1)
     !$brPos = %strpos($tags, "+")
   !endwhile
   !if (%strlen($tags)>0)
     !$stereos = $stereos + '<<' + $tags + '>>'
-%set_variable_value("$" + $tags + "LineLegend", %true())
+%set_variable_value("$" + $tags + "_LineLegend", %true())
   !endif
   !return $stereos
 !endfunction
@@ -136,12 +144,26 @@ skinparam rectangle<<boundary>> {
 $tagSkin
 !endprocedure
 
+!unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor)
+  !$elementSkin = "skinparam Arrow<<" + $tagStereo + ">> {" + %newline()
+  !$elementSkin = $elementSkin + "    Color "
+  !if ($lineColor!="")
+    !$elementSkin = $elementSkin + $lineColor
+  !endif
+  !if ($textColor!="")
+    !$elementSkin = $elementSkin + ";text:" + $textColor
+  !endif
+  !$elementSkin = $elementSkin + %newline()
+  !$elementSkin = $elementSkin + "}" + %newline()
+$elementSkin
+!endprocedure
+
 !function $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
   !$tagEntry = "|"
   !if ($bgColor!="")
     !$bg = $bgColor
   !else
-    !$bg = $LEGEND_UNDEFINED_BK_COLOR
+    !$bg = $LEGEND_UNDEFINED_BG_COLOR
   !endif
   ' named colors have to start with # too 
   !if (%substr($bg, 0, 1) != "#")
@@ -161,19 +183,19 @@ $tagSkin
   !endif
   !$tagEntry = $tagEntry + " " + $tagStereo + " "
   !if ($shadowing == "true")
-    !$tagEntry = $tagEntry + "(shadow) "
+    !$tagEntry = $tagEntry + $LEGEND_SHADOW_TEXT
   !endif
   !if ($shadowing == "false")
-    !$tagEntry = $tagEntry + "(no shadow) "
+    !$tagEntry = $tagEntry + $LEGEND_NO_SHADOW_TEXT
   !endif
   !if ($fontColor == "" && $bgColor == "")
-      !$tagEntry = $tagEntry + "(no font, no back color) "
+      !$tagEntry = $tagEntry + $LEGEND_NO_FONT_BG_TEXT
   !else 
     !if ($fontColor == "")
-      !$tagEntry = $tagEntry + "(no font color) "
+      !$tagEntry = $tagEntry + $LEGEND_NO_FONT_TEXT
     !endif
     !if ($bgColor == "")
-      !$tagEntry = $tagEntry + "(no back color) "
+      !$tagEntry = $tagEntry + $LEGEND_NO_BG_TEXT
     !endif
   !endif
   !$tagEntry = $tagEntry + "</color> "
@@ -181,10 +203,54 @@ $tagSkin
   !return $tagEntry 
 !endfunction
 
+!function $tagRelLegendEntry($tagStereo, $textColor, $lineColor)
+  !$tagEntry = "|"
+  !$bg = $LEGEND_UNDEFINED_BG_COLOR
+  ' named colors have to start with # too 
+  !if (%substr($bg, 0, 1) != "#")
+    !$bg = "#" + $bg
+  !endif
+'  !$tagEntry = $tagEntry + "<" + $bg +">" 
+  ' <U+23AF> ..white line
+  !if ($lineColor!="")
+    !$tagEntry = $tagEntry + "<color:"+$lineColor+"> <U+23AF></color> "
+  !else
+'    !$tagEntry = $tagEntry + "<color:"+$bg+"> <U+23AF></color> "
+    !$tagEntry = $tagEntry + " <U+23AF> "
+  !endif
+  !if ($textColor!="")
+    !$tagEntry = $tagEntry + "<color:"+$textColor+">"
+  !else
+    !$tagEntry = $tagEntry + "<color:"+$LEGEND_UNDEFINED_FONT_COLOR+">"
+  !endif
+  !$tagEntry = $tagEntry + " " + $tagStereo + " "
+  !if ($textColor == "")
+    !$tagEntry = $tagEntry + $LEGEND_NO_FONT_TEXT
+  !endif
+  !if ($lineColor == "")
+    !$tagEntry = $tagEntry + $LEGEND_NO_LINE_TEXT
+  !endif
+  !$tagEntry = $tagEntry + "</color> "
+  !$tagEntry = $tagEntry + "|"
+  !return $tagEntry 
+!endfunction
+
 !unquoted procedure $addTagToDynamicLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
-  !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+'' ignore workaround tags with &
+'  !if (%strpos($tagStereo, "&")<0)
+    !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
 %set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
-  !$tagCustomLegend = $tagCustomLegend + $tagStereo + "\n"
+    !$tagCustomLegend = $tagCustomLegend + $tagStereo + "\n"
+'  !endif
+!endprocedure
+
+!unquoted procedure $addRelTagToDynamicLegend($tagStereo, $textColor="", $lineColor="")
+'' ignore workaround tags with &
+'  !if (%strpos($tagStereo, "&")<0)
+    !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor)
+%set_variable_value("$" + $tagStereo + "_LineLegendEntry", $tagEntry)
+    !$tagCustomLegend = $tagCustomLegend + $tagStereo + "_Line\n"
+'  !endif
 !endprocedure
 
 !procedure $showActiveLegendEntries($allDefined)
@@ -211,11 +277,26 @@ $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
 $addTagToDynamicLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
 !endprocedure
 
-' used by existing elements like person, ...
-!unquoted procedure UpdateSkinparamsAndLegendEntry($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
-$defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
-  !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
-%set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
+' used by new defined rel tags
+!unquoted procedure AddRelTagSupport($tagStereo, $textColor="", $lineColor="")
+$defineRelSkinparams($tagStereo, $textColor, $lineColor)
+$addRelTagToDynamicLegend($tagStereo, $textColor, $lineColor)
+!endprocedure
+
+' update the style of existing elements like person, ...
+!unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
+$defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$tagEntry = $tagLegendEntry($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
+%set_variable_value("$" + $elementName + "LegendEntry", $tagEntry)
+!endprocedure
+
+' update the style of default relation, it has to set both properties (combined statement not working)
+!unquoted procedure UpdateRelStyle($textColor, $lineColor)
+  !$elementSkin = "skinparam Arrow {" + %newline()
+  !$elementSkin = $elementSkin + "    Color " + $lineColor + %newline()
+  !$elementSkin = $elementSkin + "    FontColor " + $textColor + %newline()
+  !$elementSkin = $elementSkin + "}" + %newline()
+$elementSkin
 !endprocedure
 
 ' tags/stereotypes have to be delimited with \n 
@@ -387,7 +468,7 @@ left to right direction
 !endprocedure
 
 ' has to be last call in diagram
-!unquoted procedure SHOW_DYNAMIC_LEGEND($hideStereotype="true")
+!unquoted procedure SHOW_LEGEND($hideStereotype="true")
 !if ($hideStereotype=="true")
 hide stereotype
 !endif

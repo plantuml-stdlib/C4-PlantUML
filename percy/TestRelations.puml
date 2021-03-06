@@ -6,14 +6,14 @@
   !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Component.puml
 !endif
 
-[RelFrom]
-[BiRelFrom]
+System(RelFrom, RelFrom)
+System(BiRelFrom, BiRelFrom)
 
-[RelShort]
-[BiRelShort]
+System(RelShort, RelShort)
+System(BiRelShort, BiRelShort)
 
-[RelLong]
-[BiRelLong]
+System(RelLong, RelLong)
+System(BiRelLong, BiRelLong)
 
 Rel_(RelFrom, To_Rel_UP, "A label", "-UP->>")
 Rel_(RelFrom, To_Rel_DOWN, "A label", "A techn", "-DOWN->>")

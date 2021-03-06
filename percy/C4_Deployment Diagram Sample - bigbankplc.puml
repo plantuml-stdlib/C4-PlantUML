@@ -53,5 +53,5 @@ Rel(api, db, "Reads from and writes to", "JDBC")
 Rel(api, db2, "Reads from and writes to", "JDBC")
 Rel_R(db, db2, "Replicates data to")
 
-SHOW_DYNAMIC_LEGEND()
+SHOW_LEGEND()
 @enduml

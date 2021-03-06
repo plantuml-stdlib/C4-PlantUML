@@ -16,8 +16,8 @@
 ' ##################################
 
 ' orig was without background
-'UpdateSkinparamsAndLegendEntry("node", $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR)
-UpdateSkinparamsAndLegendEntry("node", $bgColor=$NODE_BG_COLOR, $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR)
+'UpdateElementStyle("node", $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR)
+UpdateElementStyle("node", $bgColor=$NODE_BG_COLOR, $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR)
 skinparam rectangle<<node>> {
     FontStyle normal
 }

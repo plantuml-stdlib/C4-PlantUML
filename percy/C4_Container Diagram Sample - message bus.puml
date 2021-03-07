@@ -1,4 +1,4 @@
-@startuml
+@startuml "messagebus"
 ' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
 !if %variable_exists("RELATIVE_INCLUDE")
   !include ./../C4_Container.puml
@@ -12,6 +12,7 @@ skinparam maxMessageSize 200
 LAYOUT_TOP_DOWN()
 'LAYOUT_AS_SKETCH()
 LAYOUT_WITH_LEGEND()
+
 
 Person(customer, Customer, "A customer")
 

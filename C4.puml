@@ -144,14 +144,22 @@ skinparam rectangle<<boundary>> {
 $tagSkin
 !endprocedure
 
+' arrow colors cannot start with # (legend background has to start with #)
+!function ColorNoHash($c)
+  !if (%substr($c, 0, 1) == "#")
+    !$c = %substr($c,1)
+  !endif
+  !return $c
+!endfunction
+
 !unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor)
   !$elementSkin = "skinparam Arrow<<" + $tagStereo + ">> {" + %newline()
   !$elementSkin = $elementSkin + "    Color "
   !if ($lineColor!="")
-    !$elementSkin = $elementSkin + $lineColor
+    !$elementSkin = $elementSkin + ColorNoHash($lineColor)
   !endif
   !if ($textColor!="")
-    !$elementSkin = $elementSkin + ";text:" + $textColor
+    !$elementSkin = $elementSkin + ";text:" + ColorNoHash($textColor)
   !endif
   !$elementSkin = $elementSkin + %newline()
   !$elementSkin = $elementSkin + "}" + %newline()
@@ -211,12 +219,12 @@ $elementSkin
     !$bg = "#" + $bg
   !endif
 '  !$tagEntry = $tagEntry + "<" + $bg +">" 
-  ' <U+23AF> ..white line, not working with png use -
+  ' <U+2500> ..white line
   !if ($lineColor!="")
-    !$tagEntry = $tagEntry + "<color:"+$lineColor+"> -</color> "
+    !$tagEntry = $tagEntry + "<color:"+$lineColor+"> <U+2500></color> "
   !else
-'    !$tagEntry = $tagEntry + "<color:"+$bg+"> -</color> "
-    !$tagEntry = $tagEntry + " - "
+'    !$tagEntry = $tagEntry + "<color:"+$bg+"> <U+2500></color> "
+    !$tagEntry = $tagEntry + " <U+2500> "
   !endif
   !if ($textColor!="")
     !$tagEntry = $tagEntry + "<color:"+$textColor+">"
@@ -235,7 +243,7 @@ $elementSkin
   !return $tagEntry 
 !endfunction
 
-!unquoted procedure $addTagToDynamicLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
+!unquoted procedure $addTagToLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
 '' ignore workaround tags with &
 '  !if (%strpos($tagStereo, "&")<0)
     !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
@@ -244,7 +252,7 @@ $elementSkin
 '  !endif
 !endprocedure
 
-!unquoted procedure $addRelTagToDynamicLegend($tagStereo, $textColor="", $lineColor="")
+!unquoted procedure $addRelTagToLegend($tagStereo, $textColor="", $lineColor="")
 '' ignore workaround tags with &
 '  !if (%strpos($tagStereo, "&")<0)
     !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor)
@@ -272,15 +280,15 @@ $elementSkin
 !endprocedure
 
 ' used by new defined tags
-!unquoted procedure AddTagSupport($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
+!unquoted procedure AddElementTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
 $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
-$addTagToDynamicLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+$addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
 !endprocedure
 
 ' used by new defined rel tags
-!unquoted procedure AddRelTagSupport($tagStereo, $textColor="", $lineColor="")
+!unquoted procedure AddRelTag($tagStereo, $textColor="", $lineColor="")
 $defineRelSkinparams($tagStereo, $textColor, $lineColor)
-$addRelTagToDynamicLegend($tagStereo, $textColor, $lineColor)
+$addRelTagToLegend($tagStereo, $textColor, $lineColor)
 !endprocedure
 
 ' update the style of existing elements like person, ...

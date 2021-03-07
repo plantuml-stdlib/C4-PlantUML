@@ -3,9 +3,10 @@
 ' uncomment the following line and comment the first to use locally
 ' !include C4_Deployment.puml
 
-AddTagSupport("fallback", $bgColor="#c0c0c0")
+AddElementTag("fallback", $bgColor="#c0c0c0")
+AddRelTag("fallback", $textColor="#c0c0c0", $lineColor="#438DD5")
 
-' dynamic legend is used (activated in last line)
+' calculated legend is used (activated in last line)
 ' LAYOUT_WITH_LEGEND()
 
 title Deployment Diagram for Internet Banking System - Live
@@ -47,7 +48,7 @@ Rel(mobile, api, "Makes API calls to", "json/HTTPS")
 Rel(spa, api, "Makes API calls to", "json/HTTPS")
 Rel_U(web, spa, "Delivers to the customer's web browser")
 Rel(api, db, "Reads from and writes to", "JDBC")
-Rel(api, db2, "Reads from and writes to", "JDBC")
+Rel(api, db2, "Reads from and writes to", "JDBC", $tags="fallback")
 Rel_R(db, db2, "Replicates data to")
 
 SHOW_LEGEND()

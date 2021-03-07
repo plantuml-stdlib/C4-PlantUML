@@ -36,11 +36,11 @@ Rel(anonymous_user, web_app, "Uses", "HTTPS")
 Rel(aggregated_user, web_app, "Uses", "HTTPS")
 Rel(administration_user, web_app, "Uses", "HTTPS")
 
-Rel(web_app, rel_db, "Reads from and writes to", "SQL/JDBC, post 3306")
+Rel(web_app, rel_db, "Reads from and writes to", "SQL/JDBC, port 3306")
 Rel(web_app, filesystem, "Reads from")
 Rel(web_app, nosql, "Reads from", "MongoDB wire protocol, port 27017")
 
-Rel_U(updater, rel_db, "Reads from and writes data to", "SQL/JDBC, post 3306")
+Rel_U(updater, rel_db, "Reads from and writes data to", "SQL/JDBC, port 3306")
 Rel_U(updater, filesystem, "Writes to")
 Rel_U(updater, nosql, "Reads from and writes to", "MongoDB wire protocol, port 27017")
 

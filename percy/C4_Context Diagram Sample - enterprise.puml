@@ -1,4 +1,4 @@
-@startuml
+@startuml "enterprise"
 ' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
 !if %variable_exists("RELATIVE_INCLUDE")
   !include ./../C4_Context.puml

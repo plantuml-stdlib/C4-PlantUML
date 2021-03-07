@@ -3,7 +3,7 @@
 !if %variable_exists("RELATIVE_INCLUDE")
   !include ./../C4_Component.puml
 !else
-  !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Component.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !endif
 
 System(RelFrom, RelFrom)

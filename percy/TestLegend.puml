@@ -3,7 +3,7 @@
 !if %variable_exists("RELATIVE_INCLUDE")
   !include ./../C4_Component.puml
 !else
-  !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Component.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !endif
 
 SHOW_PERSON_SPRITE(person2)
@@ -11,19 +11,19 @@ SHOW_PERSON_SPRITE(person2)
 UpdateElementStyle("system", $bgColor="chocolate", $fontColor="orange", $borderColor="orange")
 UpdateRelStyle(black, black)
 
-AddTagSupport("role1", $bgColor="green", $fontColor="white", $borderColor="#d73027", $shadowing="false")
-AddTagSupport("role2", $fontColor="#d73027", $shadowing="true")
-AddTagSupport("role3", $bgColor="orange")
-AddTagSupport("role4", $borderColor="blue")
-AddTagSupport("unusedRole")
+AddElementTag("role1", $bgColor="green", $fontColor="white", $borderColor="#d73027", $shadowing="false")
+AddElementTag("role2", $fontColor="#d73027", $shadowing="true")
+AddElementTag("role3", $bgColor="orange")
+AddElementTag("role4", $borderColor="blue")
+AddElementTag("unusedRole")
 
-AddRelTagSupport("line1", $lineColor="green", $textColor="blue")
-AddRelTagSupport("line2", $lineColor="blue", $textColor="green")
-AddRelTagSupport("line3", $textColor="orange")
-AddRelTagSupport("line4", $lineColor="orange")
+AddRelTag("line1", $lineColor="green", $textColor="blue")
+AddRelTag("line2", $lineColor="blue", $textColor="green")
+AddRelTag("line3", $textColor="orange")
+AddRelTag("line4", $lineColor="orange")
 ' PlantUML cannot combine line styles, a combination has to be added as workaround as first additional tag
-AddRelTagSupport("line3&line4", $lineColor="orange", $textColor="orange")
-AddRelTagSupport("unusedLine", $lineColor="red", $textColor="red")
+AddRelTag("line3&line4", $lineColor="orange", $textColor="orange")
+AddRelTag("unusedLine", $lineColor="red", $textColor="red")
 
 Person(person, "Person")
 Person(person1, "Person1", $tags="role1")

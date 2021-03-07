@@ -11,7 +11,7 @@ The [old master branch](https://github.com/kirchsth/C4-PlantUML/blob/master/READ
 
 ![Container diagram for Internet Banking System](https://www.plantuml.com/plantuml/png/bLLDZzis4BtxLqoTGnr0kqQ0ddgArpQwcwntrSZRJK_2Y1hRH2XI82axHj7_tg6i3yiEajGdQJJpvl7D6_gzysXzLQZHBr8BLUK4E-zBz_jqQl5mkvL-LsML8okCzgJzhJ3557ChKUzLLLRJ-MytiKBjNrQFKuMUdETGEkTib9hiRHcmVuLASs710E1t11kZb3b8lGN5IO0wXy5dQHq_6U36e8n0fOwCqJ6yRi1V7sT_Fx-iq_Lpd2wUNvycR_lOB4cJZylr_9w3JUZrONsVFYx_M3ujE3ZoqYl6RK4XbxYrM31H2mzySAl9mntgBu5pSdIUYj4e9kkCdeZAULEGZM3UFOrdq8R1REf3PLmTmO45XR8kH5N708KmbVPkp3nEqEaT1tAqnubunrYN1CPluPyHyA_ZEpbGbc9PSl8hPJ0hIoK5Ucdqc4CVS8yH9AKDv5T_pKDiGKhkcKPDZJtWfO1cnFKuGhZhcxK7ZsTCSjZPbOmzJlYpefiOjnIwjrqJOMNf8vZfRQNGXd1ipLxcv827-kqk6_PAe8vA-cDmWQXg8Hti9OOIQO7F2var1pRc5QF2P59H8yUgVcavpTz4y1aBP2M6NDY7XVIKWwionroQcVqCDtT5xaG0SjfBGPVq5jaaHuyPEWfZQ1u3c-JFHnYyUsEPMrW-iBILpblarY0rkxAefnl1ZfDpm8fT9IpbF3w9oaN1LEGSBy-MNyYBsokPCXHVIEUiamn-ZH--RPk5uJJRrmrq-u4-GH86vjR_TjPUVlKJAb2grDK1XblUhFYzMQk0lsRfPGtDExAImXfdDXwMNyKEDJliLCcmPvWDWnwLCVM6TvWkzlPCsc31PjA20zqfpXG6p4pb-p57tRf6mFFG3klpzYAFFf4wknBwnNnnv4Bl-_KwJZXnc7TQe-_d38nTfvxQfKyajxlCd5q39xXsoHkaEZWSUziGtL6B23uapq_Jy-RdBVzNPNh7sJsntl93b4-4kOEDDKLzwnmiBo7VIIOWDy2Bktbxpe1vfiU5ZHA6TK0t8LfZz4Gk73VaCAohNBXXk_R9QXqtGDrX1kLNlck52VNJHftF_EVOYlEUI_alwpy0 "Container diagram for Internet Banking System")
 
-C4-PlantUML combines the benefits of [PlantUML](http://en.plantuml.com/) and the [C4 model](https://c4model.com/) for providing a simple way of describing and communicate software architectures – especially during up-front design sessions – with an intuitive language using open source and platform independent tools.
+C4-PlantUML combines the benefits of [PlantUML](https://plantuml.com/) and the [C4 model](https://c4model.com/) for providing a simple way of describing and communicate software architectures – especially during up-front design sessions – with an intuitive language using open source and platform independent tools.
 
 C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippets) for creating C4 diagrams with PlantUML.
 
@@ -41,6 +41,8 @@ If you want to use the always up-to-date version in this repo, use the following
 
 Now let's create a C4 Container diagram:
 
+\(If you don't want run PlantUML locally you can use e.g. the [PlantUML Web Server](http://www.plantuml.com/plantuml/uml/ZOxDIWGn48JlUOeufn5qSjcJfvNHsugBFsV99iqcsEc4T0VTjpSCE2AYUAeAgVwgjYosIakevytBBK824bPdaHms3pg85BuofjgtwHWbj4DZg2wJzDpaSZAliRh04ioykToZ9Nc-snbux_yUlEdGkOTj9AXJwJLAxQ5ofh4iSetHyeKUTlO0E7HpNoHcigXlW5sDosiuLojaT9_kn-aJk40Py_7q1-Znn09fv4N-swuU0ByFNbVyZlYQqmbR8DyIVW00) too.)
+
 After you have included `C4_Container.puml` you can use the defined macro definitions for the C4 elements: `Person`, `Person_Ext`, `System`, `System_Ext`, `Container`, `Relationship`, `Boundary`, and `System_Boundary`
 
 ```csharp
@@ -55,7 +57,7 @@ Rel(personAlias, containerAlias, "Label", "Optional Technology")
 @enduml
 ```
 
-![test](http://www.plantuml.com/plantuml/png/ZOxDIWGn48JlUOeufn5qSjcJfvNHsugBFsV99iqcsEc4T0VTjpSCE2AYUAeAgVwgjYosIakevytBBK824bPdaHms3pg85BuofjgtwHWbj4DZg2wJzDpaSZAliRh04ioykToZ9Nc-snbux_yUlEdGkOTj9AXJwJLAxQ5ofh4iSetHyeKUTlO0E7HpNoHcigXlW5sDosiuLojaT9_kn-aJk40Py_7q1-Znn09fv4N-swuU0ByFNbVyZlYQqmbR8DyIVW00 "test")
+![test](https://www.plantuml.com/plantuml/png/ZOxDIWGn48JlUOeufn5qSjcJfvNHsugBFsV99iqcsEc4T0VTjpSCE2AYUAeAgVwgjYosIakevytBBK824bPdaHms3pg85BuofjgtwHWbj4DZg2wJzDpaSZAliRh04ioykToZ9Nc-snbux_yUlEdGkOTj9AXJwJLAxQ5ofh4iSetHyeKUTlO0E7HpNoHcigXlW5sDosiuLojaT9_kn-aJk40Py_7q1-Znn09fv4N-swuU0ByFNbVyZlYQqmbR8DyIVW00 "test")
 
 In addition to this, it is also possible to define a system or component boundary.
 
@@ -76,7 +78,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![Basic Sample](http://www.plantuml.com/plantuml/png/JP3FJkD03CRlUGflzf9AtKHTxMbFJIC41ueYaiAncauC6J5_HZEEGeLuTpngQPcBDVv-jZzx7Ka4ceo6ZOXAGYUCrvZzKbRgQK0OYNpyNrL1pEMhed4wJ163T9RGKYcTgTvKa6EaiMh-_McriBJRtbVuplg00oVt3SD2MGobvpbPrcA8pXPYCCek8QzJL96281VoHTOT8w7PRzna1n6EXLmnTB859orVm4S6_2wTYnaFU-4zayzuWDfxhQGWvMpEgURt4kgkBHzkUYu927_B5MoVcgJLMhivGbeg0ZdWZRnWn4oQL1hPpue80v0og7bMP8kVPvC5dKJkSyPOp1vHVoztjRMBNCdnhk_RZga4NTHhcrkao5zCuIKuyxDapHTD1_m2 "Basic Sample")
+![Basic Sample](https://www.plantuml.com/plantuml/png/JP3FJkD03CRlUGflzf9AtKHTxMbFJIC41ueYaiAncauC6J5_HZEEGeLuTpngQPcBDVv-jZzx7Ka4ceo6ZOXAGYUCrvZzKbRgQK0OYNpyNrL1pEMhed4wJ163T9RGKYcTgTvKa6EaiMh-_McriBJRtbVuplg00oVt3SD2MGobvpbPrcA8pXPYCCek8QzJL96281VoHTOT8w7PRzna1n6EXLmnTB859orVm4S6_2wTYnaFU-4zayzuWDfxhQGWvMpEgURt4kgkBHzkUYu927_B5MoVcgJLMhivGbeg0ZdWZRnWn4oQL1hPpue80v0og7bMP8kVPvC5dKJkSyPOp1vHVoztjRMBNCdnhk_RZga4NTHhcrkao5zCuIKuyxDapHTD1_m2 "Basic Sample")
 
 Entities can also be decorated with icons using the last parameter, for example:
 
@@ -104,19 +106,19 @@ Rel_R(api, db, "Reads/Writes")
 @enduml
 ```
 
-![test](http://www.plantuml.com/plantuml/png/hL9DZzem4BtdLtWviTA23sqlFIq2saNYW_9Hr1CQue6uTUpKCu7-_8v3Yb0_f1xsP6VUotlpPlnC397hqcKFrkUkDgWAvehUQntXqZzPBkf3JHZpu1azz_DGwcysvWLneOTlUqi7dhUpgSOVWXiqKjmFXGpMO-nNIJfxC7YKJpKQVvuC5_FrVtXmNO69RtILz4MaPmNj7ONHeofQHj8b46FK1iy9evlBXyLyCzYDrulP-5MDcXfSa4A9lNUtWTrIQV2dsa4R-a_uAvpXNrX9tzsUC9xnzz_lqkZKExKpdGw-BBQR_MwoUTbFnn_7yr7tCSkMGWY-cuXFgZEiYQNPs97x4aFbK741h3oYKLKCfiwP4jW8Tnwps-AwL87Kryj1WjjWwRefK9L2KTOpnYFahIHBFM_jhXY8jhh8pEyLxYsWie8CbfD4ICD9vmjuuv0KEATaLq8aKYwSR7vZtMcC3brpaFe860v0c3WpcyT0uSXg_MdQI0Pdw5VS9nMYaHR5Hjey1vkZdCSGIs0RVEBVxKAyiXMwTfxNcMm9AT6QfoM4X3U8vFaxl5zTipQjhX0CwLtpiWH-Hc_IFdy2 "test")
+![test](https://www.plantuml.com/plantuml/png/hL9DZzem4BtdLtWviTA23sqlFIq2saNYW_9Hr1CQue6uTUpKCu7-_8v3Yb0_f1xsP6VUotlpPlnC397hqcKFrkUkDgWAvehUQntXqZzPBkf3JHZpu1azz_DGwcysvWLneOTlUqi7dhUpgSOVWXiqKjmFXGpMO-nNIJfxC7YKJpKQVvuC5_FrVtXmNO69RtILz4MaPmNj7ONHeofQHj8b46FK1iy9evlBXyLyCzYDrulP-5MDcXfSa4A9lNUtWTrIQV2dsa4R-a_uAvpXNrX9tzsUC9xnzz_lqkZKExKpdGw-BBQR_MwoUTbFnn_7yr7tCSkMGWY-cuXFgZEiYQNPs97x4aFbK741h3oYKLKCfiwP4jW8Tnwps-AwL87Kryj1WjjWwRefK9L2KTOpnYFahIHBFM_jhXY8jhh8pEyLxYsWie8CbfD4ICD9vmjuuv0KEATaLq8aKYwSR7vZtMcC3brpaFe860v0c3WpcyT0uSXg_MdQI0Pdw5VS9nMYaHR5Hjey1vkZdCSGIs0RVEBVxKAyiXMwTfxNcMm9AT6QfoM4X3U8vFaxl5zTipQjhX0CwLtpiWH-Hc_IFdy2 "test")
 
-Entities and Relations can be decorated with tags and explained via dynamic calculated legends, for example:
+Elements and relations can be decorated with tags and explained via a calculated legend, for example:
 
 ```csharp
 @startuml
 !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
 
-AddTagSupport("v1.0", $borderColor="#d73027")
-AddTagSupport("v1.1", $fontColor="#d73027")
-AddTagSupport("backup", $fontColor="orange")
+AddElementTag("v1.0", $borderColor="#d73027")
+AddElementTag("v1.1", $fontColor="#d73027")
+AddElementTag("backup", $fontColor="orange")
 
-AddRelTagSupport("backup", $textColor="orange", $lineColor="orange")
+AddRelTag("backup", $textColor="orange", $lineColor="orange")
 
 Person(user, "Customer", "People that need products")
 Person(admin, "Administrator", "People that administrates the products via the new v1.1 components", $tags="v1.1")
@@ -137,7 +139,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![tags](http://www.plantuml.com/plantuml/png/bLFVJnin37xdhyXkUoWQQs4_X3G9YQgWCQbi7GNnYDp4lMRaabFiQzb_FoTjEIYtJNlAoVxipv_ztIanH6ugj_VAUkqQWsh1NDFdmI32gbzQNZIpXZ3gu1azztMe1lSswWNnOZ3w-6xYmFFDvNY03v8tQ2HuDn8mM8-nNwVMUqDZhg6SDdKT8lUAvL7_i3XGRsOX6eoZu48yALwRum-7xu-B_GxqKKBFfUc_i3FGzqszWmuHV8a2JkWhTDq5Z0yx1H9q8k95bmb62hwNjdAWYb5372gC0Yyc66g7YXV0oYCQLSTW6iqaPPigC9Nr0Xscrn97uF2Y5jeaaeJmiP5QMiW1ZokLDgFa87Nmw9co2YZf9AzCA1_FqACQX68w6IOcqT4uoAJNqgaIYBAUCSv1hmV837eZR9s3HBuIE-G9DXTiwGvtwOPFTQfkPdYwW_yTORk0lwY6sgO99byJuKzOGdelm1k7fC0v9SuM895oeRHQzT8lq6zNcorDDdZQVoxsxIxLsQndPjBy31XcG9Y8BgsEWSASrVJ7E3C7PsXxoGELpQ_06r6t35QZlFCGAs1XVAuZweLTOjAo_YhIPsCify5BwyiKc7A8ekkJ-eKGMpDiBIx65UzlNBlsmmqXfShynmiWvND65jUTlhjQBpMBlK8mDBYDbd6JthgxlNydHvl-Cz5uJTHAppmPLY4HbDWfSNhn_VPkVFxb_DjPRt_l5BrfAlSR "tags")
+![tags](https://www.plantuml.com/plantuml/png/bLFlJzim4FtEN-5b-n0qri1-26aI4bL1OrBPEWhY8xhOryJ3iIEVKzX_lxFJabAwJVlaoFVkthtdbrCAu4FNcBrNsahJAHHr22rzBWeF3wDAXxehEq8ldGremqYwfhZNNjOKwcBoyTtCW0qtbzC27xckKF7btOJ1e2twKHj7xusLEZVOSFyrL7csF1eTPWVYJUcyGZznnlcJxBKw_d3u_ZZRtu4-YkW53_qNjWHvtxLRQEV1LiZWYBv2iuKC-BY5v4l3sxzedw4dP_Denu789Xq5rw1dU3P3rneKeOOWBA8IhNUgau6uRTK5gj6MeUDuQWeUWdlH2qCHYQ_mQP1OQaWN5Xz4j4JmIxJEid9AAg2Ya-GLKpxvdrCBJ36VZICJw-WC9D9hdjGmH6WRq2z0zWia1haIrjSWaZzm3j86wUaswGwtwSQREiLkPjZqu7zNM1lm5zNGwhZ1x6ia_0bBYES5M6MG11WZED8C91B6LLgAF6P_D5YRiapQMTf_BlRjDjLPcQkIXvz1W1888z6bbjwHMmGn_p5DpCueMh_aWKYf5xmDgriwBP7FXVCD16PyhiFBMYynQkc_ilZPAHtYufMsLRoOiuciwvFuXU27CAmZpi7bqAzIs-VXXf1YP_hL6H3hgSB6xIxVNVMc9h5N28gAMwy3hihhT0_llvDZAF-PQDeJ3T8JJu8rI0GLxfGul_X-UpSz_tB-xIpVtpj5gxh6_0O0 "tags")
 
 
 ## Supported Diagram Types
@@ -181,7 +183,7 @@ Diagram types
     * (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
     * `LastIndex()`: return the last used index (function which can be used as argument)
 
-    following 2 macros requires V1.2020.24Beta4 (can be already tested with http://www.plantuml.com/plantuml/)
+    following 2 macros requires V1.2020.24Beta4 (can be already tested with https://www.plantuml.com/plantuml/)
     * `Index($offset=1)`: returns current index and calculates next index (function which can be used as argument)
     * `SetIndex($new_index)`: returns new set index and calculates next index (function which can be used as argument)
 
@@ -207,8 +209,8 @@ You can force the direction of a relationship by using:
 * `Rel_L`, `Rel_Left`
 * `Rel_R`, `Rel_Right`
 
-Relation specific sprites are not down scaled, they requires typically smaller icons.
-Or alternatively if sprite argument starts with `&` an OpenIconic name can be used (details see https://useiconic.com/open)
+Relationship specific sprites are not down scaled, they requires typically smaller icons.
+Therefore if sprite argument starts with `&` an OpenIconic name can be used too (details see https://useiconic.com/open)
 
 ```csharp
 @startuml
@@ -243,7 +245,7 @@ Rel(user, system, "orders", "http", "only small sprites looks ok, like the small
 @enduml
 ```
 
-![Relation with sprite or OpenIconic](http://www.plantuml.com/plantuml/png/bLJTJjjC4BtdAVRprmkZGWpz4L8b9AA0IgNGfWJ49Hfx9ywswztLpZYqRzzPnv0GBAfUxMhcp9mviyS-8uR8RMFt_ZEkigr6jMGEzAae8ZoCQiFBjcm9O-KTe-DHvPiYM72fvf1OMrCMam-7inIwlPeM3H1ZbD3zH2h0E8oZaFhlZRM-WNhUXk0ZvzdgU7IK7QWtfOyQuyHR7q-p__N9-wDt9zd-0FeueHVIz6_O4ggVRTX1-mYkHW4dz3NQuGB6Npi54hGYuaMN6KRoBa-hEL3Pf2Ns3KQ1PpFqmQBY9R1oY5g5w7LRCKbPNmMwCKwWutGQuWZiNzJ29eaa8Nngf5O6ke331vKse-HLWdVec3eLKDDfjpAXV7g6d088nNmsJaoYexNGaTv8fqOWoZZ6k82g7o0nLBsmTGuI-ODuefkWVy4DtT4ktNXRfnfcXkqT_EC8JmjuHJK4aoQOVKc4Fs05wRm4fosI0ckLs5k0HChwsbGgJz_1QBDQSGGwCjxH_dEnRtUfpijSbzBy71XA84n4LwQAdlo2rVpxj6FsLjFZInweplnAfX5rAsygb7FXOmCiZCzrn6ffLfYqh6zPkhRQS1gyDgvEWJdxABe-gjy8SSiClSN5kEBzthLhFzmIKghiFdi1f7oNWM26q_VNwwLsOgyHD1LtqJ3swKTtRzv_cADFlqOqNHDjfFSySckG26eSb3Y__7PtFxtuVF7rFD_VEqEdqm_e3m00 "Relation with sprite or OpenIconic")
+![Relation with sprite or OpenIconic](https://www.plantuml.com/plantuml/png/VL9XYnCn4Fs-ls8inta7RLUh21M4Gu-0e7YStESZpKxReTbapMJlAE9_Tv9DMoskyoLvRp9lNYQvuQX3x5jRlI1dRDyWR6Fi-7rT1_qytr3SzgkUCHZl8heuDxwjEwjTgfbnR2ojwazlPtU9UlZwfMurHmn2FTxkdMx9pBkaNjrXOE-kajGK9W-ol9vS_yak2hqG-ljUHDehpelm0vP4zH9e3Tm5YWZPEiEpU8JBwO5jS4qE6JHywz1z5jzafi96JPQ1yNH1wKevdI_bvNHTtQDzl2qkZ-q3_kYH8qzahtdl3BJ8h3UOY54_5F_f1Ipj42xHFQ6LdZDZFMCZIXT5vWDCphF3pPqFhRQbcuW6XEWzh6W3sVTzyNsO9hcrL6JNnlU1CAJjk4hATlb15aD3xj1GEYi55iEnPgkVf4XgCFLggcBy8WRIRcCHVbOWyUeK9wp-nkgZ-XzMo-LIZMFrBeKQm-hD46eCbn1yxlTNckZvF_2XmP3dcRvGMhsp-poUqq2jzpi6lviE3nstM0uSffFgZllhwWPTqxVsDm00 "Relation with sprite or OpenIconic")
 
 In rare cases, you can force the layout of objects which have no relationships by using:
 
@@ -283,7 +285,7 @@ Rel_L(x, s4, "uses")
 @enduml
 ```
 
-![Relation versus Layout](http://www.plantuml.com/plantuml/png/LSrHQxCm5CRnUpz5trufl5EgNksgcmeRE2PQORkIc1ocJ6D9JbZxxNTY6R5tv_yZF3bgP0hDF7d_Hiad8s0t89xrOnGfzXD-ZJYOtcXGV9484aE-pD7tgFYWSOYozA6QcCJshOpWWY052C8keyTibA32ivr-USsBhZaLTV5--gmAF_2y2fHUfC_-x_PF--0lUyfdbvmoSoaeSvT0ML1w9RjshPtgW_MkxSrlTsvlSRjBUuFx_4837pJGN3N2xEi3TNFOG6mXta1Y8Tb0QY4by6gOkjPEhZD6WoQrMAyOtsE-OdAFvOgfmoD8OURf5m00 "Relation versus Layout")
+![Relation versus Layout](https://www.plantuml.com/plantuml/png/LSrHQxCm5CRnUpz5trufl5EgNksgcmeRE2PQORkIc1ocJ6D9JbZxxNTY6R5tv_yZF3bgP0hDF7d_Hiad8s0t89xrOnGfzXD-ZJYOtcXGV9484aE-pD7tgFYWSOYozA6QcCJshOpWWY052C8keyTibA32ivr-USsBhZaLTV5--gmAF_2y2fHUfC_-x_PF--0lUyfdbvmoSoaeSvT0ML1w9RjshPtgW_MkxSrlTsvlSRjBUuFx_4837pJGN3N2xEi3TNFOG6mXta1Y8Tb0QY4by6gOkjPEhZD6WoQrMAyOtsE-OdAFvOgfmoD8OURf5m00 "Relation versus Layout")
 
 ## Layout Options
 
@@ -303,10 +305,10 @@ C4-PlantUML also comes with some default person sprite options:
 
 Additional tags/stereotypes can be added to the existing element stereotypes (component, ...) and highlight,... specific aspects:
 
-* `AddTagSupport(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing)`:
-  Introduces a new element tag. The styles of the tagged elements are updated and the tag is be displayed in the dynamic legend.
-* `AddRelTagSupport(tagStereo, ?textColor, ?lineColor)`:
-  Introduces a new relation tag. The styles of the tagged relations are updated and the tag is be displayed in the dynamic legend.
+* `AddElementTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing)`:
+  Introduces a new element tag. The styles of the tagged elements are updated and the tag is displayed in the calculated legend.
+* `AddRelTag(tagStereo, ?textColor, ?lineColor)`:
+  Introduces a new relation tag. The styles of the tagged relations are updated and the tag is displayed in the calculated legend.
 
 * `UpdateElementStyle(elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing)`
   This call updates the default style of the elements (component, ...) and creates no additional legend entry.
@@ -331,18 +333,18 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 
 ```csharp
 @startuml
-!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
 UpdateElementStyle(person, $fontColor="green")
-AddTagSupport("v1.0", $fontColor="#d73027", $borderColor="#d73027")
-AddTagSupport("v1.1", $fontColor="#ffffbf", $borderColor="#ffffbf")
-AddTagSupport("v1.0&v1.1", $fontColor="#fdae61", $borderColor="#fdae61")
-AddTagSupport("fallback", $bgColor="#444444")
+AddElementTag("v1.0", $fontColor="#d73027", $borderColor="#d73027")
+AddElementTag("v1.1", $fontColor="#ffffbf", $borderColor="#ffffbf")
+AddElementTag("v1.0&v1.1", $fontColor="#fdae61", $borderColor="#fdae61")
+AddElementTag("fallback", $bgColor="#444444")
 
 UpdateRelStyle(black, black)
-AddRelTagSupport("service1", $textColor="red")
-AddRelTagSupport("service2", $lineColor="red")
-AddRelTagSupport("service1&service2", $textColor="red", $lineColor="red")
+AddRelTag("service1", $textColor="red")
+AddRelTag("service2", $lineColor="red")
+AddRelTag("service1&service2", $textColor="red", $lineColor="red")
 
 Container(spa, "SPA", "angular", "The main interface that the customer interacts with via v1.0", $tags="v1.0")
 Container(spaAdmin, "Admin SPA", "angular", "The administrator interface that the customer interacts with via new v1.1", $tags="v1.1")
@@ -367,7 +369,7 @@ SHOW_LEGEND(false)
 @enduml
 ```
 
-![merged tags](http://www.plantuml.com/plantuml/png/jLHHJzim47xFh_2o2QKgQsc6XZG92GHeJEgsYeBsY2xnDV5mdCZd5FZtintCqZKhsmDvyVdky_UTlfnzGWQqQIiPlH4gbor7LXhJqAVfLCFzf12cRBEMKEUrCgZC9A-hwPtGUKccd9uTlbz8KERcwtoA3xREaTlaxPa5Wr2e9usZZcuQ3WOl95QMOcaU9IODQghLFdktijYpMjRwE2uqeef7qIddrr0iswQfjKdYzMno46yYt_AZ3mVfaSjcjUQeD_E37BC_ELRsorPR724_sCVU8147_3ZR8WhvBQ8LI9b1VkTF505zwBzu5EowGjbPbKcBtMT-yLosqgSZr6kHes_0u4DeIoEFTy1J1vT2uR_1PtlXtBRC85FqF0G9DR3FukNYDBOBgAALe5ruNIAhB8G9PL2l84TcIZ3Cs7pUagahr5qDSaFitWuZMmjWOI0C57GS-zreK-wKLq9P1R-oOMLmDK56Wwdr_xQWy9w5KGXjs5s_3MY4ws3nnGd-X3MuzH8KbqWCf6HPInP8n6HTY9mbxW9EdfcPlr0aQaMZdagOmR6BnbkYr43QUPs-cjdZCB-3hgTzszFNzpqq4xo8xFns4zVzW1j2SjB-MRDrLmwzxi3SpZkI9qFzbTm6NVMeGlGNUBJmBrxY7bDd4NE1pIyVoM2La5zyeGjjoKkSFvru1jWjiN0hlIcc5CHoaFAtAw5kMLuaILyWINUIPBKf0nFjPEe_8kEG6VT4eZayMXN_JvoKDUVo-u_R-SNdYs_doGeauIWwGSNRIlu2 "merged tags")
+![merged tags](https://www.plantuml.com/plantuml/png/jLLTRzCm57tFhp01JQcwjMkOc8GqQLCtCQG2rJx4utIJt2G6nuvydOxzUsndBYqDgtXONkoUUtpErV57pyc0DbqZeZTSvg8haDN6jFHnEjNmEAcugRki8zIvaWQbcUIgcRO2f5jpHAOGF9lEJuwM3hh_ifWsG0QrXHxcgccLT6jQfn_TjmKOl1BOMEpMF0bCMjIav25xLrhrkH9AdyMLHfJnABeeYcVk7LH9l9fDZkDjvjlYzFrnUkhGJEa2zJO-g37xMwEqNrRkQ0Hyi8-3GQ42yCDiGCZZkq8b2951_jElg0Bxn7_nACHrWwAFAXEMUyZyuBLinUiGwXNFqJiR_1NwqLZ4GxpKyGINk8StEmWB1eI79AAv3GCigXDguP35jykBs0uWgqw0TjEx6bbZAOnBWxg479cfmJ1ZyRmZenhKVGroG-oHcvgjEB2mzmOgEkjFmcZRxg9ekBGEVcJ3pk1gd8m6e_J_jY3naOLTNxSnsse3MkuwM7vsXZzW1Mwy1ba890P2iAmZIoHYGbKyPucxS9ErChCHeoIk98qsNC9n6xlPUCUKMaZxhDDN2tiSZkfWwkbcxEdhvnwQ2Lb4DoZw4zTlm3qXEMl_ZDcwAuTUN-0yB7gHvq3zxTibtMn8XTa_wD7IFsw9UpnTHCnDB7xxH0QRXFpW2_tKbhp5vVEADS7-91PkfG_5r9nO3aByIINKhSfUaNIFIFgYIAPC7PHeNpi7GN8SaF66IRI09-lYzyHPsN2kltr_M5nzklfwcPGW24VHESh2_N_y1W00 "merged tags")
 
 **Custom schema definition**
 
@@ -412,7 +414,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![custom schema](http://www.plantuml.com/plantuml/png/dLHTRvim57tdLr0MJOcK9eIG1asAr9AXhH9DgdneUqC6tmGKOoBRgEs_dy5ik2rTfIWluNpSUuwDkEK2CL7cnBZAQ49A36Ogn9b_6uyPUXeTCv6MSSc19GKLGCKeAVBnAMD9oaKwNhhNZmHHiNy8n_0iUGnOWj5IYkNpw5mDDgvwotMutaHtqSnScDQN-M4QsvwbuMwDnzEPPz_e-BJ6mVQSYQlZJeqVSEpTJ7Lyed00EzRch8BzRdCNAcvU_LhERppOmmXY7LSxOWV5sD5nbScpvrEKwBZgC7ETkUVfkEhiODjsjVcR88p2-rNGCKoHk-3txXLfxCyO2GW8v435LhmGw5jdOBoWrj3inSTbGGgsQCzQWWTv3otS7aMbBnW6ziOpaGHF4IwUCdfSM8ALO0qw5rUtpIWYqOS9_0iIoDleNiTVk82yiwTxGK_dar8VhlClMEUtwpP0rAeUoIXeglQ569fVXSoXSUtxC32Cn_gu-qd9HP436vgMGX0nVKHFyjhCPSF9czlMFVgnOffQqdDFgw8W_dcKK3eQInGyYtwECj9wWklgsUIDyesG7XZAGSeU_lxlc2thQydVfTfpu58cLP6FafCcVPra2nHp4-eyt1H5urb1Tapb-R-h-n-tidOvL8asbR7zkVuLXS6FOFMzFp1kvPJgu_O7 "custom schema")
+![custom schema](https://www.plantuml.com/plantuml/png/dL9TRvim57tdLr0MJOcK9eIG1asAr9AXhH9DgdneUqC6tmGKOoBRgEs_dy5ik2rTfIWluNpSUuxjMouG4sLEZAkC9gJ4OAP2dFctyPYXfz4n4saPbnnOKb01L8oI8X-VCfQaNAJZfNlzI10L-uTm3C-Inu0b62sbM7wFpjLWuwgtN8VhJNGNpSo5QNsP7wQnxLaQxjPuF9rvzesEJsiSRC-Pk3hkrFW1nzxDLCSd2WUmOstEAjZlDdUXukRLh-NyneCzZ23MSRKZTb2C7HrNcJnxFaM9ZgiECzUPUvwEgyuEjcrNcxy9mYYyNmKTmnIv2txlNf76_eoHW8103bHinGk1ldK6nWjg3SrUV5mMf62BzgmbU93tqCBjKLJwWc5WRpmJIV0KuU8feyU59LW9rg1pSNNRZ28IVPZ0lo21l8tkTVo52yWxUxeNz7G-AVNXEl-2TNwxRWD4hUgHZ8AcQX_4qFmgP0wDQz_3m30Uw-Fk9oKNHGviQ5eAGSJq4Jt9QpEN3ITlRbltwCUAQMf9ppsjYeBuvr52wMWiKV0i-ZdAIEi9hgjlapVADq9wO2W7ANlu-xzZjgol9N-NQi-1IvbKHJvAJfhqTP8jKCnDgFDmKnIDPmNPCPNd_wxkVzpAskLG9TfKnlRd-bSK1Z-2rVV-mBYLKygS_040 "custom schema")
 
 ## Element properties
 
@@ -454,7 +456,7 @@ Rel(personAlias, containerAlias, "Label", "Optional Technology")
 @enduml
 ```
 
-![properties sample](http://www.plantuml.com/plantuml/png/ZPB1RXCn48Rl-nHcBsoaaAKH4XAdLYa8fD16443Y4hdh8RRmUYnxh7P1l3jZg-csQG8zUUpvycU-jKyZoK2fjzKpupgR50XDvEERjWtoUhOrfDDLYX0wT0IEPXtsxKyJEXr9jujNBrPMElhoSTd23VSLA3xSd8EtEFIPzpcxUYuK_939aj0W5GIn2kWXq30LNwLDK9qfjJjgwWlPGpqLzJihewud3vkNOIkT-IN9eClGTqH2R-G-jqQqkV_14GG79DxUy501WdWzUydm2a94r_Yod5aZ8yDBUGNbLvS-vqihpY5smPITQAuDwJiJV_jNjqeJpgm-0-qcU5zEctgthwTrKStfzqBtnyxLIMOAd2kcIHeRJmwXypjqVW-TCphUmUO25MoMZUFbkEXwyF0Vyov5mlw0kFXTLK9yOmRJ_WUOSEVHs8jHaSl3oAZ6PKOMwDZESMQtgnxfhA7J3YrkXt-xO3fuWN_u2eT8q3UnBFlvJqiq4Cjh-0JsuViQvpwQEmfmmYaubNhx5m00 "properties sample")
+![properties sample](https://www.plantuml.com/plantuml/png/ZPB1RXCn48Rl-nHcBsoaaAKH4XAdLYa8fD16443Y4hdh8RRmUYnxh7P1l3jZg-csQG8zUUpvycU-jKyZoK2fjzKpupgR50XDvEERjWtoUhOrfDDLYX0wT0IEPXtsxKyJEXr9jujNBrPMElhoSTd23VSLA3xSd8EtEFIPzpcxUYuK_939aj0W5GIn2kWXq30LNwLDK9qfjJjgwWlPGpqLzJihewud3vkNOIkT-IN9eClGTqH2R-G-jqQqkV_14GG79DxUy501WdWzUydm2a94r_Yod5aZ8yDBUGNbLvS-vqihpY5smPITQAuDwJiJV_jNjqeJpgm-0-qcU5zEctgthwTrKStfzqBtnyxLIMOAd2kcIHeRJmwXypjqVW-TCphUmUO25MoMZUFbkEXwyF0Vyov5mlw0kFXTLK9yOmRJ_WUOSEVHs8jHaSl3oAZ6PKOMwDZESMQtgnxfhA7J3YrkXt-xO3fuWN_u2eT8q3UnBFlvJqiq4Cjh-0JsuViQvpwQEmfmmYaubNhx5m00 "properties sample")
 
 ## Snippets for Visual Studio Code
 
@@ -469,7 +471,7 @@ It is possible to save them directly inside VS Code: [Creating your own snippets
 
 ## Advanced Samples
 
-The following advanced samples are reproductions with C4-PlantUML from official [C4 model samples](https://c4model.com/#examples) created by [Simon Brown](http://simonbrown.je/).
+The following advanced samples are reproductions with C4-PlantUML from official [C4 model samples](https://c4model.com/#examples) created by [Simon Brown](https://simonbrown.je/).
 
 The core diagram samples from [c4model.com](https://c4model.com/#coreDiagrams) are available [here](samples/C4CoreDiagrams.md).
 
@@ -477,25 +479,25 @@ The core diagram samples from [c4model.com](https://c4model.com/#coreDiagrams) a
 
 Source: [C4_Container Diagram Sample - techtribesjs.puml](samples/C4_Container%20Diagram%20Sample%20-%20techtribesjs.puml)
 
-![techtribesjs](http://www.plantuml.com/plantuml/png/ZLHDR-Cs4BthLqnzMGTGxTsasm0zhHEdoMwTZqPoWvu4IXpBt52aIb9nZAB_lKDAaQsuWEk39Syy3j-RUUClrZ7Zcah2o66nTaRaQB_RKVI3K8LiECBQkTh-CfqQjfcKmgsRlB5e2gqSAZSfT3Lz5gPOMxUUNlxquuDaoYrl5rDyfJn7Ji7iai1CA3IJccwAFa2Zw5n5vy6j4LPQIhqHgWH9862Amo0jZAKt3NGlI5qmARTKeoTuU46qcFrvlqopzFuXczy_tOrFeWzTQ9PaoMzNwUKDnRhGqzVq9bjSNL_TpIaOHGzeh5RPrQiRCwNLjjADpRpc64Qpjm0iAJ0wwS1ZLfO6I-QGzyW-yXxAAw64TOOveLKF7qJVZaJ9rZgiiWlTACxCTbnyYlS7DQ59dVmT0Nt2Lz-7yGRpZDKrePymXrbTIr64qYCAVMClB8QaDhxdjtzSnf3gYj9mFddr-PcVXmLFpVh6lmZSG8swbXX3UtCCdGDYm1TwKE2xpkaRNJ61bT4LpQuR5tZ2CN11zc4opFTh2XOBfxt88VDvFZOeCvuJZqUKWJCTcZF7ScRHqxlT9hyluFFaSyiseJ9e3_Y59rHOvQHYBMgACFbit_FD6Iyz_5gucoO7WxNkL1nG6w-4H1icGjV-IZ-WdS_8_vobPwTxT2mosWeGYkChsl-IgRJzIzA1EqroWa08PuD4hKezlu3JoUb0P6ZiOv9CPuvULeZSmZYNkWIYxUn9QAxR83fxIB-fENF1RSlsxSqBSEvHLalqJXdr00krqK5qt1KTzYdSrla0j086jbWZRoHoe649p-6VtiH-eTn6k9P2shuHOY_T_hzGjhrbcFGoBUKkw1dKHUIFWnNT6Pzso7ejDsdwa12UqCCzFGuVxkhH8-5CdzwpCUFTw7p3DaRurZhjZzBefz_c5xI2jJOEpiu-_ao51dLshXlKUWyBTXeYzeoq4GRzD9qkjEmkEpt_-EcyevqjUtiS8queTeJzeDo0_rCl_W0N11nfr_-LiwkwSzmrkjxG8DHAcogCTRSpVTlwYGvAxTn9q665N3SEwYQNee12SsptGpXj11wf6cpT5UsNgR52bNxH0xb-sOUblDO5ssQF_J_chjMK-eAADvNy5m00 "techtribesjs")
+![techtribesjs](https://www.plantuml.com/plantuml/png/ZLHDR-Cs4BthLqnzMGTGxTsasm0zhHEdoMwTZqPoWvu4IXpBt52aIb9nZAB_lKDAaQsuWEk39Syy3j-RUUClrZ7Zcah2o66nTaRaQB_RKVI3K8LiECBQkTh-CfqQjfcKmgsRlB5e2gqSAZSfT3Lz5gPOMxUUNlxquuDaoYrl5rDyfJn7Ji7iai1CA3IJccwAFa2Zw5n5vy6j4LPQIhqHgWH9862Amo0jZAKt3NGlI5qmARTKeoTuU46qcFrvlqopzFuXczy_tOrFeWzTQ9PaoMzNwUKDnRhGqzVq9bjSNL_TpIaOHGzeh5RPrQiRCwNLjjADpRpc64Qpjm0iAJ0wwS1ZLfO6I-QGzyW-yXxAAw64TOOveLKF7qJVZaJ9rZgiiWlTACxCTbnyYlS7DQ59dVmT0Nt2Lz-7yGRpZDKrePymXrbTIr64qYCAVMClB8QaDhxdjtzSnf3gYj9mFddr-PcVXmLFpVh6lmZSG8swbXX3UtCCdGDYm1TwKE2xpkaRNJ61bT4LpQuR5tZ2CN11zc4opFTh2XOBfxt88VDvFZOeCvuJZqUKWJCTcZF7ScRHqxlT9hyluFFaSyiseJ9e3_Y59rHOvQHYBMgACFbit_FD6Iyz_5gucoO7WxNkL1nG6w-4H1icGjV-IZ-WdS_8_vobPwTxT2mosWeGYkChsl-IgRJzIzA1EqroWa08PuD4hKezlu3JoUb0P6ZiOv9CPuvULeZSmZYNkWIYxUn9QAxR83fxIB-fENF1RSlsxSqBSEvHLalqJXdr00krqK5qt1KTzYdSrla0j086jbWZRoHoe649p-6VtiH-eTn6k9P2shuHOY_T_hzGjhrbcFGoBUKkw1dKHUIFWnNT6Pzso7ejDsdwa12UqCCzFGuVxkhH8-5CdzwpCUFTw7p3DaRurZhjZzBefz_c5xI2jJOEpiu-_ao51dLshXlKUWyBTXeYzeoq4GRzD9qkjEmkEpt_-EcyevqjUtiS8queTeJzeDo0_rCl_W0N11nfr_-LiwkwSzmrkjxG8DHAcogCTRSpVTlwYGvAxTn9q665N3SEwYQNee12SsptGpXj11wf6cpT5UsNgR52bNxH0xb-sOUblDO5ssQF_J_chjMK-eAADvNy5m00 "techtribesjs")
 
 
 ### Message Bus and Microservices
 
 Source: [C4_Container Diagram Sample - message bus.puml](samples/C4_Container%20Diagram%20Sample%20-%20message%20bus.puml)
 
-![messagebus](http://www.plantuml.com/plantuml/png/bLHVRzis47_NfxXv3qs1D6wBFUsfZcsixPpOjHm4Un9EqjaYGf44IJbrXttt7MMRfLiDoF8GaSVZxyyTpn-SH-kxLiAe9UTmHsNdHjalGbMogmaQxutxVJos-7op4xxf-9XifPKdvMygtOwVXAqQvvlnzBStAudAFzmjnlILpskgELXCEHc58djZc2Tx1PtYUotV1zyGRBMK-bce7KXE0bGrN1mBwtYbWNb1wWgbF3165FWpGUQUX39eiOLdY-PHrBw1zs_V9l4MlzuTtURY6_M7sMBor_9XKsoMgsAsVBo_UfszEeKcUP7_ETzCFtBi57hyjFbOBEP_pEzd7Coo5LcdrLNLEQzRijSmZQlH1CxX4QVc1-UfBMvrfsgqXwlg7QUSi-6JschReXTQZLx3tra6_1VzNQ4nQVR462cgOpR7F-CUNMM5yTSmKRjEeWtXIQYlYo9SA6QBYis70WiBnkgjaCJgBkcYdSAHtOkAKkxy63hpNaDkR6ZYhTO-13SDWT52UT1RmAeYvu2zHHaWKgi_Cf_UOi6lZR5ElOBRpWNeDPQby7TVUXgBoXbjVG_EwK859jgJykvdN4iXbtKcbjRdMEfftPM7y9rQGayELD0gXQCQQlJOiqKmC9qrsj408NQry0dP9EnJekcluvlx-IOiLrRlHSraskvG2TVNviqpXw272KnRh8JavG3NhFpUiBfCUpL3ZoMwdczfiP84xzvNOPTxRSczh2cC7nq7WhHoASFT8V-oIC3nNBnlLCEUh6Fm_b586HlslQXOGwEh_rDRPaag6tQ1VBud5RTHI-8FiDITFxqKy0rwQ71F_CyOKbGptpzPjYQPJFLn_Xw26lv-t6nMEQU5f69z7Cw1aNamREu_YWp1_ow0eJkewXe-vylxyGNmOc0CZpfoKhMB1dH0UQGorzKJURxTgngudCnM18dQkbvi0jhZ3A2aJosMj--YEFuOpMwd9mkNqpmqWYyJSG4J1-l543t607iC3LavKV_0bhwyUEF4rT_95dWeraDi5qYS-85rTwty5m00 "messagebus")
+![messagebus](https://www.plantuml.com/plantuml/png/hPFBRjiw48RtVWgUd8qD93OIj9kkuelH9F35iMm4NGaZQcmHfKY2f9ouHT-zf1pA3EHDYtfXYOFX__qpexat5hIjIjxvZmdAgnn9OQqoNmO33Q_zFRD5bLK6DPN2eh1zAil1TwPfOMmn67-wMN4GTZkV3V3DeiWnTy5qSXHGCjfNNhWp6tvRRZVfPhbA9ykNHRSN8Y-FcuTqDlqwNKnSiBD2RQJeqifOMQA-9kFcxMf8GlYgrqcEncAPZcGbSj37Bhrr6I6PF8gTr2LO9iLLZ_pi4FSRE_V01EekA1Kd3vNYZ9wINVm93c2ePifUaw7OLnoq3myvbw-ciM28bQG40Niaja2cYT9onpWwRnzfuKPgK1yOnHYTd481UqqIfPdOav6KrWSt1H8bcR14xWXGYiOGLrdZWh1peIrmwRATlTJDpadDJoSogenNNaEMCJj_hYaQX55IsrhRfJFXGNX0OKrBLgDFTIwZWjOX5bUqhhAZVuurWaL3X7VAcS6Sv62XXZLYH5LQIODj7bGvin5hwCynP_p_eB-ORlphIii3onrBwZq8Pkh6tBow4AbbF6W7b77tsaPDilEmyYoUqyJvpS3KkAK6of7Stb5_IgpKQ2uEf2qVzSxfnssB0VDZyZoBj25qxWVcv83QEEtwU-2y6TQvev2JGj8_QAo3H6tr9y-U-k67Ox0ILqSWavLz_qY8BS2I0Wxe_fH2WRd3_UfqriZJIRJEfzNRghp-8WfcmjeGNyZUenuscrNYRhkhfqrjBr0GkDZsiz9JibmC8hbqVM4PuuatTTRTPA8McOp6xhg__oXoV7FbrCzkx-RsahUFMvUWo2ERLUsxQPhq0317GHsX0MoxCp0sGExQaD16DyeTqsLGZULYmxFOy0TxxLN-AyUnVbio2brgSUnqtKtmlV3FTUMnszC6_oEdTosvU1k2oI1MsxntkAhalm40 "messagebus")
 
 
 ## Background
 
-[PlantUML](http://en.plantuml.com/) is an open source project that allows you to create UML diagrams.
+[PlantUML](https://plantuml.com/) is an open source project that allows you to create UML diagrams.
 Diagrams are defined using a simple and intuitive language.
 Images can be generated in PNG, in SVG or in LaTeX format.
 
 PlantUML was created to allow the drawing of UML diagrams, using a simple and human readable text description.
 Because it does not prevent you from drawing inconsistent diagrams, it is a drawing tool and not a modeling tool.
-It is the most used text-based diagram drawing tool with [extensive support into wikis and forums, text editors and IDEs, use by different programming languages and documentation generators](http://en.plantuml.com/running).
+It is the most used text-based diagram drawing tool with [extensive support into wikis and forums, text editors and IDEs, use by different programming languages and documentation generators](https://en.plantuml.com/running).
 
 The [C4 model](https://c4model.com/) for software architecture is an "abstraction-first" approach to diagramming, based upon abstractions that reflect how software architects and developers think about and build software.
 The small set of abstractions and diagram types makes the C4 model easy to learn and use.
@@ -507,8 +509,8 @@ More information can be found here:
 
 * [The C4 model for software architecture](https://c4model.com/)
 * [REAL WORLD PlantUML - Sample Gallery](https://real-world-plantuml.com/)
-* [Visualising and documenting software architecture cheat sheets](http://www.codingthearchitecture.com/2017/04/27/visualising_and_documenting_software_architecture_cheat_sheets.html)
-* [PlantUML and Structurizr - Create models not diagrams](http://www.codingthearchitecture.com/2016/12/08/plantuml_and_structurizr.html)
+* [Visualising and documenting software architecture cheat sheets](https://www.codingthearchitecture.com/2017/04/27/visualising_and_documenting_software_architecture_cheat_sheets.html)
+* [PlantUML and Structurizr - Create models not diagrams](https://www.codingthearchitecture.com/2016/12/08/plantuml_and_structurizr.html)
 
 ## License
 

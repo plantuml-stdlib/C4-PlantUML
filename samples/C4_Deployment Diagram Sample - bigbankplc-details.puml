@@ -61,7 +61,7 @@ Rel(spa, api, "Makes API calls to", "json/HTTPS")
 Rel_U(web, spa, "Delivers to the customer's web browser")
 Rel(api, db, "Reads from and writes to", "JDBC")
 Rel(api, db2, "Reads from and writes to", "JDBC", $tags="fallback")
-Rel_R(db, db2, "Replicates data to", "message" , $descr="only in case of a problem only in case of a problem", $sprite="&envelope-closed", $tags="fallback")
+Rel_R(db, db2, "Replicates data to")
 
 SHOW_LEGEND()
 @enduml

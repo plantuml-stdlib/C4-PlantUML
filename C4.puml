@@ -144,14 +144,22 @@ skinparam rectangle<<boundary>> {
 $tagSkin
 !endprocedure
 
+' arrow colors cannot start with # (legend background has to start with #)
+!function ColorNoHash($c)
+  !if (%substr($c, 0, 1) == "#")
+    !$c = %substr($c,1)
+  !endif
+  !return $c
+!endfunction
+
 !unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor)
   !$elementSkin = "skinparam Arrow<<" + $tagStereo + ">> {" + %newline()
   !$elementSkin = $elementSkin + "    Color "
   !if ($lineColor!="")
-    !$elementSkin = $elementSkin + $lineColor
+    !$elementSkin = $elementSkin + ColorNoHash($lineColor)
   !endif
   !if ($textColor!="")
-    !$elementSkin = $elementSkin + ";text:" + $textColor
+    !$elementSkin = $elementSkin + ";text:" + ColorNoHash($textColor)
   !endif
   !$elementSkin = $elementSkin + %newline()
   !$elementSkin = $elementSkin + "}" + %newline()

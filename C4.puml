@@ -211,12 +211,12 @@ $elementSkin
     !$bg = "#" + $bg
   !endif
 '  !$tagEntry = $tagEntry + "<" + $bg +">" 
-  ' <U+23AF> ..white line
+  ' <U+23AF> ..white line, not working with png use -
   !if ($lineColor!="")
-    !$tagEntry = $tagEntry + "<color:"+$lineColor+"> <U+23AF></color> "
+    !$tagEntry = $tagEntry + "<color:"+$lineColor+"> -</color> "
   !else
-'    !$tagEntry = $tagEntry + "<color:"+$bg+"> <U+23AF></color> "
-    !$tagEntry = $tagEntry + " <U+23AF> "
+'    !$tagEntry = $tagEntry + "<color:"+$bg+"> -</color> "
+    !$tagEntry = $tagEntry + " - "
   !endif
   !if ($textColor!="")
     !$tagEntry = $tagEntry + "<color:"+$textColor+">"

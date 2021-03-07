@@ -97,7 +97,7 @@ Rel_R(api, db, "Reads/Writes")
 
 ![test](https://www.plantuml.com/plantuml/png/hL9DZzCm4BtdLtXxeIjjwmDmuRHLMzXA_Q8VL9ogQJnfZHmxUEnM_7l6QRORM90uS8erx-NDl9dtI05yYAN9xhJDJLGeJY5Kz45A3vV-KOTJF4H2dpiRq8P-xae9ockmPnEhA8VlUai3DcndKsaW80KkxOVC1ctHzwka_KP4op-MB2322KNXZ74NRO_2C4c0LU8NM7lYbnFSM1YNWp4_MECsuUi6sPt28acDnbycmyLy_GykGgpOo5jPfV5PfASPxHNCw57bDLkH9L10BnMU4qQtBXyNyyrWDrulPkF_sgYkmGN9bTXx_tAIPrSIx34QQ4o_Xh_16Vw6bVJTx7coC_x-UykDJBDJizFfuEjYkzdl9fkd_NJyQJmVTU-pRCa4Pxk9-20wmqY1X_KTVY_HLGRvWX24HLIYyax5F502Q-7EVNOxN9SguFfwEKXmOomzDvo0aYb2ymfz0NaZcPAHD-sk6B2skF3Esmhj5b1fHWRBIIAavQJl4yVD80bEbU1RCP68KtRK-OtLqXWTkkh0zH44E01XuinqxXsv8eZrvsajwOoYPxiFmdd58wPKQtjscWreMpXVGj3E9dxh5jmhMw5fzddToPQmtbaTBIOal4QkVlu0xrTNh_MeAmH5SbSdY-57j8hl-HC0 "test")
 
-Entities can be decorated with tags and explained via dynamic calculated legends, for example:
+Entities and Relations can be decorated with tags and explained via dynamic calculated legends, for example:
 
 ```csharp
 @startuml
@@ -105,6 +105,9 @@ Entities can be decorated with tags and explained via dynamic calculated legends
 
 AddTagSupport("v1.0", $borderColor="#d73027")
 AddTagSupport("v1.1", $fontColor="#d73027")
+AddTagSupport("backup", $fontColor="orange")
+
+AddRelTagSupport("backup", $textColor="orange", $lineColor="orange")
 
 Person(user, "Customer", "People that need products")
 Person(admin, "Administrator", "People that administrates the products via the new v1.1 components", $tags="v1.1")
@@ -112,18 +115,20 @@ Container(spa, "SPA", "angular", "The main interface that the customer interacts
 Container(spaAdmin, "Admin SPA", "angular", "The administrator interface that the customer interacts with via new v1.1", $tags="v1.1")
 Container(api, "API", "java", "Handles all business logic (incl. new v1.1 extensions)", $tags="v1.0+v1.1")
 ContainerDb(db, "Database", "Microsoft SQL", "Holds product, order and invoice information")
+Container(archive, "Archive", "Audit logging", "Stores 5 years", $tags="backup")
 
 Rel(user, spa, "Uses", "https")
 Rel(spa, api, "Uses", "https")
 Rel_R(api, db, "Reads/Writes")
 Rel(admin, spaAdmin, "Uses", "https")
 Rel(spaAdmin, api, "Uses", "https")
+Rel_L(api, archive, "Writes", "messages", $tags="backup")
 
 SHOW_LEGEND()
 @enduml
 ```
 
-![tags](http://www.plantuml.com/plantuml/png/bLDHQnf147xtLsolVJYfyKnR21G25GrDG5Eh2Q5FCdSxwfQztMDdJllpEtiQjSbHoDF2p3VpVVFDx3lZ2bjhL1lcYhvcMO1TVsruK-SrOIYyOtJSBtoPLHOSrwMz8DRMvDdeoyKiXXwdawm4OWmIMewa0ep3qAy4s-aCjNw0zQAkAXyuJRQN_K7IKnzo7pI6aRS-N2VlzTNdmQUhfDk2lepebJHzXUtCC91tQTJPKyce9lOb1i4dC_ILHSKROEKGjQg2rtN196M7Aj2bSG8TnjSG1s3_gXPEIIG9uR6HsXfe0WvtAifKOb7bdPX5KJ73cguR_K9vz2Ib2eHYCHj69d3hsa93-Y2TIe4e8tw75HG70P6XE0ospq4atyc26WMDdUTqWvTqm_CvLJipd7lmHWb70_upDLGcAfZTHSBVi8NuteBJ5ac1jKfkJO14olgrALGQZx9_iXR_C3eotb7tts4_lgGQvwdEfVaO678WZ4HJKmHFViLgyNFIC7khwNcJFTLSeX8rCjtMcmBbNVbG0WjZlBCvsiEHxTVtI4YnJ_Db113pJKRcR4ylvtiF6crp14tPKp2CX_JpCHxNrSvnIhSJTHQtFvwMur_tm-dTQ3cv-NvpFqwxdM_eTFoAVm40 "tags")
+![tags](http://www.plantuml.com/plantuml/png/bLJTJjjC4BtdAVRprmkZGWpz4L8b9AA0IgNGfWJ49Hfx9ywswztLpZYqRzzPnv0GBAfUxMhcp9mviyS-8uR8RMFt_ZEkigr6jMGEzAae8ZoCQiFBjcm9O-KTe-DHvPiYM72fvf1OMrCMam-7inIwlPeM3H1ZbD3zH2h0E8oZaFhlZRM-WNhUXk0ZvzdgU7IK7QWtfOyQuyHR7q-p__N9-wDt9zd-0FeueHVIz6_O4ggVRTX1-mYkHW4dz3NQuGB6Npi54hGYuaMN6KRoBa-hEL3Pf2Ns3KQ1PpFqmQBY9R1oY5g5w7LRCKbPNmMwCKwWutGQuWZiNzJ29eaa8Nngf5O6ke331vKse-HLWdVec3eLKDDfjpAXV7g6d088nNmsJaoYexNGaTv8fqOWoZZ6k82g7o0nLBsmTGuI-ODuefkWVy4DtT4ktNXRfnfcXkqT_EC8JmjuHJK4aoQOVKc4Fs05wRm4fosI0ckLs5k0HChwsbGgJz_1QBDQSGGwCjxH_dEnRtUfpijSbzBy71XA84n4LwQAdlo2rVpxj6FsLjFZInweplnAfX5rAsygb7FXOmCiZCzrn6ffLfYqh6zPkhRQS1gyDgvEWJdxABe-gjy8SSiClSN5kEBzthLhFzmIKghiFdi1f7oNWM26q_VNwwLsOgyHD1LtqJ3swKTtRzv_cADFlqOqNHDjfFSySckG26eSb3Y__7PtFxtuVF7rFD_VEqEdqm_e3m00 "tags")
 
 
 ## Supported Diagram Types
@@ -183,7 +188,7 @@ Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md)
 
 ## Relationship Types
 
-* `Rel(from, to, label, ?technology)`
+* `Rel(from, to, label, ?technology, ?description, ?sprite, ?tags)`
 * `BiRel` (bidirectional relationship)
 
 You can force the direction of a relationship by using:
@@ -192,6 +197,44 @@ You can force the direction of a relationship by using:
 * `Rel_D`, `Rel_Down`
 * `Rel_L`, `Rel_Left`
 * `Rel_R`, `Rel_Right`
+
+Relation specific sprites are not down scaled, they requires typically smaller icons.
+Or alternatively if sprite argument starts with `&` an OpenIconic name can be used (details see https://useiconic.com/open)
+
+```csharp
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml
+
+Person(user, "User1")
+Person(user2, "User2")
+System(system, "System")
+
+' if sprite starts with &, sprite defines a OpenIconic, details see https://useiconic.com/open/
+Rel_D(user, system, "requests", "async message", "if sprite starts with &, it defines a OpenIconic like &envelope-closed", $sprite = "&envelope-closed")
+
+' normal sprites are too big 
+Rel_R(user, user2, "informs", "courier", "normal sprites are too big", "person2")
+
+' special smaller sprites have to be used
+sprite $triangle {
+    00000000000
+    00000F00000
+    0000FBF0000
+    0000FBF0000
+    000F999F000
+    000F999F000
+    00F66666F00
+    00F66666F00
+    0F3333333F0
+    0F3333333F0
+    0FFFFFFFFF0
+    00000000000
+}
+Rel(user, system, "orders", "http", "only small sprites looks ok, like the small triangle", "triangle")
+@enduml
+```
+
+![Relation with sprite or OpenIconic](http://www.plantuml.com/plantuml/png/bLJTJjjC4BtdAVRprmkZGWpz4L8b9AA0IgNGfWJ49Hfx9ywswztLpZYqRzzPnv0GBAfUxMhcp9mviyS-8uR8RMFt_ZEkigr6jMGEzAae8ZoCQiFBjcm9O-KTe-DHvPiYM72fvf1OMrCMam-7inIwlPeM3H1ZbD3zH2h0E8oZaFhlZRM-WNhUXk0ZvzdgU7IK7QWtfOyQuyHR7q-p__N9-wDt9zd-0FeueHVIz6_O4ggVRTX1-mYkHW4dz3NQuGB6Npi54hGYuaMN6KRoBa-hEL3Pf2Ns3KQ1PpFqmQBY9R1oY5g5w7LRCKbPNmMwCKwWutGQuWZiNzJ29eaa8Nngf5O6ke331vKse-HLWdVec3eLKDDfjpAXV7g6d088nNmsJaoYexNGaTv8fqOWoZZ6k82g7o0nLBsmTGuI-ODuefkWVy4DtT4ktNXRfnfcXkqT_EC8JmjuHJK4aoQOVKc4Fs05wRm4fosI0ckLs5k0HChwsbGgJz_1QBDQSGGwCjxH_dEnRtUfpijSbzBy71XA84n4LwQAdlo2rVpxj6FsLjFZInweplnAfX5rAsygb7FXOmCiZCzrn6ffLfYqh6zPkhRQS1gyDgvEWJdxABe-gjy8SSiClSN5kEBzthLhFzmIKghiFdi1f7oNWM26q_VNwwLsOgyHD1LtqJ3swKTtRzv_cADFlqOqNHDjfFSySckG26eSb3Y__7PtFxtuVF7rFD_VEqEdqm_e3m00 "Relation with sprite or OpenIconic")
 
 In rare cases, you can force the layout of objects which have no relationships by using:
 
@@ -252,11 +295,16 @@ C4-PlantUML also comes with some default person sprite options:
 Additional tags/stereotypes can be added to the existing element stereotypes (component, ...) and highlight,... specific aspects:
 
 * `AddTagSupport(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing)`:
-  After this call the given tag can be used in the diagram, the styles of the tagged elements are updated and the tag is be displayed in the dynamic legend.
-* `UpdateElementStyle(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing)`
-  This call updates the style of the default element stereotypes (component, ...) and creates no additional legend entry.
+  Introduces a new element tag. The styles of the tagged elements are updated and the tag is be displayed in the dynamic legend.
+* `AddRelTagSupport(tagStereo, ?textColor, ?lineColor)`:
+  Introduces a new relation tag. The styles of the tagged relations are updated and the tag is be displayed in the dynamic legend.
 
-Each element can be extended with one or multiple custom tags/stereotypes via the keyword argument `$tags="..."`, like `Container(spaAdmin, "Admin SPA", $tags="v1.1")`.
+* `UpdateElementStyle(elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing)`
+  This call updates the default style of the elements (component, ...) and creates no additional legend entry.
+* `UpdateRelStyle(textColor, lineColor)`
+  This call updates the default relationship colors and creates no additional legend entry.
+
+Each element can be extended with one or multiple custom tags via the keyword argument `$tags="..."`, like `Container(spaAdmin, "Admin SPA", $tags="v1.1")`.
 Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+v1.1")`.
 
 **Comments**
@@ -266,17 +314,26 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 * `SHOW_LEGEND()` has to be last line in diagram.
 * Don't use space between `$tags` and `=` (PlantUML does not support it).
 * Don't use `,` as part of the tag names (PlantUML does not support it in combination with keyword arguments).
-* If 2 tags defines the same skinparameter, the first definition is used.
-* If specific skinparameters have to be merged (e.g. 2 tags change the font color) an additional combined tag has to be defined. Use `&` as part of combined tag names. This convention can be used in other tools.
+* If 2 tags defines the same skinparam, the first definition is used.
+* If specific skinparams have to be merged (e.g. 2 tags change the font color) an additional combined tag has to be defined. Use `&` as part of combined tag names.
+
+* Colors of relationship tags cannot be automatically merged (PlantUML does not support it).
+  If one tag modifies the line color and the other the text color, an additional combined tag has to be defined and used.
 
 ```csharp
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
+UpdateElementStyle(person, $fontColor="green")
 AddTagSupport("v1.0", $fontColor="#d73027", $borderColor="#d73027")
 AddTagSupport("v1.1", $fontColor="#ffffbf", $borderColor="#ffffbf")
 AddTagSupport("v1.0&v1.1", $fontColor="#fdae61", $borderColor="#fdae61")
-AddTagSupport("fallback", $bgColor="#888888")
+AddTagSupport("fallback", $bgColor="#444444")
+
+UpdateRelStyle(black, black)
+AddRelTagSupport("service1", $textColor="red")
+AddRelTagSupport("service2", $lineColor="red")
+AddRelTagSupport("service1&service2", $textColor="red", $lineColor="red")
 
 Container(spa, "SPA", "angular", "The main interface that the customer interacts with via v1.0", $tags="v1.0")
 Container(spaAdmin, "Admin SPA", "angular", "The administrator interface that the customer interacts with via new v1.1", $tags="v1.1")
@@ -289,11 +346,19 @@ Rel(spaAdmin, api, "Uses", "https")
 Rel_L(spa, spa2, "Updates", "https")
 Rel_R(spaAdmin, spaAdmin2, "Updates", "https")
 
+Person(user, "A user")
+System(system, "A system")
+
+Rel_D(user, system, "uses service1 via this call", $tags="service1")
+Rel_D(user, system, "uses service2 via this call", $tags="service2")
+Rel_D(user, system, "uses both services via this call", $tags="service1&service2+service1+service2")
+
+Lay_D(api, user)
 SHOW_LEGEND(false)
 @enduml
 ```
 
-![merged tags](http://www.plantuml.com/plantuml/png/jLDXQzim5FpkNw5bOoIajHDlh6DGQ4ZBMaYxq3ICVGhFbkneaoMZzvpivq-Avj3KPh0FzHUPUwUxuvvzXGIMcaf5RwJELSC5snBL-2L9BEpZKjAsoHeKDZUQXAOuDrLIAz3-pZaILp9BvX_FbnvQto-I2f24TT1cxcw0rCB6jTUFPfm_GRbgwjfO6WvsqtWoE6Fl2aUR6sNivU0jl_WmIIyycXdBXNs1ZteqfYyr2lTaHLSZuBqQa_UzGXp4fsbNAE1TeGAKoY3_TRXHjkpFXyUnesCVGwpXZ0rMozd07Q3BHe7rhqzRmIf7OLAJi0NaWj4MY973ymR9LCA66UI4RE-MmtOIM5ibGOcNeTZHgTsCLr8xXyF9-ft1poII1JBsVoDeiMTjYSSOqvCOK4kVO7dd3N_23lnv2vehWGoKObc3ZeZ8b2bbpeR-WuoFoapy9g5H6esZ4vUmlR5_6tTCiOOqT9s-MjdZTlEzhQVFQqzVl_SsJDj5z2XK-EB20jOeq5iVVdCt3-EGzH-SpIA8_2rqNNEWBkdncTInW7vwjBhzzdrp_UDXTdyttonkljuyN0zTU1IZw4fetbJg3m00 "merged tags")
+![merged tags](http://www.plantuml.com/plantuml/png/jLHHJziy57tFh_2NRqAj2YtDq90c8O4A6fEwhQAWFQARvBRnvjYHxqqP_twsWrcxTcLxe2zsppq-v-haskV4OBcjLVAVr8LgInGLSqFlHoCB3yEbvAhDMq9R6CseULYOUjGeqFxC4N6fP3wQd1pDF7JtQJggWHYjW-udfcwCzcSQhv_SDIKmNYci7JRdHuMz1YqPVIZUB9pwn2XZpzAbHTHfFxaeorjOpjkcCPPxwMeyF4utcV-Nfs-FirEFviQMQ3VndHhZtpKMxfSljZGYlhEFWvr29U2xyPPGnBU45g1K3iNtS68PsIVXb_PZN3UekgXovRY78Yn1orNMvGZjIXOO6c3y4TkoMAPxw9cdAwdnx-ZZWtXkssQdKZ9n2O53ROyQE1JfV7QHkWNqibLW_VQsGb4xYf2QqIwWGC4Li6275osngT5sDIYOn8FaIgmaY3WG34iwwyQZlsbtKTPIEuUmYjtEu6kIs08R-wyjQ7mGSHIUsnXlj06Dz1tCFdh3Rx02lrw3BXMI0AL4tf8Z4Wbbbh8GFNyBXy_AmaMCcgJHr5zpYJCuyBl1bYara7LPPwyMzY3ExyxKi_NOizVFFJOJiqZS_7OJrts0EqBork5jStLVZhtkuTnFEv6dGCELt2RTh4d5tH_eoIoyU3t_elg8XDyuVFv8Z7MFmX8AtTQLWiNbqubdWljB8jxA40fNaaG1IlrA9TQToeiYsGiYsLwHt70LbMY_qjeZCeZ8OCqacSAZSmdVn5kvSAw_VBsVNdsu-dpPMu0Yx2VdgCksLZy1 "merged tags")
 
 **Custom schema definition**
 
@@ -314,11 +379,14 @@ If the custom (color) schema is defined via `UpdateElementStyle()` then the lege
 !$COLOR_B_3 = "#8073ac"
 !$COLOR_B_4 = "#542788"
 !$COLOR_B_5 = "#2d004b"
+!$COLOR_REL_LINE = "#8073ac"
+!$COLOR_REL_TEXT = "#8073ac"
 
 UpdateElementStyle("person", $bgColor=$COLOR_A_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_1, $shadowing="true")
 UpdateElementStyle("external_person", $bgColor=$COLOR_B_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_1)
 UpdateElementStyle("system", $bgColor=$COLOR_A_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_2)
 UpdateElementStyle("external_system", $bgColor=$COLOR_B_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_2)
+UpdateRelStyle($lineColor=$COLOR_REL_LINE, &textColor=$COLOR_REL_TEXT)
 
 Person(customer, "Personal Banking Customer")
 System(banking_system, "Internet Banking System")
@@ -335,7 +403,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![custom schema](https://www.plantuml.com/plantuml/png/dPHVRw905CNV-HIKxODDgY1W9PkOL2ZPROBQw9hDFf4PvegaC92P8Ms_VOS_hUFMRhF65_pTU-uzvsAyvG8nKHUvTf7H9Ay9w7iXAlxTD1bw6gMPsDUuvi2IaWgWOfIKXLdbY3QQ8HSapx0PkCE71cqNaLaWBe1950UDubcCgcQwTd4PhABLEfx74tsc6z-cEmTRdg5mj-NOcNZMZSgTbeFbsMDNvNRBTmHxDuxAnnq7iB0oPnbkVwtdKLURDfz3pUyrn2C8iCgx7TX6cDWgxpnvrjH1YSgx31FNddgUohlCDh4iLyxNjXL10ZQF6QqGGmMVKn912fI4LB2NWL41uoKrhlLBd0PbNhBPuNeIxkHbZt0Vhkal6G7sbsOi2toFIFcKqNHc25Q3SVMb2VdkW56Knv-wySzm8s_zzMh-8dz4nSdyxXdvxVy8--bg_upLVhDQUsZlDqXgBie2sBLkT0Jbke-ej9JgGL-JhsNJ6XZWhjBxaPfxsZW4yQxf6gMYbyJXinWKACiFcd3OVDVvM-Tn8zt9Iu1iMxmzdvYzXbnn_i7LbWENRR8hzb7ogBGUEzd8KtCTMZzS5sMlMKAMxkNXFiJzXxgJdbAy1-fTQPkVgz_ntP_bV74Vn57u8rpU3QwqMpbD_YUz0W00 "custom schema")
+![custom schema](http://www.plantuml.com/plantuml/png/dP9lRvim4CRVyoaegwPKoXz2I8CcHMh9q5Q99bN-Q7k7R7n9K8s9RAEsttu6i-5cT9EYlcb-Ty_Ty_Yu4n9nMURKkifOIai2zb7Aa_Wo6d7qCZnaybZYKW1F2oQ1oM5QvACJHQpI38GaDCEZXJzugj3kCHxbI4ZW2YMBIl4gXwTgkdLrlLZ5gtLodqpjkUryckqds0qSW_irnvDfuDwQV59pS0Dlx9lSg_cUuE1sOlAnvW0kDkOiezrsVH_hsgpwQsjXeo41GO1DhdTW3s7YcLnx2jpP1AKcrncclZSB0fFhp1vnNT-OluxY97vOHXt3T74R_To-Argx4q4I8WevCBcHRnHwpWcuA9ZJjw_nOL7GWi_RjrPmh-xGulOfglw24-1dch4gY2CYnKl63dD7yXAScyx5whh06QB9Xmx22noeQtIl4sz2GjwPqxyWf_UVK1-k2ozO5xRhra3rgckQCMYxZ0-YRt-MoaTRCxw76yjwgf-xbvP25ZdmlkreWgWT8lQipcOlcfgwtAREqSEwqiHIcWTM1GNvHwCRbQAH9D6hxEKeewqc6bI_RT5qdZMoFKSvgBR7t_ztp5Rn3UT_kTe94AfDTIKXIf-DrlTEDi28iA7s8snPD9ebP8SZBlXPt7-gjRHBeKEqhgpDzzMF98w-HSkllHlhJaqfS_eB "custom schema")
 
 ## Element properties
 

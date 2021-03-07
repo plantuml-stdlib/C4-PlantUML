@@ -80,9 +80,9 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![LAYOUT_WITH_LEGEND Sample](https://www.plantuml.com/plantuml/png/PL1DJy905BplhrZnG4cm3SQJ9sebO0BOs2Bnr2pjKpRPh-o-sX3ZV_Sr89YubqdUp7ipizE0mcEh5L-cRy-Rije-bOjgEPlFre-y4DefO5VIrAfjWEyHNRXF4Y-w-4FYljsr0Nnj3OB1kBOw4OsNmdogrhL9TdUJAs5mirecIY04f56LaLf80pvsvChOVzjen5WEFbWJYKPBC-Q3j4SPq0kqVZ1YnI4WwEh1jgOH_X3Lap4V7jCEH_oBSNfdewY3NIMSepjRsF7KEILhWTAQ0Osowp5FYpnUpqfQyS1lumbVlMOzbofbky3xae6ZvTJG2PBeLg4aBrvs4X4yHwb1aLUWRD-dT14UIRfpaX79Na3zjhh4sWJQ95oKPLwGgXUTsSkPEI35wA27Ts_rtvKfc8R-ymS0 "LAYOUT_WITH_LEGEND Sample")
 
-Instead of a static legend (activated with `LAYOUT_WITH_LEGEND()`) a dynamic legend can be activated with `SHOW_LEGEND(?hideStereotype)`.
+Instead of a static legend (activated with `LAYOUT_WITH_LEGEND()`) a calculated legend can be activated with `SHOW_LEGEND(?hideStereotype)`.
 
-The dynamic legend has following differences:
+The calculated legend has following differences:
 * only relevant elements are listed
 * custom tags/styles are supported
 * stereotypes can remain visible (with `SHOW_LEGEND(false)`)
@@ -105,7 +105,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![SHOW_LEGEND Sample](http://www.plantuml.com/plantuml/png/JL4z3zem4DtzAwvq84YGYAfJ9z8KmG0qQa8P8oUv5al-iEoB8bJrl_SYAE3bv7iVVa_UH9A11gEXsd-_D8VjRdlw1fKqNgFue6odXnxXIkJZbomBSan_AxeExH0nTCuIMaexPpAlfPriLf5whTgi-BmgfzNvUCYCZ8I1Lqt12gaiXjGpLuWIGtGsaRrHTWcpV9egKf3amcmXgXiBJVFL3RQNuPPqwoNCxzdc2_WZWC_JCXcnRQJtx7F15dBljUeaAMTdl2e-BY6lolIqhLaI43wbQpZ-B2OirzgD4QPA4SW1z_6IAMRGfBn6g4T5X0586TJyLkHiVn_f4hg3xFEWCIX-eFxVwXNh75d9Sr_NPSMiYVH4NpOxfCXNdCQluCoxHBpzKh8G6xJzOFG_ "SHOW_LEGEND Sample")
+![SHOW_LEGEND Sample](https://www.plantuml.com/plantuml/png/JL5Dgzf05DtFhxYr2oDeWgMhhfgceWkreObr6IR9RHsOZs7cXY3b_VTtWpurcqlEn-4Svdia6MWm6ghThtEptsmtnvzGIUCrYa_ATdhe4Iv4FdxBiY37z9-Yoz0E4KFdBA6bj7CcyrhQAMOLgTUgpOglgtA2JeTzPcGa30mr1JkaiXXIpreXIWpHsKJsHjabpFBfgaX1aWkpXQYkR3JD3pVONePhqgsNCBzrco_Wlm3-7f79Y6qZlUUSCxQGUwzL9qavEsEe-Bo4l2hJuwPcIq3uagxXyAUOk5nhDqQO9aKW1xp7IvQOGPFo6g4U5H4686LGAukHkxtTsoLq8pddBcDI_4RziUfPwnJPoNTNrsN5gadqO9ynMwJ8lpYTly6PLujuUQLa8Tu1 "SHOW_LEGEND Sample")
 
 ## LAYOUT_AS_SKETCH()
 
@@ -185,7 +185,7 @@ Person(userB, "User B", "with predefined sprite person2", "person2")
 @enduml
 ```
 
-![Predefined sprites Sample](http://www.plantuml.com/plantuml/png/XOxDIiKm48NtUOfuLrxmDY2kNFLdgr2GhYLjHXj89c5cGb_VH2m8BbpDOVZupkbPB4c9GMS21nyUmMdEv0LOlzcO0wWxZrie3lGkaldP6B97z-bbBsjXe2sX04gtfMXoiDXiDnON_6gcfzlSNilhYucM1QY-tgU4OciJTRcoIir0dF2-oOO7VLdgrSEbfgEM_1scypVVW9zq_QqOJyNuh-An4MUygXxGrK5V "Predefined sprites Sample")
+![Predefined sprites Sample](https://www.plantuml.com/plantuml/png/XOxDIiKm48NtUOfuLrxmDY2kNFLdgr2GhYLjHXj89c5cGb_VH2m8BbpDOVZupkbPB4c9GMS21nyUmMdEv0LOlzcO0wWxZrie3lGkaldP6B97z-bbBsjXe2sX04gtfMXoiDXiDnON_6gcfzlSNilhYucM1QY-tgU4OciJTRcoIir0dF2-oOO7VLdgrSEbfgEM_1scypVVW9zq_QqOJyNuh-An4MUygXxGrK5V "Predefined sprites Sample")
 
 
 **Using HIDE_PERSON_SPRITE()**
@@ -207,7 +207,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![HIDE_PERSON_SPRITE Sample](http://www.plantuml.com/plantuml/png/PL1TgzD047tVNp7MXvj2Ry8LdtowCGPRi3KqgJw6JJBQXVrOTYU48lvtPsbj1VCoPCwPyx6laMIWsMZOxZxLVLCVsw-7lcsEkww6LXglKRnHTjJpX70cyl53KGIvv3yLdUTXZXX6PmajvQCpXTVI9hNdI9DMGr6zVsxIwhJ_KXWP2GEl-eelfB8OSizS8VwtpjP2D1YYivcSZB8RM9LfgaX1aWkhjMWlaT3q7zri9naksVYoWQThugSr_1B0tzqeMt3efVUiynq7ABtNQfIad5tngdgxWR9jyaFTyKb0U9U_mFvRbR1IQxT4I4KZa0DkwILJpAn9iHTqYoB20AGCQlQAdEttBLr6Lv1rRZG6nH7rtrQFMAU8CVbjkwvfcPL8T_GXynafyY-cyICuy-_9AzeflUSV "HIDE_PERSON_SPRITE Sample")
+![HIDE_PERSON_SPRITE Sample](https://www.plantuml.com/plantuml/png/PL1TgzD047tVNp7MXvj2Ry8LdtowCGPRi3KqgJw6JJBQXVrOTYU48lvtPsbj1VCoPCwPyx6laMIWsMZOxZxLVLCVsw-7lcsEkww6LXglKRnHTjJpX70cyl53KGIvv3yLdUTXZXX6PmajvQCpXTVI9hNdI9DMGr6zVsxIwhJ_KXWP2GEl-eelfB8OSizS8VwtpjP2D1YYivcSZB8RM9LfgaX1aWkhjMWlaT3q7zri9naksVYoWQThugSr_1B0tzqeMt3efVUiynq7ABtNQfIad5tngdgxWR9jyaFTyKb0U9U_mFvRbR1IQxT4I4KZa0DkwILJpAn9iHTqYoB20AGCQlQAdEttBLr6Lv1rRZG6nH7rtrQFMAU8CVbjkwvfcPL8T_GXynafyY-cyICuy-_9AzeflUSV "HIDE_PERSON_SPRITE Sample")
 
 **Using SHOW_PERSON_SPRITE()**
 
@@ -229,7 +229,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![SHOW_PERSON_SPRITE Sample](http://www.plantuml.com/plantuml/png/PL5DQzmm4BthLqpTWxsmiKdfgQUuPcaApSQidUPeP6lI5UX3I6DCAFtl7JLfjb1V1i-yz-QzqKqY6Mcr1eRR-yUfFvo6--CqzAUlum46QOD1yKwxnQmAuKmKqgUcYNAhVsWwh_EQC2xU4Jgg5s-ROAJBQbU9bD5pqtsywdFhuUvROsKYZDoQEcP8xJ3MWR52D2KSFO53LAXWnaMoBj1P9z29AuB29xaQWestGWfH4q8HC2Rl2YWRyR_vQYT4_mTGIMMrsqFHvgeJHKa-5ZinFBCXEttsgrCoFbVBzHxAbypb3duAuE_DQhNXFCaGMESHPsX3C7gHfDa0jxhtUsY7lZuUHgP4X0_rDTnzx_AiDSPl2VAf4f07lbEG3B4SIFCk63aLOGJI5WtlIkpjrwkxYbw6hFCAuw4ueVcRwcBh8J6Jw-quzWEZCkXjUf7vWfJu5tDvYjx-Ixb1f_AB_0O0 "SHOW_PERSON_SPRITE Sample")
+![SHOW_PERSON_SPRITE Sample](https://www.plantuml.com/plantuml/png/PL5DQzmm4BthLqpTWxsmiKdfgQUuPcaApSQidUPeP6lI5UX3I6DCAFtl7JLfjb1V1i-yz-QzqKqY6Mcr1eRR-yUfFvo6--CqzAUlum46QOD1yKwxnQmAuKmKqgUcYNAhVsWwh_EQC2xU4Jgg5s-ROAJBQbU9bD5pqtsywdFhuUvROsKYZDoQEcP8xJ3MWR52D2KSFO53LAXWnaMoBj1P9z29AuB29xaQWestGWfH4q8HC2Rl2YWRyR_vQYT4_mTGIMMrsqFHvgeJHKa-5ZinFBCXEttsgrCoFbVBzHxAbypb3duAuE_DQhNXFCaGMESHPsX3C7gHfDa0jxhtUsY7lZuUHgP4X0_rDTnzx_AiDSPl2VAf4f07lbEG3B4SIFCk63aLOGJI5WtlIkpjrwkxYbw6hFCAuw4ueVcRwcBh8J6Jw-quzWEZCkXjUf7vWfJu5tDvYjx-Ixb1f_AB_0O0 "SHOW_PERSON_SPRITE Sample")
 
 **Using SHOW_PERSON_SPRITE(sprite)**
 
@@ -253,5 +253,5 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![SHOW_PERSON_SPRITE(sprite) Sample](http://www.plantuml.com/plantuml/png/ZL1DQzj04BthLspTGnIm9H9wwYckC4sXIOGbDqUnbYRnmduiCxCOK_hVEzieTkcfkYmpx-EzqHsnHaxE5X-C7ssQG1sO8tskQzJ7wjNm8UqJ0Ox1CtYknk3gQBNFcXNnPCs-RZwjshpQFNoldIO6bDNGY48R3rZ5F_uJlCYa0kbMvl-8QL3J0IPd_5I_-wz214ym9ZHyqZWU3CF82U5sPKHBS_xbcZckRe9pmSzL_WLtabnhQz_Wehj_UXxQpRPxUXowTlkjtvGBeGwvuF2A07uuHo-kYw85fE1BdQikrMATNqECcWCAtfs8mGrVGlAJnbCvtYpLLQTTj71rhNuMIhxppogFi1zqZEBp37krZj6QKRC9VY6hvkDIhRksUjpq8a5GjzMDUlZHP6njRJYIoYL9SL1ZS54BnINBHh9KVpJCW8gD0ojP9Dr-pUrAVWF5PwRbmxPWtw-wrDeHKCwxx_ks4rOcdT6BpLTWaX7oyuB1_Isv0pybPty3 "SHOW_PERSON_SPRITE(sprite)")
+![SHOW_PERSON_SPRITE(sprite) Sample](https://www.plantuml.com/plantuml/png/ZL1DQzj04BthLspTGnIm9H9wwYckC4sXIOGbDqUnbYRnmduiCxCOK_hVEzieTkcfkYmpx-EzqHsnHaxE5X-C7ssQG1sO8tskQzJ7wjNm8UqJ0Ox1CtYknk3gQBNFcXNnPCs-RZwjshpQFNoldIO6bDNGY48R3rZ5F_uJlCYa0kbMvl-8QL3J0IPd_5I_-wz214ym9ZHyqZWU3CF82U5sPKHBS_xbcZckRe9pmSzL_WLtabnhQz_Wehj_UXxQpRPxUXowTlkjtvGBeGwvuF2A07uuHo-kYw85fE1BdQikrMATNqECcWCAtfs8mGrVGlAJnbCvtYpLLQTTj71rhNuMIhxppogFi1zqZEBp37krZj6QKRC9VY6hvkDIhRksUjpq8a5GjzMDUlZHP6njRJYIoYL9SL1ZS54BnINBHh9KVpJCW8gD0ojP9Dr-pUrAVWF5PwRbmxPWtw-wrDeHKCwxx_ks4rOcdT6BpLTWaX7oyuB1_Isv0pybPty3 "SHOW_PERSON_SPRITE(sprite)")
 

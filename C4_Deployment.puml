@@ -25,7 +25,7 @@ skinparam rectangle<<node>> {
 ' Layout
 ' ##################################
 
-' comment if node should not be added to legend. No dynamic legend extension required
+' comment if node should not be added to legend. No calculated legend extension required
 SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_system\nexternal_container\nnode")
 
 ' Line breaks

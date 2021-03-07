@@ -214,7 +214,7 @@ Therefore if sprite argument starts with `&` an OpenIconic name can be used too 
 
 ```csharp
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Dynamic.puml
 
 Person(user, "User1")
 Person(user2, "User2")
@@ -245,7 +245,7 @@ Rel(user, system, "orders", "http", "only small sprites looks ok, like the small
 @enduml
 ```
 
-![Relation with sprite or OpenIconic](https://www.plantuml.com/plantuml/png/VL9XYnCn4Fs-ls8inta7RLUh21M4Gu-0e7YStESZpKxReTbapMJlAE9_Tv9DMoskyoLvRp9lNYQvuQX3x5jRlI1dRDyWR6Fi-7rT1_qytr3SzgkUCHZl8heuDxwjEwjTgfbnR2ojwazlPtU9UlZwfMurHmn2FTxkdMx9pBkaNjrXOE-kajGK9W-ol9vS_yak2hqG-ljUHDehpelm0vP4zH9e3Tm5YWZPEiEpU8JBwO5jS4qE6JHywz1z5jzafi96JPQ1yNH1wKevdI_bvNHTtQDzl2qkZ-q3_kYH8qzahtdl3BJ8h3UOY54_5F_f1Ipj42xHFQ6LdZDZFMCZIXT5vWDCphF3pPqFhRQbcuW6XEWzh6W3sVTzyNsO9hcrL6JNnlU1CAJjk4hATlb15aD3xj1GEYi55iEnPgkVf4XgCFLggcBy8WRIRcCHVbOWyUeK9wp-nkgZ-XzMo-LIZMFrBeKQm-hD46eCbn1yxlTNckZvF_2XmP3dcRvGMhsp-poUqq2jzpi6lviE3nstM0uSffFgZllhwWPTqxVsDm00 "Relation with sprite or OpenIconic")
+![Relation with sprite or OpenIconic](https://www.plantuml.com/plantuml/png/VL9XQnGn4Fs-ls8yIctXUgkd22S8HKj0K2oLVYvfTkusN3PPCxCz3_6_EydktUhXThuaxqrcvkKbryGwSjUuueNrndKLGitSqlkoZ7gts5YkkyUEC9hW6JqlJ6ZAhOsc9gxBJs-lRftsVF_rIua_9LzX9UJ3pTxhnff5cneNjnWf-8lKPGwpUrbUpox_PfS3lHJw-vuOcmlAY_0zbaJn4kmQg8sM4R9gWft8W_FvWQrmRJqIQFZMelyiagsP2ylQEWB2yMuorUPqla-GqsLnX-xXPb1v71_nHuV4D9Ezfhqtq22Htc0Y9lLO_gyMS7QBS8x-2PtCl38k45RIwMneym5cfzd-vZx4HhjXcZID21m2FDeDPDrtW-w3czQlfIAhDg6B5cFQJdT9sJO_oB8VI2qQcyvAWSDuhAdranH93QPPLJ48F-DejTyuX5y5IBmQOyJgNwm-gkUmMgrMQXghTodK55Pl-b1JU0Z1ftf_9qTF_q685SRiP_f2QGtUxRCzew4kX2r1sCxxX-OQXmC7TrBTSNzPNAElkiRz0G00 "Relation with sprite or OpenIconic")
 
 In rare cases, you can force the layout of objects which have no relationships by using:
 
@@ -333,7 +333,7 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 
 ```csharp
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Component.puml
 
 UpdateElementStyle(person, $fontColor="green")
 AddElementTag("v1.0", $fontColor="#d73027", $borderColor="#d73027")
@@ -369,7 +369,7 @@ SHOW_LEGEND(false)
 @enduml
 ```
 
-![merged tags](https://www.plantuml.com/plantuml/png/jLLTRzCm57tFhp01JQcwjMkOc8GqQLCtCQG2rJx4utIJt2G6nuvydOxzUsndBYqDgtXONkoUUtpErV57pyc0DbqZeZTSvg8haDN6jFHnEjNmEAcugRki8zIvaWQbcUIgcRO2f5jpHAOGF9lEJuwM3hh_ifWsG0QrXHxcgccLT6jQfn_TjmKOl1BOMEpMF0bCMjIav25xLrhrkH9AdyMLHfJnABeeYcVk7LH9l9fDZkDjvjlYzFrnUkhGJEa2zJO-g37xMwEqNrRkQ0Hyi8-3GQ42yCDiGCZZkq8b2951_jElg0Bxn7_nACHrWwAFAXEMUyZyuBLinUiGwXNFqJiR_1NwqLZ4GxpKyGINk8StEmWB1eI79AAv3GCigXDguP35jykBs0uWgqw0TjEx6bbZAOnBWxg479cfmJ1ZyRmZenhKVGroG-oHcvgjEB2mzmOgEkjFmcZRxg9ekBGEVcJ3pk1gd8m6e_J_jY3naOLTNxSnsse3MkuwM7vsXZzW1Mwy1ba890P2iAmZIoHYGbKyPucxS9ErChCHeoIk98qsNC9n6xlPUCUKMaZxhDDN2tiSZkfWwkbcxEdhvnwQ2Lb4DoZw4zTlm3qXEMl_ZDcwAuTUN-0yB7gHvq3zxTibtMn8XTa_wD7IFsw9UpnTHCnDB7xxH0QRXFpW2_tKbhp5vVEADS7-91PkfG_5r9nO3aByIINKhSfUaNIFIFgYIAPC7PHeNpi7GN8SaF66IRI09-lYzyHPsN2kltr_M5nzklfwcPGW24VHESh2_N_y1W00 "merged tags")
+![merged tags](https://www.plantuml.com/plantuml/png/jLHVJzi-57tFf_0llmcbAcjfXeOq2GbKq9ZKRHL_j4Tq4zyc7euT-Je5llri1xDspK1x82zspZq-v-hupmbPCBPhPFAVKANiEBBQsfO-JQS6xYULi7LNT8IcrCgYifDIDzCxOSgQR3sT7xvVIb3svkjYYW-kpf4xy7QkcrOhJs-zT7BJSh1uBh5ns9Lzb9YrQ4YhVVPkvOJdMcfpd5O6KQMZv9Jp9-urL5cwdaqEqctc__pemq5-vD526uvc6n_KcFsfiN9ViThHYFXW7tk3GXpmusn0AE2xGYkGie3oBgoe8limVEaendM9ie-ga8wxpy8Gj5mbw12QjIWnE5jyYFqOvEaGB_SyAHI-mfljnGK3maCIoTo50Gur6RMmpzAhvMdg1b1L9y7uwNMDh74K9fH5iu8IcQt1CklmiYEh6pHz3KfBx5xOcgq5iBZt5Yewxa_2QDlkb3T2EOSmic5dy3L1re3LvbzRK7ZFugu_jp7RQWDQuJjOVl66Fs4DVhm0nIKI0obPqP4Z4Z6fAr6opD-roRCo2tU7X5Oqsd29nstiP-CTKseXxxFEtopiSJogWwddcx7dRvzxR2PcaLoYx4zSlm4tXEIjmmlcwhuSUts1SxleHPu23RTlbtIv8HLdVw4do_2uPVxTz14nFt7urIDPR38AGoZqKrSA5cTFAvu9xfTOl9KX55iBOYL8-JkLM7SghuhahuZaBueKsjPHYLvIsdf4nX4PRvWa2tXqBc5Fl9KBv-BxZzl5-UVpRsVP2YJXA3b1nRj6_W80 "merged tags")
 
 **Custom schema definition**
 

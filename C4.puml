@@ -56,6 +56,12 @@ skinparam Arrow {
     FontSize 12
 }
 
+' Some boundary skinparam have to be set a package skinparams too (PlantUML uses internal packages)
+skinparam package {
+    StereotypeFontSize 0
+    FontStyle plain
+}
+
 skinparam rectangle<<boundary>> {
     Shadowing false
     StereotypeFontSize 0

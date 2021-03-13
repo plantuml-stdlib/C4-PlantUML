@@ -319,10 +319,10 @@ rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias
 ' Relationship
 ' ##################################
 
-!unquoted procedure Rel_($alias1, $alias2, $label, $direction="")
+!unquoted procedure Rel_($alias1, $alias2, $label, $direction)
 $alias1 $direction $alias2 : **$label**
 !endprocedure
-!unquoted procedure Rel_($alias1, $alias2, $label, $techn, $direction="")
+!unquoted procedure Rel_($alias1, $alias2, $label, $techn, $direction)
 $alias1 $direction $alias2 : **$label**\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//
 !endprocedure
 

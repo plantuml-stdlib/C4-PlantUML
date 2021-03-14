@@ -219,17 +219,10 @@ $elementSkin
 
 !function $tagRelLegendEntry($tagStereo, $textColor, $lineColor)
   !$tagEntry = "|"
-  !$bg = $LEGEND_UNDEFINED_BG_COLOR
-  ' named colors have to start with # too 
-  !if (%substr($bg, 0, 1) != "#")
-    !$bg = "#" + $bg
-  !endif
-'  !$tagEntry = $tagEntry + "<" + $bg +">" 
   ' <U+2500> ..white line
   !if ($lineColor!="")
     !$tagEntry = $tagEntry + "<color:"+$lineColor+"> <U+2500></color> "
   !else
-'    !$tagEntry = $tagEntry + "<color:"+$bg+"> <U+2500></color> "
     !$tagEntry = $tagEntry + " <U+2500> "
   !endif
   !if ($textColor!="")
@@ -250,7 +243,9 @@ $elementSkin
 !endfunction
 
 !unquoted procedure $addTagToLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
-'' ignore workaround tags with &
+'' if a combined element tag is defined (e.g. "v1.0&v1.1") then it is typically a merged color,
+'' like a new $fontColor="#fdae61" therefore it should be added to the legend 
+'' and the & combined tags will be not removed
 '  !if (%strpos($tagStereo, "&")<0)
     !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
 %set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
@@ -259,7 +254,12 @@ $elementSkin
 !endprocedure
 
 !unquoted procedure $addRelTagToLegend($tagStereo, $textColor="", $lineColor="")
-'' ignore workaround tags with &
+'' Arrows have a bug with stereotype/skinparams and cannot combine text colors of one stereotype
+'' and the line color of another stereotype. Therefore the text color of one tag and the line color 
+'' of another tag have to be combined via a "workaround" tag ("v1.0&v1.1").
+'' This workaround tag could be theoretically removed in the legend but after that there would 
+'' be an inconsistency between the element tags and the rel tags and therefore 
+'' & combined workaround tags are not removed too (and in unlikely cases the color itself could be changed)
 '  !if (%strpos($tagStereo, "&")<0)
     !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor)
 %set_variable_value("$" + $tagStereo + "_LineLegendEntry", $tagEntry)

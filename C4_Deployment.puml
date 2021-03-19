@@ -122,26 +122,26 @@ SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_sy
   !return $nodeText 
 !endfunction
 
-!unquoted procedure Deployment_Node($alias, $label, $type="", $descr="", $sprite="", $tags="")
-rectangle "$getNode($label, $type, $descr, $sprite)$getProps()" $toStereos("node",$tags) as $alias
+!unquoted procedure Deployment_Node($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
+rectangle "$getNode($label, $type, $descr, $sprite)$getProps()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure Deployment_Node_L($alias, $label, $type="", $descr="", $sprite="", $tags="")
-rectangle "$getNode_L($label, $type, $descr, $sprite)$getProps_L()" $toStereos("node",$tags) as $alias
+!unquoted procedure Deployment_Node_L($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
+rectangle "$getNode_L($label, $type, $descr, $sprite)$getProps_L()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure Deployment_Node_R($alias, $label, $type="", $descr="", $sprite="", $tags="")
-rectangle "$getNode_R($label, $type, $descr, $sprite)$getProps_R()" $toStereos("node",$tags) as $alias
+!unquoted procedure Deployment_Node_R($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
+rectangle "$getNode_R($label, $type, $descr, $sprite)$getProps_R()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure Node($alias, $label, $type="", $descr="", $sprite="", $tags="")
-rectangle "$getNode($label, $type, $descr, $sprite)$getProps()" $toStereos("node",$tags) as $alias
+!unquoted procedure Node($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
+rectangle "$getNode($label, $type, $descr, $sprite)$getProps()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure Node_L($alias, $label, $type="", $descr="", $sprite="", $tags="")
-rectangle "$getNode_L($label, $type, $descr, $sprite)$getProps_L()" $toStereos("node",$tags) as $alias
+!unquoted procedure Node_L($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
+rectangle "$getNode_L($label, $type, $descr, $sprite)$getProps_L()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure Node_R($alias, $label, $type="", $descr="", $sprite="", $tags="")
-rectangle "$getNode_R($label, $type, $descr, $sprite)$getProps_R()" $toStereos("node",$tags) as $alias
+!unquoted procedure Node_R($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
+rectangle "$getNode_R($label, $type, $descr, $sprite)$getProps_R()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure

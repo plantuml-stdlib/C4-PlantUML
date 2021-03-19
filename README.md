@@ -80,7 +80,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![Basic Sample](https://www.plantuml.com/plantuml/png/JP3FJkD03CRlUGflzf9AtKHTxMbFJIC41ueYaiAncauC6J5_HZEEGeLuTpngQPcBDVv-jZzx7Ka4ceo6ZOXAGYUCrvZzKbRgQK0OYNpyNrL1pEMhed4wJ163T9RGKYcTgTvKa6EaiMh-_McriBJRtbVuplg00oVt3SD2MGobvpbPrcA8pXPYCCek8QzJL96281VoHTOT8w7PRzna1n6EXLmnTB859orVm4S6_2wTYnaFU-4zayzuWDfxhQGWvMpEgURt4kgkBHzkUYu927_B5MoVcgJLMhivGbeg0ZdWZRnWn4oQL1hPpue80v0og7bMP8kVPvC5dKJkSyPOp1vHVoztjRMBNCdnhk_RZga4NTHhcrkao5zCuIKuyxDapHTD1_m2 "Basic Sample")
 
-Entities can also be decorated with icons using the last parameter, for example:
+Entities can also be decorated with icons/sprites using the $sprite parameter, for example:
 
 ```csharp
 @startuml
@@ -95,10 +95,10 @@ Entities can also be decorated with icons using the last parameter, for example:
 
 LAYOUT_WITH_LEGEND()
 
-Person(user, "Customer", "People that need products", "users")
-Container(spa, "SPA", "angular", "The main interface that the customer interacts with", "angular")
-Container(api, "API", "java", "Handles all business logic", "java")
-ContainerDb(db, "Database", "Microsoft SQL", "Holds product, order and invoice information", "msql_server")
+Person(user, "Customer", "People that need products", $sprite="users")
+Container(spa, "SPA", "angular", "The main interface that the customer interacts with", $sprite="angular")
+Container(api, "API", "java", "Handles all business logic", $sprite="java")
+ContainerDb(db, "Database", "Microsoft SQL", "Holds product, order and invoice information", $sprite="msql_server")
 
 Rel(user, spa, "Uses", "https")
 Rel(spa, api, "Uses", "https")
@@ -106,7 +106,26 @@ Rel_R(api, db, "Reads/Writes")
 @enduml
 ```
 
-![test](https://www.plantuml.com/plantuml/png/hL9DZzem4BtdLtWviTA23sqlFIq2saNYW_9Hr1CQue6uTUpKCu7-_8v3Yb0_f1xsP6VUotlpPlnC397hqcKFrkUkDgWAvehUQntXqZzPBkf3JHZpu1azz_DGwcysvWLneOTlUqi7dhUpgSOVWXiqKjmFXGpMO-nNIJfxC7YKJpKQVvuC5_FrVtXmNO69RtILz4MaPmNj7ONHeofQHj8b46FK1iy9evlBXyLyCzYDrulP-5MDcXfSa4A9lNUtWTrIQV2dsa4R-a_uAvpXNrX9tzsUC9xnzz_lqkZKExKpdGw-BBQR_MwoUTbFnn_7yr7tCSkMGWY-cuXFgZEiYQNPs97x4aFbK741h3oYKLKCfiwP4jW8Tnwps-AwL87Kryj1WjjWwRefK9L2KTOpnYFahIHBFM_jhXY8jhh8pEyLxYsWie8CbfD4ICD9vmjuuv0KEATaLq8aKYwSR7vZtMcC3brpaFe860v0c3WpcyT0uSXg_MdQI0Pdw5VS9nMYaHR5Hjey1vkZdCSGIs0RVEBVxKAyiXMwTfxNcMm9AT6QfoM4X3U8vFaxl5zTipQjhX0CwLtpiWH-Hc_IFdy2 "test")
+![Sprites/Icons](http://www.plantuml.com/plantuml/png/hL9DZzCm5BpdLtWh3brfkpu05oIahTh2Lkf7wGSLf-hLVcaCZXtyd9QVptEQhI8-90wSx7Z6CvvvUQ888TQbpUwCKxRMA8eOAtedPO3Buyd4eZxMX45v5z75H-LB-Sq4LL0ivEZDO6N1nTry9l47uner7nv6J0RZC3nMIJgxqvZpfnXFFaz7oyNc7pnYNO4EhsMLz5baO1WTvCmOK1LCH98bKCGWDPuJHZUN3yl5ThYVR9RpoNyrQixWWkHB7Boz5NPB9S6TQWjjwD_Xht26ls4bVRS7VjaPVxdUJIDhPb3RwMpuPRdR7lRJxVDXDlauMOpxzrcsOe9t_KHy4BrHJT6N67gyNw6lB8fOG1GEKOigU5shI0o-kYPztsiCUlVPRO1zge0lRrR3fD46JDjjWQ9aYZ1SPSX1jTAHprLhUyM0FSI5k-yQlIXrhQ0oB3nSJPD-AYkjp-2qHH9WhU3PCP58M7yogYkNs5sjyR6lZtnx316EG9YKvaO5JpwFOlDfraXxg-cbXWVXWyOWs8wVVVP68Q-v3oL4urtNh3ChzipMQDk-hrtj22d9DxyU4nBU89plp_1XVStUF7cDe4dkarM2dz1fdlTF "Sprites/Icons")
+
+Similar to icons/sprites is it possible to add links to all elements and relationships:
+
+```csharp
+@startuml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
+
+Person(admin, "Administrator", $sprite="person2", $link="https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/LayoutOptions.md#hide_person_sprite-or-show_person_spritesprite")
+System_Boundary(c1, "Sample System", $link="https://github.com/plantuml-stdlib/C4-PlantUML") {
+    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", $descr="Allows users to compare multiple Twitter timelines", $link="https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/LayoutOptions.md")
+}
+System(twitter, "Twitter", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+
+Rel(admin, web_app, "Uses", "HTTPS", $link="https://plantuml.com/link")
+Rel(web_app, twitter, "Gets tweets from", "HTTPS", $link="https://plantuml.com/link")
+@enduml
+```
+
+![Links](http://www.plantuml.com/plantuml/png/jP9FQzj04CNl-XHRfGS7R8c4dWg6EAQqXwGrjT8UnKexhPRidsLcX6fAltjdhJWXzDH0TD2YDwFtVZpfYbWZZzwfQqssLtljauFYZGsz6mseWJdH-xf6FLK_BGzZDn9W7mD3uAgFlhwts0_4Gxrzjzev7VZkzgQ6Np8tO4HijxAiRG2iakGKnGwGObXeusrOgdAJJqkCcYEMI_MM4bg6TPcEUvTPSZRShyiJoynn34yvK5nNnCRPxXb3vs9NUqqCMD_eGnpvIs8R0rNUd0tMG3idj7FWAkAAXZWzL-TxULxi3sBas-iu1gFniEWlX7rkIyspbuAMv-fteUHwB6enGTVgb2JXEtHgavAplSxifKZRiwNQx7VLvm-Dl8AWBgiBTVjjc_CDK8_hSkDSd4ZbJqMAenA2f6NJZuvj9cucomoes7fm4aclqhBKzkUXk0NFYSB_aFtokehYAxZJ__DKrHq1vNu-DSrk_w_xoVBedqTYb7qU3Pu8FmAJF48-Vc3q_-bw1S68z1S0 "Links")
 
 Elements and relations can be decorated with tags and explained via a calculated legend, for example:
 
@@ -152,7 +171,11 @@ Diagram types
     * `Person(alias, label, ?description, ?sprite, ?tags)`
     * `Person_Ext`
     * `System(alias, label, ?description, ?sprite, ?tags)`
+    * `SystemDb`
+    * `SystemQueue`
     * `System_Ext`
+    * `SystemDb_Ext`
+    * `SystemQueue_Ext`
     * `Boundary(alias, label, ?type, ?tags)` 
     * `Enterprise_Boundary(alias, label, ?tags)`
     * `System_Boundary` 

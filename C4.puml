@@ -318,6 +318,17 @@ $elementSkin
   !$tagDefaultLegend = $tagStereoEntries
 !endprocedure
 
+' Links
+' ##################################
+
+!function $getLink($link)
+  !if ($link!="")
+    !return "[[" + $link + "]]"
+  !else
+    !return ""
+  !endif
+!endfunction
+
 ' Line breaks
 ' ##################################
 
@@ -505,14 +516,14 @@ endlegend
   !endif
 !endfunction
 
-!unquoted procedure Boundary($alias, $label, $type="", $tags="")
-rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias
+!unquoted procedure Boundary($alias, $label, $type="", $tags="", $link="")
+rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias $getLink($link)
 !endprocedure
 
 ' Relationship
 ' ##################################
 
-!function $getRel($direction, $alias1, $alias2, $label, $techn, $descr, $sprite, $tags)
+!function $getRel($direction, $alias1, $alias2, $label, $techn, $descr, $sprite, $tags, $link)
   !$rel = $alias1 + ' ' + $direction + ' ' + $alias2
   !if ($tags != "")
     !$rel = $rel + ' ' + $toStereos($tags)
@@ -526,7 +537,11 @@ rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias
       !$rel = $rel + '<'+$sprite+'> '
     !endif    
   !endif  
-  !$rel = $rel + '**' + $label + '**'
+  !if ($link != "")
+    !$rel = $rel + '**[[' + $link + ' ' + $label + ']]**'
+  !else
+    !$rel = $rel + '**' + $label + '**'
+  !endif
   !if ($techn != "")
     ' line break is not deterministic, calculate it
     !$rel = $rel + '\n//<size:' + $TECHN_FONT_SIZE + '>[' + $breakTechn($techn, $REL_TECHN_MAX_CHAR_WIDTH) + ']</size>//'
@@ -545,80 +560,80 @@ $alias1 $direction $alias2 : **$label**
 $alias1 $direction $alias2 : **$label**\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//
 !endprocedure
 
-!unquoted procedure Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("-->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("-->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure BiRel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("<<-->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure BiRel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<-->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Rel_Back($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("<<--", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure Rel_Back($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<--", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Rel_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure Rel_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Rel_Back_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("<<-", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure Rel_Back_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<-", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Rel_D($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure Rel_D($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Rel_Down($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
-!endprocedure
-
-!unquoted procedure BiRel_D($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("<<-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
-!endprocedure
-!unquoted procedure BiRel_Down($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("<<-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure Rel_Down($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Rel_U($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure BiRel_D($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Rel_Up($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
-!endprocedure
-
-!unquoted procedure BiRel_U($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("<<-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
-!endprocedure
-!unquoted procedure BiRel_Up($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("<<-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure BiRel_Down($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Rel_L($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure Rel_U($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Rel_Left($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
-!endprocedure
-
-!unquoted procedure BiRel_L($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("<<-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
-!endprocedure
-!unquoted procedure BiRel_Left($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("<<-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure Rel_Up($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Rel_R($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure BiRel_U($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Rel_Right($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure BiRel_Up($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure BiRel_R($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("<<-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure Rel_L($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure BiRel_Right($from, $to, $label, $techn="", $descr="", $sprite="", $tags="")
-$getRel("<<-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags)
+!unquoted procedure Rel_Left($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure BiRel_L($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+!unquoted procedure BiRel_Left($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure Rel_R($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+!unquoted procedure Rel_Right($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure BiRel_R($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+!unquoted procedure BiRel_Right($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 ' Layout Helpers

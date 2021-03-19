@@ -143,7 +143,11 @@ Diagram types
     * `Person(alias, label, ?description, ?sprite, ?tags)`
     * `Person_Ext`
     * `System(alias, label, ?description, ?sprite, ?tags)`
+    * `SystemDb`
+    * `SystemQueue`
     * `System_Ext`
+    * `SystemDb_Ext`
+    * `SystemQueue_Ext`
     * `Boundary(alias, label, ?type, ?tags)` 
     * `Enterprise_Boundary(alias, label, ?tags)`
     * `System_Boundary` 

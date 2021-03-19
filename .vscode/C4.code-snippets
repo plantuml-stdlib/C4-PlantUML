@@ -356,6 +356,82 @@
 		],
 		"description": "Add External System with Description to C4 diagram"
 	},
+	"C4_SystemDb": {
+		"scope": "plantuml",
+		"prefix": "Database System",
+		"body": [
+			"SystemDb(${1:alias}, \"${2:label}\")"
+		],
+		"description": "Add Database System to C4 diagram"
+	},
+	"C4_SystemDb_Descr": {
+		"scope": "plantuml",
+		"prefix": "Database System with Description",
+		"body": [
+			"SystemDb(${1:alias}, \"${2:label}\", \"${3:description}\")"
+		],
+		"description": "Add Database System with Description to C4 diagram"
+	},
+	"C4_SystemDb_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Database System",
+			"Database System (External)"
+		],
+		"body": [
+			"SystemDb_Ext(${1:alias}, \"${2:label}\")"
+		],
+		"description": "Add External Database System to C4 diagram"
+	},
+	"C4_SystemDb_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Database System with Description",
+			"Database System (External) with Description"
+		],
+		"body": [
+			"SystemDb_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")"
+		],
+		"description": "Add External Database System with Description to C4 diagram"
+	},
+	"C4_SystemQueue": {
+		"scope": "plantuml",
+		"prefix": "Queue System",
+		"body": [
+			"SystemQueue(${1:alias}, \"${2:label}\")"
+		],
+		"description": "Add Queue System to C4 diagram"
+	},
+	"C4_SystemQueue_Descr": {
+		"scope": "plantuml",
+		"prefix": "Queue System with Description",
+		"body": [
+			"SystemQueue(${1:alias}, \"${2:label}\", \"${3:description}\")"
+		],
+		"description": "Add Queue System with Description to C4 diagram"
+	},
+	"C4_SystemQueue_Ext": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Queue System",
+			"Queue System (External)"
+		],
+		"body": [
+			"SystemQueue_Ext(${1:alias}, \"${2:label}\")"
+		],
+		"description": "Add External Queue System to C4 diagram"
+	},
+	"C4_SystemQueue_Ext_Descr": {
+		"scope": "plantuml",
+		"prefix": [
+			"External Queue System with Description",
+			"Queue System (External) with Description"
+		],
+		"body": [
+			"SystemQueue_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")"
+		],
+		"description": "Add External Queue System with Description to C4 diagram"
+	},
 	"C4_System_Boundary": {
 		"scope": "plantuml",
 		"prefix": [

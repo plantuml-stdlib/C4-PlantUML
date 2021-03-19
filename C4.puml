@@ -312,6 +312,17 @@ $elementSkin
   !$tagDefaultLegend = $tagStereoEntries
 !endprocedure
 
+' Links
+' ##################################
+
+!function $getLink($link)
+  !if ($link!="")
+    !return "[[" + $link + "]]"
+  !else
+    !return ""
+  !endif
+!endfunction
+
 ' Line breaks
 ' ##################################
 
@@ -499,8 +510,8 @@ endlegend
   !endif
 !endfunction
 
-!unquoted procedure Boundary($alias, $label, $type="", $tags="")
-rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias
+!unquoted procedure Boundary($alias, $label, $type="", $tags="", $link="")
+rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias $getLink($link)
 !endprocedure
 
 ' Relationship

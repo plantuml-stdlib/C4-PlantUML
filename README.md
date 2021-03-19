@@ -71,7 +71,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![Basic Sample](https://www.plantuml.com/plantuml/png/JP1FIyD04CNl-HHZlAHG4ogUF3KDeWShmQHwBDDaj0lxZzs9eOZVtGcjhNiPcFURUMzs6Ha33qR32gFge47ZDILNodPww0dsp3xU5qN0CVzKl1zsGwJGESjaEU-SAR0F2ksN7lnGL7StjKRBc_LpeP4fihIsbT2eB8NSYr6Ir1IYindsHjavfELKLUI0x48wIvf3P3BRbHjiZ-6GTGk1ZhdWgAKp-4v0tdbpDj9kYzuB-KuxABtNgaDMpgRIggxdK3Pr_lBGoaWWkCqNi7wh9gtKseqHfgiYi0CvoQCWPj2i9ijsLCmKW9KXBLvH8lwSGcPy56NF2HCnUINzTzmbrYRAfDIdjgqReIReh5xMF19BZ96cyX6S-J-o9DlB1_u2 "Basic Sample")
 
-Entities can also be decorated with icons using the last parameter, for example:
+Entities can also be decorated with icons/sprites using the $sprite parameter, for example:
 
 ```csharp
 @startuml
@@ -86,10 +86,10 @@ Entities can also be decorated with icons using the last parameter, for example:
 
 LAYOUT_WITH_LEGEND()
 
-Person(user, "Customer", "People that need products", "users")
-Container(spa, "SPA", "angular", "The main interface that the customer interacts with", "angular")
-Container(api, "API", "java", "Handles all business logic", "java")
-ContainerDb(db, "Database", "Microsoft SQL", "Holds product, order and invoice information", "msql_server")
+Person(user, "Customer", "People that need products", $sprite="users")
+Container(spa, "SPA", "angular", "The main interface that the customer interacts with", $sprite="angular")
+Container(api, "API", "java", "Handles all business logic", $sprite="java")
+ContainerDb(db, "Database", "Microsoft SQL", "Holds product, order and invoice information", $sprite="msql_server")
 
 Rel(user, spa, "Uses", "https")
 Rel(spa, api, "Uses", "https")
@@ -97,7 +97,26 @@ Rel_R(api, db, "Reads/Writes")
 @enduml
 ```
 
-![test](https://www.plantuml.com/plantuml/png/hL9DZzCm4BtdLtXxeIjjwmDmuRHLMzXA_Q8VL9ogQJnfZHmxUEnM_7l6QRORM90uS8erx-NDl9dtI05yYAN9xhJDJLGeJY5Kz45A3vV-KOTJF4H2dpiRq8P-xae9ockmPnEhA8VlUai3DcndKsaW80KkxOVC1ctHzwka_KP4op-MB2322KNXZ74NRO_2C4c0LU8NM7lYbnFSM1YNWp4_MECsuUi6sPt28acDnbycmyLy_GykGgpOo5jPfV5PfASPxHNCw57bDLkH9L10BnMU4qQtBXyNyyrWDrulPkF_sgYkmGN9bTXx_tAIPrSIx34QQ4o_Xh_16Vw6bVJTx7coC_x-UykDJBDJizFfuEjYkzdl9fkd_NJyQJmVTU-pRCa4Pxk9-20wmqY1X_KTVY_HLGRvWX24HLIYyax5F502Q-7EVNOxN9SguFfwEKXmOomzDvo0aYb2ymfz0NaZcPAHD-sk6B2skF3Esmhj5b1fHWRBIIAavQJl4yVD80bEbU1RCP68KtRK-OtLqXWTkkh0zH44E01XuinqxXsv8eZrvsajwOoYPxiFmdd58wPKQtjscWreMpXVGj3E9dxh5jmhMw5fzddToPQmtbaTBIOal4QkVlu0xrTNh_MeAmH5SbSdY-57j8hl-HC0 "test")
+![Sprites/Icons](http://www.plantuml.com/plantuml/png/hP9BZzem4CVl-HHUr0ChBPj3sqkbIek0Tf5uK1v5FQ59F05NZfrw9l3rEmvXD-f3wg4dE_EV-VyyCtaYXi1rQPCxut9RQrGdvee-f6c0o-FHyAdEQiAGUyVe-37tPLfPSB5cGAojoTBHky4gXdRpMLe2CGO97KPI0SPXUAoYVtAdiP1FDPvydOwMYyq_WBYkG8Uthq0Zwg2GZ05LmJ3IZQVn73LweNnQBhR3_MIpd4_-AwY9mGN9bpXu_pgrMrSfk6DjeMtwT_axdE5lMaa_x84mdF7NyautQNmxjJET3RyjTzl3VhfzFimcdoUBSVy-ILQIu5q_9ZwetgWczYM6djnNw2kBYa_0oY5gLGMlwvn9n3VNJZ_s6a3lFdbPO9ygaEBDQXWzsWRZTNj2LKgACeun592trYpnlCLUDH26kiZikw2RKnS5bH7ZuMeQ_UEmulaCJbia1TOgsPqa4YdhZoRlsiNihjSuw-jCgiV0a05XT9gRF7Zo1QlDbrbZxQscsnWUb0yQWnASFFliJOvo5ZwKmCQxBgopAs4cQxJjlA-psX5Ij6z-FKc8UgD8Vt-M3-jhxysJrmYQqdr4HVa9dPPz_mG0 "Sprites/Icons")
+
+Similar to icons/sprites is it possible to add links to all elements and relationships:
+
+```csharp
+@startuml Basic Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(admin, "Administrator", $sprite="person2", $link="https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/LayoutOptions.md#hide_person_sprite-or-show_person_spritesprite")
+System_Boundary(c1, "Sample System", $link="https://github.com/plantuml-stdlib/C4-PlantUML") {
+    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", $descr="Allows users to compare multiple Twitter timelines", $link="https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/LayoutOptions.md")
+}
+System(twitter, "Twitter", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+
+Rel(admin, web_app, "Uses", "HTTPS", $link="https://plantuml.com/link")
+Rel(web_app, twitter, "Gets tweets from", "HTTPS", $link="https://plantuml.com/link")
+@enduml
+```
+
+![Links](http://www.plantuml.com/plantuml/png/jP9FYzH04CNl-HHjhuTPc4dOnPCmiECWUjZLOB9w39rqQHhxJrDL8GpYTxTxizb5F8W3vf0chrBl_NZ93R52dfmjNXW_s4c369aZlQugL7FvpV0uzHC13i4pU2w7uAfebSyxEs9jJLyTN-tgBDtVtLPE4GCcgJkc3MKyO1cpVr43Kl0RfPtnMo4F-JJ4g3YWt8gN5D4mx6LyUEywIzRuxtkv0YqmVoNeRUXNZ5jr2XD_Z6o2fzBfYz5ew9Q4RWdS1TpH6ERVrUKkBulcb8nSzoPCNYiyROQhnDue5os8PNOkgBmKFmgHhgUYDZFqdOen9No1NXnYj6PGcLqcwNYn5OUcBZ-yRTCAWhWkhyJTvsFErq03xkN1sZ2JoD-B10UH2A9246woR39nEnjcGC76GM86-Yyjfzf-FXQtuIKnyJzcdrzNKNm2k_u_prNT4r3kvttRrisVxglbWtyU9QFiysJmJFWEcD8ZvECh1lUFhZVWTP9-0G00 "Links")
 
 Elements and relations can be decorated with tags and explained via a calculated legend, for example:
 

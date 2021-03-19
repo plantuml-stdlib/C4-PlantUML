@@ -172,31 +172,31 @@ Diagram types
 * System Context & System Landscape diagrams
   * Import: `!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Context.puml`
   * Macros: 
-    * `Person(alias, label, ?description, ?sprite, ?tags)`
+    * `Person(alias, label, ?description, ?sprite, ?tags, $link)`
     * `Person_Ext`
-    * `System(alias, label, ?description, ?sprite, ?tags)`
+    * `System(alias, label, ?description, ?sprite, ?tags, $link)`
     * `SystemDb`
     * `SystemQueue`
     * `System_Ext`
     * `SystemDb_Ext`
     * `SystemQueue_Ext`
-    * `Boundary(alias, label, ?type, ?tags)` 
-    * `Enterprise_Boundary(alias, label, ?tags)`
+    * `Boundary(alias, label, ?type, ?tags, $link)`
+    * `Enterprise_Boundary(alias, label, ?tags, $link)`
     * `System_Boundary` 
 * Container diagram
   * Import: `!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml`
   * Additional Macros: 
-    * `Container(alias, label, technology, ?description, ?sprite, ?tags)`
+    * `Container(alias, label, technology, ?description, ?sprite, ?tags, $link)`
     * `ContainerDb`
     * `ContainerQueue`
     * `Container_Ext`
     * `ContainerDb_Ext`
     * `ContainerQueue_Ext`
-    * `Container_Boundary(alias, label)`
+    * `Container_Boundary(alias, label, ?tags, $link)`
 * Component diagram
   * Import: `!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Component.puml`
   * Additional Macros: 
-    * `Component(alias, label, technology, ?description, ?sprite, ?tags)`
+    * `Component(alias, label, technology, ?description, ?sprite, ?tags, $link)`
     * `ComponentDb`
     * `ComponentQueue`
     * `Component_Ext`
@@ -205,7 +205,7 @@ Diagram types
 * Dynamic diagram
   * Import: `!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Dynamic.puml`
   * Additional Macros: 
-    * `RelIndex(index, from, to, label)`
+    * `RelIndex(index, from, to, label, ?tags, $link)`
     * (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
     * (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
     * `LastIndex()`: return the last used index (function which can be used as argument)
@@ -217,16 +217,16 @@ Diagram types
 * Deployment diagram
   * Import: `!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Deployment.puml`
   * Additional Macros: 
-    * `Deployment_Node(alias, label, ?type, ?description, ?sprite, ?tags)`
-    * `Node(alias, label, ?type, ?description, ?sprite, ?tags)`: short name of Deployment_Node()
-    * `Node_L(alias, label, ?type, ?description, ?sprite, ?tags)`: left aligned Node()
-    * `Node_R(alias, label, ?type, ?description, ?sprite, ?tags)`: right aligned Node()
+    * `Deployment_Node(alias, label, ?type, ?description, ?sprite, ?tags, $link)`
+    * `Node(alias, label, ?type, ?description, ?sprite, ?tags, $link)`: short name of Deployment_Node()
+    * `Node_L(alias, label, ?type, ?description, ?sprite, ?tags, $link)`: left aligned Node()
+    * `Node_R(alias, label, ?type, ?description, ?sprite, ?tags, $link)`: right aligned Node()
 
 Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).
 
 ## Relationship Types
 
-* `Rel(from, to, label, ?technology, ?description, ?sprite, ?tags)`
+* `Rel(from, to, label, ?technology, ?description, ?sprite, ?tags, $link)`
 * `BiRel` (bidirectional relationship)
 
 You can force the direction of a relationship by using:

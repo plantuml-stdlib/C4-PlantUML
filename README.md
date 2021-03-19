@@ -125,7 +125,11 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS", $link="https://plantuml.com/l
 @enduml
 ```
 
-![Links](http://www.plantuml.com/plantuml/png/jP9FQzj04CNl-XHRfGS7R8c4dWg6EAQqXwGrjT8UnKexhPRidsLcX6fAltjdhJWXzDH0TD2YDwFtVZpfYbWZZzwfQqssLtljauFYZGsz6mseWJdH-xf6FLK_BGzZDn9W7mD3uAgFlhwts0_4Gxrzjzev7VZkzgQ6Np8tO4HijxAiRG2iakGKnGwGObXeusrOgdAJJqkCcYEMI_MM4bg6TPcEUvTPSZRShyiJoynn34yvK5nNnCRPxXb3vs9NUqqCMD_eGnpvIs8R0rNUd0tMG3idj7FWAkAAXZWzL-TxULxi3sBas-iu1gFniEWlX7rkIyspbuAMv-fteUHwB6enGTVgb2JXEtHgavAplSxifKZRiwNQx7VLvm-Dl8AWBgiBTVjjc_CDK8_hSkDSd4ZbJqMAenA2f6NJZuvj9cucomoes7fm4aclqhBKzkUXk0NFYSB_aFtokehYAxZJ__DKrHq1vNu-DSrk_w_xoVBedqTYb7qU3Pu8FmAJF48-Vc3q_-bw1S68z1S0 "Links")
+> `png` itself supports no links, therefore the following image is generated as `svg` image.
+> Github does not support `svg` links in README.md.
+> If you click on the image a new window is opened and there you can use the links.
+
+![Click on the image that the links are working](http://www.plantuml.com/plantuml/svg/jP9FQzj04CNl-XHRfGS7R8c4dWg6EAQqXwGrjT8UnKexhPRidsLcX6fAltjdhJWXzDH0TD2YDwFtVZpfYbWZZzwfQqssLtljauFYZGsz6mseWJdH-xf6FLK_BGzZDn9W7mD3uAgFlhwts0_4Gxrzjzev7VZkzgQ6Np8tO4HijxAiRG2iakGKnGwGObXeusrOgdAJJqkCcYEMI_MM4bg6TPcEUvTPSZRShyiJoynn34yvK5nNnCRPxXb3vs9NUqqCMD_eGnpvIs8R0rNUd0tMG3idj7FWAkAAXZWzL-TxULxi3sBas-iu1gFniEWlX7rkIyspbuAMv-fteUHwB6enGTVgb2JXEtHgavAplSxifKZRiwNQx7VLvm-Dl8AWBgiBTVjjc_CDK8_hSkDSd4ZbJqMAenA2f6NJZuvj9cucomoes7fm4aclqhBKzkUXk0NFYSB_aFtokehYAxZJ__DKrHq1vNu-DSrk_w_xoVBedqTYb7qU3Pu8FmAJF48-Vc3q_-bw1S68z1S0 "Click on the image that the links are working")
 
 Elements and relations can be decorated with tags and explained via a calculated legend, for example:
 

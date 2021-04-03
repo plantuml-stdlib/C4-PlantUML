@@ -8,6 +8,7 @@
 !global $ARROW_COLOR = "#666666"
 
 !global $BOUNDARY_COLOR = "#444444"
+!global $BOUNDARY_BG_COLOR = "#FFFFFF"
 
 !global $LEGEND_FONT_COLOR = "#FFFFFF"
 !global $LEGEND_TITLE_COLOR = "#000000"
@@ -51,15 +52,19 @@ skinparam Arrow {
 
 ' Some boundary skinparam have to be set a package skinparams too (PlantUML uses internal packages)
 skinparam package {
-    StereotypeFontSize 0
+    StereotypeFontSize 6
+    StereotypeFontColor $BOUNDARY_BG_COLOR
     FontStyle plain
+    BackgroundColor $BOUNDARY_BG_COLOR
 }
 
 skinparam rectangle<<boundary>> {
     Shadowing false
-    StereotypeFontSize 0
+    StereotypeFontSize 6
+    StereotypeFontColor $BOUNDARY_BG_COLOR
     FontColor $BOUNDARY_COLOR
     BorderColor $BOUNDARY_COLOR
+    BackgroundColor $BOUNDARY_BG_COLOR
     BorderStyle dashed
 }
 
@@ -96,7 +101,9 @@ skinparam rectangle<<boundary>> {
 !function $elementTagSkinparams($element, $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
   !$elementSkin = "skinparam " + $element +"<<" + $tagStereo + ">> {" + %newline()
   !if ($fontColor!="")
-    !$elementSkin = $elementSkin + "    StereotypeFontColor " + $fontColor + %newline()
+    !if ($tagStereo != "boundary")
+      !$elementSkin = $elementSkin + "    StereotypeFontColor " + $fontColor + %newline()
+    !endif
     !$elementSkin = $elementSkin + "    FontColor " + $fontColor + %newline()
   !endif
   !if ($bgColor!="")
@@ -119,6 +126,10 @@ skinparam rectangle<<boundary>> {
   !$tagSkin = $elementTagSkinparams("rectangle", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
   !$tagSkin = $tagSkin + $elementTagSkinparams("database", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
   !$tagSkin = $tagSkin + $elementTagSkinparams("queue", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !if ($tagStereo == "boundary" && $bgColor!="")
+    !$tagSkin = $tagSkin + "skinparam package<<boundary>>StereotypeFontColor " + $bgColor + %newline()
+    !$tagSkin = $tagSkin + "skinparam rectangle<<boundary>>StereotypeFontColor " + $bgColor + %newline()
+  !endif
 $tagSkin
 !endprocedure
 

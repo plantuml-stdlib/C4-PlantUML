@@ -166,13 +166,14 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 ![HIDE_STEREOTYPE Sample](https://www.plantuml.com/plantuml/png/NL1DIyD05BplhrZheIdKX8edJuqrMC5gQ5B5KzWcJxkmN-o-DHJnl_j2gnNtCl1ctfkPdGSK7gDMV7b_MpHLNQoBf_grB7Wbj5F0pgHfLUo0xn1TkCuoB_hqNU8kRcC0trg3O31jhSv4vwKm7ogwc2skBaeb36vM3vaI205fr2n8BQG1dpgoPEoVPp9Xh0GVh4b4fwMPyb4-e0pe1Le_ch1g7n1qSsEZwOJV9-rioiU7gEC9_sIStgzBqiEs4SxHdHVOyjmv9Lk1qfeHZHRdKvvNPVfOrBJYWL-cCxvwNWnShfJj0nyQ1ewMKpqdIAAZGabUlEub8dYEKeCYhq3Plexf4ZoGTESe8vAjGVsqEiNQ1DeaNDPrMP5g4FsofpDtW1IZXm7UlDL_L-PWElhCRm00 "HIDE_STEREOTYPE Sample")
 
 
-## HIDE_PERSON_SPRITE() or SHOW_PERSON_SPRITE(?sprite)
+## HIDE_PERSON_SPRITE(), SHOW_PERSON_SPRITE(?sprite), SHOW_PERSON_PORTRAIT()
 
-With the macros `HIDE_PERSON_SPRITE()` and `SHOW_PERSON_SPRITE()` it is possible to change the person related default sprite. `SHOW_PERSON_SPRITE()` is the default.
+With the macros `HIDE_PERSON_SPRITE()`, `SHOW_PERSON_SPRITE()` and `SHOW_PERSON_PORTRAIT()` it is possible to change the person related default sprite or person layout itself. `SHOW_PERSON_SPRITE()` is the default.
 
 - **HIDE_PERSON_SPRITE()**: deactivates the default sprite
 - **SHOW_PERSON_SPRITE()**: activates the default sprite "person"
 - **SHOW_PERSON_SPRITE($sprite)**: activates a specific sprite as default sprite
+- **SHOW_PERSON_PORTRAIT()**: activates portrait outline instead of a rectangle
 
 "person" and "person2" are predefined sprites which can be used as default sprite too.
 
@@ -254,4 +255,28 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 ```
 
 ![SHOW_PERSON_SPRITE(sprite) Sample](https://www.plantuml.com/plantuml/png/ZL1DQzj04BthLspTGnIm9H9wwYckC4sXIOGbDqUnbYRnmduiCxCOK_hVEzieTkcfkYmpx-EzqHsnHaxE5X-C7ssQG1sO8tskQzJ7wjNm8UqJ0Ox1CtYknk3gQBNFcXNnPCs-RZwjshpQFNoldIO6bDNGY48R3rZ5F_uJlCYa0kbMvl-8QL3J0IPd_5I_-wz214ym9ZHyqZWU3CF82U5sPKHBS_xbcZckRe9pmSzL_WLtabnhQz_Wehj_UXxQpRPxUXowTlkjtvGBeGwvuF2A07uuHo-kYw85fE1BdQikrMATNqECcWCAtfs8mGrVGlAJnbCvtYpLLQTTj71rhNuMIhxppogFi1zqZEBp37krZj6QKRC9VY6hvkDIhRksUjpq8a5GjzMDUlZHP6njRJYIoYL9SL1ZS54BnINBHh9KVpJCW8gD0ojP9Dr-pUrAVWF5PwRbmxPWtw-wrDeHKCwxx_ks4rOcdT6BpLTWaX7oyuB1_Isv0pybPty3 "SHOW_PERSON_SPRITE(sprite)")
+
+**Using SHOW_PERSON_PORTRAIT()**
+
+```csharp
+@startuml SHOW_PERSON_PORTRAIT() Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+SHOW_PERSON_PORTRAIT()
+
+Person(admin, "Administrator")
+System_Boundary(c1, 'Sample') {
+    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
+}
+System(twitter, "Twitter")
+
+' if a person is combined with a sprite then the rectangle layout is used again
+Person(person, "Person with sprite", $sprite="person2")
+
+Rel(admin, web_app, "Uses", "HTTPS")
+Rel(web_app, twitter, "Gets tweets from", "HTTPS")
+@enduml
+```
+
+![SHOW_PERSON_PORTRAIT() Sample](https://www.plantuml.com/plantuml/png/RL1BQzj04BxhLqpTGcHm919wAXIYcj0KcbXOIdCKAsbYB-nZsPd5cDB_tbcKHm_LGRixyptccnjY5JbP0ztTxcbeR_VTxc5eT_j-t_peopLqoWQ3nGVj9fDcX2Dpe2zr7TMfEcW-fZ4HniaxHiVLv6qTZ79PyP9uDdgijvylsrnwlFzPMqMCKKh3LXXAEunL46nH_D--A5gCv5sfPglT1bPDFZLnLEpZQbrqPsAqmpUVtApYkPokDd2np7onXjy5oFTcLPvm75G8elE48pGX63qfrjwjfBJzk86cQwk7srue4U6wkeBxNzlSQupn9u8SbO0zICwW16AJOIrUq9yqCqPWRT685ybiVrwcAtbfYiuBJ9h51UXdK10mvmDDMNCKvWo2EKg7GjICm4Tq-GSH9rRk86P6dNtYp4aaU7MGTA-BMlJ4QdalOekK1FcqtBwk5jXr7cIFvdMzx_jv9AGS_AxlsqvG6VJMVS_p7PdaYVbuZjx-Ixb1DoTh_W80 "SHOW_PERSON_PORTRAIT()")
 

@@ -106,7 +106,7 @@ Rel_R(api, db, "Reads/Writes")
 @enduml
 ```
 
-![Sprites/Icons](http://www.plantuml.com/plantuml/png/hL9DZzCm5BpdLtWh3brfkpu05oIahTh2Lkf7wGSLf-hLVcaCZXtyd9QVptEQhI8-90wSx7Z6CvvvUQ888TQbpUwCKxRMA8eOAtedPO3Buyd4eZxMX45v5z75H-LB-Sq4LL0ivEZDO6N1nTry9l47uner7nv6J0RZC3nMIJgxqvZpfnXFFaz7oyNc7pnYNO4EhsMLz5baO1WTvCmOK1LCH98bKCGWDPuJHZUN3yl5ThYVR9RpoNyrQixWWkHB7Boz5NPB9S6TQWjjwD_Xht26ls4bVRS7VjaPVxdUJIDhPb3RwMpuPRdR7lRJxVDXDlauMOpxzrcsOe9t_KHy4BrHJT6N67gyNw6lB8fOG1GEKOigU5shI0o-kYPztsiCUlVPRO1zge0lRrR3fD46JDjjWQ9aYZ1SPSX1jTAHprLhUyM0FSI5k-yQlIXrhQ0oB3nSJPD-AYkjp-2qHH9WhU3PCP58M7yogYkNs5sjyR6lZtnx316EG9YKvaO5JpwFOlDfraXxg-cbXWVXWyOWs8wVVVP68Q-v3oL4urtNh3ChzipMQDk-hrtj22d9DxyU4nBU89plp_1XVStUF7cDe4dkarM2dz1fdlTF "Sprites/Icons")
+![Sprites/Icons](https://www.plantuml.com/plantuml/png/hL9DZzCm5BpdLtWh3brfkpu05oIahTh2Lkf7wGSLf-hLVcaCZXtyd9QVptEQhI8-90wSx7Z6CvvvUQ888TQbpUwCKxRMA8eOAtedPO3Buyd4eZxMX45v5z75H-LB-Sq4LL0ivEZDO6N1nTry9l47uner7nv6J0RZC3nMIJgxqvZpfnXFFaz7oyNc7pnYNO4EhsMLz5baO1WTvCmOK1LCH98bKCGWDPuJHZUN3yl5ThYVR9RpoNyrQixWWkHB7Boz5NPB9S6TQWjjwD_Xht26ls4bVRS7VjaPVxdUJIDhPb3RwMpuPRdR7lRJxVDXDlauMOpxzrcsOe9t_KHy4BrHJT6N67gyNw6lB8fOG1GEKOigU5shI0o-kYPztsiCUlVPRO1zge0lRrR3fD46JDjjWQ9aYZ1SPSX1jTAHprLhUyM0FSI5k-yQlIXrhQ0oB3nSJPD-AYkjp-2qHH9WhU3PCP58M7yogYkNs5sjyR6lZtnx316EG9YKvaO5JpwFOlDfraXxg-cbXWVXWyOWs8wVVVP68Q-v3oL4urtNh3ChzipMQDk-hrtj22d9DxyU4nBU89plp_1XVStUF7cDe4dkarM2dz1fdlTF "Sprites/Icons")
 
 Similar to icons/sprites is it possible to add links to all elements and relationships:
 
@@ -129,7 +129,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS", $link="https://plantuml.com/l
 > Github does not support `svg` links in README.md.
 > If you click on the image a new window is opened and there you can use the links.
 
-![Click on the image that the links are working](http://www.plantuml.com/plantuml/svg/jP9FQzj04CNl-XHRfGS7R8c4dWg6EAQqXwGrjT8UnKexhPRidsLcX6fAltjdhJWXzDH0TD2YDwFtVZpfYbWZZzwfQqssLtljauFYZGsz6mseWJdH-xf6FLK_BGzZDn9W7mD3uAgFlhwts0_4Gxrzjzev7VZkzgQ6Np8tO4HijxAiRG2iakGKnGwGObXeusrOgdAJJqkCcYEMI_MM4bg6TPcEUvTPSZRShyiJoynn34yvK5nNnCRPxXb3vs9NUqqCMD_eGnpvIs8R0rNUd0tMG3idj7FWAkAAXZWzL-TxULxi3sBas-iu1gFniEWlX7rkIyspbuAMv-fteUHwB6enGTVgb2JXEtHgavAplSxifKZRiwNQx7VLvm-Dl8AWBgiBTVjjc_CDK8_hSkDSd4ZbJqMAenA2f6NJZuvj9cucomoes7fm4aclqhBKzkUXk0NFYSB_aFtokehYAxZJ__DKrHq1vNu-DSrk_w_xoVBedqTYb7qU3Pu8FmAJF48-Vc3q_-bw1S68z1S0 "Click on the image that the links are working")
+![Click on the image that the links are working](https://www.plantuml.com/plantuml/png/jP9FQzj04CNl-XHRfGS7R8c4dWg6kAQqXwGrjT8UnKexhPRidsLcX6fAltjdhJWXz5H3TT2YDwFtVZpfXbWZZzuLhspetMX03So9tjOrwgdwONaOkv40-nWO0bTzzFM3nNuW7khjczNEwS3tTxSr_9Iv0IDYkvLbRGDWbR9riGEa61RQU1kMgjpaqnAZveZbKhscX9PXNQRZtdMMd0qFw_B4CdCSmrCE5DSLiN6sUy7GkTZLNXC3rhVw44V-dDZ6G9Kt5uCrqCu9xHouYhYY8KulrVbUNXRxWnZvzbqSWz5uMFHNmhxNFZbGy-nSqF9I_IgKN4z5BIReMfsI97o3JcrIShRNcRqKQNknL9lzhlhqlf5N4DHrTQNklcvplW7gSLrkd8iJgVofI75KGf2qRFhHiSt4pMIP0HLR3y8Cz5zQbjf-FnQtu3bH-1-ppw-hABw0E_q_prNT4r3kvsFJxFP_kvyiZ_vv94RPvydWcV03CCaZvECxHl-FhZSGZ4X_0000 "Click on the image that the links are working")
 
 Elements and relations can be decorated with tags and explained via a calculated legend, for example:
 
@@ -236,24 +236,34 @@ You can force the direction of a relationship by using:
 * `Rel_L`, `Rel_Left`
 * `Rel_R`, `Rel_Right`
 
-Relationship specific sprites are not down scaled, they requires typically smaller icons.
-Therefore if sprite argument starts with `&` an OpenIconic name can be used too (details see https://useiconic.com/open)
+Relationship specific sprites are typically smaller and therefore following options are possible:
+* use smaller icons (like the $triangle in the following sample)
+* use an additional scale factor (direct as part of the argument, or via a variable)
+* if sprite argument starts with `&` an OpenIconic name can be used too (details see https://useiconic.com/open)
 
 ```csharp
 @startuml
-!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Dynamic.puml
+!include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Context.puml
 
-Person(user, "User1")
-Person(user2, "User2")
+Person(user, "User")
+Person(user1, "User 1")
+Person(user2, "User 2")
+Person(user3, "User 3")
+
 System(system, "System")
 
-' if sprite starts with &, sprite defines a OpenIconic, details see https://useiconic.com/open/
-Rel_D(user, system, "requests", "async message", "if sprite starts with &, it defines a OpenIconic like &envelope-closed", $sprite = "&envelope-closed")
-
 ' normal sprites are too big 
-Rel_R(user, user2, "informs", "courier", "normal sprites are too big", "person2")
+Rel_L(user, user2, "informs", "courier", "normal sprites are too big", $sprite="person2")
 
-' special smaller sprites have to be used
+' scaled sprites are ok
+Rel_R(user, user3, "informs", "courier", "scaled sprites are OK", $sprite="person2,scale=0.5")
+
+' combine sprite and scale to a new sprite
+!$combinedSprite="person2,scale=0.5"
+Rel_R(user, user3, "informs", "courier", "combined sprites are OK", $sprite=$combinedSprite)
+
+
+' special smaller sprites can be used
 sprite $triangle {
     00000000000
     00000F00000
@@ -268,11 +278,14 @@ sprite $triangle {
     0FFFFFFFFF0
     00000000000
 }
-Rel(user, system, "orders", "http", "only small sprites looks ok, like the small triangle", "triangle")
+Rel_R(user1, system, "orders", "http", "small sprites, like the small triangle", $sprite="triangle")
+
+' if sprite starts with &, sprite defines a OpenIconic, details see https://useiconic.com/open/
+Rel_D(user, user1, "requests", "async message", "if sprite starts with &, it defines a OpenIconic like &envelope-closed", $sprite = "&envelope-closed")
 @enduml
 ```
 
-![Relation with sprite or OpenIconic](https://www.plantuml.com/plantuml/png/VL9XQnGn4Fs-ls8yIctXUgkd22S8HKj0K2oLVYvfTkusN3PPCxCz3_6_EydktUhXThuaxqrcvkKbryGwSjUuueNrndKLGitSqlkoZ7gts5YkkyUEC9hW6JqlJ6ZAhOsc9gxBJs-lRftsVF_rIua_9LzX9UJ3pTxhnff5cneNjnWf-8lKPGwpUrbUpox_PfS3lHJw-vuOcmlAY_0zbaJn4kmQg8sM4R9gWft8W_FvWQrmRJqIQFZMelyiagsP2ylQEWB2yMuorUPqla-GqsLnX-xXPb1v71_nHuV4D9Ezfhqtq22Htc0Y9lLO_gyMS7QBS8x-2PtCl38k45RIwMneym5cfzd-vZx4HhjXcZID21m2FDeDPDrtW-w3czQlfIAhDg6B5cFQJdT9sJO_oB8VI2qQcyvAWSDuhAdranH93QPPLJ48F-DejTyuX5y5IBmQOyJgNwm-gkUmMgrMQXghTodK55Pl-b1JU0Z1ftf_9qTF_q685SRiP_f2QGtUxRCzew4kX2r1sCxxX-OQXmC7TrBTSNzPNAElkiRz0G00 "Relation with sprite or OpenIconic")
+![Relation with sprite or OpenIconic](https://www.plantuml.com/plantuml/png/bLJVQzim47xtNt4reMl1ZTDa6sGGAEimZ7MqjFIvAD8b5f4bJvANbR7_VVfXDSaQ3telydsdk--xu-GhOucsNIEo4owfw1X2RMrhFfMb9jlncjkwMtO6DLNIehHZgffompMjZQtBw_SNTu98-_ZzfiHVBiwGEV3fsbrs_hZrXRCxr4R9Cr-bWFpH7VdvFdZPet1vY4yJFZt4PmcVEJnxU3OMcpCJ3XU9le-y0wbqGmIOLdEB1eX6i4h1agyXkqVnTDEBIcnShbo6oTqdLPtcgFtdS1KN7KLuaRT1u3GI6qe4ieCKjGcKztkKiq7A8_cttuwm5U7YOZB-47cfQfPSOfy8HB8enGa60XAtVIGx6VLNsSDWnJVeJSM65V_3vzJwCRL8kH-jcwz0_P9DYOGbUawMHGn6LdCYrmBXTmRE9ZlR-TMXNtsk_kTNy_cy6lQhZzwg8R-QHQk6_6IJLth_fCd6vNzPNQKPwZ1Q_mRz6GQJnbA0u1i4MoD4F8raVp4I5lU1hz8gX7TkOCjj3QT5GXckk4G316vRb5-fafmM3hM42mC6Tty3fvM7SFW3A7Ux35ryIVlHFsIDFpeqDdH1pBEaqA0nP8qU69J3xL4fiU5Jb3zHECeBAfH1jciN5f2_YfvdLoXPruY_ "Relation with sprite or OpenIconic")
 
 In rare cases, you can force the layout of objects which have no relationships by using:
 
@@ -323,10 +336,11 @@ C4-PlantUML also comes with some layout options to make it easy and reusable to 
 * [LAYOUT_AS_SKETCH()](LayoutOptions.md#layout_as_sketch)
 * [HIDE_STEREOTYPE()](LayoutOptions.md#hide_stereotype)
 
-C4-PlantUML also comes with some default person sprite options:
+C4-PlantUML also comes with some person sprite/portrait options:
 
 * [HIDE_PERSON_SPRITE()](LayoutOptions.md#hide_person_sprite)
 * [SHOW_PERSON_SPRITE(?sprite)](LayoutOptions.md#show_person_sprite)
+* [SHOW_PERSON_PORTRAIT()](LayoutOptions.md#show_person_portrait)
 
 ## Custom tags/stereotypes support and skinparam updates
 

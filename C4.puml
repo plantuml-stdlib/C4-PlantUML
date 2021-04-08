@@ -51,10 +51,16 @@ skinparam queue {
     shadowing false
 }
 
-skinparam Arrow {
+skinparam arrow {
     Color $ARROW_COLOR
     FontColor $ARROW_COLOR
     FontSize 12
+}
+
+skinparam actor {
+    StereotypeFontSize 12
+    shadowing false
+    style awesome
 }
 
 ' Some boundary skinparam have to be set a package skinparams too (PlantUML uses internal packages)
@@ -154,6 +160,8 @@ skinparam rectangle<<boundary>> {
   !$tagSkin = $elementTagSkinparams("rectangle", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
   !$tagSkin = $tagSkin + $elementTagSkinparams("database", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
   !$tagSkin = $tagSkin + $elementTagSkinparams("queue", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  ' actor has style awesome, therefore $fontColor is ignored and text uses $bgColor too
+  !$tagSkin = $tagSkin + $elementTagSkinparams("actor", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing)
   !if ($tagStereo == "boundary" && $bgColor!="")
     !$tagSkin = $tagSkin + "skinparam package<<boundary>>StereotypeFontColor " + $bgColor + %newline()
     !$tagSkin = $tagSkin + "skinparam rectangle<<boundary>>StereotypeFontColor " + $bgColor + %newline()
@@ -170,7 +178,7 @@ $tagSkin
 !endfunction
 
 !unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor)
-  !$elementSkin = "skinparam Arrow<<" + $tagStereo + ">> {" + %newline()
+  !$elementSkin = "skinparam arrow<<" + $tagStereo + ">> {" + %newline()
   !$elementSkin = $elementSkin + "    Color "
   !if ($lineColor!="")
     !$elementSkin = $elementSkin + ColorNoHash($lineColor)
@@ -317,7 +325,7 @@ $defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
 
 ' update the style of default relation, it has to set both properties (combined statement not working)
 !unquoted procedure UpdateRelStyle($textColor, $lineColor)
-  !$elementSkin = "skinparam Arrow {" + %newline()
+  !$elementSkin = "skinparam arrow {" + %newline()
   !$elementSkin = $elementSkin + "    Color " + $lineColor + %newline()
   !$elementSkin = $elementSkin + "    FontColor " + $textColor + %newline()
   !$elementSkin = $elementSkin + "}" + %newline()

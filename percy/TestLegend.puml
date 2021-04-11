@@ -1,0 +1,52 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Component.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!endif
+
+SHOW_PERSON_SPRITE(person2)
+
+UpdateElementStyle("system", $bgColor="chocolate", $fontColor="orange", $borderColor="orange")
+UpdateRelStyle(black, black)
+
+AddElementTag("role1", $bgColor="green", $fontColor="white", $borderColor="#d73027", $shadowing="false")
+AddElementTag("role2", $fontColor="#d73027", $shadowing="true")
+AddElementTag("role3", $bgColor="orange")
+AddElementTag("role4", $borderColor="blue")
+AddElementTag("unusedRole")
+
+AddRelTag("line1", $lineColor="green", $textColor="blue")
+AddRelTag("line2", $lineColor="blue", $textColor="green")
+AddRelTag("line3", $textColor="orange")
+AddRelTag("line4", $lineColor="orange")
+' PlantUML cannot combine line styles, a combination has to be added as workaround as first additional tag
+AddRelTag("line3&line4", $lineColor="orange", $textColor="orange")
+AddRelTag("unusedLine", $lineColor="red", $textColor="red")
+
+Person(person, "Person")
+Person(person1, "Person1", $tags="role1")
+Person(person2, "Person2", $tags="role2")
+Person(person21, "Person21", $tags="role2+role1")
+Person(person321, "Person321", $tags="role3+role2+role1")
+Person(person4321, "Person43", $tags="role4+role3")
+Person(person31, "Person31", $tags="role3+role1")
+Person(person13, "Person13", $tags="role1+role3")
+
+Person(allInOne, "AllInOne", $tags="role4+role3+role2+role1")
+
+Component(component, "Component 1", "PlantUML")
+System(system1A, "System 1A")
+System(system2, "System 2")
+
+Rel(allInOne, component, "without a tag")
+Rel(allInOne, component, "uses line 1", $tags="line1")
+Rel(allInOne, component, "uses line 2", $tags="line2")
+Rel(allInOne, system1A, "uses line 3", $tags="line3")
+Rel(allInOne, system1A, "uses line 4", $tags="line4")
+Rel(allInOne, system2, "line 3+4 cannot be combined without workaround", $tags="line3+line4")
+Rel(allInOne, system2, "line 3+4 with workaround", $tags="line3&line4+line3+line4")
+
+SHOW_LEGEND(false)
+@enduml

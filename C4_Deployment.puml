@@ -16,8 +16,8 @@
 ' ##################################
 
 ' orig was without background
-'UpdateSkinparamsAndLegendEntry("node", $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR)
-UpdateSkinparamsAndLegendEntry("node", $bgColor=$NODE_BG_COLOR, $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR)
+'UpdateElementStyle("node", $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR)
+UpdateElementStyle("node", $bgColor=$NODE_BG_COLOR, $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR)
 skinparam rectangle<<node>> {
     FontStyle normal
 }
@@ -25,23 +25,20 @@ skinparam rectangle<<node>> {
 ' Layout
 ' ##################################
 
-' comment if node should not be added to legend. No dynamic legend extension required
+' comment if node should not be added to legend. No calculated legend extension required
 SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_system\nexternal_container\nnode")
 
-' Special
+' Line breaks
 ' ##################################
 
 ' PlantUML supports no automatic line breaks of "PlantUML containers" (C4 Deployment_Node is a "PlantUML container")
-' therefore Deployment_Node() implements an automatic line break based on spaces (like in all other objects).
-' If a $type contains \n then the these are used (and no automatic space based line breaks are done)
+' therefore (Deployment_)Node() implements an automatic line break based on spaces (like in all other objects).
+' If a $type contains \n then these are used (and no automatic space based line breaks are done)
 ' $NODE_TYPE_MAX_CHAR_WIDTH defines the automatic line break position
 !global $NODE_TYPE_MAX_CHAR_WIDTH = 35
 !global $NODE_DESCR_MAX_CHAR_WIDTH=32
 
-' Elements
-' ##################################
-
-!unquoted function $breakType($type, $widthStr)
+!unquoted function $breakNode($type, $widthStr)
 !$width = %intval($widthStr)
 !$multiLine = ""
 !if (%strpos($type, "\n") >= 0)
@@ -77,36 +74,8 @@ SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_sy
 !return $multiLine
 !endfunction
 
-!unquoted function $breakDescr($descr, $widthStr)
-!$width = %intval($widthStr)
-!$multiLine = ""
-!if (%strpos($descr, "\n") >= 0)
-!else
-  !while (%strlen($descr)>$width)
-    !$brPos = $width 
-    !while ($brPos>0 && %substr($descr, $brPos, 1)!= ' ')
-      !$brPos = $brPos - 1
-    !endwhile
-
-    !if ($brPos < 1)
-      !$brPos = %strpos($descr, " ")
-    !else
-    !endif
-
-    !if ($brPos > 0)
-      !$multiLine = $multiLine + %substr($descr, 0, $brPos) + "\n"
-      !$descr = %substr($descr, $brPos + 1)
-    !else
-      !$multiLine = $multiLine+ $descr
-      !$descr = ""
-    !endif
-  !endwhile
-!endif
-!if (%strlen($descr)>0)
-  !$multiLine = $multiLine + $descr
-!endif
-!return $multiLine
-!endfunction
+' Elements
+' ##################################
 
 !function $getNode($label, $type, $descr, $sprite)
   !$nodeText = ""
@@ -115,7 +84,7 @@ SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_sy
   !endif
   !$nodeText = $nodeText + '==' + $label
   !if ($type != "")
-    !$nodeText = $nodeText + '\n<size:' + $TECHN_FONT_SIZE + '>[' + $breakType($type, $NODE_TYPE_MAX_CHAR_WIDTH) + ']</size>'
+    !$nodeText = $nodeText + '\n<size:' + $TECHN_FONT_SIZE + '>[' + $breakNode($type, $NODE_TYPE_MAX_CHAR_WIDTH) + ']</size>'
   !endif
   !if ($descr != "")
     !$nodeText = $nodeText + '\n\n' + $breakDescr($descr, $NODE_DESCR_MAX_CHAR_WIDTH)
@@ -130,7 +99,7 @@ SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_sy
   !endif
   !$nodeText = $nodeText + '==' + $label
   !if ($type != "")
-    !$nodeText = $nodeText + '\l<size:' + $TECHN_FONT_SIZE + '>[' + $breakType($type, $NODE_TYPE_MAX_CHAR_WIDTH) + ']</size>'
+    !$nodeText = $nodeText + '\l<size:' + $TECHN_FONT_SIZE + '>[' + $breakNode($type, $NODE_TYPE_MAX_CHAR_WIDTH) + ']</size>'
   !endif
   !if ($descr != "")
     !$nodeText = $nodeText + '\l\l' + $breakDescr($descr, $NODE_DESCR_MAX_CHAR_WIDTH)
@@ -145,7 +114,7 @@ SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_sy
   !endif
   !$nodeText = $nodeText + '==' + $label
   !if ($type != "")
-    !$nodeText = $nodeText + '\r<size:' + $TECHN_FONT_SIZE + '>[' + $breakType($type, $NODE_TYPE_MAX_CHAR_WIDTH) + ']</size>'
+    !$nodeText = $nodeText + '\r<size:' + $TECHN_FONT_SIZE + '>[' + $breakNode($type, $NODE_TYPE_MAX_CHAR_WIDTH) + ']</size>'
   !endif
   !if ($descr != "")
     !$nodeText = $nodeText + '\r\r' + $breakDescr($descr, $NODE_DESCR_MAX_CHAR_WIDTH)
@@ -153,26 +122,26 @@ SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_sy
   !return $nodeText 
 !endfunction
 
-!unquoted procedure Deployment_Node($alias, $label, $type="", $descr="", $sprite="", $tags="")
-rectangle "$getNode($label, $type, $descr, $sprite)$getProps()" $toStereos("node",$tags) as $alias
+!unquoted procedure Deployment_Node($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
+rectangle "$getNode($label, $type, $descr, $sprite)$getProps()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure Deployment_Node_L($alias, $label, $type="", $descr="", $sprite="", $tags="")
-rectangle "$getNode_L($label, $type, $descr, $sprite)$getProps_L()" $toStereos("node",$tags) as $alias
+!unquoted procedure Deployment_Node_L($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
+rectangle "$getNode_L($label, $type, $descr, $sprite)$getProps_L()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure Deployment_Node_R($alias, $label, $type="", $descr="", $sprite="", $tags="")
-rectangle "$getNode_R($label, $type, $descr, $sprite)$getProps_R()" $toStereos("node",$tags) as $alias
+!unquoted procedure Deployment_Node_R($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
+rectangle "$getNode_R($label, $type, $descr, $sprite)$getProps_R()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure Node($alias, $label, $type="", $descr="", $sprite="", $tags="")
-rectangle "$getNode($label, $type, $descr, $sprite)$getProps()" $toStereos("node",$tags) as $alias
+!unquoted procedure Node($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
+rectangle "$getNode($label, $type, $descr, $sprite)$getProps()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure Node_L($alias, $label, $type="", $descr="", $sprite="", $tags="")
-rectangle "$getNode_L($label, $type, $descr, $sprite)$getProps_L()" $toStereos("node",$tags) as $alias
+!unquoted procedure Node_L($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
+rectangle "$getNode_L($label, $type, $descr, $sprite)$getProps_L()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure Node_R($alias, $label, $type="", $descr="", $sprite="", $tags="")
-rectangle "$getNode_R($label, $type, $descr, $sprite)$getProps_R()" $toStereos("node",$tags) as $alias
+!unquoted procedure Node_R($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
+rectangle "$getNode_R($label, $type, $descr, $sprite)$getProps_R()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure

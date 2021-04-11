@@ -6,8 +6,8 @@
   !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 !endif
 
-LAYOUT_TOP_DOWN()
-'LAYOUT_AS_SKETCH()
+' LAYOUT_TOP_DOWN()
+' LAYOUT_AS_SKETCH()
 LAYOUT_WITH_LEGEND()
 
 title Container diagram for Internet Banking System
@@ -18,7 +18,7 @@ System_Boundary(c1, "Internet Banking") {
     Container(web_app, "Web Application", "Java, Spring MVC", "Delivers the static content and the Internet banking SPA")
     Container(spa, "Single-Page App", "JavaScript, Angular", "Provides all the Internet banking functionality to cutomers via their web browser")
     Container(mobile_app, "Mobile App", "C#, Xamarin", "Provides a limited subset of the Internet banking functionality to customers via their mobile device")
-    ContainerDb(database, "Database", "SQL Database", "Stores user registraion information, hased auth credentials, access logs, etc.")
+    ContainerDb(database, "Database", "SQL Database", "Stores user registration information, hashed auth credentials, access logs, etc.")
     Container(backend_api, "API Application", "Java, Docker Container", "Provides Internet banking functionality via API")
 }
 

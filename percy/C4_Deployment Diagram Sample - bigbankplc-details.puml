@@ -6,10 +6,12 @@
   !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
 !endif
 
-AddTagSupport("fallback", $bgColor="#c0c0c0")
+AddElementTag("fallback", $bgColor="#c0c0c0")
+AddRelTag("fallback", $textColor="#c0c0c0", $lineColor="#438DD5")
+
 WithoutPropertyHeader()
 
-' dynamic legend is used (activated in last line)
+' calculated legend is used (activated in last line)
 ' LAYOUT_WITH_LEGEND()
 
 title Deployment Diagram for Internet Banking System - Live
@@ -61,8 +63,8 @@ Rel(mobile, api, "Makes API calls to", "json/HTTPS")
 Rel(spa, api, "Makes API calls to", "json/HTTPS")
 Rel_U(web, spa, "Delivers to the customer's web browser")
 Rel(api, db, "Reads from and writes to", "JDBC")
-Rel(api, db2, "Reads from and writes to", "JDBC")
+Rel(api, db2, "Reads from and writes to", "JDBC", $tags="fallback")
 Rel_R(db, db2, "Replicates data to")
 
-SHOW_DYNAMIC_LEGEND()
+SHOW_LEGEND()
 @enduml

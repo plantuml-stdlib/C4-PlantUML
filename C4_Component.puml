@@ -23,8 +23,8 @@
 ' Styling
 ' ##################################
 
-UpdateSkinparamsAndLegendEntry("component", $COMPONENT_BG_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
-UpdateSkinparamsAndLegendEntry("external_component", $EXTERNAL_COMPONENT_BG_COLOR, $COMPONENT_FONT_COLOR, $EXTERNAL_COMPONENT_BORDER_COLOR)
+UpdateElementStyle("component", $COMPONENT_BG_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
+UpdateElementStyle("external_component", $EXTERNAL_COMPONENT_BG_COLOR, $COMPONENT_FONT_COLOR, $EXTERNAL_COMPONENT_BORDER_COLOR)
 
 ' Layout
 ' ##################################
@@ -64,26 +64,26 @@ endlegend
 !endif
 !endfunction
 
-!unquoted procedure Component($alias, $label, $techn, $descr="", $sprite="", $tags="")
-rectangle "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("component",$tags) as $alias
+!unquoted procedure Component($alias, $label, $techn, $descr="", $sprite="", $tags="", $link="")
+rectangle "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("component",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure ComponentDb($alias, $label, $techn, $descr="", $sprite="", $tags="")
-database "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("component",$tags) as $alias
+!unquoted procedure ComponentDb($alias, $label, $techn, $descr="", $sprite="", $tags="", $link="")
+database "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("component",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure ComponentQueue($alias, $label, $techn, $descr="", $sprite="", $tags="")
-queue "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("component",$tags) as $alias
+!unquoted procedure ComponentQueue($alias, $label, $techn, $descr="", $sprite="", $tags="", $link="")
+queue "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("component",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure Component_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
-rectangle "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_component",$tags) as $alias
+!unquoted procedure Component_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="", $link="")
+rectangle "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_component",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure ComponentDb_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
-database "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_component",$tags) as $alias
+!unquoted procedure ComponentDb_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="", $link="")
+database "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_component",$tags) as $alias $getLink($link)
 !endprocedure
 
-!unquoted procedure ComponentQueue_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="")
-queue "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_component",$tags) as $alias
+!unquoted procedure ComponentQueue_Ext($alias, $label, $techn, $descr="", $sprite="", $tags="", $link="")
+queue "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_component",$tags) as $alias $getLink($link)
 !endprocedure

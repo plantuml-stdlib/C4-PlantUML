@@ -1,0 +1,71 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Dynamic.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml
+!endif
+
+System(RelFrom, RelFrom)
+System(RelShort, RelShort)
+System(RelLong, RelLong)
+
+System(RelIndexFrom, RelIndexFrom)
+System(RelIndexShort, RelIndexShort)
+System(RelIndexLong, RelIndexLong)
+
+Rel_(Index(), RelFrom, To_Rel_UP, "A label", "-UP->>")
+Rel_(Index(), RelFrom, To_Rel_DOWN, "A label", "A techn", "-DOWN->>")
+
+Rel(RelFrom, "To_Rel", "A label")
+Rel(RelFrom, "To_Rel_Tech", "A label", "A techn")
+Rel_Back(RelFrom, "To_Rel_Back", "A label")
+Rel_Back(RelFrom, "To_Rel_Back_Tech", "A label", "A techn")
+Rel_Neighbor(RelFrom, "To_Rel_Neighbor", "A label")
+Rel_Neighbor(RelFrom, "To_Rel_Neighbor_Tech", "A label", "A techn")
+Rel_Back_Neighbor(RelFrom, "To_Rel_Back_Neighbor", "A label")
+Rel_Back_Neighbor(RelFrom, "To_Rel_Back_Neighbor_Tech", "A label", "A techn")
+
+RelIndex(Index(), RelIndexFrom, "To_RelIndex", "A label")
+RelIndex(Index(), RelIndexFrom, "To_RelIndex_Tech", "A label", "A techn")
+
+Rel_D(RelShort, "To_Rel_D", "A label")
+Rel_D(RelShort, "To_Rel_D_Tech", "A label", "A techn")
+Rel_Down(RelLong, "To_Rel_Down", "A label")
+Rel_Down(RelLong, "To_Rel_Down_Tech", "A label", "A techn")
+Rel_L(RelShort, "To_Rel_L", "A label")
+Rel_L(RelShort, "To_Rel_L_Tech", "A label", "A techn")
+Rel_Left(RelLong, "To_Rel_Left", "A label")
+Rel_Left(RelLong, "To_Rel_Left_Tech", "A label", "A techn")
+Rel_R(RelShort, "To_Rel_R", "A label")
+Rel_R(RelShort, "To_Rel_R_Tech", "A label", "A techn")
+Rel_Right(RelLong, "To_Rel_Right", "A label")
+Rel_Right(RelLong, "To_Rel_Right_Tech", "A label", "A techn")
+Rel_U(RelShort, "To_Rel_U", "A label")
+Rel_U(RelShort, "To_Rel_U_Tech", "A label", "A techn")
+Rel_Up(RelLong, "To_Rel_Up", "A label")
+Rel_Up(RelLong, "To_Rel_Up_Tech", "A label", "A techn")
+
+RelIndex_D(Index(), RelIndexShort, "To_RelIndex_D", "A label")
+RelIndex_D(Index(), RelIndexShort, "To_RelIndex_D_Tech", "A label", "A techn")
+RelIndex_Down(Index(), RelIndexLong, "To_RelIndex_Down", "A label")
+RelIndex_Down(Index(), RelIndexLong, "To_RelIndex_Down_Tech", "A label", "A techn")
+RelIndex_L(Index(), RelIndexShort, "To_RelIndex_L", "A label")
+RelIndex_L(Index(), RelIndexShort, "To_RelIndex_L_Tech", "A label", "A techn")
+RelIndex_Left(Index(), RelIndexLong, "To_RelIndex_Left", "A label")
+RelIndex_Left(Index(), RelIndexLong, "To_RelIndex_Left_Tech", "A label", "A techn")
+RelIndex_R(Index(), RelIndexShort, "To_RelIndex_R", "A label")
+RelIndex_R(Index(), RelIndexShort, "To_RelIndex_R_Tech", "A label", "A techn")
+RelIndex_Right(Index(), RelIndexLong, "To_RelIndex_Right", "A label")
+RelIndex_Right(Index(), RelIndexLong, "To_RelIndex_Right_Tech", "A label", "A techn")
+RelIndex_U(Index(), RelIndexShort, "To_RelIndex_U", "A label")
+RelIndex_U(Index(), RelIndexShort, "To_RelIndex_U_Tech", "A label", "A techn")
+RelIndex_Up(Index(), RelIndexLong, "To_RelIndex_Up", "A label")
+RelIndex_Up(Index(), RelIndexLong, "To_RelIndex_Up_Tech", "A label", "A techn")
+
+Lay_U(RelFrom, RelIndexFrom)
+Lay_D(RelFrom, RelShort)
+Lay_D(RelShort, RelLong)
+Lay_R(RelLong, RelIndexShort)
+Lay_L(RelLong, RelIndexLong)
+@enduml

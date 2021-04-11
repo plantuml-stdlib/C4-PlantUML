@@ -1,0 +1,35 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml
+
+LAYOUT_TOP_DOWN()
+LAYOUT_WITH_LEGEND()
+
+Person(customer, Customer, "A customer")
+System_Boundary(c1, "Customer Information") {
+    Container(app, "Customer Application", "Javascript, Angular", "Allows customers to manage their profile")
+    Container(customer_service, "Customer Service", "Java, Spring Boot", "The point of access for customer information")
+    Container(message_bus, "Message Bus", "RabbitMQ", "Transport for business events")
+    Container(reporting_service, "Reporting Service", "Ruby", "Creates normalised data for reporting purposes")
+    Container(audit_service, "Audit Service", "C#/.NET", "Provides organisation-wide auditing facilities")
+    ContainerDb(customer_db, "Customer Database", "Oracle 12c", "Stores customer information")
+    ContainerDb(reporting_db, "Reporting Database", "MySQL", "Stores a normalized version of all business data for ad hoc reporting purposes")
+    Container(audit_store, "Audit Store", "Event Store", "Stores information about events that have happened")
+}
+
+Rel_D(customer, app, "Updates his profile using", "HTTPS")
+Rel(app, customer_service, "Updates customer information using", "JSON/HTTPS")
+Rel_R(customer_service, customer_db, "Stores data in", "JDBC")
+
+RelIndex_D($index-1, customer_service, message_bus, "Sends customer update events to", "async")
+RelIndex_U($index-2, customer_service, app, "Confirm update to", "async")
+increment()
+
+RelIndex_L($index-1, message_bus, reporting_service, "Sends customer update events to", "async")
+increment()
+RelIndex($index-1, reporting_service, reporting_db, "Stores data in")
+
+setIndex(5)
+RelIndex_R($index-2, message_bus, audit_service, "Sends customer update events to", "async")
+increment()
+RelIndex($index-2, audit_service, audit_store, "Stores events in")
+@enduml

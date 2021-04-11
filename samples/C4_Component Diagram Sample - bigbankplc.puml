@@ -1,9 +1,9 @@
 @startuml
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 ' uncomment the following line and comment the first to use locally
 ' !include C4_Component.puml
 
-LAYOUT_WITH_LEGEND
+LAYOUT_WITH_LEGEND()
 
 title Component diagram for Internet Banking System - API Application
 
@@ -14,7 +14,7 @@ System_Ext(mbs, "Mainframe Banking System", "Stores all of the core banking info
 
 Container_Boundary(api, "API Application") {
     Component(sign, "Sign In Controller", "MVC Rest Controlle", "Allows users to sign in to the internet banking system")
-    Component(accounts, "Accounts Summary Controller", "MVC Rest Controlle", "Provides customers with a summory of their bank accounts")
+    Component(accounts, "Accounts Summary Controller", "MVC Rest Controller", "Provides customers with a summary of their bank accounts")
     Component(security, "Security Component", "Spring Bean", "Provides functionality related to singing in, changing passwords, etc.")
     Component(mbsfacade, "Mainframe Banking System Facade", "Spring Bean", "A facade onto the mainframe banking system.")
 

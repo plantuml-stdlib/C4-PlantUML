@@ -1,20 +1,33 @@
-' C4-PlantUML, version 1.0.0
-' https://github.com/RicardoNiepel/C4-PlantUML
+' C4-PlantUML
 
 ' Colors
 ' ##################################
 
-!define ELEMENT_FONT_COLOR #FFFFFF
+!global $ELEMENT_FONT_COLOR = "#FFFFFF"
+
+!global $ARROW_COLOR = "#666666"
+
+!global $BOUNDARY_COLOR = "#444444"
+!global $BOUNDARY_BG_COLOR = "#FFFFFF"
+
+!global $LEGEND_FONT_COLOR = "#FFFFFF"
+!global $LEGEND_TITLE_COLOR = "#000000"
+!global $LEGEND_UNDEFINED_BK_COLOR = "#87AECA"
+!global $LEGEND_UNDEFINED_FONT_COLOR = "#B7DEFA"
 
 ' Styling
 ' ##################################
 
-!define TECHN_FONT_SIZE 12
+!global $TECHN_FONT_SIZE = 12
 
 skinparam defaultTextAlignment center
 
 skinparam wrapWidth 200
 skinparam maxMessageSize 150
+
+skinparam LegendBorderColor transparent
+skinparam LegendBackgroundColor transparent
+skinparam LegendFontColor $LEGEND_FONT_COLOR
 
 skinparam rectangle {
     StereotypeFontSize 12
@@ -26,81 +39,461 @@ skinparam database {
     shadowing false
 }
 
+skinparam queue {
+    StereotypeFontSize 12
+    shadowing false
+}
+
 skinparam Arrow {
-    Color #666666
-    FontColor #666666
+    Color $ARROW_COLOR
+    FontColor $ARROW_COLOR
     FontSize 12
+}
+
+' Some boundary skinparam have to be set a package skinparams too (PlantUML uses internal packages)
+skinparam package {
+    StereotypeFontSize 6
+    StereotypeFontColor $BOUNDARY_BG_COLOR
+    FontStyle plain
+    BackgroundColor $BOUNDARY_BG_COLOR
 }
 
 skinparam rectangle<<boundary>> {
     Shadowing false
-    StereotypeFontSize 0
-    FontColor #444444
-    BorderColor #444444
+    StereotypeFontSize 6
+    StereotypeFontColor $BOUNDARY_BG_COLOR
+    FontColor $BOUNDARY_COLOR
+    BorderColor $BOUNDARY_COLOR
+    BackgroundColor $BOUNDARY_BG_COLOR
     BorderStyle dashed
 }
+
+' Legend and Tags
+' ##################################
+!global $tagDefaultLegend = ""
+!global $tagCustomLegend = ""
+
+!unquoted function $toStereos($elementType, $tags)
+  !if (%strlen($tags) == 0)
+    !$stereos = '<<' + $elementType + '>>'
+%set_variable_value("$" + $elementType + "Legend", %true())
+    !return $stereos
+  !endif 
+  !$stereos = ''
+  !$brPos = %strpos($tags, "+")
+  !while ($brPos >= 0)
+    !$tag = %substr($tags, 0, $brPos)
+    !$stereos = $stereos + '<<' + $tag + '>>'
+%set_variable_value("$" + $tag + "Legend", %true())
+    !$tags = %substr($tags, $brPos+1)
+    !$brPos = %strpos($tags, "+")
+  !endwhile
+  !if (%strlen($tags)>0)
+    !$stereos = $stereos + '<<' + $tags + '>>'
+%set_variable_value("$" + $tags + "Legend", %true())
+  !endif
+  ' has to be last, otherwise PlantUML overwrites all tag specific skinparams
+  !$stereos = $stereos + '<<' + $elementType + '>>'
+%set_variable_value("$" + $elementType + "Legend", %true())
+  !return $stereos
+!endfunction
+
+!function $elementTagSkinparams($element, $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$elementSkin = "skinparam " + $element +"<<" + $tagStereo + ">> {" + %newline()
+  !if ($fontColor!="")
+    !if ($tagStereo != "boundary")
+      !$elementSkin = $elementSkin + "    StereotypeFontColor " + $fontColor + %newline()
+    !endif
+    !$elementSkin = $elementSkin + "    FontColor " + $fontColor + %newline()
+  !endif
+  !if ($bgColor!="")
+    !$elementSkin = $elementSkin + "    BackgroundColor " + $bgColor + %newline()
+  !endif
+  !if ($borderColor!="")
+    !$elementSkin = $elementSkin + "    BorderColor " + $borderColor+ %newline()
+  !endif
+  !if ($shadowing == "true")
+    !$elementSkin = $elementSkin + "    Shadowing<<" + $tagStereo + ">> " + "true" + %newline()
+  !endif
+  !if ($shadowing == "false")
+    !$elementSkin = $elementSkin + "    Shadowing<<" + $tagStereo + ">> " + "false" + %newline()
+  !endif
+  !$elementSkin = $elementSkin + "}" + %newline()
+  !return $elementSkin
+!endfunction
+
+!unquoted procedure $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$tagSkin = $elementTagSkinparams("rectangle", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$tagSkin = $tagSkin + $elementTagSkinparams("database", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$tagSkin = $tagSkin + $elementTagSkinparams("queue", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !if ($tagStereo == "boundary" && $bgColor!="")
+    !$tagSkin = $tagSkin + "skinparam package<<boundary>>StereotypeFontColor " + $bgColor + %newline()
+    !$tagSkin = $tagSkin + "skinparam rectangle<<boundary>>StereotypeFontColor " + $bgColor + %newline()
+  !endif
+$tagSkin
+!endprocedure
+
+!function $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$tagEntry = "|"
+  !if ($bgColor!="")
+    !$bg = $bgColor
+  !else
+    !$bg = $LEGEND_UNDEFINED_BK_COLOR
+  !endif
+  ' named colors have to start with # too 
+  !if (%substr($bg, 0, 1) != "#")
+    !$bg = "#" + $bg
+  !endif
+  !$tagEntry = $tagEntry + "<" + $bg +">" 
+  ' <U+25AF> ..white rectangle
+  !if ($borderColor!="")
+    !$tagEntry = $tagEntry + "<color:"+$borderColor+"> <U+25AF></color> "
+  !else
+    !$tagEntry = $tagEntry + "<color:"+$bg+"> <U+25AF></color> "
+  !endif
+  !if ($fontColor!="")
+    !$tagEntry = $tagEntry + "<color:"+$fontColor+">"
+  !else
+    !$tagEntry = $tagEntry + "<color:"+$LEGEND_UNDEFINED_FONT_COLOR+">"
+  !endif
+  !$tagEntry = $tagEntry + " " + $tagStereo + " "
+  !if ($shadowing == "true")
+    !$tagEntry = $tagEntry + "(shadow) "
+  !endif
+  !if ($shadowing == "false")
+    !$tagEntry = $tagEntry + "(no shadow) "
+  !endif
+  !if ($fontColor == "" && $bgColor == "")
+      !$tagEntry = $tagEntry + "(no font, no back color) "
+  !else 
+    !if ($fontColor == "")
+      !$tagEntry = $tagEntry + "(no font color) "
+    !endif
+    !if ($bgColor == "")
+      !$tagEntry = $tagEntry + "(no back color) "
+    !endif
+  !endif
+  !$tagEntry = $tagEntry + "</color> "
+  !$tagEntry = $tagEntry + "|"
+  !return $tagEntry 
+!endfunction
+
+!unquoted procedure $addTagToDynamicLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
+  !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+%set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
+  !$tagCustomLegend = $tagCustomLegend + $tagStereo + "\n"
+!endprocedure
+
+!procedure $showActiveLegendEntries($allDefined)
+  !$brPos = %strpos($allDefined, "\n")
+  !while ($brPos >= 0)
+    !$tagStereo = %substr($allDefined, 0, $brPos)
+    !$allDefined = %substr($allDefined, $brPos+2)
+    !$brPos = %strpos($allDefined, "\n")
+    !if (%variable_exists("$" + $tagStereo + "Legend"))
+%get_variable_value("$" + $tagStereo + "LegendEntry")
+    !endif
+  !endwhile
+  !if (%strlen($allDefined)>0)
+    !$tagStereo = $allDefined
+    !if (%variable_exists("$" + $tagStereo + "Legend"))
+%get_variable_value("$" + $tagStereo + "LegendEntry")
+    !endif
+  !endif
+!endprocedure
+
+' used by new defined tags
+!unquoted procedure AddTagSupport($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
+$defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+$addTagToDynamicLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+!endprocedure
+
+' used by existing elements like person, ...
+!unquoted procedure UpdateSkinparamsAndLegendEntry($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
+$defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+%set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
+!endprocedure
+
+' tags/stereotypes have to be delimited with \n 
+!unquoted procedure SetDefaultLegendEntries($tagStereoEntries)
+  !$tagDefaultLegend = $tagStereoEntries
+!endprocedure
+
+' Element properties
+' ##################################
+
+' collect all defined properties as table rows
+!global $propTable = ""
+!global $propTableCaption = ""
+!global $propColCaption = "="
+
+!unquoted function SetPropertyHeader($col1Name, $col2Name, $col3Name = "", $col4Name = "")
+  !$propColCaption = ""
+  !$propTableCaption = "|= " + $col1Name + " |= " + $col2Name + " |"
+  !if ($col3Name != "")
+    !$propTableCaption = $propTableCaption + "= " + $col3Name + " |"
+  !endif
+  !if ($col4Name != "")
+    !$propTableCaption = $propTableCaption + "= " + $col4Name + " |"
+  !endif
+  !return ""
+!endfunction
+
+!unquoted function WithoutPropertyHeader()
+  !$propTableCaption = ""
+  !$propColCaption = "="
+  !return ""
+!endfunction
+
+!unquoted function AddProperty($col1, $col2, $col3 = "", $col4 = "")
+  !if ($propTable == "")
+    !if ($propTableCaption != "")
+      !$propTable = $propTableCaption + "\n"
+    !endif
+  !else
+    !$propTable = $propTable + "\n"
+  !endif
+  !$propTable = $propTable + "| " + $col1 + " |" + $propColCaption + " " + $col2 + " |"
+  !if ($col3 != "")
+    !$propTable = $propTable + " " + $col3 + " |"
+  !endif
+  !if ($col4 != "")
+    !$propTable = $propTable + " " + $col4 + " |"
+  !endif
+  !return ""
+!endfunction
+
+!unquoted function $getProps($alignedNL = "\n")
+  !if ($propTable != "")
+    !$retTable = $alignedNL + $propTable
+    !$propTable = ""
+    !return $retTable
+  !endif
+  !return ""
+!endfunction
+
+!unquoted function $getProps_L()
+  !return $getProps("\l")
+!endfunction
+
+!unquoted function $getProps_R()
+  !return $getProps("\r")
+!endfunction
+
+SetPropertyHeader("Property","Value")
 
 ' Layout
 ' ##################################
 
-!definelong LAYOUT_AS_SKETCH
+!procedure HIDE_STEREOTYPE()
+hide stereotype
+!endprocedure
+
+!procedure LAYOUT_AS_SKETCH()
 skinparam backgroundColor #EEEBDC
 skinparam handwritten true
 skinparam defaultFontName "Comic Sans MS"
 center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
-!enddefinelong
+!endprocedure
 
-!define LAYOUT_TOP_DOWN top to bottom direction
-!define LAYOUT_LEFT_RIGHT left to right direction
+!procedure LAYOUT_TOP_DOWN()
+top to bottom direction
+!endprocedure
+
+!procedure LAYOUT_LEFT_RIGHT() 
+left to right direction
+!endprocedure
+
+' has to be last call in diagram
+!unquoted procedure SHOW_DYNAMIC_LEGEND($hideStereotype="true")
+!if ($hideStereotype=="true")
+hide stereotype
+!endif
+legend right
+|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
+$showActiveLegendEntries($tagDefaultLegend)
+$showActiveLegendEntries($tagCustomLegend)
+endlegend
+!endprocedure
 
 ' Boundaries
 ' ##################################
 
-!define Boundary(e_alias, e_label) rectangle "==e_label" <<boundary>> as e_alias
-!define Boundary(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<boundary>> as e_alias
+!function $getBoundary($label, $type)
+  !if ($type == "")
+    !return '==' + $label
+  !endif
+  !if (type != "")
+    !return '==' + $label + '\n<size:' + $TECHN_FONT_SIZE + '>[' + $type + ']</size>'
+  !endif
+!endfunction
+
+!unquoted procedure Boundary($alias, $label, $type="", $tags="")
+rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias
+!endprocedure
 
 ' Relationship
 ' ##################################
 
-!define Rel_(e_alias1, e_alias2, e_label, e_direction="") e_alias1 e_direction e_alias2 : "===e_label"
-!define Rel_(e_alias1, e_alias2, e_label, e_techn, e_direction="") e_alias1 e_direction e_alias2 : "===e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//"
+!unquoted procedure Rel_($alias1, $alias2, $label, $direction)
+$alias1 $direction $alias2 : **$label**
+!endprocedure
+!unquoted procedure Rel_($alias1, $alias2, $label, $techn, $direction)
+$alias1 $direction $alias2 : **$label**\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//
+!endprocedure
 
-!define Rel(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-->")
-!define Rel(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-->")
+!unquoted procedure Rel($from, $to, $label)
+Rel_($from, $to, $label, "-->>")
+!endprocedure
+!unquoted procedure Rel($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-->>")
+!endprocedure
 
-!define Rel_Back(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<--")
-!define Rel_Back(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<--")
+!unquoted procedure BiRel($from, $to, $label)
+Rel_($from, $to, $label, "<<-->>")
+!endprocedure
+!unquoted procedure BiRel($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-->>")
+!endprocedure
 
-!define Rel_Neighbor(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "->")
-!define Rel_Neighbor(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "->")
+!unquoted procedure Rel_Back($from, $to, $label)
+Rel_($from, $to, $label, "<<--")
+!endprocedure
+!unquoted procedure Rel_Back($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<--")
+!endprocedure
 
-!define Rel_Back_Neighbor(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<-")
-!define Rel_Back_Neighbor(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<-")
+!unquoted procedure Rel_Neighbor($from, $to, $label)
+Rel_($from, $to, $label, "->>")
+!endprocedure
+!unquoted procedure Rel_Neighbor($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "->>")
+!endprocedure
 
-!define Rel_D(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-DOWN->")
-!define Rel_D(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-DOWN->")
-!define Rel_Down(e_from,e_to, e_label) Rel_D(e_from,e_to, e_label)
-!define Rel_Down(e_from,e_to, e_label, e_techn) Rel_D(e_from,e_to, e_label, e_techn)
+!unquoted procedure Rel_Back_Neighbor($from, $to, $label)
+Rel_($from, $to, $label, "<<-")
+!endprocedure
+!unquoted procedure Rel_Back_Neighbor($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-")
+!endprocedure
 
-!define Rel_U(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-UP->")
-!define Rel_U(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-UP->")
-!define Rel_Up(e_from,e_to, e_label) Rel_U(e_from,e_to, e_label)
-!define Rel_Up(e_from,e_to, e_label, e_techn) Rel_U(e_from,e_to, e_label, e_techn)
+!unquoted procedure Rel_D($from, $to, $label)
+Rel_($from, $to, $label, "-DOWN->>")
+!endprocedure
+!unquoted procedure Rel_D($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-DOWN->>")
+!endprocedure
+!unquoted procedure Rel_Down($from, $to, $label)
+Rel_($from, $to, $label, "-DOWN->>")
+!endprocedure
+!unquoted procedure Rel_Down($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-DOWN->>")
+!endprocedure
 
-!define Rel_L(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-LEFT->")
-!define Rel_L(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-LEFT->")
-!define Rel_Left(e_from,e_to, e_label) Rel_L(e_from,e_to, e_label)
-!define Rel_Left(e_from,e_to, e_label, e_techn) Rel_L(e_from,e_to, e_label, e_techn)
+!unquoted procedure BiRel_D($from, $to, $label)
+Rel_($from, $to, $label, "<<-DOWN->>")
+!endprocedure
+!unquoted procedure BiRel_D($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-DOWN->>")
+!endprocedure
+!unquoted procedure BiRel_Down($from, $to, $label)
+Rel_($from, $to, $label, "<<-DOWN->>")
+!endprocedure
+!unquoted procedure BiRel_Down($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-DOWN->>")
+!endprocedure
 
-!define Rel_R(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-RIGHT->")
-!define Rel_R(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-RIGHT->")
-!define Rel_Right(e_from,e_to, e_label) Rel_R(e_from,e_to, e_label)
-!define Rel_Right(e_from,e_to, e_label, e_techn) Rel_R(e_from,e_to, e_label, e_techn)
+!unquoted procedure Rel_U($from, $to, $label)
+Rel_($from, $to, $label, "-UP->>")
+!endprocedure
+!unquoted procedure Rel_U($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-UP->>")
+!endprocedure
+!unquoted procedure Rel_Up($from, $to, $label)
+Rel_($from, $to, $label, "-UP->>")
+!endprocedure
+!unquoted procedure Rel_Up($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-UP->>")
+!endprocedure
+
+!unquoted procedure BiRel_U($from, $to, $label)
+Rel_($from, $to, $label, "<<-UP->>")
+!endprocedure
+!unquoted procedure BiRel_U($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-UP->>")
+!endprocedure
+!unquoted procedure BiRel_Up($from, $to, $label)
+Rel_($from, $to, $label, "<<-UP->>")
+!endprocedure
+!unquoted procedure BiRel_Up($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-UP->>")
+!endprocedure
+
+!unquoted procedure Rel_L($from, $to, $label)
+Rel_($from, $to, $label, "-LEFT->>")
+!endprocedure
+!unquoted procedure Rel_L($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-LEFT->>")
+!endprocedure
+!unquoted procedure Rel_Left($from, $to, $label)
+Rel_($from, $to, $label, "-LEFT->>")
+!endprocedure
+!unquoted procedure Rel_Left($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-LEFT->>")
+!endprocedure
+
+!unquoted procedure BiRel_L($from, $to, $label)
+Rel_($from, $to, $label, "<<-LEFT->>")
+!endprocedure
+!unquoted procedure BiRel_L($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-LEFT->>")
+!endprocedure
+!unquoted procedure BiRel_Left($from, $to, $label)
+Rel_($from, $to, $label, "<<-LEFT->>")
+!endprocedure
+!unquoted procedure BiRel_Left($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-LEFT->>")
+!endprocedure
+
+!unquoted procedure Rel_R($from, $to, $label)
+Rel_($from, $to, $label, "-RIGHT->>")
+!endprocedure
+!unquoted procedure Rel_R($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-RIGHT->>")
+!endprocedure
+!unquoted procedure Rel_Right($from, $to, $label)
+Rel_($from, $to, $label, "-RIGHT->>")
+!endprocedure
+!unquoted procedure Rel_Right($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "-RIGHT->>")
+!endprocedure
+
+!unquoted procedure BiRel_R($from, $to, $label)
+Rel_($from, $to, $label, "<<-RIGHT->>")
+!endprocedure
+!unquoted procedure BiRel_R($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-RIGHT->>")
+!endprocedure
+!unquoted procedure BiRel_Right($from, $to, $label)
+Rel_($from, $to, $label, "<<-RIGHT->>")
+!endprocedure
+!unquoted procedure BiRel_Right($from, $to, $label, $techn)
+Rel_($from, $to, $label, $techn, "<<-RIGHT->>")
+!endprocedure
 
 ' Layout Helpers
 ' ##################################
 
-!define Lay_D(e_from, e_to) e_from -[hidden]D- e_to
-!define Lay_U(e_from, e_to) e_from -[hidden]U- e_to
-!define Lay_R(e_from, e_to) e_from -[hidden]R- e_to
-!define Lay_L(e_from, e_to) e_from -[hidden]L- e_to
+!unquoted procedure Lay_D($from, $to)
+$from -[hidden]D- $to
+!endprocedure
+!unquoted procedure Lay_U($from, $to)
+$from -[hidden]U- $to
+!endprocedure
+!unquoted procedure Lay_R($from, $to)
+$from -[hidden]R- $to
+!endprocedure
+!unquoted procedure Lay_L($from, $to)
+$from -[hidden]L- $to
+!endprocedure

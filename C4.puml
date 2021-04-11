@@ -515,6 +515,11 @@ $showActiveLegendEntries($tagCustomLegend)
 endlegend
 !endprocedure
 
+/' @deprecated in favor of SHOW_LEGEND '/
+!unquoted procedure SHOW_DYNAMIC_LEGEND($hideStereotype="true")
+SHOW_LEGEND($hideStereotype)
+!endprocedure
+
 ' Boundaries
 ' ##################################
 

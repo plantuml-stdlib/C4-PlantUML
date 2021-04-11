@@ -315,6 +315,11 @@ $defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
 %set_variable_value("$" + $elementName + "LegendEntry", $tagEntry)
 !endprocedure
 
+/' @deprecated in favor of UpdateElementStyle '/
+!unquoted procedure UpdateSkinparamsAndLegendEntry($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
+UpdateElementStyle($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
+!endprocedure
+
 ' update the style of default relation, it has to set both properties (combined statement not working)
 !unquoted procedure UpdateRelStyle($textColor, $lineColor)
   !$elementSkin = "skinparam Arrow {" + %newline()

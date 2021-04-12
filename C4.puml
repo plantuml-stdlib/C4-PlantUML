@@ -36,6 +36,13 @@ skinparam LegendBorderColor transparent
 skinparam LegendBackgroundColor transparent
 skinparam LegendFontColor $LEGEND_FONT_COLOR
 
+skinparam shadowing<<legendArea>> false
+' #00000000 is transparent
+skinparam rectangle<<legendArea>> {
+    backgroundcolor #00000000
+    bordercolor #00000000
+}
+
 skinparam rectangle {
     StereotypeFontSize 12
     shadowing false
@@ -497,6 +504,25 @@ SetPropertyHeader("Property","Value")
 ' Layout
 ' ##################################
 
+!procedure $getHideStereotype($hideStereotype) 
+!if ($hideStereotype=="true")
+hide stereotype
+!endif
+!endprocedure
+
+!procedure $getLegendTable() 
+<#00000000,#00000000>|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
+$showActiveLegendEntries($tagDefaultLegend)
+$showActiveLegendEntries($tagCustomLegend)
+!endprocedure
+
+!procedure $getLegendArea($hideStereotype) 
+$getHideStereotype($hideStereotype)
+rectangle legendArea<<legendArea>> [
+$getLegendTable()
+]
+!endprocedure
+
 !procedure HIDE_STEREOTYPE()
 hide stereotype
 !endprocedure
@@ -518,19 +544,36 @@ left to right direction
 
 ' has to be last call in diagram
 !unquoted procedure SHOW_LEGEND($hideStereotype="true")
-!if ($hideStereotype=="true")
-hide stereotype
-!endif
+$getHideStereotype($hideStereotype)
 legend right
-|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
-$showActiveLegendEntries($tagDefaultLegend)
-$showActiveLegendEntries($tagCustomLegend)
+$getLegendTable()
 endlegend
 !endprocedure
 
 /' @deprecated in favor of SHOW_LEGEND '/
 !unquoted procedure SHOW_DYNAMIC_LEGEND($hideStereotype="true")
 SHOW_LEGEND($hideStereotype)
+!endprocedure
+
+' enables that legend can be located in diagram, has to be last call in diagram
+!unquoted procedure SHOW_LEGEND_LEFT($alias, $hideStereotype="true")
+$getLegendArea($hideStereotype)
+Lay_L($alias, legendArea)
+!endprocedure
+
+!unquoted procedure SHOW_LEGEND_RIGHT($alias, $hideStereotype="true")
+$getLegendArea($hideStereotype)
+Lay_R($alias, legendArea)
+!endprocedure
+
+!unquoted procedure SHOW_LEGEND_UP($alias, $hideStereotype="true")
+$getLegendArea($hideStereotype)
+Lay_U($alias, legendArea)
+!endprocedure
+
+!unquoted procedure SHOW_LEGEND_DOWN($alias, $hideStereotype="true")
+$getLegendArea($hideStereotype)
+Lay_D($alias, legendArea)
 !endprocedure
 
 ' Boundaries

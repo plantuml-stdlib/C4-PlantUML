@@ -1,0 +1,24 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Container.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!endif
+
+Container_Ext(A, "Ext. Container A", "techn")
+Person(B, "Person B")
+System(C, "System C")
+Container(D, "Container D", "techn")
+Container(E, "Container E", "techn")
+
+Rel_R(A,B,"uses")
+Rel_R(A,C,"uses")
+Rel_D(B,C,"uses")
+Rel_R(C,D,"uses")
+Rel_D(B,D,"uses")
+Rel_D(C,E,"uses")
+
+' legend fills whitespace to the right of container E
+SHOW_LEGEND_RIGHT(E)
+@enduml

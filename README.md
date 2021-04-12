@@ -323,7 +323,8 @@ Rel_L(x, s4, "uses")
 C4-PlantUML also comes with some layout options to make it easy and reusable to create nice and useful diagrams:
 
 * [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT()](LayoutOptions.md#layout_top_down-or-layout_left_right)
-* [LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype)](LayoutOptions.md#layout_with_legend-or-SHOW_LEGEND)
+* [LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype)](LayoutOptions.md#layout_with_legend-or-show_legend)
+* [SHOW_LEGEND_UP(alias, ?hideStereotype), SHOW_LEGEND_DOWN(...), SHOW_LEGEND_LEFT(...), SHOW_LEGEND_RIGHT(...)](LayoutOptions.md#show_legend_up-show_legend_down-show_legend_left-show_legend_right)
 * [LAYOUT_AS_SKETCH()](LayoutOptions.md#layout_as_sketch)
 * [HIDE_STEREOTYPE()](LayoutOptions.md#hide_stereotype)
 

@@ -70,7 +70,7 @@ skinparam actor {
     style awesome
 }
 
-' Some boundary skinparam have to be set a package skinparams too (PlantUML uses internal packages)
+' Some boundary skinparams have to be set as package skinparams too (PlantUML uses internal packages)
 skinparam package {
     StereotypeFontSize 6
     StereotypeFontColor $BOUNDARY_BG_COLOR
@@ -516,9 +516,9 @@ $showActiveLegendEntries($tagDefaultLegend)
 $showActiveLegendEntries($tagCustomLegend)
 !endprocedure
 
-!procedure $getLegendArea($hideStereotype) 
+!procedure $getLegendArea($areaAlias, $hideStereotype) 
 $getHideStereotype($hideStereotype)
-rectangle legendArea<<legendArea>> [
+rectangle $areaAlias<<legendArea>> [
 $getLegendTable()
 ]
 !endprocedure
@@ -555,25 +555,9 @@ endlegend
 SHOW_LEGEND($hideStereotype)
 !endprocedure
 
-' enables that legend can be located in diagram, has to be last call in diagram
-!unquoted procedure SHOW_LEGEND_LEFT($alias, $hideStereotype="true")
-$getLegendArea($hideStereotype)
-Lay_L($alias, legendArea)
-!endprocedure
-
-!unquoted procedure SHOW_LEGEND_RIGHT($alias, $hideStereotype="true")
-$getLegendArea($hideStereotype)
-Lay_R($alias, legendArea)
-!endprocedure
-
-!unquoted procedure SHOW_LEGEND_UP($alias, $hideStereotype="true")
-$getLegendArea($hideStereotype)
-Lay_U($alias, legendArea)
-!endprocedure
-
-!unquoted procedure SHOW_LEGEND_DOWN($alias, $hideStereotype="true")
-$getLegendArea($hideStereotype)
-Lay_D($alias, legendArea)
+' enables that legend can be located in drawing area of the diagram. It has to be last call in diagram followed by Lay_Distance()
+!unquoted procedure SHOW_FLOATING_LEGEND($alias="legend", $hideStereotype="true")
+$getLegendArea($alias, $hideStereotype)
 !endprocedure
 
 ' Boundaries
@@ -711,6 +695,10 @@ $getRel("<<-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link
 ' Layout Helpers
 ' ##################################
 
+!function $getHiddenLine($distance)
+  !return '-[hidden]' + %substr('------------', 0, %intval($distance) + 1)
+!endfunction
+
 !unquoted procedure Lay_D($from, $to)
 $from -[hidden]D- $to
 !endprocedure
@@ -722,4 +710,11 @@ $from -[hidden]R- $to
 !endprocedure
 !unquoted procedure Lay_L($from, $to)
 $from -[hidden]L- $to
+!endprocedure
+
+' PlantUML bug: lines which does "not match" with the orientation/direction of the diagram
+' uses the same length therefore the method offers no direction at all.
+' If a direction is required the Lay_...() methods can be used
+!unquoted procedure Lay_Distance($from, $to, $distance="0")
+$from $getHiddenLine($distance) $to
 !endprocedure

@@ -107,7 +107,7 @@ SHOW_LEGEND()
 
 ![SHOW_LEGEND Sample](https://www.plantuml.com/plantuml/png/JL5Dgzf05DtFhxYr2oDeWgMhhfgceWkreObr6IR9RHsOZs7cXY3b_VTtWpurcqlEn-4Svdia6MWm6ghThtEptsmtnvzGIUCrYa_ATdhe4Iv4FdxBiY37z9-Yoz0E4KFdBA6bj7CcyrhQAMOLgTUgpOglgtA2JeTzPcGa30mr1JkaiXXIpreXIWpHsKJsHjabpFBfgaX1aWkpXQYkR3JD3pVONePhqgsNCBzrco_Wlm3-7f79Y6qZlUUSCxQGUwzL9qavEsEe-Bo4l2hJuwPcIq3uagxXyAUOk5nhDqQO9aKW1xp7IvQOGPFo6g4U5H4686LGAukHkxtTsoLq8pddBcDI_4RziUfPwnJPoNTNrsN5gadqO9ynMwJ8lpYTly6PLujuUQLa8Tu1 "SHOW_LEGEND Sample")
 
-## SHOW_LEGEND_UP(alias, ?hideStereotype), SHOW_LEGEND_DOWN(...), SHOW_LEGEND_LEFT(...) or SHOW_LEGEND_RIGHT(...) 
+## SHOW_FLOATING_LEGEND(?alias, ?hideStereotype)
 
 `LAYOUT_WITH_LEGEND()` and SHOW_LEGEND(?hideStereotype)` adds the legend at the bottom right of the picture like below and additional whitespace is created.
 
@@ -115,55 +115,48 @@ SHOW_LEGEND()
 @startuml Layout With Whitespace Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
-Container_Ext(A, "Ext. Container A", "techn")
-Person(B, "Person B")
-System(C, "System C")
-Container(D, "Container D", "techn")
-Container(E, "Container E", "techn")
+Person(a, "Person A")
+Container(b, "Container B", "techn")
+System(c, "System C")
+Container(d, "Container D", "techn")
+Container_Ext(e, "Ext. Container E", "techn")
 
-Rel_R(A,B,"uses")
-Rel_R(A,C,"uses")
-Rel_D(B,C,"uses")
-Rel_R(C,D,"uses")
-Rel_D(B,D,"uses")
-Rel_D(C,E,"uses")
+Rel_R(a, b, "calls")
+Rel_D(b, c, "uses")
+Rel_D(c, d, "uses")
+Rel_R(d, e, "updates")
 
 SHOW_LEGEND()
 @enduml
 ```
 
-![Layout With Whitespace Sample](https://www.plantuml.com/plantuml/png/NSwnReCm40RWtK_XCZbI0akdJWbWjGDj8r35Y1mu5IJR8FkiDc_VYw9QWOcxZz-_xkXHEGn6yqfTvu2ydN3axJWX-4Nrm1jb5WtiQRAz3WFm4N7nBrdcr4_wJTbm2HvSFri4Ysa_cspHojuQ3nu7FLsoulbmlj7NUvKPvH4SKLVG2pLPSEb2MSRYtibV5ASzJ-YRyiZyb90XzADDTkmCpizMv4JtaUUapPNQZIX8xoClI6E5AEb7t7WP2rSXkGh9nn2hGNSr7PVla-314_rBiP9Iv1kfwQfoczaAPMGKrhnzjbqbN-L7ANRi27O8Hly1 "Layout With Whitespace Sample")
+![Layout With Whitespace Sample](http://www.plantuml.com/plantuml/png/LSwnReCm40RWtK_XCZbI0qkdJca1jGDjew2A4HdxL91iOzbdjNdx7eb4meJlk_y_SOWe0oPhU2FFSqBUJJZoRfmGefSAU2kjDy0U9gTCqi17H1-VYoB8t_o7icb84OAQ7OB3NCssy4QwvU8-eZRJK9HF--D2tnzDOML424HzIGqvEGYvfonZHmXnTa8-ykpwv2_PZgqfCT1YdVXhHYE26Xs5sZCTjK8HNP-yt5JrfbhTLrVkwpyKG1lwvloMhk_Jx0IcFot_E90gQKmaNR0I98emHRWPWTuObGbWCQybNfYrxrzTtzHlzMSbTkm0JYTh_W40 "Layout With Whitespace Sample")
 
-Therefore calculated legends can be defined relative to an element too that existing whitespace can be reused like below.
+Therefore a floating legends can be added via SHOW_FLOATING_LEGEND() and positioned with Lay_Distance() that existing whitespace can be reused like below.
 
-- **SHOW_LEGEND_UP(alias, ?hideStereotype)**: shows the legend above the alias element  
-- **SHOW_LEGEND_DOWN(alias, ?hideStereotype)**: shows the legend below the alias element  
-- **SHOW_LEGEND_LEFT(alias, ?hideStereotype)**: shows the legend left of the alias element
-- **SHOW_LEGEND_RIGHT(alias, ?hideStereotype)**: shows the legend right of the alias element
+- `SHOW_FLOATING_LEGEND(?alias, ?hideStereotype): shows the legend in the drawing area
 
 ```csharp
 @startuml Compact Legend Layout Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
-Container_Ext(A, "Ext. Container A", "techn")
-Person(B, "Person B")
-System(C, "System C")
-Container(D, "Container D", "techn")
-Container(E, "Container E", "techn")
+Person(a, "Person A")
+Container(b, "Container B", "techn")
+System(c, "System C")
+Container(d, "Container D", "techn")
+Container_Ext(e, "Ext. Container E", "techn")
 
-Rel_R(A,B,"uses")
-Rel_R(A,C,"uses")
-Rel_D(B,C,"uses")
-Rel_R(C,D,"uses")
-Rel_D(B,D,"uses")
-Rel_D(C,E,"uses")
+Rel_R(a, b, "calls")
+Rel_D(b, c, "uses")
+Rel_D(c, d, "uses")
+Rel_R(d, e, "updates")
 
-' legend fills whitespace to the right of container E
-SHOW_LEGEND_RIGHT(E)
+SHOW_FLOATING_LEGEND()
+Lay_Distance(legend, e, 1)
 @enduml
 ```
 
-![Compact Legend Layout Sample](https://www.plantuml.com/plantuml/png/NT51Ru8m50VmUp_56vTXed3PQIS56bt2DeDRTYGLdzAajAHznFdjzumPcvneV_pvvz4k0obFGsSWTrsl6e8IJsWFKAgB6mXsgkiDYWTj6pCS45gYFZodgLVdvAIf7VP3GDyuIsWfQLoNzaRPQ-4YqC7eVPe_BRPN-dmjqqu5GizKv_o5qXPzqdDMY75Vos-ALtE8-9d0oB2As0YRraOpiKKVd8qpfjiICjRTXTkxE6UzBI5d7IlYWb-CEoZ6mhkGl0l9_o5HeQah7YwRH_pNWUbNyZifucmY5KzLJ3DJuOmSHJo2kTt4KHiJuDngmi0tX40Eg4Nm-jGIk2CqV-EAtURzgoxbMhuLTVMotdp4SYQMNCEd_0C0 "Compact Legend Layout Sample")
+![Compact Legend Layout Sample](http://www.plantuml.com/plantuml/png/LP51Q_im3CNl_XJ-z-J2lmc3dNPgbsJT86jBkx6ZSMtH1cp7s0fRl_ta5TBcPFcdzuHuMYPK4GTdUTMxe3Jo5axW3M_LfH-G7vGB5jY_pcix6E1dn92UoZAgx-BKuNau3WcYxZs2nqBthWnM-JnmaT3OxbXMZujTHf_lRUbKGeY4P4KErNc8HI0jOpk8gVT2_UUpQybNipaRLU98ZV77dsVqHT1dJwB3XOOweGbTIrvDh6PYhU-j8vRD3mgW3hq5lwcRUpNRWvNxl6FUHYjh4z4CQq544wGmReo0cJ0o4u3CWb7uXzdXTVibNzhjwkDjivPjisusjPWpob_M7Lt7Qn0st-HgVPYp9TKKsYy0 "Compact Legend Layout Sample")
 
 ## LAYOUT_AS_SKETCH()
 

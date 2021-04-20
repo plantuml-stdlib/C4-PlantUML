@@ -280,10 +280,10 @@ Rel_D(user, user1, "requests", "async message", "if sprite starts with &, it def
 
 In rare cases, you can force the layout of objects which have no relationships by using:
 
-* `Lay_U`
-* `Lay_D`
-* `Lay_L`
-* `Lay_R`
+* `Lay_U(from, to)`
+* `Lay_D(from, to)`
+* `Lay_L(from, to)`
+* `Lay_R(from, to)`
 
 In following sample a person uses different systems, and group of persons which have no relations
 
@@ -317,6 +317,41 @@ Rel_L(x, s4, "uses")
 ```
 
 ![Relation versus Layout](https://www.plantuml.com/plantuml/png/LSt1QeD04CRnkq-HvgJGA55FFQLLeGLBHIEq9rbrQ8HrbTrPshnzPmn5Svl_3_RRaq6XqOxIUHXK9sqFkmlYR9w2G8iV_tl0Yssj0TrD2a6XtqrZC4kX-Ct1O2-7DaZYGy5Kl-V1A0o29ceIUY461TgVUV_rBSsQwfoLsSVvgyXSpt4Aq6PIhdZSxP_ttd-sb2zhTfJ9cZrbkYPGPfHEBgvDpLEjjzmbtztjJldkRtVEDwoV_zB09mrKLuCmkkP8NHqt43A46uWOeWt43361Ku9iQfvSPgm1GyfOBXZUOxfWT8_vWl6A9r2z7UKV "Relation versus Layout")
+
+(In combination with [SHOW_FLOATING_LEGEND()](LayoutOptions.md#show_floating_legend)) a greater distance between an element and the
+e.g. floating legend could be required that all e.g. corners of the drawing area can be reached.
+
+* `Lay_Distance(from, to, ?distance)`: Sets the distance between `from` and `to` with down alignment. (Lay_Distance(from,to,0) equals Lay_D(from, to))
+
+In following sample the floating legend should be in the left bottom corner of the drawing are.
+(The normal SHOW_LEGEND() call requires no extra Lay_Distance() call and the legend is automatically drawn below the diagram on the right side)
+
+```
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include DEVICONS/angular.puml
+!include DEVICONS/java.puml
+!include DEVICONS/msql_server.puml
+!include FONTAWESOME/users.puml
+
+Person(user, "Customer", "People that need products", $sprite="users")
+Container(spa, "SPA", "angular", "The main interface that the customer interacts with", $sprite="angular")
+Container(api, "API", "java", "Handles all business logic", $sprite="java")
+ContainerDb(db, "Database", "Microsoft SQL", "Holds product, order and invoice information", $sprite="msql_server")
+
+Rel(user, spa, "Uses")
+Rel(spa, api, "Uses")
+Rel_R(api, db, "Reads/Writes")
+
+SHOW_FLOATING_LEGEND()
+Lay_Distance(legend, db, 1)
+@enduml
+```
+
+![db below legend, 1 unit distance](http://www.plantuml.com/plantuml/png/hL5DZzem4BtdLtXH3o0jH5NRIwLAYu3THUA30bkEqH0FuCgnKyy4r7_VCGcxKQjAFVHa-ytCUtvl7eWXS5NOvCwut5OQrOcvfCzf6k0oE1e-LVkACEJUCJeUvBv8ImikplI9jJNxTFInluhGotoM5a2CGQ1i91DW78P16VcJEuq7UQhnvDjqj5ni_a68gn9q-F0cQAJQFqX7dyfW6Eccf_4SQ_IgyhXSR8UxoMOvd_nNeIi65oHVOF_JBRKtLocuOsMXCVrd-JkSuM-rWdxOZ32SyVVnbfiq_fsQJ5TozQuReNlL6LN4li3GaViAVMbHyGbOEKIjok1rbJD9yLtjwKldIjNf9Q-hwb89ChnP3ID7OoLUjoTKXRGeunZ30VA6cWNF6zcw1gAXBf9oM-Z6r9Q2qWZnS3MD_36MU3w3qnP9WRLAjYIDHChweydRTB6xpJNUT_LUfiV0i0V2o3GtUV3a3wmsNsTNQcyrtMAuLpve34havDjdRtAKy-130MoyQukrjYAQoHfjatUTrGjXZ332Lo3QQgFPkdPw_U0QGLEwYyInd6oUbxliSROSRgUBfsmsUPeinjrUCeEVsTWGWyknQ_68JjS4xtl9Wpnazxy0 "db below legend, 1 unit distance")
 
 ## Layout Options
 

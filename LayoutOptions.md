@@ -130,7 +130,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![Layout With Whitespace Sample](http://www.plantuml.com/plantuml/png/LSwnReCm40RWtK_XCZbI0qkdJca1jGDjew2A4HdxL91iOzbdjNdx7eb4meJlk_y_SOWe0oPhU2FFSqBUJJZoRfmGefSAU2kjDy0U9gTCqi17H1-VYoB8t_o7icb84OAQ7OB3NCssy4QwvU8-eZRJK9HF--D2tnzDOML424HzIGqvEGYvfonZHmXnTa8-ykpwv2_PZgqfCT1YdVXhHYE26Xs5sZCTjK8HNP-yt5JrfbhTLrVkwpyKG1lwvloMhk_Jx0IcFot_E90gQKmaNR0I98emHRWPWTuObGbWCQybNfYrxrzTtzHlzMSbTkm0JYTh_W40 "Layout With Whitespace Sample")
+![Layout With Whitespace Sample](https://www.plantuml.com/plantuml/png/LSwnReCm40RWtK_XCZbI0qkdJca1jGDjew2A4HdxL91iOzbdjNdx7eb4meJlk_y_SOWe0oPhU2FFSqBUJJZoRfmGefSAU2kjDy0U9gTCqi17H1-VYoB8t_o7icb84OAQ7OB3NCssy4QwvU8-eZRJK9HF--D2tnzDOML424HzIGqvEGYvfonZHmXnTa8-ykpwv2_PZgqfCT1YdVXhHYE26Xs5sZCTjK8HNP-yt5JrfbhTLrVkwpyKG1lwvloMhk_Jx0IcFot_E90gQKmaNR0I98emHRWPWTuObGbWCQybNfYrxrzTtzHlzMSbTkm0JYTh_W40 "Layout With Whitespace Sample")
 
 Therefore a floating legends can be added via SHOW_FLOATING_LEGEND() and positioned with Lay_Distance() that existing whitespace can be reused like below.
 
@@ -156,7 +156,7 @@ Lay_Distance(legend, e, 1)
 @enduml
 ```
 
-![Compact Legend Layout Sample](http://www.plantuml.com/plantuml/png/LP51Q_im3CNl_XJ-z-J2lmc3dNPgbsJT86jBkx6ZSMtH1cp7s0fRl_ta5TBcPFcdzuHuMYPK4GTdUTMxe3Jo5axW3M_LfH-G7vGB5jY_pcix6E1dn92UoZAgx-BKuNau3WcYxZs2nqBthWnM-JnmaT3OxbXMZujTHf_lRUbKGeY4P4KErNc8HI0jOpk8gVT2_UUpQybNipaRLU98ZV77dsVqHT1dJwB3XOOweGbTIrvDh6PYhU-j8vRD3mgW3hq5lwcRUpNRWvNxl6FUHYjh4z4CQq544wGmReo0cJ0o4u3CWb7uXzdXTVibNzhjwkDjivPjisusjPWpob_M7Lt7Qn0st-HgVPYp9TKKsYy0 "Compact Legend Layout Sample")
+![Compact Legend Layout Sample](https://www.plantuml.com/plantuml/png/LP51Q_im3CNl_XJ-z-J2lmc3dNPgbsJT86jBkx6ZSMtH1cp7s0fRl_ta5TBcPFcdzuHuMYPK4GTdUTMxe3Jo5axW3M_LfH-G7vGB5jY_pcix6E1dn92UoZAgx-BKuNau3WcYxZs2nqBthWnM-JnmaT3OxbXMZujTHf_lRUbKGeY4P4KErNc8HI0jOpk8gVT2_UUpQybNipaRLU98ZV77dsVqHT1dJwB3XOOweGbTIrvDh6PYhU-j8vRD3mgW3hq5lwcRUpNRWvNxl6FUHYjh4z4CQq544wGmReo0cJ0o4u3CWb7uXzdXTVibNzhjwkDjivPjisusjPWpob_M7Lt7Qn0st-HgVPYp9TKKsYy0 "Compact Legend Layout Sample")
 
 ## LAYOUT_AS_SKETCH()
 

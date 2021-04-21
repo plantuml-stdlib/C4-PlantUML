@@ -555,8 +555,15 @@ endlegend
 SHOW_LEGEND($hideStereotype)
 !endprocedure
 
+' legend is reserved and cannot be uses as alias of SHOW_FLOATING_LEGEND() therefore
+' LEGEND() is introduced. It returns the default name of the floating alias "floating_legend_alias"
+' and can be used in the Lay_Distance() calls
+!function LEGEND()
+!return "floating_legend_alias"
+!endfunction
+
 ' enables that legend can be located in drawing area of the diagram. It has to be last call in diagram followed by Lay_Distance()
-!unquoted procedure SHOW_FLOATING_LEGEND($alias="legend", $hideStereotype="true")
+!unquoted procedure SHOW_FLOATING_LEGEND($alias=LEGEND(), $hideStereotype="true")
 $getLegendArea($alias, $hideStereotype)
 !endprocedure
 

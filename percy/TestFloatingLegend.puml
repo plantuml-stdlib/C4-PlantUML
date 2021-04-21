@@ -18,5 +18,5 @@ Rel_D(c, d, "uses")
 Rel_R(d, e, "updates")
 
 SHOW_FLOATING_LEGEND()
-Lay_Distance(legend, e, 1)
+Lay_Distance(LEGEND(), e, 1)
 @enduml

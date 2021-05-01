@@ -171,7 +171,12 @@ endlegend
 
 !unquoted procedure SHOW_PERSON_PORTRAIT()
   !$defaultPersonSprite = ""
-  !$portraitPerson = "true"
+  !$portraitPerson = "portrait"
+!endprocedure
+
+!unquoted procedure SHOW_PERSON_OUTLINE()
+  !$defaultPersonSprite = ""
+  !$portraitPerson = "outline"
 !endprocedure
 
 ' Elements
@@ -211,16 +216,20 @@ endlegend
 !endfunction
 
 !unquoted procedure Person($alias, $label, $descr="", $sprite="", $tags="", $link="")
-!if ($portraitPerson == "true") && ($sprite == "")
+!if ($portraitPerson == "portrait") && ($sprite == "")
 actor "$getPerson($label, $descr, $sprite)$getProps()" $toStereos("person", $tags) as $alias $getLink($link)
+!elseif ($portraitPerson == "outline") && ($sprite == "")
+person "$getPerson($label, $descr, $sprite)$getProps()" $toStereos("person", $tags) as $alias $getLink($link)
 !else
 rectangle "$getPerson($label, $descr, $sprite)$getProps()" $toStereos("person", $tags) as $alias $getLink($link)
 !endif
 !endprocedure
 
 !unquoted procedure Person_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="")
-!if ($portraitPerson == "true") && ($sprite == "")
+!if ($portraitPerson == "portrait") && ($sprite == "")
 actor "$getPerson($label, $descr, $sprite)$getProps()" $toStereos("external_person", $tags) as $alias $getLink($link)
+!elseif ($portraitPerson == "outline") && ($sprite == "")
+person "$getPerson($label, $descr, $sprite)$getProps()" $toStereos("external_person", $tags) as $alias $getLink($link)
 !else
 rectangle "$getPerson($label, $descr, $sprite)$getProps()" $toStereos("external_person", $tags) as $alias $getLink($link)
 !endif

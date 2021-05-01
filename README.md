@@ -368,6 +368,7 @@ C4-PlantUML also comes with some person sprite/portrait options:
 * [HIDE_PERSON_SPRITE()](LayoutOptions.md#hide_person_sprite)
 * [SHOW_PERSON_SPRITE(?sprite)](LayoutOptions.md#show_person_sprite)
 * [SHOW_PERSON_PORTRAIT()](LayoutOptions.md#show_person_portrait)
+* [SHOW_PERSON_OUTLINE()](LayoutOptions.md#show_person_outline) (requires PlantUML version >= 1.2021.4)
 
 ## Custom tags/stereotypes support and skinparam updates
 

@@ -3,41 +3,30 @@
 ' uncomment the following line and comment the first to use locally
 ' !include C4_Container.puml
 
-skinparam wrapWidth 200
-skinparam maxMessageSize 200
+AddElementTag("micro service", $shape=EightSidedShape(), $bgColor="CornflowerBlue", $fontColor="white")
+AddElementTag("storage", $shape=RoundedBoxShape(), $bgColor="lightSkyBlue", $fontColor="white")
 
-LAYOUT_TOP_DOWN()
-'LAYOUT_AS_SKETCH()
-LAYOUT_WITH_LEGEND()
-
+SHOW_PERSON_OUTLINE()
 
 Person(customer, Customer, "A customer")
 
 System_Boundary(c1, "Customer Information") {
-
     Container(app, "Customer Application", "Javascript, Angular", "Allows customers to manage their profile")
-
-    Container(customer_service, "Customer Service", "Java, Spring Boot", "The point of access for customer information")
-
+    Container(customer_service, "Customer Service", "Java, Spring Boot", "The point of access for customer information", $tags = "micro service")
     Container(message_bus, "Message Bus", "RabbitMQ", "Transport for business events")
-
-    Container(reporting_service, "Reporting Service", "Ruby", "Creates normalised data for reporting purposes")
-
-    Container(audit_service, "Audit Service", "C#/.NET", "Provides organisation-wide auditing facilities")
-
-    ContainerDb(customer_db, "Customer Database", "Oracle 12c", "Stores customer information")
-
-    ContainerDb(reporting_db, "Reporting Database", "MySQL", "Stores a normalized version of all business data for ad hoc reporting purposes")
-
-    Container(audit_store, "Audit Store", "Event Store", "Stores information about events that have happened")
+    Container(reporting_service, "Reporting Service", "Ruby", "Creates normalised data for reporting purposes", $tags = "micro service")
+    Container(audit_service, "Audit Service", "C#/.NET", "Provides organisation-wide auditing facilities", $tags = "micro service")
+    ContainerDb(customer_db, "Customer Database", "Oracle 12c", "Stores customer information", $tags = "storage")
+    ContainerDb(reporting_db, "Reporting Database", "MySQL", "Stores a normalized version of all business data for ad hoc reporting purposes", $tags = "storage")
+    Container(audit_store, "Audit Store", "Event Store", "Stores information about events that have happened", $tags = "storage")
 }
 
-Rel(customer, app, "Uses", "HTTPS")
+Rel_D(customer, app, "Uses", "HTTPS")
 
-Rel_R(app, customer_service, "Updates customer information using", "async, JSON/HTTPS")
+Rel_D(app, customer_service, "Updates customer information using", "async, JSON/HTTPS")
 
-Rel_L(customer_service, app, "Sends events to", "WebSocket")
-Rel_R(customer_service, message_bus, "Sends customer update events to")
+Rel_U(customer_service, app, "Sends events to", "WebSocket")
+Rel_U(customer_service, message_bus, "Sends customer update events to")
 Rel(customer_service, customer_db, "Stores data in", "JDBC")
 
 Rel(message_bus, reporting_service, "Sends customer update events to")
@@ -48,4 +37,5 @@ Rel(audit_service, audit_store, "Stores events in")
 
 Lay_R(reporting_service, audit_service)
 
+SHOW_LEGEND()
 @enduml

@@ -15,17 +15,27 @@
 !global $LEGEND_UNDEFINED_BG_COLOR = "#D5CFEE"
 !global $LEGEND_UNDEFINED_FONT_COLOR = "#8B77E4"
 
+' Labels
+' ##################################
+
 !global $LEGEND_SHADOW_TEXT = "(shadow) "
 !global $LEGEND_NO_SHADOW_TEXT = "(no shadow) "
 !global $LEGEND_NO_FONT_BG_TEXT = "(no text, no back color) "
 !global $LEGEND_NO_FONT_TEXT = "(no text color) "
 !global $LEGEND_NO_BG_TEXT = "(no back color) "
 !global $LEGEND_NO_LINE_TEXT = "(no line color) "
+!global $LEGEND_ROUNDED_BOX = "(rounded box) "
+!global $LEGEND_EIGHT_SIDED = "(eight sided) "
 
 ' Styling
 ' ##################################
 
 !global $TECHN_FONT_SIZE = 12
+!global $ROUNDED_BOX_SIZE = 25
+!global $EIGHT_SIDED_SIZE = 18
+
+!global $ROUNDED_BOX = "roundedBox"
+!global $EIGHT_SIDED = "eightSided"
 
 skinparam defaultTextAlignment center
 
@@ -144,7 +154,7 @@ skinparam rectangle<<boundary>> {
   !return $stereos
 !endfunction
 
-!function $elementTagSkinparams($element, $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+!function $elementTagSkinparams($element, $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
   !$elementSkin = "skinparam " + $element +"<<" + $tagStereo + ">> {" + %newline()
   !if ($fontColor!="")
     !if ($tagStereo != "boundary")
@@ -164,17 +174,26 @@ skinparam rectangle<<boundary>> {
   !if ($shadowing == "false")
     !$elementSkin = $elementSkin + "    Shadowing<<" + $tagStereo + ">> " + "false" + %newline()
   !endif
+  ' only rectangle supports shape(d corners)
+  !if ($shape!="" && $element == "rectangle")
+    !if ($shape == $ROUNDED_BOX)
+      !$elementSkin = $elementSkin + "    RoundCorner " + $ROUNDED_BOX_SIZE+ %newline()
+    !elseif ($shape == $EIGHT_SIDED)
+      !$elementSkin = $elementSkin + "    DiagonalCorner " + $EIGHT_SIDED_SIZE+ %newline()
+    !endif
+  !endif
   !$elementSkin = $elementSkin + "}" + %newline()
   !return $elementSkin
 !endfunction
 
-!unquoted procedure $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
-  !$tagSkin = $elementTagSkinparams("rectangle", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
-  !$tagSkin = $tagSkin + $elementTagSkinparams("database", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
-  !$tagSkin = $tagSkin + $elementTagSkinparams("queue", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+!unquoted procedure $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+  ' only rectangle supports shape(d corners)
+  !$tagSkin = $elementTagSkinparams("rectangle", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+  !$tagSkin = $tagSkin + $elementTagSkinparams("database", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
+  !$tagSkin = $tagSkin + $elementTagSkinparams("queue", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
   ' actor has style awesome, therefore $fontColor is ignored and text uses $bgColor too
-  !$tagSkin = $tagSkin + $elementTagSkinparams("actor", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing)
-  !$tagSkin = $tagSkin + $elementTagSkinparams("person", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+  !$tagSkin = $tagSkin + $elementTagSkinparams("actor", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "")
+  !$tagSkin = $tagSkin + $elementTagSkinparams("person", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
   !if ($tagStereo == "boundary" && $bgColor!="")
     !$tagSkin = $tagSkin + "skinparam package<<boundary>>StereotypeFontColor " + $bgColor + %newline()
     !$tagSkin = $tagSkin + "skinparam rectangle<<boundary>>StereotypeFontColor " + $bgColor + %newline()
@@ -204,7 +223,7 @@ $tagSkin
 $elementSkin
 !endprocedure
 
-!function $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+!function $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
   !$tagEntry = "|"
   !if ($bgColor!="")
     !$bg = $bgColor
@@ -233,6 +252,12 @@ $elementSkin
   !endif
   !if ($shadowing == "false")
     !$tagEntry = $tagEntry + $LEGEND_NO_SHADOW_TEXT
+  !endif
+  !if ($shape == $ROUNDED_BOX)
+    !$tagEntry = $tagEntry + $LEGEND_ROUNDED_BOX
+  !endif
+  !if ($shape == $EIGHT_SIDED)
+    !$tagEntry = $tagEntry + $LEGEND_EIGHT_SIDED
   !endif
   !if ($fontColor == "" && $bgColor == "")
       !$tagEntry = $tagEntry + $LEGEND_NO_FONT_BG_TEXT
@@ -274,12 +299,12 @@ $elementSkin
   !return $tagEntry 
 !endfunction
 
-!unquoted procedure $addTagToLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
+!unquoted procedure $addTagToLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="")
 '' if a combined element tag is defined (e.g. "v1.0&v1.1") then it is typically a merged color,
 '' like a new $fontColor="#fdae61" therefore it should be added to the legend 
 '' and the & combined tags will be not removed
 '  !if (%strpos($tagStereo, "&")<0)
-    !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+    !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
 %set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
     !$tagCustomLegend = $tagCustomLegend + $tagStereo + "\n"
 '  !endif
@@ -317,10 +342,18 @@ $elementSkin
   !endif
 !endprocedure
 
+!function RoundedBoxShape()
+!return $ROUNDED_BOX
+!endfunction
+
+!function EightSidedShape()
+!return $EIGHT_SIDED
+!endfunction
+
 ' used by new defined tags
-!unquoted procedure AddElementTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
-$defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
-$addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing)
+!unquoted procedure AddElementTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="")
+$defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+$addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
 !endprocedure
 
 ' used by new defined rel tags
@@ -330,9 +363,9 @@ $addRelTagToLegend($tagStereo, $textColor, $lineColor)
 !endprocedure
 
 ' update the style of existing elements like person, ...
-!unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="")
-$defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
-  !$tagEntry = $tagLegendEntry($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
+!unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="")
+$defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+  !$tagEntry = $tagLegendEntry($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
 %set_variable_value("$" + $elementName + "LegendEntry", $tagEntry)
 !endprocedure
 

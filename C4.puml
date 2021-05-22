@@ -12,8 +12,9 @@
 
 !global $LEGEND_FONT_COLOR = "#FFFFFF"
 !global $LEGEND_TITLE_COLOR = "#000000"
-!global $LEGEND_UNDEFINED_BG_COLOR = "#D5CFEE"
-!global $LEGEND_UNDEFINED_FONT_COLOR = "#8B77E4"
+' %darken(darkkhaki,50), #khaki
+!global $LEGEND_DARK_COLOR = "#66622E"
+!global $LEGEND_LIGHT_COLOR = "#khaki"
 
 ' Labels
 ' ##################################
@@ -202,7 +203,7 @@ $tagSkin
 !endprocedure
 
 ' arrow colors cannot start with # (legend background has to start with #)
-!function ColorNoHash($c)
+!function $colorWithoutHash($c)
   !if (%substr($c, 0, 1) == "#")
     !$c = %substr($c,1)
   !endif
@@ -213,39 +214,74 @@ $tagSkin
   !$elementSkin = "skinparam arrow<<" + $tagStereo + ">> {" + %newline()
   !$elementSkin = $elementSkin + "    Color "
   !if ($lineColor!="")
-    !$elementSkin = $elementSkin + ColorNoHash($lineColor)
+    !$elementSkin = $elementSkin + $colorWithoutHash($lineColor)
   !endif
   !if ($textColor!="")
-    !$elementSkin = $elementSkin + ";text:" + ColorNoHash($textColor)
+    !$elementSkin = $elementSkin + ";text:" + $colorWithoutHash($textColor)
   !endif
   !$elementSkin = $elementSkin + %newline()
   !$elementSkin = $elementSkin + "}" + %newline()
 $elementSkin
 !endprocedure
 
+!unquoted function $contrastColor($color)
+  !if (%is_dark($color))
+    !$value = $LEGEND_LIGHT_COLOR
+  !else
+    !$value = $LEGEND_DARK_COLOR
+  !endif
+  !return $value
+!endfunction
+
+!unquoted function $flatColor($color)
+  !if (%is_dark($color))
+    !$value = $LEGEND_DARK_COLOR
+  !else
+    !$value = $LEGEND_LIGHT_COLOR
+  !endif
+  !return $value
+!endfunction
+
+' legend background has to start with #
+!function $colorWithHash($c)
+  !if (%substr($c, 0, 1) != "#")
+    !$c = "#" + $c
+  !endif
+  !return $c
+!endfunction
+
 !function $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+  !$bg = $bgColor
+  !$fo = $fontColor
+  !$bo = $borderColor
+
+  !if ($fo == "")
+    !if ($bg != "")
+      !$fo = $contrastColor($bg)
+    !else
+      !if ($bo == "")
+        !$fo = $LEGEND_DARK_COLOR
+        !$bg = $LEGEND_LIGHT_COLOR
+      !else
+        !$fo = $flatColor($bo)
+        !$bg = $contrastColor($bo)
+      !endif
+    !endif
+  !else
+    !if ($bg == "")
+      !$bg = $contrastColor($fo)
+    !endif
+  !endif
+
+  !if ($bo == "")
+    !$bo = $bg
+  !endif
+
   !$tagEntry = "|"
-  !if ($bgColor!="")
-    !$bg = $bgColor
-  !else
-    !$bg = $LEGEND_UNDEFINED_BG_COLOR
-  !endif
-  ' named colors have to start with # too 
-  !if (%substr($bg, 0, 1) != "#")
-    !$bg = "#" + $bg
-  !endif
-  !$tagEntry = $tagEntry + "<" + $bg +">" 
+  !$tagEntry = $tagEntry + "<" + $colorWithHash($bg) +">" 
   ' <U+25AF> ..white rectangle
-  !if ($borderColor!="")
-    !$tagEntry = $tagEntry + "<color:"+$borderColor+"> <U+25AF></color> "
-  !else
-    !$tagEntry = $tagEntry + "<color:"+$bg+"> <U+25AF></color> "
-  !endif
-  !if ($fontColor!="")
-    !$tagEntry = $tagEntry + "<color:"+$fontColor+">"
-  !else
-    !$tagEntry = $tagEntry + "<color:"+$LEGEND_UNDEFINED_FONT_COLOR+">"
-  !endif
+  !$tagEntry = $tagEntry + "<color:"+$bo+"> <U+25AF></color> "
+  !$tagEntry = $tagEntry + "<color:"+$fo+">"
   !$tagEntry = $tagEntry + " " + $tagStereo + " "
   !if ($shadowing == "true")
     !$tagEntry = $tagEntry + $LEGEND_SHADOW_TEXT

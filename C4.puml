@@ -224,7 +224,7 @@ $tagSkin
 $elementSkin
 !endprocedure
 
-!unquoted function $contrastColor($color)
+!unquoted function $contrastLegend($color)
   !if (%is_dark($color))
     !$value = $LEGEND_LIGHT_COLOR
   !else
@@ -233,7 +233,7 @@ $elementSkin
   !return $value
 !endfunction
 
-!unquoted function $flatColor($color)
+!unquoted function $flatLegend($color)
   !if (%is_dark($color))
     !$value = $LEGEND_DARK_COLOR
   !else
@@ -257,19 +257,19 @@ $elementSkin
 
   !if ($fo == "")
     !if ($bg != "")
-      !$fo = $contrastColor($bg)
+      !$fo = $contrastLegend($bg)
     !else
       !if ($bo == "")
         !$fo = $LEGEND_DARK_COLOR
         !$bg = $LEGEND_LIGHT_COLOR
       !else
-        !$fo = $flatColor($bo)
-        !$bg = $contrastColor($bo)
+        !$fo = $flatLegend($bo)
+        !$bg = $contrastLegend($bo)
       !endif
     !endif
   !else
     !if ($bg == "")
-      !$bg = $contrastColor($fo)
+      !$bg = $contrastLegend($fo)
     !endif
   !endif
 
@@ -316,12 +316,12 @@ $elementSkin
   !if ($lineColor!="")
     !$tagEntry = $tagEntry + "<color:"+$lineColor+"> <U+2500></color> "
   !else
-    !$tagEntry = $tagEntry + " <U+2500> "
+    !$tagEntry = $tagEntry + "<color:"+$flatLegend($ARROW_COLOR)+"> <U+2500></color> "
   !endif
   !if ($textColor!="")
     !$tagEntry = $tagEntry + "<color:"+$textColor+">"
   !else
-    !$tagEntry = $tagEntry + "<color:"+$LEGEND_UNDEFINED_FONT_COLOR+">"
+    !$tagEntry = $tagEntry + "<color:"+$flatLegend($ARROW_COLOR)+">"
   !endif
   !$tagEntry = $tagEntry + " " + $tagStereo + " "
   !if ($textColor == "")

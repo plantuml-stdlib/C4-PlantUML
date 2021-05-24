@@ -224,6 +224,14 @@ $tagSkin
 $elementSkin
 !endprocedure
 
+' %is_dark() requires PlantUML version >=1.2021.6
+!if (%function_exists("%is_dark"))
+  !$PlantUMLSupportsDynamicLegendColor = %true()
+!else
+  !$PlantUMLSupportsDynamicLegendColor = %false()
+  !log "dynamic undefined legend colors" requires PlantUML version >= 1.2021.6, therefore only static assigned colors are used
+!endif
+
 !unquoted function $contrastLegend($color)
   !if (%is_dark($color))
     !$value = $LEGEND_LIGHT_COLOR
@@ -257,19 +265,32 @@ $elementSkin
 
   !if ($fo == "")
     !if ($bg != "")
+!if ($PlantUMLSupportsDynamicLegendColor)
       !$fo = $contrastLegend($bg)
+!else
+      !$fo = $LEGEND_DARK_COLOR
+!endif
     !else
       !if ($bo == "")
         !$fo = $LEGEND_DARK_COLOR
         !$bg = $LEGEND_LIGHT_COLOR
       !else
+!if ($PlantUMLSupportsDynamicLegendColor)
         !$fo = $flatLegend($bo)
         !$bg = $contrastLegend($bo)
+!else
+        !$fo = $LEGEND_DARK_COLOR
+        !$bg = $LEGEND_LIGHT_COLOR
+!endif
       !endif
     !endif
   !else
     !if ($bg == "")
+!if ($PlantUMLSupportsDynamicLegendColor)
       !$bg = $contrastLegend($fo)
+!else
+      !$bg = $LEGEND_LIGHT_COLOR
+!endif
     !endif
   !endif
 
@@ -311,18 +332,28 @@ $elementSkin
 !endfunction
 
 !function $tagRelLegendEntry($tagStereo, $textColor, $lineColor)
+  !$tc = $textColor
+  !$lc = $lineColor
+
+  !if ($tc=="")
+!if ($PlantUMLSupportsDynamicLegendColor)
+    !$tc = $flatLegend($ARROW_COLOR)
+!else
+    !$tc = $LEGEND_DARK_COLOR
+!endif
+  !endif
+  !if ($lc=="")
+!if ($PlantUMLSupportsDynamicLegendColor)
+    !$lc = $flatLegend($ARROW_COLOR)
+!else
+    !$lc = $LEGEND_DARK_COLOR
+!endif
+  !endif
+
   !$tagEntry = "|"
   ' <U+2500> ..white line
-  !if ($lineColor!="")
-    !$tagEntry = $tagEntry + "<color:"+$lineColor+"> <U+2500></color> "
-  !else
-    !$tagEntry = $tagEntry + "<color:"+$flatLegend($ARROW_COLOR)+"> <U+2500></color> "
-  !endif
-  !if ($textColor!="")
-    !$tagEntry = $tagEntry + "<color:"+$textColor+">"
-  !else
-    !$tagEntry = $tagEntry + "<color:"+$flatLegend($ARROW_COLOR)+">"
-  !endif
+  !$tagEntry = $tagEntry + "<color:"+$lc+"> <U+2500></color> "
+  !$tagEntry = $tagEntry + "<color:"+$tc+">"
   !$tagEntry = $tagEntry + " " + $tagStereo + " "
   !if ($textColor == "")
     !$tagEntry = $tagEntry + $LEGEND_NO_FONT_TEXT

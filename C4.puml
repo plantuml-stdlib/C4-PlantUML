@@ -27,6 +27,9 @@
 !global $LEGEND_NO_LINE_TEXT = "(no line color) "
 !global $LEGEND_ROUNDED_BOX = "(rounded box) "
 !global $LEGEND_EIGHT_SIDED = "(eight sided) "
+!global $LEGEND_DOTTED_LINE = "(dotted) "
+!global $LEGEND_DASHED_LINE = "(dashed) "
+!global $LEGEND_BOLD_LINE = "(bold) "
 
 ' Styling
 ' ##################################
@@ -37,6 +40,10 @@
 
 !global $ROUNDED_BOX = "roundedBox"
 !global $EIGHT_SIDED = "eightSided"
+
+!global $DOTTED_LINE = "dotted"
+!global $DASHED_LINE = "dashed"
+!global $BOLD_LINE = "bold"
 
 skinparam defaultTextAlignment center
 
@@ -226,7 +233,7 @@ $tagSkin
   !return $c
 !endfunction
 
-!unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor)
+!unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
   !$elementSkin = "skinparam arrow<<" + $tagStereo + ">> {" + %newline()
   !$elementSkin = $elementSkin + "    Color "
   !if ($lineColor!="")
@@ -234,6 +241,9 @@ $tagSkin
   !endif
   !if ($textColor!="")
     !$elementSkin = $elementSkin + ";text:" + $colorWithoutHash($textColor)
+  !endif
+  !if ($lineStyle!="")
+    !$elementSkin = $elementSkin + ";line." + $lineStyle
   !endif
   !$elementSkin = $elementSkin + %newline()
   !$elementSkin = $elementSkin + "}" + %newline()
@@ -398,7 +408,7 @@ $elementSkin
   !return $tagEntry 
 !endfunction
 
-!function $tagRelLegendEntry($tagStereo, $textColor, $lineColor)
+!function $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle)
   !$tc = $textColor
   !$lc = $lineColor
 
@@ -428,10 +438,25 @@ $elementSkin
   !if ($lineColor == "")
     !$tagEntry = $tagEntry + $LEGEND_NO_LINE_TEXT
   !endif
+  !if ($lineStyle != "")
+    !if ($lineStyle == $DOTTED_LINE)
+      !$tagEntry = $tagEntry + $LEGEND_DOTTED_LINE
+    !elseif ($lineStyle == $DASHED_LINE)
+      !$tagEntry = $tagEntry + $LEGEND_DASHED_LINE
+    !elseif ($lineStyle == $BOLD_LINE)
+      !$tagEntry = $tagEntry + $LEGEND_BOLD_LINE
+    !else
+      !$tagEntry = $tagEntry + "(" + $lineStyle + ") "
+    !endif
+  !endif
   !$tagEntry = $tagEntry + "</color> "
   !$tagEntry = $tagEntry + "|"
   !return $tagEntry 
 !endfunction
+
+!global $LEGEND_DOTTED_LINE = "(dotted) "
+!global $LEGEND_DASHED_LINE = "(dashed) "
+!global $LEGEND_BOLD_LINE = "(bold) "
 
 !unquoted procedure $addTagToLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="")
 '' if a combined element tag is defined (e.g. "v1.0&v1.1") then it is typically a merged color,
@@ -446,7 +471,7 @@ $elementSkin
 '  !endif
 !endprocedure
 
-!unquoted procedure $addRelTagToLegend($tagStereo, $textColor="", $lineColor="")
+!unquoted procedure $addRelTagToLegend($tagStereo, $textColor="", $lineColor="", $lineStyle="")
 '' Arrows have a bug with stereotype/skinparams and cannot combine text colors of one stereotype
 '' and the line color of another stereotype. Therefore the text color of one tag and the line color 
 '' of another tag have to be combined via a "workaround" tag ("v1.0&v1.1").
@@ -454,7 +479,7 @@ $elementSkin
 '' be an inconsistency between the element tags and the rel tags and therefore 
 '' & combined workaround tags are not removed too (and in unlikely cases the color itself could be changed)
 '  !if (%strpos($tagStereo, "&")<0)
-    !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor)
+    !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle)
 %set_variable_value("$" + $tagStereo + "_LineLegendEntry", $tagEntry)
     !$tagCustomLegend = $tagCustomLegend + $tagStereo + "_Line\n"
 '  !endif
@@ -486,6 +511,18 @@ $elementSkin
 !return $EIGHT_SIDED
 !endfunction
 
+!function DottedLine()
+!return $DOTTED_LINE
+!endfunction
+
+!function DashedLine()
+!return $DASHED_LINE
+!endfunction
+
+!function BoldLine()
+!return $BOLD_LINE
+!endfunction
+
 ' used by new defined tags
 !unquoted procedure AddElementTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="")
 $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
@@ -493,9 +530,9 @@ $addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $sha
 !endprocedure
 
 ' used by new defined rel tags
-!unquoted procedure AddRelTag($tagStereo, $textColor="", $lineColor="")
-$defineRelSkinparams($tagStereo, $textColor, $lineColor)
-$addRelTagToLegend($tagStereo, $textColor, $lineColor)
+!unquoted procedure AddRelTag($tagStereo, $textColor="", $lineColor="", $lineStyle = "")
+$defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
+$addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle)
 !endprocedure
 
 ' update the style of existing elements like person, ...

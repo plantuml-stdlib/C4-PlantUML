@@ -132,7 +132,7 @@ AddElementTag("v1.0", $borderColor="#d73027")
 AddElementTag("v1.1", $fontColor="#d73027")
 AddElementTag("backup", $fontColor="orange")
 
-AddRelTag("backup", $textColor="orange", $lineColor="orange")
+AddRelTag("backup", $textColor="orange", $lineColor="orange", $lineStyle = DashedLine())
 
 Person(user, "Customer", "People that need products")
 Person(admin, "Administrator", "People that administrates the products via the new v1.1 components", $tags="v1.1")
@@ -153,7 +153,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![tags](https://www.plantuml.com/plantuml/png/bLJTJjjC4BtdAVRprukWGWBz4L8b9AA0IgNGfWJ49Hfx9ywswrrhPnpQj--COs884LMlTZLpPiwSsMEV4KFYfl9x_xbG-CQYMJBNz6aqIl0mB1qlcxmXJ4KCZ867HQn6jOUWDOV4rhjyDFbmEDFGxTLqL04n9WdTJwG2NC0qhBN_tjZQ2uyL1hw1Sf2jZeT7sO5vayTaCKsYZ-aq-z-Ul3zwTvBjxq0VAteXJV-6pQ7usTHRw9WWb2XWHL-Ztq8o_jf2Ij2xW2_APvWeXe7kvC1aauOuLfW4diqmrXuDBu5DGBIcJj4s1PEKTLLWAnS4EjRJ4IVW-A8M-YIIX73JoAmSj8603qPNOkGvwXX4ERKgeAJJTbT2kTd_W6eGYlbih4oYe_7Gajv8fqeWnWN6j82Y6q0PYaxOEWTA_Y1cQ2VedgwdEzgc6p_LQNOpmzCT_EC8cmMyeXfgfnFClYZX3rY1dfSGh4SouBqHNmkGoFXOki8Cz0COzgiLHs0W5mFjFnVxTflgF1_ON9gV0qCEX4fqvOeKAIxOpBzFM-ReBJs-v85fNMyWM56tYgv0EHSnLS32-5n7AfPkXQfbVSlqsbZ7EdZfGgc1ESSakZwQtmYfDqDdSJMkcBvpxTeFjuIabUttBW3DjnbPtExq_VLwgQtOQmHBexla6Blqexlxzz_DqQLV8vgkYNhf7O_SAYI24dTAd5z-kxkVNdo--7e-sDyxms3rp_C7 "tags")
+![tags](https://www.plantuml.com/plantuml/png/bLJTRjfC4BtFK-pdhnT6JN3I7qMgX1G4gAb4MWg9Sed6ti5ikzwrTjRGl7rdrn08jLBrQj7CcJbppeov8G_EDvK--q-PGZSInThxcZvbcODjlrH-tUGDeIkiyMXylx1LLcimeUQ2lDGgpqOVBcOXz70tpIeWZuv3on5NW3Be-dNeVpQKSgAnuYRtKAR9vgf_cPoBDxbr4jt8Qki6oV_o-ltbk-karu6-2kWLD_qRDeVYPrEVeAq3KoA30tgE-WJfyTS9aeEQf-yCBloJHZ4GOw0roYb7qXvtdg4ZQz9Wrxb8HWrvMw7ZecI6jkOAlmOl3A8KjREoAJmblNqLo4ePXWx3gyWxyFQFMZWaaJY4put4Ha4C6DoAu9RWJTNMi2aK1K99WsWZKpwl9gKQc68n6mOcbjXeYAJttAbYY536erj1qGuG6OgTi3O7WNpBTn8dY5izfhiyfHiUwnJTp73imR-Ei3VW5TLGgp31x4iW_04R2Eyj6AcH16Wj-EGPI2IqBLKXql1jz0_Myh6W8MKDzLwAVNjADSvJcNFpCNZ8WJ0GtQd2MR8hBnRVfv7PQadxJPwB-448deRLRQmgaD-LTHLuPdofmnLhjS6WfVsLX9-DL3uCNYfJXi22JMHT7yKJWZiSm_xw-N3dg7TNszx30o65olXNm82GZnashZkzdBUcHh5p14dPerCUT-dzTH_jlvkZJRz6D6s93j9RdW2ha0XAx9IukFtsk9nEFa--ZjFUsGqQsLJwDm00 "tags")
 
 
 ## Supported Diagram Types
@@ -376,7 +376,7 @@ Additional tags/stereotypes can be added to the existing element stereotypes (co
 
 * `AddElementTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape)`:
   Introduces a new element tag. The styles of the tagged elements are updated and the tag is displayed in the calculated legend.
-* `AddRelTag(tagStereo, ?textColor, ?lineColor)`:
+* `AddRelTag(tagStereo, ?textColor, ?lineColor, ?lineStyle)`:
   Introduces a new relation tag. The styles of the tagged relations are updated and the tag is displayed in the calculated legend.
 * `UpdateElementStyle(elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape)`:
   This call updates the default style of the elements (component, ...) and creates no additional legend entry.
@@ -384,6 +384,9 @@ Additional tags/stereotypes can be added to the existing element stereotypes (co
   This call updates the default relationship colors and creates no additional legend entry.
 * `RoundedBoxShape()`: This call returns the name of the rounded box shape and can be used as ?shape argument.
 * `EightSidedShape()`: This call returns the name of the eight sided shape and can be used as ?shape argument.
+* `DashedLine()`: This call returns the name of the dashed line and can be used as ?lineStyle argument.
+* `DottedLine()`: This call returns the name of the dotted line and can be used as ?lineStyle argument.
+* `BoldLine()`: This call returns the name of the bold line and can be used as ?lineStyle argument.
 
 Each element can be extended with one or multiple custom tags via the keyword argument `$tags="..."`, like `Container(spaAdmin, "Admin SPA", $tags="v1.1")`.
 Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+v1.1")`.

@@ -130,6 +130,7 @@ skinparam rectangle<<boundary>> {
   !return $stereos
 !endfunction
 
+' element specific (unused are hidden based on mask)
 !unquoted function $toStereos($elementType, $tags)
   !if (%strlen($tags) == 0)
     !$stereos = '<<' + $elementType + '>>'
@@ -137,21 +138,34 @@ skinparam rectangle<<boundary>> {
     !return $stereos
   !endif
   !$stereos = ''
+  !$mask = $resetMask()
   !$brPos = %strpos($tags, "+")
   !while ($brPos >= 0)
     !$tag = %substr($tags, 0, $brPos)
     !$stereos = $stereos + '<<' + $tag + '>>'
+    !$mergedMask = $combineMaskWithTag($mask, $tag)
+    !if ($mergedMask != $mask)
 %set_variable_value("$" + $tag + "Legend", %true())
+      !$mask = $mergedMask
+    !endif
     !$tags = %substr($tags, $brPos+1)
     !$brPos = %strpos($tags, "+")
   !endwhile
   !if (%strlen($tags)>0)
     !$stereos = $stereos + '<<' + $tags + '>>'
+    !$mergedMask = $combineMaskWithTag($mask, $tags)
+    !if ($mergedMask != $mask)
 %set_variable_value("$" + $tags + "Legend", %true())
+      !$mask = $mergedMask
+    !endif
   !endif
   ' has to be last, otherwise PlantUML overwrites all tag specific skinparams
   !$stereos = $stereos + '<<' + $elementType + '>>'
+  !$mergedMask = $combineMaskWithTag($mask, $elementType)
+  !if ($mergedMask != $mask)
 %set_variable_value("$" + $elementType + "Legend", %true())
+    !$mask = $mergedMask
+  !endif
   !return $stereos
 !endfunction
 
@@ -175,11 +189,13 @@ skinparam rectangle<<boundary>> {
   !if ($shadowing == "false")
     !$elementSkin = $elementSkin + "    Shadowing<<" + $tagStereo + ">> " + "false" + %newline()
   !endif
-  ' only rectangle supports shape(d corners)
+  ' only rectangle supports shape(d corners), define both skinparam that overlays are working
   !if ($shape!="" && $element == "rectangle")
     !if ($shape == $ROUNDED_BOX)
       !$elementSkin = $elementSkin + "    RoundCorner " + $ROUNDED_BOX_SIZE+ %newline()
+      !$elementSkin = $elementSkin + "    DiagonalCorner " + "0" + %newline()
     !elseif ($shape == $EIGHT_SIDED)
+      !$elementSkin = $elementSkin + "    RoundCorner " + "0" + %newline()
       !$elementSkin = $elementSkin + "    DiagonalCorner " + $EIGHT_SIDED_SIZE+ %newline()
     !endif
   !endif
@@ -256,6 +272,57 @@ $elementSkin
     !$c = "#" + $c
   !endif
   !return $c
+!endfunction
+
+!function $addMaskFlag($mask, $attr)
+  !if ($attr == "")
+    !$mask = $mask + "0"
+  !else
+    !$mask = $mask + "1"
+  !endif
+  !return $mask
+!endfunction
+
+!function $orFlags($flag1, $flag2)
+  !if ($flag1 == "0" && $flag2 == "0")
+    !return "0"
+  !endif
+  !return "1"
+!endfunction
+
+!function $tagLegendMask($bgColor, $fontColor, $borderColor, $shadowing, $shape)
+  !$mask = ""
+  !$mask = $addMaskFlag($mask, $bgColor)
+  !$mask = $addMaskFlag($mask, $fontColor)
+  !$mask = $addMaskFlag($mask, $borderColor)
+  !$mask = $addMaskFlag($mask, $shadowing)
+  !$mask = $addMaskFlag($mask, $shape)
+  !return $mask
+!endfunction
+
+!function $resetMask()
+  !return "00000"
+!endfunction
+
+!function $combineMasks($mask1, $mask2)
+  !$mask = ""
+  !$mask = $mask + $orFlags(%substr($mask1, 0, 1), %substr($mask2, 0, 1))
+  !$mask = $mask + $orFlags(%substr($mask1, 1, 1), %substr($mask2, 1, 1))
+  !$mask = $mask + $orFlags(%substr($mask1, 2, 1), %substr($mask2, 2, 1))
+  !$mask = $mask + $orFlags(%substr($mask1, 3, 1), %substr($mask2, 3, 1))
+  !$mask = $mask + $orFlags(%substr($mask1, 4, 1), %substr($mask2, 4, 1))
+  !return $mask
+!endfunction
+
+!function $combineMaskWithTag($mask1, $tag)
+  !$mask2 = %get_variable_value("$" + $tag+ "LegendMask")
+  !if ($mask2=="")
+    ' !log combineMaskWithTag $mask1, $tag, ... only $mask1
+    !return $mask1
+  !endif
+
+  ' !log combineMaskWithTag $mask1, $tag, $mask2 ... $combineMasks($mask1, $mask2)
+  !return  $combineMasks($mask1, $mask2)
 !endfunction
 
 !function $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
@@ -371,9 +438,11 @@ $elementSkin
 '' like a new $fontColor="#fdae61" therefore it should be added to the legend 
 '' and the & combined tags will be not removed
 '  !if (%strpos($tagStereo, "&")<0)
-    !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+   !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
 %set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
     !$tagCustomLegend = $tagCustomLegend + $tagStereo + "\n"
+  !$tagMask = $tagLegendMask( $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+%set_variable_value("$" + $tagStereo + "LegendMask", $tagMask)
 '  !endif
 !endprocedure
 
@@ -434,6 +503,9 @@ $addRelTagToLegend($tagStereo, $textColor, $lineColor)
 $defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
   !$tagEntry = $tagLegendEntry($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
 %set_variable_value("$" + $elementName + "LegendEntry", $tagEntry)
+  ' default tags sets at least bgColor and fontColor
+  !$tagMask = $tagLegendMask("CHANGED", "CHANGED", $borderColor, $shadowing, $shape)
+%set_variable_value("$" + $elementName + "LegendMask", $tagMask)
 !endprocedure
 
 /' @deprecated in favor of UpdateElementStyle '/

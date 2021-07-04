@@ -359,7 +359,7 @@ C4-PlantUML also comes with some layout options to make it easy and reusable to 
 
 * [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT()](LayoutOptions.md#layout_top_down-or-layout_left_right)
 * [LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype)](LayoutOptions.md#layout_with_legend-or-show_legend)
-* [SHOW_LEGEND_UP(alias, ?hideStereotype), SHOW_LEGEND_DOWN(...), SHOW_LEGEND_LEFT(...), SHOW_LEGEND_RIGHT(...)](LayoutOptions.md#show_legend_up-show_legend_down-show_legend_left-show_legend_right)
+* [SHOW_FLOATING_LEGEND(?alias, ?hideStereotype) and LEGEND()](LayoutOptions.md#show_floating_legendalias-hidestereotype-and-legend)
 * [LAYOUT_AS_SKETCH()](LayoutOptions.md#layout_as_sketch)
 * [HIDE_STEREOTYPE()](LayoutOptions.md#hide_stereotype)
 
@@ -368,20 +368,22 @@ C4-PlantUML also comes with some person sprite/portrait options:
 * [HIDE_PERSON_SPRITE()](LayoutOptions.md#hide_person_sprite)
 * [SHOW_PERSON_SPRITE(?sprite)](LayoutOptions.md#show_person_sprite)
 * [SHOW_PERSON_PORTRAIT()](LayoutOptions.md#show_person_portrait)
+* [SHOW_PERSON_OUTLINE()](LayoutOptions.md#show_person_outline) (requires PlantUML version >= 1.2021.4)
 
 ## Custom tags/stereotypes support and skinparam updates
 
 Additional tags/stereotypes can be added to the existing element stereotypes (component, ...) and highlight,... specific aspects:
 
-* `AddElementTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing)`:
+* `AddElementTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape)`:
   Introduces a new element tag. The styles of the tagged elements are updated and the tag is displayed in the calculated legend.
 * `AddRelTag(tagStereo, ?textColor, ?lineColor)`:
   Introduces a new relation tag. The styles of the tagged relations are updated and the tag is displayed in the calculated legend.
-
-* `UpdateElementStyle(elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing)`
+* `UpdateElementStyle(elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape)`:
   This call updates the default style of the elements (component, ...) and creates no additional legend entry.
-* `UpdateRelStyle(textColor, lineColor)`
+* `UpdateRelStyle(textColor, lineColor)`:
   This call updates the default relationship colors and creates no additional legend entry.
+* `RoundedBoxShape()`: This call returns the name of the rounded box shape and can be used as ?shape argument.
+* `EightSidedShape()`: This call returns the name of the eight sided shape and can be used as ?shape argument.
 
 Each element can be extended with one or multiple custom tags via the keyword argument `$tags="..."`, like `Container(spaAdmin, "Admin SPA", $tags="v1.1")`.
 Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+v1.1")`.
@@ -409,6 +411,9 @@ AddElementTag("v1.1", $fontColor="#ffffbf", $borderColor="#ffffbf")
 AddElementTag("v1.0&v1.1", $fontColor="#fdae61", $borderColor="#fdae61")
 AddElementTag("fallback", $bgColor="#444444")
 
+AddElementTag("micro service", $shape=EightSidedShape())
+AddElementTag("storage", $shape=RoundedBoxShape())
+
 UpdateRelStyle(black, black)
 AddRelTag("service1", $textColor="red")
 AddRelTag("service2", $lineColor="red")
@@ -420,24 +425,23 @@ Container(api, "API", "java", "Handles all business logic (incl. new v1.1 extens
 Container(spa2, "SPA2", "angular", "The main interface that the customer interacts with via v1.0", $tags="v1.0+fallback")
 Container(spaAdmin2, "Admin SPA2", "angular", "The administrator interface that the customer interacts with via new v1.1", $tags="fallback+v1.1")
 
+Container(services, "Services", "techn", $tags="micro service")
+Container(fileStorage, "File storage", "techn", $tags="storage")
+
 Rel(spa, api, "Uses", "https")
 Rel(spaAdmin, api, "Uses", "https")
 Rel_L(spa, spa2, "Updates", "https")
 Rel_R(spaAdmin, spaAdmin2, "Updates", "https")
 
-Person(user, "A user")
-System(system, "A system")
+Rel_D(api, services, "uses service1 via this call", $tags="service1")
+Rel_D(api, services, "uses service2 via this call", $tags="service2")
+Rel_D(services, fileStorage, "both services stores via this call", $tags="service1&service2+service1+service2")
 
-Rel_D(user, system, "uses service1 via this call", $tags="service1")
-Rel_D(user, system, "uses service2 via this call", $tags="service2")
-Rel_D(user, system, "uses both services via this call", $tags="service1&service2+service1+service2")
-
-Lay_D(api, user)
 SHOW_LEGEND(false)
 @enduml
 ```
 
-![merged tags](https://www.plantuml.com/plantuml/png/jLJVRzCm47xFNs4Acb9rQzSmCGbfqgPjOaW5glqGZzCbkIO6nubybuxzzzXENLeQLl6mlDYv-_nzf-_EFYS6mssbeZTIPwhDKPJC3NsSJ0myZGl9PPksX2QhDQFcSLPNaqQ1TcUEY7CbqydboT7SXHw-p2OL4AEneSTBUmAaHZDk77_qqEJ0UAsmiZnt_AmmRj1GhG_5kuN5NjQgDcU3mY3gmJ2woFCLzXwAUB2SZey7syYt-Udxu-JKHTFQv6YsuxqSqxyv5lPB5piS8TvRnq4lKGxuOTf3vEExH0jGAeNifpzH1FI9_onwPTSjgiwgL5dieV2Bvx8PpqDebZ93hypuAzHZC1_quHA7KrBZ7jpq81pe8UwZYDRzZgc1Gp6ucryCx0AwQ1KOjxqlKLGM8gHcD0l8K709BDZ6ivQuhj1qESYOn9FaKYmbYD1xXeBEkaaORijTv9NKLi6lebyPN4uI6-3Q_6y96fz4wFgwZEbM6T18Ly7yinFy0KjmwmteN249K4gaBLaWaL1r8JCHkmitNZCBQp5gahMcuOPA6BUHsursHAc1fFCwUJMpHs5KUrrFDcrFNj_tK4pm8hA3sqrSru07GdBI_XcpUPSEjRw0UPnr92j3_UtR1TrkK8NTF-3Ht3zkiNiydKN2RMpyxfaOgvZyuXFTrgQynDNgn1fWVqc4M-bDuLAIo42fFww4l6NPIvBi8KbU94bhBWCJxIjd_OYCGcIq8HBDuDcg-9uuAMlEpRVlZxFhJzTVhsBRQC9XT8uwRolr6m00 "merged tags")
+![merged tags](https://www.plantuml.com/plantuml/png/jLLHRzCm47xlhp01JQswjMkOc8GqQMCh36d0r6xYSRh4byJWs97jTEFVOyTrI9l0nCFwOllkk-_Ed-_ISsr0cRhaerTCfBocI0fZAlr-FbVmECkPAUgargXIAGmACqjbEQyu21Tpf0tbB9bVdXpTEjFzbvjv2TgWigQ7Ini1JA2QLOv_T5zHCBZaM5gUjVd5SLoXqb8SaZUPnLvABjLPb2j44Kr65vHkiNUGZwFDOdOSxI9VqzEtn_6fioPIKLIxza6EnJv7Pdz9rkVmzk4w3WQ9AE2xHP_8s_j46N2UGFgpYSW3-gJvMVG-l6IfaaIZsh0KNOmkeCAp9SiBisOKwTgTnvDU7csaWhmJifAriFWFyYc4XBTP8VVlad1Rs25fbeRGUZoPpzzSq-1JkBn26WtXOeVZJE0pkCL12EWJ3rACskOQwmeEIRI-lOZi0YAlEIYtlIkGb1P2c32eCaYHc08CCTQUrbQL4fNtGMeqUMIc81i693IQWLoV-RQRxAQxe2KJDaEpak7Cu7nC6mLM_lyjGU0Z2ItMbh7OAGCgvYgu_UmI_e0DkFKQ1EMe2N1ExD1QeDQ4ovobPEocUzOo4oin2isaq9DEbj3RKxURkjt-tMElTVnYOa_3N0og7dTbZrzUzr1CqA9RakzOxGJPRbqH1jD2j0HxOzkzKiOuhlrish2FzaJ2gFPfWiTMi4BkUzwtmBtsUPkljlLxjrVh7vY76q-oVL8__ptGgaCLTd-1D_WhtvSTQMgREfmNZSYcO9gam7ddTbk_fNcU9Nw69MvP_X3iQfr8KxJiZUXs6IRjVw2cmJBjv1kjhxzzVxXPVbf-lHfdm3LEHkSegFlV-mq0 "merged tags")
 
 **Custom schema definition**
 
@@ -587,7 +591,7 @@ Source: [C4_Container Diagram Sample - techtribesjs.puml](samples/C4_Container%2
 
 Source: [C4_Container Diagram Sample - message bus.puml](samples/C4_Container%20Diagram%20Sample%20-%20message%20bus.puml)
 
-![messagebus](https://www.plantuml.com/plantuml/png/bLHVRzis47_NfxXb3qs196wBFUsfZcqixPpOjHm4Un9EqjacIf44IJbpXttt7IMReHSLQFCGYJyTVt-EF7zq7grl6maN3Jc7MofRTv7z8bGbsvfWvxrnluz65fzljiBlMlvCjjBAa_8tbMv6Hg8A1DVErrAKeyblryi0FTxFHmqwJvQXOi8xK2YoDuPhipVGAjxSC0du7S56IwcVXTg2v290LSFPPs4TlsbWSP2wGYaFp15TlXR8t5UX35fiuDcYUHArty67T-yIlC6_x_l8kVX6tSTiFlvhyRWkrejbCLqyFLo-pTuSeN5Uv7_ErfCxnexGqwVrNJ6V_J5xc3AOPKkoJglBgdLUDsIlO1BVBiPmWY-uD3yuJqrngrjLeprSLk-vv5GDdzH6smQzqEhYBVoJPS1_CTyb6fDMZusHekgh6V-CUtIL5SPVmLXjMuasmEFGNnTDkD3C1XM73mqM5epL6o69tPtBnJY58xiN5QNQUG-TTAyWDpOSugtMFe3h7O7HGddG6y2g8kU0iqKR89AehvIF5xBWAyTSnxE2szO5wXMMfV3tNpePYyePRNr7pkL21INQa_BkDQ-bKCi-aqYh4vPcMhNb8Jmdbj2J0nMyIk6eXXezTcgH34nhZNOq88XjBNmYDWxhL6Zow-ZcOROEhqkhzw9cCMstg8JhUdFzp11qD45fWvMG_3gWDIrV3gmkqxEQeiSINQUti5X9WlSVgh3AlRRaVknGc3yc3W9fvrA5-qF-PPwGuwbvtwY6FLd7vDsba38Us4jJiOQThdwcjwoIT3QiWlXiJoekevSa7s2fMt-yAU1tw667U-9_nf2YclN-pR8LoMIg-_bx36xuURTUBtCk2qN5gX_EWP5vD1pkEqs6a7yRoD0TL7K5d_F5m-YCU3umXhsFd5JjOW0TM9wep7NrbJplxbsztfpCLYI9tjhEx0jfppF0aborsDx-54N_OpIzdHmZd4_pm0Z-e8cKff-8dw7ehGoeHsWmIY_zFxNqviKTlLQ_9vlZeLWDgPqnSU57zjqsyZy0 "messagebus")
+![messagebus](https://www.plantuml.com/plantuml/png/bLLDZzis4BtxLqpL7ho0TuqKFHLO8FumcWJUNSUoaQCmeiOI4OeaICgkM_I_bvHiXN7LJRA7jJYSUU_D38TyQnqQrzG2afginPBonYQZdxXaeYa8AkUq_NqwDNXwABch6hzDXYdfIBe7fkgf5YW3mBrrXU3vTF7R_IQOza_hQOtMaV6cRE4Za4io3zhxZaQpebW9gZt83ijnKdDc57Za8sUKJE0NMw6cnnKlAvVoWeeqhCTtVYSl5qeeyvWib947eKvavg9fWmwUvB9vghYZvEwMnpfbi8mOjggH7dwk_XnW42tzv_Ch-AFqtSkdRBFQfY_FsSj-jtx_l1fxyuQCLNBC6izOavd0elzAPd0rjm1dwwZEva48clEOlV4kLszuBm_ArEYuaiaT_3q2_zVNSenQnyuphGLddREtVy0ZMcQuTXEOoR8HQ89v9dpHRA_1WbDGeyIIm5N43MYZ3bpux6xOhX7PfKynTTgPhhGJIBNXieIvKYuOTnM1LbmwK0T0niXQy9drAe17YVfIEomjFCBDmRXLT3coMTvOp_7KhM3Us42vnJpdxkbZIszGMgsCQqczEvT10Hr9EliVM4F1rSkFCjrURN6gsoO_Xz-58NHaGOOK1BTKG84EMx8U37HZjB9alpy_R0hk8X6pi8u5B7wUFZolTk5pOzIH5sH1cH8bjsqfxq_U12rCK710neN__04Do_nBtuiyRlaI7UPeMnql1faWUFCh2wlKAKFscxtjXd60CMg0funh7tC-dTEFwuWEh-N_Ymeuah6UhZrjGlGT_z8MBA1IxBNkn0g7--9teww4LP2pEfBibxswg0Q0kMhSvV21gz11XKVo_xGcISMmWdz6eos9R1dTATtuxplHoRlTRfDwnywhtHkOsBqkqFrFSo1KgGnOQC-IJU23lzMcCUv-u1BeLAGa2zldf0B89yfJnJwJUoKuck0Uf9VMj5eZq1Pd02KweNt5krRpxYPSpXUNuAy81mRzEpN4CDry_J3407bl6aoa2xiXYuzY7z5HTJ6ZDPwpxH3RLqZNfsoz-cFrlFHFs5kVH7Yg_mK0 "messagebus")
 
 
 ## Background

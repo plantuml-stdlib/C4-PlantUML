@@ -17,6 +17,9 @@ AddElementTag("role3", $bgColor="orange")
 AddElementTag("role4", $borderColor="blue")
 AddElementTag("unusedRole")
 
+AddElementTag("micro_service", $shape=EightSidedShape())
+AddElementTag("storage", $shadowing="true", $shape=RoundedBoxShape())
+
 AddRelTag("line1", $lineColor="green", $textColor="blue")
 AddRelTag("line2", $lineColor="blue", $textColor="green")
 AddRelTag("line3", $textColor="orange")
@@ -37,8 +40,8 @@ Person(person13, "Person13", $tags="role1+role3")
 Person(allInOne, "AllInOne", $tags="role4+role3+role2+role1")
 
 Component(component, "Component 1", "PlantUML")
-System(system1A, "System 1A")
-System(system2, "System 2")
+System(system1A, "System 1A", $tags="micro_service")
+System(system2, "System 2", $tags = "storage")
 
 Rel(allInOne, component, "without a tag")
 Rel(allInOne, component, "uses line 1", $tags="line1")

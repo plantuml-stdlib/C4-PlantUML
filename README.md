@@ -487,6 +487,39 @@ It is possible to save them directly inside VS Code: [Creating your own snippets
 
 ![C4-PlantUML Snippets Video](images/vscode_c4plantuml_snippets.gif)
 
+## Live Templates for IntelliJ
+
+### Prerequisites  
+[Graphviz download](https://graphviz.gitlab.io/download/)  
+[PlantUML Integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration)
+
+### Install
+
+1. Download [IntelliJ live template](intellij/c4_live_template.zip).  
+2. Select `File | Manage IDE Settings | Import Settings` from the IntelliJ IDEA menu.
+3. Specify the path to the downloaded ZIP file: `c4_live_template.zip`.
+4. In the Import Settings dialog, select the Live templates checkbox and click OK.
+4. Restart IntelliJ.
+
+### Usage
+
+* Create new PlantUML file (.puml).
+* Type `c4_` for displaying artifacts templates for C4-PlantUML
+* Live template create correct C4 model artifact with stubbed arguments. 
+    * E.g. alias, label, type, technology, description
+* Replace stubbed arguments with desired values.
+
+![C4-PlantUML Snippets Video](images/intellij_c4plantum_live_template1.gif)
+![C4-PlantUML Snippets Video](images/intellij_c4plantum_live_template2.gif)
+
+## Layout Options
+
+C4-PlantUML also comes with some layout options to make it easy and reuseable to create nice and useful diagrams:
+
+* [LAYOUT_TOP_DOWN or LAYOUT_LEFT_RIGHT](LayoutOptions.md#layout_top_down-or-layout_left_right)
+* [LAYOUT_WITH_LEGEND](LayoutOptions.md#layout_with_legend)
+* [LAYOUT_AS_SKETCH](LayoutOptions.md#layout_as_sketch)
+
 ## Advanced Samples
 
 The following advanced samples are reproductions with C4-PlantUML from official [C4 model samples](https://c4model.com/#examples) created by [Simon Brown](https://simonbrown.je/).

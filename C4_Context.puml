@@ -153,9 +153,11 @@ endlegend
 !endprocedure
 
 !global $defaultPersonSprite = "person"
+!global $portraitPerson = "false"
 
 !procedure HIDE_PERSON_SPRITE()
   !$defaultPersonSprite = ""
+  !$portraitPerson = "false"
 !endprocedure
 
 !unquoted procedure SHOW_PERSON_SPRITE($sprite="")
@@ -164,6 +166,12 @@ endlegend
   !else
     !$defaultPersonSprite = $sprite
   !endif
+  !$portraitPerson = "false"
+!endprocedure
+
+!unquoted procedure SHOW_PERSON_PORTRAIT()
+  !$defaultPersonSprite = ""
+  !$portraitPerson = "true"
 !endprocedure
 
 ' Elements
@@ -203,11 +211,19 @@ endlegend
 !endfunction
 
 !unquoted procedure Person($alias, $label, $descr="", $sprite="", $tags="", $link="")
+!if ($portraitPerson == "true") && ($sprite == "")
+actor "$getPerson($label, $descr, $sprite)$getProps()" $toStereos("person", $tags) as $alias $getLink($link)
+!else
 rectangle "$getPerson($label, $descr, $sprite)$getProps()" $toStereos("person", $tags) as $alias $getLink($link)
+!endif
 !endprocedure
 
 !unquoted procedure Person_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="")
+!if ($portraitPerson == "true") && ($sprite == "")
+actor "$getPerson($label, $descr, $sprite)$getProps()" $toStereos("external_person", $tags) as $alias $getLink($link)
+!else
 rectangle "$getPerson($label, $descr, $sprite)$getProps()" $toStereos("external_person", $tags) as $alias $getLink($link)
+!endif
 !endprocedure
 
 !unquoted procedure System($alias, $label, $descr="", $sprite="", $tags="", $link="")

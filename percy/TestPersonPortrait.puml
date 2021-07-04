@@ -1,0 +1,32 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Deployment.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!endif
+
+
+!$COLOR_A_5 = "#7f3b08"
+!$COLOR_A_1 = "#fee0b6"
+!$COLOR_NEUTRAL = "#f7f7f7"
+UpdateElementStyle("person", $bgColor=$COLOR_A_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_1, $shadowing="true")
+
+SHOW_PERSON_PORTRAIT()
+
+' default header Property, Value
+AddProperty("Name", "Flash")
+AddProperty("Organization", "Zootopia")
+AddProperty("Tool", "Internet Explorer 7.0")
+Person(personAlias, "Label", "Optional Description (with default property header)")
+Person(personAlias1, "Simple")
+Person(personAlias2, "Simple with sprite", $sprite="person2")
+AddProperty("Name", "Flash")
+AddProperty("Organization", "Zootopia")
+AddProperty("Tool", "Internet Explorer 7.0")
+Person_Ext(personAliasExt, "Label Ext", "Optional Description (with default property header)")
+Person_Ext(personAliasExt1, "Simple Ext")
+Person_Ext(personAliasExt2, "Simple Ext with sprite", $sprite="person2")
+
+SHOW_LEGEND()
+@enduml

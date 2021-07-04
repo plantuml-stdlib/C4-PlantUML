@@ -1,0 +1,22 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Container.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!endif
+
+Person(a, "Person A")
+Container(b, "Container B", "techn")
+System(c, "System C")
+Container(d, "Container D", "techn")
+Container_Ext(e, "Ext. Container E", "techn")
+
+Rel_R(a, b, "calls")
+Rel_D(b, c, "uses")
+Rel_D(c, d, "uses")
+Rel_R(d, e, "updates")
+
+SHOW_FLOATING_LEGEND()
+Lay_Distance(LEGEND(), e, 1)
+@enduml

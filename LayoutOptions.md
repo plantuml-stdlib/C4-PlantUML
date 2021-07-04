@@ -107,6 +107,58 @@ SHOW_LEGEND()
 
 ![SHOW_LEGEND Sample](https://www.plantuml.com/plantuml/png/JL5Dgzf05DtFhxYr2oDeWgMhhfgceWkreObr6IR9RHsOZs7cXY3b_VTtWpurcqlEn-4Svdia6MWm6ghThtEptsmtnvzGIUCrYa_ATdhe4Iv4FdxBiY37z9-Yoz0E4KFdBA6bj7CcyrhQAMOLgTUgpOglgtA2JeTzPcGa30mr1JkaiXXIpreXIWpHsKJsHjabpFBfgaX1aWkpXQYkR3JD3pVONePhqgsNCBzrco_Wlm3-7f79Y6qZlUUSCxQGUwzL9qavEsEe-Bo4l2hJuwPcIq3uagxXyAUOk5nhDqQO9aKW1xp7IvQOGPFo6g4U5H4686LGAukHkxtTsoLq8pddBcDI_4RziUfPwnJPoNTNrsN5gadqO9ynMwJ8lpYTly6PLujuUQLa8Tu1 "SHOW_LEGEND Sample")
 
+## SHOW_FLOATING_LEGEND(?alias, ?hideStereotype) and LEGEND()
+
+`LAYOUT_WITH_LEGEND()` and SHOW_LEGEND(?hideStereotype)` adds the legend at the bottom right of the picture like below and additional whitespace is created.
+
+```csharp
+@startuml Layout With Whitespace Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(a, "Person A")
+Container(b, "Container B", "techn")
+System(c, "System C")
+Container(d, "Container D", "techn")
+Container_Ext(e, "Ext. Container E", "techn")
+
+Rel_R(a, b, "calls")
+Rel_D(b, c, "uses")
+Rel_D(c, d, "uses")
+Rel_R(d, e, "updates")
+
+SHOW_LEGEND()
+@enduml
+```
+
+![Layout With Whitespace Sample](https://www.plantuml.com/plantuml/png/LSwnReCm40RWtK_XCZbI0qkdJca1jGDjew2A4HdxL91iOzbdjNdx7eb4meJlk_y_SOWe0oPhU2FFSqBUJJZoRfmGefSAU2kjDy0U9gTCqi17H1-VYoB8t_o7icb84OAQ7OB3NCssy4QwvU8-eZRJK9HF--D2tnzDOML424HzIGqvEGYvfonZHmXnTa8-ykpwv2_PZgqfCT1YdVXhHYE26Xs5sZCTjK8HNP-yt5JrfbhTLrVkwpyKG1lwvloMhk_Jx0IcFot_E90gQKmaNR0I98emHRWPWTuObGbWCQybNfYrxrzTtzHlzMSbTkm0JYTh_W40 "Layout With Whitespace Sample")
+
+Therefore a floating legend can be added via SHOW_FLOATING_LEGEND(), positioned with Lay_Distance() and existing whitespace is reused like below.
+
+- `SHOW_FLOATING_LEGEND(?alias, ?hideStereotype): shows the legend in the drawing area
+- `LEGEND()`: is the default alias of the created floating legend and can be used in Lay_Distance() call
+
+```csharp
+@startuml Compact Legend Layout Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(a, "Person A")
+Container(b, "Container B", "techn")
+System(c, "System C")
+Container(d, "Container D", "techn")
+Container_Ext(e, "Ext. Container E", "techn")
+
+Rel_R(a, b, "calls")
+Rel_D(b, c, "uses")
+Rel_D(c, d, "uses")
+Rel_R(d, e, "updates")
+
+SHOW_FLOATING_LEGEND()
+Lay_Distance(LEGEND(), e, 1)
+@enduml
+```
+
+![Compact Legend Layout Sample](https://www.plantuml.com/plantuml/png/RP7VQ-em5CVVyrUavS9juTwMmPu60vtjtA1JqOqzXfWURLXC9Jbb-j_lr6gri9Ss-Nn_d3OPUPGEcvrXWRRAD2Nm2d7l7zBKoUzagx5greq7fsgBO35HzIxzqavL7gjqSlz_OQJ5ZxSYXGFf9PG4nOJCKbjmoRwjPcm1pjSsalzus2tvE8nPRulM9FGx_XJI5a5LbaoheqVOHOfGj-IJGRGSHBFRQ8z5Vi08IA5tmg_k_DRDbc34ilt6DL4bZV54MvX5H1H1EeWh8r0EsJ8Y02tRbn9Fc0MRnYhKzCT5FirdMHIpm04spl9mOsg9scw5WItOCcG1FIz-jdgPVuhdOZv-VvrDnJbzAObP8OyYqtHzLa6FJ-FlQ2pxouC_7UMFFEm62Eb0XYJzMdssnwGFki_yKZsY8hhK7m00 "Compact Legend Layout Sample")
+
 ## LAYOUT_AS_SKETCH()
 
 C4-PlantUML can be especially helpful during up-front design sessions.

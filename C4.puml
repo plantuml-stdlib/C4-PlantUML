@@ -36,6 +36,13 @@ skinparam LegendBorderColor transparent
 skinparam LegendBackgroundColor transparent
 skinparam LegendFontColor $LEGEND_FONT_COLOR
 
+skinparam shadowing<<legendArea>> false
+' #00000000 is transparent
+skinparam rectangle<<legendArea>> {
+    backgroundcolor #00000000
+    bordercolor #00000000
+}
+
 skinparam rectangle {
     StereotypeFontSize 12
     shadowing false
@@ -63,7 +70,7 @@ skinparam actor {
     style awesome
 }
 
-' Some boundary skinparam have to be set a package skinparams too (PlantUML uses internal packages)
+' Some boundary skinparams have to be set as package skinparams too (PlantUML uses internal packages)
 skinparam package {
     StereotypeFontSize 6
     StereotypeFontColor $BOUNDARY_BG_COLOR
@@ -497,6 +504,25 @@ SetPropertyHeader("Property","Value")
 ' Layout
 ' ##################################
 
+!procedure $getHideStereotype($hideStereotype) 
+!if ($hideStereotype=="true")
+hide stereotype
+!endif
+!endprocedure
+
+!procedure $getLegendTable() 
+<#00000000,#00000000>|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
+$showActiveLegendEntries($tagDefaultLegend)
+$showActiveLegendEntries($tagCustomLegend)
+!endprocedure
+
+!procedure $getLegendArea($areaAlias, $hideStereotype) 
+$getHideStereotype($hideStereotype)
+rectangle $areaAlias<<legendArea>> [
+$getLegendTable()
+]
+!endprocedure
+
 !procedure HIDE_STEREOTYPE()
 hide stereotype
 !endprocedure
@@ -518,19 +544,27 @@ left to right direction
 
 ' has to be last call in diagram
 !unquoted procedure SHOW_LEGEND($hideStereotype="true")
-!if ($hideStereotype=="true")
-hide stereotype
-!endif
+$getHideStereotype($hideStereotype)
 legend right
-|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
-$showActiveLegendEntries($tagDefaultLegend)
-$showActiveLegendEntries($tagCustomLegend)
+$getLegendTable()
 endlegend
 !endprocedure
 
 /' @deprecated in favor of SHOW_LEGEND '/
 !unquoted procedure SHOW_DYNAMIC_LEGEND($hideStereotype="true")
 SHOW_LEGEND($hideStereotype)
+!endprocedure
+
+' legend is reserved and cannot be uses as alias of SHOW_FLOATING_LEGEND() therefore
+' LEGEND() is introduced. It returns the default name of the floating alias "floating_legend_alias"
+' and can be used in the Lay_Distance() calls
+!function LEGEND()
+!return "floating_legend_alias"
+!endfunction
+
+' enables that legend can be located in drawing area of the diagram. It has to be last call in diagram followed by Lay_Distance()
+!unquoted procedure SHOW_FLOATING_LEGEND($alias=LEGEND(), $hideStereotype="true")
+$getLegendArea($alias, $hideStereotype)
 !endprocedure
 
 ' Boundaries
@@ -668,6 +702,10 @@ $getRel("<<-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link
 ' Layout Helpers
 ' ##################################
 
+!function $getHiddenLine($distance)
+  !return '-[hidden]' + %substr('------------', 0, %intval($distance) + 1)
+!endfunction
+
 !unquoted procedure Lay_D($from, $to)
 $from -[hidden]D- $to
 !endprocedure
@@ -679,4 +717,11 @@ $from -[hidden]R- $to
 !endprocedure
 !unquoted procedure Lay_L($from, $to)
 $from -[hidden]L- $to
+!endprocedure
+
+' PlantUML bug: lines which does "not match" with the orientation/direction of the diagram
+' uses the same length therefore the method offers no direction at all.
+' If a direction is required the Lay_...() methods can be used
+!unquoted procedure Lay_Distance($from, $to, $distance="0")
+$from $getHiddenLine($distance) $to
 !endprocedure

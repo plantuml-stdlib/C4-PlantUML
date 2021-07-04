@@ -8,7 +8,7 @@
 !global $ARROW_COLOR = "#666666"
 
 !global $BOUNDARY_COLOR = "#444444"
-!global $BOUNDARY_BG_COLOR = "#FFFFFF"
+!global $BOUNDARY_BG_COLOR = "transparent"
 
 !global $LEGEND_FONT_COLOR = "#FFFFFF"
 !global $LEGEND_TITLE_COLOR = "#000000"

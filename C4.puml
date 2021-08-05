@@ -137,6 +137,33 @@ skinparam rectangle<<boundary>> {
   !return $stereos
 !endfunction
 
+!unquoted function $toRelSprite($sprite, $tags)
+  !if ($sprite>"")
+    !return $sprite
+  !endif
+
+  !if (%strlen($tags) == 0)
+       !return $sprite
+  !endif
+  !$brPos = %strpos($tags, "+")
+  !while ($brPos >= 0)
+    !$tag = %substr($tags, 0, $brPos)
+    !$newSprite = %get_variable_value("$" + $tag + "RelTagSprite")
+    !if ($newSprite>"")
+       !return $newSprite
+    !endif
+    !$tags = %substr($tags, $brPos+1)
+    !$brPos = %strpos($tags, "+")
+  !endwhile
+  !if (%strlen($tags)>0)
+    !$newSprite = %get_variable_value("$" + $tags + "RelTagSprite")
+    !if ($newSprite>"")
+       !return $newSprite
+    !endif
+  !endif
+  !return $sprite
+!endfunction
+
 ' element specific (unused are hidden based on mask)
 !unquoted function $toStereos($elementType, $tags)
   !if (%strlen($tags) == 0)
@@ -174,6 +201,38 @@ skinparam rectangle<<boundary>> {
     !$mask = $mergedMask
   !endif
   !return $stereos
+!endfunction
+
+!unquoted function $toSprite($sprite, $elementType, $tags)
+  !if ($sprite>"")
+    !return $sprite
+  !endif
+
+  !if (%strlen($tags) == 0)
+    !$newSprite = %get_variable_value("$" + $elementType + "ElementTagSprite")
+    !if ($newSprite>"")
+       !return $newSprite
+    !else
+       !return $sprite
+    !endif
+  !endif
+  !$brPos = %strpos($tags, "+")
+  !while ($brPos >= 0)
+    !$tag = %substr($tags, 0, $brPos)
+    !$newSprite = %get_variable_value("$" + $tag + "ElementTagSprite")
+    !if ($newSprite>"")
+       !return $newSprite
+    !endif
+    !$tags = %substr($tags, $brPos+1)
+    !$brPos = %strpos($tags, "+")
+  !endwhile
+  !if (%strlen($tags)>0)
+    !$newSprite = %get_variable_value("$" + $tags + "ElementTagSprite")
+    !if ($newSprite>"")
+       !return $newSprite
+    !endif
+  !endif
+  !return $sprite
 !endfunction
 
 !function $elementTagSkinparams($element, $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
@@ -300,18 +359,19 @@ $elementSkin
   !return "1"
 !endfunction
 
-!function $tagLegendMask($bgColor, $fontColor, $borderColor, $shadowing, $shape)
+!function $tagLegendMask($bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite)
   !$mask = ""
   !$mask = $addMaskFlag($mask, $bgColor)
   !$mask = $addMaskFlag($mask, $fontColor)
   !$mask = $addMaskFlag($mask, $borderColor)
   !$mask = $addMaskFlag($mask, $shadowing)
   !$mask = $addMaskFlag($mask, $shape)
+  !$mask = $addMaskFlag($mask, $sprite)
   !return $mask
 !endfunction
 
 !function $resetMask()
-  !return "00000"
+  !return "000000"
 !endfunction
 
 !function $combineMasks($mask1, $mask2)
@@ -321,6 +381,7 @@ $elementSkin
   !$mask = $mask + $orFlags(%substr($mask1, 2, 1), %substr($mask2, 2, 1))
   !$mask = $mask + $orFlags(%substr($mask1, 3, 1), %substr($mask2, 3, 1))
   !$mask = $mask + $orFlags(%substr($mask1, 4, 1), %substr($mask2, 4, 1))
+  !$mask = $mask + $orFlags(%substr($mask1, 5, 1), %substr($mask2, 5, 1))
   !return $mask
 !endfunction
 
@@ -335,7 +396,7 @@ $elementSkin
   !return  $combineMasks($mask1, $mask2)
 !endfunction
 
-!function $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+!function $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
   !$bg = $bgColor
   !$fo = $fontColor
   !$bo = $borderColor
@@ -380,35 +441,43 @@ $elementSkin
   ' <U+25AF> ..white rectangle
   !$tagEntry = $tagEntry + "<color:"+$bo+"> <U+25AF></color> "
   !$tagEntry = $tagEntry + "<color:"+$fo+">"
-  !$tagEntry = $tagEntry + " " + $tagStereo + " "
-  !if ($shadowing == "true")
-    !$tagEntry = $tagEntry + $LEGEND_SHADOW_TEXT
+  !if ($legendSprite != "")
+    !$tagEntry = $tagEntry + "<$"+$legendSprite+"> "
   !endif
-  !if ($shadowing == "false")
-    !$tagEntry = $tagEntry + $LEGEND_NO_SHADOW_TEXT
-  !endif
-  !if ($shape == $ROUNDED_BOX)
-    !$tagEntry = $tagEntry + $LEGEND_ROUNDED_BOX
-  !endif
-  !if ($shape == $EIGHT_SIDED)
-    !$tagEntry = $tagEntry + $LEGEND_EIGHT_SIDED
-  !endif
-  !if ($fontColor == "" && $bgColor == "")
-      !$tagEntry = $tagEntry + $LEGEND_NO_FONT_BG_TEXT
-  !else 
-    !if ($fontColor == "")
-      !$tagEntry = $tagEntry + $LEGEND_NO_FONT_TEXT
+  !if ($legendText == "")
+    !$tagEntry = $tagEntry + " " + $tagStereo + " "
+    !if ($shadowing == "true")
+      !$tagEntry = $tagEntry + $LEGEND_SHADOW_TEXT
     !endif
-    !if ($bgColor == "")
-      !$tagEntry = $tagEntry + $LEGEND_NO_BG_TEXT
+    !if ($shadowing == "false")
+      !$tagEntry = $tagEntry + $LEGEND_NO_SHADOW_TEXT
     !endif
+    !if ($shape == $ROUNDED_BOX)
+      !$tagEntry = $tagEntry + $LEGEND_ROUNDED_BOX
+    !endif
+    !if ($shape == $EIGHT_SIDED)
+      !$tagEntry = $tagEntry + $LEGEND_EIGHT_SIDED
+    !endif
+    !if ($fontColor == "" && $bgColor == "")
+        !$tagEntry = $tagEntry + $LEGEND_NO_FONT_BG_TEXT
+    !else 
+      !if ($fontColor == "")
+        !$tagEntry = $tagEntry + $LEGEND_NO_FONT_TEXT
+      !endif
+      !if ($bgColor == "")
+        !$tagEntry = $tagEntry + $LEGEND_NO_BG_TEXT
+      !endif
+    !endif
+  !else
+    !$tagEntry = $tagEntry + " " + $legendText + " "
   !endif
+
   !$tagEntry = $tagEntry + "</color> "
   !$tagEntry = $tagEntry + "|"
   !return $tagEntry 
 !endfunction
 
-!function $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle)
+!function $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite)
   !$tc = $textColor
   !$lc = $lineColor
 
@@ -431,24 +500,32 @@ $elementSkin
   ' <U+2500> ..white line
   !$tagEntry = $tagEntry + "<color:"+$lc+"> <U+2500></color> "
   !$tagEntry = $tagEntry + "<color:"+$tc+">"
-  !$tagEntry = $tagEntry + " " + $tagStereo + " "
-  !if ($textColor == "")
-    !$tagEntry = $tagEntry + $LEGEND_NO_FONT_TEXT
+  !if ($legendSprite != "")
+    !$tagEntry = $tagEntry + "<$"+$legendSprite+"> "
   !endif
-  !if ($lineColor == "")
-    !$tagEntry = $tagEntry + $LEGEND_NO_LINE_TEXT
-  !endif
-  !if ($lineStyle != "")
-    !if ($lineStyle == $DOTTED_LINE)
-      !$tagEntry = $tagEntry + $LEGEND_DOTTED_LINE
-    !elseif ($lineStyle == $DASHED_LINE)
-      !$tagEntry = $tagEntry + $LEGEND_DASHED_LINE
-    !elseif ($lineStyle == $BOLD_LINE)
-      !$tagEntry = $tagEntry + $LEGEND_BOLD_LINE
-    !else
-      !$tagEntry = $tagEntry + "(" + $lineStyle + ") "
+  !if ($legendText == "")
+    !$tagEntry = $tagEntry + " " + $tagStereo + " "
+    !if ($textColor == "")
+      !$tagEntry = $tagEntry + $LEGEND_NO_FONT_TEXT
     !endif
+    !if ($lineColor == "")
+      !$tagEntry = $tagEntry + $LEGEND_NO_LINE_TEXT
+    !endif
+    !if ($lineStyle != "")
+      !if ($lineStyle == $DOTTED_LINE)
+        !$tagEntry = $tagEntry + $LEGEND_DOTTED_LINE
+      !elseif ($lineStyle == $DASHED_LINE)
+        !$tagEntry = $tagEntry + $LEGEND_DASHED_LINE
+      !elseif ($lineStyle == $BOLD_LINE)
+        !$tagEntry = $tagEntry + $LEGEND_BOLD_LINE
+      !else
+        !$tagEntry = $tagEntry + "(" + $lineStyle + ") "
+      !endif
+    !endif
+  !else
+    !$tagEntry = $tagEntry + " " + $legendText + " "
   !endif
+
   !$tagEntry = $tagEntry + "</color> "
   !$tagEntry = $tagEntry + "|"
   !return $tagEntry 
@@ -458,20 +535,20 @@ $elementSkin
 !global $LEGEND_DASHED_LINE = "(dashed) "
 !global $LEGEND_BOLD_LINE = "(bold) "
 
-!unquoted procedure $addTagToLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="")
+!unquoted procedure $addTagToLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $legendText="", $legendSprite="")
 '' if a combined element tag is defined (e.g. "v1.0&v1.1") then it is typically a merged color,
 '' like a new $fontColor="#fdae61" therefore it should be added to the legend 
 '' and the & combined tags will be not removed
 '  !if (%strpos($tagStereo, "&")<0)
-   !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+  !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
 %set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
-    !$tagCustomLegend = $tagCustomLegend + $tagStereo + "\n"
-  !$tagMask = $tagLegendMask( $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+  !$tagCustomLegend = $tagCustomLegend + $tagStereo + "\n"
+  !$tagMask = $tagLegendMask( $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite)
 %set_variable_value("$" + $tagStereo + "LegendMask", $tagMask)
 '  !endif
 !endprocedure
 
-!unquoted procedure $addRelTagToLegend($tagStereo, $textColor="", $lineColor="", $lineStyle="")
+!unquoted procedure $addRelTagToLegend($tagStereo, $textColor="", $lineColor="", $lineStyle="", $legendText="", $legendSprite="")
 '' Arrows have a bug with stereotype/skinparams and cannot combine text colors of one stereotype
 '' and the line color of another stereotype. Therefore the text color of one tag and the line color 
 '' of another tag have to be combined via a "workaround" tag ("v1.0&v1.1").
@@ -479,7 +556,7 @@ $elementSkin
 '' be an inconsistency between the element tags and the rel tags and therefore 
 '' & combined workaround tags are not removed too (and in unlikely cases the color itself could be changed)
 '  !if (%strpos($tagStereo, "&")<0)
-    !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle)
+    !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite)
 %set_variable_value("$" + $tagStereo + "_LineLegendEntry", $tagEntry)
     !$tagCustomLegend = $tagCustomLegend + $tagStereo + "_Line\n"
 '  !endif
@@ -524,24 +601,50 @@ $elementSkin
 !endfunction
 
 ' used by new defined tags
-!unquoted procedure AddElementTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="")
+!unquoted procedure AddElementTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
 $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
-$addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+  !if ($sprite!="")
+%set_variable_value("$" + $tagStereo + "ElementTagSprite", $sprite)
+    !if ($legendSprite == "" && %strpos($sprite, "scale")>=0)
+      ' element symbols typically 4 times too big
+      !$legendSprite = $sprite + ",scale=0.25"
+    !endif
+  !endif
+$addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
 !endprocedure
 
 ' used by new defined rel tags
-!unquoted procedure AddRelTag($tagStereo, $textColor="", $lineColor="", $lineStyle = "")
+!unquoted procedure AddRelTag($tagStereo, $textColor="", $lineColor="", $lineStyle = "", $sprite="", $legendText="", $legendSprite="")
 $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
-$addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle)
+  !if ($sprite!="")
+%set_variable_value("$" + $tagStereo + "RelTagSprite", $sprite)
+    !if ($legendSprite == "")
+      ' relation symbols typically 1:1 no additional scale required
+      !$legendSprite = $sprite
+    !endif
+  !endif
+$addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite)
 !endprocedure
 
 ' update the style of existing elements like person, ...
-!unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="")
+!unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
 $defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
-  !$tagEntry = $tagLegendEntry($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+  !if ($sprite!="")
+%set_variable_value("$" + $elementName + "ElementTagSprite", $sprite)
+    !if ($legendSprite == "")
+      ' ,scale= ... has to be first (...,color=black,scale=0.25... is invalid too)
+      !if (%strpos($sprite, "=") < 0) 
+        ' element symbols typically 4 times too big
+        !$legendSprite = $sprite + ",scale=0.25"
+      !else
+        !$legendSprite = $sprite
+      !endif
+    !endif
+  !endif
+  !$tagEntry = $tagLegendEntry($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
 %set_variable_value("$" + $elementName + "LegendEntry", $tagEntry)
   ' default tags sets at least bgColor and fontColor
-  !$tagMask = $tagLegendMask("CHANGED", "CHANGED", $borderColor, $shadowing, $shape)
+  !$tagMask = $tagLegendMask("CHANGED", "CHANGED", $borderColor, $shadowing, $shape, $sprite)
 %set_variable_value("$" + $elementName + "LegendMask", $tagMask)
 !endprocedure
 
@@ -802,6 +905,7 @@ rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias 
 ' ##################################
 
 !function $getRel($direction, $alias1, $alias2, $label, $techn, $descr, $sprite, $tags, $link)
+  !$sprite = $toRelSprite($sprite, $tags)
   !$rel = $alias1 + ' ' + $direction + ' ' + $alias2
   !if ($tags != "")
     !$rel = $rel + ' ' + $toStereos($tags)

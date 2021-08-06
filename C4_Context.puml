@@ -30,6 +30,20 @@ UpdateElementStyle("external_person", $EXTERNAL_PERSON_BG_COLOR, $ELEMENT_FONT_C
 UpdateElementStyle("system", $SYSTEM_BG_COLOR, $ELEMENT_FONT_COLOR, $SYSTEM_BORDER_COLOR)
 UpdateElementStyle("external_system", $EXTERNAL_SYSTEM_BG_COLOR, $ELEMENT_FONT_COLOR, $EXTERNAL_SYSTEM_BORDER_COLOR)
 
+' shortcuts with default colors
+!unquoted procedure AddPersonTag($tagStereo, $bgColor=$PERSON_BG_COLOR, $fontColor=$ELEMENT_FONT_COLOR, $borderColor=$PERSON_BORDER_COLOR, $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
+  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $legendText, $legendSprite)
+!endprocedure
+!unquoted procedure AddExternalPersonTag($tagStereo, $bgColor=$EXTERNAL_PERSON_BG_COLOR, $fontColor=$ELEMENT_FONT_COLOR, $borderColor=$EXTERNAL_PERSON_BORDER_COLOR, $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
+  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $legendText, $legendSprite)
+!endprocedure
+!unquoted procedure AddSystemTag($tagStereo, $bgColor=$SYSTEM_BG_COLOR, $fontColor=$ELEMENT_FONT_COLOR, $borderColor=$SYSTEM_BORDER_COLOR, $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
+  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $legendText, $legendSprite)
+!endprocedure
+!unquoted procedure AddExternalSystemTag($tagStereo, $bgColor=$EXTERNAL_SYSTEM_BG_COLOR, $fontColor=$ELEMENT_FONT_COLOR, $borderColor=$EXTERNAL_SYSTEM_BORDER_COLOR, $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
+  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $legendText, $legendSprite)
+!endprocedure
+
 ' Sprites
 ' ##################################
 

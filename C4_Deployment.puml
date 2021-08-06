@@ -22,6 +22,11 @@ skinparam rectangle<<node>> {
     FontStyle normal
 }
 
+' shortcuts with default colors
+!unquoted procedure AddNodeTag($tagStereo, $bgColor=$NODE_BG_COLOR, $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR, $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
+  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $legendText, $legendSprite)
+!endprocedure
+
 ' Layout
 ' ##################################
 

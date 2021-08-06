@@ -374,11 +374,11 @@ C4-PlantUML also comes with some person sprite/portrait options:
 
 Additional tags/stereotypes can be added to the existing element stereotypes (component, ...) and highlight,... specific aspects:
 
-* `AddElementTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape)`:
+* `AddElementTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`:
   Introduces a new element tag. The styles of the tagged elements are updated and the tag is displayed in the calculated legend.
-* `AddRelTag(tagStereo, ?textColor, ?lineColor, ?lineStyle)`:
+* `AddRelTag(tagStereo, ?textColor, ?lineColor, ?lineStyle, ?sprite, ?legendText, ?legendSprite)`:
   Introduces a new relation tag. The styles of the tagged relations are updated and the tag is displayed in the calculated legend.
-* `UpdateElementStyle(elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape)`:
+* `UpdateElementStyle(elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`:
   This call updates the default style of the elements (component, ...) and creates no additional legend entry.
 * `UpdateRelStyle(textColor, lineColor)`:
   This call updates the default relationship colors and creates no additional legend entry.
@@ -390,6 +390,28 @@ Additional tags/stereotypes can be added to the existing element stereotypes (co
 
 Each element can be extended with one or multiple custom tags via the keyword argument `$tags="..."`, like `Container(spaAdmin, "Admin SPA", $tags="v1.1")`.
 Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+v1.1")`.
+
+**Element specific tag definitions**
+
+Sometimes an added element tag is element specific and all element specific colors should be used, e.g. a specific user role should be defined as element tag with the specific colors `...PERSON_...` like
+```plantuml
+AddElementTag("admin", $fontColor=$ELEMENT_FONT_COLOR, $bgColor=$PERSON_BG_COLOR, $borderColor=$PERSON_BORDER_COLOR, $sprite="osa_user_audit", $legendText="administration user")
+```
+Therefore element Add...Tag() shortcuts are added which use the specific colors as default values and the call can be simplified like
+```plantuml
+AddPersonTag("admin", $sprite="osa_user_audit", $legendText="administration user")
+```
+
+Following calls introduces new element tags with element specific default colors:
+* `AddPersonTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
+* `AddExternalPersonTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
+* `AddSystemTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
+* `AddExternalSystemTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
+* `AddComponentTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
+* `AddExternalComponentTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
+* `AddContainerTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
+* `AddExternalContainerTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
+* `AddNodeTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
 
 **Comments**
 
@@ -403,6 +425,8 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 
 * Colors of relationship tags cannot be automatically merged (PlantUML does not support it).
   If one tag modifies the line color and the other the text color, an additional combined tag has to be defined and used.
+
+**Sample with different tag combinations**
 
 ```csharp
 @startuml
@@ -445,6 +469,65 @@ SHOW_LEGEND(false)
 ```
 
 ![merged tags](https://www.plantuml.com/plantuml/png/jLLHRzCm47xlhp01JQswjMkOc8GqQMCh36d0r6xYSRh4byJWs97jTEFVOyTrI9l0nCFwOllkk-_Ed-_ISsr0cRhaerTCfBocI0fZAlr-FbVmECkPAUgargXIAGmACqjbEQyu21Tpf0tbB9bVdXpTEjFzbvjv2TgWigQ7Ini1JA2QLOv_T5zHCBZaM5gUjVd5SLoXqb8SaZUPnLvABjLPb2j44Kr65vHkiNUGZwFDOdOSxI9VqzEtn_6fioPIKLIxza6EnJv7Pdz9rkVmzk4w3WQ9AE2xHP_8s_j46N2UGFgpYSW3-gJvMVG-l6IfaaIZsh0KNOmkeCAp9SiBisOKwTgTnvDU7csaWhmJifAriFWFyYc4XBTP8VVlad1Rs25fbeRGUZoPpzzSq-1JkBn26WtXOeVZJE0pkCL12EWJ3rACskOQwmeEIRI-lOZi0YAlEIYtlIkGb1P2c32eCaYHc08CCTQUrbQL4fNtGMeqUMIc81i693IQWLoV-RQRxAQxe2KJDaEpak7Cu7nC6mLM_lyjGU0Z2ItMbh7OAGCgvYgu_UmI_e0DkFKQ1EMe2N1ExD1QeDQ4ovobPEocUzOo4oin2isaq9DEbj3RKxURkjt-tMElTVnYOa_3N0og7dTbZrzUzr1CqA9RakzOxGJPRbqH1jD2j0HxOzkzKiOuhlrish2FzaJ2gFPfWiTMi4BkUzwtmBtsUPkljlLxjrVh7vY76q-oVL8__ptGgaCLTd-1D_WhtvSTQMgREfmNZSYcO9gam7ddTbk_fNcU9Nw69MvP_X3iQfr8KxJiZUXs6IRjVw2cmJBjv1kjhxzzVxXPVbf-lHfdm3LEHkSegFlV-mq0 "merged tags")
+
+**Sample with tag dependent sprites and custom legend text**
+
+```plantuml
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
+!include osaPuml/Common.puml
+!include osaPuml/User/all.puml
+
+!include <office/Servers/database_server>
+!include <office/Servers/file_server>
+!include <office/Servers/application_server>
+!include <office/Concepts/service_application>
+!include <office/Concepts/firewall>
+
+AddExternalPersonTag("anonymous_ext", $sprite="osa_user_black_hat", $legendText="anonymous user")
+AddPersonTag("customer", $sprite="osa_user_large_group", $legendText="aggregated user")
+AddPersonTag("admin", $sprite="osa_user_audit,color=red", $legendSprite="osa_user_audit,scale=0.25,color=red", $legendText="administration user")
+
+AddContainerTag("webApp", $sprite="application_server", $legendText="web app container")
+AddContainerTag("db", $sprite="database_server", $legendText="database container")
+AddContainerTag("files", $sprite="file_server", $legendText="file server container")
+AddContainerTag("conApp", $sprite="service_application", $legendText="console app container")
+
+AddRelTag("firewall", $textColor="$ARROW_COLOR", $lineColor="$ARROW_COLOR", $sprite="firewall,scale=0.3,color=red", $legendText="firewall")
+
+Person_Ext(anonymous_user, "Bob", $tags="anonymous_ext")
+Person(aggregated_user, "Sam, Ivone", $tags="customer")
+Person(administration_user, "Bernd", $tags="admin")
+
+System_Boundary(c1, "techtribes.js"){
+    Container(web_app, "Web Application", "Java, Spring MVC, Tomcat 7.x", $tags="webApp")
+    ContainerDb(rel_db, "Relational Database", "MySQL 5.5.x", $tags="db")
+    Container(filesystem, "File System", "FAT32", $tags="files")
+    ContainerDb(nosql, "NoSQL Data Store", "MongoDB 2.2.x", $tags="db")
+    Container(updater, "Updater", "Java 7 Console App", $tags="conApp")
+}
+
+Rel(anonymous_user, web_app, "Uses", "HTTPS", $tags="firewall")
+Rel(aggregated_user, web_app, "Uses", "HTTPS", $tags="firewall")
+Rel(administration_user, web_app, "Uses", "HTTPS", $tags="firewall")
+
+Rel(web_app, rel_db, "Reads from and writes to", "SQL/JDBC, port 3306")
+Rel(web_app, filesystem, "Reads from")
+Rel(web_app, nosql, "Reads from", "MongoDB wire protocol, port 27017")
+
+Rel_U(updater, rel_db, "Reads from and writes data to", "SQL/JDBC, port 3306")
+Rel_U(updater, filesystem, "Writes to")
+Rel_U(updater, nosql, "Reads from and writes to", "MongoDB wire protocol, port 27017")
+
+Lay_R(rel_db, filesystem)
+
+SHOW_LEGEND()
+@enduml
+```
+
+![tags with sprites and custom legend](https://www.plantuml.com/plantuml/png/dLJTRkCs4xttKt2DlN00nyewNxu0HRDOnqwxNJYRr3_DfJ0Inx9QYbH9AevHzDqxf6tHiPMVDbSHvvmpXpE7_c8iQ5iLelKXbwceEBAbjQNv8Oeqh7fPRfTLKXdKgP8MfUsbgeXA0T9nJetb8a-YuVzExztH_7OS5M0iQZgAXyI0NABkbKw_zO7ZWZwPCd1F1-_eCzHWbiYBNF9er-1KbIWDffNExHfqkimjfhRIs3_DYMks1i9rjksYeIeA9RsNu-BSa6SGObCEzH_LOf6d64rHFw8s4GSB2HYCZJ_u_39oaOjteA0iHPw2pPLy6Ko3JB6q9d88EeZtMA_15xd65GZnkTKQS7xpP55B4FVKLyaPP9qsI2NNXQfCZ4-stMKVJKbJnQksCX2xPSI9WFIFU0c-AZ13oMU4lGfKvd3j4zTXJpcjZ5K5waPH0Jh3EDEgAezaiqnZ1XPviowuC3IAGiLpsqsLKFfA8m_2qsQaIK7WrLclVn58HsvSjznOxKUzS-GirTdshbQO3CfotzRnNW-rYSC8nTAT4YaV2VDaNpI4hq4nb5-NTBaq-whke5dHbzYczBee5Gy6q13LGtKY6INmQ0fEVeB22-yYxBYMM4E_glR7mMHozn0FxyPt4ozBrAPIC5GhrOi_Vsdl0UlCRC8Nq-lfr9dtEUgozhLAl378pDN1OphP4ZiXqJlM58ek--LHIGpa-hq4thFirHrHInve7kHSJjV6OX5VgqfoqEjE-ed05jEbrNc2flUxQP_yrMBqLo-kGmbqwo7W0sLny6nHxM_m25tctexCsErlmowRgOBAxBBt5FflWt_oN7cKT3IAc2UaGulqcY3OQ9jF9t-xdluwPXUzYtqrdXmgTNnQ_Ts8z9EBu-QcRVSvc9tt0zj36wn8PVuK1F-kN4jdWasjqXiRIcPgTCtwlVuRHggIW_Khc6_-sms9NJgK3x8RHTYeaflH_DrgqH2EmXEcFpTedDhNsUn-6WH223q_vEY_2Xm6wj-AU9MQiBTXu8Ojj2eOICvMxhaPPfKJeub7tqRNb9vIQSlEpy_-lt4JTCA6dsaTmdPR38Zz_Qt89IkriYfLOjkiVtdswN9hEvw71RvXd53mbliWT-3_eRxy4IvSe7bSxxxE6DRnf7vWeJsLfb_fbszyy_FDzr7dfFK59QyAyGy0 "tags with sprites and custom legend")
 
 **Custom schema definition**
 

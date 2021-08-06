@@ -1,0 +1,74 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Component.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!endif
+
+!define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
+!include osaPuml/Common.puml
+!include osaPuml/User/all.puml
+
+!include <office/Servers/database_server>
+!include <office/Servers/file_server>
+!include <office/Servers/application_server>
+!include <office/Concepts/service_application>
+!include <office/Concepts/firewall>
+
+AddExternalPersonTag("anonymous_ext", $sprite="osa_user_black_hat", $legendText="anonymous user")
+AddPersonTag("customer", $sprite="osa_user_large_group", $legendText="aggregated user")
+AddPersonTag("admin", $sprite="osa_user_audit,color=red", $legendSprite="osa_user_audit,scale=0.25,color=red", $legendText="administration user")
+
+AddContainerTag("webApp", $sprite="application_server", $legendText="web application")
+
+AddContainerTag("db", $sprite="database_server", $legendText="database container")
+AddContainerTag("files", $sprite="file_server", $legendText="file server container")
+
+AddContainerTag("conApp", $sprite="service_application", $legendText="console application")
+
+AddRelTag("firewall", $textColor="$ARROW_COLOR", $lineColor="$ARROW_COLOR", $sprite="firewall,scale=0.3,color=red", $legendText="firewall")
+
+
+Person_Ext(anonymous_user, "Bob", $tags="anonymous_ext")
+Person(aggregated_user, "Sam, Ivone", $tags="customer")
+Person(administration_user, "Bernd", $tags="admin")
+
+System_Boundary(c1, "techtribes.js"){
+    
+    Container(web_app, "Web Application", "Java, Spring MVC, Tomcat 7.x", "Allows users to view people, tribes, content, events, jobs, etc. from the local tech, digital and IT sector", $tags="webApp")
+
+    ContainerDb(rel_db, "Relational Database", "MySQL 5.5.x", "Stores people, tribes, tribe membership, talks, events, jobs, badges, GitHub repos, etc.", $tags="db")
+
+    Container(filesystem, "File System", "FAT32", "Stores search indexes", $tags="files")
+
+    ContainerDb(nosql, "NoSQL Data Store", "MongoDB 2.2.x", "Stores from RSS/Atom feeds (blog posts) and tweets", $tags="db")
+
+    Container(updater, "Updater", "Java 7 Console App", "Updates profiles, tweets, GitHub repos and content on a scheduled basis", $tags="conApp")
+}
+
+System_Ext(twitter, "Twitter")
+System_Ext(github, "GitHub")
+System_Ext(blogs, "Blogs")
+
+
+Rel(anonymous_user, web_app, "Uses", "HTTPS", $tags="firewall")
+Rel(aggregated_user, web_app, "Uses", "HTTPS", $tags="firewall")
+Rel(administration_user, web_app, "Uses", "HTTPS", $tags="firewall")
+
+Rel(web_app, rel_db, "Reads from and writes to", "SQL/JDBC, port 3306")
+Rel(web_app, filesystem, "Reads from")
+Rel(web_app, nosql, "Reads from", "MongoDB wire protocol, port 27017")
+
+Rel_U(updater, rel_db, "Reads from and writes data to", "SQL/JDBC, port 3306")
+Rel_U(updater, filesystem, "Writes to")
+Rel_U(updater, nosql, "Reads from and writes to", "MongoDB wire protocol, port 27017")
+
+Rel(updater, twitter, "Gets profile information and tweets from", "HTTPS")
+Rel(updater, github, "Gets information about public code repositories from", "HTTPS")
+Rel(updater, blogs, "Gets content using RSS and Atom feeds from", "HTTP")
+
+Lay_R(rel_db, filesystem)
+
+SHOW_LEGEND()
+@enduml

@@ -85,7 +85,7 @@ SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_sy
 !function $getNode($label, $type, $descr, $sprite)
   !$nodeText = ""
   !if ($sprite != "")
-    !$nodeText = $nodeText + '<$'+$sprite+'>\n'
+    !$nodeText = $nodeText + $getSprite($sprite) + '\n'
   !endif
   !$nodeText = $nodeText + '==' + $label
   !if ($type != "")
@@ -100,7 +100,7 @@ SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_sy
 !function $getNode_L($label, $type, $descr, $sprite)
   !$nodeText = ""
   !if ($sprite != "")
-    !$nodeText = $nodeText + '<$'+$sprite+'>\l'
+    !$nodeText = $nodeText + $getSprite($sprite) + '\l'
   !endif
   !$nodeText = $nodeText + '==' + $label
   !if ($type != "")
@@ -115,7 +115,7 @@ SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_sy
 !function $getNode_R($label, $type, $descr, $sprite)
   !$nodeText = ""
   !if ($sprite != "")
-    !$nodeText = $nodeText + '<$'+$sprite+'>\r'
+    !$nodeText = $nodeText + $getSprite($sprite) + '\r'
   !endif
   !$nodeText = $nodeText + '==' + $label
   !if ($type != "")

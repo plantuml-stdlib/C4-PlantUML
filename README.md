@@ -394,11 +394,11 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 **Element specific tag definitions**
 
 Sometimes an added element tag is element specific and all element specific colors should be used, e.g. a specific user role should be defined as element tag with the specific colors `...PERSON_...` like
-```plantuml
+```csharp
 AddElementTag("admin", $fontColor=$ELEMENT_FONT_COLOR, $bgColor=$PERSON_BG_COLOR, $borderColor=$PERSON_BORDER_COLOR, $sprite="osa_user_audit", $legendText="administration user")
 ```
 Therefore element Add...Tag() shortcuts are added which use the specific colors as default values and the call can be simplified like
-```plantuml
+```csharp
 AddPersonTag("admin", $sprite="osa_user_audit", $legendText="administration user")
 ```
 
@@ -472,7 +472,7 @@ SHOW_LEGEND(false)
 
 **Sample with tag dependent sprites and custom legend text**
 
-```plantuml
+```csharp
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 

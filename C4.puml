@@ -749,11 +749,52 @@ skinparam defaultFontName "Comic Sans MS"
 center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
 !endprocedure
 
+!global $fix_direction=%false()
+
+!function $down($start,$end)
+!if ($fix_direction)
+!return $start+"RIGHT"+$end
+!else
+!return $start+"DOWN"+$end
+!endif
+!endfunction
+
+!function $up($start,$end)
+!if ($fix_direction)
+!return $start+"LEFT"+$end
+!else
+!return $start+"UP"+$end
+!endif
+!endfunction
+
+!function $left($start,$end)
+!if ($fix_direction)
+!return $start+"UP"+$end
+!else
+!return $start+"LEFT"+$end
+!endif
+!endfunction
+
+!function $right($start,$end)
+!if ($fix_direction)
+!return $start+"DOWN"+$end
+!else
+!return $start+"RIGHT"+$end
+!endif
+!endfunction
+
 !procedure LAYOUT_TOP_DOWN()
+!global $fix_direction=%false()
 top to bottom direction
 !endprocedure
 
 !procedure LAYOUT_LEFT_RIGHT() 
+!global $fix_direction=%false()
+left to right direction
+!endprocedure
+
+!procedure LAYOUT_LANDSCAPE() 
+!global $fix_direction=%true()
 left to right direction
 !endprocedure
 
@@ -859,59 +900,59 @@ $getRel("<<-", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Rel_D($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($down("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure Rel_Down($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($down("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure BiRel_D($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($down("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure BiRel_Down($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($down("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Rel_U($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($up("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure Rel_Up($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($up("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure BiRel_U($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($up("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure BiRel_Up($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($up("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Rel_L($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($left("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure Rel_Left($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($left("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure BiRel_L($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($left("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure BiRel_Left($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($left("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Rel_R($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($right("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure Rel_Right($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($right("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure BiRel_R($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($right("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure BiRel_Right($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($right("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 ' Layout Helpers

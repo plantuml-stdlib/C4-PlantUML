@@ -1,0 +1,32 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Component.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!endif
+
+LAYOUT_LANDSCAPE()
+
+Person(admin, "Administrator")
+System_Boundary(c1, 'Sample') {
+    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
+}
+System(twitter, "Twitter")
+
+Rel(admin, web_app, "Uses", "HTTPS")
+Rel(web_app, twitter, "Gets tweets from", "HTTPS")
+
+System(S,"S")
+System(SU,"S Up")
+System(SD,"S Down")
+System(SL,"S Left")
+System(SR,"S Right")
+
+Rel_Up(S, SU, "Up")
+Rel_Down(S, SD, "Down")
+Rel_Left(S, SL, "Left")
+Rel_Right(S, SR, "Right")
+
+SHOW_LEGEND()
+@enduml

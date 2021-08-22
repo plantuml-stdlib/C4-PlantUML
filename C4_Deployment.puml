@@ -15,16 +15,15 @@
 ' Styling
 ' ##################################
 
-' orig was without background
-'UpdateElementStyle("node", $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR)
 UpdateElementStyle("node", $bgColor=$NODE_BG_COLOR, $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR)
 skinparam rectangle<<node>> {
     FontStyle normal
 }
 
 ' shortcuts with default colors
-!unquoted procedure AddNodeTag($tagStereo, $bgColor=$NODE_BG_COLOR, $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR, $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
-  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $legendText, $legendSprite)
+' node specific: $type reuses $techn definition of $tags
+!unquoted procedure AddNodeTag($tagStereo, $bgColor=$NODE_BG_COLOR, $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR, $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
+  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $techn, $legendText, $legendSprite)
 !endprocedure
 
 ' Layout
@@ -128,31 +127,43 @@ SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_sy
 !endfunction
 
 !unquoted procedure Deployment_Node($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toSprite($sprite, "node", $tags)
+!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "node")
+' nodes $type reuses $techn definition of $tags
+!$type=$toElementArg($type, $tags, "ElementTagTechn", "node")
 rectangle "$getNode($label, $type, $descr, $sprite)$getProps()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
 !unquoted procedure Deployment_Node_L($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toSprite($sprite, "node", $tags)
+!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "node")
+' nodes $type reuses $techn definition of $tags
+!$type=$toElementArg($type, $tags, "ElementTagTechn", "node")
 rectangle "$getNode_L($label, $type, $descr, $sprite)$getProps_L()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
 !unquoted procedure Deployment_Node_R($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toSprite($sprite, "node", $tags)
+!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "node")
+' nodes $type reuses $techn definition of $tags
+!$type=$toElementArg($type, $tags, "ElementTagTechn", "node")
 rectangle "$getNode_R($label, $type, $descr, $sprite)$getProps_R()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
 !unquoted procedure Node($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toSprite($sprite, "node", $tags)
+!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "node")
+' nodes $type reuses $techn definition of $tags
+!$type=$toElementArg($type, $tags, "ElementTagTechn", "node")
 rectangle "$getNode($label, $type, $descr, $sprite)$getProps()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
 !unquoted procedure Node_L($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toSprite($sprite, "node", $tags)
+!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "node")
+' nodes $type reuses $techn definition of $tags
+!$type=$toElementArg($type, $tags, "ElementTagTechn", "node")
 rectangle "$getNode_L($label, $type, $descr, $sprite)$getProps_L()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure
 
 !unquoted procedure Node_R($alias, $label, $type="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toSprite($sprite, "node", $tags)
+!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "node")
+' nodes $type reuses $techn definition of $tags
+!$type=$toElementArg($type, $tags, "ElementTagTechn", "node")
 rectangle "$getNode_R($label, $type, $descr, $sprite)$getProps_R()" $toStereos("node",$tags) as $alias $getLink($link)
 !endprocedure

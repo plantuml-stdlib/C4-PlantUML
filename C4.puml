@@ -137,31 +137,32 @@ skinparam rectangle<<boundary>> {
   !return $stereos
 !endfunction
 
-!unquoted function $toRelSprite($sprite, $tags)
-  !if ($sprite>"")
-    !return $sprite
+' if $sprite/$techn is an empty argument, try to calculate it via the defined $tag 
+!unquoted function $toRelArg($arg, $tags, $varPostfix)
+  !if ($arg>"")
+    !return $arg
   !endif
 
   !if (%strlen($tags) == 0)
-       !return $sprite
+       !return $arg
   !endif
   !$brPos = %strpos($tags, "+")
   !while ($brPos >= 0)
     !$tag = %substr($tags, 0, $brPos)
-    !$newSprite = %get_variable_value("$" + $tag + "RelTagSprite")
-    !if ($newSprite>"")
-       !return $newSprite
+    !$newArg = %get_variable_value("$" + $tag + $varPostfix)
+    !if ($newArg>"")
+       !return $newArg
     !endif
     !$tags = %substr($tags, $brPos+1)
     !$brPos = %strpos($tags, "+")
   !endwhile
   !if (%strlen($tags)>0)
-    !$newSprite = %get_variable_value("$" + $tags + "RelTagSprite")
-    !if ($newSprite>"")
-       !return $newSprite
+    !$newArg = %get_variable_value("$" + $tags + $varPostfix)
+    !if ($newArg>"")
+       !return $newArg
     !endif
   !endif
-  !return $sprite
+  !return $arg
 !endfunction
 
 ' element specific (unused are hidden based on mask)
@@ -203,40 +204,41 @@ skinparam rectangle<<boundary>> {
   !return $stereos
 !endfunction
 
-!unquoted function $toSprite($sprite, $elementType, $tags)
-  !if ($sprite>"")
-    !return $sprite
+' if $sprite/$techn is an empty argument, try to calculate it via the defined $tag 
+!unquoted function $toElementArg($arg, $tags, $varPostfix, $elementType)
+  !if ($arg>"")
+    !return $arg
   !endif
 
   !if (%strlen($tags) == 0)
-    !$newSprite = %get_variable_value("$" + $elementType + "ElementTagSprite")
-    !if ($newSprite>"")
-       !return $newSprite
+    !$newArg = %get_variable_value("$" + $elementType + $varPostfix)
+    !if ($newArg>"")
+       !return $newArg
     !else
-       !return $sprite
+       !return $arg
     !endif
   !endif
   !$brPos = %strpos($tags, "+")
   !while ($brPos >= 0)
     !$tag = %substr($tags, 0, $brPos)
-    !$newSprite = %get_variable_value("$" + $tag + "ElementTagSprite")
-    !if ($newSprite>"")
-       !return $newSprite
+    !$newArg = %get_variable_value("$" + $tag + $varPostfix)
+    !if ($newArg>"")
+       !return $newArg
     !endif
     !$tags = %substr($tags, $brPos+1)
     !$brPos = %strpos($tags, "+")
   !endwhile
   !if (%strlen($tags)>0)
-    !$newSprite = %get_variable_value("$" + $tags + "ElementTagSprite")
-    !if ($newSprite>"")
-       !return $newSprite
+    !$newArg = %get_variable_value("$" + $tags + $varPostfix)
+    !if ($newArg>"")
+       !return $newArg
     !endif
-    !$newSprite = %get_variable_value("$" + $elementType + "ElementTagSprite")
-    !if ($newSprite>"")
-       !return $newSprite
+    !$newArg = %get_variable_value("$" + $elementType + $varPostfix)
+    !if ($newArg>"")
+       !return $newArg
     !endif
   !endif
-  !return $sprite
+  !return $arg
 !endfunction
 
 !function $elementTagSkinparams($element, $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
@@ -632,7 +634,7 @@ $elementSkin
 !endfunction
 
 ' used by new defined tags
-!unquoted procedure AddElementTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
+!unquoted procedure AddElementTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
 $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
   !if ($sprite!="")
 %set_variable_value("$" + $tagStereo + "ElementTagSprite", $sprite)
@@ -640,11 +642,14 @@ $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $s
       !$legendSprite = $smallVersionSprite($sprite)
     !endif
   !endif
+  !if ($techn!="")
+%set_variable_value("$" + $tagStereo + "ElementTagTechn", $techn)
+  !endif
 $addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
 !endprocedure
 
 ' used by new defined rel tags
-!unquoted procedure AddRelTag($tagStereo, $textColor="", $lineColor="", $lineStyle = "", $sprite="", $legendText="", $legendSprite="")
+!unquoted procedure AddRelTag($tagStereo, $textColor="", $lineColor="", $lineStyle = "", $sprite="", $techn="", $legendText="", $legendSprite="")
 $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
   !if ($sprite!="")
 %set_variable_value("$" + $tagStereo + "RelTagSprite", $sprite)
@@ -653,17 +658,23 @@ $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
       !$legendSprite = $sprite
     !endif
   !endif
+  !if ($techn!="")
+%set_variable_value("$" + $tagStereo + "RelTagTechn", $techn)
+  !endif
 $addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite)
 !endprocedure
 
 ' update the style of existing elements like person, ...
-!unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
+!unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
 $defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
   !if ($sprite!="")
 %set_variable_value("$" + $elementName + "ElementTagSprite", $sprite)
     !if ($legendSprite == "")
       !$legendSprite = $smallVersionSprite($sprite)
     !endif
+  !endif
+  !if ($techn!="")
+%set_variable_value("$" + $elementName + "ElementTagTechn", $techn)
   !endif
   !$tagEntry = $tagLegendEntry($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
 %set_variable_value("$" + $elementName + "LegendEntry", $tagEntry)
@@ -929,7 +940,8 @@ rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias 
 ' ##################################
 
 !function $getRel($direction, $alias1, $alias2, $label, $techn, $descr, $sprite, $tags, $link)
-  !$sprite = $toRelSprite($sprite, $tags)
+  !$sprite = $toRelArg($sprite, $tags, "RelTagSprite")
+  !$techn = $toRelArg($techn, $tags, "RelTagTechn")
   !$rel = $alias1 + ' ' + $direction + ' ' + $alias2
   !if ($tags != "")
     !$rel = $rel + ' ' + $toStereos($tags)

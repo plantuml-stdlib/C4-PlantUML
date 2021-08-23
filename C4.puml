@@ -850,11 +850,23 @@ $getRel("<<-->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 $getRel("<<--", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
+!unquoted procedure BiRel_Back($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<--", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
 !unquoted procedure Rel_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
 $getRel("->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
+!unquoted procedure BiRel_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
 !unquoted procedure Rel_Back_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<-", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure BiRel_Back_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
 $getRel("<<-", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 

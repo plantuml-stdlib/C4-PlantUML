@@ -1,5 +1,18 @@
 ' C4-PlantUML
 
+'Version
+' ##################################
+!function C4Version()
+  !return "2.3.2beta1"
+!end function
+
+!procedure C4VersionDetails()
+rectangle C4VersionDetailsArea <<legendArea>> [
+| PlantUML | **%version()** |
+| C4-PlantUML | **C4Version()** |
+]
+!end procedure
+
 ' Colors
 ' ##################################
 

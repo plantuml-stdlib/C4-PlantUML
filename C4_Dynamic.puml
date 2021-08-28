@@ -94,53 +94,53 @@ $getRel("<<-", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $t
 !endprocedure
 
 !unquoted procedure Rel_D($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-DOWN->>", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($down("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure Rel_Down($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-DOWN->>", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($down("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure RelIndex_D($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-DOWN->>", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($down("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure RelIndex_Down($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-DOWN->>", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($down("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Rel_U($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-UP->>", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($up("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure Rel_Up($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-UP->>", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($up("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure RelIndex_U($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-UP->>", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($up("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure RelIndex_Up($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-UP->>", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($up("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Rel_L($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-LEFT->>", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($left("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure Rel_Left($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-LEFT->>", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($left("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure RelIndex_L($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-LEFT->>", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($left("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure RelIndex_Left($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-LEFT->>", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($left("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Rel_R($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-RIGHT->>", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($right("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure Rel_Right($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-RIGHT->>", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($right("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure RelIndex_R($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-RIGHT->>", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($right("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure RelIndex_Right($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-RIGHT->>", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($right("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure

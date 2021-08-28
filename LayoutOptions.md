@@ -6,7 +6,7 @@ PlantUML uses [Graphviz](https://www.graphviz.org/) for its graph visualization.
 
 For this reason, C4-PlantUML also comes with some layout options.
 
-## LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT()
+## LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT() or LAYOUT_LANDSCAPE()
 
 With the two macros `LAYOUT_TOP_DOWN()` and `LAYOUT_LEFT_RIGHT()` it is possible to easily change the flow visualization of the diagram. `LAYOUT_TOP_DOWN()` is the default.
 
@@ -30,8 +30,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![LAYOUT_TOP_DOWN Sample](https://www.plantuml.com/plantuml/png/NP1DJyCm38Rl-HLc7DP9ezKG9quh0y5X7nNhc3XLQUknI6aI9IxLXFZlkDhO454aI_Rhruyz3IGzjOs6UVg-skH5ligAnzLs2MlPE8tYIfbAjpN2diY5-oJniei_5EtRiWteAsi83SMLRH9PUoNDfsvTcypkRZ8j3MqMyqHBma2SAcQibigWZnsF528Pmj8I6CGQQoYnakm9j5S1-DCUeSQTR3N1C17_0AEH41dwO4qawqQPCGpIFgf0NfBrWv5O7m9XKppOrjJI7w9gCeRXSQ_X2Bu4y3iZHHsMXNIEVRPOGkgSLfKaPSs0KxFhCQJhB5u-vTpY4MxZ2IpUPdqjrTfs0VfpCBG5leMJB6aONF4io3j5X1v8DQXvLc2sxnDTHCSY-vnaN1Ilg7-tkc1j0dToVCdpRCsgNdIkNcoUaHYZmpxil6t-japHr7pv7m00 "LAYOUT_TOP_DOWN Sample")
 
-
-Using `LAYOUT_LEFT_RIGHT()`
+`LAYOUT_LEFT_RIGHT()` rotates the flow visualization to *from Left to Right* and directed relations like `Rel_Left()`, `Rel_Right()`, `Rel_Up()` and `Rel_Down()` are rotated too.
 
 ```csharp
 @startuml LAYOUT_LEFT_RIGHT Sample
@@ -52,6 +51,40 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![LAYOUT_LEFT_RIGHT Sample](https://www.plantuml.com/plantuml/png/PL1DIyD05BplhrZheIdKX8edJusXjaAhfKaLJs6RFEt2Vh7xrb34_-uBhLPmBmDlvhsPsMb0uJ5gnPVvwzEsgfUp-whUFCmN5I-5TWhOXJIDYYtmFQ8BjrdcHPU-Izp7NGpW6siG3AQDrPbelHJcGqKNi-BcQgs4mUrgcIc14916TK5g8Gtur94fO_zSan5ZQ_31caIqMfen7-Gzoe1UeFM34IiF0K7NTpQQLlX3qap6V7WCEnpnJyRf_Vea7UnguHpTUO4TpvrJiX4ehHdGgBWSyxnSfu-pYbOyyEjqmbVFHS_bIjakyBvZu6Wv5NI293egbEJ5gquYWkSeDIZo2fJjwvGkmID9Tquo8ja6r4-hSwnje4t2HLMjIrBreb_sV6OEI34wwE7DM_rtPGgcfU_y1W00 "LAYOUT_LEFT_RIGHT Sample")
 
+`LAYOUT_LANDSCAPE()` rotates the default flow visualization to *from Left to Right* like `LAYOUT_LEFT_RIGHT()` additional **directed relations** like Rel_Left(), Rel_Right(), Rel_Up() and Rel_Down() **are not rotated** anymore.
+
+```csharp
+@startuml LAYOUT_LANDSCAPE Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_LANDSCAPE()
+
+Person(admin, "Administrator")
+System_Boundary(c1, 'Sample') {
+    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
+}
+System(twitter, "Twitter")
+
+Rel(admin, web_app, "Uses", "HTTPS")
+Rel(web_app, twitter, "Gets tweets from", "HTTPS")
+
+System(S,"S")
+System(SU,"S Up")
+System(SD,"S Down")
+System(SL,"S Left")
+System(SR,"S Right")
+
+Rel_Up(S, SU, "Up")
+Rel_Down(S, SD, "Down")
+Rel_Left(S, SL, "Left")
+Rel_Right(S, SR, "Right")
+
+SHOW_LEGEND()
+
+@enduml
+```
+
+![LAYOUT_LANDSCAPE Sample](https://www.plantuml.com/plantuml/png/NOzFRvj04CNlV8gjUmYM75kfUkef5ApaG1nae55FQ0sJUANzizeTXAAgtxqpCNQiSa7lDxFllRcFA0EEHeio-_tSDbsPxOewpwgjgANn6f8lolPw740S4NtyiTa4EQtV51x7mnWXzCuYM5ptpcoybfQzRYCEMXqs-VVRYb7xL6wCZ0Y1K9VJ2waiXBMdtIJvFpXT9aa58JgRoi4eknABZFygOf3emcAPrEzaPhgVRhI33EzfVxSIDwU-Dqln9n7qNMBI2GwTz9vyNk0WCk-rwYKgPnU4ygyhaTNLUhTjw4a0yMrz9vv-vJpBj7PJ57nc5EW4tUWbhPXHew8iqKmA4O90PK1JLgHkV-TsAPw6v3ElqJ3PWpvVzLchZH0vxx5fgfgsUEao_RHv08maWN-lmPdh9-VGUhLWULOjIT7wAr8mATnahrZ9h8HNl69xPdlrTiIvTjTwSXTrouNPaHaRVT22A8kPiza7Bucpc3aRdWPx6bpiwyVdbwxSFcntHKho7kmm6lqF "LAYOUT_LANDSCAPE Sample")
 
 ## LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype)
 

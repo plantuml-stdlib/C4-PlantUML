@@ -535,9 +535,9 @@ Rel(personAlias, containerAlias, "Label", "Optional Technology")
 
 ## Version information
 
-Starting with v.2.3.2beta1 C4-PlantUML offers version information like PlantUML with its `%version()` call.
+Starting with v.2.3.1beta1 C4-PlantUML offers version information like PlantUML with its `%version()` call.
 
-* `C4Version()`: Current C4-PlantUML version (e.g. "2.3.2beta1").
+* `C4Version()`: Current C4-PlantUML version (e.g. "2.3.1beta1").
 * `C4VersionDetails()`: (Floating) version details with the current PlantUML and C4-PlantUML version (with the alias C4VersionDetailsArea)
 
 ```

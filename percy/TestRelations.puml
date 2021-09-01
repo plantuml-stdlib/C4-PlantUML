@@ -29,6 +29,8 @@ Rel_Back_Neighbor(RelFrom, "To_Rel_Back_Neighbor_Tech", "A label", "A techn")
 
 BiRel(BiRelFrom, "To_BiRel", "A label")
 BiRel(BiRelFrom, "To_BiRel_Tech", "A label", "A techn")
+BiRel_Neighbor(BiRelFrom, "To_BiRel_Neighbor", "A label")
+BiRel_Neighbor(BiRelFrom, "To_BiRel_Neighbor_Tech", "A label", "A techn")
 
 Rel_D(RelShort, "To_Rel_D", "A label")
 Rel_D(RelShort, "To_Rel_D_Tech", "A label", "A techn")

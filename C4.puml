@@ -376,7 +376,7 @@ $elementSkin
   !endif
 
   !$tagEntry = "|"
-  !$tagEntry = $tagEntry + "<" + $colorWithHash($bg) +">" 
+  !$tagEntry = $tagEntry + "<" + $colorWithHash($bg) +">"
   ' <U+25AF> ..white rectangle
   !$tagEntry = $tagEntry + "<color:"+$bo+"> <U+25AF></color> "
   !$tagEntry = $tagEntry + "<color:"+$fo+">"
@@ -395,7 +395,7 @@ $elementSkin
   !endif
   !if ($fontColor == "" && $bgColor == "")
       !$tagEntry = $tagEntry + $LEGEND_NO_FONT_BG_TEXT
-  !else 
+  !else
     !if ($fontColor == "")
       !$tagEntry = $tagEntry + $LEGEND_NO_FONT_TEXT
     !endif
@@ -405,7 +405,7 @@ $elementSkin
   !endif
   !$tagEntry = $tagEntry + "</color> "
   !$tagEntry = $tagEntry + "|"
-  !return $tagEntry 
+  !return $tagEntry
 !endfunction
 
 !function $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle)
@@ -451,7 +451,7 @@ $elementSkin
   !endif
   !$tagEntry = $tagEntry + "</color> "
   !$tagEntry = $tagEntry + "|"
-  !return $tagEntry 
+  !return $tagEntry
 !endfunction
 
 !global $LEGEND_DOTTED_LINE = "(dotted) "
@@ -460,7 +460,7 @@ $elementSkin
 
 !unquoted procedure $addTagToLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="")
 '' if a combined element tag is defined (e.g. "v1.0&v1.1") then it is typically a merged color,
-'' like a new $fontColor="#fdae61" therefore it should be added to the legend 
+'' like a new $fontColor="#fdae61" therefore it should be added to the legend
 '' and the & combined tags will be not removed
 '  !if (%strpos($tagStereo, "&")<0)
    !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
@@ -473,10 +473,10 @@ $elementSkin
 
 !unquoted procedure $addRelTagToLegend($tagStereo, $textColor="", $lineColor="", $lineStyle="")
 '' Arrows have a bug with stereotype/skinparams and cannot combine text colors of one stereotype
-'' and the line color of another stereotype. Therefore the text color of one tag and the line color 
+'' and the line color of another stereotype. Therefore the text color of one tag and the line color
 '' of another tag have to be combined via a "workaround" tag ("v1.0&v1.1").
-'' This workaround tag could be theoretically removed in the legend but after that there would 
-'' be an inconsistency between the element tags and the rel tags and therefore 
+'' This workaround tag could be theoretically removed in the legend but after that there would
+'' be an inconsistency between the element tags and the rel tags and therefore
 '' & combined workaround tags are not removed too (and in unlikely cases the color itself could be changed)
 '  !if (%strpos($tagStereo, "&")<0)
     !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle)
@@ -559,7 +559,7 @@ UpdateElementStyle($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
 $elementSkin
 !endprocedure
 
-' tags/stereotypes have to be delimited with \n 
+' tags/stereotypes have to be delimited with \n
 !unquoted procedure SetDefaultLegendEntries($tagStereoEntries)
   !$tagDefaultLegend = $tagStereoEntries
 !endprocedure
@@ -591,7 +591,7 @@ $elementSkin
 !if (%strpos($descr, "\n") >= 0)
 !else
   !while (%strlen($descr)>$width)
-    !$brPos = $width 
+    !$brPos = $width
     !while ($brPos>0 && %substr($descr, $brPos, 1)!= ' ')
       !$brPos = $brPos - 1
     !endwhile
@@ -719,19 +719,19 @@ SetPropertyHeader("Property","Value")
 ' Layout
 ' ##################################
 
-!procedure $getHideStereotype($hideStereotype) 
+!procedure $getHideStereotype($hideStereotype)
 !if ($hideStereotype=="true")
 hide stereotype
 !endif
 !endprocedure
 
-!procedure $getLegendTable() 
+!procedure $getLegendTable()
 <#00000000,#00000000>|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
 $showActiveLegendEntries($tagDefaultLegend)
 $showActiveLegendEntries($tagCustomLegend)
 !endprocedure
 
-!procedure $getLegendArea($areaAlias, $hideStereotype) 
+!procedure $getLegendArea($areaAlias, $hideStereotype)
 $getHideStereotype($hideStereotype)
 rectangle $areaAlias<<legendArea>> [
 $getLegendTable()
@@ -846,7 +846,7 @@ rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias 
   !$rel = $alias1 + ' ' + $direction + ' ' + $alias2
   !if ($tags != "")
     !$rel = $rel + ' ' + $toStereos($tags)
-  !endif  
+  !endif
   !$rel = $rel + ' : '
   !if ($sprite != "")
     ' if it starts with & it's a OpenIconic, details see https://useiconic.com/open/
@@ -854,8 +854,8 @@ rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias 
       !$rel = $rel + '<$'+$sprite+'> '
     !else
       !$rel = $rel + '<'+$sprite+'> '
-    !endif    
-  !endif  
+    !endif
+  !endif
   !if ($link != "")
     !$rel = $rel + '**[[' + $link + ' ' + $label + ']]**'
   !else
@@ -893,6 +893,10 @@ $getRel("<<--", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 
 !unquoted procedure Rel_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
 $getRel("->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure BiRel_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Rel_Back_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")

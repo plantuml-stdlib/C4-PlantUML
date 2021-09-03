@@ -20,13 +20,13 @@ At the top of your C4 PlantUML `.puml` file, you need to include the `C4_Context
 
 To be independent of any internet connectivity, you can also download the files found in the `root` and activate the local conversion with additional command line argument `-DRELATIVE_INCLUDE="."` (that the local files are included)
 
-```csharp
+```plantuml
 java -jar plantuml.jar -DRELATIVE_INCLUDE="."  ...
 ```
 
 If you want to use the always up-to-date version in this repo, use the following:
 
-```csharp
+```plantuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 ```
 
@@ -36,7 +36,7 @@ Now let's create a C4 Container diagram:
 
 After you have included `C4_Container.puml` you can use the defined macro definitions for the C4 elements: `Person`, `Person_Ext`, `System`, `System_Ext`, `Container`, `Relationship`, `Boundary`, and `System_Boundary`
 
-```csharp
+```plantuml
 @startuml C4_Elements
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -54,7 +54,7 @@ In addition to this, it is also possible to define a system or component boundar
 
 Take a look at the following sample of a C4 Container Diagram:
 
-```csharp
+```plantuml
 @startuml Basic Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -73,7 +73,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 Entities can also be decorated with icons/sprites using the $sprite parameter, for example:
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -101,7 +101,7 @@ Rel_R(api, db, "Reads/Writes")
 
 Similar to icons/sprites is it possible to add links to all elements and relationships:
 
-```csharp
+```plantuml
 @startuml Basic Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -124,7 +124,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS", $link="https://plantuml.com/l
 
 Elements and relations can be decorated with tags and explained via a calculated legend, for example:
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -232,7 +232,7 @@ Relationship specific sprites are typically smaller and therefore following opti
 * use an additional scale factor (direct as part of the argument, or via a variable)
 * if sprite argument starts with `&` an OpenIconic name can be used too (details see https://useiconic.com/open)
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
@@ -287,7 +287,7 @@ In rare cases, you can force the layout of objects which have no relationships b
 
 In following sample a person uses different systems, and group of persons which have no relations
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 HIDE_STEREOTYPE()
@@ -326,7 +326,7 @@ e.g. floating legend could be required that all e.g. corners of the drawing area
 In following sample the floating legend should be in the left bottom corner of the drawing are.
 (The normal SHOW_LEGEND() call requires no extra Lay_Distance() call and the legend is automatically drawn below the diagram on the right side)
 
-```
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -404,7 +404,7 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 * Colors of relationship tags cannot be automatically merged (PlantUML does not support it).
   If one tag modifies the line color and the other the text color, an additional combined tag has to be defined and used.
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -450,7 +450,7 @@ SHOW_LEGEND(false)
 
 If the custom (color) schema is defined via `UpdateElementStyle()` then the legend of existing elements is updated too.
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
@@ -504,7 +504,7 @@ A model can be extended with (a table of) properties that concrete deployments o
 
 Following sample uses all 3 different property definitions (and the aligned deployment node).
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
 

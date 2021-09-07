@@ -1,0 +1,21 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Deployment.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!endif
+
+' existing plantuml version as text
+%version()
+
+' new C4-Plantuml version as text 
+C4Version()
+
+' new C4-Plantuml version details (incl. PlantUML version) as table
+C4VersionDetails()
+
+' version functions used in e.g. footer
+footer drawn with PlantUML v. %version() and C4-PlantUML v. C4Version()
+
+@enduml

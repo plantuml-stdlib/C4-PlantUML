@@ -40,4 +40,5 @@ Rel_Back(email_system, backend_api, "Sends e-mails using", "sync, SMTP")
 Rel_Neighbor(backend_api, banking_system, "Uses", "sync/async, XML/HTTPS", $tags="sync/async")
 
 SHOW_LEGEND()
+footer drawn with PlantUML v. %version() and C4-PlantUML v. C4Version()
 @enduml

@@ -1,6 +1,6 @@
 # C4-PlantUML
 
-![Container diagram for Internet Banking System](https://www.plantuml.com/plantuml/png/hLPDZzis4BtxLqoT71n0kqQHvb9WWNXjjTd0NhkMj-dD655ZcGX52YIr7oZwtpkaFsXxKwH0UrcOGyvxJq-Fe_teF5hVDQhtWzH2THN1rllM_JmSMdowhgNVTcNdo0gZFMb_BKmpR1Ngq7FbVALaEHp_TBK8fOVPTDYWysIvj1vp1qfDzheD-BtYq_pBUf4lY_dzUlwmcjxTvuDtlL5LvOeQXbvXFUYNABwIha0ScliPlDtmOcoKiJTlysa-o-zNwr_c_6SydywNl5_Mkzt-c_VlFqn67qAFss9BDxcijxwG5LL5M0_UHS8bgKY6xaMBSDZJyu5Wj5oop0EoOWd_k57u5qKt4tHRggQyla0FuCF_Xy9udoXwNdf5SBGNAecrnGOsniATPlSrURX5_LNg6eeNvwdfzHPadT43qJbl6h8PZ8-_-YCubC5im6y9IkxEu8dVFhIn4LMi0GfXEkrTdtNieDUtNAZGlWp4ZunrAQ3_3lxi0K3IEtYYSerjouU_K0cZjbLIe9T6zxdq6HynWwArGVpizt6eJKZ9HvOHfJdFPmNiymYegrW-yfQ71r-CMEGviskHuGhULdIrm9e2-u6r45QsFeEHhZk5DfGNrZnoU1oWKjzcsNHQ1Ecef7y1RzZ9QAI3HucXHLhWvuNIcYT7zfMYnfHIqTwEMLWSDOtVPF07DiXEd6i19Hl9WG3NbOwrcCs_rkPUYTi9W8eUfQ1BUPDoKA774Xs5rx3_6TGKlqtXREsDPMrXKe2bMZflCN23r1pB9lxEO1ll2c37kHAMAj9Ued9PY1Kv1yhKl20lhbyPjHyCx9GCYLtSVJiu4yF7REexTUvx3WLJ63ZULgpTpUjXnAh-EkO-V_O3Qb2gjOi5PiglPho6tO50lTeIoCYA2cPIMEFCnaF-BBQeQu9T9yEUOEx59TGPieaM6xgurCdtaCz330GN3WzuwZvWQJgVCf0Txt86tg9s6Ar8_lUMf4xcHRgr3uvSuFwqMYqAFdX-phNutJCfzOUZExhrFV70BasQ4H4kJO0zKYoU9Y8Hne6RmMV-oWmZUNgTSMkFa1JyDw3rBJSdsOVRSWcw9AmSRAnfui1wijAJ0sy2qPvdSZjco2FcYLiN8IiOrW5TXMh4I48kydYguRAlSvoFH5_CLeiTK7gOi_QBL2QVqcUEnzLiUkbLscRutVy0q_pN_7x2t_wFZDurwcy0 "Container diagram for Internet Banking System")
+![Container diagram for Internet Banking System](https://www.plantuml.com/plantuml/png/hLPRZ-964ttthwXXT_M1n4MVDliIQQHbmCdEYWl1p6pUKDakJ6lRtLPt6mP5-U-fDXW3Cz56IbuGNPTpZgkholvi7HfNvZBu7oHQxSWu40xsmcq1qrGueHLATkKvgXIaK0HeiZ8dvQ0tNeQJuUhnELm_paQJft5ut-gtm6aeBO7K2Kfv2Ex41Zxiq0YC9QtfHLXdswtRp5Od0BWJAf5bIj0VzFk3qK_haLOEcTFq2w_nZgIboxYjSuNzUJ0mkEzdhBcCcTaadCNw-gnwK4XK_lbwrgLIn0pQMtZJqtGooD4wCc_og5HiWY3wCl-sNeJBQ3vRpvzMayTPsEu4mpGD9VaAh31hjs9CldCy93L6gmllDtmOQQdD_Vjm4ax3sMhzovn_HlF9VCd-E3jwM-y-Vlmq7dxoENQB1Ts78jkwIAIKHlxSxbI4Iv8L6Tg3IdomevUQOBXSiimQsL_HtpeYTv1qFqQxfNGYr2sw1n_yDnJQkOOYSC99WdEL8HMO6SnXemqyAaT6aOC7LD-5oY0wM4Tv42p8MAtQIMcTpibqONJ-rnf2RGQz0RSbY3cxUspSeaf4MTa0aqINojaMwpX2hn_OaA8vj9F_CzQjW5O7_WW0eD7RtbEyngBWu6yKmx0ef4ZGpqQBJLznXrs82kF5Jvz7tZOcANYOR2NDEevDuDIMm8DKcS-ySVtWYo6Bl6Qs1J9Sn6v9lGLcvDbhrYWned1T6Agib6YyUM7qJgHa0QLycsLJgkGuri8T_B0cPLL82pk1FaKOuEU5sEYz9VDAKQvZ8UbKZga_d3MDtdNXTyoHAt6j1QJ8XQCKR1bRSdnd_rYRVINkA01Isec4RkMDutQA3cEqvA_XzDUhYNwRmDNPQSFQ_C80GvcmpbHN2a9nM-RL_ovigra1BBcl4aCfAITGsgvlAx8MfCxuG2xflohKQJ5mfOJlsCNZsuqprXncchpBolseGhue35nDAsRs_lKoObL_dli-V75job78jQqCp1Jsfdm-pPodNl6zY8eL9Kn5OhJL6mVXIx95bH7OOsJd4lCaha5bJBNX0QUReMxgxlkpReE43VK3NbOVCDQbQtgWUvxbBZY3oc9LYgR-mPBanRveflR9alNSNrQhHSI1rt4yOp-CgRk-WJlIhMV42plMpOweu9eDS4AgZ9STqH1M2xSBN_ajCwZ8c-kiN2U4Hi6_0re_S78ZkvcMQz0bOMfXOtHUBQoz4OuiEEs9JZpZXn53dZ4lgdNJP173Mg2UjrOOZP2RVhpMS9rNMkwFXZwQhXOCT7K7L-atNTdKgNdDyRgQJcvhrRWP_lWDC0b_3MTZVlTlj7Pa83MuLyUNJVqr0Ri-VF0NpXtPxbGryzyQZPUFpxKx-Cmgorp-1G00 "Container diagram for Internet Banking System")
 
 C4-PlantUML combines the benefits of [PlantUML](https://plantuml.com/) and the [C4 model](https://c4model.com/) for providing a simple way of describing and communicate software architectures – especially during up-front design sessions – with an intuitive language using open source and platform independent tools.
 
@@ -20,13 +20,13 @@ At the top of your C4 PlantUML `.puml` file, you need to include the `C4_Context
 
 To be independent of any internet connectivity, you can also download the files found in the `root` and activate the local conversion with additional command line argument `-DRELATIVE_INCLUDE="."` (that the local files are included)
 
-```csharp
+```plantuml
 java -jar plantuml.jar -DRELATIVE_INCLUDE="."  ...
 ```
 
 If you want to use the always up-to-date version in this repo, use the following:
 
-```csharp
+```plantuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 ```
 
@@ -36,7 +36,7 @@ Now let's create a C4 Container diagram:
 
 After you have included `C4_Container.puml` you can use the defined macro definitions for the C4 elements: `Person`, `Person_Ext`, `System`, `System_Ext`, `Container`, `Relationship`, `Boundary`, and `System_Boundary`
 
-```csharp
+```plantuml
 @startuml C4_Elements
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -54,7 +54,7 @@ In addition to this, it is also possible to define a system or component boundar
 
 Take a look at the following sample of a C4 Container Diagram:
 
-```csharp
+```plantuml
 @startuml Basic Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -73,7 +73,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 Entities can also be decorated with icons/sprites using the $sprite parameter, for example:
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -101,7 +101,7 @@ Rel_R(api, db, "Reads/Writes")
 
 Similar to icons/sprites is it possible to add links to all elements and relationships:
 
-```csharp
+```plantuml
 @startuml Basic Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -124,7 +124,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS", $link="https://plantuml.com/l
 
 Elements and relations can be decorated with tags and explained via a calculated legend, for example:
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -237,7 +237,7 @@ Relationship specific sprites are typically smaller and therefore following opti
 * use an additional scale factor (direct as part of the argument, or via a variable)
 * if sprite argument starts with `&` an OpenIconic name can be used too (details see https://useiconic.com/open)
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
@@ -292,7 +292,7 @@ In rare cases, you can force the layout of objects which have no relationships b
 
 In following sample a person uses different systems, and group of persons which have no relations
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 HIDE_STEREOTYPE()
@@ -331,7 +331,7 @@ e.g. floating legend could be required that all e.g. corners of the drawing area
 In following sample the floating legend should be in the left bottom corner of the drawing are.
 (The normal SHOW_LEGEND() call requires no extra Lay_Distance() call and the legend is automatically drawn below the diagram on the right side)
 
-```
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -362,7 +362,7 @@ Lay_Distance(LEGEND(), db, 1)
 
 C4-PlantUML also comes with some layout options to make it easy and reusable to create nice and useful diagrams:
 
-* [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT()](LayoutOptions.md#layout_top_down-or-layout_left_right)
+* [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT() or LAYOUT_LANDSCAPE()](LayoutOptions.md#layout_top_down-or-layout_left_right-or-layout_landscape)
 * [LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype)](LayoutOptions.md#layout_with_legend-or-show_legend)
 * [SHOW_FLOATING_LEGEND(?alias, ?hideStereotype) and LEGEND()](LayoutOptions.md#show_floating_legendalias-hidestereotype-and-legend)
 * [LAYOUT_AS_SKETCH()](LayoutOptions.md#layout_as_sketch)
@@ -399,11 +399,11 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 **Element specific tag definitions**
 
 Sometimes an added element tag is element specific and all element specific colors should be used, e.g. a specific user role should be defined as element tag with the specific colors `...PERSON_...` like
-```csharp
+```plantuml
 AddElementTag("admin", $fontColor=$ELEMENT_FONT_COLOR, $bgColor=$PERSON_BG_COLOR, $borderColor=$PERSON_BORDER_COLOR, $sprite="osa_user_audit", $legendText="administration user")
 ```
 Therefore element Add...Tag() shortcuts are added which use the specific colors as default values and the call can be simplified like
-```csharp
+```plantuml
 AddPersonTag("admin", $sprite="osa_user_audit", $legendText="administration user")
 ```
 
@@ -434,7 +434,7 @@ Following calls introduces new element tags with element specific default colors
 
 **Sample with different tag combinations**
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -478,7 +478,7 @@ SHOW_LEGEND(false)
 
 **Sample with tag dependent sprites and custom legend text**
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -539,7 +539,7 @@ SHOW_LEGEND()
 
 If the custom (color) schema is defined via `UpdateElementStyle()` then the legend of existing elements is updated too.
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
@@ -561,7 +561,7 @@ UpdateElementStyle("person", $bgColor=$COLOR_A_5, $fontColor=$COLOR_NEUTRAL, $bo
 UpdateElementStyle("external_person", $bgColor=$COLOR_B_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_1)
 UpdateElementStyle("system", $bgColor=$COLOR_A_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_2)
 UpdateElementStyle("external_system", $bgColor=$COLOR_B_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_2)
-UpdateRelStyle($lineColor=$COLOR_REL_LINE, &textColor=$COLOR_REL_TEXT)
+UpdateRelStyle($lineColor=$COLOR_REL_LINE, $textColor=$COLOR_REL_TEXT)
 
 Person(customer, "Personal Banking Customer")
 System(banking_system, "Internet Banking System")
@@ -584,16 +584,16 @@ SHOW_LEGEND()
 
 A model can be extended with (a table of) properties that concrete deployments or more detailed concepts can be documented:
 
-* `SetPropertyHeader(col1Name, col2Name, ?col3Name, ?col4Name)`:
+* `SetPropertyHeader(col1Name, col2Name, ?col3Name, ?col4Name)`
   The properties table can have up to 4 columns. The default header uses the column names "Name", "Description".
 * `WithoutPropertyHeader()`
   If no header is used, then the second column is bold.
-* `AddProperty(col1, col2, ?col3, `?col4)`
+* `AddProperty(col1, col2, ?col3, ?col4)`
   (All columns of) a property which will be added to the next element.
 
 Following sample uses all 3 different property definitions (and the aligned deployment node).
 
-```csharp
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
 
@@ -621,6 +621,33 @@ Rel(personAlias, containerAlias, "Label", "Optional Technology")
 ```
 
 ![properties sample](https://www.plantuml.com/plantuml/png/ZP9HRzCm4CVVyobCNaYbhc4L4X9FcpeGI6Mhe834ItLDZiQIuxFiiqP0V7VEqRfiQO0z-NB--P_xnRa839vZQx9dsbOcrgWQPXTUbwM7syL1SnFtCQ2lo39QNbJKbiw0JMVE0jT6xylLoxDDQdt-i2vR28nUMhihT8QwDXrowGNPSrNZTuY6LODGerSRJmuzTtFr1Kp4xBAkZwqYluOMyxdAtne8JJvxl7dZ3s3rJs1DDa7VY9YSXZ6t9J9f_xrbz1PPlVaXGtdqwjNYXS0Rz85iuVhbqcW80gzXZ_sf6vVomQWh39NN_PCgRZKtzoRkxbLtIZF9p3uX7oTurtUB_FYSp_Easeiz21sFdQhpnFImL8bcq2QSJw7BUtJv05qAEjp1xffgtAqBAylVHRUTm_-OLp4mjHFYwbUMAVLL68hZ3p2JdPEnLuEYbDF8e2PbGbPanSvAPdMiJdIsM3MM31swVxjGdBp0ttA5NM1iYz0lu_od9MeC_T_m4StZ_sjgxb7k82095sZhs9e_ "properties sample")
+
+## Version information
+
+C4-PlantUML offers version information like PlantUML with its `%version()` call.
+
+* `C4Version()`: Current C4-PlantUML version (e.g. `2.4.0beta1`).
+* `C4VersionDetails()`: (Floating) version details with the current PlantUML and C4-PlantUML version. (It can be referenced via the alias `C4VersionDetailsArea`.)
+
+```plantuml
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+' existing plantuml version as text
+%version()
+
+' new C4-Plantuml version as text 
+C4Version()
+
+' new C4-Plantuml version details (incl. PlantUML version) as table
+C4VersionDetails()
+
+' version functions used in e.g. footer
+footer drawn with PlantUML v. %version() and C4-PlantUML v. C4Version()
+@enduml
+```
+
+![version sample](https://www.plantuml.com/plantuml/png/ZOynJyCm48Nt_8fZGBH3dQKJKwKmWiG2Axh4r-GavnBvpgG_dvXWjGjIfqJltllytaaDewKnL0yiNKYUO32RzRck8owkPnjIcvHYDucHcEkciPu3IiuSr7pWjcwEX_SiVRozrYEgKLobhsPD80j5DsT-zGHqOJMM7We0lYagJmAeO7Inwl5FsEspNsY1pFx73LLp_Bp7xycGWy8kJtHGkfRx_XU8RQ0hy6MBRDp2EIVfRFrHI4eUM81Sx-0yJKQnsZxW8ou22zjmyv23wp90yQLckTuEEP7ujVqF "version sample")
 
 ## Snippets for Visual Studio Code
 

@@ -196,7 +196,7 @@ endlegend
 ' ##################################
 
 !function $getPerson($label, $descr, $sprite)
-!if ($sprite == "") && ($defaultPersonSprite!="")
+!if ($sprite == "") && ($defaultPersonSprite != "")
   !$sprite = $defaultPersonSprite
 !endif
 !if ($descr == "") && ($sprite == "")

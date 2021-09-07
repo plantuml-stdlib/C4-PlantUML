@@ -40,7 +40,7 @@ SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_sy
 ' If a $type contains \n then these are used (and no automatic space based line breaks are done)
 ' $NODE_TYPE_MAX_CHAR_WIDTH defines the automatic line break position
 !global $NODE_TYPE_MAX_CHAR_WIDTH = 35
-!global $NODE_DESCR_MAX_CHAR_WIDTH=32
+!global $NODE_DESCR_MAX_CHAR_WIDTH = 32
 
 !unquoted function $breakNode($type, $widthStr)
 !$width = %intval($widthStr)
@@ -52,9 +52,9 @@ SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_sy
     !$type = %substr($type, $brPos+2)
   !endwhile
 !else
-  !while (%strlen($type)>$width)
+  !while (%strlen($type) > $width)
     !$brPos = $width
-    !while ($brPos>0 && %substr($type, $brPos, 1)!= ' ')
+    !while ($brPos > 0 && %substr($type, $brPos, 1) != ' ')
       !$brPos = $brPos - 1
     !endwhile
 
@@ -72,7 +72,7 @@ SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_sy
     !endif
   !endwhile
 !endif
-!if (%strlen($type)>0)
+!if (%strlen($type) > 0)
   !$multiLine = $multiLine + $type
 !endif
 !return $multiLine

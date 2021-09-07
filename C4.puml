@@ -1,5 +1,18 @@
 ' C4-PlantUML
 
+'Version
+' ##################################
+!function C4Version()
+  !return "2.4.0beta1"
+!end function
+
+!procedure C4VersionDetails()
+rectangle C4VersionDetailsArea <<legendArea>> [
+| PlantUML | **%version()** |
+| C4-PlantUML | **C4Version()** |
+]
+!end procedure
+
 ' Colors
 ' ##################################
 
@@ -130,7 +143,7 @@ skinparam rectangle<<boundary>> {
     !$tags = %substr($tags, $brPos+1)
     !$brPos = %strpos($tags, "+")
   !endwhile
-  !if (%strlen($tags)>0)
+  !if (%strlen($tags) > 0)
     !$stereos = $stereos + '<<' + $tags + '>>'
 %set_variable_value("$" + $tags + "_LineLegend", %true())
   !endif
@@ -139,7 +152,7 @@ skinparam rectangle<<boundary>> {
 
 ' if $sprite/$techn is an empty argument, try to calculate it via the defined $tag 
 !unquoted function $toRelArg($arg, $tags, $varPostfix)
-  !if ($arg>"")
+  !if ($arg > "")
     !return $arg
   !endif
 
@@ -150,15 +163,15 @@ skinparam rectangle<<boundary>> {
   !while ($brPos >= 0)
     !$tag = %substr($tags, 0, $brPos)
     !$newArg = %get_variable_value("$" + $tag + $varPostfix)
-    !if ($newArg>"")
+    !if ($newArg > "")
        !return $newArg
     !endif
     !$tags = %substr($tags, $brPos+1)
     !$brPos = %strpos($tags, "+")
   !endwhile
-  !if (%strlen($tags)>0)
+  !if (%strlen($tags) > 0)
     !$newArg = %get_variable_value("$" + $tags + $varPostfix)
-    !if ($newArg>"")
+    !if ($newArg > "")
        !return $newArg
     !endif
   !endif
@@ -186,7 +199,7 @@ skinparam rectangle<<boundary>> {
     !$tags = %substr($tags, $brPos+1)
     !$brPos = %strpos($tags, "+")
   !endwhile
-  !if (%strlen($tags)>0)
+  !if (%strlen($tags) > 0)
     !$stereos = $stereos + '<<' + $tags + '>>'
     !$mergedMask = $combineMaskWithTag($mask, $tags)
     !if ($mergedMask != $mask)
@@ -206,13 +219,13 @@ skinparam rectangle<<boundary>> {
 
 ' if $sprite/$techn is an empty argument, try to calculate it via the defined $tag 
 !unquoted function $toElementArg($arg, $tags, $varPostfix, $elementType)
-  !if ($arg>"")
+  !if ($arg > "")
     !return $arg
   !endif
 
   !if (%strlen($tags) == 0)
     !$newArg = %get_variable_value("$" + $elementType + $varPostfix)
-    !if ($newArg>"")
+    !if ($newArg > "")
        !return $newArg
     !else
        !return $arg
@@ -222,19 +235,19 @@ skinparam rectangle<<boundary>> {
   !while ($brPos >= 0)
     !$tag = %substr($tags, 0, $brPos)
     !$newArg = %get_variable_value("$" + $tag + $varPostfix)
-    !if ($newArg>"")
+    !if ($newArg > "")
        !return $newArg
     !endif
     !$tags = %substr($tags, $brPos+1)
     !$brPos = %strpos($tags, "+")
   !endwhile
-  !if (%strlen($tags)>0)
+  !if (%strlen($tags) > 0)
     !$newArg = %get_variable_value("$" + $tags + $varPostfix)
-    !if ($newArg>"")
+    !if ($newArg > "")
        !return $newArg
     !endif
     !$newArg = %get_variable_value("$" + $elementType + $varPostfix)
-    !if ($newArg>"")
+    !if ($newArg > "")
        !return $newArg
     !endif
   !endif
@@ -242,17 +255,17 @@ skinparam rectangle<<boundary>> {
 !endfunction
 
 !function $elementTagSkinparams($element, $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
-  !$elementSkin = "skinparam " + $element +"<<" + $tagStereo + ">> {" + %newline()
-  !if ($fontColor!="")
+  !$elementSkin = "skinparam " + $element + "<<" + $tagStereo + ">> {" + %newline()
+  !if ($fontColor != "")
     !if ($tagStereo != "boundary")
       !$elementSkin = $elementSkin + "    StereotypeFontColor " + $fontColor + %newline()
     !endif
     !$elementSkin = $elementSkin + "    FontColor " + $fontColor + %newline()
   !endif
-  !if ($bgColor!="")
+  !if ($bgColor != "")
     !$elementSkin = $elementSkin + "    BackgroundColor " + $bgColor + %newline()
   !endif
-  !if ($borderColor!="")
+  !if ($borderColor != "")
     !$elementSkin = $elementSkin + "    BorderColor " + $borderColor+ %newline()
   !endif
   !if ($shadowing == "true")
@@ -262,7 +275,7 @@ skinparam rectangle<<boundary>> {
     !$elementSkin = $elementSkin + "    Shadowing<<" + $tagStereo + ">> " + "false" + %newline()
   !endif
   ' only rectangle supports shape(d corners), define both skinparam that overlays are working
-  !if ($shape!="" && $element == "rectangle")
+  !if ($shape != "" && $element == "rectangle")
     !if ($shape == $ROUNDED_BOX)
       !$elementSkin = $elementSkin + "    RoundCorner " + $ROUNDED_BOX_SIZE+ %newline()
       !$elementSkin = $elementSkin + "    DiagonalCorner " + "0" + %newline()
@@ -283,7 +296,7 @@ skinparam rectangle<<boundary>> {
   ' actor has style awesome, therefore $fontColor is ignored and text uses $bgColor too
   !$tagSkin = $tagSkin + $elementTagSkinparams("actor", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "")
   !$tagSkin = $tagSkin + $elementTagSkinparams("person", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
-  !if ($tagStereo == "boundary" && $bgColor!="")
+  !if ($tagStereo == "boundary" && $bgColor != "")
     !$tagSkin = $tagSkin + "skinparam package<<boundary>>StereotypeFontColor " + $bgColor + %newline()
     !$tagSkin = $tagSkin + "skinparam rectangle<<boundary>>StereotypeFontColor " + $bgColor + %newline()
   !endif
@@ -301,13 +314,13 @@ $tagSkin
 !unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
   !$elementSkin = "skinparam arrow<<" + $tagStereo + ">> {" + %newline()
   !$elementSkin = $elementSkin + "    Color "
-  !if ($lineColor!="")
+  !if ($lineColor != "")
     !$elementSkin = $elementSkin + $colorWithoutHash($lineColor)
   !endif
-  !if ($textColor!="")
+  !if ($textColor != "")
     !$elementSkin = $elementSkin + ";text:" + $colorWithoutHash($textColor)
   !endif
-  !if ($lineStyle!="")
+  !if ($lineStyle != "")
     !$elementSkin = $elementSkin + ";line." + $lineStyle
   !endif
   !$elementSkin = $elementSkin + %newline()
@@ -315,7 +328,7 @@ $tagSkin
 $elementSkin
 !endprocedure
 
-' %is_dark() requires PlantUML version >=1.2021.6
+' %is_dark() requires PlantUML version >= 1.2021.6
 !if (%function_exists("%is_dark"))
   !$PlantUMLSupportsDynamicLegendColor = %true()
 !else
@@ -393,7 +406,7 @@ $elementSkin
 
 !function $combineMaskWithTag($mask1, $tag)
   !$mask2 = %get_variable_value("$" + $tag+ "LegendMask")
-  !if ($mask2=="")
+  !if ($mask2 == "")
     ' !log combineMaskWithTag $mask1, $tag, ... only $mask1
     !return $mask1
   !endif
@@ -422,9 +435,9 @@ $elementSkin
   ' if it starts with & it's a OpenIconic, details see https://useiconic.com/open/
   ' if it starts with img: it's an image, details see https://plantuml.com/creole
   !if (%substr($sprite, 0, 1) != "&" && %substr($sprite, 0, 4) != "img:")
-    !$formatted ="<$" + $sprite + ">"
+    !$formatted = "<$" + $sprite + ">"
   !else
-    !$formatted ="<" + $sprite + ">"
+    !$formatted = "<" + $sprite + ">"
   !endif
   !return $formatted
 !endfunction
@@ -470,7 +483,7 @@ $elementSkin
   !endif
 
   !$tagEntry = "|"
-  !$tagEntry = $tagEntry + "<" + $colorWithHash($bg) +">" 
+  !$tagEntry = $tagEntry + "<" + $colorWithHash($bg) +">"
   ' <U+25AF> ..white rectangle
   !$tagEntry = $tagEntry + "<color:"+$bo+"> <U+25AF></color> "
   !$tagEntry = $tagEntry + "<color:"+$fo+">"
@@ -507,26 +520,26 @@ $elementSkin
 
   !$tagEntry = $tagEntry + "</color> "
   !$tagEntry = $tagEntry + "|"
-  !return $tagEntry 
+  !return $tagEntry
 !endfunction
 
 !function $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite)
   !$tc = $textColor
   !$lc = $lineColor
 
-  !if ($tc=="")
-!if ($PlantUMLSupportsDynamicLegendColor)
-    !$tc = $flatLegend($ARROW_COLOR)
-!else
-    !$tc = $LEGEND_DARK_COLOR
-!endif
+  !if ($tc == "")
+    !if ($PlantUMLSupportsDynamicLegendColor)
+      !$tc = $flatLegend($ARROW_COLOR)
+    !else
+      !$tc = $LEGEND_DARK_COLOR
+    !endif
   !endif
-  !if ($lc=="")
-!if ($PlantUMLSupportsDynamicLegendColor)
-    !$lc = $flatLegend($ARROW_COLOR)
-!else
-    !$lc = $LEGEND_DARK_COLOR
-!endif
+  !if ($lc == "")
+    !if ($PlantUMLSupportsDynamicLegendColor)
+      !$lc = $flatLegend($ARROW_COLOR)
+    !else
+      !$lc = $LEGEND_DARK_COLOR
+    !endif
   !endif
 
   !$tagEntry = "|"
@@ -561,7 +574,7 @@ $elementSkin
 
   !$tagEntry = $tagEntry + "</color> "
   !$tagEntry = $tagEntry + "|"
-  !return $tagEntry 
+  !return $tagEntry
 !endfunction
 
 !global $LEGEND_DOTTED_LINE = "(dotted) "
@@ -570,9 +583,9 @@ $elementSkin
 
 !unquoted procedure $addTagToLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $legendText="", $legendSprite="")
 '' if a combined element tag is defined (e.g. "v1.0&v1.1") then it is typically a merged color,
-'' like a new $fontColor="#fdae61" therefore it should be added to the legend 
+'' like a new $fontColor="#fdae61" therefore it should be added to the legend
 '' and the & combined tags will be not removed
-'  !if (%strpos($tagStereo, "&")<0)
+'  !if (%strpos($tagStereo, "&") < 0)
   !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
 %set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
   !$tagCustomLegend = $tagCustomLegend + $tagStereo + "\n"
@@ -583,12 +596,12 @@ $elementSkin
 
 !unquoted procedure $addRelTagToLegend($tagStereo, $textColor="", $lineColor="", $lineStyle="", $legendText="", $legendSprite="")
 '' Arrows have a bug with stereotype/skinparams and cannot combine text colors of one stereotype
-'' and the line color of another stereotype. Therefore the text color of one tag and the line color 
+'' and the line color of another stereotype. Therefore the text color of one tag and the line color
 '' of another tag have to be combined via a "workaround" tag ("v1.0&v1.1").
-'' This workaround tag could be theoretically removed in the legend but after that there would 
-'' be an inconsistency between the element tags and the rel tags and therefore 
+'' This workaround tag could be theoretically removed in the legend but after that there would
+'' be an inconsistency between the element tags and the rel tags and therefore
 '' & combined workaround tags are not removed too (and in unlikely cases the color itself could be changed)
-'  !if (%strpos($tagStereo, "&")<0)
+'  !if (%strpos($tagStereo, "&") < 0)
     !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite)
 %set_variable_value("$" + $tagStereo + "_LineLegendEntry", $tagEntry)
     !$tagCustomLegend = $tagCustomLegend + $tagStereo + "_Line\n"
@@ -605,7 +618,7 @@ $elementSkin
 %get_variable_value("$" + $tagStereo + "LegendEntry")
     !endif
   !endwhile
-  !if (%strlen($allDefined)>0)
+  !if (%strlen($allDefined) > 0)
     !$tagStereo = $allDefined
     !if (%variable_exists("$" + $tagStereo + "Legend"))
 %get_variable_value("$" + $tagStereo + "LegendEntry")
@@ -642,7 +655,7 @@ $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $s
       !$legendSprite = $smallVersionSprite($sprite)
     !endif
   !endif
-  !if ($techn!="")
+  !if ($techn != "")
 %set_variable_value("$" + $tagStereo + "ElementTagTechn", $techn)
   !endif
 $addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
@@ -651,14 +664,14 @@ $addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $sha
 ' used by new defined rel tags
 !unquoted procedure AddRelTag($tagStereo, $textColor="", $lineColor="", $lineStyle = "", $sprite="", $techn="", $legendText="", $legendSprite="")
 $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
-  !if ($sprite!="")
+  !if ($sprite != "")
 %set_variable_value("$" + $tagStereo + "RelTagSprite", $sprite)
     !if ($legendSprite == "")
       ' relation symbols typically 1:1 no additional scale required
       !$legendSprite = $sprite
     !endif
   !endif
-  !if ($techn!="")
+  !if ($techn != "")
 %set_variable_value("$" + $tagStereo + "RelTagTechn", $techn)
   !endif
 $addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite)
@@ -667,13 +680,13 @@ $addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, 
 ' update the style of existing elements like person, ...
 !unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
 $defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
-  !if ($sprite!="")
+  !if ($sprite != "")
 %set_variable_value("$" + $elementName + "ElementTagSprite", $sprite)
     !if ($legendSprite == "")
       !$legendSprite = $smallVersionSprite($sprite)
     !endif
   !endif
-  !if ($techn!="")
+  !if ($techn != "")
 %set_variable_value("$" + $elementName + "ElementTagTechn", $techn)
   !endif
   !$tagEntry = $tagLegendEntry($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
@@ -697,7 +710,7 @@ UpdateElementStyle($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
 $elementSkin
 !endprocedure
 
-' tags/stereotypes have to be delimited with \n 
+' tags/stereotypes have to be delimited with \n
 !unquoted procedure SetDefaultLegendEntries($tagStereoEntries)
   !$tagDefaultLegend = $tagStereoEntries
 !endprocedure
@@ -706,7 +719,7 @@ $elementSkin
 ' ##################################
 
 !function $getLink($link)
-  !if ($link!="")
+  !if ($link != "")
     !return "[[" + $link + "]]"
   !else
     !return ""
@@ -728,9 +741,9 @@ $elementSkin
 !$multiLine = ""
 !if (%strpos($descr, "\n") >= 0)
 !else
-  !while (%strlen($descr)>$width)
-    !$brPos = $width 
-    !while ($brPos>0 && %substr($descr, $brPos, 1)!= ' ')
+  !while (%strlen($descr) > $width)
+    !$brPos = $width
+    !while ($brPos > 0 && %substr($descr, $brPos, 1) != ' ')
       !$brPos = $brPos - 1
     !endwhile
 
@@ -748,7 +761,7 @@ $elementSkin
     !endif
   !endwhile
 !endif
-!if (%strlen($descr)>0)
+!if (%strlen($descr) > 0)
   !$multiLine = $multiLine + $descr
 !endif
 !return $multiLine
@@ -765,9 +778,9 @@ $elementSkin
     !$techn = %substr($techn, $brPos+2)
   !endwhile
 !else
-  !while (%strlen($techn)>$width)
+  !while (%strlen($techn) > $width)
     !$brPos = $width
-    !while ($brPos>0 && %substr($techn, $brPos, 1)!= ' ')
+    !while ($brPos > 0 && %substr($techn, $brPos, 1) != ' ')
       !$brPos = $brPos - 1
     !endwhile
 
@@ -785,7 +798,7 @@ $elementSkin
     !endif
   !endwhile
 !endif
-!if (%strlen($techn)>0)
+!if (%strlen($techn) > 0)
   !$multiLine = $multiLine + $techn
 !endif
 !return $multiLine
@@ -857,19 +870,19 @@ SetPropertyHeader("Property","Value")
 ' Layout
 ' ##################################
 
-!procedure $getHideStereotype($hideStereotype) 
-!if ($hideStereotype=="true")
+!procedure $getHideStereotype($hideStereotype)
+!if ($hideStereotype == "true")
 hide stereotype
 !endif
 !endprocedure
 
-!procedure $getLegendTable() 
+!procedure $getLegendTable()
 <#00000000,#00000000>|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
 $showActiveLegendEntries($tagDefaultLegend)
 $showActiveLegendEntries($tagCustomLegend)
 !endprocedure
 
-!procedure $getLegendArea($areaAlias, $hideStereotype) 
+!procedure $getLegendArea($areaAlias, $hideStereotype)
 $getHideStereotype($hideStereotype)
 rectangle $areaAlias<<legendArea>> [
 $getLegendTable()
@@ -887,11 +900,52 @@ skinparam defaultFontName "Comic Sans MS"
 center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
 !endprocedure
 
+!global $fix_direction=%false()
+
+!function $down($start,$end)
+!if ($fix_direction)
+!return $start+"RIGHT"+$end
+!else
+!return $start+"DOWN"+$end
+!endif
+!endfunction
+
+!function $up($start,$end)
+!if ($fix_direction)
+!return $start+"LEFT"+$end
+!else
+!return $start+"UP"+$end
+!endif
+!endfunction
+
+!function $left($start,$end)
+!if ($fix_direction)
+!return $start+"UP"+$end
+!else
+!return $start+"LEFT"+$end
+!endif
+!endfunction
+
+!function $right($start,$end)
+!if ($fix_direction)
+!return $start+"DOWN"+$end
+!else
+!return $start+"RIGHT"+$end
+!endif
+!endfunction
+
 !procedure LAYOUT_TOP_DOWN()
+!global $fix_direction=%false()
 top to bottom direction
 !endprocedure
 
 !procedure LAYOUT_LEFT_RIGHT() 
+!global $fix_direction = %false()
+left to right direction
+!endprocedure
+
+!procedure LAYOUT_LANDSCAPE() 
+!global $fix_direction = %true()
 left to right direction
 !endprocedure
 
@@ -945,7 +999,7 @@ rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias 
   !$rel = $alias1 + ' ' + $direction + ' ' + $alias2
   !if ($tags != "")
     !$rel = $rel + ' ' + $toStereos($tags)
-  !endif  
+  !endif
   !$rel = $rel + ' : '
   !if ($sprite != "")
     !$rel = $rel + $getSprite($sprite) + ' '
@@ -989,64 +1043,68 @@ $getRel("<<--", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 $getRel("->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
+!unquoted procedure BiRel_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
 !unquoted procedure Rel_Back_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
 $getRel("<<-", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Rel_D($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($down("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure Rel_Down($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($down("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure BiRel_D($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($down("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure BiRel_Down($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-DOWN->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($down("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Rel_U($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($up("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure Rel_Up($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($up("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure BiRel_U($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($up("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure BiRel_Up($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-UP->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($up("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Rel_L($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($left("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure Rel_Left($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($left("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure BiRel_L($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($left("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure BiRel_Left($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-LEFT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($left("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Rel_R($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($right("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure Rel_Right($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($right("-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure BiRel_R($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($right("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 !unquoted procedure BiRel_Right($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("<<-RIGHT->>", $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
+$getRel($right("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 ' Layout Helpers

@@ -10,7 +10,7 @@ For this reason, C4-PlantUML also comes with some layout options.
 
 With the two macros `LAYOUT_TOP_DOWN()` and `LAYOUT_LEFT_RIGHT()` it is possible to easily change the flow visualization of the diagram. `LAYOUT_TOP_DOWN()` is the default.
 
-```csharp
+```plantuml
 @startuml LAYOUT_TOP_DOWN Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -32,7 +32,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 `LAYOUT_LEFT_RIGHT()` rotates the flow visualization to *from Left to Right* and directed relations like `Rel_Left()`, `Rel_Right()`, `Rel_Up()` and `Rel_Down()` are rotated too.
 
-```csharp
+```plantuml
 @startuml LAYOUT_LEFT_RIGHT Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -53,7 +53,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 `LAYOUT_LANDSCAPE()` rotates the default flow visualization to *from Left to Right* like `LAYOUT_LEFT_RIGHT()` additional **directed relations** like Rel_Left(), Rel_Right(), Rel_Up() and Rel_Down() **are not rotated** anymore.
 
-```csharp
+```plantuml
 @startuml LAYOUT_LANDSCAPE Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -94,7 +94,7 @@ It can also help to save some space.
 All of that is the reason, C4-PlantUML uses colors and prefer also to enable a layout without `<<stereotypes>>` and with a legend.
 This can be enabled with `LAYOUT_WITH_LEGEND()`.
 
-```csharp
+```plantuml
 @startuml LAYOUT_WITH_LEGEND Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -121,7 +121,7 @@ The calculated legend has following differences:
 * stereotypes can remain visible (with `SHOW_LEGEND(false)`)
 * **`SHOW_LEGEND()` has to be last call in the diagram**
 
-```csharp
+```plantuml
 @startuml SHOW_LEGEND Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -144,7 +144,7 @@ SHOW_LEGEND()
 
 `LAYOUT_WITH_LEGEND()` and SHOW_LEGEND(?hideStereotype)` adds the legend at the bottom right of the picture like below and additional whitespace is created.
 
-```csharp
+```plantuml
 @startuml Layout With Whitespace Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -170,7 +170,7 @@ Therefore a floating legend can be added via SHOW_FLOATING_LEGEND(), positioned 
 - `SHOW_FLOATING_LEGEND(?alias, ?hideStereotype): shows the legend in the drawing area
 - `LEGEND()`: is the default alias of the created floating legend and can be used in Lay_Distance() call
 
-```csharp
+```plantuml
 @startuml Compact Legend Layout Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -206,7 +206,7 @@ Without any proof
 More often these sketches are used by many people as facts and are manifested into their documentations.
 With `LAYOUT_AS_SKETCH()` you can make a difference.
 
-```csharp
+```plantuml
 @startuml LAYOUT_AS_SKETCH Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -231,7 +231,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 To enable a layout without `<<stereotypes>>` and legend.
 This can be enabled with `HIDE_STEREOTYPE()`.
 
-```csharp
+```plantuml
 @startuml HIDE_STEREOTYPE Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -263,7 +263,7 @@ With the macros `HIDE_PERSON_SPRITE()`, `SHOW_PERSON_SPRITE()` and `SHOW_PERSON_
 
 "person" and "person2" are predefined sprites which can be used as default sprite too.
 
-```csharp
+```plantuml
 @startuml predefined sprites Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -277,7 +277,7 @@ Person(userB, "User B", "with predefined sprite person2", "person2")
 
 **Using HIDE_PERSON_SPRITE()**
 
-```csharp
+```plantuml
 @startuml HIDE_PERSON_SPRITE Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -298,7 +298,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 **Using SHOW_PERSON_SPRITE()**
 
-```csharp
+```plantuml
 @startuml SHOW_PERSON_SPRITE Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -320,7 +320,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 **Using SHOW_PERSON_SPRITE(sprite)**
 
-```csharp
+```plantuml
 @startuml SHOW_PERSON_SPRITE(sprite) Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 !define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
@@ -344,7 +344,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 **Using SHOW_PERSON_PORTRAIT()**
 
-```csharp
+```plantuml
 @startuml SHOW_PERSON_PORTRAIT() Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -370,7 +370,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 > This call requires PlantUML version >= v1.2021.4!
 
-```csharp
+```plantuml
 @startuml SHOW_PERSON_OUTLINE() Sample
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 

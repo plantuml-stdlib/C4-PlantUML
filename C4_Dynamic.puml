@@ -33,7 +33,7 @@
 
 !procedure setIndex($new_index)
   !$lastIndex = $index
-  !$index= $new_index
+  !$index = $new_index
 !endprocedure
 
 !function Index($offset=1)

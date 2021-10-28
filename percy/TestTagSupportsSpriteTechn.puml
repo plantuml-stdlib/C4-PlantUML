@@ -1,0 +1,81 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Component.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!endif
+
+!define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
+!include osaPuml/Common.puml
+!include osaPuml/User/all.puml
+!include osaPuml/Server/all.puml
+
+!include <office/Servers/database_server>
+!include <office/Servers/file_server>
+!include <office/Servers/application_server>
+!include <office/Concepts/service_application>
+!include <office/Concepts/firewall>
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!include DEVICONS/mysql.puml
+!include DEVICONS/mongodb.puml
+
+AddExternalPersonTag("anonymous_ext", $sprite="osa_user_black_hat", $legendText="anonymous user")
+AddPersonTag("customer", $sprite="osa_user_large_group", $legendText="aggregated user")
+AddPersonTag("admin", $sprite="osa_user_audit,color=red", $legendSprite="osa_user_audit,scale=0.25,color=red", $legendText="administration user")
+
+AddContainerTag("webApp", $sprite="application_server", $legendText="web application")
+
+AddContainerTag("mongo_db", $techn = "MongoDB 2.2.x", $sprite="mongodb", $legendText="MongoDB container")
+AddContainerTag("mysql_db", $techn="MySQL 5.5.x", $sprite="mysql", $legendText="MySQL container")
+AddContainerTag("files", $sprite="file_server", $legendText="file server container")
+
+AddContainerTag("conApp", $sprite="img:http://plantuml.com/logo3.png{scale=0.3}", $legendSprite="img:http://plantuml.com/logo3.png{scale=0.1}", $legendText="console application")
+
+UpdateElementStyle("external_system", $bgColor=$EXTERNAL_SYSTEM_BG_COLOR, $fontColor=$ELEMENT_FONT_COLOR, $borderColor=$EXTERNAL_SYSTEM_BORDER_COLOR, $sprite = "osa_server", , $legendText="external system")
+
+AddRelTag("firewall", $textColor="$ARROW_COLOR", $lineColor="$ARROW_COLOR", $techn="HTTPS", $sprite="firewall,scale=0.3,color=red", $legendText="firewall")
+AddRelTag("plantuml", $textColor="$ARROW_COLOR", $lineColor="$ARROW_COLOR", $techn="HTTPS", $sprite="img:http://plantuml.com/logo3.png{scale=0.1}", $legendText="console triggered")
+
+LAYOUT_LEFT_RIGHT()
+' LAYOUT_LANDSCAPE()
+
+Person_Ext(anonymous_user, "Bob", $tags="anonymous_ext")
+Person(aggregated_user, "Sam, Ivone", $tags="customer")
+Person(administration_user, "Bernd", $tags="admin")
+
+System_Boundary(c1, "techtribes.js"){
+    Container(web_app, "Web Application", "Java, Spring MVC, Tomcat 7.x", "Allows users to view people, tribes, content, events, jobs, etc. from the local tech, digital and IT sector", $tags="webApp")
+    ContainerDb(rel_db, "Relational Database", $tags="mysql_db", $descr = "Stores people, tribes, tribe membership, talks, events, jobs, badges, GitHub repos, etc.")
+    Container(filesystem, "File System", "FAT32", "Stores search indexes", $tags="files")
+    ContainerDb(nosql, "NoSQL Data Store", $tags="mongo_db", $descr = "Stores from RSS/Atom feeds (blog posts) and tweets")
+    Container(updater, "Updater", "Java 7 Console App", "Updates profiles, tweets, GitHub repos and content on a scheduled basis", $tags="conApp")
+}
+
+System_Ext(twitter, "Twitter")
+System_Ext(github, "GitHub")
+System_Ext(blogs, "Blogs")
+
+Rel(anonymous_user, web_app, "Uses", $tags="firewall")
+Rel(aggregated_user, web_app, "Uses", $tags="firewall")
+Rel(administration_user, web_app, "Uses", $tags="firewall")
+
+Rel(web_app, rel_db, "Reads from and writes to", "SQL/JDBC, port 3306")
+Rel(web_app, filesystem, "Reads from")
+Rel(web_app, nosql, "Reads from", "MongoDB wire protocol, port 27017")
+
+Rel_U(updater, rel_db, "Reads from and writes data to", "SQL/JDBC, port 3306")
+Rel_U(updater, filesystem, "Writes to")
+Rel_U(updater, nosql, "Reads from and writes to", "MongoDB wire protocol, port 27017")
+
+Rel(updater, twitter, "Gets profile information and tweets from", $tags="plantuml")
+Rel(updater, github, "Gets information about public code repositories from", $tags="plantuml")
+' don't use the default techn. "HTTPS" which is defined via tags, define techn "HTTP" too
+Rel(updater, blogs, "Gets content using RSS and Atom feeds from", "HTTP", $tags="plantuml")
+
+' Lay_R(rel_db, filesystem)
+
+' HIDE_STEREOTYPE()
+SHOW_LEGEND()
+@enduml

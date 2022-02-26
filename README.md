@@ -614,17 +614,17 @@ Deployment_Node_L(nodeAlias, "Label", "Optional Type", "Optional Description (wi
   Container(containerAlias, "Label", "Technology", "Optional Description (without property header)")
 }
 
+System(systemAlias, "Label", "Optional Description (without properties)")
+
 ' starting with v.2.5.0 relations support properties too
 WithoutPropertyHeader()
 AddProperty("PropC1", "ValueC1")
 AddProperty("PropC2", "ValueC2")
-System(systemAlias, "Label", "Optional Description (without properties)")
-    
-Rel(personAlias, containerAlias, "Label", "Optional Technology")
+Rel(personAlias, containerAlias, "Label", "Optional Technology", "Optional Description")
 @enduml
 ```
 
-![properties sample](https://www.plantuml.com/plantuml/png/XPBHRzCm4CRVyrSSULagTUbMWP1usjI1G2fR1GKaNYetELfBZi_odHa1yRzZH-lITIbzyldyko_-FkUAHNa9ZSbUQ5kPK2DiHHo_cKoykYytMhPX7HXzHLRGIbbHCt56sJHppb8RlPxCNfulKklBn_caKIpeOsjrWyvGswGXbpwGdK6DFrGm0bjKDNfOU7BefHt3LsK2PjTrlMiL-QrgC1z3_iuetkQZfuTtVgEi_gr4aqtGTo8XfzKXjoGowVo35VGM1Tx-SeOyUdXTNaHuWPx95gvRherM7E6vMcCtTUUIlZ9mWrnvtUsWk8-PF3fn3vzwi3IAcjbdbDqDtdVT8j_jyt6Uh7R6zaGFhvsgoyHqSAmIBKeRlXn2fu_eT0-THhH_WzKjrRYQ5pOknuqkMuSdd5U1XPe1u_0dom2-HOR2OG2ZUFBishFUOYo7aTvQB1Co8nlTsQXPxQfdTfPORIqPshJ_zq9Xy07_nYTiMR0fk5k6upgbg96JM7O6B2fkxGOI0J_BQVcgl02FHgL11WxEaHVUcmGXoev5UJB8ap5-GlFqd--pFEgr3pKANA6jGsF-0G00 "properties sample")
+![properties sample](https://www.plantuml.com/plantuml/png/XP9HRzCm4CVVyobCNfPANR9L82IUDdKWaCfMGG69b-gQ78qbnsVPPqP0V7TiQrsxBYLFFfz_T_R_Vxvo39Pzfx8NKjVADoXQPkFUL9M5-t8hkVKRxz3Mf1arbpLrbL6WOysvuqR9JJL_URwCgIyV5rK7Zj66rFe6ZQA-YqKcNf2TYGP_W5SiMeG6hLXQCcYvdugle3ncrqspInNvBNIOJqN-Je5hyydJmpkx1Ir_0qlI4VfEn6Ga77Ch8XNFFsX6gv75srz6aKKhNfSN0LwYTQGBavPh9S45U04RJ5Lt9lO79MxGrLQcdIZkWoUFIip3LG-I9g5dzXbvzuBtALlaktq-pQFK9EoWwV6pOtGPcGJ7AD0CKhdB8NJsYCuEq5b0zpDOtrA3wqMXmt9QwAetEAAyzewf6n0k_cIP4Dy2G_xOW4auUVRi-LvY28UHlRGGHcHEEgZJeMUzYvx9MM7TQbAqxV-lXVpW0F-64VQEiIjSMeRi6kyeqQNVS2OSGzZghKZ-_IndvQloGbXK40kTSDuOieU5WecoKqwE-ZZguYTKJx_yaPL3KiSz3OslK3U-K_y0 "properties sample")
 
 ## Version information
 

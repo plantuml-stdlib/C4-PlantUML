@@ -580,7 +580,7 @@ SHOW_LEGEND()
 
 ![custom schema](https://www.plantuml.com/plantuml/png/dPHVRzem5CNVyodI34qWyIU4KA99I6rOj5LAeUAFjhV8YIyGrN6GxQZqsy-9iyMqwIeXNk1tpxdt7jlYZWl4H94HuoQb2Iamc4SXJlpRQCJGo_2GYcCH5nnOabC1L0oJF1kT2AAbPy059cayMhY3fnBj7iDHXhW09b6qA1rdCJoLtOsRpc8LhjRHVJGrvwRrPRQVnBPdQTojU3oPUlQjpYSL1zjpngxEdOhlSUpTJdG-LXp0ZhK-os2tNT-7gZOhFqtDhptOmmXYdQiPiODYxEXSxUJPimbATAuoJ5rdvdawLvaTRDkkrdyTX57ui0nQcgdYDlYzlIWQknD60W826L2n4Qy4kjO96C-frJSxyM6HavpDcxEMS9zJeV3bKPJwd65WRpnZMU17XFENb1xcbc05MBtMmN0Mm2WYqOSR-5Ti86-ZVHn_vGAorfpk5JcTJq9zECw_OfpVZ5i3KQCw9AMWgPe7qJU_2ZXhxRNtq3ECf-gukqd1HPu1wvkM8eYOFgBFyjhCHLsJDxUfSdHZLQbZISy3BOE2-ETHGkceBL5m5jqCfQJn18FojybhvHiXtJEKWPGz_ltUqbl6rpP_jzME0vSogOfyb3nhqijDDa0nDw7QXviYhprBI0z7UVxlulx7hQnj3XMYsShO_5pzYiBWHx3ytkqPTx9B-UVs1m00 "custom schema")
 
-## Element properties
+## Element and Relation properties
 
 A model can be extended with (a table of) properties that concrete deployments or more detailed concepts can be documented:
 
@@ -614,13 +614,17 @@ Deployment_Node_L(nodeAlias, "Label", "Optional Type", "Optional Description (wi
   Container(containerAlias, "Label", "Technology", "Optional Description (without property header)")
 }
 
+' starting with v.2.5.0 relations support properties too
+WithoutPropertyHeader()
+AddProperty("PropC1", "ValueC1")
+AddProperty("PropC2", "ValueC2")
 System(systemAlias, "Label", "Optional Description (without properties)")
-
+    
 Rel(personAlias, containerAlias, "Label", "Optional Technology")
 @enduml
 ```
 
-![properties sample](https://www.plantuml.com/plantuml/png/ZP9HRzCm4CVVyobCNaYbhc4L4X9FcpeGI6Mhe834ItLDZiQIuxFiiqP0V7VEqRfiQO0z-NB--P_xnRa839vZQx9dsbOcrgWQPXTUbwM7syL1SnFtCQ2lo39QNbJKbiw0JMVE0jT6xylLoxDDQdt-i2vR28nUMhihT8QwDXrowGNPSrNZTuY6LODGerSRJmuzTtFr1Kp4xBAkZwqYluOMyxdAtne8JJvxl7dZ3s3rJs1DDa7VY9YSXZ6t9J9f_xrbz1PPlVaXGtdqwjNYXS0Rz85iuVhbqcW80gzXZ_sf6vVomQWh39NN_PCgRZKtzoRkxbLtIZF9p3uX7oTurtUB_FYSp_Easeiz21sFdQhpnFImL8bcq2QSJw7BUtJv05qAEjp1xffgtAqBAylVHRUTm_-OLp4mjHFYwbUMAVLL68hZ3p2JdPEnLuEYbDF8e2PbGbPanSvAPdMiJdIsM3MM31swVxjGdBp0ttA5NM1iYz0lu_od9MeC_T_m4StZ_sjgxb7k82095sZhs9e_ "properties sample")
+![properties sample](https://www.plantuml.com/plantuml/png/XPBHRzCm4CRVyrSSULagTUbMWP1usjI1G2fR1GKaNYetELfBZi_odHa1yRzZH-lITIbzyldyko_-FkUAHNa9ZSbUQ5kPK2DiHHo_cKoykYytMhPX7HXzHLRGIbbHCt56sJHppb8RlPxCNfulKklBn_caKIpeOsjrWyvGswGXbpwGdK6DFrGm0bjKDNfOU7BefHt3LsK2PjTrlMiL-QrgC1z3_iuetkQZfuTtVgEi_gr4aqtGTo8XfzKXjoGowVo35VGM1Tx-SeOyUdXTNaHuWPx95gvRherM7E6vMcCtTUUIlZ9mWrnvtUsWk8-PF3fn3vzwi3IAcjbdbDqDtdVT8j_jyt6Uh7R6zaGFhvsgoyHqSAmIBKeRlXn2fu_eT0-THhH_WzKjrRYQ5pOknuqkMuSdd5U1XPe1u_0dom2-HOR2OG2ZUFBishFUOYo7aTvQB1Co8nlTsQXPxQfdTfPORIqPshJ_zq9Xy07_nYTiMR0fk5k6upgbg96JM7O6B2fkxGOI0J_BQVcgl02FHgL11WxEaHVUcmGXoev5UJB8ap5-GlFqd--pFEgr3pKANA6jGsF-0G00 "properties sample")
 
 ## Version information
 

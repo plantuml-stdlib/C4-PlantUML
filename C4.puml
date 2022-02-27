@@ -29,6 +29,11 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 !global $LEGEND_DARK_COLOR = "#66622E"
 !global $LEGEND_LIGHT_COLOR = "#khaki"
 
+!global $SKETCH_BG_COLOR = "#EEEBDC" 
+!global $SKETCH_FONT_COLOR = ""
+!global $SKETCH_WARNING_COLOR = "red"
+!global $SKETCH_FONT_NAME = "Comic Sans MS"
+
 ' Labels
 ' ##################################
 
@@ -43,6 +48,9 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 !global $LEGEND_DOTTED_LINE = "(dotted) "
 !global $LEGEND_DASHED_LINE = "(dashed) "
 !global $LEGEND_BOLD_LINE = "(bold) "
+
+!global $SKETCH_FOOTER_WARNING = "Warning:"
+!global $SKETCH_FOOTER_TEXT = "Created for discussion, needs to be validated"
 
 ' Styling
 ' ##################################
@@ -893,11 +901,42 @@ $getLegendTable()
 hide stereotype
 !endprocedure
 
+!unquoted procedure SET_SKETCH_STYLE($bgColor="_dont_change_", $fontColor="_dont_change_", $warningColor="_dont_change_", $fontName="_dont_change_", $footerWarning="_dont_change_", $footerText="_dont_change_")
+!if $bgColor != "_dont_change_"
+  !global $SKETCH_BG_COLOR = $bgColor
+!endif
+!if $fontColor != "_dont_change_"
+  !global $SKETCH_FONT_COLOR = $fontColor
+!endif
+!if $warningColor != "_dont_change_"
+  !global $SKETCH_WARNING_COLOR = $warningColor
+!endif
+!if $fontName != "_dont_change_"
+  !global $SKETCH_FONT_NAME = $fontName
+!endif
+!if $footerWarning != "_dont_change_"
+  !global $SKETCH_FOOTER_WARNING = $footerWarning
+!endif
+!if $footerText != "_dont_change_"
+  !global $SKETCH_FOOTER_TEXT = $footerText
+!endif
+!endprocedure
+
 !procedure LAYOUT_AS_SKETCH()
-skinparam backgroundColor #EEEBDC
-skinparam handwritten true
-skinparam defaultFontName "Comic Sans MS"
-center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
+  skinparam handwritten true
+!if $SKETCH_BG_COLOR > ""
+  skinparam backgroundColor $SKETCH_BG_COLOR
+!endif
+!if $SKETCH_FONT_COLOR > ""
+  skinparam defaultFontColor $SKETCH_FONT_COLOR
+!endif
+!if $SKETCH_FONT_NAMES > ""
+  skinparam defaultFontName $SKETCH_FONT_NAME
+!endif
+!if $SKETCH_FOOTER_WARNING > "" || $SKETCH_FOOTER_TEXT > ""
+  !$line = "footer <font color=" + $SKETCH_WARNING_COLOR + ">"+ $SKETCH_FOOTER_WARNING + "</font> " + $SKETCH_FOOTER_TEXT
+  $line
+!endif
 !endprocedure
 
 !global $fix_direction=%false()

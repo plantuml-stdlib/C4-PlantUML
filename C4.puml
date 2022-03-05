@@ -928,7 +928,23 @@ hide stereotype
   skinparam backgroundColor $SKETCH_BG_COLOR
 !endif
 !if $SKETCH_FONT_COLOR > ""
-  skinparam defaultFontColor $SKETCH_FONT_COLOR
+  skinparam footer {
+    FontColor $SKETCH_FONT_COLOR
+  }
+  !if $ARROW_COLOR == "#666666"
+    !global $ARROW_COLOR = $SKETCH_FONT_COLOR
+    skinparam arrow {
+      Color $ARROW_COLOR
+      FontColor $ARROW_COLOR
+    }
+  !endif
+  !if $BOUNDARY_COLOR == "#444444"
+    !global $BOUNDARY_COLOR = $SKETCH_FONT_COLOR
+    skinparam rectangle<<boundary>> {
+      FontColor $BOUNDARY_COLOR
+      BorderColor $BOUNDARY_COLOR
+    }
+  !endif
 !endif
 !if $SKETCH_FONT_NAMES > ""
   skinparam defaultFontName $SKETCH_FONT_NAME

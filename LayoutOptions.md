@@ -192,7 +192,7 @@ Lay_Distance(LEGEND(), e, 1)
 
 ![Compact Legend Layout Sample](https://www.plantuml.com/plantuml/png/RP7VQ-em5CVVyrUavS9juTwMmPu60vtjtA1JqOqzXfWURLXC9Jbb-j_lr6gri9Ss-Nn_d3OPUPGEcvrXWRRAD2Nm2d7l7zBKoUzagx5greq7fsgBO35HzIxzqavL7gjqSlz_OQJ5ZxSYXGFf9PG4nOJCKbjmoRwjPcm1pjSsalzus2tvE8nPRulM9FGx_XJI5a5LbaoheqVOHOfGj-IJGRGSHBFRQ8z5Vi08IA5tmg_k_DRDbc34ilt6DL4bZV54MvX5H1H1EeWh8r0EsJ8Y02tRbn9Fc0MRnYhKzCT5FirdMHIpm04spl9mOsg9scw5WItOCcG1FIz-jdgPVuhdOZv-VvrDnJbzAObP8OyYqtHzLa6FJ-FlQ2pxouC_7UMFFEm62Eb0XYJzMdssnwGFki_yKZsY8hhK7m00 "Compact Legend Layout Sample")
 
-## LAYOUT_AS_SKETCH()
+## LAYOUT_AS_SKETCH() and SET_SKETCH_STYLE(?bgColor, ?fontColor, ?warningColor, ?fontName, ?footerWarning, ?footerText)
 
 C4-PlantUML can be especially helpful during up-front design sessions.
 One thing which is often ignored is the fact, that these software architecture sketches are just sketches.
@@ -225,6 +225,55 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![LAYOUT_AS_SKETCH Sample](https://www.plantuml.com/plantuml/png/NL1DI_D04BxlhvYtxw4fj0aLJvuQGx5Wgy6aYgUmILQxi1_BxeHGnF_kBDLMp6N8pFFnFBiAo3qEMi4sVttSrqrUDTNzkYusK77jb63_fEdKq0iu8BfmasMUZ-cxnCFG3a7upXeK1jFEwimfRgBM8c2lP9iLruiohlQxRQPvGE5frHJ4uD88dph2ClRNE9anLWeVh4buhwMPmoIFKmRq7AsVp5Xr937TtDh1zDmVasuvX-afxtG67mpeEziaesWRxXpfl8WMSkUKx3XAQoQqAlxF8Q_Az65T4yKBk4gNi7ikuYrNoeu1Oiq0Q84wEauGFIYKv0NrA95Q0Kej57a5olRvdIx1qv5qJh0Od3q9zTFg4ciVY4bpKzTbHQW8EbylCdS20_sAEDwyrRyfAs7w-9fV "LAYOUT_AS_SKETCH Sample")
 
+Additional styles and the footer text can be changed with SET_SKETCH_STYLE():
+
+* `SET_SKETCH_STYLE(?bgColor, ?fontColor, ?warningColor, ?fontName, ?footerWarning, ?footerText)`:
+  Enables the modification of differnt sketch styles and footer.
+
+The possible font name(s) depend on the output format (e.g. PNG uses fonts which are installed on the server and SVG fonts have to be installed on the client).
+Additional is it possible to define comma separated fall back fonts (if the diagrams are exported as SVG. Atm
+PNG does not support fallback fonts based on a PlantUML [bug](https://forum.plantuml.net/14842/specify-fall-back-fonts-is-not-working), but this could be fixed in one of the following versions)
+
+```plantuml
+@startuml LAYOUT_AS_SKETCH Sample
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+SET_SKETCH_STYLE($bgColor="lightblue", $fontColor="darkblue", $warningColor="darkred", $footerWarning="Sketch", $footerText="Created for discussion")
+
+' PNG with font jlm_cmmi10 (typically another font is used)
+' SET_SKETCH_STYLE($fontName="jlm_cmmi10")
+
+' SVG with fallback fonts MS Gothic,Comic Sans MS, Comic Sans, Chalkboard SE, Comic Neue, cursive, sans-serif (typically without "MS Gothic")
+SET_SKETCH_STYLE($fontName="MS Gothic,Comic Sans MS,Comic Sans,Chalkboard SE,Comic Neue,cursive,sans-serif")
+
+LAYOUT_AS_SKETCH()
+
+Person(admin, "Administrator")
+System_Boundary(c1, 'Sample') {
+    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
+}
+System(twitter, "Twitter")
+
+Rel(admin, web_app, "Uses", "HTTPS")
+Rel(web_app, twitter, "Gets tweets from", "HTTPS")
+@enduml
+```
+
+PNG with font `jlm_cmmi10`
+
+![LAYOUT_AS_SKETCH with custom style png Sample](https://www.plantuml.com/plantuml/png/VL9TQzim57tFhxZp2ad1JTQnfq6WcGajhCt2xBRqoSZoJQD57qQwMXR6_lkkcgJEO5jUP9rxFiv5kGeaF4MZ1s-KbJgs26kYBdoSJBpOZfyLhMCJ0thfBA6biNHcqcbXa-OYKAjLCoa-N2mJT7ztEp4Y47g6we8LGbdquoxv3yfvLPUVvrLnKvVLq-ryTDOy5quxFysqUbvJeoDcEPojM7V0Zz1MUAliaTqAl_7OxhcEqnxtusbMRf3akXzK-8EcMU5H4BQmSXvQ5MGCGJcRdGy6GrWkhc7BIq9AXM_QrD8OTVaEHhJhb1HQxq1OHslqUueA40EsvtzP9yqNmk0qwttsAUN3COKD6o4tBru1xaguPcybyy8P9Q4KDe4vz5V-NWkzQPpmBPJpusY14NEGqGVrdJy2Coy2UhKwBPuYNIJ8NdEupX3-r_nVZKuA_TddfCwnJLycRNyxU_foNzMpyf0vOco9FZWx4grHDeTibauLo0jodZNbBX2Q-fEBjXL-DvANEGnBOJgDmtFuEG3-lVwxHbjiQj5rxFE83SowJlFwb5wOeU9j3hDoELxCAvPuXFVZIxXxAD9ifhNRlZod3q0Ef3ETO8g9cXHdGRLLHEY1b47DMO6x_Jgq6z5-o3u7MbhsA-hZLdsj-y1AFc-gQbaoYqbzwTxc6Ydm5TEnyiwSIgxGjj7etm00 "LAYOUT_AS_SKETCH with custom style png Sample")
+
+SVG with fallback fonts MS Gothic,Comic Sans MS,Comic Sans,Chalkboard SE,Comic Neue,cursive,sans-serif
+
+![LAYOUT_AS_SKETCH with custom style svg Sample](https://www.plantuml.com/plantuml/svg/VP9lQzim4CRVvrFSl49TS9DrxDKWqCo45jPcONPR-ih8ygNHeZz6EYqBOzzz9vBK6MFB6rbtpptFxr2k0mbFqUZH6sMbZXt2cgWF7oSJBxRZ5qNhsCQ0NZfBQ6aidPdqMjWqSnceqwgTb1ykbwdqS7ytCI8GUYur9Ky8PT6F--G_gkPrKtsUr-LjKzNFT_Fyh7qfdNP-ccdrigPMHymAE5lntA5-B6s5jyeUrPtm6u_TNkiuxMdVdcRL1ackXqQDFsYQbHu5OGShvw5JGSOGbBFPnMXq3il53MnvIKYfy4sRHXgZhjv1JhjUIQ7r3eHrj4Q_bwW0CM1tmRD_BvGK2s5mcWrE-vpgyPZ3bgsG6qZQ0FSLtB2xaaNfZ99G2PkA1GnN_buBlMcTy1rd7biBZ5Y0Z3wex_mHM7aPqAlLANgAT94WUyrXdFzn_uld1ETFcXEO8yk0adQ_cpr_UQYRMNN8pBcsH1-SpKLdb2qWcwLJ1VA2d4-0kq1ecayksaxuNIwl2ZYlXEardb_0pn7mx_NVbM-nRKJViyyJjZ3hUytBKtfXBfLl2vXLo_5YNlE8HtW_leBxnpBrPbgxRNfEfW5o89tf1KjCrAGu2-gj8a8Ff0ngpWhCzkj0bzE-oJu7MLhsA-hZLWFMG-19Fc_hUbcnYaK3z61pWnJuYkbOUMTEHwxHTj7etm00 "LAYOUT_AS_SKETCH with custom style svg Sample")
+
+All available (PNG) fonts can be displayed with
+
+```plantuml
+@startuml
+listfonts
+@enduml
+```
 
 ## HIDE_STEREOTYPE()
 

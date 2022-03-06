@@ -685,14 +685,6 @@ It is possible to save them directly inside VS Code: [Creating your own snippets
 ![C4-PlantUML Snippets Video](images/intellij_c4plantum_live_template1.gif)
 ![C4-PlantUML Snippets Video](images/intellij_c4plantum_live_template2.gif)
 
-## Layout Options
-
-C4-PlantUML also comes with some layout options to make it easy and reuseable to create nice and useful diagrams:
-
-* [LAYOUT_TOP_DOWN or LAYOUT_LEFT_RIGHT](LayoutOptions.md#layout_top_down-or-layout_left_right)
-* [LAYOUT_WITH_LEGEND](LayoutOptions.md#layout_with_legend)
-* [LAYOUT_AS_SKETCH and SET_SKETCH_STYLE(?bgColor, ?fontColor, ?warningColor, ?fontName, ?footerWarning, ?footerText)](LayoutOptions.md#layout_as_sketch)
-
 ## Advanced Samples
 
 The following advanced samples are reproductions with C4-PlantUML from official [C4 model samples](https://c4model.com/#examples) created by [Simon Brown](https://simonbrown.je/).

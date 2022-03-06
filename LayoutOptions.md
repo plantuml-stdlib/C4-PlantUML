@@ -228,7 +228,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 Additional styles and the footer text can be changed with SET_SKETCH_STYLE():
 
 * `SET_SKETCH_STYLE(?bgColor, ?fontColor, ?warningColor, ?fontName, ?footerWarning, ?footerText)`:
-  Enables the modification of differnt sketch styles and footer text.
+  Enables the modification of differnt sketch styles and footer.
 
 The possible font name(s) depend on the output format (e.g. PNG uses fonts which are installed on the server and SVG fonts have to be installed on the client).
 Additional is it possible to define comma separated fall back fonts (if the diagrams are exported as SVG. Atm

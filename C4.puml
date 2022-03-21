@@ -1177,13 +1177,28 @@ $getRel($right("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags,
 !unquoted procedure Lay_D($from, $to)
 $from -[hidden]D- $to
 !endprocedure
+!unquoted procedure Lay_Down($from, $to)
+$from -[hidden]D- $to
+!endprocedure
+
 !unquoted procedure Lay_U($from, $to)
 $from -[hidden]U- $to
 !endprocedure
+!unquoted procedure Lay_Up($from, $to)
+$from -[hidden]U- $to
+!endprocedure
+
 !unquoted procedure Lay_R($from, $to)
 $from -[hidden]R- $to
 !endprocedure
+!unquoted procedure Lay_Right($from, $to)
+$from -[hidden]R- $to
+!endprocedure
+
 !unquoted procedure Lay_L($from, $to)
+$from -[hidden]L- $to
+!endprocedure
+!unquoted procedure Lay_Left($from, $to)
 $from -[hidden]L- $to
 !endprocedure
 

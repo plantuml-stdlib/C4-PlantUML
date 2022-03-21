@@ -1,0 +1,32 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Container.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!endif
+
+HIDE_STEREOTYPE()
+
+Person(a, "A")
+Person(a1, "P1")
+Person(a2, "P2")
+Person(a3, "P3")
+Person(a4, "P4")
+
+Lay_U(a, a1)
+Lay_R(a, a2)
+Lay_D(a, a3)
+Lay_L(a, a4)
+
+Person(x, "X")
+System(s1, "S1")
+System(s2, "S2")
+System(s3, "S3")
+System(s4, "S4")
+
+Lay_Up(x, s1)
+Lay_Right(x, s2)
+Lay_Down(x, s3)
+Lay_Left(x, s4)
+@enduml

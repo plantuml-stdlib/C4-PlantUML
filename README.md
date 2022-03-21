@@ -160,7 +160,6 @@ SHOW_LEGEND()
 
 > * `arg`.. argument required (e.g. `alias`)
 > * `?arg`.. argument optional  (e.g. `?descr`)
-> * `*techn` .. technology argument is required, but if the technology is defined via $tags then no `techn` argument is required
 
 * System Context & System Landscape diagrams
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
@@ -180,7 +179,7 @@ SHOW_LEGEND()
 * Container diagram
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
   * Additional Macros: 
-    * `Container(alias, label, *techn, ?descr, ?sprite, ?tags, $link)`
+    * `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, $link)`
     * `ContainerDb`
     * `ContainerQueue`
     * `Container_Ext`
@@ -191,7 +190,7 @@ SHOW_LEGEND()
 * Component diagram
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
   * Additional Macros: 
-    * `Component(alias, label, *techn, ?descr, ?sprite, ?tags, $link)`
+    * `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, $link)`
     * `ComponentDb`
     * `ComponentQueue`
     * `Component_Ext`

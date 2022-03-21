@@ -55,14 +55,14 @@ endlegend
 !function $getContainer($label, $techn, $descr, $sprite)
   !$container = ""
   !if ($sprite != "")
-    !$container = $container + $getSprite($sprite)+'\n'
+    !$container = $container + $getSprite($sprite) + '\n'
   !endif
-  !$container = $container + '=='+$label
+  !$container = $container + '==' + $label
   !if ($techn != "")
-    !$container = $container + '\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//'
+    !$container = $container + '\n//<size:' + $TECHN_FONT_SIZE + '>[' + $techn + ']</size>//'
   !endif
   !if ($descr != "")
-    !$container = $container + '\n\n '+$descr
+    !$container = $container + '\n\n' + $descr
   !endif
   !return $container
 !endfunction

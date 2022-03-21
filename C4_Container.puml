@@ -53,18 +53,18 @@ endlegend
 ' ##################################
 
 !function $getContainer($label, $techn, $descr, $sprite)
-!if ($descr == "") && ($sprite == "")
-!return '=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//'
-!endif
-!if ($descr == "") && ($sprite != "")
-!return $getSprite($sprite)+'\n=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//'
-!endif
-!if ($descr != "") && ($sprite == "")
-!return '=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//\n\n '+$descr
-!endif
-!if ($descr != "") && ($sprite != "")
-!return $getSprite($sprite)+'\n=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//\n\n '+$descr
-!endif
+  !$container = ""
+  !if ($sprite != "")
+    !$container = $container + $getSprite($sprite) + '\n'
+  !endif
+  !$container = $container + '==' + $label
+  !if ($techn != "")
+    !$container = $container + '\n//<size:' + $TECHN_FONT_SIZE + '>[' + $techn + ']</size>//'
+  !endif
+  !if ($descr != "")
+    !$container = $container + '\n\n' + $descr
+  !endif
+  !return $container
 !endfunction
 
 !unquoted procedure Container($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")

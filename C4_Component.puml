@@ -58,18 +58,18 @@ endlegend
 ' ##################################
 
 !function $getComponent($label, $techn, $descr, $sprite)
-!if ($descr == "") && ($sprite == "")
-!return '=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//'
-!endif
-!if ($descr == "") && ($sprite != "")
-!return $getSprite($sprite)+'\n=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//'
-!endif
-!if ($descr != "") && ($sprite == "")
-!return '=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//\n\n '+$descr
-!endif
-!if ($descr != "") && ($sprite != "")
-!return $getSprite($sprite)+'\n=='+$label+'\n//<size:'+$TECHN_FONT_SIZE+'>['+$techn+']</size>//\n\n '+$descr
-!endif
+  !$component = ""
+  !if ($sprite != "")
+    !$component = $component + $getSprite($sprite) + '\n'
+  !endif
+  !$component = $component + '==' + $label
+  !if ($techn != "")
+    !$component = $component + '\n//<size:' + $TECHN_FONT_SIZE + '>[' + $techn + ']</size>//'
+  !endif
+  !if ($descr != "")
+    !$component = $component + '\n\n' + $descr
+  !endif
+  !return $component
 !endfunction
 
 !unquoted procedure Component($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")

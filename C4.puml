@@ -319,20 +319,31 @@ $tagSkin
   !return $c
 !endfunction
 
-!unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
-  !$elementSkin = "skinparam arrow<<" + $tagStereo + ">> {" + %newline()
-  !$elementSkin = $elementSkin + "    Color "
+!unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle, $lineThickness)
+  !$elementSkin = "<style>" + %newline()
+  !$elementSkin = $elementSkin + "arrow {" + %newline()
+  !$elementSkin = $elementSkin + "    ." + $tagStereo + " {" + %newline()
   !if ($lineColor != "")
-    !$elementSkin = $elementSkin + $colorWithoutHash($lineColor)
+    !$elementSkin = $elementSkin + "        LineColor " + $lineColor + %newline()
   !endif
   !if ($textColor != "")
-    !$elementSkin = $elementSkin + ";text:" + $colorWithoutHash($textColor)
+    !$elementSkin = $elementSkin + "        FontColor " + $textColor + %newline()
   !endif
-  !if ($lineStyle != "")
-    !$elementSkin = $elementSkin + ";line." + $lineStyle
+  !if ($lineStyle == $DOTTED_LINE)
+    !$elementSkin = $elementSkin + "        LineStyle 2;2" + %newline()
+  !elseif ($lineStyle == $DASHED_LINE)
+    !$elementSkin = $elementSkin + "        LineStyle 8;4" + %newline()
+  !elseif ($lineStyle == $BOLD_LINE)
+    !$elementSkin = $elementSkin + "        LineThickness 2" + %newline()
+  !elseif ($lineStyle != "")
+    !$elementSkin = $elementSkin + "        LineStyle " + $lineStyle + %newline()
   !endif
-  !$elementSkin = $elementSkin + %newline()
+  !if ($lineThickness != "")
+    !$elementSkin = $elementSkin + "        LineThickness " + $lineThickness + %newline()
+  !endif
+  !$elementSkin = $elementSkin + "    }" + %newline()
   !$elementSkin = $elementSkin + "}" + %newline()
+  !$elementSkin = $elementSkin + "</style>" + %newline()
 $elementSkin
 !endprocedure
 
@@ -531,7 +542,7 @@ $elementSkin
   !return $tagEntry
 !endfunction
 
-!function $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite)
+!function $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $lineThickness, $legendText, $legendSprite)
   !$tc = $textColor
   !$lc = $lineColor
 
@@ -550,9 +561,17 @@ $elementSkin
     !endif
   !endif
 
+  'U+2581 to U+2588 corresponds to "Lower one eighth block" to "Full block"
+  !$symbol=2581
+  !if ($lineThickness != "")
+    !$symbol = $symbol + %intval($lineThickness) - 1
+    !if ($symbol > 2588)
+      !$symbol = 2588
+    !endif
+  !endif
+
   !$tagEntry = "|"
-  ' <U+2500> ..white line
-  !$tagEntry = $tagEntry + "<color:"+$lc+"> <U+2500></color> "
+  !$tagEntry = $tagEntry + "<color:"+$lc+"> <size:12><sup><U+"+$symbol+"><U+"+$symbol+"></sup></size></color>"
   !$tagEntry = $tagEntry + "<color:"+$tc+">"
   !if ($legendSprite != "")
     !$tagEntry = $tagEntry + $getSprite($legendSprite) + " "
@@ -602,7 +621,7 @@ $elementSkin
 '  !endif
 !endprocedure
 
-!unquoted procedure $addRelTagToLegend($tagStereo, $textColor="", $lineColor="", $lineStyle="", $legendText="", $legendSprite="")
+!unquoted procedure $addRelTagToLegend($tagStereo, $textColor="", $lineColor="", $lineStyle="", $lineThickness="", $legendText="", $legendSprite="")
 '' Arrows have a bug with stereotype/skinparams and cannot combine text colors of one stereotype
 '' and the line color of another stereotype. Therefore the text color of one tag and the line color
 '' of another tag have to be combined via a "workaround" tag ("v1.0&v1.1").
@@ -610,7 +629,7 @@ $elementSkin
 '' be an inconsistency between the element tags and the rel tags and therefore
 '' & combined workaround tags are not removed too (and in unlikely cases the color itself could be changed)
 '  !if (%strpos($tagStereo, "&") < 0)
-    !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite)
+    !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $lineThickness, $legendText, $legendSprite)
 %set_variable_value("$" + $tagStereo + "_LineLegendEntry", $tagEntry)
     !$tagCustomLegend = $tagCustomLegend + $tagStereo + "_Line\n"
 '  !endif
@@ -670,8 +689,8 @@ $addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $sha
 !endprocedure
 
 ' used by new defined rel tags
-!unquoted procedure AddRelTag($tagStereo, $textColor="", $lineColor="", $lineStyle = "", $sprite="", $techn="", $legendText="", $legendSprite="")
-$defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
+!unquoted procedure AddRelTag($tagStereo, $textColor="", $lineColor="", $lineStyle="", $sprite="", $techn="", $legendText="", $legendSprite="", $lineThickness="")
+$defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle, $lineThickness)
   !if ($sprite != "")
 %set_variable_value("$" + $tagStereo + "RelTagSprite", $sprite)
     !if ($legendSprite == "")
@@ -682,7 +701,7 @@ $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
   !if ($techn != "")
 %set_variable_value("$" + $tagStereo + "RelTagTechn", $techn)
   !endif
-$addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite)
+$addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $lineThickness, $legendText, $legendSprite)
 !endprocedure
 
 ' update the style of existing elements like person, ...

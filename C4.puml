@@ -320,8 +320,12 @@ $tagSkin
 !endfunction
 
 !unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle, $lineThickness)
+  !$defaultLineColor = %get_variable_value("$relDefaultLineColor")
+  !$defaultTextColor = %get_variable_value("$relDefaultTextColor")
   !$elementSkin = "<style>" + %newline()
   !$elementSkin = $elementSkin + "arrow {" + %newline()
+  !$elementSkin = $elementSkin + "    LineColor " + $defaultLineColor + %newline()
+  !$elementSkin = $elementSkin + "    FontColor " + $defaultTextColor + %newline()
   !$elementSkin = $elementSkin + "    ." + $tagStereo + " {" + %newline()
   !if ($lineColor != "")
     !$elementSkin = $elementSkin + "        LineColor " + $lineColor + %newline()
@@ -730,10 +734,14 @@ UpdateElementStyle($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
 
 ' update the style of default relation, it has to set both properties (combined statement not working)
 !unquoted procedure UpdateRelStyle($textColor, $lineColor)
-  !$elementSkin = "skinparam arrow {" + %newline()
-  !$elementSkin = $elementSkin + "    Color " + $lineColor + %newline()
+  %set_variable_value("$relDefaultLineColor", $lineColor)
+  %set_variable_value("$relDefaultTextColor", $textColor)
+  !$elementSkin = "<style>" + %newline()
+  !$elementSkin = $elementSkin + "arrow {" + %newline()
+  !$elementSkin = $elementSkin + "    LineColor " + $lineColor + %newline()
   !$elementSkin = $elementSkin + "    FontColor " + $textColor + %newline()
   !$elementSkin = $elementSkin + "}" + %newline()
+  !$elementSkin = $elementSkin + "</style>" + %newline()
 $elementSkin
 !endprocedure
 

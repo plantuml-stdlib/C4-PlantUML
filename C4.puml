@@ -324,8 +324,12 @@ $tagSkin
   !$defaultTextColor = %get_variable_value("$relDefaultTextColor")
   !$elementSkin = "<style>" + %newline()
   !$elementSkin = $elementSkin + "arrow {" + %newline()
-  !$elementSkin = $elementSkin + "    LineColor " + $defaultLineColor + %newline()
-  !$elementSkin = $elementSkin + "    FontColor " + $defaultTextColor + %newline()
+  !if ($defaultLineColor != "")
+    !$elementSkin = $elementSkin + "    LineColor " + $defaultLineColor + %newline()
+  !endif
+  !if ($defaultTextColor != "")
+    !$elementSkin = $elementSkin + "    FontColor " + $defaultTextColor + %newline()
+  !endif
   !$elementSkin = $elementSkin + "    ." + $tagStereo + " {" + %newline()
   !if ($lineColor != "")
     !$elementSkin = $elementSkin + "        LineColor " + $lineColor + %newline()

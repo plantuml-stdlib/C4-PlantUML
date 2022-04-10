@@ -6,13 +6,21 @@ C4-PlantUML combines the benefits of [PlantUML](https://plantuml.com/) and the [
 
 C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippets) for creating C4 diagrams with PlantUML.
 
-* [Getting Started](#getting-started)
-* [Supported Diagram Types](#supported-diagram-types)
-* [Snippets for Visual Studio Code](#snippets-for-visual-studio-code)
-* [Layout Options](#layout-options)
-* [Samples](#advanced-samples)
-* [Background](#background)
-* [License](#license)
+- [C4-PlantUML](#c4-plantuml)
+  - [Getting Started](#getting-started)
+  - [Supported Diagram Types](#supported-diagram-types)
+  - [Relationship Types](#relationship-types)
+  - [Layout (arrange) elements (without relationships)](#layout-arrange-elements-without-relationships)
+  - [Global Layout Options](#global-layout-options)
+  - [Sprites and other images](#sprites-and-other-images)
+  - [Custom tags/stereotypes support and skinparam updates](#custom-tagsstereotypes-support-and-skinparam-updates)
+  - [Element and Relationship properties](#element-and-relationship-properties)
+  - [Version information](#version-information)
+  - [Snippets for Visual Studio Code](#snippets-for-visual-studio-code)
+  - [Live Templates for IntelliJ](#live-templates-for-intellij)
+  - [Advanced Samples](#advanced-samples)
+  - [Background](#background)
+  - [License](#license)
 
 ## Getting Started
 
@@ -154,7 +162,6 @@ SHOW_LEGEND()
 ```
 
 ![tags](https://www.plantuml.com/plantuml/png/bLJTRjfC4BtFK-pdhnT6JN3I7qMgX1G4gAb4MWg9Sed6ti5ikzwrTjRGl7rdrn08jLBrQj7CcJbppeov8G_EDvK--q-PGZSInThxcZvbcODjlrH-tUGDeIkiyMXylx1LLcimeUQ2lDGgpqOVBcOXz70tpIeWZuv3on5NW3Be-dNeVpQKSgAnuYRtKAR9vgf_cPoBDxbr4jt8Qki6oV_o-ltbk-karu6-2kWLD_qRDeVYPrEVeAq3KoA30tgE-WJfyTS9aeEQf-yCBloJHZ4GOw0roYb7qXvtdg4ZQz9Wrxb8HWrvMw7ZecI6jkOAlmOl3A8KjREoAJmblNqLo4ePXWx3gyWxyFQFMZWaaJY4put4Ha4C6DoAu9RWJTNMi2aK1K99WsWZKpwl9gKQc68n6mOcbjXeYAJttAbYY536erj1qGuG6OgTi3O7WNpBTn8dY5izfhiyfHiUwnJTp73imR-Ei3VW5TLGgp31x4iW_04R2Eyj6AcH16Wj-EGPI2IqBLKXql1jz0_Myh6W8MKDzLwAVNjADSvJcNFpCNZ8WJ0GtQd2MR8hBnRVfv7PQadxJPwB-448deRLRQmgaD-LTHLuPdofmnLhjS6WfVsLX9-DL3uCNYfJXi22JMHT7yKJWZiSm_xw-N3dg7TNszx30o65olXNm82GZnashZkzdBUcHh5p14dPerCUT-dzTH_jlvkZJRz6D6s93j9RdW2ha0XAx9IukFtsk9nEFa--ZjFUsGqQsLJwDm00 "tags")
-
 
 ## Supported Diagram Types
 
@@ -738,24 +745,25 @@ It is possible to save them directly inside VS Code: [Creating your own snippets
 
 ## Live Templates for IntelliJ
 
-### Prerequisites  
+**Prerequisites**
+
 [Graphviz download](https://graphviz.gitlab.io/download/)  
 [PlantUML Integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration)
 
-### Install
+**Install**
 
 1. Download [IntelliJ live template](intellij/c4_live_template.zip).  
 2. Select `File | Manage IDE Settings | Import Settings` from the IntelliJ IDEA menu.
 3. Specify the path to the downloaded ZIP file: `c4_live_template.zip`.
 4. In the Import Settings dialog, select the Live templates checkbox and click OK.
-4. Restart IntelliJ.
+5. Restart IntelliJ.
 
-### Usage
+**Usage**
 
 * Create new PlantUML file (.puml).
 * Type `c4_` for displaying artifacts templates for C4-PlantUML
 * Live template create correct C4 model artifact with stubbed arguments. 
-    * E.g. alias, label, type, technology, description
+  * E.g. alias, label, type, technology, description
 * Replace stubbed arguments with desired values.
 
 ![C4-PlantUML Snippets Video](images/intellij_c4plantum_live_template1.gif)
@@ -767,19 +775,17 @@ The following advanced samples are reproductions with C4-PlantUML from official 
 
 The core diagram samples from [c4model.com](https://c4model.com/#coreDiagrams) are available [here](samples/C4CoreDiagrams.md).
 
-### techtribes.js
+**techtribes.js**
 
 Source: [C4_Container Diagram Sample - techtribesjs.puml](samples/C4_Container%20Diagram%20Sample%20-%20techtribesjs.puml)
 
 ![techtribesjs](https://www.plantuml.com/plantuml/png/ZLHDR-Cs4BthLqnzMGVGshj9jm5wMYTEazqw7uta1Zq9b3YMcLAaIb9nZAB_lKDAaQsuWEk39G_V3D-RUUElrZ7Zcah2o66nTaRaQ9_jAFf1g48s767jN6r_dauDsqnAuTPDtbWqXLOEbPiKkfhMaYbVugDrN8fyUldZnmSVMjukfXMp3Ws5ialAO4AXcTI4ZJv0eoYveYBWrWWhBQNU25M2910mnM5mB8obDmrqEKXTC2ctLADdUNX1j9ZzSRzCi_J-8PlVFzsDJw8FNMYMPCclL-db3SMwqDEtz2PRN5rVtSqf64KFQAnMsTMh6pEbrRRIZSsyy1X6ixS0B2amEkd0OrQM1alcaFV8Fl8UoYkXX7M6EQ5L3nz4trAYP6iTLjc5RXHdPZikFiVxqvhGk4x-Ze0-uQllmtY3USRgcj1FcCEihgKeGkaHXRwp5nP3KXlVyzlVBsD8TKN7S3vvzUSpFmyBdfhrZNyHk84QTIqnXlRc63eRn80lzA30iyxf6rqnWPNH5Ssk6nTumZ5mGHvYCiptMmeM2wUzo27pUJusA3EU4uz7b84p9SsPOpcpwEdTRfFV5l1bygLbcr0Pj0VymXCgh79IiHOrHPZyqxxdcpDUUlYrS3TD3WPhtQaue3PU2OasJ8Ik_OL-G3kVaVyvIyzEz-XOPAPOWr0SNz7-bqobxL-I4kuqoGa28UG6YLgLUdu1fvFJWSZGsCSacSuSlQmGkOLnBdK9HDlPaz1Sjq5qzf1-KtFcWjkMxTkR5-3SewoMw9qowW4MQgE3wBWhEknJkAtp0MW536onHjv8v4334fx3Fxs9_KAvZN0jXRHz8yJUSVidGwVjBSD3BzFIsGKzWxg8_76meZlZqmvPh-KcJHyImXDwkAV7uSDTFPeISlhZFHiptetEDsnZX6-jqpwLHZ_zFh-W5QorSN1szkadAZIeitFTeDPxMB3J4B5df8qmwAVfTA5bTzdf-QVFvntjRDdRunXnGh4Zx0Vb1loVUl47k23WIBl-hvnTrPtZhj7rXWQXLjfKOQoxdUdRrazqK6hdJe8EA-IwSL0tkHG559fZkn_2QIFmIDNErg5elqoD5QhqYnx8zSi-BEMrBjWsU-p_CNUjfgElg7XJoNy1 "techtribesjs")
 
-
-### Message Bus and Microservices
+**Message Bus and Microservices**
 
 Source: [C4_Container Diagram Sample - message bus.puml](samples/C4_Container%20Diagram%20Sample%20-%20message%20bus.puml)
 
 ![messagebus](https://www.plantuml.com/plantuml/png/bLLDZzis4BtxLqpL7ho0TuqKFHLO8FumcWJUNSUoaQCmeiOI4OeaICgkM_I_bvHiXN7LJRA7jJYSUU_D38TyQnqQrzG2afginPBonYQZdxXaeYa8AkUq_NqwDNXwABch6hzDXYdfIBe7fkgf5YW3mBrrXU3vTF7R_IQOza_hQOtMaV6cRE4Za4io3zhxZaQpebW9gZt83ijnKdDc57Za8sUKJE0NMw6cnnKlAvVoWeeqhCTtVYSl5qeeyvWib947eKvavg9fWmwUvB9vghYZvEwMnpfbi8mOjggH7dwk_XnW42tzv_Ch-AFqtSkdRBFQfY_FsSj-jtx_l1fxyuQCLNBC6izOavd0elzAPd0rjm1dwwZEva48clEOlV4kLszuBm_ArEYuaiaT_3q2_zVNSenQnyuphGLddREtVy0ZMcQuTXEOoR8HQ89v9dpHRA_1WbDGeyIIm5N43MYZ3bpux6xOhX7PfKynTTgPhhGJIBNXieIvKYuOTnM1LbmwK0T0niXQy9drAe17YVfIEomjFCBDmRXLT3coMTvOp_7KhM3Us42vnJpdxkbZIszGMgsCQqczEvT10Hr9EliVM4F1rSkFCjrURN6gsoO_Xz-58NHaGOOK1BTKG84EMx8U37HZjB9alpy_R0hk8X6pi8u5B7wUFZolTk5pOzIH5sH1cH8bjsqfxq_U12rCK710neN__04Do_nBtuiyRlaI7UPeMnql1faWUFCh2wlKAKFscxtjXd60CMg0funh7tC-dTEFwuWEh-N_Ymeuah6UhZrjGlGT_z8MBA1IxBNkn0g7--9teww4LP2pEfBibxswg0Q0kMhSvV21gz11XKVo_xGcISMmWdz6eos9R1dTATtuxplHoRlTRfDwnywhtHkOsBqkqFrFSo1KgGnOQC-IJU23lzMcCUv-u1BeLAGa2zldf0B89yfJnJwJUoKuck0Uf9VMj5eZq1Pd02KweNt5krRpxYPSpXUNuAy81mRzEpN4CDry_J3407bl6aoa2xiXYuzY7z5HTJ6ZDPwpxH3RLqZNfsoz-cFrlFHFs5kVH7Yg_mK0 "messagebus")
-
 
 ## Background
 

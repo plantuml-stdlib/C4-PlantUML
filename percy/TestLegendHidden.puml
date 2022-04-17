@@ -12,11 +12,11 @@ AddElementTag("shadowed", $shadowing=true)
 AddElementTag("shadowed2", $shadowing=false)
 AddElementTag("yelloTagged", $fontColor=yellow, $borderColor=yellow)
 AddElementTag("greenTagged", $borderColor=green, $bgColor=green)
-AddElementTag("tagged container", $fontColor=white, $bgColor=$CONTAINER_BG_COLOR, $borderColor=$CONTAINER_BORDER_COLOR)
-AddElementTag("tagged person", $fontColor=white, $bgColor=$PERSON_BG_COLOR, $borderColor=$PERSON_BORDER_COLOR)
+AddElementTag("taggedContainer", $fontColor=white, $bgColor=$CONTAINER_BG_COLOR, $borderColor=$CONTAINER_BORDER_COLOR)
+AddElementTag("taggedPerson", $fontColor=white, $bgColor=$PERSON_BG_COLOR, $borderColor=$PERSON_BORDER_COLOR)
 
-Container(c2, Container 2, tech, $tags="tagged container", "'tagged container' stereotype/tag overwrites all styles of container ($fontColor, $bgColor and $borderColor) the container is not important anymore and therefore not displayed in legend")
-Person(p2, p2, $tags="tagged person", "produces no person legend entry too")
+Container(c2, Container 2, tech, $tags="taggedContainer", "'taggedContainer' stereotype/tag overwrites all styles of container ($fontColor, $bgColor and $borderColor) the container is not important anymore and therefore not displayed in legend")
+Person(p2, p2, $tags="taggedPerson", "produces no person legend entry too")
 
 Person(p4, p4, $tags="yelloTagged", "'yelloTagged' stereotype/tag first and defines $fontColor and $borderColor (in legend), 'person' defines additional $bgColor (in legend too)")
 

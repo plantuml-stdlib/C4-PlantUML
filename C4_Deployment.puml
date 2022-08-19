@@ -30,7 +30,7 @@ skinparam rectangle<<node>> {
 ' ##################################
 
 ' comment if node should not be added to legend. No calculated legend extension required
-SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_system\nexternal_container\nnode")
+SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_system\nexternal_container\nnode\nenterprise_boundary\nsystem_boundary\ncontainer_boundary\nboundary")
 
 ' Line breaks
 ' ##################################

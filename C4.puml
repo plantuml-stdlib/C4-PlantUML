@@ -48,6 +48,8 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 !global $LEGEND_DOTTED_LINE = "(dotted) "
 !global $LEGEND_DASHED_LINE = "(dashed) "
 !global $LEGEND_BOLD_LINE = "(bold) "
+!global $LEGEND_DASHED_BOUNDARY = "boundary (dashed) "
+!global $LEGEND_DASHED_TRANSPARENT_BOUNDARY = "boundary (dashed, transparent) "
 
 !global $SKETCH_FOOTER_WARNING = "Warning:"
 !global $SKETCH_FOOTER_TEXT = "Created for discussion, needs to be validated"
@@ -115,21 +117,19 @@ skinparam person {
 }
 
 ' Some boundary skinparams have to be set as package skinparams too (PlantUML uses internal packages)
+' UpdateBoundaryStyle() called in boundary section below
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 6
+    StereotypeFontColor $BOUNDARY_BG_COLOR
+    BorderStyle dashed
+}
+
 skinparam package {
     StereotypeFontSize 6
     StereotypeFontColor $BOUNDARY_BG_COLOR
     FontStyle plain
     BackgroundColor $BOUNDARY_BG_COLOR
-}
-
-skinparam rectangle<<boundary>> {
-    Shadowing false
-    StereotypeFontSize 6
-    StereotypeFontColor $BOUNDARY_BG_COLOR
-    FontColor $BOUNDARY_COLOR
-    BorderColor $BOUNDARY_COLOR
-    BackgroundColor $BOUNDARY_BG_COLOR
-    BorderStyle dashed
 }
 
 ' Legend and Tags
@@ -265,7 +265,7 @@ skinparam rectangle<<boundary>> {
 !function $elementTagSkinparams($element, $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
   !$elementSkin = "skinparam " + $element + "<<" + $tagStereo + ">> {" + %newline()
   !if ($fontColor != "")
-    !if ($tagStereo != "boundary")
+    !if (%strpos($tagStereo, "boundary") < 0)
       !$elementSkin = $elementSkin + "    StereotypeFontColor " + $fontColor + %newline()
     !endif
     !$elementSkin = $elementSkin + "    FontColor " + $fontColor + %newline()
@@ -304,9 +304,9 @@ skinparam rectangle<<boundary>> {
   ' actor has style awesome, therefore $fontColor is ignored and text uses $bgColor too
   !$tagSkin = $tagSkin + $elementTagSkinparams("actor", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "")
   !$tagSkin = $tagSkin + $elementTagSkinparams("person", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
-  !if ($tagStereo == "boundary" && $bgColor != "")
-    !$tagSkin = $tagSkin + "skinparam package<<boundary>>StereotypeFontColor " + $bgColor + %newline()
-    !$tagSkin = $tagSkin + "skinparam rectangle<<boundary>>StereotypeFontColor " + $bgColor + %newline()
+  !if (%strpos($tagStereo, "boundary") >= 0 && $bgColor != "")
+    !$tagSkin = $tagSkin + "skinparam package<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
+    !$tagSkin = $tagSkin + "skinparam rectangle<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
   !endif
 $tagSkin
 !endprocedure
@@ -499,7 +499,26 @@ $elementSkin
     !$tagEntry = $tagEntry + $getSprite($legendSprite) + " "
   !endif
   !if ($legendText == "")
-    !$tagEntry = $tagEntry + " " + $tagStereo + " "
+    !if ($tagStereo == "boundary")
+      !if ($bgColor == "#00000000" || %lower($bgColor) == "transparent")
+        !$tagEntry = $tagEntry + " " + $LEGEND_DASHED_TRANSPARENT_BOUNDARY
+      !else
+        !$tagEntry = $tagEntry + " " + $LEGEND_DASHED_BOUNDARY
+      !endif
+    !elseif (%strpos($tagStereo, "boundary") >= 0)
+      ' if contains/ends with _boundary remove _boundary and add "boundary (dashed)"
+      !$pos = %strpos($tagStereo, "_boundary")
+      !if ($pos > 0)
+        !$tagEntry = $tagEntry + " " + %substr($tagStereo, 0 ,$pos)
+        !if ($bgColor == "#00000000" || %lower($bgColor) == "transparent")
+          !$tagEntry = $tagEntry + " " + $LEGEND_DASHED_TRANSPARENT_BOUNDARY
+        !else
+          !$tagEntry = $tagEntry + " " + $LEGEND_DASHED_BOUNDARY
+        !endif
+      !endif
+    !else
+      !$tagEntry = $tagEntry + " " + $tagStereo + " "
+    !endif
     !if ($shadowing == "true")
       !$tagEntry = $tagEntry + $LEGEND_SHADOW_TEXT
     !endif
@@ -1032,6 +1051,43 @@ $getLegendArea($alias, $hideStereotype)
 ' Boundaries
 ' ##################################
 
+!unquoted procedure UpdateBoundaryStyle($elementName="", $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $type="", $legendText="")
+  !if ($elementName != "")
+    !$elementBoundary = $elementName + '_boundary'
+    UpdateElementStyle($elementBoundary, $bgColor, $fontColor, $borderColor, $shadowing, $shape, "", $type, $legendText, "")
+  !else
+    UpdateElementStyle("boundary", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "", $type, $legendText, "")
+    ' simulate color inheritance
+    UpdateBoundaryStyle("enterprise", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "Enterprise", "")
+    UpdateBoundaryStyle("system", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "System", "")
+    UpdateBoundaryStyle("container", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "Container", "")
+  !endif
+!endprocedure
+
+!unquoted procedure AddBoundaryTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $type="", $legendText="")
+    !$tagBoundary = $tagStereo + '_boundary'
+    AddElementTag($tagBoundary, $bgColor, $fontColor, $borderColor, $shadowing, $shape, "", $type, $legendText, "")
+!endprocedure
+
+' add _boundary to all tags that short tag version can be used
+!unquoted function $addBoundaryPostfix($tags)
+  !if (%strlen($tags) == 0)
+    !return ''
+  !endif
+  !$boundaryTags = ''
+  !$brPos = %strpos($tags, "+")
+  !while ($brPos >= 0)
+    !$tag = %substr($tags, 0, $brPos)
+    !$boundaryTags = $boundaryTags + $tag + '_boundary+'
+    !$tags = %substr($tags, $brPos+1)
+    !$brPos = %strpos($tags, "+")
+  !endwhile
+  !if (%strlen($tags) > 0)
+    !$boundaryTags = $boundaryTags + $tags + '_boundary'
+  !endif
+  !return $boundaryTags
+!endfunction
+
 !function $getBoundary($label, $type)
   !if ($type == "")
     !return '==' + $label
@@ -1042,8 +1098,14 @@ $getLegendArea($alias, $hideStereotype)
 !endfunction
 
 !unquoted procedure Boundary($alias, $label, $type="", $tags="", $link="")
-rectangle "$getBoundary($label, $type)" $toStereos("boundary", $tags) as $alias $getLink($link)
+!$boundaryTags = $addBoundaryPostfix($tags)
+' nodes $type reuses $techn definition of $boundaryTags
+!$type=$toElementArg($type, $boundaryTags, "ElementTagTechn", "boundary")
+rectangle "$getBoundary($label, $type)" $toStereos("boundary", $boundaryTags) as $alias $getLink($link)
 !endprocedure
+
+' Boundary Styling
+UpdateBoundaryStyle("", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR)
 
 ' Relationship
 ' ##################################

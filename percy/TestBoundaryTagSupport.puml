@@ -1,0 +1,49 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Component.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!endif
+
+UpdateBoundaryStyle($bgColor="gold", $fontColor="brown", $borderColor="brown")
+' re-set $bgColor avoids '(no back color)' in legend
+UpdateSystemBoundaryStyle($bgColor="gold", $fontColor="white", $borderColor="white")
+
+AddBoundaryTag("specialSystem", $bgColor="green", $fontColor="white", $borderColor="blue", $shadowing="true", $shape = RoundedBoxShape(), $type="A SPECIAL SYSTEM BOUNDARY")
+AddBoundaryTag("existingContainersBoundary", $bgColor="red", $fontColor="white", $borderColor="white", $type="Existing CONTAINER BOUNDARY", $legendText="container boundary with existing components")
+
+System_Boundary(sb, "A System Boundary") {
+}
+
+System_Boundary(sb1, "Special System 1 Boundary", $tags="specialSystem") {
+  Container_Boundary(cb1, "Container Boundary\nwith tag", $tags="existingContainersBoundary") {
+    Component(e1, "existing 1", "xyz")
+    Component(e2, "existing 2", "xyz")
+  }
+  Container_Boundary(cb2, "A Container Boundary") {
+    Component(c2, "Component", "xyz")
+  }
+}
+
+System_Boundary(sb2, "Special System 2 Boundary", $tags="specialSystem") { 
+}
+
+' boundary tags are internally extended with '_boundary' that it uses a different name space
+' this enables different element and boundary styles for the same tag name
+AddBoundaryTag("v1", $bgColor="lightgreen", $fontColor="green", $borderColor="green")
+AddElementTag("v1", $bgColor="lightred", $fontColor="red", $borderColor="red")
+
+Boundary(anotherBoundary, "Another Boundary", $type="BOUNDARY TYPE", $tags="v1") {
+  Component(anotherComponent, "Another Component", $techn="COMPONENT TYPE", $tags="v1", $descr="Component and boundary use different tag name spaces that both v1 tags can use different styles")
+}
+
+Boundary(aBoundary, "A Boundary") {
+}
+
+Lay_R(sb, sb1)
+Lay_R(sb1, sb2)
+Lay_R(sb2, anotherBoundary)
+
+SHOW_LEGEND()
+@enduml

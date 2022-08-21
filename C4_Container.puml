@@ -23,6 +23,8 @@
 UpdateElementStyle("container", $CONTAINER_BG_COLOR, $ELEMENT_FONT_COLOR, $CONTAINER_BORDER_COLOR)
 UpdateElementStyle("external_container", $EXTERNAL_CONTAINER_BG_COLOR, $ELEMENT_FONT_COLOR, $EXTERNAL_CONTAINER_BORDER_COLOR)
 
+UpdateBoundaryStyle("container", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR, $type="Container")
+
 ' shortcuts with default colors
 !unquoted procedure AddContainerTag($tagStereo, $bgColor=$CONTAINER_BG_COLOR, $fontColor=$ELEMENT_FONT_COLOR, $borderColor=$CONTAINER_BORDER_COLOR, $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
   AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $techn, $legendText, $legendSprite)
@@ -31,10 +33,14 @@ UpdateElementStyle("external_container", $EXTERNAL_CONTAINER_BG_COLOR, $ELEMENT_
   AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $techn, $legendText, $legendSprite)
 !endprocedure
 
+!unquoted procedure UpdateContainerBoundaryStyle($bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR, $shadowing="", $shape="", $type="Container", $legendText="")
+  UpdateBoundaryStyle("container", $bgColor, $fontColor, $borderColor, $shadowing, $shape, $type, $legendText)
+!endprocedure
+
 ' Layout
 ' ##################################
 
-SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_system\nexternal_container")
+SetDefaultLegendEntries("person\nsystem\ncontainer\nexternal_person\nexternal_system\nexternal_container\nenterprise_boundary\nsystem_boundary\ncontainer_boundary\nboundary")
 
 !procedure LAYOUT_WITH_LEGEND()
 hide stereotype
@@ -107,5 +113,11 @@ queue "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("ex
 ' ##################################
 
 !unquoted procedure Container_Boundary($alias, $label, $tags="", $link="")
-Boundary($alias, $label, "Container", $tags, $link)
+  !if ($tags != "")
+    !$allTags = $tags + '+container'
+  !else
+    !$allTags = 'container'
+  !endif
+  ' $type defined via $tag style
+  Boundary($alias, $label, "", $allTags, $link)
 !endprocedure

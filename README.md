@@ -460,7 +460,7 @@ Additional tags/stereotypes can be added to the existing element stereotypes (co
 
 * `AddElementTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`:
   Introduces a new element tag. The styles of the tagged elements are updated and the tag is displayed in the calculated legend.
-* `AddRelTag(tagStereo, ?textColor, ?lineColor, ?lineStyle, ?sprite, ?techn, ?legendText, ?legendSprite)`:
+* `AddRelTag(tagStereo, ?textColor, ?lineColor, ?lineStyle, ?lineThickness, ?sprite, ?techn, ?legendText, ?legendSprite)`:
   Introduces a new Relationship tag. The styles of the tagged relationships are updated and the tag is displayed in the calculated legend.
 * `AddBoundaryTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`:
   Introduces a new Boundary tag. The styles of the tagged boundaries are updated and the tag is displayed in the calculated legend.

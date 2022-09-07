@@ -337,7 +337,7 @@ $tagSkin
   !return $c
 !endfunction
 
-!unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
+!unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle, $lineThickness)
   !$elementSkin = "skinparam arrow<<" + $tagStereo + ">> {" + %newline()
   !$elementSkin = $elementSkin + "    Color "
   !if ($lineColor != "")
@@ -350,6 +350,9 @@ $tagSkin
     !$elementSkin = $elementSkin + ";line." + $lineStyle
   !endif
   !$elementSkin = $elementSkin + %newline()
+  !if ($lineThickness != "")
+    !$elementSkin = $elementSkin + "    Thickness " + $lineThickness + %newline()
+  !endif
   !$elementSkin = $elementSkin + "}" + %newline()
 $elementSkin
 !endprocedure
@@ -568,7 +571,7 @@ $elementSkin
   !return $tagEntry
 !endfunction
 
-!function $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite)
+!function $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $lineThickness, $legendText, $legendSprite)
   !$tc = $textColor
   !$lc = $lineColor
 
@@ -613,6 +616,9 @@ $elementSkin
         !$tagEntry = $tagEntry + "(" + $lineStyle + ") "
       !endif
     !endif
+    !if ($lineThickness != "")
+      !$tagEntry = $tagEntry + "(thickness " + $lineThickness + ") "
+    !endif
   !else
     !$tagEntry = $tagEntry + " " + $legendText + " "
   !endif
@@ -639,7 +645,7 @@ $elementSkin
 '  !endif
 !endprocedure
 
-!unquoted procedure $addRelTagToLegend($tagStereo, $textColor="", $lineColor="", $lineStyle="", $legendText="", $legendSprite="")
+!unquoted procedure $addRelTagToLegend($tagStereo, $textColor="", $lineColor="", $lineStyle="", $lineThickness, $legendText="", $legendSprite="")
 '' Arrows have a bug with stereotype/skinparams and cannot combine text colors of one stereotype
 '' and the line color of another stereotype. Therefore the text color of one tag and the line color
 '' of another tag have to be combined via a "workaround" tag ("v1.0&v1.1").
@@ -647,7 +653,7 @@ $elementSkin
 '' be an inconsistency between the element tags and the rel tags and therefore
 '' & combined workaround tags are not removed too (and in unlikely cases the color itself could be changed)
 '  !if (%strpos($tagStereo, "&") < 0)
-    !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite)
+    !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $lineThickness, $legendText, $legendSprite)
 %set_variable_value("$" + $tagStereo + "_LineLegendEntry", $tagEntry)
     !$tagCustomLegend = $tagCustomLegend + $tagStereo + "_Line\n"
 '  !endif
@@ -721,8 +727,8 @@ $addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $sha
 !endprocedure
 
 ' used by new defined rel tags
-!unquoted procedure AddRelTag($tagStereo, $textColor="", $lineColor="", $lineStyle = "", $sprite="", $techn="", $legendText="", $legendSprite="")
-$defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
+!unquoted procedure AddRelTag($tagStereo, $textColor="", $lineColor="", $lineStyle="", $lineThickness="", $sprite="", $techn="", $legendText="", $legendSprite="")
+$defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle, $lineThickness)
   !if ($sprite != "")
 %set_variable_value("$" + $tagStereo + "RelTagSprite", $sprite)
     !if ($legendSprite == "")
@@ -733,7 +739,7 @@ $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
   !if ($techn != "")
 %set_variable_value("$" + $tagStereo + "RelTagTechn", $techn)
   !endif
-$addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite)
+$addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $lineThickness, $legendText, $legendSprite)
 !endprocedure
 
 ' update the style of existing elements like person, ...

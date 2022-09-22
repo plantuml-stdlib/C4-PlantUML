@@ -6,6 +6,29 @@ PlantUML uses [Graphviz](https://www.graphviz.org/) for its graph visualization.
 
 For this reason, C4-PlantUML also comes with some layout options.
 
+## Layout Guidance and Practices
+
+### Overall Guidance
+
+1. Be minimal in the use of all directed relations - use the fewest possible to accomplish the desire results.
+2. With dynamic rendering tools (e.g. VS Code plugin) do NOT trust the first rendering as it is shifty when adding code because you do not know exactly when it grabs the current unsaved code. Wait for a bit or close and reopen preview panel.
+
+### Layout Practices
+
+These are intended to correlate to the layout engine’s algorithm, but have (as of this writing) been determined by trial and error - not a code review.
+
+1. Create all components, containers and boundaries first - in order top to bottom or left to right.
+2. Create relationships next (`Rel`)
+3. Create `Lay_` statements next.
+4. Use Rel (directionless) where possible.
+5. Use Rel_<direction> to force shape layouts.
+   1. Order inner objects first when it creates the desired result.
+   2. Try NOT to apply order to both inner elements and elements that enclose them.
+   3. Make all orderings at the same nesting level whenever possible.
+6. Add "Lay_<direction>" to force any layouts that Rel_<direction> does not resolve.
+7. Do not create an "All enclosing" boundary - the code for processing relationships seems to struggle with relationships inside this. Additionally, SHOW_FLOATING_LEGEND() will not display inside the All enclosing boundary.
+8. Legend statements must come after at least one usage of each of the elements you want the legend to contain.
+
 ## LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT() or LAYOUT_LANDSCAPE()
 
 With the two macros `LAYOUT_TOP_DOWN()` and `LAYOUT_LEFT_RIGHT()` it is possible to easily change the flow visualization of the diagram. `LAYOUT_TOP_DOWN()` is the default.

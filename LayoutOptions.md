@@ -22,12 +22,14 @@ These are intended to correlate to the layout engine’s algorithm, but have (as
 3. Create `Lay_` statements next.
 4. Use Rel (directionless) where possible.
 5. Use Rel_<direction> to force shape layouts.
-   1. Order inner objects first when it creates the desired result.
-   2. Try NOT to apply order to both inner elements and elements that enclose them.
+6. Add Lay_<direction> to force any layouts that Rel_<direction> does not resolve.
+7. For both Rel_<direction> and Lay_<direction>:
+   1. Order inner objects first when it creates the desired result (enclosing objects tend to follow suit when child objects are ordered).
+   2. Try NOT to apply order to both inner elements and elements that enclose them to force relationships that aren't working out.
    3. Make all orderings at the same nesting level whenever possible.
-6. Add "Lay_<direction>" to force any layouts that Rel_<direction> does not resolve.
-7. Do not create an "All enclosing" boundary - the code for processing relationships seems to struggle with relationships inside this. Additionally, SHOW_FLOATING_LEGEND() will not display inside the All enclosing boundary.
-8. Legend statements must come after at least one usage of each of the elements you want the legend to contain.
+8. Do NOT create duplicated, opposite direction "Lay_" commands in an attempt to force or ensure relationships as it does not affect the results. For instance if you have "Lay_R(entity1,entity2)" which is not working as desired and then add the opposing one as "Lay_L(entity2,entity1)" - it does not help with forcing layouts to be as you want them.
+9. Do not create an "All enclosing" boundary - the code for processing relationships seems to struggle with relationships inside this. Additionally, SHOW_FLOATING_LEGEND() will not display inside the All enclosing boundary.
+10. Legend statements must come after at least one usage of each of the elements you want the legend to contain.
 
 ## LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT() or LAYOUT_LANDSCAPE()
 

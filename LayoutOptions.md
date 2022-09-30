@@ -10,16 +10,14 @@ For this reason, C4-PlantUML also comes with some layout options.
 
 ### Overall Guidance
 
-1. Be minimal in the use of all directed relations - use the fewest possible to accomplish the desire results.
+1. Be minimal in the use of all directed relations - introduce the fewest possible directed `Rel_` and `Lay_` statements that achieve the desired layout. One way to do this is to immediately remove any of these you experiment with when they don't actually affect the layout at all. And of course you will remove the ones that affect it the layout in a negative way.
 2. With dynamic rendering tools (e.g. VS Code plugin) do NOT trust the first rendering as it is shifty when adding code because you do not know exactly when it grabs the current unsaved code. Wait for a bit or close and reopen preview panel.
 
 ### Layout Practices
 
 These are intended to correlate to the layout engine’s algorithm, but have (as of this writing) been determined by trial and error - not a code review.
 
-An important overall idea is to introduce the fewest possible directed `Rel_` and `Lay_` statements that achieve the desired layout. One way to do this is to immediately remove any of these you experiment with when they don't actually affect the layout at all. And of course you will remove the ones that affect it the layout in a negative way.
-
-Read through all rules before starting.
+Please read through all practices before starting.
 
 1. Create all components, containers and boundaries first - in order top to bottom or left to right.
 2. Use `Rel` (directionless) to create initial relationships.

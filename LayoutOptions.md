@@ -17,7 +17,7 @@ For this reason, C4-PlantUML also comes with some layout options.
 
 These are intended to correlate to the layout engine’s algorithm, but have (as of this writing) been determined by trial and error - not a code review.
 
-An important overall idea is to introduce the fewest possible directed `Rel_` and `Lay_` items as possible to achieve the desired layout. One way to do this is to immediately remove any of these you experiment with when they don't actually affect the layout at all. And of course you will remove the ones that affect it the layout in a negative way.
+An important overall idea is to introduce the fewest possible directed `Rel_` and `Lay_` statements that achieve the desired layout. One way to do this is to immediately remove any of these you experiment with when they don't actually affect the layout at all. And of course you will remove the ones that affect it the layout in a negative way.
 
 Read through all rules before starting.
 

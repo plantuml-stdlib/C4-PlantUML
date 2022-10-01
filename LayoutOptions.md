@@ -10,24 +10,30 @@ For this reason, C4-PlantUML also comes with some layout options.
 
 ### Overall Guidance
 
-1. Be minimal in the use of all directed relations - use the fewest possible to accomplish the desire results.
+1. Be minimal in the use of all directed relations - introduce the fewest possible directed `Rel_` and `Lay_` statements that achieve the desired layout. One way to do this is to immediately remove any of these you experiment with when they don't actually affect the layout at all. And of course you will remove the ones that affect it the layout in a negative way.
 2. With dynamic rendering tools (e.g. VS Code plugin) do NOT trust the first rendering as it is shifty when adding code because you do not know exactly when it grabs the current unsaved code. Wait for a bit or close and reopen preview panel.
 
 ### Layout Practices
 
 These are intended to correlate to the layout engine’s algorithm, but have (as of this writing) been determined by trial and error - not a code review.
 
+Please read through all practices before starting.
+
 1. Create all components, containers and boundaries first - in order top to bottom or left to right.
-2. Create relationships next (`Rel`)
-3. Create `Lay_` statements next.
-4. Use Rel (directionless) where possible.
-5. Use Rel_<direction> to force shape layouts.
-   1. Order inner objects first when it creates the desired result.
-   2. Try NOT to apply order to both inner elements and elements that enclose them.
-   3. Make all orderings at the same nesting level whenever possible.
-6. Add "Lay_<direction>" to force any layouts that Rel_<direction> does not resolve.
-7. Do not create an "All enclosing" boundary - the code for processing relationships seems to struggle with relationships inside this. Additionally, SHOW_FLOATING_LEGEND() will not display inside the All enclosing boundary.
-8. Legend statements must come after at least one usage of each of the elements you want the legend to contain.
+2. Use `Rel` (directionless) to create initial relationships.
+3. If layout is not as desired, modify **some** Rel statements to contain direction `Rel_{direction}` to force shape layouts. 
+4. If the layout is not as desired, sparingly add `Lay_{direction}` to force any layouts that `Rel_{direction}` does not correct.
+5. For both `Lay_{direction}` and `Rel_{direction}` statements used above:
+   1. Exhaust attempts to get a working layout with `Rel_{direction}` before adding `Lay_{direction}`
+   2. Try to introduce the fewest possible directed statements (of either type) that result in the desired layout.
+   3. Immediately back out any directed statements that do not change the layout at all.
+   4. Order inner objects first when it creates the desired result (enclosing objects tend to follow suit when child objects are ordered).
+   5. When ordering multiple objects, only specify one relationship and, if possible in the same direction. For example if you want entity1 => entity2 => entity3, then `Rel_R(entity1,entity2)` and `Rel_R(entity2, entity3)` is the minimum possible statements and they all specify the same direction.
+   6. Try NOT to apply directed statements to both inner elements and enclosing elements to force relationships that aren't working out.
+   7. Make all orderings at the same nesting level whenever possible.
+   8. Do NOT create duplicated, opposite direction statements in an attempt to force or ensure relationships as it does not affect the results. For instance if you have `Lay_R(entity1,entity2)` which is not working as desired and then also add the opposing one as `Lay_L(entity2,entity1)` - it does not help with forcing layouts to be as you want them. It might help to use `Lay_L` **instead of** `Lay_R`, but not both together.
+6. Do not create an "All enclosing" boundary - the code for processing relationships seems to struggle with relationships inside this. Additionally, `SHOW_FLOATING_LEGEND()` will not display inside the All enclosing boundary.
+7. Legend statements must come after at least one usage of each of the elements you want the legend to contain.
 
 ## LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT() or LAYOUT_LANDSCAPE()
 

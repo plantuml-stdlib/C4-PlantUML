@@ -170,7 +170,7 @@ SHOW_LEGEND()
 
 * System Context & System Landscape diagrams
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
-  * Macros: 
+  * Macros:
     * `Person(alias, label, ?descr, ?sprite, ?tags, $link)`
     * `Person_Ext`
     * `System(alias, label, ?descr, ?sprite, ?tags, $link)`
@@ -181,7 +181,12 @@ SHOW_LEGEND()
     * `SystemQueue_Ext`
     * `Boundary(alias, label, ?type, ?tags, $link)`
     * `Enterprise_Boundary(alias, label, ?tags, $link)`
-    * `System_Boundary` 
+    * `System_Boundary`
+  * Sprites:
+    * `person`
+    * `person2`
+    * `robot`
+    * `robot2`
 
 * Container diagram
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
@@ -367,7 +372,28 @@ C4-PlantUML also comes with some person sprite/portrait options:
 
 ## Sprites and other images
 
-`$sprite` (images) can be defined with following PlantUML supported options:
+C4-PlantUML offers predefined person and robot sprites which can be directly used:
+
+* `person`,`person2`
+* `robot`, `robot2`
+
+```plantuml
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Person(pB, "Sam", $sprite="person2")
+Person_Ext(pA, "Bob", $sprite="person")
+
+System_Ext(robB, "Robot A", $sprite="robot2")
+System_Ext(robA, "Robot B", $sprite="robot")
+
+SHOW_LEGEND()
+@enduml
+```
+
+![Predefined person and robot sprites](https://www.plantuml.com/plantuml/png/PSp1IiD04CRnUvuY1Wyfj5qGJuBGf0OzL2qMyHXsayKkxEuCCxEeRsysY2YvVlER_uv5awJWYmiN1vz6Mvv5a6-K8lsnVNToJYQnfG6Ys2ZR0O92hsF-sR2CtXcrlzuSy_JwU511irYQfduF0I7c7ypzucY98TROhilgf4ErBYyPoOczhN0-NLMh7zHtdr9ZCy4Mp19EhZXziTWmGmAJcozWGChcBwSyvUn_tVpgTg7dziFpMt_exhkdktfLx6mSK_3V "Predefined person and robot sprites")
+
+Additional `$sprite` (images) can be defined with following PlantUML supported options:
 
 * included (standard library) sprites via their `{SpriteName}`; details see [sprites](https://plantuml.com/sprite)
 * images via `img:{File or Url}`

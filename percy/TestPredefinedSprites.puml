@@ -1,0 +1,16 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../C4_Component.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!endif
+
+Person(pB, "Sam", $sprite="person2")
+Person_Ext(pA, "Bob", $sprite="person")
+
+System_Ext(robB, "Robot A", $sprite="robot2")
+System_Ext(robA, "Robot B", $sprite="robot")
+
+SHOW_LEGEND()
+@enduml

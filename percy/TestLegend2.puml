@@ -1,0 +1,36 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
+!else
+  !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Component.puml
+!endif
+
+C4Version()
+
+' person legend displays the correct sprite
+SHOW_PERSON_SPRITE("person2")
+' HIDE_PERSON_SPRITE()
+' SHOW_PERSON_PORTRAIT()
+' SHOW_PERSON_OUTLINE()
+
+' UpdateElementStyle("person", $legendText="Person with correct legend", $sprite="person2")
+' missing definitions are reused from last UpdateElementStyle() in legends too
+UpdateElementStyle("person")
+
+UpdateElementStyle("external_system", $bgColor="chocolate", $fontColor="orange", $borderColor="orange", $shadowing="true", $shape=RoundedBoxShape(), $sprite="robot", $techn="my tech", $legendSprite="robot,scale=0.25")
+' missing definitions are reused from last UpdateElementStyle() in legends too
+UpdateElementStyle("external_system")
+
+' AddExternalSystemTag("micro_service", $shape=EightSidedShape())
+' AddElementTag("storage", $shadowing="true", $shape=RoundedBoxShape())
+
+System_Ext(system, "System")
+
+Person(person, "Person")
+
+' System_Ext(system1A, "System 1A", $tags="micro_service")
+' System_Ext(system2, "System 2", $tags = "storage")
+
+SHOW_LEGEND(false)
+@enduml

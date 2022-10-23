@@ -19,7 +19,7 @@ jobs:
       - name: Process diagrams
         uses: Timmy/plantuml-action@v1
         with:
-          args: '-v percy -o _parsed -DRELATIVE_INCLUDE="."'
+          args: '-v percy -o _parsed -DRELATIVE_INCLUDE="./.."'
       - name: Upload
         run: npx @percy/cli upload percy/_parsed
         env:

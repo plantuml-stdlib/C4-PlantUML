@@ -1,7 +1,7 @@
 @startuml
-' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
 !if %variable_exists("RELATIVE_INCLUDE")
-  !include ./../C4_Container.puml
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
 !else
   !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 !endif

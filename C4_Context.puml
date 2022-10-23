@@ -182,6 +182,7 @@ endlegend
 !procedure HIDE_PERSON_SPRITE()
   !$defaultPersonSprite = ""
   !$dummy = $clearRestore("person", "sprite")
+  UpdateElementStyle("person")
   !$portraitPerson = "false"
 !endprocedure
 
@@ -192,18 +193,21 @@ endlegend
     !$defaultPersonSprite = $sprite
   !endif
   !$dummy = $restoreEmpty("person", "sprite", $defaultPersonSprite, %true())
+  UpdateElementStyle("person")
   !$portraitPerson = "false"
 !endprocedure
 
 !unquoted procedure SHOW_PERSON_PORTRAIT()
   !$defaultPersonSprite = ""
   !$dummy = $clearRestore("person", "sprite")
+  UpdateElementStyle("person")
   !$portraitPerson = "portrait"
 !endprocedure
 
 !unquoted procedure SHOW_PERSON_OUTLINE()
   !$defaultPersonSprite = ""
   !$dummy = $clearRestore("person", "sprite")
+  UpdateElementStyle("person")
   !$portraitPerson = "outline"
 !endprocedure
 

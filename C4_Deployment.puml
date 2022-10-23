@@ -22,8 +22,8 @@ skinparam rectangle<<node>> {
 
 ' shortcuts with default colors
 ' node specific: $type reuses $techn definition of $tags
-!unquoted procedure AddNodeTag($tagStereo, $bgColor=$NODE_BG_COLOR, $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR, $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
-  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $techn, $legendText, $legendSprite)
+!unquoted procedure AddNodeTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
+  $addElementTagInclReuse("node", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $techn, $legendText, $legendSprite)
 !endprocedure
 
 ' Layout

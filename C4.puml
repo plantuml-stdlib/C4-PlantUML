@@ -276,7 +276,7 @@ skinparam package {
 ' clear the restore property
 !function $clearRestore($elementType, $property)
   !$var = "$" + $elementType + "Restore" + $property
-  %set_variable_value($var, $value)
+  %set_variable_value($var, "")
   !return ""
 !endfunction
 
@@ -747,7 +747,6 @@ $addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, 
 !$techn=$restoreEmpty($elementName, "techn", $techn, %true())
 !$legendText=$restoreEmpty($elementName, "legendText", $legendText, %true())
 !$legendSprite=$restoreEmpty($elementName, "legendSprite", $legendSprite, %true())
-
 $defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
   !if ($sprite != "")
 %set_variable_value("$" + $elementName + "ElementTagSprite", $sprite)

@@ -176,14 +176,21 @@ endlegend
 !endprocedure
 
 !global $defaultPersonSprite = "person"
-  !$dummy = $restoreEmpty("person", "sprite", $defaultPersonSprite, %true())
+!$dummy = $restoreEmpty("person", "sprite", $defaultPersonSprite, %true())
+UpdateElementStyle("person")
 !global $portraitPerson = "false"
+
+!procedure $clearPersonRestore()
+  !$dummy = $clearRestore("person", "sprite")
+  !$dummy = $clearRestore("person", "legendSprite")
+  %set_variable_value("$" + "person" + "ElementTagSprite", "")
+  UpdateElementStyle("person")
+!endprocedure
 
 !procedure HIDE_PERSON_SPRITE()
   !$defaultPersonSprite = ""
-  !$dummy = $clearRestore("person", "sprite")
-  UpdateElementStyle("person")
   !$portraitPerson = "false"
+  $clearPersonRestore()
 !endprocedure
 
 !unquoted procedure SHOW_PERSON_SPRITE($sprite="")
@@ -199,16 +206,14 @@ endlegend
 
 !unquoted procedure SHOW_PERSON_PORTRAIT()
   !$defaultPersonSprite = ""
-  !$dummy = $clearRestore("person", "sprite")
-  UpdateElementStyle("person")
   !$portraitPerson = "portrait"
+  $clearPersonRestore()
 !endprocedure
 
 !unquoted procedure SHOW_PERSON_OUTLINE()
   !$defaultPersonSprite = ""
-  !$dummy = $clearRestore("person", "sprite")
-  UpdateElementStyle("person")
   !$portraitPerson = "outline"
+  $clearPersonRestore()
 !endprocedure
 
 ' Elements

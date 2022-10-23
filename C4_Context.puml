@@ -34,17 +34,17 @@ UpdateBoundaryStyle("enterprise", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUND
 UpdateBoundaryStyle("system", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR, $type="System")
 
 ' shortcuts with default colors
-!unquoted procedure AddPersonTag($tagStereo, $bgColor=$PERSON_BG_COLOR, $fontColor=$ELEMENT_FONT_COLOR, $borderColor=$PERSON_BORDER_COLOR, $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
-  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, "", $legendText, $legendSprite)
+!unquoted procedure AddPersonTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
+  $addElementTagInclReuse("person", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, "", $legendText, $legendSprite)
 !endprocedure
-!unquoted procedure AddExternalPersonTag($tagStereo, $bgColor=$EXTERNAL_PERSON_BG_COLOR, $fontColor=$ELEMENT_FONT_COLOR, $borderColor=$EXTERNAL_PERSON_BORDER_COLOR, $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
-  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, "", $legendText, $legendSprite)
+!unquoted procedure AddExternalPersonTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
+  $addElementTagInclReuse("external_person", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, "", $legendText, $legendSprite)
 !endprocedure
-!unquoted procedure AddSystemTag($tagStereo, $bgColor=$SYSTEM_BG_COLOR, $fontColor=$ELEMENT_FONT_COLOR, $borderColor=$SYSTEM_BORDER_COLOR, $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
-  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, "", $legendText, $legendSprite)
+!unquoted procedure AddSystemTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
+  $addElementTagInclReuse("system", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, "", $legendText, $legendSprite)
 !endprocedure
-!unquoted procedure AddExternalSystemTag($tagStereo, $bgColor=$EXTERNAL_SYSTEM_BG_COLOR, $fontColor=$ELEMENT_FONT_COLOR, $borderColor=$EXTERNAL_SYSTEM_BORDER_COLOR, $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
-  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, "", $legendText, $legendSprite)
+!unquoted procedure AddExternalSystemTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="")
+  $addElementTagInclReuse("external_system", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, "", $legendText, $legendSprite)
 !endprocedure
 
 !unquoted procedure UpdateEnterpriseBoundaryStyle($bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR, $shadowing="", $shape="", $type="Enterprise", $legendText="")
@@ -176,10 +176,12 @@ endlegend
 !endprocedure
 
 !global $defaultPersonSprite = "person"
+  !$dummy = $restoreEmpty("person", "sprite", $defaultPersonSprite, %true())
 !global $portraitPerson = "false"
 
 !procedure HIDE_PERSON_SPRITE()
   !$defaultPersonSprite = ""
+  !$dummy = $clearRestore("person", "sprite")
   !$portraitPerson = "false"
 !endprocedure
 
@@ -189,16 +191,19 @@ endlegend
   !else
     !$defaultPersonSprite = $sprite
   !endif
+  !$dummy = $restoreEmpty("person", "sprite", $defaultPersonSprite, %true())
   !$portraitPerson = "false"
 !endprocedure
 
 !unquoted procedure SHOW_PERSON_PORTRAIT()
   !$defaultPersonSprite = ""
+  !$dummy = $clearRestore("person", "sprite")
   !$portraitPerson = "portrait"
 !endprocedure
 
 !unquoted procedure SHOW_PERSON_OUTLINE()
   !$defaultPersonSprite = ""
+  !$dummy = $clearRestore("person", "sprite")
   !$portraitPerson = "outline"
 !endprocedure
 

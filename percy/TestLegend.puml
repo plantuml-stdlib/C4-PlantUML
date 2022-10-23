@@ -6,9 +6,16 @@
   !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !endif
 
+' person legend displays the correct sprite
 SHOW_PERSON_SPRITE(person2)
+UpdateElementStyle("person", $legendText="Person with correct legend")
+' missing definitions are reused from last UpdateElementStyle() in legends too
+UpdateElementStyle("person")
 
-UpdateElementStyle("system", $bgColor="chocolate", $fontColor="orange", $borderColor="orange")
+UpdateElementStyle("system", $bgColor="chocolate", $fontColor="orange", $borderColor="orange", $shadowing="true", $shape=RoundedBoxShape(), $sprite="person", $techn="my tech", $legendSprite="person2,scale=0.25")
+' missing definitions are reused from last UpdateElementStyle() in legends too
+UpdateElementStyle("system")
+
 UpdateRelStyle(black, black)
 
 AddElementTag("role1", $bgColor="green", $fontColor="white", $borderColor="#d73027", $shadowing="false")
@@ -17,7 +24,7 @@ AddElementTag("role3", $bgColor="orange")
 AddElementTag("role4", $borderColor="blue")
 AddElementTag("unusedRole")
 
-AddElementTag("micro_service", $shape=EightSidedShape())
+AddSystemTag("micro_service", $shape=EightSidedShape())
 AddElementTag("storage", $shadowing="true", $shape=RoundedBoxShape())
 
 AddRelTag("line1", $lineColor="green", $textColor="blue")
@@ -27,6 +34,8 @@ AddRelTag("line4", $lineColor="orange")
 ' PlantUML cannot combine line styles, a combination has to be added as workaround as first additional tag
 AddRelTag("line3&line4", $lineColor="orange", $textColor="orange")
 AddRelTag("unusedLine", $lineColor="red", $textColor="red")
+
+System(system, "System")
 
 Person(person, "Person")
 Person(person1, "Person1", $tags="role1")

@@ -3,7 +3,7 @@
 'Version
 ' ##################################
 !function C4Version()
-  !return "2.5.0beta1"
+  !return "2.5.0beta2"
 !end function
 
 !procedure C4VersionDetails()
@@ -260,6 +260,24 @@ skinparam package {
     !endif
   !endif
   !return $arg
+!endfunction
+
+' if $value is empty try to load it via variable, optional can it store the calculated value
+!function $restoreEmpty($elementType, $property, $value, $store)
+  !$var = "$" + $elementType + "Restore" + $property
+  !if ($value == "")
+    !$value = %get_variable_value($var)
+  !elseif ($store)
+    %set_variable_value($var, $value)
+  !endif
+  !return $value
+!endfunction
+
+' clear the restore property
+!function $clearRestore($elementType, $property)
+  !$var = "$" + $elementType + "Restore" + $property
+  %set_variable_value($var, $value)
+  !return ""
 !endfunction
 
 !function $elementTagSkinparams($element, $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
@@ -688,6 +706,20 @@ $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $s
 $addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
 !endprocedure
 
+!unquoted procedure $addElementTagInclReuse($elementName, $tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
+  !$bgColor=$restoreEmpty($elementName, "bgColor", $bgColor, %true())
+  !$fontColor=$restoreEmpty($elementName, "fontColor", $fontColor, %true())
+  !$borderColor=$restoreEmpty($elementName, "borderColor", $borderColor, %true())
+  !$shadowing=$restoreEmpty($elementName, "shadowing", $shadowing, %true())
+  !$shape=$restoreEmpty($elementName, "shape", $shape, %true())
+  !$sprite=$restoreEmpty($elementName, "sprite", $sprite, %true())
+  !$techn=$restoreEmpty($elementName, "techn", $techn, %true())
+  !$legendText=$restoreEmpty($elementName, "legendText", $legendText, %true())
+  !$legendSprite=$restoreEmpty($elementName, "legendSprite", $legendSprite, %true())
+
+  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $techn, $legendText, $legendSprite)
+!endprocedure
+
 ' used by new defined rel tags
 !unquoted procedure AddRelTag($tagStereo, $textColor="", $lineColor="", $lineStyle = "", $sprite="", $techn="", $legendText="", $legendSprite="")
 $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle)
@@ -706,6 +738,16 @@ $addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, 
 
 ' update the style of existing elements like person, ...
 !unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
+!$bgColor=$restoreEmpty($elementName, "bgColor", $bgColor, %true())
+!$fontColor=$restoreEmpty($elementName, "fontColor", $fontColor, %true())
+!$borderColor=$restoreEmpty($elementName, "borderColor", $borderColor, %true())
+!$shadowing=$restoreEmpty($elementName, "shadowing", $shadowing, %true())
+!$shape=$restoreEmpty($elementName, "shape", $shape, %true())
+!$sprite=$restoreEmpty($elementName, "sprite", $sprite, %true())
+!$techn=$restoreEmpty($elementName, "techn", $techn, %true())
+!$legendText=$restoreEmpty($elementName, "legendText", $legendText, %true())
+!$legendSprite=$restoreEmpty($elementName, "legendSprite", $legendSprite, %true())
+
 $defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
   !if ($sprite != "")
 %set_variable_value("$" + $elementName + "ElementTagSprite", $sprite)

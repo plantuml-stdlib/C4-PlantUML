@@ -505,7 +505,7 @@ Additional tags/stereotypes can be added to the existing element stereotypes (co
   This call updates the default style of the elements (component, ...) and creates no additional legend entry.
 * `UpdateRelStyle(textColor, lineColor)`:
   This call updates the default relationship colors and creates no additional legend entry.
-* `UpdateBoundaryStyle(?elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)
+* `UpdateBoundaryStyle(?elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`:
   This call updates the default style of the existing boundaries and creates no additional legend entry.
   If the element name is "" then it updates generic, enterprise, system and container boundary style in on call.
 * `RoundedBoxShape()`: This call returns the name of the rounded box shape and can be used as ?shape argument.

@@ -1,0 +1,43 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!endif
+
+UpdateRelStyle(gray, gray)
+
+AddRelTag("textColorBlue", $textColor=blue)
+AddRelTag("textColorRed", $textColor="red")
+AddRelTag("lineColorBlue", $lineColor="blue")
+AddRelTag("lineStyleDashed", $lineStyle=DashedLine())
+AddRelTag("lineStyleDotted", $lineStyle=DottedLine())
+AddRelTag("lineStyleBold", $lineStyle=BoldLine())
+AddRelTag("lineThickness", $lineThickness=5)
+AddRelTag("bothSprites", $sprite="person2", $legendSprite="person2,scale=0.25")
+AddRelTag("technAndLegendText", $techn="HTTPS", $legendText="Another text in legend (incl. techn. https)")
+
+Person(person, "Person")
+
+System(system1, "System 1")
+System(system2, "System 2")
+System(system3, "System 3")
+System(system4, "System 3")
+
+Rel_U(person, system1, "without a tag")
+Rel_U(person, system1, "bothSprites", $tags="bothSprites")
+Rel_U(person, system1, "technAndLegendText", $tags="technAndLegendText")
+Rel_R(person, system2, "textColorBlue", $tags="textColorBlue")
+Rel_R(person, system2, "lineColorBlue", $tags="lineColorBlue")
+Rel_R(person, system2, "textColorRed+lineColorBlue", $tags="textColorRed+lineColorBlue")
+Rel_R(person, system2, "textColorRed+textColorBlue (first wins)", $tags="textColorRed+textColorBlue")
+Rel_D(person, system3, "lineStyleDashed", $tags="lineStyleDashed")
+Rel_D(person, system3, "lineStyleDotted", $tags="lineStyleDotted")
+Rel_D(person, system3, "lineStyleBold", $tags="lineStyleBold")
+Rel_D(person, system3, "lineStyleDotted+lineThickness", $tags="lineStyleDotted+lineThickness")
+Rel_L(person, system4, "textColorBlue+textColorRed+lineColorBlue+lineStyleDashed+lineThickness+bothSprites", $tags="textColorBlue+textColorRed+lineColorBlue+lineStyleDashed+lineThickness+bothSprites")
+Rel_L(person, system4, "textColorBlue+textColorRed+lineColorBlue+lineStyleDashed+lineThickness+bothSprites+technAndLegendText", $tags="textColorBlue+textColorRed+lineColorBlue+lineStyleDashed+lineThickness+bothSprites+technAndLegendText")
+
+SHOW_LEGEND()
+@enduml

@@ -339,19 +339,21 @@ $tagSkin
 
 !unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle, $lineThickness)
   !$elementSkin = "skinparam arrow<<" + $tagStereo + ">> {" + %newline()
-  !$elementSkin = $elementSkin + "    Color "
-  !if ($lineColor != "")
-    !$elementSkin = $elementSkin + $colorWithoutHash($lineColor)
+  !if ($lineColor != "") || ($textColor != "") || ($lineStyle != "")
+    !$elementSkin = $elementSkin + "    Color "
+    !if ($lineColor != "")
+      !$elementSkin = $elementSkin + $colorWithoutHash($lineColor)
+    !endif
+    !if ($textColor != "")
+      !$elementSkin = $elementSkin + ";text:" + $colorWithoutHash($textColor)
+    !endif
+    !if ($lineStyle != "")
+      !$elementSkin = $elementSkin + ";line." + $lineStyle
+    !endif
+    !$elementSkin = $elementSkin + %newline()
   !endif
-  !if ($textColor != "")
-    !$elementSkin = $elementSkin + ";text:" + $colorWithoutHash($textColor)
-  !endif
-  !if ($lineStyle != "")
-    !$elementSkin = $elementSkin + ";line." + $lineStyle
-  !endif
-  !$elementSkin = $elementSkin + %newline()
   !if ($lineThickness != "")
-    !$elementSkin = $elementSkin + " thickness " + $lineThickness + %newline()
+    !$elementSkin = $elementSkin + "    thickness " + $lineThickness + %newline()
   !endif
   !$elementSkin = $elementSkin + "}" + %newline()
 $elementSkin

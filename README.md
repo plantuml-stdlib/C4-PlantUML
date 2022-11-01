@@ -549,15 +549,16 @@ Like the element specific tag definitions exist boundary specific calls with the
 
 ### Comments
 
-* `SHOW_LEGEND()` supports the customized stereotypes
-      (`LAYOUT_WITH_LEGEND()` cannot be used, if the custom tags/stereotypes should be displayed in the legend).
+* `SHOW_LEGEND()` supports the customized stereotypes  
+  (`LAYOUT_WITH_LEGEND()` cannot be used, if the custom tags/stereotypes should be displayed in the legend).
 * `SHOW_LEGEND()` has to be last line in diagram.
 * Don't use space between `$tags` and `=` (PlantUML does not support it).
 * Don't use `,` as part of the tag names (PlantUML does not support it in combination with keyword arguments).
 * If 2 tags define the same skinparam, the first definition is used.
 * If specific skinparams have to be merged (e.g. 2 tags change the font color) an additional combined tag has to be defined. Use `&` as part of combined tag names.
 
-* Colors of relationship tags cannot be automatically merged (PlantUML does not support it).
+* (Obsolete, fixed in PlantUML >=v.1.2022.2)  
+  Colors of relationship tags cannot be automatically merged (PlantUML does not support it).
   If one tag modifies the line color and the other the text color, an additional combined tag has to be defined and used.
 
 ### Sample with different tag combinations

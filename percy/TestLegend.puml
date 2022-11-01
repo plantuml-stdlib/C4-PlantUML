@@ -31,7 +31,8 @@ AddRelTag("line1", $lineColor="green", $textColor="blue")
 AddRelTag("line2", $lineColor="blue", $textColor="green")
 AddRelTag("line3", $textColor="orange")
 AddRelTag("line4", $lineColor="orange")
-' PlantUML cannot combine line styles, a combination has to be added as workaround as first additional tag
+' outdated: PlantUML cannot combine line styles, a combination has to be added as workaround as first additional tag
+' fixed in meantime
 AddRelTag("line3&line4", $lineColor="orange", $textColor="orange")
 AddRelTag("unusedLine", $lineColor="red", $textColor="red")
 
@@ -57,8 +58,8 @@ Rel(allInOne, component, "uses line 1", $tags="line1")
 Rel(allInOne, component, "uses line 2", $tags="line2")
 Rel(allInOne, system1A, "uses line 3", $tags="line3")
 Rel(allInOne, system1A, "uses line 4", $tags="line4")
-Rel(allInOne, system2, "line 3+4 cannot be combined without workaround", $tags="line3+line4")
-Rel(allInOne, system2, "line 3+4 with workaround", $tags="line3&line4+line3+line4")
+Rel(allInOne, system2, "line 3+4 (merge fixed in meantime)", $tags="line3+line4")
+Rel(allInOne, system2, "line 3+4 with workaround (obsolete in meantime)", $tags="line3&line4+line3+line4")
 
 SHOW_LEGEND(false)
 @enduml

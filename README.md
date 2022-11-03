@@ -557,9 +557,8 @@ Like the element specific tag definitions exist boundary specific calls with the
 * If 2 tags define the same skinparam, the first definition is used.
 * If specific skinparams have to be merged (e.g. 2 tags change the font color) an additional combined tag has to be defined. Use `&` as part of combined tag names.
 
-* (Obsolete, fixed in PlantUML >=v.1.2022.2)  
-  Colors of relationship tags cannot be automatically merged (PlantUML does not support it).
-  If one tag modifies the line color and the other the text color, an additional combined tag has to be defined and used.
+* Automatically merging colors of relationship tags is not supported in PlantUML before v.1.2022  
+  If an older version is used and one tag modifies the line color and the other the text color, an additional combined tag has to be defined and used.
 
 ### Sample with different tag combinations
 

@@ -37,13 +37,21 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
 
 At the top of your C4 PlantUML `.puml` file, you need to include the `C4_Context.puml`, `C4_Container.puml` or `C4_Component.puml` file found in the `root` of this repo.
 
-To be independent of any internet connectivity, you can also download the files found in the `root` and activate the local conversion with additional command line argument `-DRELATIVE_INCLUDE="."` (that the local files are included)
+### Including the C4-PlantUML library
+To be independent of any Internet connectivity, you can download the files found in the `root` and make use of them by supplying the command line argument `-DRELATIVE_INCLUDE="."` to PlantUML:
 
-```plantuml
+```bash
 java -jar plantuml.jar -DRELATIVE_INCLUDE="."  ...
 ```
 
-If you want to use the always up-to-date version in this repo, use the following:
+For Visual Studio Code, add the following to your settings.json:
+```json
+"plantuml.jarArgs": [
+  "-DRELATIVE_INCLUDE=."
+]
+```
+
+If you want to use the always up-to-date version of the C4-PlantUML library in this repo (which obviously requires an Internet connection every time you render a document), use the following:
 
 ```plantuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml

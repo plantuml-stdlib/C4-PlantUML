@@ -7,6 +7,8 @@ C4-PlantUML combines the benefits of [PlantUML](https://plantuml.com/) and the [
 C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippets) for creating C4 diagrams with PlantUML.
 
   - [Getting Started](#getting-started)
+    - [Including the C4-PlantUML library](#including-the-c4-plantuml-library)
+    - [Now let's create a C4 Container diagram](#now-lets-create-a-c4-container-diagram)
   - [Supported Diagram Types](#supported-diagram-types)
   - [Relationship Types](#relationship-types)
   - [Layout (arrange) elements (without relationships)](#layout-arrange-elements-without-relationships)
@@ -35,21 +37,23 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
 
 ## Getting Started
 
+### Including the C4-PlantUML library
+
 At the top of your C4 PlantUML `.puml` file, you need to include the `C4_Context.puml`, `C4_Container.puml` or `C4_Component.puml` file found in the `root` of this repo.
 
-### Including the C4-PlantUML library
 To be independent of any Internet connectivity, you can download the files found in the `root` and make use of them by supplying the command line argument `-DRELATIVE_INCLUDE="."` to PlantUML:
 
 ```bash
 java -jar plantuml.jar -DRELATIVE_INCLUDE="."  ...
 ```
 
-For Visual Studio Code, add the following to your settings.json:
-```json
-"plantuml.jarArgs": [
-  "-DRELATIVE_INCLUDE=."
-]
-```
+> For Visual Studio Code, add the following to your settings.json:
+>
+> ```json
+> "plantuml.jarArgs": [
+>   "-DRELATIVE_INCLUDE=."
+> ]
+> ```
 
 If you want to use the always up-to-date version of the C4-PlantUML library in this repo (which obviously requires an Internet connection every time you render a document), use the following:
 
@@ -57,7 +61,13 @@ If you want to use the always up-to-date version of the C4-PlantUML library in t
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 ```
 
-Now let's create a C4 Container diagram:
+If you don't need the up-to-date version, PlantUML includes the last released `C4_...` files as [standard library C4](https://plantuml.com/stdlib#062f75176513a666) \(no additional files or Internet is required). You can use it with following:
+
+```plantuml
+!include <C4/C4_Container>
+```
+
+### Now let's create a C4 Container diagram
 
 \(If you don't want run PlantUML locally you can use e.g. the [PlantUML Web Server](https://www.plantuml.com/plantuml/uml/ZOxDIWGn48JlUOeufn5qSjcJfvNHsugBFsV99iqcsEc4T0VTjpSCE2AYUAeAgVwgjYosIakevytBBK824bPdaHms3pg85BuofjgtwHWbj4DZg2wJzDpaSZAliRh04ioykToZ9Nc-snbux_yUlEdGkOTj9AXJwJLAxQ5ofh4iSetHyeKUTlO0E7HpNoHcigXlW5sDosiuLojaT9_kn-aJk40Py_7q1-Znn09fv4N-swuU0ByFNbVyZlYQqmbR8DyIVW00) too.)
 
@@ -184,22 +194,22 @@ SHOW_LEGEND()
 
 ## Supported Diagram Types
 
-> * `arg`.. argument required (e.g. `alias`)
-> * `?arg`.. argument optional  (e.g. `?descr`)
+> * `arg`: argument required (e.g. `alias`)
+> * `?arg`: argument optional (e.g. `?tags`); an optional argument can be directly set via its keyword `$arg=...` (e.g. `$tags="specificTag"`) without the other optional arguments
 
 * System Context & System Landscape diagrams
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
   * Macros:
-    * `Person(alias, label, ?descr, ?sprite, ?tags, $link)`
+    * `Person(alias, label, ?descr, ?sprite, ?tags, ?link)`
     * `Person_Ext`
-    * `System(alias, label, ?descr, ?sprite, ?tags, $link)`
+    * `System(alias, label, ?descr, ?sprite, ?tags, ?link)`
     * `SystemDb`
     * `SystemQueue`
     * `System_Ext`
     * `SystemDb_Ext`
     * `SystemQueue_Ext`
-    * `Boundary(alias, label, ?type, ?tags, $link)`
-    * `Enterprise_Boundary(alias, label, ?tags, $link)`
+    * `Boundary(alias, label, ?type, ?tags, ?link)`
+    * `Enterprise_Boundary(alias, label, ?tags, ?link)`
     * `System_Boundary`
   * Sprites:
     * `person`
@@ -209,19 +219,19 @@ SHOW_LEGEND()
 
 * Container diagram
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
-  * Additional Macros: 
-    * `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, $link)`
+  * Additional Macros:
+    * `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     * `ContainerDb`
     * `ContainerQueue`
     * `Container_Ext`
     * `ContainerDb_Ext`
     * `ContainerQueue_Ext`
-    * `Container_Boundary(alias, label, ?tags, $link)`
+    * `Container_Boundary(alias, label, ?tags, ?link)`
 
 * Component diagram
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
-  * Additional Macros: 
-    * `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, $link)`
+  * Additional Macros:
+    * `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     * `ComponentDb`
     * `ComponentQueue`
     * `Component_Ext`
@@ -230,29 +240,29 @@ SHOW_LEGEND()
 
 * Dynamic diagram
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml`
-  * Additional Macros: 
-    * `RelIndex(index, from, to, label, ?tags, $link)`
+  * Additional Macros:
+    * `RelIndex(index, from, to, label, ?tags, ?link)`
     * (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
     * (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
     * `LastIndex()`: return the last used index (function which can be used as argument)
 
-    following 2 macros requires V1.2020.24Beta4 (can be already tested with https://www.plantuml.com/plantuml/)
+    following 2 macros requires V1.2020.24Beta4 (can be already tested with <https://www.plantuml.com/plantuml/>)
     * `Index($offset=1)`: returns current index and calculates next index (function which can be used as argument)
     * `SetIndex($new_index)`: returns new set index and calculates next index (function which can be used as argument)
 
 * Deployment diagram
   * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml`
-  * Additional Macros: 
-    * `Deployment_Node(alias, label, ?type, ?descr, ?sprite, ?tags, $link)`
-    * `Node(alias, label, ?type, ?descr, ?sprite, ?tags, $link)`: short name of Deployment_Node()
-    * `Node_L(alias, label, ?type, ?descr, ?sprite, ?tags, $link)`: left aligned Node()
-    * `Node_R(alias, label, ?type, ?descr, ?sprite, ?tags, $link)`: right aligned Node()
+  * Additional Macros:
+    * `Deployment_Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`
+    * `Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: short name of Deployment_Node()
+    * `Node_L(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: left aligned Node()
+    * `Node_R(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: right aligned Node()
 
 Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).
 
 ## Relationship Types
 
-* `Rel(from, to, label, ?techn, ?descr, ?sprite, ?tags, $link)`
+* `Rel(from, to, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
 * `BiRel` (bidirectional relationship)
 
 You can force the direction of a relationship by using:
@@ -419,7 +429,7 @@ Additional `$sprite` (images) can be defined with following PlantUML supported o
 * OpenIconic via `&{OpenIconicName}`; details see [openiconic](https://plantuml.com/openiconic)
 
 Size of the displayed images can be changed with `,scale={factor}`.
-Color of the displayed images can be changed with `,color={color}   `.
+Color of the displayed images can be changed with `,color={color}`.
 
 (If sprites are defined via $tags then the calculated legend is updated too)
 
@@ -450,9 +460,10 @@ SHOW_LEGEND()
 ![Sprite, image and OpenIconic](https://www.plantuml.com/plantuml/png/bP91RzGm48Nl_XL3L45MsYP5XSkAe5PB1KWBMwL572itddKjENPaEvGLuhypjfTi3d3OKvonvvltddtb0tTXx3LxeKodHu7m5CBWLtNj-7CbLNWQ7qUFhhCce0bLP_jwqDp4ddCVX5QFzVhD-MqiVVkogNlk0pegFQofWok3hXeYdxtAfo7IVAg1m1qTyE07fm92aRQAevHtThTJ7TQfNXyRtpF6heLeKTzpMHP_zHHBE0luCwojjgufpgxRTllzORtTRDkufMdMVxQoWAPGlLn5_wjwCfaSQoljPJKO-SjtN6DpKLt-JaYKQCJToTslPzttfBWfA5zlDK9mIafqA8e5OxTas9eo6b_cT40wEmuWbAS9UnJmJ3S4_93Wt4hEaY1ikeYoowj4cwePaPG9u4P05pEYzNP0yvbQL3VdljnPBOYGhRojBfRfV2CTtyTnTtiVi2zz-j2S_7_GQK3rNE99aKTeY_gGmiIbKe9c8fG_58V0fLz4U5mqntUnc06c3EQCoQhvbzTawnEzbytDnvkl7ye5kq8Z2Fm7 "Sprite, image and OpenIconic")
 
 Relationship specific sprites are typically smaller and therefore following options are possible:
+
 * use smaller icons (like the $triangle in the following sample)
 * use an additional scale factor (direct as part of the argument, or via a variable)
-* if sprite argument starts with `&` an OpenIconic name can be used too (details see https://useiconic.com/open)
+* if sprite argument starts with `&` an OpenIconic name can be used too (details see <https://useiconic.com/open>)
 
 ```plantuml
 @startuml
@@ -528,15 +539,19 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 ### Element specific tag definitions
 
 Sometimes an added element tag is element specific and all element specific colors should be used, e.g. a specific user role should be defined as element tag with the specific colors `...PERSON_...` like
+
 ```plantuml
 AddElementTag("admin", $fontColor=$ELEMENT_FONT_COLOR, $bgColor=$PERSON_BG_COLOR, $borderColor=$PERSON_BORDER_COLOR, $sprite="osa_user_audit", $legendText="administration user")
 ```
+
 Therefore element Add...Tag() shortcuts are added which use the specific colors as default values and the call can be simplified like
+
 ```plantuml
 AddPersonTag("admin", $sprite="osa_user_audit", $legendText="administration user")
 ```
 
 Following calls introduces new element tags with element specific default colors:
+
 * `AddPersonTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
 * `AddExternalPersonTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
 * `AddSystemTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
@@ -551,6 +566,7 @@ Following calls introduces new element tags with element specific default colors
 ### Boundary specific tag definitions
 
 Like the element specific tag definitions exist boundary specific calls with their default colors **and type**:
+
 * `UpdateContainerBoundaryStyle(?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`
 * `UpdateSystemBoundaryStyle(?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`
 * `UpdateEnterpriseBoundaryStyle(?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`
@@ -870,7 +886,7 @@ It is possible to save them directly inside VS Code: [Creating your own snippets
 
 * Create new PlantUML file (.puml).
 * Type `c4_` for displaying artifacts templates for C4-PlantUML
-* Live template create correct C4 model artifact with stubbed arguments. 
+* Live template create correct C4 model artifact with stubbed arguments.
   * E.g. alias, label, type, technology, description
 * Replace stubbed arguments with desired values.
 

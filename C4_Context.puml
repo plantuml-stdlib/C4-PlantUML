@@ -326,31 +326,31 @@ UpdateElementStyle("person")
   !$sprite = $defaultPersonSprite
 !endif
 !if ($descr == "") && ($sprite == "")
-  !return '=='+$label
+  !return '== '+$breakLabel($label)
 !endif
 !if ($descr == "") && ($sprite != "")
-  !return $getSprite($sprite)+'\n=='+$label
+  !return $getSprite($sprite)+'\n== '+$breakLabel($label)
 !endif
 !if ($descr != "") && ($sprite == "")
-  !return '=='+$label+'\n\n '+$descr
+  !return '== '+$breakLabel($label)+'\n\n '+$descr
 !endif
 !if ($descr != "") && ($sprite != "")
-  !return $getSprite($sprite)+'\n=='+$label+'\n\n '+$descr
+  !return $getSprite($sprite)+'\n== '+$breakLabel($label)+'\n\n '+$descr
 !endif
 !endfunction
 
 !function $getSystem($label, $descr, $sprite)
 !if ($descr == "") && ($sprite == "")
-!return '=='+$label
+!return '== '+$breakLabel($label)
 !endif
 !if ($descr == "") && ($sprite != "")
-!return $getSprite($sprite)+'\n=='+$label
+!return $getSprite($sprite)+'\n== '+$breakLabel($label)
 !endif
 !if ($descr != "") && ($sprite == "")
-!return '=='+$label+'\n\n '+$descr
+!return '== '+$breakLabel($label)+'\n\n '+$descr
 !endif
 !if ($descr != "") && ($sprite != "")
-!return $getSprite($sprite)+'\n=='+$label+'\n\n '+$descr
+!return $getSprite($sprite)+'\n== '+$breakLabel($label)+'\n\n '+$descr
 !endif
 !endfunction
 

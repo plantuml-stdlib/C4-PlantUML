@@ -1,0 +1,42 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Deployment.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!endif
+
+Enterprise_Boundary(eb, "Enterprise\nBoundary") {
+  Person(p1, "Normal\nUser\nLabel", "Description\nLine\nBreak")
+  Container(c1, "Container\nLabel", "container techn\nwith line break", "Description\nLine\nBreak")
+  Component(c2, "Component\nLabel", component techn\nwith line break", "Description\nLine\nBreak")
+}
+
+System_Ext(s1, "System Label\nWith\nLineBreak", "Description\nLine\nBreak")
+
+Rel_(p1, c1, "A relation\nwith custom direction", "o-DOWN->>")
+Rel_(p1, c2, "A relation\nwith custom direction", "and technology\nwith LBs", "o-RIGHT-o")
+
+Rel(c1, c2, "A label\nwith\nline breaks", "and technology\nwith LBs")
+Rel(c1, s1, "A linked label\nwith\nline breaks", "and technology\nwith LBs", $link = "http://www.plantuml.com")
+
+Node(n1, "A node label\nwith\nline breaks", "type with\nline break", "description\nwith line break")
+Node(n2, "A node label", "PlantUML packages have no automatic line breaks, type breaks added", "PlantUML packages have no automatic line breaks, description breaks added") {
+  Container(cInNode, "A container in node")
+}
+
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Dynamic.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml
+!endif
+
+Component(from, "From component")
+Component(to, "To component")
+
+Rel_("pre1", from, to, "A custom dynamic relation\nwith custom direction", "o-DOWN->>")
+Rel_("pre2", from, to, "A custom dynamic relation\nwith custom direction", "and technology\nwith LBs", "+--+")
+Rel(from, to, "A dynamic relation\nwith line break")
+@enduml

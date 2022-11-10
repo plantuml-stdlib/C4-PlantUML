@@ -812,72 +812,57 @@ $elementSkin
 !global $REL_TECHN_MAX_CHAR_WIDTH = 35
 !global $REL_DESCR_MAX_CHAR_WIDTH = 32
 
-!unquoted function $breakDescr($descr, $widthStr)
+!unquoted function $breakText($text, $usedNewLine, $widthStr="-1")
 !$width = %intval($widthStr)
 !$multiLine = ""
-!if (%strpos($descr, "\n") >= 0)
+!if (%strpos($text, "\n") >= 0)
+  !while (%strpos($text, "\n") >= 0)
+    !$brPos = %strpos($text, "\n")
+    !$multiLine = $multiLine + %substr($text, 0, $brPos) + $usedNewLine
+    !$text = %substr($text, $brPos+2)
+  !endwhile
 !else
-  !while (%strlen($descr) > $width)
+  !while ($width>0 && %strlen($text) > $width)
     !$brPos = $width
-    !while ($brPos > 0 && %substr($descr, $brPos, 1) != ' ')
+    !while ($brPos > 0 && %substr($text, $brPos, 1) != ' ')
       !$brPos = $brPos - 1
     !endwhile
 
     !if ($brPos < 1)
-      !$brPos = %strpos($descr, " ")
+      !$brPos = %strpos($text, " ")
     !else
     !endif
 
     !if ($brPos > 0)
-      !$multiLine = $multiLine + %substr($descr, 0, $brPos) + "\n"
-      !$descr = %substr($descr, $brPos + 1)
+      !$multiLine = $multiLine + %substr($text, 0, $brPos) + $usedNewLine
+      !$text = %substr($text, $brPos + 1)
     !else
-      !$multiLine = $multiLine+ $descr
-      !$descr = ""
+      !$multiLine = $multiLine+ $text
+      !$text = ""
     !endif
   !endwhile
 !endif
-!if (%strlen($descr) > 0)
-  !$multiLine = $multiLine + $descr
+!if (%strlen($text) > 0)
+  !$multiLine = $multiLine + $text
 !endif
 !return $multiLine
 !endfunction
 
-' $breakTechn() supports //...//; $breakNode() in C4_Deployment supports no //....//
-!unquoted function $breakTechn($techn, $widthStr)
-!$width = %intval($widthStr)
-!$multiLine = ""
-!if (%strpos($techn, "\n") >= 0)
-  !while (%strpos($techn, "\n") >= 0)
-    !$brPos = %strpos($techn, "\n")
-    !$multiLine = $multiLine + %substr($techn, 0, $brPos) + '</size>//\n//<size:'+$TECHN_FONT_SIZE+'>'
-    !$techn = %substr($techn, $brPos+2)
-  !endwhile
-!else
-  !while (%strlen($techn) > $width)
-    !$brPos = $width
-    !while ($brPos > 0 && %substr($techn, $brPos, 1) != ' ')
-      !$brPos = $brPos - 1
-    !endwhile
-
-    !if ($brPos < 1)
-      !$brPos = %strpos($techn, " ")
-    !else
-    !endif
-
-    !if ($brPos > 0)
-      !$multiLine = $multiLine + %substr($techn, 0, $brPos) + '</size>//\n//<size:'+$TECHN_FONT_SIZE+'>'
-      !$techn = %substr($techn, $brPos + 1)
-    !else
-      !$multiLine = $multiLine+ $techn
-      !$techn = ""
-    !endif
-  !endwhile
-!endif
-!if (%strlen($techn) > 0)
-  !$multiLine = $multiLine + $techn
-!endif
+!unquoted function $breakLabel($text)
+!$usedNewLine = "\n== "
+!$multiLine = $breakText($text, $usedNewLine)
 !return $multiLine
+!endfunction
+
+!unquoted function $breakDescr($text, $widthStr)
+  !$usedNewLine = "\n"
+  !return $breakText($text, $usedNewLine, $widthStr)
+!endfunction
+
+' $breakTechn() supports //...//; $breakNode() in C4_Deployment supports no //....//
+!unquoted function $breakTechn($text, $widthStr)
+  !$usedNewLine = '</size>//\n//<size:'+$TECHN_FONT_SIZE+'>'
+  !return $breakText($text, $usedNewLine, $widthStr)
 !endfunction
 
 ' Element properties
@@ -1139,10 +1124,10 @@ $getLegendArea($alias, $hideStereotype)
 
 !function $getBoundary($label, $type)
   !if ($type == "")
-    !return '==' + $label
+    !return '== ' + $breakLabel($label)
   !endif
   !if (type != "")
-    !return '==' + $label + '\n<size:' + $TECHN_FONT_SIZE + '>[' + $type + ']</size>'
+    !return '== ' + $breakLabel($label) + '\n<size:' + $TECHN_FONT_SIZE + '>[' + $type + ']</size>'
   !endif
 !endfunction
 
@@ -1171,9 +1156,11 @@ UpdateBoundaryStyle("", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR,
     !$rel = $rel + $getSprite($sprite) + ' '
   !endif
   !if ($link != "")
-    !$rel = $rel + '**[[' + $link + ' ' + $label + ']]**'
+    !$usedNewLine = ']]**\n**[[' + $link + ' '
+    !$rel = $rel + '**[[' + $link + ' ' + $breakText($label, $usedNewLine) + ']]**'
   !else
-    !$rel = $rel + '**' + $label + '**'
+    !$usedNewLine = '**\n**'
+    !$rel = $rel + '**' + $breakText($label, $usedNewLine) + '**'
   !endif
   !if ($techn != "")
     ' line break is not deterministic, calculate it
@@ -1192,10 +1179,10 @@ UpdateBoundaryStyle("", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR,
 !endfunction
 
 !unquoted procedure Rel_($alias1, $alias2, $label, $direction)
-$alias1 $direction $alias2 : **$label**
+$getRel($direction, $alias1, $alias2, $label, "", "", "", "", "")
 !endprocedure
 !unquoted procedure Rel_($alias1, $alias2, $label, $techn, $direction)
-$alias1 $direction $alias2 : **$label**\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//
+$getRel($direction, $alias1, $alias2, $label, $techn, "", "", "", "")
 !endprocedure
 
 !unquoted procedure Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")

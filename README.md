@@ -1,3 +1,22 @@
+[![release][Release Badge]][Release Page]
+[![license MIT][License Badge]][License Page]
+\(
+[![commits since][Commits Since Badge]][Commit Page] 
+[![last commit][Last Commit Badge]][Commit Page] 
+[![build result][Tests Badge]][Tests Page]
+\)
+
+[Release Badge]: https://img.shields.io/github/v/release/plantuml-stdlib/C4-PlantUML?display_name=tag
+[Release Page]: https://github.com/plantuml-stdlib/C4-PlantUML/releases/latest
+[License Badge]: https://img.shields.io/github/license/plantuml-stdlib/C4-PlantUML
+[License Page]: https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/LICENSE
+
+[Commits Since Badge]: https://img.shields.io/github/commits-since/plantuml-stdlib/C4-PlantUML/latest?label=new%20unreleased%20changes
+[Last Commit Badge]: https://img.shields.io/github/last-commit/plantuml-stdlib/C4-PlantUML?color=yellow
+[Commit Page]: https://github.com/plantuml-stdlib/C4-PlantUML/commits
+[Tests Badge]: https://github.com/plantuml-stdlib/C4-PlantUML/actions/workflows/run-percy-tests.yml/badge.svg
+[Tests Page]: https://github.com/plantuml-stdlib/C4-PlantUML/actions/workflows/run-percy-tests.yml
+
 # C4-PlantUML
 
 ![Container diagram for Internet Banking System](https://www.plantuml.com/plantuml/png/hLPlZzh64txFfvYGH0690_sKNzvKEYaSkCr5S4Snb_GT6di7UvNrhhkxvWvL_UwTDJO-k5IfrBu1x-pEypmxVyR-w3nQNnMgzmvIe_TaFKWFZzBdW498Bur6nLj5WLg0afe0RLOLf3rSpTVHOhgv_H9jR-zcYuTvTDqVzy4Rg1o1CYagTUYzaZjukqShCL6qfIVfl1lqBptxmnx0AwbJLGc2yMGydip-lvqPxP4vxRWC6b-HSlJyNEvzwNwQJ2m-ZZFMN2NCR5FsOdrZLZqf5UfmloldXP89WrwjWkbXkPWKw3pPx_9e8NUzNlpf_kjs5QtZ-xlj_SDcSNiN3OOSgGrc3bnLbiPwq0PSYIava1fyJg2n81Waw4Y0EPegBSXoyAJE872IyOUIt0WUSvdc88n-vrl05WtreJ2MXcDWnjlToMm9BFrU4UE8bb9Hnf97pJzuUcfoM3j1ZYva9I4Gj9EQH6ygHAGeP97lCkWdc7vZnrCO-YDui-F5p2XZhzz4YsWPtMssFz_pp-n-SR_c_IGxxlPVlt__OJxz47nSZYLTHpBBVIm5YJYi1qFUEIhRiB3hbWtIbWu655p01PzXVnZahKdLqj0TT1gm-LAjdkbwpObfXOIY_DkDs1yKNS_HvIGMKhEOC_G0FlblA8pt7KNFIwy8JW458J6pMC3EMBZLdgmc3pUeluMIY0_EKz7hhSWwemTfvRmfo8vWTdhgJw4rWzdLIK_OUtHCSraxegfjW6bgAkrTdtKSeRStR11e3uFqVunrAQ0_X3zw0D3f7JnIiiMovCDVAO5fMIgPOfW6VJPznZsE82vj4B_yCWksEIcvPncrDEVvR0fD8m9gKPjFl4bxyTMKHPupkn8PBkPjHLShp2YmjwnnQcNfHp3LMQNG1lFAchqKeJEK-ZxBhjBfSP19Vm1lE99r81ti9GONQO7l2uarZuxi2qM5IQIY9XpBi3XfchqUmMzO84VYN0ieMSZGeQvA77dEsJ_Mvbw8Eme0GNkPqgMyUJ8Gw37Ccv26vZ6eYNzTmDdQ6qiEmeW4IvbqtjOf1QcvB8lwUGHvtIk0bSyXjIH8UudAZK9PaNEWJCOBykduHQ2QnkP8oL2ngzll5yxSy37R-Pr5xWSH2a5XuBfRCNFNBqONY_hpLFRHanzGWL9jNMrWekXgoUkcvGBp9YUGDIagMChK6cTs7gAdD4UT4Hmz6VOPPgEjGsLClRDOq4LFTs4FvTbMGSg6zdxFWm-OcCft9J0wjV88l4Nji8v45_xUcjIpST4rxOCZ5xW_RJQhc0-UdtCb_l1CK_GTN4EtlGkpEZ7TYAZXkW7G8DN6yu9e2UjvEuBF_5gTrEHTDkkj1g5JyE-0jZVitCdkckKST4qe7EoiAUfvzMYb9mVU1AA6PtupOyWJvhDeNHHPpB0Ew2fOQunEo7azdccuzAiSrqT77oytAmOwoy6P-qLLTd7gtd8yhPQBorXrsmn__EXPHBz4T_F1iBSpnfC5OV5H7zyrxUSJxCVmDYHS6ZqOrZ7hFgx2BY-_jDkzZwooAjHV "Container diagram for Internet Banking System")

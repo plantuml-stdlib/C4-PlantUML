@@ -37,19 +37,22 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 ' Labels
 ' ##################################
 
-!global $LEGEND_SHADOW_TEXT = "(shadow) "
-!global $LEGEND_NO_SHADOW_TEXT = "(no shadow) "
-!global $LEGEND_NO_FONT_BG_TEXT = "(no text, no back color) "
-!global $LEGEND_NO_FONT_TEXT = "(no text color) "
-!global $LEGEND_NO_BG_TEXT = "(no back color) "
-!global $LEGEND_NO_LINE_TEXT = "(no line color) "
-!global $LEGEND_ROUNDED_BOX = "(rounded box) "
-!global $LEGEND_EIGHT_SIDED = "(eight sided) "
-!global $LEGEND_DOTTED_LINE = "(dotted) "
-!global $LEGEND_DASHED_LINE = "(dashed) "
-!global $LEGEND_BOLD_LINE = "(bold) "
-!global $LEGEND_DASHED_BOUNDARY = "boundary (dashed) "
-!global $LEGEND_DASHED_TRANSPARENT_BOUNDARY = "boundary (dashed, transparent) "
+!global $LEGEND_SHADOW_TEXT = "shadow"
+!global $LEGEND_NO_SHADOW_TEXT = "no shadow"
+!global $LEGEND_NO_FONT_BG_TEXT = "last text and back color"
+!global $LEGEND_NO_FONT_TEXT = "last text color"
+!global $LEGEND_NO_BG_TEXT = "last back color"
+!global $LEGEND_NO_LINE_TEXT = "last line color"
+!global $LEGEND_ROUNDED_BOX = "rounded box"
+!global $LEGEND_EIGHT_SIDED = "eight sided"
+!global $LEGEND_DOTTED_LINE = "dotted"
+!global $LEGEND_DASHED_LINE = "dashed"
+!global $LEGEND_BOLD_LINE = "bold"
+!global $LEGEND_BOUNDARY = "boundary"
+!global $LEGEND_DASHED_BOUNDARY = "dashed"
+' ignore transparent atm, that the legend is smaller
+'!global $LEGEND_DASHED_TRANSPARENT_BOUNDARY = "dashed, transparent"
+!global $LEGEND_DASHED_TRANSPARENT_BOUNDARY = "dashed"
 
 !global $SKETCH_FOOTER_WARNING = "Warning:"
 !global $SKETCH_FOOTER_TEXT = "Created for discussion, needs to be validated"
@@ -61,12 +64,20 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 !global $ROUNDED_BOX_SIZE = 25
 !global $EIGHT_SIDED_SIZE = 18
 
+!global $LEGEND_DETAILS_SMALL_SIZE = 10
+!global $LEGEND_DETAILS_NORMAL_SIZE = 14
+!global $LEGEND_DETAILS_SIZE = $LEGEND_DETAILS_SMALL_SIZE
+
 !global $ROUNDED_BOX = "roundedBox"
 !global $EIGHT_SIDED = "eightSided"
 
 !global $DOTTED_LINE = "dotted"
 !global $DASHED_LINE = "dashed"
 !global $BOLD_LINE = "bold"
+
+!global $LEGEND_DETAILS_NONE = "none"
+!global $LEGEND_DETAILS_NORMAL = "normal"
+!global $LEGEND_DETAILS_SMALL = "small"
 
 skinparam defaultTextAlignment center
 
@@ -473,7 +484,7 @@ $elementSkin
   !return $formatted
 !endfunction
 
-!function $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
+!function $setTagLegendVariables($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
   !$bg = $bgColor
   !$fo = $fontColor
   !$bo = $borderColor
@@ -514,6 +525,7 @@ $elementSkin
   !endif
 
   !$tagEntry = "|"
+  !$tagDetails = "("
   !$tagEntry = $tagEntry + "<" + $colorWithHash($bg) +">"
   ' <U+25AF> ..white rectangle
   !$tagEntry = $tagEntry + "<color:"+$bo+"> <U+25AF></color> "
@@ -524,9 +536,11 @@ $elementSkin
   !if ($legendText == "")
     !if ($tagStereo == "boundary")
       !if ($bgColor == "#00000000" || %lower($bgColor) == "transparent")
-        !$tagEntry = $tagEntry + " " + $LEGEND_DASHED_TRANSPARENT_BOUNDARY
+        !$tagEntry = $tagEntry + " " + $LEGEND_BOUNDARY + " "
+        !$tagDetails = $tagDetails + $LEGEND_DASHED_TRANSPARENT_BOUNDARY + ", "
       !else
-        !$tagEntry = $tagEntry + " " + $LEGEND_DASHED_BOUNDARY
+        !$tagEntry = $tagEntry + " " + $LEGEND_BOUNDARY + " "
+        !$tagDetails = $tagDetails + $LEGEND_DASHED_BOUNDARY + ", "
       !endif
     !elseif (%strpos($tagStereo, "boundary") >= 0)
       ' if contains/ends with _boundary remove _boundary and add "boundary (dashed)"
@@ -534,46 +548,68 @@ $elementSkin
       !if ($pos > 0)
         !$tagEntry = $tagEntry + " " + %substr($tagStereo, 0 ,$pos)
         !if ($bgColor == "#00000000" || %lower($bgColor) == "transparent")
-          !$tagEntry = $tagEntry + " " + $LEGEND_DASHED_TRANSPARENT_BOUNDARY
+          !$tagEntry = $tagEntry + " " + $LEGEND_BOUNDARY + " "
+          !$tagDetails = $tagDetails + $LEGEND_DASHED_TRANSPARENT_BOUNDARY + ", "
         !else
-          !$tagEntry = $tagEntry + " " + $LEGEND_DASHED_BOUNDARY
+          !$tagEntry = $tagEntry + " " + $LEGEND_BOUNDARY + " "
+          !$tagDetails = $tagDetails + $LEGEND_DASHED_BOUNDARY + ", "
         !endif
       !endif
     !else
       !$tagEntry = $tagEntry + " " + $tagStereo + " "
     !endif
     !if ($shadowing == "true")
-      !$tagEntry = $tagEntry + $LEGEND_SHADOW_TEXT
+      !$tagDetails = $tagDetails + $LEGEND_SHADOW_TEXT + ", "
     !endif
     !if ($shadowing == "false")
-      !$tagEntry = $tagEntry + $LEGEND_NO_SHADOW_TEXT
+      !$tagDetails = $tagDetails + $LEGEND_NO_SHADOW_TEXT + ", "
     !endif
     !if ($shape == $ROUNDED_BOX)
-      !$tagEntry = $tagEntry + $LEGEND_ROUNDED_BOX
+      !$tagDetails = $tagDetails + $LEGEND_ROUNDED_BOX + ", "
     !endif
     !if ($shape == $EIGHT_SIDED)
-      !$tagEntry = $tagEntry + $LEGEND_EIGHT_SIDED
+      !$tagDetails = $tagDetails + $LEGEND_EIGHT_SIDED + ", "
     !endif
     !if ($fontColor == "" && $bgColor == "")
-        !$tagEntry = $tagEntry + $LEGEND_NO_FONT_BG_TEXT
+      !$tagDetails = $tagDetails + $LEGEND_NO_FONT_BG_TEXT + ", "
     !else 
       !if ($fontColor == "")
-        !$tagEntry = $tagEntry + $LEGEND_NO_FONT_TEXT
+        !$tagDetails = $tagDetails + $LEGEND_NO_FONT_TEXT + ", "
       !endif
       !if ($bgColor == "")
-        !$tagEntry = $tagEntry + $LEGEND_NO_BG_TEXT
+        !$tagDetails = $tagDetails + $LEGEND_NO_BG_TEXT + ", "
       !endif
     !endif
+    !if ($tagDetails=="(")
+      !$tagDetails = "</size>"
+    !else
+      !$tagDetails = %substr($tagDetails, 0, %strlen($tagDetails)-2)
+      !$tagDetails = $tagDetails + ")</size>"
+    !endif 
   !else
-    !$tagEntry = $tagEntry + " " + $legendText + " "
+    !$brPos = %strpos($legendText, "\n")
+    !if ($brPos > 0)
+      !$tagEntry = $tagEntry + %substr($legendText, 0, $brPos) + " "
+      !$details = %substr($legendText, $brPos + 2)
+      !if ($details=="")
+        !$tagDetails = "</size>"
+      !else
+        !$tagDetails = $tagDetails + $details + ")</size>"
+      !endif
+    !else
+      !$tagEntry = $tagEntry + " " + $legendText + " "
+      !$tagDetails = "</size>"
+    !endif
   !endif
 
-  !$tagEntry = $tagEntry + "</color> "
-  !$tagEntry = $tagEntry + "|"
+  !$tagDetails = $tagDetails + "</color> "
+  !$tagDetails = $tagDetails + "|"
+%set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
+%set_variable_value("$" + $tagStereo + "LegendDetails", $tagDetails)
   !return $tagEntry
 !endfunction
 
-!function $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite, $lineThickness)
+!function $setTagRelLegendVariables($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite, $lineThickness)
   !$tc = $textColor
   !$lc = $lineColor
 
@@ -593,6 +629,7 @@ $elementSkin
   !endif
 
   !$tagEntry = "|"
+  !$tagDetails = "("
   ' <U+2500> ..white line
   !$tagEntry = $tagEntry + "<color:"+$lc+"> <U+2500></color> "
   !$tagEntry = $tagEntry + "<color:"+$tc+">"
@@ -602,45 +639,60 @@ $elementSkin
   !if ($legendText == "")
     !$tagEntry = $tagEntry + " " + $tagStereo + " "
     !if ($textColor == "")
-      !$tagEntry = $tagEntry + $LEGEND_NO_FONT_TEXT
+      !$tagDetails = $tagDetails + $LEGEND_NO_FONT_TEXT + ", "
     !endif
     !if ($lineColor == "")
-      !$tagEntry = $tagEntry + $LEGEND_NO_LINE_TEXT
+      !$tagDetails = $tagDetails + $LEGEND_NO_LINE_TEXT + ", "
     !endif
     !if ($lineStyle != "")
       !if ($lineStyle == $DOTTED_LINE)
-        !$tagEntry = $tagEntry + $LEGEND_DOTTED_LINE
+        !$tagDetails = $tagDetails + $LEGEND_DOTTED_LINE + ", "
       !elseif ($lineStyle == $DASHED_LINE)
-        !$tagEntry = $tagEntry + $LEGEND_DASHED_LINE
+        !$tagDetails = $tagDetails + $LEGEND_DASHED_LINE + ", "
       !elseif ($lineStyle == $BOLD_LINE)
-        !$tagEntry = $tagEntry + $LEGEND_BOLD_LINE
+        !$tagDetails = $tagDetails + $LEGEND_BOLD_LINE + ", "
       !else
-        !$tagEntry = $tagEntry + "(" + $lineStyle + ") "
+        !$tagDetails = $tagDetails + $lineStyle + ", "
       !endif
     !endif
     !if ($lineThickness != "")
-      !$tagEntry = $tagEntry + "(thickness " + $lineThickness + ") "
+      !$tagDetails = $tagDetails + thickness " + $lineThickness + ") "
     !endif
+    !if ($tagDetails=="(")
+      !$tagDetails = "</size>"
+    !else
+      !$tagDetails = %substr($tagDetails, 0, %strlen($tagDetails)-2)
+      !$tagDetails = $tagDetails + ")</size>"
+    !endif 
   !else
-    !$tagEntry = $tagEntry + " " + $legendText + " "
+    !$brPos = %strpos($legendText, "\n")
+    !if ($brPos > 0)
+      !$tagEntry = $tagEntry + " " + %substr($legendText, 0, $brPos) + " "
+      !$details = %substr($legendText, $brPos + 2)
+      !if ($details=="")
+        !$tagDetails = "</size>"
+      !else
+        !$tagDetails = $tagDetails + $details + ")</size>"
+      !endif
+    !else
+      !$tagEntry = $tagEntry + " " + $legendText + " "
+      !$tagDetails = "</size>"
+    !endif
   !endif
 
-  !$tagEntry = $tagEntry + "</color> "
-  !$tagEntry = $tagEntry + "|"
+  !$tagDetails = $tagDetails + "</color> "
+  !$tagDetails = $tagDetails + "|"
+%set_variable_value("$" + $tagStereo + "_LineLegendEntry", $tagEntry)
+%set_variable_value("$" + $tagStereo + "_LineLegendDetails", $tagDetails)
   !return $tagEntry
 !endfunction
-
-!global $LEGEND_DOTTED_LINE = "(dotted) "
-!global $LEGEND_DASHED_LINE = "(dashed) "
-!global $LEGEND_BOLD_LINE = "(bold) "
 
 !unquoted procedure $addTagToLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $legendText="", $legendSprite="")
 '' if a combined element tag is defined (e.g. "v1.0&v1.1") then it is typically a merged color,
 '' like a new $fontColor="#fdae61" therefore it should be added to the legend
 '' and the & combined tags will be not removed
 '  !if (%strpos($tagStereo, "&") < 0)
-  !$tagEntry = $tagLegendEntry($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
-%set_variable_value("$" + $tagStereo + "LegendEntry", $tagEntry)
+  !$dummyAlreadyVariables = $setTagLegendVariables($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
   !$tagCustomLegend = $tagCustomLegend + $tagStereo + "\n"
   !$tagMask = $tagLegendMask( $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite)
 %set_variable_value("$" + $tagStereo + "LegendMask", $tagMask)
@@ -655,9 +707,8 @@ $elementSkin
 '' be an inconsistency between the element tags and the rel tags and therefore
 '' & combined workaround tags are not removed too (and in unlikely cases the color itself could be changed)
 '  !if (%strpos($tagStereo, "&") < 0)
-    !$tagEntry = $tagRelLegendEntry($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite, $lineThickness)
-%set_variable_value("$" + $tagStereo + "_LineLegendEntry", $tagEntry)
-    !$tagCustomLegend = $tagCustomLegend + $tagStereo + "_Line\n"
+     !$dummyAlreadyVariables = $setTagRelLegendVariables($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, $legendSprite, $lineThickness)
+     !$tagCustomLegend = $tagCustomLegend + $tagStereo + "_Line\n"
 '  !endif
 !endprocedure
 
@@ -668,13 +719,23 @@ $elementSkin
     !$allDefined = %substr($allDefined, $brPos+2)
     !$brPos = %strpos($allDefined, "\n")
     !if (%variable_exists("$" + $tagStereo + "Legend"))
-%get_variable_value("$" + $tagStereo + "LegendEntry")
+      ' </size> is part of legendDetails
+      !$part1 = %get_variable_value("$" + $tagStereo + "LegendEntry")
+      !$partSize = "<size:" + $LEGEND_DETAILS_SIZE + ">"
+      !$part2 = %get_variable_value("$" + $tagStereo + "LegendDetails")
+      !$line = $part1 + $partSize + $part2
+$line
     !endif
   !endwhile
   !if (%strlen($allDefined) > 0)
     !$tagStereo = $allDefined
     !if (%variable_exists("$" + $tagStereo + "Legend"))
-%get_variable_value("$" + $tagStereo + "LegendEntry")
+      ' </size> is part of legendDetails
+      !$part1 = %get_variable_value("$" + $tagStereo + "LegendEntry")
+      !$partSize = "<size:" + $LEGEND_DETAILS_SIZE + ">"
+      !$part2 = %get_variable_value("$" + $tagStereo + "LegendDetails")
+      !$line = $part1 + $partSize + $part2
+$line
     !endif
   !endif
 !endprocedure
@@ -722,7 +783,8 @@ $addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $sha
   !$shape=$restoreEmpty($elementName, "shape", $shape, %true())
   !$sprite=$restoreEmpty($elementName, "sprite", $sprite, %true())
   !$techn=$restoreEmpty($elementName, "techn", $techn, %true())
-  !$legendText=$restoreEmpty($elementName, "legendText", $legendText, %true())
+  ' new style should has its own legend text
+  ' !$legendText=$restoreEmpty($elementName, "legendText", $legendText, %true())
   !$legendSprite=$restoreEmpty($elementName, "legendSprite", $legendSprite, %true())
 
   AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $techn, $legendText, $legendSprite)
@@ -765,8 +827,7 @@ $defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing, 
   !if ($techn != "")
 %set_variable_value("$" + $elementName + "ElementTagTechn", $techn)
   !endif
-  !$tagEntry = $tagLegendEntry($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
-%set_variable_value("$" + $elementName + "LegendEntry", $tagEntry)
+  !$dummyAlreadyVariables = $setTagLegendVariables($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
   ' default tags sets at least bgColor and fontColor
   !$tagMask = $tagLegendMask("CHANGED", "CHANGED", $borderColor, $shadowing, $shape, $sprite)
 %set_variable_value("$" + $elementName + "LegendMask", $tagMask)
@@ -946,22 +1007,34 @@ SetPropertyHeader("Property","Value")
 ' Layout
 ' ##################################
 
+!function $getLegendDetailsSize($detailsFormat)
+  !if $detailsFormat == $LEGEND_DETAILS_NONE
+    !$size = 0
+  !elseif $detailsFormat == $LEGEND_DETAILS_SMALL 
+    !$size = $LEGEND_DETAILS_SMALL_SIZE
+  !else
+    !$size = $LEGEND_DETAILS_NORMAL_SIZE
+  !endif
+  !return $size
+!endfunction
+
 !procedure $getHideStereotype($hideStereotype)
 !if ($hideStereotype == "true")
 hide stereotype
 !endif
 !endprocedure
 
-!procedure $getLegendTable()
+!procedure $getLegendTable($detailsFormat)
+!global $LEGEND_DETAILS_SIZE = $getLegendDetailsSize($detailsFormat)
 <#00000000,#00000000>|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
 $showActiveLegendEntries($tagDefaultLegend)
 $showActiveLegendEntries($tagCustomLegend)
 !endprocedure
 
-!procedure $getLegendArea($areaAlias, $hideStereotype)
+!procedure $getLegendArea($areaAlias, $hideStereotype, $details)
 $getHideStereotype($hideStereotype)
 rectangle $areaAlias<<legendArea>> [
-$getLegendTable()
+$getLegendTable($details)
 ]
 !endprocedure
 
@@ -1072,11 +1145,24 @@ left to right direction
 left to right direction
 !endprocedure
 
+' legend details can displayed as Normal(), Small(), None()
+!function None()
+!return $LEGEND_DETAILS_NONE
+!endfunction
+
+!function Normal()
+!return $LEGEND_DETAILS_NORMAL
+!endfunction
+
+!function Small()
+!return $LEGEND_DETAILS_SMALL 
+!endfunction
+
 ' has to be last call in diagram
-!unquoted procedure SHOW_LEGEND($hideStereotype="true")
+!unquoted procedure SHOW_LEGEND($hideStereotype="true", $details=Small())
 $getHideStereotype($hideStereotype)
 legend right
-$getLegendTable()
+$getLegendTable($details)
 endlegend
 !endprocedure
 
@@ -1093,8 +1179,8 @@ SHOW_LEGEND($hideStereotype)
 !endfunction
 
 ' enables that legend can be located in drawing area of the diagram. It has to be last call in diagram followed by Lay_Distance()
-!unquoted procedure SHOW_FLOATING_LEGEND($alias=LEGEND(), $hideStereotype="true")
-$getLegendArea($alias, $hideStereotype)
+!unquoted procedure SHOW_FLOATING_LEGEND($alias=LEGEND(), $hideStereotype="true", $details=Normal())
+$getLegendArea($alias, $hideStereotype, $details)
 !endprocedure
 
 ' Boundaries

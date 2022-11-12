@@ -656,7 +656,7 @@ $elementSkin
       !endif
     !endif
     !if ($lineThickness != "")
-      !$tagDetails = $tagDetails + thickness " + $lineThickness + ") "
+      !$tagDetails = $tagDetails + "thickness " + $lineThickness + ") "
     !endif
     !if ($tagDetails=="(")
       !$tagDetails = "</size>"

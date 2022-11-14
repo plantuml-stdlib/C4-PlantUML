@@ -1,10 +1,9 @@
 [![release][Release Badge]][Release Page]
 [![license MIT][License Badge]][License Page]
-\(
+ &nbsp; &nbsp; &nbsp; 
 [![commits since][Commits Since Badge]][Commit Page] 
 [![last commit][Last Commit Badge]][Commit Page] 
 [![build result][Tests Badge]][Tests Page]
-\)
 
 [Release Badge]: https://img.shields.io/github/v/release/plantuml-stdlib/C4-PlantUML?display_name=tag
 [Release Page]: https://github.com/plantuml-stdlib/C4-PlantUML/releases/latest

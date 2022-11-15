@@ -62,9 +62,9 @@ endlegend
   !if ($sprite != "")
     !$component = $component + $getSprite($sprite) + '\n'
   !endif
-  !$component = $component + '==' + $label
+  !$component = $component + '== ' + $breakLabel($label)
   !if ($techn != "")
-    !$component = $component + '\n//<size:' + $TECHN_FONT_SIZE + '>[' + $techn + ']</size>//'
+    !$component = $component + '\n//<size:' + $TECHN_FONT_SIZE + '>[' + $breakTechn($techn, '-1') + ']</size>//'
   !endif
   !if ($descr != "")
     !$component = $component + '\n\n' + $descr

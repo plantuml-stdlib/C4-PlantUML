@@ -59,10 +59,10 @@
 ' ##################################
 
 !unquoted procedure Rel_($e_index, $alias1, $alias2, $label, $direction)
-$alias1 $direction $alias2 : **$e_index: $label**
+$getRel($direction, $alias1, $alias2, $e_index + ": " + $label, "", "", "", "", "")
 !endprocedure
 !unquoted procedure Rel_($e_index, $alias1, $alias2, $label, $techn, $direction)
-$alias1 $direction $alias2 : **$e_index: $label**\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//
+$getRel($direction, $alias1, $alias2, $e_index + ": " + $label, $techn, "", "", "", "")
 !endprocedure
 
 !unquoted procedure Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")

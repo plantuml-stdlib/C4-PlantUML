@@ -130,7 +130,7 @@ SHOW_LEGEND()
 
 ![LAYOUT_LANDSCAPE Sample](https://www.plantuml.com/plantuml/png/NOzFRvj04CNlV8gjUmYM75kfUkef5ApaG1nae55FQ0sJUANzizeTXAAgtxqpCNQiSa7lDxFllRcFA0EEHeio-_tSDbsPxOewpwgjgANn6f8lolPw740S4NtyiTa4EQtV51x7mnWXzCuYM5ptpcoybfQzRYCEMXqs-VVRYb7xL6wCZ0Y1K9VJ2waiXBMdtIJvFpXT9aa58JgRoi4eknABZFygOf3emcAPrEzaPhgVRhI33EzfVxSIDwU-Dqln9n7qNMBI2GwTz9vyNk0WCk-rwYKgPnU4ygyhaTNLUhTjw4a0yMrz9vv-vJpBj7PJ57nc5EW4tUWbhPXHew8iqKmA4O90PK1JLgHkV-TsAPw6v3ElqJ3PWpvVzLchZH0vxx5fgfgsUEao_RHv08maWN-lmPdh9-VGUhLWULOjIT7wAr8mATnahrZ9h8HNl69xPdlrTiIvTjTwSXTrouNPaHaRVT22A8kPiza7Bucpc3aRdWPx6bpiwyVdbwxSFcntHKho7kmm6lqF "LAYOUT_LANDSCAPE Sample")
 
-## LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype)
+## LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype, ?details)
 
 Colors can help to add additional information or simply to make the diagram more aesthetically pleasing.
 It can also help to save some space.
@@ -157,12 +157,17 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![LAYOUT_WITH_LEGEND Sample](https://www.plantuml.com/plantuml/png/PL1DJy905BplhrZnG4cm3SQJ9sebO0BOs2Bnr2pjKpRPh-o-sX3ZV_Sr89YubqdUp7ipizE0mcEh5L-cRy-Rije-bOjgEPlFre-y4DefO5VIrAfjWEyHNRXF4Y-w-4FYljsr0Nnj3OB1kBOw4OsNmdogrhL9TdUJAs5mirecIY04f56LaLf80pvsvChOVzjen5WEFbWJYKPBC-Q3j4SPq0kqVZ1YnI4WwEh1jgOH_X3Lap4V7jCEH_oBSNfdewY3NIMSepjRsF7KEILhWTAQ0Osowp5FYpnUpqfQyS1lumbVlMOzbofbky3xae6ZvTJG2PBeLg4aBrvs4X4yHwb1aLUWRD-dT14UIRfpaX79Na3zjhh4sWJQ95oKPLwGgXUTsSkPEI35wA27Ts_rtvKfc8R-ymS0 "LAYOUT_WITH_LEGEND Sample")
 
-Instead of a static legend (activated with `LAYOUT_WITH_LEGEND()`) a calculated legend can be activated with `SHOW_LEGEND(?hideStereotype)`.
+Instead of a static legend (activated with `LAYOUT_WITH_LEGEND()`) a calculated legend can be activated with `SHOW_LEGEND(?hideStereotype, ?details)`.
 
 The calculated legend has following differences:
 * only relevant elements are listed
 * custom tags/styles are supported
 * stereotypes can remain visible (with `SHOW_LEGEND(false)`)
+* details can be displayed in different sizes via the `$details` argument
+  * `$details = Small()` .. default; details are displayed with a smaller size compared to the legend labels
+  * `$details = Normal()` .. details and labels are displayed with same size
+  * `$details = None()` .. only the labels are displayed
+  * if `$legendText` contains `\n` then the text before is the label and the text behind the details
 * **`SHOW_LEGEND()` has to be last call in the diagram**
 
 ```plantuml
@@ -184,7 +189,71 @@ SHOW_LEGEND()
 
 ![SHOW_LEGEND Sample](https://www.plantuml.com/plantuml/png/JL5Dgzf05DtFhxYr2oDeWgMhhfgceWkreObr6IR9RHsOZs7cXY3b_VTtWpurcqlEn-4Svdia6MWm6ghThtEptsmtnvzGIUCrYa_ATdhe4Iv4FdxBiY37z9-Yoz0E4KFdBA6bj7CcyrhQAMOLgTUgpOglgtA2JeTzPcGa30mr1JkaiXXIpreXIWpHsKJsHjabpFBfgaX1aWkpXQYkR3JD3pVONePhqgsNCBzrco_Wlm3-7f79Y6qZlUUSCxQGUwzL9qavEsEe-Bo4l2hJuwPcIq3uagxXyAUOk5nhDqQO9aKW1xp7IvQOGPFo6g4U5H4686LGAukHkxtTsoLq8pddBcDI_4RziUfPwnJPoNTNrsN5gadqO9ynMwJ8lpYTly6PLujuUQLa8Tu1 "SHOW_LEGEND Sample")
 
-## SHOW_FLOATING_LEGEND(?alias, ?hideStereotype) and LEGEND()
+Legend labels and details can be defined via `\n` in `$legendTest` arguments too.
+
+```plantuml
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!endif
+' $legendText with \n defines the label and details of the legend entry ("backend container" is label, "eight sided shape" is details) 
+AddElementTag("backendContainer", $fontColor=$ELEMENT_FONT_COLOR, $bgColor="#335DA5", $shape=EightSidedShape(), $legendText="backend container\neight sided shape")
+' $legendText without \n defines only a label 
+AddRelTag("async", $textColor=$ARROW_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DashedLine(), $legendText="async call")
+' if no $legendText defined, $tag is automatically the label and all additional displayed properties are the details
+AddRelTag("sync/async", $textColor=$ARROW_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DottedLine())
+
+System_Boundary(c1, "Internet Banking") {
+    Container(mobile_app, "Mobile App", "C#, Xamarin", "Provides a limited subset of the Internet banking functionality to customers via their mobile device")
+    Container(backend_api, "API Application", "Java, Docker Container", "Provides Internet banking functionality via API", $tags="backendContainer")
+}
+System_Ext(banking_system, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
+
+Rel(mobile_app, backend_api, "Uses", "async, JSON/HTTPS", $tags="async")
+Rel_Neighbor(backend_api, banking_system, "Uses", "sync/async, XML/HTTPS", $tags="sync/async")
+
+SHOW_LEGEND()
+@enduml
+```
+
+![SHOW_LEGEND Sample, $legendText defines legend details](https://www.plantuml.com/plantuml/png/hLDHRo8t47xdLqpsSYf815HTxwKIqd6mxUL480BIzk4aDBiUm3gllR9dIL3L_zxnRjWIagelvG7js9xFt_VDvq-1qNDLcCuFa3jx8C-W6Hurxm6LqgoTHIDRHO5MWT6M0FskAiWot4oNwMoyllqjtTpE9xE7QJfA1iF1805sK0K2ut8qvjYvqbjuVq2lCJEqeISTE7IJo-Qarm6uqZOtbI9uloFUj3q7D1MzrJAS_BIPECiepFoWZ4gko0GwXzepb-7duT3Zus0dogfCoFbSkaJ5GBGDIuCskd0JM1cT2UZDVLnwk9iD2mnC_irxhD9RCUxQq4w-r_JqxDmt2ugsSZ80xmaCPcGW-gT804m0jsqswZuG5lu8tIJ3_7kiyzCz2UZGTFSX8RtRCmIjI47OOqbnzuJOWyvOgTHG7CmQTorOopdfm_LMYeappe-kqrbwbyxNcryMyZTPp1PBsSzspMxoxiE7ZzFnnzXJNpLAu-MhUFSgrjrU_rprw3NrR_OrtzuRNhcAp-rorXm16ysrf2MPMWw6eyqZ7wQdauRnShdulIKVi_cl6oi-6XfDCUn9pQI-5D3WGunhJLC2QzqBiWr35HdWBZgF5Ri2MTSHlvYpB9q_7wL3QV182ahlIlAiIVeznQxJ1C_5HYx3_qUnOpufxdKwgsDWAZQVNMKL-cCt_r62TMkPl2M6psY_QxjBUl1d1-JNPgTRk4mRsc1Polcxke1nMIPIJTxruGyiq6iRotll3bf5UM1qeJaElye2yIdpxMrPSnjiAvitFcaM7ntaLH1doGSuQ8mzsaD301GTT2v1kg3td3xXfuN2-FusaZCwnuWRMNt50_PXwkIO_wVldEz_yOfK13XfvXz6hzwNaFhhv6_wnDrdc4sebw9jScphiQ2Jpz2SZYnMx7pqp9YJJRaij5IaqVcYLWEOnIVJUjG7p7CP9yiNUxG1Qz9I4US38TMHKBsOtqkp7W85OT3almzVLulvyCjwVRzgbJPRWYH0ctbyrPcxiFn2Qujw5cG9oTti4laivp6SNoJ2i_JNT3xjzZgV1BqgpDy0 "SHOW_LEGEND Sample, $legendText defines legend details")
+
+Legend details can be deactivated via `SHOW_LEGEND($details=None())`
+
+```plantuml
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!endif
+' $legendText with \n defines the label and details of the legend entry ("backend container" is label, "eight sided shape" is details) 
+AddElementTag("backendContainer", $fontColor=$ELEMENT_FONT_COLOR, $bgColor="#335DA5", $shape=EightSidedShape(), $legendText="backend container\neight sided shape")
+' $legendText without \n defines only a label 
+AddRelTag("async", $textColor=$ARROW_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DashedLine(), $legendText="async call")
+' if no $legendText defined, $tag is automatically the label and all additional displayed properties are the details
+AddRelTag("sync/async", $textColor=$ARROW_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DottedLine())
+
+System_Boundary(c1, "Internet Banking") {
+    Container(mobile_app, "Mobile App", "C#, Xamarin", "Provides a limited subset of the Internet banking functionality to customers via their mobile device")
+    Container(backend_api, "API Application", "Java, Docker Container", "Provides Internet banking functionality via API", $tags="backendContainer")
+}
+System_Ext(banking_system, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
+
+Rel(mobile_app, backend_api, "Uses", "async, JSON/HTTPS", $tags="async")
+Rel_Neighbor(backend_api, banking_system, "Uses", "sync/async, XML/HTTPS", $tags="sync/async")
+
+SHOW_LEGEND($details=None())
+@enduml
+```
+
+![SHOW_LEGEND Sample, hide details with $details=None()](https://www.plantuml.com/plantuml/png/hLDHZ-8s47xdLypczbIGM51rlPTAICT1sjiJ2ojWspwS54tY8LZds97ji8kg_lUE4nAbx5PzAGyeu_7CVDytdpyvZzPNXHhy09dH9x8Uf8TdwO-0GaWlZKR5gQ90BK19JO0shmhI7kwMstWrtz__5YVtwyNgQHdFeibqCed06wWSWJ8PAdKUtCW3l3-XbPWgIkX5Ek-6qNLnD1e0t4YTgKeGlC_99rtD2LL5RvLC5pyb2wCzCZ8xAGEJ6rAE-gsEtfVkv-dKulCaPsPLok1inbNCOiBSfgL27LIuSruecNBJkyTmzFImcXReFDatvsWX3opShQASl_VqSb7kcmP11xxfm1y95AQa8EWdY1ie1-PG9vewO1Js3CCenUnxYBDsJWJIDTLZY4ZcHmzE2XBWZbXIoBOTHp2O2n4h2elPOzurwp17OxWzSB0mojZPRRoA7-BrFlbbmt-BpMgpvNoQDzdetOSF7vVpZw6c7ZMBm_1TcBqByN0qxhEUlOR-JR_6Etf3ArFvlbn6gpDWmxccj2LLqq5trbd0u-cbvJ3VRZU_T-23D_yriVDdHRCbkYE95SVN19h-4EnQmsJ3QjE_SK4e0WBCW_9OULEWbxN5h_RCH_td8wHZXvr9G6bDITPBudfBeQhTO9zim3BzVnWRxrl6ey5WTtQUYkIpgRH0UnvcFxAnxhKdgyd3PzJVfSwZ4Vmv0FvrtXaM9fMA4YnBllzG1p0louYZnRin_845Mgb3-6ZDIOf03vGif0_Bhr97llLyDorjfi6XqbcZa_Iieu6iSgmiMGSdYQ56McW0WA2JpDX8L_0kxcDyaY7C7-y3E2Kp37q3ggzumZ4i3L-pqDNryVuNhW256qVD_jtirVjYK7-r-iOlVdXfaxZwACZ6rmuM2sfrXkPsGB7pnWRDb6fbolYWWyA5nXOr6y0qF9bEep5Wbl4wFNzvYzfX3PeZyjc4GGtOLFtzmJ_5UdBa647Z_p5ytMtMqo_x_UEkOzgak1CtIjRXLQVcIl9hhctNdf7P90-hgyvzdmTpVc4Bh-9Vu_LoU7jv5RErQQpxYOTLXVeR "SHOW_LEGEND Sample, hide details with $details=None()")
+
+## SHOW_FLOATING_LEGEND(?alias, ?hideStereotype, ?details) and LEGEND()
 
 `LAYOUT_WITH_LEGEND()` and SHOW_LEGEND(?hideStereotype)` adds the legend at the bottom right of the picture like below and additional whitespace is created.
 

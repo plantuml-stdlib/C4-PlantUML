@@ -2,12 +2,13 @@
 
 C4-PlantUML comes with some layout options.
 
+- [Layout Options](#layout-options)
   - [Layout Guidance and Practices](#layout-guidance-and-practices)
     - [Overall Guidance](#overall-guidance)
     - [Layout Practices](#layout-practices)
   - [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT() or LAYOUT_LANDSCAPE()](#layout_top_down-or-layout_left_right-or-layout_landscape)
-  - [LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype)](#layout_with_legend-or-show_legendhidestereotype)
-  - [SHOW_FLOATING_LEGEND(?alias, ?hideStereotype) and LEGEND()](#show_floating_legendalias-hidestereotype-and-legend)
+  - [LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype, ?details)](#layout_with_legend-or-show_legendhidestereotype-details)
+  - [SHOW_FLOATING_LEGEND(?alias, ?hideStereotype, ?details) and LEGEND()](#show_floating_legendalias-hidestereotype-details-and-legend)
   - [LAYOUT_AS_SKETCH() and SET_SKETCH_STYLE(?bgColor, ?fontColor, ?warningColor, ?fontName, ?footerWarning, ?footerText)](#layout_as_sketch-and-set_sketch_stylebgcolor-fontcolor-warningcolor-fontname-footerwarning-footertext)
   - [HIDE_STEREOTYPE()](#hide_stereotype)
   - [HIDE_PERSON_SPRITE(), SHOW_PERSON_SPRITE(?sprite), SHOW_PERSON_PORTRAIT() and SHOW_PERSON_OUTLINE()](#hide_person_sprite-show_person_spritesprite-show_person_portrait-and-show_person_outline)
@@ -36,7 +37,7 @@ Please read through all practices before starting.
 
 1. Create all components, containers and boundaries first - in order top to bottom or left to right.
 2. Use `Rel` (directionless) to create initial relationships.
-3. If layout is not as desired, modify **some** Rel statements to contain direction `Rel_{direction}` to force shape layouts. 
+3. If layout is not as desired, modify **some** Rel statements to contain direction `Rel_{direction}` to force shape layouts.
 4. If the layout is not as desired, sparingly add `Lay_{direction}` to force any layouts that `Rel_{direction}` does not correct.
 5. For both `Lay_{direction}` and `Rel_{direction}` statements used above:
    1. Exhaust attempts to get a working layout with `Rel_{direction}` before adding `Lay_{direction}`
@@ -160,15 +161,15 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 Instead of a static legend (activated with `LAYOUT_WITH_LEGEND()`) a calculated legend can be activated with `SHOW_LEGEND(?hideStereotype, ?details)`.
 
 The calculated legend has following differences:
-* only relevant elements are listed
-* custom tags/styles are supported
-* stereotypes can remain visible (with `SHOW_LEGEND(false)`)
-* details can be displayed in different sizes via the `$details` argument
-  * `$details = Small()` .. default; details are displayed with a smaller size compared to the legend labels
-  * `$details = Normal()` .. details and labels are displayed with same size
-  * `$details = None()` .. only the labels are displayed
-  * if `$legendText` contains `\n` then the text before is the label and the text behind the details
-* **`SHOW_LEGEND()` has to be last call in the diagram**
+- only relevant elements are listed
+- custom tags/styles are supported
+- stereotypes can remain visible (with `SHOW_LEGEND(false)`)
+- details can be displayed in different sizes via the `$details` argument
+  - `$details = Small()` .. default; details are displayed with a smaller size compared to the legend labels
+  - `$details = Normal()` .. details and labels are displayed with same size
+  - `$details = None()` .. only the labels are displayed
+  - if `$legendText` contains `\n` then the text before is the label and the text behind the details
+- **`SHOW_LEGEND()` has to be last call in the diagram**
 
 ```plantuml
 @startuml SHOW_LEGEND Sample
@@ -312,9 +313,9 @@ One thing which is often ignored is the fact, that these software architecture s
 
 Without any proof
 
-* if they are technically possible
-* if they can fulfill all requirements
-* if they keep what they promise
+- if they are technically possible
+- if they can fulfill all requirements
+- if they keep what they promise
 
 More often these sketches are used by many people as facts and are manifested into their documentations.
 With `LAYOUT_AS_SKETCH()` you can make a difference.
@@ -340,7 +341,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 Additional styles and the footer text can be changed with SET_SKETCH_STYLE():
 
-* `SET_SKETCH_STYLE(?bgColor, ?fontColor, ?warningColor, ?fontName, ?footerWarning, ?footerText)`:
+- `SET_SKETCH_STYLE(?bgColor, ?fontColor, ?warningColor, ?fontName, ?footerWarning, ?footerText)`:
   Enables the modification of differnt sketch styles and footer.
 
 The possible font name(s) depend on the output format (e.g. PNG uses fonts which are installed on the server and SVG fonts have to be installed on the client).
@@ -412,7 +413,6 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![HIDE_STEREOTYPE Sample](https://www.plantuml.com/plantuml/png/NL1DIyD05BplhrZheIdKX8edJuqrMC5gQ5B5KzWcJxkmN-o-DHJnl_j2gnNtCl1ctfkPdGSK7gDMV7b_MpHLNQoBf_grB7Wbj5F0pgHfLUo0xn1TkCuoB_hqNU8kRcC0trg3O31jhSv4vwKm7ogwc2skBaeb36vM3vaI205fr2n8BQG1dpgoPEoVPp9Xh0GVh4b4fwMPyb4-e0pe1Le_ch1g7n1qSsEZwOJV9-rioiU7gEC9_sIStgzBqiEs4SxHdHVOyjmv9Lk1qfeHZHRdKvvNPVfOrBJYWL-cCxvwNWnShfJj0nyQ1ewMKpqdIAAZGabUlEub8dYEKeCYhq3Plexf4ZoGTESe8vAjGVsqEiNQ1DeaNDPrMP5g4FsofpDtW1IZXm7UlDL_L-PWElhCRm00 "HIDE_STEREOTYPE Sample")
 
-
 ## HIDE_PERSON_SPRITE(), SHOW_PERSON_SPRITE(?sprite), SHOW_PERSON_PORTRAIT() and SHOW_PERSON_OUTLINE()
 
 With the macros `HIDE_PERSON_SPRITE()`, `SHOW_PERSON_SPRITE()` and `SHOW_PERSON_PORTRAIT()` it is possible to change the person related default sprite or person layout itself. `SHOW_PERSON_SPRITE()` is the default.
@@ -435,7 +435,6 @@ Person(userB, "User B", "with predefined sprite person2", "person2")
 ```
 
 ![Predefined sprites Sample](https://www.plantuml.com/plantuml/png/XOxDIiKm48NtUOfuLrxmDY2kNFLdgr2GhYLjHXj89c5cGb_VH2m8BbpDOVZupkbPB4c9GMS21nyUmMdEv0LOlzcO0wWxZrie3lGkaldP6B97z-bbBsjXe2sX04gtfMXoiDXiDnON_6gcfzlSNilhYucM1QY-tgU4OciJTRcoIir0dF2-oOO7VLdgrSEbfgEM_1scypVVW9zq_QqOJyNuh-An4MUygXxGrK5V "Predefined sprites Sample")
-
 
 ### Using HIDE_PERSON_SPRITE()
 

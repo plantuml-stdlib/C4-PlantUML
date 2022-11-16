@@ -1,8 +1,8 @@
 [![release][Release Badge]][Release Page]
 [![license MIT][License Badge]][License Page]
- &nbsp; &nbsp; &nbsp; 
-[![commits since][Commits Since Badge]][Commit Page] 
-[![last commit][Last Commit Badge]][Commit Page] 
+ &nbsp; &nbsp; &nbsp;
+[![commits since][Commits Since Badge]][Commit Page]
+[![last commit][Last Commit Badge]][Commit Page]
 [![build result][Tests Badge]][Tests Page]
 
 [Release Badge]: https://img.shields.io/github/v/release/plantuml-stdlib/C4-PlantUML?display_name=tag
@@ -24,6 +24,7 @@ C4-PlantUML combines the benefits of [PlantUML](https://plantuml.com/) and the [
 
 C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippets) for creating C4 diagrams with PlantUML.
 
+- [C4-PlantUML](#c4-plantuml)
   - [Getting Started](#getting-started)
     - [Including the C4-PlantUML library](#including-the-c4-plantuml-library)
     - [Now let's create a C4 Container diagram](#now-lets-create-a-c4-container-diagram)
@@ -48,7 +49,7 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
     - [Install](#install)
     - [Usage](#usage)
   - [Advanced Samples](#advanced-samples)
-    - [techtribes.js](#techtribes.js)
+    - [techtribes.js](#techtribesjs)
     - [Message Bus and Microservices](#message-bus-and-microservices)
   - [Background](#background)
   - [License](#license)
@@ -212,83 +213,83 @@ SHOW_LEGEND()
 
 ## Supported Diagram Types
 
-> * `arg`: argument required (e.g. `alias`)
-> * `?arg`: argument optional (e.g. `?tags`); an optional argument can be directly set via its keyword `$arg=...` (e.g. `$tags="specificTag"`) without the other optional arguments
+> - `arg`: argument required (e.g. `alias`)
+> - `?arg`: argument optional (e.g. `?tags`); an optional argument can be directly set via its keyword `$arg=...` (e.g. `$tags="specificTag"`) without the other optional arguments
 
-* System Context & System Landscape diagrams
-  * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
-  * Macros:
-    * `Person(alias, label, ?descr, ?sprite, ?tags, ?link)`
-    * `Person_Ext`
-    * `System(alias, label, ?descr, ?sprite, ?tags, ?link)`
-    * `SystemDb`
-    * `SystemQueue`
-    * `System_Ext`
-    * `SystemDb_Ext`
-    * `SystemQueue_Ext`
-    * `Boundary(alias, label, ?type, ?tags, ?link)`
-    * `Enterprise_Boundary(alias, label, ?tags, ?link)`
-    * `System_Boundary`
-  * Sprites:
-    * `person`
-    * `person2`
-    * `robot`
-    * `robot2`
+- System Context & System Landscape diagrams
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
+  - Macros:
+    - `Person(alias, label, ?descr, ?sprite, ?tags, ?link)`
+    - `Person_Ext`
+    - `System(alias, label, ?descr, ?sprite, ?tags, ?link)`
+    - `SystemDb`
+    - `SystemQueue`
+    - `System_Ext`
+    - `SystemDb_Ext`
+    - `SystemQueue_Ext`
+    - `Boundary(alias, label, ?type, ?tags, ?link)`
+    - `Enterprise_Boundary(alias, label, ?tags, ?link)`
+    - `System_Boundary`
+  - Sprites:
+    - `person`
+    - `person2`
+    - `robot`
+    - `robot2`
 
-* Container diagram
-  * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
-  * Additional Macros:
-    * `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
-    * `ContainerDb`
-    * `ContainerQueue`
-    * `Container_Ext`
-    * `ContainerDb_Ext`
-    * `ContainerQueue_Ext`
-    * `Container_Boundary(alias, label, ?tags, ?link)`
+- Container diagram
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
+  - Additional Macros:
+    - `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
+    - `ContainerDb`
+    - `ContainerQueue`
+    - `Container_Ext`
+    - `ContainerDb_Ext`
+    - `ContainerQueue_Ext`
+    - `Container_Boundary(alias, label, ?tags, ?link)`
 
-* Component diagram
-  * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
-  * Additional Macros:
-    * `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
-    * `ComponentDb`
-    * `ComponentQueue`
-    * `Component_Ext`
-    * `ComponentDb_Ext`
-    * `ComponentQueue_Ext`
+- Component diagram
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
+  - Additional Macros:
+    - `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
+    - `ComponentDb`
+    - `ComponentQueue`
+    - `Component_Ext`
+    - `ComponentDb_Ext`
+    - `ComponentQueue_Ext`
 
-* Dynamic diagram
-  * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml`
-  * Additional Macros:
-    * `RelIndex(index, from, to, label, ?tags, ?link)`
-    * (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
-    * (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
-    * `LastIndex()`: return the last used index (function which can be used as argument)
+- Dynamic diagram
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml`
+  - Additional Macros:
+    - `RelIndex(index, from, to, label, ?tags, ?link)`
+    - (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
+    - (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
+    - `LastIndex()`: return the last used index (function which can be used as argument)
 
     following 2 macros requires V1.2020.24Beta4 (can be already tested with <https://www.plantuml.com/plantuml/>)
-    * `Index($offset=1)`: returns current index and calculates next index (function which can be used as argument)
-    * `SetIndex($new_index)`: returns new set index and calculates next index (function which can be used as argument)
+    - `Index($offset=1)`: returns current index and calculates next index (function which can be used as argument)
+    - `SetIndex($new_index)`: returns new set index and calculates next index (function which can be used as argument)
 
-* Deployment diagram
-  * Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml`
-  * Additional Macros:
-    * `Deployment_Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`
-    * `Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: short name of Deployment_Node()
-    * `Node_L(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: left aligned Node()
-    * `Node_R(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: right aligned Node()
+- Deployment diagram
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml`
+  - Additional Macros:
+    - `Deployment_Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`
+    - `Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: short name of Deployment_Node()
+    - `Node_L(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: left aligned Node()
+    - `Node_R(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: right aligned Node()
 
 Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).
 
 ## Relationship Types
 
-* `Rel(from, to, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
-* `BiRel` (bidirectional relationship)
+- `Rel(from, to, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
+- `BiRel` (bidirectional relationship)
 
 You can force the direction of a relationship by using:
 
-* `Rel_U`, `Rel_Up`
-* `Rel_D`, `Rel_Down`
-* `Rel_L`, `Rel_Left`
-* `Rel_R`, `Rel_Right`
+- `Rel_U`, `Rel_Up`
+- `Rel_D`, `Rel_Down`
+- `Rel_L`, `Rel_Left`
+- `Rel_R`, `Rel_Right`
 
 In following sample a person uses different systems, and a group of persons which have bidirectional relationships
 
@@ -327,10 +328,10 @@ Rel_L(x, s4, "uses")
 
 In rare cases, you can force the layout of elements which have no relationships by using:
 
-* `Lay_U(from, to)`, `Lay_Up(from, to)`
-* `Lay_D(from, to)`, `Lay_Down(from, to)`
-* `Lay_L(from, to)`, `Lay_Left(from, to)`
-* `Lay_R(from, to)`, `Lay_Right(from, to)`
+- `Lay_U(from, to)`, `Lay_Up(from, to)`
+- `Lay_D(from, to)`, `Lay_Down(from, to)`
+- `Lay_L(from, to)`, `Lay_Left(from, to)`
+- `Lay_R(from, to)`, `Lay_Right(from, to)`
 
 In following sample a person uses different systems, and a group of persons which have no relationships
 
@@ -368,7 +369,7 @@ Rel_L(x, s4, "uses")
 (In combination with [SHOW_FLOATING_LEGEND()](LayoutOptions.md#show_floating_legend)) a greater distance between an element and the
 e.g. floating legend could be required that all e.g. corners of the drawing area can be reached.
 
-* `Lay_Distance(from, to, ?distance)`: Sets the distance between `from` and `to` with down alignment (Lay_Distance(from,to,0) equals Lay_D(from, to)). The default alias of the floating legend is LEGEND().
+- `Lay_Distance(from, to, ?distance)`: Sets the distance between `from` and `to` with down alignment (Lay_Distance(from,to,0) equals Lay_D(from, to)). The default alias of the floating legend is LEGEND().
 
 In following sample the floating legend should be in the left bottom corner of the drawing are.
 (The normal SHOW_LEGEND() call requires no extra Lay_Distance() call and the legend is automatically drawn below the diagram on the right side)
@@ -404,25 +405,25 @@ Lay_Distance(LEGEND(), db, 1)
 
 C4-PlantUML also comes with some layout options to make it easy and reusable to create nice and useful diagrams:
 
-* [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT() or LAYOUT_LANDSCAPE()](LayoutOptions.md#layout_top_down-or-layout_left_right-or-layout_landscape)
-* [LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype, ?details)](LayoutOptions.md#layout_with_legend-or-show_legend)
-* [SHOW_FLOATING_LEGEND(?alias, ?hideStereotype, ?details) and LEGEND()](LayoutOptions.md#show_floating_legendalias-hidestereotype-and-legend)
-* [LAYOUT_AS_SKETCH() and SET_SKETCH_STYLE(?bgColor, ?fontColor, ?warningColor, ?fontName, ?footerWarning, ?footerText)](LayoutOptions.md#layout_as_sketch)
-* [HIDE_STEREOTYPE()](LayoutOptions.md#hide_stereotype)
+- [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT() or LAYOUT_LANDSCAPE()](LayoutOptions.md#layout_top_down-or-layout_left_right-or-layout_landscape)
+- [LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype, ?details)](LayoutOptions.md#layout_with_legend-or-show_legend)
+- [SHOW_FLOATING_LEGEND(?alias, ?hideStereotype, ?details) and LEGEND()](LayoutOptions.md#show_floating_legendalias-hidestereotype-and-legend)
+- [LAYOUT_AS_SKETCH() and SET_SKETCH_STYLE(?bgColor, ?fontColor, ?warningColor, ?fontName, ?footerWarning, ?footerText)](LayoutOptions.md#layout_as_sketch)
+- [HIDE_STEREOTYPE()](LayoutOptions.md#hide_stereotype)
 
 C4-PlantUML also comes with some person sprite/portrait options:
 
-* [HIDE_PERSON_SPRITE()](LayoutOptions.md#hide_person_sprite)
-* [SHOW_PERSON_SPRITE(?sprite)](LayoutOptions.md#show_person_sprite)
-* [SHOW_PERSON_PORTRAIT()](LayoutOptions.md#show_person_portrait)
-* [SHOW_PERSON_OUTLINE()](LayoutOptions.md#show_person_outline) (requires PlantUML version >= 1.2021.4)
+- [HIDE_PERSON_SPRITE()](LayoutOptions.md#hide_person_sprite)
+- [SHOW_PERSON_SPRITE(?sprite)](LayoutOptions.md#show_person_sprite)
+- [SHOW_PERSON_PORTRAIT()](LayoutOptions.md#show_person_portrait)
+- [SHOW_PERSON_OUTLINE()](LayoutOptions.md#show_person_outline) (requires PlantUML version >= 1.2021.4)
 
 ## Sprites and other images
 
 C4-PlantUML offers predefined person and robot sprites which can be directly used:
 
-* `person`,`person2`
-* `robot`, `robot2`
+- `person`,`person2`
+- `robot`, `robot2`
 
 ```plantuml
 @startuml
@@ -442,9 +443,9 @@ SHOW_LEGEND()
 
 Additional `$sprite` (images) can be defined with following PlantUML supported options:
 
-* included (standard library) sprites via their `{SpriteName}`; details see [sprites](https://plantuml.com/sprite)
-* images via `img:{File or Url}`
-* OpenIconic via `&{OpenIconicName}`; details see [openiconic](https://plantuml.com/openiconic)
+- included (standard library) sprites via their `{SpriteName}`; details see [sprites](https://plantuml.com/sprite)
+- images via `img:{File or Url}`
+- OpenIconic via `&{OpenIconicName}`; details see [openiconic](https://plantuml.com/openiconic)
 
 Size of the displayed images can be changed with `,scale={factor}`.
 Color of the displayed images can be changed with `,color={color}`.
@@ -479,9 +480,9 @@ SHOW_LEGEND()
 
 Relationship specific sprites are typically smaller and therefore following options are possible:
 
-* use smaller icons (like the $triangle in the following sample)
-* use an additional scale factor (direct as part of the argument, or via a variable)
-* if sprite argument starts with `&` an OpenIconic name can be used too (details see <https://useiconic.com/open>)
+- use smaller icons (like the $triangle in the following sample)
+- use an additional scale factor (direct as part of the argument, or via a variable)
+- if sprite argument starts with `&` an OpenIconic name can be used too (details see <https://useiconic.com/open>)
 
 ```plantuml
 @startuml
@@ -532,24 +533,24 @@ Rel_D(user, user1, "requests", "async message", "if sprite starts with &, it def
 
 Additional tags/stereotypes can be added to the existing element stereotypes (component, ...) and highlight,... specific aspects:
 
-* `AddElementTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`:
+- `AddElementTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`:
   Introduces a new element tag. The styles of the tagged elements are updated and the tag is displayed in the calculated legend.
-* `AddRelTag(tagStereo, ?textColor, ?lineColor, ?lineStyle, ?sprite, ?techn, ?legendText, ?legendSprite, ?lineThickness)`:
+- `AddRelTag(tagStereo, ?textColor, ?lineColor, ?lineStyle, ?sprite, ?techn, ?legendText, ?legendSprite, ?lineThickness)`:
   Introduces a new Relationship tag. The styles of the tagged relationships are updated and the tag is displayed in the calculated legend.
-* `AddBoundaryTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`:
+- `AddBoundaryTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`:
   Introduces a new Boundary tag. The styles of the tagged boundaries are updated and the tag is displayed in the calculated legend.
-* `UpdateElementStyle(elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`:
+- `UpdateElementStyle(elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`:
   This call updates the default style of the elements (component, ...) and creates no additional legend entry.
-* `UpdateRelStyle(textColor, lineColor)`:
+- `UpdateRelStyle(textColor, lineColor)`:
   This call updates the default relationship colors and creates no additional legend entry.
-* `UpdateBoundaryStyle(?elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`:
+- `UpdateBoundaryStyle(?elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`:
   This call updates the default style of the existing boundaries and creates no additional legend entry.
   If the element name is "" then it updates generic, enterprise, system and container boundary style in on call.
-* `RoundedBoxShape()`: This call returns the name of the rounded box shape and can be used as ?shape argument.
-* `EightSidedShape()`: This call returns the name of the eight sided shape and can be used as ?shape argument.
-* `DashedLine()`: This call returns the name of the dashed line and can be used as ?lineStyle argument.
-* `DottedLine()`: This call returns the name of the dotted line and can be used as ?lineStyle argument.
-* `BoldLine()`: This call returns the name of the bold line and can be used as ?lineStyle argument.
+- `RoundedBoxShape()`: This call returns the name of the rounded box shape and can be used as ?shape argument.
+- `EightSidedShape()`: This call returns the name of the eight sided shape and can be used as ?shape argument.
+- `DashedLine()`: This call returns the name of the dashed line and can be used as ?lineStyle argument.
+- `DottedLine()`: This call returns the name of the dotted line and can be used as ?lineStyle argument.
+- `BoldLine()`: This call returns the name of the bold line and can be used as ?lineStyle argument.
 
 Each element can be extended with one or multiple custom tags via the keyword argument `$tags="..."`, like `Container(spaAdmin, "Admin SPA", $tags="v1.1")`.
 Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+v1.1")`.
@@ -570,36 +571,36 @@ AddPersonTag("admin", $sprite="osa_user_audit", $legendText="administration user
 
 Following calls introduces new element tags with element specific default colors:
 
-* `AddPersonTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
-* `AddExternalPersonTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
-* `AddSystemTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
-* `AddExternalSystemTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
-* `AddComponentTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`
-* `AddExternalComponentTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`
-* `AddContainerTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`
-* `AddExternalContainerTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?techn, ?sprite, ?legendText, ?legendSprite)`
-* `AddNodeTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`
+- `AddPersonTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
+- `AddExternalPersonTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
+- `AddSystemTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
+- `AddExternalSystemTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?legendText, ?legendSprite)`
+- `AddComponentTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`
+- `AddExternalComponentTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`
+- `AddContainerTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`
+- `AddExternalContainerTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?techn, ?sprite, ?legendText, ?legendSprite)`
+- `AddNodeTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`
   (node specific: $type reuses $techn definition of $tags)
 
 ### Boundary specific tag definitions
 
 Like the element specific tag definitions exist boundary specific calls with their default colors **and type**:
 
-* `UpdateContainerBoundaryStyle(?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`
-* `UpdateSystemBoundaryStyle(?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`
-* `UpdateEnterpriseBoundaryStyle(?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`
+- `UpdateContainerBoundaryStyle(?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`
+- `UpdateSystemBoundaryStyle(?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`
+- `UpdateEnterpriseBoundaryStyle(?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`
 
 ### Comments
 
-* `SHOW_LEGEND()` supports the customized stereotypes  
+- `SHOW_LEGEND()` supports the customized stereotypes  
   (`LAYOUT_WITH_LEGEND()` cannot be used, if the custom tags/stereotypes should be displayed in the legend).
-* `SHOW_LEGEND()` has to be last line in diagram.
-* Don't use space between `$tags` and `=` (PlantUML does not support it).
-* Don't use `,` as part of the tag names (PlantUML does not support it in combination with keyword arguments).
-* If 2 tags define the same skinparam, the first definition is used.
-* If specific skinparams have to be merged (e.g. 2 tags change the font color) an additional combined tag has to be defined. Use `&` as part of combined tag names.
+- `SHOW_LEGEND()` has to be last line in diagram.
+- Don't use space between `$tags` and `=` (PlantUML does not support it).
+- Don't use `,` as part of the tag names (PlantUML does not support it in combination with keyword arguments).
+- If 2 tags define the same skinparam, the first definition is used.
+- If specific skinparams have to be merged (e.g. 2 tags change the font color) an additional combined tag has to be defined. Use `&` as part of combined tag names.
 
-* Automatically merging colors of relationship tags is not supported in PlantUML before v.1.2022  
+- Automatically merging colors of relationship tags is not supported in PlantUML before v.1.2022  
   If an older version is used and one tag modifies the line color and the other the text color, an additional combined tag has to be defined and used.
 
 ### Sample with different tag combinations
@@ -805,11 +806,11 @@ SHOW_LEGEND()
 
 A model can be extended with (a table of) properties that concrete deployments or more detailed concepts can be documented:
 
-* `SetPropertyHeader(col1Name, col2Name, ?col3Name, ?col4Name)`
+- `SetPropertyHeader(col1Name, col2Name, ?col3Name, ?col4Name)`
   The properties table can have up to 4 columns. The default header uses the column names "Name", "Description".
-* `WithoutPropertyHeader()`
+- `WithoutPropertyHeader()`
   If no header is used, then the second column is bold.
-* `AddProperty(col1, col2, ?col3, ?col4)`
+- `AddProperty(col1, col2, ?col3, ?col4)`
   (All columns of) a property which will be added to the next element.
 
 Following sample uses all 3 different property definitions (and the aligned deployment node).
@@ -851,8 +852,8 @@ Rel(personAlias, containerAlias, "Label", "Optional Technology", "Optional Descr
 
 C4-PlantUML offers version information like PlantUML with its `%version()` call.
 
-* `C4Version()`: Current C4-PlantUML version (e.g. `2.4.0beta1`).
-* `C4VersionDetails()`: (Floating) version details with the current PlantUML and C4-PlantUML version. (It can be referenced via the alias `C4VersionDetailsArea`.)
+- `C4Version()`: Current C4-PlantUML version (e.g. `2.4.0beta1`).
+- `C4VersionDetails()`: (Floating) version details with the current PlantUML and C4-PlantUML version. (It can be referenced via the alias `C4VersionDetailsArea`.)
 
 ```plantuml
 @startuml
@@ -902,11 +903,11 @@ It is possible to save them directly inside VS Code: [Creating your own snippets
 
 ### Usage
 
-* Create new PlantUML file (.puml).
-* Type `c4_` for displaying artifacts templates for C4-PlantUML
-* Live template create correct C4 model artifact with stubbed arguments.
-  * E.g. alias, label, type, technology, description
-* Replace stubbed arguments with desired values.
+- Create new PlantUML file (.puml).
+- Type `c4_` for displaying artifacts templates for C4-PlantUML
+- Live template create correct C4 model artifact with stubbed arguments.
+  - E.g. alias, label, type, technology, description
+- Replace stubbed arguments with desired values.
 
 ![C4-PlantUML Snippets Video](images/intellij_c4plantum_live_template1.gif)
 ![C4-PlantUML Snippets Video](images/intellij_c4plantum_live_template2.gif)
@@ -947,10 +948,10 @@ The C4 model was created as a way to help software development teams describe an
 
 More information can be found here:
 
-* [The C4 model for software architecture](https://c4model.com/)
-* [REAL WORLD PlantUML - Sample Gallery](https://real-world-plantuml.com/)
-* [Visualising and documenting software architecture cheat sheets](https://www.codingthearchitecture.com/2017/04/27/visualising_and_documenting_software_architecture_cheat_sheets.html)
-* [PlantUML and Structurizr - Create models not diagrams](https://www.codingthearchitecture.com/2016/12/08/plantuml_and_structurizr.html)
+- [The C4 model for software architecture](https://c4model.com/)
+- [REAL WORLD PlantUML - Sample Gallery](https://real-world-plantuml.com/)
+- [Visualising and documenting software architecture cheat sheets](https://www.codingthearchitecture.com/2017/04/27/visualising_and_documenting_software_architecture_cheat_sheets.html)
+- [PlantUML and Structurizr - Create models not diagrams](https://www.codingthearchitecture.com/2016/12/08/plantuml_and_structurizr.html)
 
 ## License
 

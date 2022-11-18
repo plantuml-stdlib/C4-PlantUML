@@ -19,7 +19,7 @@ C4-PlantUML comes with some layout options.
     - [Using SHOW_PERSON_PORTRAIT()](#using-show_person_portrait)
     - [Using SHOW_PERSON_OUTLINE()](#using-show_person_outline)
 - samples
-  - [:page_facing_up: Core Diagrams](samples/C4CoreDiagrams.md#core-diagrams)
+  - [:page_facing_up: Core Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
 
 ## Layout Guidance and Practices
 

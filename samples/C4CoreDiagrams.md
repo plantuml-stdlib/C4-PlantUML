@@ -2,6 +2,21 @@
 
 The following samples are reproductions with C4-PlantUML from [C4 model core diagrams](https://c4model.com/#coreDiagrams) created by [Simon Brown](https://simonbrown.je/).
 
+- [:page_facing_up: C4-PlantUML](../README.md#c4-plantuml)
+- [:page_facing_up: Layout Options](../LayoutOptions.md#layout-options)
+- samples
+  - [:page_facing_up: C4 Model Diagrams](#c4-model-diagrams)
+    - [Core Diagrams](#core-diagrams)
+      - [System Context Diagram](#system-context-diagram)
+      - [Container Diagram](#container-diagram)
+      - [Component Diagram](#component-diagram)
+    - [Supplementary Diagrams](#supplementary-diagrams)
+      - [System Landscape Diagram](#system-landscape-diagram)
+      - [Dynamic Diagram](#dynamic-diagram)
+      - [Deployment Diagram](#deployment-diagram)
+    - [Styles](#styles)
+    - [Icons](#icons)
+
 ## Core Diagrams
 
 ### System Context Diagram
@@ -10,21 +25,17 @@ Source: [C4_Context Diagram Sample - bigbankplc.puml](C4_Context%20Diagram%20Sam
 
 ![System Context diagram for Internet Banking System](https://www.plantuml.com/plantuml/png/VL9DRnen4BtlhvXoAP48N7hgAGbTjP4WHGKKzRIQzGvWuRMHFGxmxplx6MXeR-lnUs_UUzw7mEWvbYRvfAqoiI3OCH_2ryd4ut6yrRoBUGpabRDCbiVAbHCil4RxPk8XJgPVxXS6BQ_diub1fi0oogOL-iJZGwNy6Q8LMYbqu1t1nXdZZjfkmMXBWBQ0gsljWtmvaBLWd49ZpgBH-_jRFfaz_lwvNcMlpwiVsIpzdhvy6zub2Mis1CjpO2gX9K2XSUkn50iUdcNaBJ4yeTrNRXfiaYp81sU7AWPs9VaH39e9cXuwRUy6Sla87HBSfawG2se4H-aE3XspcW4gvQBbC1xS9SssOTuePg4-Yjm_RDMRgjv2lovK9RrfEeAs4gX4riu2vYxMHMf_lNHKDrtYdk20vwhksaTh94jFF2nHctSdwNrrXj3lNqasNTkJG7Ejl0jkmv2Ur0xjbe0k2UyPEscxaUf9TERTzusCItQU0iYZTsqg6K1RqusaVHkZYwJiqGPK5KnEnAfE-elCnQj-Q7uTA0XCKDaJglq5zBgN9TaYj66hDsWvBwItkzpv3q_w7tQTUBvQD1Atc7rfhRi7eSjV_mS0 "System Context diagram for Internet Banking System")
 
-
 ### Container Diagram
 
 Source: [C4_Container Diagram Sample - bigbankplc.puml](C4_Container%20Diagram%20Sample%20-%20bigbankplc.puml)
 
 ![Container diagram for Internet Banking System](https://www.plantuml.com/plantuml/png/bLLDZzis4BtxLqoTGnr0kqQ0ddgArpQwcwntrSZRJK_2Y1hRH2XI82axHj7_tg6i3yiEajGdQJJpvl7D6_gzysXzLQZHBr8BLUK4E-zBz_jqQl5mkvL-LsML8okCzgJzhJ3557ChKUzLLLRJ-MytiKBjNrQFKuMUdETGEkTib9hiRHcmVuLASs710E1t11kZb3b8lGN5IO0wXy5dQHq_6U36e8n0fOwCqJ6yRi1V7sT_Fx-iq_Lpd2wUNvycR_lOB4cJZylr_9w3JUZrONsVFYx_M3ujE3ZoqYl6RK4XbxYrM31H2mzySAl9mntgBu5pSdIUYj4e9kkCdeZAULEGZM3UFOrdq8R1REf3PLmTmO45XR8kH5N708KmbVPkp3nEqEaT1tAqnubunrYN1CPluPyHyA_ZEpbGbc9PSl8hPJ0hIoK5Ucdqc4CVS8yH9AKDv5T_pKDiGKhkcKPDZJtWfO1cnFKuGhZhcxK7ZsTCSjZPbOmzJlYpefiOjnIwjrqJOMNf8vZfRQNGXd1ipLxcv827-kqk6_PAe8vA-cDmWQXg8Hti9OOIQO7F2var1pRc5QF2P59H8yUgVcavpTz4y1aBP2M6NDY7XVIKWwionroQcVqCDtT5xaG0SjfBGPVq5jaaHuyPEWfZQ1u3c-JFHnYyUsEPMrW-iBILpblarY0rkxAefnl1ZfDpm8fT9IpbF3w9oaN1LEGSBy-MNyYBsokPCXHVIEUiamn-ZH--RPk5uJJRrmrq-u4-GH86vjR_TjPUVlKJAb2grDK1XblUhFYzMQk0lsRfPGtDExAImXfdDXwMNyKEDJliLCcmPvWDWnwLCVM6TvWkzlPCsc31PjA20zqfpXG6p4pb-p57tRf6mFFG3klpzYAFFf4wknBwnNnnv4Bl-_KwJZXnc7TQe-_d38nTfvxQfKyajxlCd5q39xXsoHkaEZWSUziGtL6B23uapq_Jy-RdBVzNPNh7sJsntl93b4-4kOEDDKLzwnmiBo7VIIOWDy2Bktbxpe1vfiU5ZHA6TK0t8LfZz4Gk73VaCAohNBXXk_R9QXqtGDrX1kLNlck52VNJHftF_EVOYlEUI_alwpy0 "Container diagram for Internet Banking System")
 
-
 ### Component Diagram
 
 Source: [C4_Component Diagram Sample - bigbankplc.puml](C4_Component%20Diagram%20Sample%20-%20bigbankplc.puml)
 
-
 ![Component diagram for Internet Banking System - API Application](https://www.plantuml.com/plantuml/png/fLN9Rjim4BthAwO-j3QGn9UUUggNj4cGnOYTBYTZHD4oMou25xj6qN_laB8bsGcA0Cqbr73uvisRH_gZysXzK39x8pIJeU2mzhvo7uP3YzkBKlXro8FZbXdjkVONpAWX5bQWtiXGXU7a_VbCelPFTxT3YPuxJw7bnAZAw9XVHUnt43GTL1G0l-QmCbAQhT0bIA4ve2xWQ5jOHoi3L1YaOIZbZZ0QXiyBPBUZxmzFY-NNwyNLylRoy-Nzj3_8CY-yfFH3BXG2IukAwbkufdwivXx6g7z6AlETyrp1EOncrp2gAYaOUc5qbaseToIYjkygF8FUdD89TuObxoRsQEi7Rj0nAogVka9T1easxioisOY2Ew1kKfVYG23V4rYHI147fV2xs3uBpXl5hOEDm7X6MDZo779hjZIIYzwWGqr5PdSc5pAHYYM_eK8hz75rabm9pmjm8NTKtVZ_OAFgUlj_1Ty8nezeJVD-aLFzANhCqV78vP5Bh97X48OvMtE5SNVkZIMUqNDWUIcSjocR6DBOL5gVmHhTcdh0G3oqtmy0cEL5_4JfpW0PuywHVqhwu9v5NlMCbvU_V5_bBWf6B5Ta2NvYWmwJE2-pIY8n2ZG2TVW0vYRuLg5Kt0JjQKNqjSCaPSkZ5MWvfhm2xQwFbQ2Y9-Rh3U1t1lJNcBZlHAcJ2KjD9eQ8PEa-yUIokoyJUAHBs8PZT1IlMwsfYwEC4CG_Bb-SlQir69nKRflgZVPBc0T59jkzYaPZmjPAMtfWo9EEK0oXr3gJiIAJHiHdH1ndmP8jempxPRkRHbVPsCUOux7xZqrjen79HKaHNTP3FGEsnlgZGkUsnXRjt8vfa8LMoB3W_p0IV4ePBv0QGNqOIA9w3gh1E1v4SamiJJTdF_wE0a-E7nIA--sGklHEajhZwNO-SYpWBMmfn4cDoEvcEfvq3dImwekJ0ECRG-_-rM8ncrFodonBuF6HtBlqa7OpVxXlyfgaZg5UJ4oPwXLewXLW7xakwBVYBm00 "Component diagram for Internet Banking System - API Application")
-
 
 ## Supplementary Diagrams
 

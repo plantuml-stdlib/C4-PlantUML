@@ -2,7 +2,8 @@
 
 C4-PlantUML comes with some layout options.
 
-- [Layout Options](#layout-options)
+- [:page_facing_up: C4-PlantUML](README.md#c4-plantuml)
+- [:page_facing_up: Layout Options](#layout-options)
   - [Layout Guidance and Practices](#layout-guidance-and-practices)
     - [Overall Guidance](#overall-guidance)
     - [Layout Practices](#layout-practices)
@@ -17,6 +18,8 @@ C4-PlantUML comes with some layout options.
     - [Using SHOW_PERSON_SPRITE(sprite)](#using-show_person_spritesprite)
     - [Using SHOW_PERSON_PORTRAIT()](#using-show_person_portrait)
     - [Using SHOW_PERSON_OUTLINE()](#using-show_person_outline)
+- samples
+  - [:page_facing_up: Core Diagrams](samples/C4CoreDiagrams.md#core-diagrams)
 
 ## Layout Guidance and Practices
 
@@ -161,6 +164,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 Instead of a static legend (activated with `LAYOUT_WITH_LEGEND()`) a calculated legend can be activated with `SHOW_LEGEND(?hideStereotype, ?details)`.
 
 The calculated legend has following differences:
+
 - only relevant elements are listed
 - custom tags/styles are supported
 - stereotypes can remain visible (with `SHOW_LEGEND(false)`)

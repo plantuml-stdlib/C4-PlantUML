@@ -2,8 +2,8 @@
 
 C4-PlantUML comes with some layout options.
 
-- [:page_facing_up: C4-PlantUML](README.md#c4-plantuml)
-- [:page_facing_up: Layout Options](#layout-options)
+- [📄 C4-PlantUML](README.md#c4-plantuml)
+- [📄 Layout Options](#layout-options)
   - [Layout Guidance and Practices](#layout-guidance-and-practices)
     - [Overall Guidance](#overall-guidance)
     - [Layout Practices](#layout-practices)
@@ -19,7 +19,7 @@ C4-PlantUML comes with some layout options.
     - [Using SHOW_PERSON_PORTRAIT()](#using-show_person_portrait)
     - [Using SHOW_PERSON_OUTLINE()](#using-show_person_outline)
 - samples
-  - [:page_facing_up: Core Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
+  - [📄 Core Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
 
 ## Layout Guidance and Practices
 

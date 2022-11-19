@@ -24,7 +24,7 @@ C4-PlantUML combines the benefits of [PlantUML](https://plantuml.com/) and the [
 
 C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippets) for creating C4 diagrams with PlantUML.
 
-- [:page_facing_up: C4-PlantUML](#c4-plantuml)
+- [📄 C4-PlantUML](#c4-plantuml)
   - [Getting Started](#getting-started)
     - [Including the C4-PlantUML library](#including-the-c4-plantuml-library)
     - [Now let's create a C4 Container diagram](#now-lets-create-a-c4-container-diagram)
@@ -53,9 +53,9 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
     - [Message Bus and Microservices](#message-bus-and-microservices)
   - [Background](#background)
   - [License](#license)
-- [:page_facing_up: Layout Options](LayoutOptions.md#layout-options)
+- [📄 Layout Options](LayoutOptions.md#layout-options)
 - samples
-  - [:page_facing_up: Core Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
+  - [📄 Core Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
 
 ## Getting Started
 

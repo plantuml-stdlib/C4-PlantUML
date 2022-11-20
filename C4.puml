@@ -116,15 +116,15 @@ skinparam arrow {
     FontSize 12
 }
 
+skinparam person {
+    StereotypeFontSize 12
+    shadowing false
+}
+
 skinparam actor {
     StereotypeFontSize 12
     shadowing false
     style awesome
-}
-
-skinparam person {
-    StereotypeFontSize 12
-    shadowing false
 }
 
 ' Some boundary skinparams have to be set as package skinparams too (PlantUML uses internal packages)
@@ -330,9 +330,10 @@ skinparam package {
   !$tagSkin = $elementTagSkinparams("rectangle", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
   !$tagSkin = $tagSkin + $elementTagSkinparams("database", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
   !$tagSkin = $tagSkin + $elementTagSkinparams("queue", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
+  ' plantuml.jar bug - actor have to be after person
+  !$tagSkin = $tagSkin + $elementTagSkinparams("person", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
   ' actor has style awesome, therefore $fontColor is ignored and text uses $bgColor too
   !$tagSkin = $tagSkin + $elementTagSkinparams("actor", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "")
-  !$tagSkin = $tagSkin + $elementTagSkinparams("person", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
   !if (%strpos($tagStereo, "boundary") >= 0 && $bgColor != "")
     !$tagSkin = $tagSkin + "skinparam package<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
     !$tagSkin = $tagSkin + "skinparam rectangle<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()

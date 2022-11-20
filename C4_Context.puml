@@ -281,6 +281,7 @@ endlegend
 !$dummy = $restoreEmpty("person", "sprite", $defaultPersonSprite, %true())
 UpdateElementStyle("person")
 ' workaround of plantuml.jar bug - person overwrites external_person setting
+!$dummy = $restoreEmpty("external_person", "sprite", $defaultPersonSprite, %true())
 UpdateElementStyle("external_person")
 !global $portraitPerson = "false"
 
@@ -290,6 +291,9 @@ UpdateElementStyle("external_person")
   %set_variable_value("$" + "person" + "ElementTagSprite", "")
   UpdateElementStyle("person")
   ' workaround of plantuml.jar bug - person overwrites external_person setting
+  !$dummy = $clearRestore("external_person", "sprite")
+  !$dummy = $clearRestore("external_person", "legendSprite")
+  %set_variable_value("$" + "external_person" + "ElementTagSprite", "")
   UpdateElementStyle("external_person")
 !endprocedure
 
@@ -308,6 +312,7 @@ UpdateElementStyle("external_person")
   !$dummy = $restoreEmpty("person", "sprite", $defaultPersonSprite, %true())
   UpdateElementStyle("person")
   ' workaround of plantuml.jar bug - person overwrites external_person setting
+  !$dummy = $restoreEmpty("external_person", "sprite", $defaultPersonSprite, %true())
   UpdateElementStyle("external_person")
   !$portraitPerson = "false"
 !endprocedure

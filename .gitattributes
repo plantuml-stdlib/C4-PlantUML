@@ -1,0 +1,9 @@
+# define GitHub repository languages
+*.puml linguist-language=PlantUML
+*.iuml linguist-language=PlantUML
+*.plantuml linguist-language=PlantUML
+
+*.puml linguist-detectable=true
+*.iuml linguist-detectable=true
+*.plantuml linguist-detectable=true
+*.md linguist-detectable=false

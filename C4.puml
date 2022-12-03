@@ -3,7 +3,7 @@
 'Version
 ' ##################################
 !function C4Version()
-  !return "2.5.0beta2"
+  !return "2.5.0"
 !end function
 
 !procedure C4VersionDetails()

@@ -76,7 +76,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![LAYOUT_TOP_DOWN Sample](https://www.plantuml.com/plantuml/png/NP1DJyCm38Rl-HLc7DP9ezKG9quh0y5X7nNhc3XLQUknI6aI9IxLXFZlkDhO454aI_Rhruyz3IGzjOs6UVg-skH5ligAnzLs2MlPE8tYIfbAjpN2diY5-oJniei_5EtRiWteAsi83SMLRH9PUoNDfsvTcypkRZ8j3MqMyqHBma2SAcQibigWZnsF528Pmj8I6CGQQoYnakm9j5S1-DCUeSQTR3N1C17_0AEH41dwO4qawqQPCGpIFgf0NfBrWv5O7m9XKppOrjJI7w9gCeRXSQ_X2Bu4y3iZHHsMXNIEVRPOGkgSLfKaPSs0KxFhCQJhB5u-vTpY4MxZ2IpUPdqjrTfs0VfpCBG5leMJB6aONF4io3j5X1v8DQXvLc2sxnDTHCSY-vnaN1Ilg7-tkc1j0dToVCdpRCsgNdIkNcoUaHYZmpxil6t-japHr7pv7m00 "LAYOUT_TOP_DOWN Sample")
+![LAYOUT_TOP_DOWN Sample](https://www.plantuml.com/plantuml/png/JL1DZzCm4BtxLmpba5Jg9bh4YTE6WE2msqOaPSKfSk8fjUGFovuegX3_dR4eBRayPTx7FCzJ8XbfiKQyqMusYq8u4uNqeQwZNAkVcixBj2ICitU4ZghPspeOwRBd8P4oUghRzmzT7XrVdcih4s7aqTYoGsg7iGevNzG5x3s1GrIeOC9PSYxGMIVGYH51uKakXg2enNFput0Snk7GZPyEh_joAqI7CNbNIcMrsy6coQWJHKa-RhQYl_1YEtxqYrCoNihvSGT5BsqmM6pXbm3-RfNA5QTHXi0vhpX14uBHioJjtOP7xTiTD7rNxJyFR8a8xwf7UFdUPgunngy9yacuj0U-Hv0iiLnSyouOLas44KXRDBmhSRVVrtOb_IKvvofZKdn3y-zLzrh7n4x6hyFGzQpAeXjxZ_c2bFWNCvoYj_zRdj0fllmV "LAYOUT_TOP_DOWN Sample")
 
 `LAYOUT_LEFT_RIGHT()` rotates the flow visualization to *from Left to Right* and directed relations like `Rel_Left()`, `Rel_Right()`, `Rel_Up()` and `Rel_Down()` are rotated too.
 
@@ -97,7 +97,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![LAYOUT_LEFT_RIGHT Sample](https://www.plantuml.com/plantuml/png/PL1DIyD05BplhrZheIdKX8edJusXjaAhfKaLJs6RFEt2Vh7xrb34_-uBhLPmBmDlvhsPsMb0uJ5gnPVvwzEsgfUp-whUFCmN5I-5TWhOXJIDYYtmFQ8BjrdcHPU-Izp7NGpW6siG3AQDrPbelHJcGqKNi-BcQgs4mUrgcIc14916TK5g8Gtur94fO_zSan5ZQ_31caIqMfen7-Gzoe1UeFM34IiF0K7NTpQQLlX3qap6V7WCEnpnJyRf_Vea7UnguHpTUO4TpvrJiX4ehHdGgBWSyxnSfu-pYbOyyEjqmbVFHS_bIjakyBvZu6Wv5NI293egbEJ5gquYWkSeDIZo2fJjwvGkmID9Tquo8ja6r4-hSwnje4t2HLMjIrBreb_sV6OEI34wwE7DM_rtPGgcfU_y1W00 "LAYOUT_LEFT_RIGHT Sample")
+![LAYOUT_LEFT_RIGHT Sample](https://www.plantuml.com/plantuml/png/JKzDR-8m4BtdLtZP0q62HApsj2Uo4OLAq4OajEefSf9fiUGFonuhGbN_UySgXVeoyhoFUM_baJiCIYQ_XEvb682T4At_b-UEZzcRm5FeWWVN6usWCUkDogtaEceM7WSfkhpykwZYwhZVvOfx14UhjYG55nfSPgD_iYjU7ezDkrlVDUtXVhDjqbcILE2yqIaVbD1pDYdY51uTH-CciwG-avjg_vkW1-xEQR-SisdDbPKmdR7tXD6xtab7w5fkBVayGySAQwNeEGgZ9xGgVyzPKLVPmxeXYGFs9rko_LCPiK9ACteMUtg6Xb59oucYWaH1jrWp2gHQ38K2IRSyPVkuf4ln2oIV2ut0v03okzKjrj6JakQsQQgQM95qHMys6q1FNuZZrHdrKx82FGGbFm40 "LAYOUT_LEFT_RIGHT Sample")
 
 `LAYOUT_LANDSCAPE()` rotates the default flow visualization to *from Left to Right* like `LAYOUT_LEFT_RIGHT()` additional **directed relations** like Rel_Left(), Rel_Right(), Rel_Up() and Rel_Down() **are not rotated** anymore.
 
@@ -159,7 +159,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![LAYOUT_WITH_LEGEND Sample](https://www.plantuml.com/plantuml/png/PL1DJy905BplhrZnG4cm3SQJ9sebO0BOs2Bnr2pjKpRPh-o-sX3ZV_Sr89YubqdUp7ipizE0mcEh5L-cRy-Rije-bOjgEPlFre-y4DefO5VIrAfjWEyHNRXF4Y-w-4FYljsr0Nnj3OB1kBOw4OsNmdogrhL9TdUJAs5mirecIY04f56LaLf80pvsvChOVzjen5WEFbWJYKPBC-Q3j4SPq0kqVZ1YnI4WwEh1jgOH_X3Lap4V7jCEH_oBSNfdewY3NIMSepjRsF7KEILhWTAQ0Osowp5FYpnUpqfQyS1lumbVlMOzbofbky3xae6ZvTJG2PBeLg4aBrvs4X4yHwb1aLUWRD-dT14UIRfpaX79Na3zjhh4sWJQ95oKPLwGgXUTsSkPEI35wA27Ts_rtvKfc8R-ymS0 "LAYOUT_WITH_LEGEND Sample")
+![LAYOUT_WITH_LEGEND Sample](https://www.plantuml.com/plantuml/png/JKzDJy904BttLwnue2JG1kF94xKIC05iR95uQhRjA9linsPtceOO_xkp4S6zJ7RUnxotyCWTzaf6DqAtik-07H6jVqXJnuVaK-2nRteFhZKQGMFI6fLQoNNGp3nsKZHfVZyhmcg_tQIAUmH7gped1HSQN6A3VxJ9tb_sLNruhjRrPhbQxfxYIHGLuBpHCU-Kq5Csoi8K7Xr7uqQJg3oHdQeVJQyxxavnEv-oSScLbJ2UiA-8qRiSYWTeQcuj-HoWOPcrKhGSXT4ZMkMtKvQLHR9RLYHnmEwIETk-vG7Bf3I3Pw6ePsWOjRISAAgNAEWMgmQ1r8kXK23fbgTit-TqCVw2v7Ec4HYzWlnhTOsrzwIakQwgeYHM85tGgyqAqDCNmlXmHlsNB41tlP8_ "LAYOUT_WITH_LEGEND Sample")
 
 Instead of a static legend (activated with `LAYOUT_WITH_LEGEND()`) a calculated legend can be activated with `SHOW_LEGEND(?hideStereotype, ?details)`.
 
@@ -308,7 +308,7 @@ Lay_Distance(LEGEND(), e, 1)
 @enduml
 ```
 
-![Compact Legend Layout Sample](https://www.plantuml.com/plantuml/png/RP7VQ-em5CVVyrUavS9juTwMmPu60vtjtA1JqOqzXfWURLXC9Jbb-j_lr6gri9Ss-Nn_d3OPUPGEcvrXWRRAD2Nm2d7l7zBKoUzagx5greq7fsgBO35HzIxzqavL7gjqSlz_OQJ5ZxSYXGFf9PG4nOJCKbjmoRwjPcm1pjSsalzus2tvE8nPRulM9FGx_XJI5a5LbaoheqVOHOfGj-IJGRGSHBFRQ8z5Vi08IA5tmg_k_DRDbc34ilt6DL4bZV54MvX5H1H1EeWh8r0EsJ8Y02tRbn9Fc0MRnYhKzCT5FirdMHIpm04spl9mOsg9scw5WItOCcG1FIz-jdgPVuhdOZv-VvrDnJbzAObP8OyYqtHzLa6FJ-FlQ2pxouC_7UMFFEm62Eb0XYJzMdssnwGFki_yKZsY8hhK7m00 "Compact Legend Layout Sample")
+![Compact Legend Layout Sample](https://www.plantuml.com/plantuml/png/RP5DQxD04CVl-obMUU1HQ9H2JuL2qcZJWar2qjBZigwJH5XNsHrfy-qxniH4w4LdVl-N4Pmwb1RRIZElD4gt1V03OkCUuzZAxsXVug7DMmTMrGR1OAJgAcwqD5rcuh3GPHxF7oRh3ds-Pt4b7O8b9EQKaAK16pLTFsDhiAusWRpZVZ_ocH-omHRa90mRV_PfHL07GwRjaLghG17gHpuVHOjHDBcD3bYaFnW0AVIE-DMTthhP1hJOTD-O4rLIQqUqWqb0H15i7LmPWMB4A4m0EjOK4a-OURlMA2nhmxDqaIwJ86IU1MojuVvErn9BinSQzc0AdtdqlFZPzdNr9LworUpZRRaGv_Ib96IPF8gaT2YDWW6Vpj_JMVQVU_zwof-utnyGqeBqIVgp-cmFIHzrd_cbUaf5z5D_0G00 "Compact Legend Layout Sample")
 
 ## LAYOUT_AS_SKETCH() and SET_SKETCH_STYLE(?bgColor, ?fontColor, ?warningColor, ?fontName, ?footerWarning, ?footerText)
 
@@ -415,7 +415,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![HIDE_STEREOTYPE Sample](https://www.plantuml.com/plantuml/png/NL1DIyD05BplhrZheIdKX8edJuqrMC5gQ5B5KzWcJxkmN-o-DHJnl_j2gnNtCl1ctfkPdGSK7gDMV7b_MpHLNQoBf_grB7Wbj5F0pgHfLUo0xn1TkCuoB_hqNU8kRcC0trg3O31jhSv4vwKm7ogwc2skBaeb36vM3vaI205fr2n8BQG1dpgoPEoVPp9Xh0GVh4b4fwMPyb4-e0pe1Le_ch1g7n1qSsEZwOJV9-rioiU7gEC9_sIStgzBqiEs4SxHdHVOyjmv9Lk1qfeHZHRdKvvNPVfOrBJYWL-cCxvwNWnShfJj0nyQ1ewMKpqdIAAZGabUlEub8dYEKeCYhq3Plexf4ZoGTESe8vAjGVsqEiNQ1DeaNDPrMP5g4FsofpDtW1IZXm7UlDL_L-PWElhCRm00 "HIDE_STEREOTYPE Sample")
+![HIDE_STEREOTYPE Sample](https://www.plantuml.com/plantuml/png/JKzDQ-Cm4BtxLsYpXpYGs6JPqvxYTKrJQ5eJEoqz6TcUDW9z26c42QN_lIEQ9jLbqBoFUM_ZaJiCIYQ_X1va684T4Qt_b-UEJzcRm6FeWmSt68sWCHkCogtaEcfM7aSf-hpykwhZwh2xpnNt28vMNKaABZIup4R_P7jtKtLDM-shn_Qbhj95ajJWlD4f7vNGIpOhuXGU7KVZPekaEP6NwlwRe4VkJkcmNh9vmvMLC5-mzuJHkrn99-WxRYtvF4FF2ckb63WAesUqAdylMT7KsKFLaiG1-vEjsUwfZ5WXfPayYoqzGyEeekL4KK6Ye5kidGHIAOP2WQHRdh9zdDEb-0MIpvb6OB87-Ttg6klWIKbpsxPrGwn8kg1Ncrj0Jr-8uzKPzLEo0Jq69Jy1 "HIDE_STEREOTYPE Sample")
 
 ## HIDE_PERSON_SPRITE(), SHOW_PERSON_SPRITE(?sprite), SHOW_PERSON_PORTRAIT() and SHOW_PERSON_OUTLINE()
 

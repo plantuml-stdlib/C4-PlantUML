@@ -4,7 +4,7 @@
 ' ##################################
 !function C4Version()
   ' 2 spaces and ' are used as unique marker, that the release scripts makes the correct version update
-  !$c4Version  =  "2.5.0"
+  !$c4Version  =  "2.6.0beta1"
   !return $c4Version
 !end function
 

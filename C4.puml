@@ -3,7 +3,9 @@
 'Version
 ' ##################################
 !function C4Version()
-  !return "2.5.0"
+  ' 2 spaces and ' are used as unique marker, that the release scripts makes the correct version update
+  !$c4Version  =  "2.5.0"
+  !return $c4Version
 !end function
 
 !procedure C4VersionDetails()

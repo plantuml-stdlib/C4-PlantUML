@@ -1,6 +1,6 @@
 
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Dynamic.puml
 
 LAYOUT_TOP_DOWN()
 LAYOUT_WITH_LEGEND()

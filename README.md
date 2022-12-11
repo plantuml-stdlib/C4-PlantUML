@@ -116,7 +116,7 @@ Take a look at the following sample of a C4 Container Diagram:
 
 ```plantuml
 @startuml Basic Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Container.puml
 
 Person(admin, "Administrator")
 System_Boundary(c1, "Sample System") {
@@ -135,7 +135,7 @@ Entities can also be decorated with icons/sprites using the $sprite parameter, f
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Container.puml
 
 !define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
 !define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
@@ -163,7 +163,7 @@ Similar to icons/sprites is it possible to add links to all elements and relatio
 
 ```plantuml
 @startuml Basic Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Container.puml
 
 Person(admin, "Administrator", $sprite="person2", $link="https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/LayoutOptions.md#hide_person_sprite-or-show_person_spritesprite")
 System_Boundary(c1, "Sample System", $link="https://github.com/plantuml-stdlib/C4-PlantUML") {
@@ -186,7 +186,7 @@ Elements and relationships can be decorated with tags and explained via a calcul
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Container.puml
 
 AddElementTag("v1.0", $borderColor="#d73027")
 AddElementTag("v1.1", $fontColor="#d73027")
@@ -221,7 +221,7 @@ SHOW_LEGEND()
 > - `?arg`: argument optional (e.g. `?tags`); an optional argument can be directly set via its keyword `$arg=...` (e.g. `$tags="specificTag"`) without the other optional arguments
 
 - System Context & System Landscape diagrams
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Context.puml`
   - Macros:
     - `Person(alias, label, ?descr, ?sprite, ?tags, ?link)`
     - `Person_Ext`
@@ -241,7 +241,7 @@ SHOW_LEGEND()
     - `robot2`
 
 - Container diagram
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Container.puml`
   - Additional Macros:
     - `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     - `ContainerDb`
@@ -252,7 +252,7 @@ SHOW_LEGEND()
     - `Container_Boundary(alias, label, ?tags, ?link)`
 
 - Component diagram
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Component.puml`
   - Additional Macros:
     - `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     - `ComponentDb`
@@ -262,7 +262,7 @@ SHOW_LEGEND()
     - `ComponentQueue_Ext`
 
 - Dynamic diagram
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Dynamic.puml`
   - Additional Macros:
     - `RelIndex(index, from, to, label, ?tags, ?link)`
     - (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
@@ -274,7 +274,7 @@ SHOW_LEGEND()
     - `SetIndex($new_index)`: returns new set index and calculates next index (function which can be used as argument)
 
 - Deployment diagram
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Deployment.puml`
   - Additional Macros:
     - `Deployment_Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`
     - `Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: short name of Deployment_Node()
@@ -299,7 +299,7 @@ In following sample a person uses different systems, and a group of persons whic
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Container.puml
 HIDE_STEREOTYPE()
 
 Person(a, "A")
@@ -341,7 +341,7 @@ In following sample a person uses different systems, and a group of persons whic
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Container.puml
 HIDE_STEREOTYPE()
 
 Person(a, "A")
@@ -380,7 +380,7 @@ In following sample the floating legend should be in the left bottom corner of t
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Container.puml
 
 !define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
 !define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
@@ -431,7 +431,7 @@ C4-PlantUML offers predefined person and robot sprites which can be directly use
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Component.puml
 
 Person(pB, "Sam", $sprite="person2")
 Person_Ext(pA, "Bob", $sprite="person")
@@ -458,7 +458,7 @@ Color of the displayed images can be changed with `,color={color}`.
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Container.puml
 
 'stdlib users.puml defines sprite "users"
 !include <office/users/users.puml>
@@ -490,7 +490,7 @@ Relationship specific sprites are typically smaller and therefore following opti
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Context.puml
 
 Person(user, "User")
 Person(user1, "User 1")
@@ -611,7 +611,7 @@ Like the element specific tag definitions exist boundary specific calls with the
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Container.puml
 
 UpdateElementStyle(person, $fontColor="green")
 AddElementTag("v1.0", $fontColor="#d73027", $borderColor="#d73027")
@@ -657,7 +657,7 @@ SHOW_LEGEND(false)
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Container.puml
 
 !define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
 !include osaPuml/Common.puml
@@ -716,7 +716,7 @@ SHOW_LEGEND()
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Component.puml
 
 ' Update the generic boundary style and the "system", "enterprise", "container" boundaries styles too
 UpdateBoundaryStyle($bgColor="gold", $fontColor="brown", $borderColor="brown")
@@ -767,7 +767,7 @@ If the custom (color) schema is defined via `UpdateElementStyle()` then the lege
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Context.puml
 
 !$COLOR_A_5 = "#7f3b08"
 !$COLOR_A_4 = "#b35806"
@@ -821,7 +821,7 @@ Following sample uses all 3 different property definitions (and the aligned depl
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Deployment.puml
 
 ' default header Property, Value
 AddProperty("Name", "Flash")
@@ -861,7 +861,7 @@ C4-PlantUML offers version information like PlantUML with its `%version()` call.
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.5.0/C4_Container.puml
 
 ' existing plantuml version as text
 %version()

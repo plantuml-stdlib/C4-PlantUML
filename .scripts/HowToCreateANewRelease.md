@@ -23,6 +23,8 @@ Update copyright year, contrib files, URLS, .... if required
 ### 0.x Check which is the next released version of the PlantUML(/PlantUML-stdlib)
 it is used as $deployed_version and written in the released README.md
 
+If it is unknown it can be calculated via `CalculateDeployedVersion` (details see below)
+
 ## 1. create new release in branch `release/$release_version` (based on master)
 
 Atm following steps are semi-automated and can be executed in a bash shell:
@@ -37,7 +39,13 @@ export next_version=v2.7.0
 export deployed_version=V1.2022.15
 ```
 
-and create the `release/$release_version` branch \(e.g. `release/v2.6.0`) based on master branch
+If the deployed_version is unknown it can be calculate via following (don't forget to set the environment variable after the call)
+
+```bash
+python ./.scripts/transform_files.py CalculateDeployedVersion
+```
+
+As soon all versions are defined the `release/$release_version` branch \(e.g. `release/v2.6.0`) can be created based on master branch
 
 ```bash
 git pull
@@ -118,7 +126,7 @@ Following commit all changes
 ```bash
 git checkout start-$next_version-beta1
 git add -u C4.puml
-git commit -m "Update version with first beta of $next_version ($release_version is created based on previous commit)"
+git commit -m "Update version with first beta of $next_version ($release_version was created based on previous commit)"
 ```
 
 And if everything is ok it can be pushed too
@@ -134,11 +142,34 @@ This is done manually \(incl. an additional check...)
 
 ## 4. Create in PlantUML/PlantUML-stdlib a MR based on `release/$release_version` branch
 
-- create in a PlantUML/PlantUML-stdlib fork a `C4$release_version` branch (e.g. `C4v2.6.0`)
-- update the C4_*.puml and INFO file
-- Commit changes with comment "Update C4-PlantUML to $release_version"
-- create a MR "Update C4-PlantUML to $next_version"
+### 4.1. create in a PlantUML/PlantUML-stdlib fork a `C4$release_version` branch (e.g. `C4v2.6.0`)
 
 (detailed description is missing)
 
+### 4.2. prepare the C4_*.puml and INFO file
 
+> It is assumed that following calls are started in "C4-PlantUML repository" folder
+(and not in the "plantuml-stdlib repository" folder)
+
+Following script call prepares the C4 folder in the given `<plantuml-stdlib/C4 target folder>` folder
+
+```bash
+python ./.scripts/transform_files.py CreatePlantUMLStdlibC4Folder <plantuml-stdlib/C4 target folder>
+```
+
+If no target folder is defined then the prepared folder will be stored into '.plantuml_stdlib_c4' folder that it can be copied from there.
+
+If the "plantuml-stdlib repository" folder is parallel to the "C4-PlantUML repository" folder 
+then it can be prepared with following call:
+
+```bash
+python ./.scripts/transform_files.py CreatePlantUMLStdlibC4Folder  ../plantuml-stdlib/C4
+```
+
+### 4.3. Commit changes with comment "Update C4-PlantUML to $release_version"
+
+(detailed description is missing)
+
+### 4.4. create a MR "Update C4-PlantUML to $next_version"
+
+This is done manually \(incl. an additional check...)

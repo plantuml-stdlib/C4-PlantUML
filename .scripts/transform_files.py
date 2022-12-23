@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# If a new version is released, version number and other topics of the source 
+# If a new version is released, version number and other topics of the source
 # has to be updated.
 # This script simplifies the update from master to a specific release (branch/tag)
 
@@ -9,20 +9,25 @@
 # - It is assumed that the script is stared in repository root with relative path
 #   python ./.scripts/transform_files <transformation>
 #
-# - It is assumed that 
+# - It is assumed that
 #   - "release_version"      (e.g. "v2.6.0"),
 #   - "next_version"         (e.g. "v2.7.0") and
 #   - "deployed_version" ... this is the next "plantuml(/plantuml-stdlib)" version
 #                            which should be updated with this release (e.g. "V1.2023.2")
+#                            If it is unknown it can be calculated via "CalculateDeployedVersion"
 #   are defined as environment variable
 
-# Supported transformations are
+# Supported transformations/functions are
+#
+# - CalculateDeployedVersion
 #
 # - UpdateC4WithReleaseVersion
 # - UpdateAllIncludes
 # - UpdateAllImages
 # - ReplaceREADMEHeader
 # - UpdateC4WithNextBeta
+#
+# - CreatePlantUMLStdlibC4Folder [<plantuml-stdlib/C4 target folder>]
 
 import os
 import re
@@ -32,6 +37,8 @@ import glob
 import zlib
 import base64
 import string
+
+import requests
 
 # >>>>> plant uml decoder from ryardley/plant_uml_decoder.py
 # >>>>> https://gist.github.com/ryardley/64816f5097003a35f9726aab676920d0
@@ -93,7 +100,7 @@ def read_environment_variables():
     deployed_version = read_environment_variable("deployed_version")
 
 
-def replace_regex_in_file(file_path, search, replace):
+def replace_first_regex_in_file(file_path, search, replace):
     r = re.compile(search)
     with open(file_path, "r") as file:
         filedata = file.read()
@@ -110,12 +117,55 @@ def replace_in_file(file_path, orig, replace):
         file.write(filedata)
 
 
+def replace_first_regex_copy_file(
+    source_path, target_path, compiled_search_regex, replace
+):
+    with open(source_path, "r") as file:
+        filedata = file.read()
+    filedata = compiled_search_regex.sub(replace, filedata, 1)
+    with open(target_path, "w") as file:
+        file.write(filedata)
+
+
+# Calculates the next released PlantUML version that it can be used as deployed_version environment variable
+# based on http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSf8JKn9BL9GBKijAixCpzFGv798pKi1oW00 response
+# This function returns "V" + the parsed version number  (e.g. "V1.2022.16")
+def read_next_plantuml_version():
+    # the idea is that the PlantUML version is extracted out of the svg result of "header %version()".
+    # %version() stores beta of next version.
+    # the returned SVG response stores the version inclusive beta in a text element; e.fg. "...<text ...>1.2022.16beta2</text>..."
+    # and this function returns "V" + the parsed version number  (e.g. "V1.2022.16")
+    print(f"calculates the next deployed_version based on the running PlantUML web server response ...")
+    resp = requests.get("http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSf8JKn9BL9GBKijAixCpzFGv798pKi1oW00")
+    if resp.status_code != 200:
+        sys.stderr.write(
+            f"cannot read the svg response (with the next release version) from the PlantUML web server; please check http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSf8JKn9BL9GBKijAixCpzFGv798pKi1oW00"
+        )
+        sys.exit(4)
+
+    # As an alternative it could be calculated via https://www.planttext.com/api/plantuml/txt/SoWkIImgIIvApSz9vL8jIoqgpipFqz3aSaZDIu680W00
+    # It would return "1.2022.15beta6\n". (details see https://forum.plantuml.net/17179/ascii-art-title-produces-java-lang-illegalstateexception?show=17184#a17184)
+
+    svgbody = resp.content
+    svg = svgbody.decode('utf-8')
+    # this regex ignore beta2 of the text section too: "<text [^>]+>(?P<version>[0-9\.]+)"
+    r = re.compile("<text [^>]+>(?P<version>[0-9\.]+)")
+    v = r.search(svg)["version"]
+    version = "V" + v
+
+    print(
+        f"The next PlantUML version = {version}. It can be used as deployed_version environment variable with following statement"
+    )
+    print(f"    export deployed_version={version}")
+
+    return version
+
 def update_c4_release_version():
     # $c4Version is defined without starting 'v'
     print(
         f"updating C4Version() definition in C4.puml with new release_version {release_version[1:]} ..."
     )
-    replace_regex_in_file(
+    replace_first_regex_in_file(
         "C4.puml", '!\$c4Version  =  ".+"', f'!$c4Version  =  "{release_version[1:]}"'
     )
     print(f"C4Version() updated")
@@ -126,7 +176,7 @@ def update_c4_next_beta_version():
     print(
         f"updating C4Version() definition in C4.puml with new release_version {release_version[1:]} ..."
     )
-    replace_regex_in_file(
+    replace_first_regex_in_file(
         "C4.puml", '!\$c4Version  =  ".+"', f'!$c4Version  =  "{next_version[1:]}beta1"'
     )
     print(f"C4Version() updated")
@@ -211,7 +261,7 @@ def update_all_images():
 
 def replace_readme_header():
     print(f"updating README.md with new version {release_version} and badges ...")
-    # remove whole part before "# C4-PlantUML" in readme
+    # remove whole part before "# C4-PlantUML" in README.md
     r = re.compile(r"[^\#]+# C4-PlantUML", re.M)
     with open("README.md", "r") as file:
         filedata = file.read()
@@ -231,9 +281,67 @@ def replace_readme_header():
     print(f"release README.md updated with new version and badges")
 
 
-if len(sys.argv) != 2:
+def create_plantuml_stdlib_c4_folder(target_path):
+    print(
+        f"prepare C4 folder of plantuml-stdlib repository in folder {target_path} ..."
+    )
+    # remove whole begin inclusive "!endif" in the specific C4_*.puml files
+    inclusiveEndif = re.compile(r"'[^']+!endif", re.M)
+
+    os.makedirs(target_path, exist_ok=True)
+    replace_first_regex_copy_file(
+        "C4.puml",
+        os.path.join(target_path, "C4.puml"),
+        re.compile("DOES NOT EXIST"),
+        "DOES NOT EXIST",
+    )
+    replace_first_regex_copy_file(
+        "C4_Component.puml",
+        os.path.join(target_path, "C4_Component.puml"),
+        inclusiveEndif,
+        "!include <C4/C4_Container>",
+    )
+    replace_first_regex_copy_file(
+        "C4_Container.puml",
+        os.path.join(target_path, "C4_Container.puml"),
+        inclusiveEndif,
+        "!include <C4/C4_Context>",
+    )
+    replace_first_regex_copy_file(
+        "C4_Context.puml",
+        os.path.join(target_path, "C4_Context.puml"),
+        inclusiveEndif,
+        "!include <C4/C4>",
+    )
+    replace_first_regex_copy_file(
+        "C4_Deployment.puml",
+        os.path.join(target_path, "C4_Deployment.puml"),
+        inclusiveEndif,
+        "!include <C4/C4_Container>",
+    )
+    replace_first_regex_copy_file(
+        "C4_Dynamic.puml",
+        os.path.join(target_path, "C4_Dynamic.puml"),
+        inclusiveEndif,
+        "!include <C4/C4_Component>",
+    )
+
+    replace_first_regex_copy_file(
+        "./.scripts/plantuml_stdlib_info.txt",
+        os.path.join(target_path, "INFO"),
+        re.compile(r"\{release version without v\}"),
+        release_version[1:],
+    )
+
+    print(f"all C4 related plantuml-stdlib files copied into {target_path}.")
+
+
+if not (
+    len(sys.argv) == 2
+    or (len(sys.argv) == 3 and sys.argv[1] == "CreatePlantUMLStdlibC4Folder")
+):
     u = "Usage: python ./.scripts/transform_files.py <transformation>\n"
-    sys.stderr.write(u)
+    sys.stderr.write("Usage: python ./.scripts/transform_files.py <transformation>\n")
     sys.exit(1)
 
 if sys.argv[0] != "./.scripts/transform_files.py":
@@ -241,18 +349,28 @@ if sys.argv[0] != "./.scripts/transform_files.py":
     sys.stderr.write(u)
     sys.exit(1)
 
-read_environment_variables()
-
 if sys.argv[1] == "UpdateC4WithReleaseVersion":
+    read_environment_variables()
     update_c4_release_version()
 elif sys.argv[1] == "UpdateAllIncludes":
+    read_environment_variables()
     update_all_includes()
 elif sys.argv[1] == "UpdateAllImages":
+    read_environment_variables()
     update_all_images()
 elif sys.argv[1] == "ReplaceREADMEHeader":
+    read_environment_variables()
     replace_readme_header()
 elif sys.argv[1] == "UpdateC4WithNextBeta":
+    read_environment_variables()
     update_c4_next_beta_version()
+elif sys.argv[1] == "CalculateDeployedVersion":
+    calculated_deployed_version = read_next_plantuml_version()
+elif sys.argv[1] == "CreatePlantUMLStdlibC4Folder":
+    if len(sys.argv) == 3:
+        create_plantuml_stdlib_c4_folder(sys.argv[2])
+    else:
+        create_plantuml_stdlib_c4_folder(".plantuml_stdlib_c4")
 else:
     sys.stderr.write(f"{sys.argv[1]} is an unsupported transformation\n")
     sys.exit(1)

@@ -9,9 +9,14 @@ The idea is to
 
 The process requires following 3 versions:
 
-- $release_version: version which should be created (e.g. `v2.6.0`),
-- $next_version: version of the next beta which should be stared as soon the release is created (e.g. `v2.7.0`). The master branch will be updated with a `beta1` of this version and C4Version() returns `2.7.0beta1`.
-- $deployed_version: this is the next "plantuml(/plantuml-stdlib)" version which should be updated with this release (e.g. "V1.2023.2")
+- **$release_version**: version which should be created (e.g. `v2.6.0`)
+- **$next_version**: version of the next beta which should be stared
+  as soon the release is created (e.g. `v2.7.0`).  
+  The master branch will be updated with a `beta1` of this version and C4Version() returns `2.7.0beta1`.
+- **$deployed_version**: this is the next "plantuml(/plantuml-stdlib)" version
+  which should be updated with this release (e.g. "V1.2023.2")  
+  If it is unknown it can be calculated via `CalculateDeployedVersion`
+  (details see below)
 
 ### 0.0 Create a new issue with the title `Release $release_version` \(e.g. `Release v2.6.0`)
 and a body like in https://github.com/plantuml-stdlib/C4-PlantUML/issues/248
@@ -21,8 +26,7 @@ and a body like in https://github.com/plantuml-stdlib/C4-PlantUML/issues/248
 Update copyright year, contrib files, URLS, .... if required
 ### 0.* ...
 ### 0.x Check which is the next released version of the PlantUML(/PlantUML-stdlib)
-it is used as $deployed_version and written in the released README.md
-
+it is used as $deployed_version and written in the released README.md  
 If it is unknown it can be calculated via `CalculateDeployedVersion` (details see below)
 
 ## 1. create new release in branch `release/$release_version` (based on master)
@@ -142,33 +146,46 @@ This is done manually \(incl. an additional check...)
 
 ## 4. Create in PlantUML/PlantUML-stdlib a MR based on `release/$release_version` branch
 
-### 4.1. create in a PlantUML/PlantUML-stdlib fork a `C4$release_version` branch (e.g. `C4v2.6.0`)
-
-(detailed description is missing)
-
-### 4.2. prepare the C4_*.puml and INFO file
+> !!! CHECK that the correct release branch is activated  !!!
 
 > It is assumed that following calls are started in "C4-PlantUML repository" folder
 (and not in the "plantuml-stdlib repository" folder)
 
-Following script call prepares the C4 folder in the given `<plantuml-stdlib/C4 target folder>` folder
+The process requires following information too:
+
+- **$deploy_repository_folder**: folder with the local `PlantUML/PlantUML-stdlib` git repositiory.  
+  E.g. if it is parallel to the C4-PlantUML repository the it could be `../plantuml-stdlib`.
+
+### 4.1. create in a PlantUML/PlantUML-stdlib fork a `C4$release_version` branch (e.g. `C4v2.6.0`)
 
 ```bash
-python ./.scripts/transform_files.py CreatePlantUMLStdlibC4Folder <plantuml-stdlib/C4 target folder>
+export release_version=v2.6.0
+export next_version=v2.7.0
+export deployed_version=V1.2022.15
+
+export deploy_repository_folder=../plantuml-stdlib
+
+git pull
+git checkout release/$release_version
+
+git -C $deploy_repository_folder pull
+git -C $deploy_repository_folder checkout master
+git -C $deploy_repository_folder branch C4$release_version
+git -C $deploy_repository_folder checkout C4$release_version
 ```
 
-If no target folder is defined then the prepared folder will be stored into '.plantuml_stdlib_c4' folder that it can be copied from there.
-
-If the "plantuml-stdlib repository" folder is parallel to the "C4-PlantUML repository" folder 
-then it can be prepared with following call:
+### 4.2. prepare the C4_*.puml and INFO file
 
 ```bash
-python ./.scripts/transform_files.py CreatePlantUMLStdlibC4Folder  ../plantuml-stdlib/C4
+python ./.scripts/transform_files.py CreatePlantUMLStdlibC4Folder $deploy_repository_folder/C4
 ```
 
 ### 4.3. Commit changes with comment "Update C4-PlantUML to $release_version"
 
-(detailed description is missing)
+```bash
+git -C $deploy_repository_folder add -u C4/**
+git -C $deploy_repository_folder commit -m "Update C4-PlantUML to $release_version"
+```
 
 ### 4.4. create a MR "Update C4-PlantUML to $next_version"
 

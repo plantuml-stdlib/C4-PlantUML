@@ -367,6 +367,7 @@ elif sys.argv[1] == "UpdateC4WithNextBeta":
 elif sys.argv[1] == "CalculateDeployedVersion":
     calculated_deployed_version = read_next_plantuml_version()
 elif sys.argv[1] == "CreatePlantUMLStdlibC4Folder":
+    read_environment_variables()
     if len(sys.argv) == 3:
         create_plantuml_stdlib_c4_folder(sys.argv[2])
     else:

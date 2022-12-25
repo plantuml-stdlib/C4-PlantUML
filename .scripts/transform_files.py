@@ -11,11 +11,13 @@
 #
 # - It is assumed that
 #   - "release_version"      (e.g. "v2.6.0"),
-#   - "next_version"         (e.g. "v2.7.0") and
-#   - "deployed_version" ... this is the next "plantuml(/plantuml-stdlib)" version
+#   - "next_version"         (e.g. "v2.7.0")
+#                            If it is undefined it will be calculated via the release_version.
+#                            It is the next patch (release patch!=0) or subversion (release patch==0).
+#   - and "deployed_version" This is the next "plantuml(/plantuml-stdlib)" version
 #                            which should be updated with this release (e.g. "V1.2023.2")
-#                            If it is unknown it can be calculated via "CalculateDeployedVersion"
-#   are defined as environment variable
+#                            If it is undefined it is calculated via the running PlantUML web service
+#   are defined as environment variable (or they will be calculated it possible)
 
 # Supported transformations/functions are
 #
@@ -75,17 +77,22 @@ def plantuml_decode(plantuml_url):
 # <<<<< plant uml decoder from ryardley/plant_uml_decoder.py
 
 
-def read_environment_variable(env_var):
+def read_environment_variable(env_var, is_required = True):
     if env_var not in os.environ:
-        sys.stderr.write(
-            f"the required environment variable {env_var} is not defined\n"
-        )
-        sys.exit(3)
+        if is_required:
+            sys.stderr.write(
+                f"the required environment variable {env_var} is not defined\n"
+            )
+            sys.exit(3)
+        else:
+            return ""
     return os.environ[env_var]
 
 
 # It is assumed that "release_version", "next_version" and "deployed_version"
-# are defined as environment variable
+# are defined as environment variable.
+# If next_version is not defined then it is calculated based on release_version
+# If deployed_version is not defined then it is calculated based on the running PlantUML web server
 def read_environment_variables():
     global release_version
     release_version = read_environment_variable("release_version")
@@ -94,10 +101,27 @@ def read_environment_variables():
             f"release version {release_version} has to start with 'v' (and use a format like vX.Y.Z)"
         )
         sys.exit(2)
+    release_match = re.search(
+        r"^v(?P<v1>[0-9]+)\.(?P<v2>[0-9]+)\.(?P<v3>[0-9]+)$", release_version
+    )
+    if not release_match:
+        sys.stderr.write(
+            f"release version {release_version} has to use a format like v[0-9]+.[0-9]+.[0-9]+, e.g. v2.6.0)"
+        )
+        sys.exit(2)
+
     global next_version
-    next_version = read_environment_variable("next_version")
+    next_version = read_environment_variable("next_version", False)
+    if next_version == "":
+        v1 = int(release_match["v1"])
+        v2 = int(release_match["v2"])
+        v3 = int(release_match["v3"])
+        next_version = calculate_next_version(release_version, v1, v2, v3)
+
     global deployed_version
-    deployed_version = read_environment_variable("deployed_version")
+    deployed_version = read_environment_variable("deployed_version", False)
+    if deployed_version == "":
+        deployed_version = read_next_plantuml_version()
 
 
 def replace_first_regex_in_file(file_path, search, replace):
@@ -127,6 +151,22 @@ def replace_first_regex_copy_file(
         file.write(filedata)
 
 
+# Calculates the next version (inclusive starting v) based on the give version values.
+# If v3 == 0 then v2 is increased otherwise v3
+def calculate_next_version(release, v1, v2, v3):
+    print(f"calculates the next_version based on given release_version {release} ...")
+    if v3 == 0:
+        v2 = v2 + 1
+    else:
+        v3 = v3 + 1
+    version = f"v{v1}.{v2}.{v3}"
+    print(
+        f"The calculated next_version = {version}. It can be used as next_version environment variable with following statement"
+    )
+    print(f"    export next_version={version}")
+    return version
+
+
 # Calculates the next released PlantUML version that it can be used as deployed_version environment variable
 # based on http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSf8JKn9BL9GBKijAixCpzFGv798pKi1oW00 response
 # This function returns "V" + the parsed version number  (e.g. "V1.2022.16")
@@ -135,8 +175,12 @@ def read_next_plantuml_version():
     # %version() stores beta of next version.
     # the returned SVG response stores the version inclusive beta in a text element; e.fg. "...<text ...>1.2022.16beta2</text>..."
     # and this function returns "V" + the parsed version number  (e.g. "V1.2022.16")
-    print(f"calculates the next deployed_version based on the running PlantUML web server response ...")
-    resp = requests.get("http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSf8JKn9BL9GBKijAixCpzFGv798pKi1oW00")
+    print(
+        f"calculates the next deployed_version based on the running PlantUML web server response ..."
+    )
+    resp = requests.get(
+        "http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSf8JKn9BL9GBKijAixCpzFGv798pKi1oW00"
+    )
     if resp.status_code != 200:
         sys.stderr.write(
             f"cannot read the svg response (with the next release version) from the PlantUML web server; please check http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSf8JKn9BL9GBKijAixCpzFGv798pKi1oW00"
@@ -147,7 +191,7 @@ def read_next_plantuml_version():
     # It would return "1.2022.15beta6\n". (details see https://forum.plantuml.net/17179/ascii-art-title-produces-java-lang-illegalstateexception?show=17184#a17184)
 
     svgbody = resp.content
-    svg = svgbody.decode('utf-8')
+    svg = svgbody.decode("utf-8")
     # this regex ignore beta2 of the text section too: "<text [^>]+>(?P<version>[0-9\.]+)"
     r = re.compile("<text [^>]+>(?P<version>[0-9\.]+)")
     v = r.search(svg)["version"]
@@ -159,6 +203,7 @@ def read_next_plantuml_version():
     print(f"    export deployed_version={version}")
 
     return version
+
 
 def update_c4_release_version():
     # $c4Version is defined without starting 'v'

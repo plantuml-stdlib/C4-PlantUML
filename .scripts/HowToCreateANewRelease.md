@@ -12,20 +12,26 @@ The process requires following 3 versions:
 - **$release_version**: version which should be created (e.g. `v2.6.0`)
 - **$next_version**: version of the next beta which should be stared
   as soon the release is created (e.g. `v2.7.0`).  
-  The master branch will be updated with a `beta1` of this version and C4Version() returns `2.7.0beta1`.
+  The master branch will be updated with a `beta1` of this version and C4Version() returns `2.7.0beta1`.  
+  If it is unknown/undefined it is calculated via the release_version. It is the next patch (release patch!=0) or subversion (release patch==0).
 - **$deployed_version**: this is the next "plantuml(/plantuml-stdlib)" version
   which should be updated with this release (e.g. "V1.2023.2")  
-  If it is unknown it can be calculated via `CalculateDeployedVersion`
-  (details see below)
+  If it is unknown/undefined it is calculated via the running PlantUML web service
 
 ### 0.0 Create a new issue with the title `Release $release_version` \(e.g. `Release v2.6.0`)
+
 and a body like in https://github.com/plantuml-stdlib/C4-PlantUML/issues/248
 
 ### 0.1 Check that all open issues of the related `$release_version milestone` are fixed
+
 ### 0.2 Check that all other open changes are done
+
 Update copyright year, contrib files, URLS, .... if required
+
 ### 0.* ...
+
 ### 0.x Check which is the next released version of the PlantUML(/PlantUML-stdlib)
+
 it is used as $deployed_version and written in the released README.md  
 If it is unknown it can be calculated via `CalculateDeployedVersion` (details see below)
 

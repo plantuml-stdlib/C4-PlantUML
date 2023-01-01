@@ -1,0 +1,40 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!endif
+
+HIDE_STEREOTYPE()
+
+Person(x, "X")
+System(s1, "S1")
+System(s2, "S2")
+System(s3, "S3")
+System(s4, "S4")
+
+Rel_U(x, s1, "uses U")
+Rel_R(x, s2, "uses R")
+Rel_D(x, s3, "uses D")
+Rel_L(x, s4, "uses L")
+
+Rel_Back(x, s1, "back U")
+Rel_Back(x, s2, "back R")
+Rel_Back(x, s3, "back D")
+Rel_Back(x, s4, "back L")
+
+Person(nx, "neighbor X")
+System(ns1, "neighbor S1")
+Rel_Neighbor(nx, ns1, "uses N")
+Rel_Back_Neighbor(nx, ns1, "back N")
+' nx <-[norank]- ns1: "**back N**"
+
+' practically both Rel_Back... versions produce the same layout
+Person(mx, "mixed X")
+System(ms1, "mixed S1")
+Rel_Neighbor(mx, ms1, "uses M")
+Rel_Back(mx, ms1, "back M")
+' mx <-[norank]- ms1: "**back M**"
+
+@enduml

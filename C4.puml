@@ -935,7 +935,10 @@ $elementSkin
 !function $getElementBase($label, $techn, $descr, $sprite)
   !$element = ""
   !if ($sprite != "")
-    !$element = $element + $getSprite($sprite) + '\n'
+    !$element = $element + $getSprite($sprite)
+    !if ($label != "")
+      !$element = $element + '\n'
+    !endif
   !endif
   !if ($label != "")
     !$element = $element + '== ' + $breakLabel($label)

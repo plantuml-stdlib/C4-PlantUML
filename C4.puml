@@ -929,6 +929,28 @@ $elementSkin
   !return $breakText($text, $usedNewLine, $widthStr)
 !endfunction
 
+' Element base layout
+' ##################################
+
+!function $getElementBase($label, $techn, $descr, $sprite)
+  !$element = ""
+  !if ($sprite != "")
+    !$element = $element + $getSprite($sprite) + '\n'
+  !endif
+  !if ($label != "")
+    !$element = $element + '== ' + $breakLabel($label)
+  !else
+    !$element = $element + '<size:0>.</size>'
+  !endif
+  !if ($techn != "")
+    !$element = $element + '\n//<size:' + $TECHN_FONT_SIZE + '>[' + $breakTechn($techn, '-1') + ']</size>//'
+  !endif
+  !if ($descr != "")
+    !$element = $element + '\n\n' + $descr
+  !endif
+  !return $element
+!endfunction
+
 ' Element properties
 ' ##################################
 
@@ -1241,15 +1263,26 @@ UpdateBoundaryStyle("", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR,
     !$rel = $rel + ' ' + $toStereos($tags)
   !endif
   !$rel = $rel + ' : '
+  !if ($link != "")
+    !$rel = $rel + '**[[' + $link + ' '
+  !endif
   !if ($sprite != "")
-    !$rel = $rel + $getSprite($sprite) + ' '
+    !$rel = $rel + $getSprite($sprite)
+    !if ($label != "")
+      !$rel = $rel + ' '
+    !endif
   !endif
   !if ($link != "")
     !$usedNewLine = ']]**\n**[[' + $link + ' '
-    !$rel = $rel + '**[[' + $link + ' ' + $breakText($label, $usedNewLine) + ']]**'
+    ' if sprite and label is empty than the link url is shown (otherwise link cannot be activated at all)
+    !$rel = $rel + $breakText($label, $usedNewLine) + ']]**'
   !else
-    !$usedNewLine = '**\n**'
-    !$rel = $rel + '**' + $breakText($label, $usedNewLine) + '**'
+    !if ($label != "")
+      !$usedNewLine = '**\n**'
+      !$rel = $rel + '**' + $breakText($label, $usedNewLine) + '**'
+    !else
+      !$rel = $rel + '<size:0>.</size>'
+    !endif
   !endif
   !if ($techn != "")
     ' line break is not deterministic, calculate it

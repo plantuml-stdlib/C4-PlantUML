@@ -59,18 +59,7 @@ endlegend
 ' ##################################
 
 !function $getContainer($label, $techn, $descr, $sprite)
-  !$container = ""
-  !if ($sprite != "")
-    !$container = $container + $getSprite($sprite) + '\n'
-  !endif
-  !$container = $container + '== ' + $breakLabel($label)
-  !if ($techn != "")
-    !$container = $container + '\n//<size:' + $TECHN_FONT_SIZE + '>[' + $breakTechn($techn, '-1') + ']</size>//'
-  !endif
-  !if ($descr != "")
-    !$container = $container + '\n\n' + $descr
-  !endif
-  !return $container
+  !return $getElementBase($label, $techn, $descr, $sprite)
 !endfunction
 
 !unquoted procedure Container($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")

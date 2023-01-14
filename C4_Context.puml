@@ -333,36 +333,14 @@ UpdateElementStyle("external_person")
 ' ##################################
 
 !function $getPerson($label, $descr, $sprite)
-!if ($sprite == "") && ($defaultPersonSprite != "")
-  !$sprite = $defaultPersonSprite
-!endif
-!if ($descr == "") && ($sprite == "")
-  !return '== '+$breakLabel($label)
-!endif
-!if ($descr == "") && ($sprite != "")
-  !return $getSprite($sprite)+'\n== '+$breakLabel($label)
-!endif
-!if ($descr != "") && ($sprite == "")
-  !return '== '+$breakLabel($label)+'\n\n '+$descr
-!endif
-!if ($descr != "") && ($sprite != "")
-  !return $getSprite($sprite)+'\n== '+$breakLabel($label)+'\n\n '+$descr
-!endif
+  !if ($sprite == "") && ($defaultPersonSprite != "")
+    !$sprite = $defaultPersonSprite
+  !endif
+  !return $getElementBase($label, "", $descr, $sprite)
 !endfunction
 
 !function $getSystem($label, $descr, $sprite)
-!if ($descr == "") && ($sprite == "")
-!return '== '+$breakLabel($label)
-!endif
-!if ($descr == "") && ($sprite != "")
-!return $getSprite($sprite)+'\n== '+$breakLabel($label)
-!endif
-!if ($descr != "") && ($sprite == "")
-!return '== '+$breakLabel($label)+'\n\n '+$descr
-!endif
-!if ($descr != "") && ($sprite != "")
-!return $getSprite($sprite)+'\n== '+$breakLabel($label)+'\n\n '+$descr
-!endif
+  !return $getElementBase($label, "", $descr, $sprite)
 !endfunction
 
 !unquoted procedure Person($alias, $label, $descr="", $sprite="", $tags="", $link="")

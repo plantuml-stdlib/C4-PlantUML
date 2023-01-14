@@ -58,18 +58,7 @@ endlegend
 ' ##################################
 
 !function $getComponent($label, $techn, $descr, $sprite)
-  !$component = ""
-  !if ($sprite != "")
-    !$component = $component + $getSprite($sprite) + '\n'
-  !endif
-  !$component = $component + '== ' + $breakLabel($label)
-  !if ($techn != "")
-    !$component = $component + '\n//<size:' + $TECHN_FONT_SIZE + '>[' + $breakTechn($techn, '-1') + ']</size>//'
-  !endif
-  !if ($descr != "")
-    !$component = $component + '\n\n' + $descr
-  !endif
-  !return $component
+  !return $getElementBase($label, $techn, $descr, $sprite)
 !endfunction
 
 !unquoted procedure Component($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")

@@ -1,0 +1,105 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!endif
+
+LAYOUT_TOP_DOWN()
+
+!$img="img:https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/80px-Test-Logo.svg.png"
+!$imgSmall="img:https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/20px-Test-Logo.svg.png"
+
+' SHOW_PERSON_OUTLINE()
+SHOW_PERSON_PORTRAIT()
+
+Boundary(b, "Persons") {
+  Person(p, "Label", "Optional Description", $sprite=$img)
+  Person(p1, "", "Optional Description", $sprite=$img)
+  Person(p2, "", $sprite=$img)
+  Person(p3, " ", $sprite=$img)
+  ' should not be used (alias is not automatically reused, only empty block is displayed)
+  Person(p4, "")
+
+  Lay_R(p,p1)
+  Lay_R(p1,p2)
+  Lay_R(p2,p3)
+  Lay_R(p3,p4)
+}
+
+Boundary(b1, "Systems") {
+  System(s, "Label", "Optional Description", $sprite=$img)
+  System(s1, "", "Optional Description", $sprite=$img)
+  System(s2, "", $sprite=$img)
+  System(s3, " ", $sprite=$img)
+  ' should not be used (alias is not automatically reused, only empty block is displayed)
+  System(s4, "")
+
+  Lay_R(s,s1)
+  Lay_R(s1,s2)
+  Lay_R(s2,s3)
+  Lay_R(s3,s4)
+}
+
+Boundary(b2, "Components") {
+  Component(comp, "Label", "Techn", "Optional Description", $sprite=$img)
+  Component(comp1, "", "Techn", "Optional Description", $sprite=$img)
+  Component(comp2, "", $sprite=$img)
+  Component(comp3, " ", $sprite=$img)
+  ' should not be used (alias is not automatically reused, only empty block is displayed)
+  Component(comp4, "")
+
+  Lay_R(comp,comp1)
+  Lay_R(comp1,comp2)
+  Lay_R(comp2,comp3)
+  Lay_R(comp3,comp4)
+}
+
+Boundary(b3, "Containers") {
+  Container(con, "Label", "Techn", "Optional Description", $sprite=$img)
+  Container(con1, "", "Techn", "Optional Description", $sprite=$img)
+  Container(con2, "", $sprite=$img)
+  Container(con3, " ", $sprite=$img)
+  ' should not be used (alias is not automatically reused, only empty block is displayed)
+  Container(con4, "")
+
+  Lay_R(con,con1)
+  Lay_R(con1,con2)
+  Lay_R(con2,con3)
+  Lay_R(con3,con4)
+}
+
+Boundary(b4, "Relationships") {
+  System(A1,"A1")
+  System(B1,"B1")
+  System(C1,"C1")
+  System(D1,"D1")
+  System(E1,"E1")
+
+  System(A2,"A2")
+  System(B2,"B2")
+  System(C2,"C2")
+  System(D2,"D2")
+  System(E2,"E2")
+
+  Lay_D(A1,A2)
+
+  Rel_R(E1, A1, "label", $sprite=$imgSmall, $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+  Rel_R(A1, B1, "", $sprite=$imgSmall, $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+  Rel_R(B1, C1, " ", $sprite=$imgSmall, $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+  Rel_R(C1, D1, "", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+
+  Rel_R(E2, A2, "label", $sprite=$imgSmall)
+  Rel_R(A2, B2, "", $sprite=$imgSmall)
+  Rel_R(B2, C2, " ", $sprite=$imgSmall)
+  Rel_R(C2, D2, "")
+}
+
+Lay_D(b,b1)
+Lay_D(b1,b2)
+Lay_D(b2,b3)
+Lay_D(b3,b4)
+
+SHOW_LEGEND()
+@enduml

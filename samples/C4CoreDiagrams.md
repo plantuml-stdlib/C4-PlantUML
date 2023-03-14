@@ -4,6 +4,7 @@ The following samples are reproductions with C4-PlantUML from [C4 model core dia
 
 - [📄 C4-PlantUML](../README.md#c4-plantuml)
 - [📄 Layout Options](../LayoutOptions.md#layout-options)
+- [📄 Themes (WIP), Changeable Styles](#themes-wip-changeable-styles)
 - samples
   - [📄 C4 Model Diagrams](#c4-model-diagrams)
     - [Core Diagrams](#core-diagrams)

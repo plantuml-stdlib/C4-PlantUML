@@ -41,7 +41,7 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
     - [Sample with different tag combinations](#sample-with-different-tag-combinations)
     - [Sample with tag dependent sprites and custom legend text](#sample-with-tag-dependent-sprites-and-custom-legend-text)
     - [Sample with different boundary tag combinations](#sample-with-different-boundary-tag-combinations)
-    - [Custom schema definition](#custom-schema-definition)
+    - [Custom schema definitions (via UpdateElementStyle())](#custom-schema-definitions-via-updateelementstyle)
   - [Element and Relationship properties](#element-and-relationship-properties)
   - [Version information](#version-information)
   - [Snippets for Visual Studio Code](#snippets-for-visual-studio-code)
@@ -55,6 +55,7 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
   - [Background](#background)
   - [License](#license)
 - [📄 Layout Options](LayoutOptions.md#layout-options)
+- [📄 Themes (WIP), Changeable Styles](Themes.md#themes-wip-changeable-styles)
 - samples
   - [📄 Core Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
 
@@ -567,7 +568,7 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 Sometimes an added element tag is element specific and all element specific colors should be used, e.g. a specific user role should be defined as element tag with the specific colors `...PERSON_...` like
 
 ```plantuml
-AddElementTag("admin", $fontColor=$ELEMENT_FONT_COLOR, $bgColor=$PERSON_BG_COLOR, $borderColor=$PERSON_BORDER_COLOR, $sprite="osa_user_audit", $legendText="administration user")
+AddElementTag("admin", $fontColor=$PERSON_FONT_COLOR, $bgColor=$PERSON_BG_COLOR, $borderColor=$PERSON_BORDER_COLOR, $sprite="osa_user_audit", $legendText="administration user")
 ```
 
 Therefore element Add...Tag() shortcuts are added which use the specific colors as default values and the call can be simplified like
@@ -764,14 +765,18 @@ SHOW_LEGEND()
 
 ![custom border tags](https://www.plantuml.com/plantuml/png/bLHHRzem47xFhxX5bKYa0ghKfqr8fO3QXm8Lj9hwX9puIAmcTcGxfMZQVvyF4vg6RTgUsllkxlEN--wuCPPfMvT5y4N8jAWvGcvjPRuEXvhj1fcmUPtK1dMgf4Lf1wagXrN19FNqZUM5I8QJw_uZGS_pXs79Z4NjeCr4bPMIr5CHVz23vuepYs1pX0mbQf52ech9cTw3iVi2WKb-I8TcxsZAy192Hu2wqi8WHII32TSRDgq2ZMysO9KA_1ktHzer9QAB99keGkbHcAc2EvgBhQCvGebMEqbOeZH7_GcDdUXeXVtOivg3DY-jezny0urzWnQQnu2zAS4Dz2Af867fAwG4npqG4WhCKFAMuFM1z3zaxt9XiIExGUCWQ9YYn0rj34qOnl0Z-1a4asQCcrDXwYjFcRCUB_6ZmVW63vzLzu3Zrl4OO21n1rxcqMPQjK4RjliAWp7d3SiJow9GOwMCiCgHNa9h61fH_liq23KvusedP3OAhQuRg48OmOfUHFVm-vgGA7OvKZCAxuIzhnDegMZFDRrUeMaoRX1_kOcGA5bcHkqleZ41d6uaqiZu71tHQZQUpcU3aWmFvqo_Sh-9DDEFfIC-O9f6QL5BLXHxm7UBz2sm4pQ7tgOfxe7DcGLXeJO7FxZORb6Zj21PYM0gbc90LS80IfOKQ5erM619VvdatQM7hTB-9eZ7QIB2SoFVhZuPM8WijxzpqMDT5pqQ4-lCI_aZgSRkcH3I9IIiRIMJokQecvYscf3s2PoMudRvl9YELo_mzF8uEnbBOZg6Dgmde4LxmWu4cEPo54wMyyVbOhPuEcEc_pcQr2dtZLqpoDQMNwwlvQlnvYVkPNYxydkJCjdfyNRwBNjW-ysAVZVI93u6gOkCYmxXz91hht_SD7MEeZDOLxQ-NtxVFCpkPejf50StABaxcLy0 "custom border tags")
 
-### Custom schema definition
+### Custom schema definitions (via UpdateElementStyle())
 
-If the custom (color) schema is defined via `UpdateElementStyle()` then the legend of existing elements is updated too.
+Via `UpdateElementStyle()` calls is it possible to change the default colors, sprites, legend text, tags,...
+It updates automatically the legend too.  
+If the corresponding section is stored in a separate file then it can be reused as default of all diagrams.
 
 ```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
+' <<<<< this section could be stored in a separate file and reused in all other diagrams too
+' it defines new default colors, different default sprites and legend 
 !$COLOR_A_5 = "#7f3b08"
 !$COLOR_A_4 = "#b35806"
 !$COLOR_A_3 = "#e08214"
@@ -786,11 +791,12 @@ If the custom (color) schema is defined via `UpdateElementStyle()` then the lege
 !$COLOR_REL_LINE = "#8073ac"
 !$COLOR_REL_TEXT = "#8073ac"
 
-UpdateElementStyle("person", $bgColor=$COLOR_A_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_1, $shadowing="true")
-UpdateElementStyle("external_person", $bgColor=$COLOR_B_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_1)
-UpdateElementStyle("system", $bgColor=$COLOR_A_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_2)
-UpdateElementStyle("external_system", $bgColor=$COLOR_B_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_2)
+UpdateElementStyle("person", $bgColor=$COLOR_A_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_1, $shadowing="true", $legendText="Internal user")
+UpdateElementStyle("external_person", $bgColor=$COLOR_B_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_1, $legendText="External user")
+UpdateElementStyle("system", $bgColor=$COLOR_A_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_2, $sprite="robot", $legendText="Our chatbot based system")
+UpdateElementStyle("external_system", $bgColor=$COLOR_B_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_2, $legendText="External system")
 UpdateRelStyle($lineColor=$COLOR_REL_LINE, $textColor=$COLOR_REL_TEXT)
+' >>>>> end of section
 
 Person(customer, "Personal Banking Customer")
 System(banking_system, "Internet Banking System")
@@ -807,7 +813,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![custom schema](https://www.plantuml.com/plantuml/png/dL9TRzem57tFhqWp7a0g448eqIIaDYpQAgLGyQ7jBRBZ2qHr76GxQlllvyJPuhRf9Y5UoBddt7lElRuL4d5PvjIwobXAImBsISgp-3eUS_GyEcRoLE9I04yB9e79KLhaupD5hD8CXIGqm-EbFtoieFr3FCwHaC0Lb2mhnOiSdQlkrbLlkOxNc-GkcTaBs_aoFqon6pW6xjSudiu2zyR4fpKERk1DV1FtQln0S70pDV69nW5SRFHPHVlTvYxMjNdrQsjXeo41GO1DNC_07iB4Ct7jAN3dKvIQkCumyxrv49YupkmHr_MD_fieJkBxLTJHJ1TtqQ_TcwArFnCa8QAG0vDR-KgXxvo1Yu8vrtOF7vS5BVYYtRK23-eEBTokek8Nd01_fvceWZWXKZndxBXm92_16NGELjS5pX1DFdKGNk10NQDxd7WL4lBEdFu5ERt_XFfqN7Z1kB0Tjm6gH_Leni1WjGz2zP3AXr5htyF0iXxhTVVJKiWY1tvjEnf1r0uHUr9divTDJLrkM-VeOrrfOYdDFQk2WlohqKIbQ2H9z2BxESfeguc6rRSj6kOx8Zjmb8EYFVpvtz5RnJUSVt2r5o0KJR6I4ALF1lMjaoqm8coe_GXR5erc1TdnfFR_8Uu_r5hQfT0XMbVMziVwPn97twFLj_x0kbLTofp-1W00 "custom schema")
+![custom schema](https://www.plantuml.com/plantuml/png/dLJlJ-904FtUlsBicHmcAbXGcijnKRZcpWJ1y2DttvfjTmgDsrsoEututz-MHIs8PsBvGFlUl9StivEzDiGqbONmZdAPYf8ZB8bMvbkpgTdZ-IAdPPcK1dMg9A6ayrGLpPLWijAS6U8YJvg3pjbz1StlXis26K9jeNXGATPqlghSlQ_mlNg0bha1WodbIaAgIi4XGJ2aD7B89J1BhfXcX93b0e593XfBisM504LBrC1pjj2iC41AMVESW6EMIpGWyR5wPwKWI9LGsfpQwYn3RVE_C6QbSqApyHUuGFld7HqFniFn9Bw9Bw47_fTkravQeL_3EniyQL-6hQiwtjxWs0g3YquT3pPunfFmgbt7BnoEs4fgFgDeFflS31tNhNwlN7-huI5dcDJnm6KAMCA3EkuoXQrkcwLrtFLmsGcwOLZ7NSy1RxKwDVz9D8o7jwFeW9aZPz7VsGxfpLUS4KO22vGqfIU13N-5sYZfdy9niXXKXz9xdRK5CoN9mRkZgEgLvgZtD1UMC4l6rMCk5psVT8cLjpl86QwfvzzAGYsPW6fx_PE3gN3jQk9tu_K_4SyUrLwMQFrn5lDa28k34-fyOaA19ToEztoj4aNxyncN6j8b8qj1mWnoS0a-6jMxEVkVo6ctzxrHxQMPe719ZaKkqPdihQXr8klXkBqDFR5tn8_g0PGSLFPy1NdU_URe6sbfI1MeJy5tY8tGP_B1xXSCjfmDCzsaQYIEsGx3Qjos8Rrefi_njvBODjOeM2vUDT6P_QurkbieCyqAj6Ltp-y7lErKQidVf9eRDBRCLiLzbZxKIdUJJ55o0xZ9Ou3KLZF2VB5CbDvhzxzg9tshg3MqJULDVu__nCFeLpJwsJZnhgrBMOX_ "custom schema")
 
 ## Element and Relationship properties
 

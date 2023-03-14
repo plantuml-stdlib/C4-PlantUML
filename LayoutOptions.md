@@ -18,6 +18,7 @@ C4-PlantUML comes with some layout options.
     - [Using SHOW_PERSON_SPRITE(sprite)](#using-show_person_spritesprite)
     - [Using SHOW_PERSON_PORTRAIT()](#using-show_person_portrait)
     - [Using SHOW_PERSON_OUTLINE()](#using-show_person_outline)
+- [📄 Themes (WIP), Changeable Styles](#themes-wip-changeable-styles)
 - samples
   - [📄 Core Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
 

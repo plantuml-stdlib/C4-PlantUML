@@ -8,9 +8,9 @@
 ' Colors
 ' ##################################
 
-!global $NODE_FONT_COLOR = "#000000"
-!global $NODE_BG_COLOR = "#FFFFFF"
-!global $NODE_BORDER_COLOR = "#A2A2A2"
+!$NODE_FONT_COLOR ?= "#000000"
+!$NODE_BG_COLOR ?= "#FFFFFF"
+!$NODE_BORDER_COLOR ?= "#A2A2A2"
 
 ' Styling
 ' ##################################

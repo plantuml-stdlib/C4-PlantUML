@@ -12,9 +12,9 @@ Person(customer, "Customer", "A customer of Widgets Limited.")
 Enterprise_Boundary(c0, "Widgets Limited") {
     Person(csa, "Customer Service Agent", "Deals with customer enquiries.")
 
-    System(ecommerce, "E-commerce System", "Allows customers to buy widgts online via the widgets.com website.")
+    System(ecommerce, "E-commerce System", "Allows customers to buy widgets online via the widgets.com website.")
 
-    System(fulfilment, "Fulfilment System", "Responsible for processing and shipping of customer orders.")
+    System(fulfillment, "Fulfillment System", "Responsible for processing and shipping of customer orders.")
 }
 
 System(taxamo, "Taxamo", "Calculates local tax (for EU B2B customers) and acts as a front-end for Braintree Payments.")
@@ -29,9 +29,9 @@ Rel_R(customer, ecommerce, "Places orders for widgets using")
 
 Rel(csa, ecommerce, "Looks up order information using")
 
-Rel_R(ecommerce, fulfilment, "Sends order information to")
+Rel_R(ecommerce, fulfillment, "Sends order information to")
 
-Rel_D(fulfilment, post, "Gets shipping charges from")
+Rel_D(fulfillment, post, "Gets shipping charges from")
 
 Rel_D(ecommerce, taxamo, "Delegates credit card processing to")
 

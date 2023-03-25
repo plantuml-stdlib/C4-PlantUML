@@ -1,0 +1,27 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!endif
+
+' e.g. during first discussions no sprites are available but the categories should be displayed in the UI
+AddExternalPersonTag("anonymous_ext", $type="anonymous user")
+AddPersonTag("customer", $type="aggregated user")
+AddPersonTag("admin", $legendText="administration user", $type="administrator")
+AddExternalSystemTag("git_repository", $type="web-based Git repository")
+
+Person_Ext(anonymous_user_v1, "Bob", "simplified version during first discussions ($type defines the role), after discussion the $type can be replaced with concrete $sprite", $type="anonymous user")
+Person(aggregated_user_v1, "Sam, Ivone", $tags="customer", $type="replaced with customer")
+Person(administration_user_v1, "Bernd", $tags="admin")
+
+System(system1, "System 1", $type="new developed system")
+
+System_Ext(github, "GitHub", $tags="git_repository", $type="graphical web-based Git repository")
+System_Ext(gitlab, "GitLab", $tags="git_repository")
+
+Person_Ext(anonymous_user_v2, "Bob v2", "Update with sprites", $sprite="robot2")
+
+HIDE_STEREOTYPE()
+@enduml

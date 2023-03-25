@@ -55,7 +55,7 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
   - [Background](#background)
   - [License](#license)
 - [📄 Layout Options](LayoutOptions.md#layout-options)
-- [📄 Themes (WIP), Changeable Styles](Themes.md#themes-wip-changeable-styles)
+- [📄 Themes](Themes.md#themes)
 - samples
   - [📄 Core Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
 
@@ -374,7 +374,7 @@ Rel_L(x, s4, "uses")
 
 ![Relationship versus Layout](https://www.plantuml.com/plantuml/png/LSt1QeD04CRnkq-HvgJGA55FFQLLeGLBHIEq9rbrQ8HrbTrPshnzPmn5Svl_3_RRaq6XqOxIUHXK9sqFkmlYR9w2G8iV_tl0Yssj0TrD2a6XtqrZC4kX-Ct1O2-7DaZYGy5Kl-V1A0o29ceIUY461TgVUV_rBSsQwfoLsSVvgyXSpt4Aq6PIhdZSxP_ttd-sb2zhTfJ9cZrbkYPGPfHEBgvDpLEjjzmbtztjJldkRtVEDwoV_zB09mrKLuCmkkP8NHqt43A46uWOeWt43361Ku9iQfvSPgm1GyfOBXZUOxfWT8_vWl6A9r2z7UKV "Relationship versus Layout")
 
-(In combination with [SHOW_FLOATING_LEGEND()](LayoutOptions.md#show_floating_legend)) a greater distance between an element and the
+(In combination with [SHOW_FLOATING_LEGEND()](LayoutOptions.md#show_floating_legendalias-hidestereotype-details-and-legend)) a greater distance between an element and the
 e.g. floating legend could be required that all e.g. corners of the drawing area can be reached.
 
 - `Lay_Distance(from, to, ?distance)`: Sets the distance between `from` and `to` with down alignment (Lay_Distance(from,to,0) equals Lay_D(from, to)). The default alias of the floating legend is LEGEND().
@@ -468,7 +468,7 @@ Color of the displayed images can be changed with `,color={color}`.
 !include <office/users/users.puml>
 
 
-AddRelTag("plantuml", $textColor="$ARROW_COLOR", $lineColor="$ARROW_COLOR", $sprite="img:http://plantuml.com/logo3.png{scale=0.3}", $legendSprite="img:http://plantuml.com/logo3.png{scale=0.1}", $legendText="console triggered")
+AddRelTag("plantuml", $textColor="$ARROW_FONT_COLOR", $lineColor="$ARROW_COLOR", $sprite="img:http://plantuml.com/logo3.png{scale=0.3}", $legendSprite="img:http://plantuml.com/logo3.png{scale=0.1}", $legendText="console triggered")
 
 Person(user, "user group displayed with a sprite", $sprite="users")
 
@@ -682,7 +682,7 @@ AddContainerTag("db", $sprite="database_server", $legendText="database container
 AddContainerTag("files", $sprite="file_server", $legendText="file server container")
 AddContainerTag("conApp", $sprite="service_application", $legendText="console app container")
 
-AddRelTag("firewall", $textColor="$ARROW_COLOR", $lineColor="$ARROW_COLOR", $sprite="firewall,scale=0.3,color=red", $legendText="firewall")
+AddRelTag("firewall", $textColor="$ARROW_FONT_COLOR", $lineColor="$ARROW_COLOR", $sprite="firewall,scale=0.3,color=red", $legendText="firewall")
 
 Person_Ext(anonymous_user, "Bob", $tags="anonymous_ext")
 Person(aggregated_user, "Sam, Ivone", $tags="customer")
@@ -767,8 +767,8 @@ SHOW_LEGEND()
 
 ### Custom schema definitions (via UpdateElementStyle())
 
-Via `UpdateElementStyle()` calls is it possible to change the default colors, sprites, legend text, tags,...
-It updates automatically the legend too.  
+Via `UpdateElementStyle()` calls, it is possible to change the default colors, sprites, legend text, tags, ...
+It automatically updates the legend too.  
 If the corresponding section is stored in a separate file then it can be reused as default of all diagrams.
 
 ```plantuml

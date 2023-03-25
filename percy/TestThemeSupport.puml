@@ -1,48 +1,19 @@
 @startuml
 
+!$ThemeToBeCHecked=C4_FirstTest
+
 ' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
 !if %variable_exists("RELATIVE_INCLUDE")
   ' !theme C4_FirstTest from %get_variable_value("RELATIVE_INCLUDE")/themes
-  !theme C4_FirstTest from ./../themes
-
-  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
+  !theme $ThemeToBeCHecked from ./../themes
 !else
-  !theme C4_FirstTest from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
-
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+  !theme $ThemeToBeCHecked from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
 !endif
 
-Person_Ext(customer, "Customer", "A customer of Widgets Limited.")
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./TestAllElementsWithLegend.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestAllElementsWithLegend.puml
+!endif
 
-Enterprise_Boundary(c0, "Widgets Limited") {
-    Person(csa, "Customer Service Agent", "Deals with customer enquiries.")
-
-    System(ecommerce, "E-commerce System", "Allows customers to buy widgts online via the widgets.com website.")
-
-    System(fulfilment, "Fulfilment System", "Responsible for processing and shipping of customer orders.")
-}
-
-System_Ext(taxamo, "Taxamo", "Calculates local tax (for EU B2B customers) and acts as a front-end for Braintree Payments.")
-
-System_Ext(braintree, "Braintree Payments", "Processes credit card payments on behalf of Widgets Limited.")
-
-System_Ext(post, "Jersey Post", "Calculates worldwide shipping costs for packages.")
-
-Rel_R(customer, csa, "Asks questions to", "Telephone")
-
-Rel_R(customer, ecommerce, "Places orders for widgets using")
-
-Rel(csa, ecommerce, "Looks up order information using")
-
-Rel_R(ecommerce, fulfilment, "Sends order information to")
-
-Rel_D(fulfilment, post, "Gets shipping charges from")
-
-Rel_D(ecommerce, taxamo, "Delegates credit card processing to")
-
-Rel_L(taxamo, braintree, "Uses for credit card processing")
-
-Lay_D(customer, braintree)
-
-SHOW_LEGEND()
 @enduml

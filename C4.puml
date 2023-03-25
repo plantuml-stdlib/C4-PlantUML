@@ -4,7 +4,7 @@
 ' ##################################
 !function C4Version()
   ' 2 spaces and ' are used as unique marker, that the release scripts makes the correct version update
-  !$c4Version  =  "2.6.0beta1"
+  !$c4Version  =  "2.6.0beta2"
   !return $c4Version
 !end function
 
@@ -17,16 +17,19 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 
 ' Colors
 ' ##################################
-
 !$ELEMENT_FONT_COLOR ?= "#FFFFFF"
 
 !$ARROW_COLOR ?= "#666666"
+!$ARROW_FONT_COLOR ?= $ARROW_COLOR
 
 !$BOUNDARY_COLOR ?= "#444444"
 !$BOUNDARY_BG_COLOR ?= "transparent"
+!$BOUNDARY_BORDER_STYLE ?= "dashed"
 
-!$LEGEND_FONT_COLOR ?= "#FFFFFF"
 !$LEGEND_TITLE_COLOR ?= "#000000"
+!$LEGEND_FONT_COLOR ?= "#FFFFFF"
+!$LEGEND_BG_COLOR ?= "transparent"
+!$LEGEND_BORDER_COLOR ?= "transparent"
 ' %darken(darkkhaki,50), #khaki
 !$LEGEND_DARK_COLOR ?= "#66622E"
 !$LEGEND_LIGHT_COLOR ?= "#khaki"
@@ -91,55 +94,48 @@ skinparam defaultTextAlignment center
 skinparam wrapWidth 200
 skinparam maxMessageSize 150
 
-skinparam LegendBorderColor transparent
-skinparam LegendBackgroundColor transparent
 skinparam LegendFontColor $LEGEND_FONT_COLOR
+skinparam LegendBackgroundColor $LEGEND_BG_COLOR
+skinparam LegendBorderColor $LEGEND_BORDER_COLOR
 
-skinparam shadowing<<legendArea>> false
 skinparam rectangle<<legendArea>> {
-    backgroundcolor transparent
-    bordercolor transparent
+    backgroundcolor $LEGEND_BG_COLOR
+    bordercolor $LEGEND_BORDER_COLOR
 }
 
 skinparam rectangle {
     StereotypeFontSize $STEREOTYPE_FONT_SIZE
-    shadowing false
 }
 
 skinparam database {
     StereotypeFontSize $STEREOTYPE_FONT_SIZE
-    shadowing false
 }
 
 skinparam queue {
     StereotypeFontSize $STEREOTYPE_FONT_SIZE
-    shadowing false
 }
 
 skinparam arrow {
     Color $ARROW_COLOR
-    FontColor $ARROW_COLOR
+    FontColor $ARROW_FONT_COLOR
     FontSize $ARROW_FONT_SIZE
 }
 
 skinparam person {
     StereotypeFontSize $STEREOTYPE_FONT_SIZE
-    shadowing false
 }
 
 skinparam actor {
     StereotypeFontSize $STEREOTYPE_FONT_SIZE
-    shadowing false
     style awesome
 }
 
 ' Some boundary skinparams have to be set as package skinparams too (PlantUML uses internal packages)
 ' UpdateBoundaryStyle() called in boundary section below
 skinparam rectangle<<boundary>> {
-    Shadowing false
     StereotypeFontSize $TRANSPARENT_STEREOTYPE_FONT_SIZE
     StereotypeFontColor $BOUNDARY_BG_COLOR
-    BorderStyle dashed
+    BorderStyle $BOUNDARY_BORDER_STYLE
 }
 
 skinparam package {
@@ -623,7 +619,7 @@ $elementSkin
 
   !if ($tc == "")
     !if ($PlantUMLSupportsDynamicLegendColor)
-      !$tc = $flatLegend($ARROW_COLOR)
+      !$tc = $flatLegend($ARROW_FONT_COLOR)
     !else
       !$tc = $LEGEND_DARK_COLOR
     !endif
@@ -1044,8 +1040,7 @@ hide stereotype
 
 !procedure $getLegendTable($detailsFormat)
 !global $LEGEND_DETAILS_SIZE = $getLegendDetailsSize($detailsFormat)
-' #00000000 is transparent, but transparent is not working
-<#00000000,#00000000>|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
+<$colorWithHash(transparent),$colorWithHash(transparent)>|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
 $showActiveLegendEntries($tagDefaultLegend)
 $showActiveLegendEntries($tagCustomLegend)
 !endprocedure
@@ -1093,9 +1088,10 @@ hide stereotype
   }
   !if $ARROW_COLOR == "#666666"
     !global $ARROW_COLOR = $SKETCH_FONT_COLOR
+    !global $ARROW_FONT_COLOR = $SKETCH_FONT_COLOR
     skinparam arrow {
       Color $ARROW_COLOR
-      FontColor $ARROW_COLOR
+      FontColor $ARROW_FONT_COLOR
     }
   !endif
   !if $BOUNDARY_COLOR == "#444444"

@@ -35,8 +35,8 @@ AddContainerTag("conApp", $sprite="img:http://plantuml.com/logo3.png{scale=0.3}"
 
 UpdateElementStyle("external_system", $bgColor=$EXTERNAL_SYSTEM_BG_COLOR, $fontColor=$EXTERNAL_SYSTEM_FONT_COLOR, $borderColor=$EXTERNAL_SYSTEM_BORDER_COLOR, $sprite = "osa_server", , $legendText="external system")
 
-AddRelTag("firewall", $textColor="$ARROW_COLOR", $lineColor="$ARROW_COLOR", $sprite="firewall,scale=0.3,color=red", $legendText="firewall")
-AddRelTag("plantuml", $textColor="$ARROW_COLOR", $lineColor="$ARROW_COLOR", $sprite="img:http://plantuml.com/logo3.png{scale=0.1}", $legendText="console triggered")
+AddRelTag("firewall", $textColor="$ARROW_FONT_COLOR", $lineColor="$ARROW_COLOR", $sprite="firewall,scale=0.3,color=red", $legendText="firewall")
+AddRelTag("plantuml", $textColor="$ARROW_FONT_COLOR", $lineColor="$ARROW_COLOR", $sprite="img:http://plantuml.com/logo3.png{scale=0.1}", $legendText="console triggered")
 
 LAYOUT_LEFT_RIGHT()
 ' LAYOUT_LANDSCAPE()

@@ -65,7 +65,7 @@ Boundary(b6, "Boundary 6") {
   System_Boundary(sb, "System Boundary") {
   }
 
-  Container_Boundary(cb, "System Boundary") {
+  Container_Boundary(cb, "Container Boundary") {
   }
 
   Lay_R(eb,sb)
@@ -78,5 +78,5 @@ Lay_D(b3,b4)
 Lay_D(b4,b5)
 Lay_R(b5,b6)
 
-SHOW_FLOATING_LEGEND($hideStereotype = false)
+SHOW_FLOATING_LEGEND()
 @enduml

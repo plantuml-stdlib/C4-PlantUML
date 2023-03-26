@@ -584,7 +584,7 @@ $elementSkin
         !$tagDetails = $tagDetails + $LEGEND_NO_BG_TEXT + ", "
       !endif
     !endif
-    !if ($tagDetails=="(")
+    !if ($tagDetails=="(" || $tagDetails=="(, ")
       !$tagDetails = "</size>"
     !else
       !$tagDetails = %substr($tagDetails, 0, %strlen($tagDetails)-2)

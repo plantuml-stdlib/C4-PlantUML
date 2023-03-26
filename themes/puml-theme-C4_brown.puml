@@ -1,16 +1,6 @@
-!$THEME = "C4_Original4"
+!$THEME = "C4_brown"
 
 !$ELEMENT_FONT_COLOR ?= "#FFFFFF"
-
-!$ARROW_COLOR ?= "#666666"
-!$ARROW_FONT_COLOR ?= $ARROW_COLOR
-!$ARROW_FONT_SIZE ?= 12 
-
-!$STEREOTYPE_FONT_SIZE ?= 12 
-!$TECHN_FONT_SIZE ?= 12 
-
-!$BOUNDARY_COLOR ?= "#444444" 
-!$BOUNDARY_BG_COLOR ?= "transparent" 
 
 !$PERSON_FONT_COLOR ?= $ELEMENT_FONT_COLOR 
 !$PERSON_BG_COLOR ?= "#7B4208" 
@@ -40,40 +30,3 @@
 !$EXTERNAL_COMPONENT_BG_COLOR ?= "#CCCCCC" 
 !$EXTERNAL_COMPONENT_BORDER_COLOR ?= "#BFBFBF" 
 
-!$NODE_FONT_COLOR ?= "#000000" 
-!$NODE_BG_COLOR ?= "#FFFFFF" 
-!$NODE_BORDER_COLOR ?= "#A2A2A2"
-
-!$LEGEND_FONT_COLOR ?= "#FFFFFF" 
-!$LEGEND_TITLE_COLOR ?= "#000000" 
-!$LEGEND_DARK_COLOR ?= "#66622E" 
-!$LEGEND_LIGHT_COLOR ?= "#khaki" 
-!$LEGEND_DETAILS_SMALL_SIZE ?= 10 
-!$LEGEND_DETAILS_NORMAL_SIZE ?= 14 
-
-!$LEGEND_SHADOW_TEXT ?= "shadow" 
-!$LEGEND_NO_SHADOW_TEXT ?= "no shadow" 
-!$LEGEND_NO_FONT_BG_TEXT ?= "last text and back color" 
-!$LEGEND_NO_FONT_TEXT ?= "last text color" 
-!$LEGEND_NO_BG_TEXT ?= "last back color" 
-!$LEGEND_NO_LINE_TEXT ?= "last line color" 
-!$LEGEND_ROUNDED_BOX ?= "rounded box" 
-!$LEGEND_EIGHT_SIDED ?= "eight sided" 
-!$LEGEND_DOTTED_LINE ?= "dotted" 
-!$LEGEND_DASHED_LINE ?= "dashed" 
-!$LEGEND_BOLD_LINE ?= "bold" 
-!$LEGEND_BOUNDARY ?= "boundary" 
-!$LEGEND_DASHED_BOUNDARY ?= "dashed" 
-'$LEGEND_DASHED_TRANSPARENT_BOUNDARY ?= "dashed, transparent" 
-!$LEGEND_DASHED_TRANSPARENT_BOUNDARY ?= "dashed" 
-
-!$SKETCH_BG_COLOR ?= "#EEEBDC"  
-!$SKETCH_FONT_COLOR ?= "" 
-!$SKETCH_WARNING_COLOR ?= "red" 
-!$SKETCH_FONT_NAME ?= "Comic Sans MS" 
-
-!$SKETCH_FOOTER_WARNING ?= "Warning:" 
-!$SKETCH_FOOTER_TEXT ?= "Created for discussion, needs to be validated" 
-
-!$ROUNDED_BOX_SIZE ?= 25 
-!$EIGHT_SIDED_SIZE ?= 18 

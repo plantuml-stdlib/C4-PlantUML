@@ -20,7 +20,7 @@ C4-PlantUML comes with some layout options.
     - [Using SHOW_PERSON_OUTLINE()](#using-show_person_outline)
 - [📄 Themes](Themes.md#themes)
 - samples
-  - [📄 Core Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
+  - [📄 C4 Model Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
 
 ## Layout Guidance and Practices
 

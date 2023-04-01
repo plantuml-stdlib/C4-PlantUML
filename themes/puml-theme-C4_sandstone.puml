@@ -1,6 +1,6 @@
-!theme united
+!theme sandstone
 
-!$THEME = "C4_united"
+!$THEME = "C4_sandstone"
 
 !$ELEMENT_FONT_COLOR ?= $PRIMARY_TEXT
 

@@ -870,7 +870,7 @@ $elementSkin
 ' Line breaks
 ' ##################################
 
-' PlantUML supports no DETERMINISTIC/automatic line breaks of "PlantUML line" (C4 Relashionships)
+' PlantUML supports no DETERMINISTIC/automatic line breaks of "PlantUML line" (C4 Relationships)
 ' therefore Rel...() implements an automatic line break based on spaces (like in all other objects).
 ' If a $type contains \n then these are used (and no automatic space based line breaks are done)
 ' $REL_TECHN_MAX_CHAR_WIDTH defines the automatic line break position

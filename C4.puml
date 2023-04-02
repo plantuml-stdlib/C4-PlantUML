@@ -67,16 +67,33 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 
 !$STEREOTYPE_FONT_SIZE ?= 12
 !global $TRANSPARENT_STEREOTYPE_FONT_SIZE = $STEREOTYPE_FONT_SIZE/2
-
 !$TECHN_FONT_SIZE ?= 12
-!$ROUNDED_BOX_SIZE ?= 25
-!$EIGHT_SIDED_SIZE ?= 18
 
 !$ARROW_FONT_SIZE ?= 12
 
 !$LEGEND_DETAILS_SMALL_SIZE ?= 10
 !$LEGEND_DETAILS_NORMAL_SIZE ?= 14
 !global $LEGEND_DETAILS_SIZE = $LEGEND_DETAILS_SMALL_SIZE
+
+' element symbols typically 4 times too big in legend
+!$LEGEND_IMAGE_SIZE_FACTOR ?= 0.25
+
+!$ROUNDED_BOX_SIZE ?= 25
+!$EIGHT_SIDED_SIZE ?= 18
+
+' Default element wrap width (of an element)
+!$DEFAULT_WRAP_WIDTH ?= 200
+' Maximum size in pixels, of a message (in a sequence diagram?)
+!$MAX_MESSAGE_SIZE ?= 150
+' PlantUML supports no DETERMINISTIC/automatic line breaks of "PlantUML line" (C4 Relationships)
+' therefore Rel...() implements an automatic line break based on spaces (like in all other objects).
+' If a $type contains \n then these are used (and no automatic space based line breaks are done)
+' $REL_TECHN_MAX_CHAR_WIDTH defines the automatic line break position
+!$REL_TECHN_MAX_CHAR_WIDTH ?= 35
+!$REL_DESCR_MAX_CHAR_WIDTH ?= 32
+
+' internal 
+' ##################################
 
 !global $ROUNDED_BOX = "roundedBox"
 !global $EIGHT_SIDED = "eightSided"
@@ -91,8 +108,8 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 
 skinparam defaultTextAlignment center
 
-skinparam wrapWidth 200
-skinparam maxMessageSize 150
+skinparam wrapWidth $DEFAULT_WRAP_WIDTH
+skinparam maxMessageSize $MAX_MESSAGE_SIZE
 
 skinparam LegendFontColor $LEGEND_FONT_COLOR
 skinparam LegendBackgroundColor $LEGEND_BG_COLOR
@@ -465,9 +482,9 @@ $elementSkin
   ' ,scale= ... has to be first (...,color=black,scale=0.25... is invalid too)
   !if (%strpos($sprite, "=") < 0)
     !if (%substr($sprite, 0, 4) == "img:")
-      !$smallSprite = $sprite + "{scale=0.25}"
+      !$smallSprite = $sprite + "{scale=" + $LEGEND_IMAGE_SIZE_FACTOR + "}"
     !else
-      !$smallSprite = $sprite + ",scale=0.25"
+      !$smallSprite = $sprite + ",scale=" + $LEGEND_IMAGE_SIZE_FACTOR
     !endif
   !else
     !$smallSprite = $sprite
@@ -869,13 +886,6 @@ $elementSkin
 
 ' Line breaks
 ' ##################################
-
-' PlantUML supports no DETERMINISTIC/automatic line breaks of "PlantUML line" (C4 Relationships)
-' therefore Rel...() implements an automatic line break based on spaces (like in all other objects).
-' If a $type contains \n then these are used (and no automatic space based line breaks are done)
-' $REL_TECHN_MAX_CHAR_WIDTH defines the automatic line break position
-!global $REL_TECHN_MAX_CHAR_WIDTH = 35
-!global $REL_DESCR_MAX_CHAR_WIDTH = 32
 
 !unquoted function $breakText($text, $usedNewLine, $widthStr="-1")
 !$width = %intval($widthStr)

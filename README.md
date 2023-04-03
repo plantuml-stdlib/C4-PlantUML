@@ -19,7 +19,7 @@
 # C4-PlantUML
 
 [comment]: # ("image is based on percy/C4_Container Diagram Sample - bigbankplc-styles.puml")
-[![Container diagram for Internet Banking System](https://www.plantuml.com/plantuml/png/hLRHZzgu4txdhvZILWM91VtKNrzEMgaivAvRmS81szuRciH3OjMnSxO3YqxtlzyuX6IXU-f3xmNYiUVxFdyUJ_BHURI-p5Nd7IH6xybwa1uEqcU0GaWlZKR5KtcEMe2IcW1jMkQaFTnCLz5ilBd_4ctl7oQpnsbqsnsEXiCkU0Eb8r0cGQMEdLTo1s_tQ2N6YhRq99rtlUvrShVV0NWbTQ9AGV0s9RzjSlQeIdefPJJv_tPYj4TMPeT5sCahKewUGsNU5-wNqSZYOPZopigOnTc4iqZx8UzjL2ZKmOKRvuMICOFUB4FeSJuRvUWysHTvj92xJcVzQV5rkunMwyN3Tl6ucTq_HBq--xd1r84hYy9O3zg0Ap0X1rA3pmWqvWIz61q9CATGgGLPjbZg508d6Nyio0tWaCaa0s7qEzy0rcYeZxcnr1y2Czxlch0biFHdIOmZpfIAKfOygF_1qrDzqbKIPEZ2mSK4WdPIa-YCXOWKXRFclVIwCIRVEB6neJk0DpiUJ8mozlPDD8lcqSDc--k2VoQBsMB5yt5wcks-Vl_-mtJy8UIu30kwZMIQ-RKK9DPXtElpp4dPXeNTdjaWETD1Zq8Ak93Jx_Q3l1MfIXgwequ2Dc_gh6UyMYs-Da92wVxhnDeV5TrEqMKaPbApc0lq03xwRoYCzor5nqkl21f3GKXCBUQmCnRkjIUhoSCTwc-X9DP7vodlT9PadT6zf7JUv6G7C6cUkcCuXy7igaEFENjmEkQYIaHLnG2Jn9JQkoxhE45lxpWWq1vxoVyOwrf0jmz_TG2WrTixKBp5ek35Noc6SL4ecM3e6LqEVSOz3c1Ts21-_cKIObDISiyoAcdEyze4wei8g4KLRdZZyyQNOnPvoUmAPBWrJokwMM9AWVtCkawiBFm0nZej5TeGNbgpbu8Se58li-nAdPpQdVH7yAPnqi5UOiYH5dZ345jpS6I_avIRM2gg_PY7GIDgyde0Vs2ELkfBCQ1aBiCLTMNio8FP_OIuam0Gj9S9NSkRnZs17aF32UTGFmOrwzzdS37snfA3q2F1KYgTjzMPWjHSbtdrF82ikYo0fSyWiIH8UudA3K9TaNEWJCe3yidmEwFgcyrEoL2oo_kNAsTgU9bjyowS-u53mHG6hguhfkxskzx5elvkwZvwyZtAKQgjgm9C5DtCULpVkS2yoGXaHOeAvZAnnfcTX-WfoL2d1ATCXds6MMjhKHbJxopcT7MfdzcEIfsh8E50ixzdvWF6flHj2GoQkpm0Rr4xh9nexU-iI3th5-sjVNJa0lUdpMQvveMNwro1FrpJ57q3TwBRFeHc7PkcHzHmJGUeaQhWHK4qX5N37S1dVg-EAlBsDAkf6g5Ly7D0spjERcGtb-KQT4Ke7EoioQk6TR3IamDl0b7DCxsRC6I3-Sojgo9RCwm3kWdH2gCLSbcFLnekyqedTThIh-URPGtKREOY_Reg6v_Qrnntg_disgjsck5FNpspwBVeOThhTtR6UB8WB1xqwMLp_dw2_H3UXWENHlVwbMVXwwgTvU6NytJd8wiiS_KF "Container diagram for Internet Banking System")](//www.plantuml.com/plantuml/uml/hLRHZzgu4txdhvZILWM91VtKNrzEMgaivAvRmS81szuRciH3OjMnSxO3YqxtlzyuX6IXU-f3xmNYiUVxFdyUJ_BHURI-p5Nd7IH6xybwa1uEqcU0GaWlZKR5KtcEMe2IcW1jMkQaFTnCLz5ilBd_4ctl7oQpnsbqsnsEXiCkU0Eb8r0cGQMEdLTo1s_tQ2N6YhRq99rtlUvrShVV0NWbTQ9AGV0s9RzjSlQeIdefPJJv_tPYj4TMPeT5sCahKewUGsNU5-wNqSZYOPZopigOnTc4iqZx8UzjL2ZKmOKRvuMICOFUB4FeSJuRvUWysHTvj92xJcVzQV5rkunMwyN3Tl6ucTq_HBq--xd1r84hYy9O3zg0Ap0X1rA3pmWqvWIz61q9CATGgGLPjbZg508d6Nyio0tWaCaa0s7qEzy0rcYeZxcnr1y2Czxlch0biFHdIOmZpfIAKfOygF_1qrDzqbKIPEZ2mSK4WdPIa-YCXOWKXRFclVIwCIRVEB6neJk0DpiUJ8mozlPDD8lcqSDc--k2VoQBsMB5yt5wcks-Vl_-mtJy8UIu30kwZMIQ-RKK9DPXtElpp4dPXeNTdjaWETD1Zq8Ak93Jx_Q3l1MfIXgwequ2Dc_gh6UyMYs-Da92wVxhnDeV5TrEqMKaPbApc0lq03xwRoYCzor5nqkl21f3GKXCBUQmCnRkjIUhoSCTwc-X9DP7vodlT9PadT6zf7JUv6G7C6cUkcCuXy7igaEFENjmEkQYIaHLnG2Jn9JQkoxhE45lxpWWq1vxoVyOwrf0jmz_TG2WrTixKBp5ek35Noc6SL4ecM3e6LqEVSOz3c1Ts21-_cKIObDISiyoAcdEyze4wei8g4KLRdZZyyQNOnPvoUmAPBWrJokwMM9AWVtCkawiBFm0nZej5TeGNbgpbu8Se58li-nAdPpQdVH7yAPnqi5UOiYH5dZ345jpS6I_avIRM2gg_PY7GIDgyde0Vs2ELkfBCQ1aBiCLTMNio8FP_OIuam0Gj9S9NSkRnZs17aF32UTGFmOrwzzdS37snfA3q2F1KYgTjzMPWjHSbtdrF82ikYo0fSyWiIH8UudA3K9TaNEWJCe3yidmEwFgcyrEoL2oo_kNAsTgU9bjyowS-u53mHG6hguhfkxskzx5elvkwZvwyZtAKQgjgm9C5DtCULpVkS2yoGXaHOeAvZAnnfcTX-WfoL2d1ATCXds6MMjhKHbJxopcT7MfdzcEIfsh8E50ixzdvWF6flHj2GoQkpm0Rr4xh9nexU-iI3th5-sjVNJa0lUdpMQvveMNwro1FrpJ57q3TwBRFeHc7PkcHzHmJGUeaQhWHK4qX5N37S1dVg-EAlBsDAkf6g5Ly7D0spjERcGtb-KQT4Ke7EoioQk6TR3IamDl0b7DCxsRC6I3-Sojgo9RCwm3kWdH2gCLSbcFLnekyqedTThIh-URPGtKREOY_Reg6v_Qrnntg_disgjsck5FNpspwBVeOThhTtR6UB8WB1xqwMLp_dw2_H3UXWENHlVwbMVXwwgTvU6NytJd8wiiS_KF)
+[![Container diagram for Internet Banking System](//www.plantuml.com/plantuml/png/hLP1Zzis4xthLypdv0DiGBj6aUPIO85uRRNPm5wxbZVfeO0naiOo4OeKICfUe-X_xr2Mh9KtHGxfnJ1dEEyzFWr7-c0T6bSLClYVKAciCeAzSwNzPJmsUBpDXTjNIMN9f5evKkusrSMubAXypOrrcHJ9UFhppSg7dXRpSO7MaU7GTieLA1IPszBZ1_77vPVjAbh7oyVjycapVtYCXgDWacMHf8AXDvWF1mccNqbbbzf126ztl9XggStTssWUBQB7pVRN9VzCb_FbclD9ViuEthnxztusUUzhx1vBkej4ldUno2YB_Neuueoad0aszEpkMZP8Mxe_5VaIiBvcKAjRawoLeJsfr4CxBctaJDPhFbEhGpB2loPYTv9qDqExfsmk56lfeNlmyNz3ePthA08dd2Iu-0cPmDnW0Jjju44vCeeStAFwAbGEySawAe9WHSPgDKmhwtH19eJfvTzW0cqOz0xSdY3XwX2Et2fGreKewnXWckfAESj61cVexJq7CZIdOVeJOrqB68pWhm00Eht38oLRB4lU_8KIc9Ib52aweTM0Gv_mW274fV7Y5v-dFZOZAGuievPc7UzDeMbUG9NvS7Vmf3tuQi8Y-yosH8QBEItfPeKvUVQMDKwDA5q84vLN4eqFhum-Y8mie9JVPjbLAlNIKGft0gSlJbeu2FGrmW0V61AZZvRCAqc5JeIane-5Nrn4JT-4y0SMo5RqnO0KXN2KWQqIImxqxWV4dGL0HWUHqhMyMJBCq662blnpQFvwDV7lS-YjdJPamSyLC9GBwmnwRX2A-xAe_uUmhoyBOENsa1hAI3c1qeQ-hyXQa3hd1RdqzfLHpSLcfuHlsTN3jpjdfdcRwUfwpdt78MyA0zVN5NDxztfqZOA_BtqVFRiX5IZarjO19efk5hnkxfndtkm9X2Tb1bY8r6YhTmwYvtIFAYSuLpBi2yn6MuVAc6fdiA2hIztPxlkpxOAK0-tvNfeFcEZATIqGNkvo2CwWibWxqTaVh4c-c1VThNsoP3ttnyrc5VF6_ZvRudVtD4tVmJLqsqS_gnFTpOW6hfq03L8Tx3T4GtYUwI5yubVI-4pUFirpga7e5FmOqFQUYplPtMNfWwu9CmixeujwO1sDS6J1QK_KyCpkfmnvmNpXrbMJnGnhWMvyjCReXFJwyLf3lwwot1yTVRpOhCv0tM5wvLTTsVdKlUPuMYtcrrvrQOO_Vp3Cez-Ynzbm5EoqTcGWCtXKvvTD-yq1Xrlult_WGglXgFRCVv5qMLv-RjF11rPP5V8V)
 
 C4-PlantUML combines the benefits of [PlantUML](https://plantuml.com/) and the [C4 model](https://c4model.com/) for providing a simple way of describing and communicate software architectures – especially during up-front design sessions – with an intuitive language using open source and platform independent tools.
 
@@ -41,7 +41,7 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
     - [Sample with different tag combinations](#sample-with-different-tag-combinations)
     - [Sample with tag dependent sprites and custom legend text](#sample-with-tag-dependent-sprites-and-custom-legend-text)
     - [Sample with different boundary tag combinations](#sample-with-different-boundary-tag-combinations)
-    - [Custom schema definition](#custom-schema-definition)
+    - [Custom schema definitions (via UpdateElementStyle())](#custom-schema-definitions-via-updateelementstyle)
   - [Element and Relationship properties](#element-and-relationship-properties)
   - [Version information](#version-information)
   - [Snippets for Visual Studio Code](#snippets-for-visual-studio-code)
@@ -55,8 +55,9 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
   - [Background](#background)
   - [License](#license)
 - [📄 Layout Options](LayoutOptions.md#layout-options)
+- [📄 Themes](Themes.md#themes)
 - samples
-  - [📄 Core Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
+  - [📄 C4 Model Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
 
 ## Getting Started
 
@@ -373,7 +374,7 @@ Rel_L(x, s4, "uses")
 
 ![Relationship versus Layout](https://www.plantuml.com/plantuml/png/LSt1QeD04CRnkq-HvgJGA55FFQLLeGLBHIEq9rbrQ8HrbTrPshnzPmn5Svl_3_RRaq6XqOxIUHXK9sqFkmlYR9w2G8iV_tl0Yssj0TrD2a6XtqrZC4kX-Ct1O2-7DaZYGy5Kl-V1A0o29ceIUY461TgVUV_rBSsQwfoLsSVvgyXSpt4Aq6PIhdZSxP_ttd-sb2zhTfJ9cZrbkYPGPfHEBgvDpLEjjzmbtztjJldkRtVEDwoV_zB09mrKLuCmkkP8NHqt43A46uWOeWt43361Ku9iQfvSPgm1GyfOBXZUOxfWT8_vWl6A9r2z7UKV "Relationship versus Layout")
 
-(In combination with [SHOW_FLOATING_LEGEND()](LayoutOptions.md#show_floating_legend)) a greater distance between an element and the
+(In combination with [SHOW_FLOATING_LEGEND()](LayoutOptions.md#show_floating_legendalias-hidestereotype-details-and-legend)) a greater distance between an element and the
 e.g. floating legend could be required that all e.g. corners of the drawing area can be reached.
 
 - `Lay_Distance(from, to, ?distance)`: Sets the distance between `from` and `to` with down alignment (Lay_Distance(from,to,0) equals Lay_D(from, to)). The default alias of the floating legend is LEGEND().
@@ -467,7 +468,7 @@ Color of the displayed images can be changed with `,color={color}`.
 !include <office/users/users.puml>
 
 
-AddRelTag("plantuml", $textColor="$ARROW_COLOR", $lineColor="$ARROW_COLOR", $sprite="img:http://plantuml.com/logo3.png{scale=0.3}", $legendSprite="img:http://plantuml.com/logo3.png{scale=0.1}", $legendText="console triggered")
+AddRelTag("plantuml", $textColor="$ARROW_FONT_COLOR", $lineColor="$ARROW_COLOR", $sprite="img:http://plantuml.com/logo3.png{scale=0.3}", $legendSprite="img:http://plantuml.com/logo3.png{scale=0.1}", $legendText="console triggered")
 
 Person(user, "user group displayed with a sprite", $sprite="users")
 
@@ -567,7 +568,7 @@ Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+
 Sometimes an added element tag is element specific and all element specific colors should be used, e.g. a specific user role should be defined as element tag with the specific colors `...PERSON_...` like
 
 ```plantuml
-AddElementTag("admin", $fontColor=$ELEMENT_FONT_COLOR, $bgColor=$PERSON_BG_COLOR, $borderColor=$PERSON_BORDER_COLOR, $sprite="osa_user_audit", $legendText="administration user")
+AddElementTag("admin", $fontColor=$PERSON_FONT_COLOR, $bgColor=$PERSON_BG_COLOR, $borderColor=$PERSON_BORDER_COLOR, $sprite="osa_user_audit", $legendText="administration user")
 ```
 
 Therefore element Add...Tag() shortcuts are added which use the specific colors as default values and the call can be simplified like
@@ -681,7 +682,7 @@ AddContainerTag("db", $sprite="database_server", $legendText="database container
 AddContainerTag("files", $sprite="file_server", $legendText="file server container")
 AddContainerTag("conApp", $sprite="service_application", $legendText="console app container")
 
-AddRelTag("firewall", $textColor="$ARROW_COLOR", $lineColor="$ARROW_COLOR", $sprite="firewall,scale=0.3,color=red", $legendText="firewall")
+AddRelTag("firewall", $textColor="$ARROW_FONT_COLOR", $lineColor="$ARROW_COLOR", $sprite="firewall,scale=0.3,color=red", $legendText="firewall")
 
 Person_Ext(anonymous_user, "Bob", $tags="anonymous_ext")
 Person(aggregated_user, "Sam, Ivone", $tags="customer")
@@ -764,14 +765,18 @@ SHOW_LEGEND()
 
 ![custom border tags](https://www.plantuml.com/plantuml/png/bLHHRzem47xFhxX5bKYa0ghKfqr8fO3QXm8Lj9hwX9puIAmcTcGxfMZQVvyF4vg6RTgUsllkxlEN--wuCPPfMvT5y4N8jAWvGcvjPRuEXvhj1fcmUPtK1dMgf4Lf1wagXrN19FNqZUM5I8QJw_uZGS_pXs79Z4NjeCr4bPMIr5CHVz23vuepYs1pX0mbQf52ech9cTw3iVi2WKb-I8TcxsZAy192Hu2wqi8WHII32TSRDgq2ZMysO9KA_1ktHzer9QAB99keGkbHcAc2EvgBhQCvGebMEqbOeZH7_GcDdUXeXVtOivg3DY-jezny0urzWnQQnu2zAS4Dz2Af867fAwG4npqG4WhCKFAMuFM1z3zaxt9XiIExGUCWQ9YYn0rj34qOnl0Z-1a4asQCcrDXwYjFcRCUB_6ZmVW63vzLzu3Zrl4OO21n1rxcqMPQjK4RjliAWp7d3SiJow9GOwMCiCgHNa9h61fH_liq23KvusedP3OAhQuRg48OmOfUHFVm-vgGA7OvKZCAxuIzhnDegMZFDRrUeMaoRX1_kOcGA5bcHkqleZ41d6uaqiZu71tHQZQUpcU3aWmFvqo_Sh-9DDEFfIC-O9f6QL5BLXHxm7UBz2sm4pQ7tgOfxe7DcGLXeJO7FxZORb6Zj21PYM0gbc90LS80IfOKQ5erM619VvdatQM7hTB-9eZ7QIB2SoFVhZuPM8WijxzpqMDT5pqQ4-lCI_aZgSRkcH3I9IIiRIMJokQecvYscf3s2PoMudRvl9YELo_mzF8uEnbBOZg6Dgmde4LxmWu4cEPo54wMyyVbOhPuEcEc_pcQr2dtZLqpoDQMNwwlvQlnvYVkPNYxydkJCjdfyNRwBNjW-ysAVZVI93u6gOkCYmxXz91hht_SD7MEeZDOLxQ-NtxVFCpkPejf50StABaxcLy0 "custom border tags")
 
-### Custom schema definition
+### Custom schema definitions (via UpdateElementStyle())
 
-If the custom (color) schema is defined via `UpdateElementStyle()` then the legend of existing elements is updated too.
+Via `UpdateElementStyle()` calls, it is possible to change the default colors, sprites, legend text, tags, ...
+It automatically updates the legend too.  
+If the corresponding section is stored in a separate file then it can be reused as default of all diagrams.
 
 ```plantuml
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
+' <<<<< this section could be stored in a separate file and reused in all other diagrams too
+' it defines new default colors, different default sprites and legend 
 !$COLOR_A_5 = "#7f3b08"
 !$COLOR_A_4 = "#b35806"
 !$COLOR_A_3 = "#e08214"
@@ -786,11 +791,12 @@ If the custom (color) schema is defined via `UpdateElementStyle()` then the lege
 !$COLOR_REL_LINE = "#8073ac"
 !$COLOR_REL_TEXT = "#8073ac"
 
-UpdateElementStyle("person", $bgColor=$COLOR_A_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_1, $shadowing="true")
-UpdateElementStyle("external_person", $bgColor=$COLOR_B_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_1)
-UpdateElementStyle("system", $bgColor=$COLOR_A_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_2)
-UpdateElementStyle("external_system", $bgColor=$COLOR_B_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_2)
+UpdateElementStyle("person", $bgColor=$COLOR_A_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_1, $shadowing="true", $legendText="Internal user")
+UpdateElementStyle("external_person", $bgColor=$COLOR_B_5, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_1, $legendText="External user")
+UpdateElementStyle("system", $bgColor=$COLOR_A_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_A_2, $sprite="robot", $legendText="Our chatbot based system")
+UpdateElementStyle("external_system", $bgColor=$COLOR_B_4, $fontColor=$COLOR_NEUTRAL, $borderColor=$COLOR_B_2, $legendText="External system")
 UpdateRelStyle($lineColor=$COLOR_REL_LINE, $textColor=$COLOR_REL_TEXT)
+' >>>>> end of section
 
 Person(customer, "Personal Banking Customer")
 System(banking_system, "Internet Banking System")
@@ -807,7 +813,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![custom schema](https://www.plantuml.com/plantuml/png/dL9TRzem57tFhqWp7a0g448eqIIaDYpQAgLGyQ7jBRBZ2qHr76GxQlllvyJPuhRf9Y5UoBddt7lElRuL4d5PvjIwobXAImBsISgp-3eUS_GyEcRoLE9I04yB9e79KLhaupD5hD8CXIGqm-EbFtoieFr3FCwHaC0Lb2mhnOiSdQlkrbLlkOxNc-GkcTaBs_aoFqon6pW6xjSudiu2zyR4fpKERk1DV1FtQln0S70pDV69nW5SRFHPHVlTvYxMjNdrQsjXeo41GO1DNC_07iB4Ct7jAN3dKvIQkCumyxrv49YupkmHr_MD_fieJkBxLTJHJ1TtqQ_TcwArFnCa8QAG0vDR-KgXxvo1Yu8vrtOF7vS5BVYYtRK23-eEBTokek8Nd01_fvceWZWXKZndxBXm92_16NGELjS5pX1DFdKGNk10NQDxd7WL4lBEdFu5ERt_XFfqN7Z1kB0Tjm6gH_Leni1WjGz2zP3AXr5htyF0iXxhTVVJKiWY1tvjEnf1r0uHUr9divTDJLrkM-VeOrrfOYdDFQk2WlohqKIbQ2H9z2BxESfeguc6rRSj6kOx8Zjmb8EYFVpvtz5RnJUSVt2r5o0KJR6I4ALF1lMjaoqm8coe_GXR5erc1TdnfFR_8Uu_r5hQfT0XMbVMziVwPn97twFLj_x0kbLTofp-1W00 "custom schema")
+![custom schema](https://www.plantuml.com/plantuml/png/dLJlJ-904FtUlsBicHmcAbXGcijnKRZcpWJ1y2DttvfjTmgDsrsoEututz-MHIs8PsBvGFlUl9StivEzDiGqbONmZdAPYf8ZB8bMvbkpgTdZ-IAdPPcK1dMg9A6ayrGLpPLWijAS6U8YJvg3pjbz1StlXis26K9jeNXGATPqlghSlQ_mlNg0bha1WodbIaAgIi4XGJ2aD7B89J1BhfXcX93b0e593XfBisM504LBrC1pjj2iC41AMVESW6EMIpGWyR5wPwKWI9LGsfpQwYn3RVE_C6QbSqApyHUuGFld7HqFniFn9Bw9Bw47_fTkravQeL_3EniyQL-6hQiwtjxWs0g3YquT3pPunfFmgbt7BnoEs4fgFgDeFflS31tNhNwlN7-huI5dcDJnm6KAMCA3EkuoXQrkcwLrtFLmsGcwOLZ7NSy1RxKwDVz9D8o7jwFeW9aZPz7VsGxfpLUS4KO22vGqfIU13N-5sYZfdy9niXXKXz9xdRK5CoN9mRkZgEgLvgZtD1UMC4l6rMCk5psVT8cLjpl86QwfvzzAGYsPW6fx_PE3gN3jQk9tu_K_4SyUrLwMQFrn5lDa28k34-fyOaA19ToEztoj4aNxyncN6j8b8qj1mWnoS0a-6jMxEVkVo6ctzxrHxQMPe719ZaKkqPdihQXr8klXkBqDFR5tn8_g0PGSLFPy1NdU_URe6sbfI1MeJy5tY8tGP_B1xXSCjfmDCzsaQYIEsGx3Qjos8Rrefi_njvBODjOeM2vUDT6P_QurkbieCyqAj6Ltp-y7lErKQidVf9eRDBRCLiLzbZxKIdUJJ55o0xZ9Ou3KLZF2VB5CbDvhzxzg9tshg3MqJULDVu__nCFeLpJwsJZnhgrBMOX_ "custom schema")
 
 ## Element and Relationship properties
 

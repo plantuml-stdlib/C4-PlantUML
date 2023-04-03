@@ -18,8 +18,9 @@ C4-PlantUML comes with some layout options.
     - [Using SHOW_PERSON_SPRITE(sprite)](#using-show_person_spritesprite)
     - [Using SHOW_PERSON_PORTRAIT()](#using-show_person_portrait)
     - [Using SHOW_PERSON_OUTLINE()](#using-show_person_outline)
+- [📄 Themes](Themes.md#themes)
 - samples
-  - [📄 Core Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
+  - [📄 C4 Model Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
 
 ## Layout Guidance and Practices
 
@@ -207,9 +208,9 @@ Legend labels and details can be defined via `\n` in `$legendTest` arguments too
 ' $legendText with \n defines the label and details of the legend entry ("backend container" is label, "eight sided shape" is details) 
 AddElementTag("backendContainer", $fontColor=$ELEMENT_FONT_COLOR, $bgColor="#335DA5", $shape=EightSidedShape(), $legendText="backend container\neight sided shape")
 ' $legendText without \n defines only a label 
-AddRelTag("async", $textColor=$ARROW_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DashedLine(), $legendText="async call")
+AddRelTag("async", $textColor=$ARROW_FONT_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DashedLine(), $legendText="async call")
 ' if no $legendText defined, $tag is automatically the label and all additional displayed properties are the details
-AddRelTag("sync/async", $textColor=$ARROW_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DottedLine())
+AddRelTag("sync/async", $textColor=$ARROW_FONT_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DottedLine())
 
 System_Boundary(c1, "Internet Banking") {
     Container(mobile_app, "Mobile App", "C#, Xamarin", "Provides a limited subset of the Internet banking functionality to customers via their mobile device")
@@ -239,9 +240,9 @@ Legend details can be deactivated via `SHOW_LEGEND($details=None())`
 ' $legendText with \n defines the label and details of the legend entry ("backend container" is label, "eight sided shape" is details) 
 AddElementTag("backendContainer", $fontColor=$ELEMENT_FONT_COLOR, $bgColor="#335DA5", $shape=EightSidedShape(), $legendText="backend container\neight sided shape")
 ' $legendText without \n defines only a label 
-AddRelTag("async", $textColor=$ARROW_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DashedLine(), $legendText="async call")
+AddRelTag("async", $textColor=$ARROW_FONT_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DashedLine(), $legendText="async call")
 ' if no $legendText defined, $tag is automatically the label and all additional displayed properties are the details
-AddRelTag("sync/async", $textColor=$ARROW_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DottedLine())
+AddRelTag("sync/async", $textColor=$ARROW_FONT_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DottedLine())
 
 System_Boundary(c1, "Internet Banking") {
     Container(mobile_app, "Mobile App", "C#, Xamarin", "Provides a limited subset of the Internet banking functionality to customers via their mobile device")

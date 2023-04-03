@@ -4,7 +4,7 @@
 ' ##################################
 !function C4Version()
   ' 2 spaces and ' are used as unique marker, that the release scripts makes the correct version update
-  !$c4Version  =  "2.6.0beta1"
+  !$c4Version  =  "2.6.0beta2"
   !return $c4Version
 !end function
 
@@ -17,58 +17,83 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 
 ' Colors
 ' ##################################
+!$ELEMENT_FONT_COLOR ?= "#FFFFFF"
 
-!global $ELEMENT_FONT_COLOR = "#FFFFFF"
+!$ARROW_COLOR ?= "#666666"
+!$ARROW_FONT_COLOR ?= $ARROW_COLOR
 
-!global $ARROW_COLOR = "#666666"
+!$BOUNDARY_COLOR ?= "#444444"
+!$BOUNDARY_BG_COLOR ?= "transparent"
+!$BOUNDARY_BORDER_STYLE ?= "dashed"
 
-!global $BOUNDARY_COLOR = "#444444"
-!global $BOUNDARY_BG_COLOR = "transparent"
-
-!global $LEGEND_FONT_COLOR = "#FFFFFF"
-!global $LEGEND_TITLE_COLOR = "#000000"
+!$LEGEND_TITLE_COLOR ?= "#000000"
+!$LEGEND_FONT_COLOR ?= "#FFFFFF"
+!$LEGEND_BG_COLOR ?= "transparent"
+!$LEGEND_BORDER_COLOR ?= "transparent"
 ' %darken(darkkhaki,50), #khaki
-!global $LEGEND_DARK_COLOR = "#66622E"
-!global $LEGEND_LIGHT_COLOR = "#khaki"
+!$LEGEND_DARK_COLOR ?= "#66622E"
+!$LEGEND_LIGHT_COLOR ?= "#khaki"
 
-!global $SKETCH_BG_COLOR = "#EEEBDC" 
-!global $SKETCH_FONT_COLOR = ""
-!global $SKETCH_WARNING_COLOR = "red"
-!global $SKETCH_FONT_NAME = "Comic Sans MS"
+!$SKETCH_BG_COLOR ?= "#EEEBDC" 
+!$SKETCH_FONT_COLOR ?= ""
+!$SKETCH_WARNING_COLOR ?= "red"
+!$SKETCH_FONT_NAME ?= "Comic Sans MS"
 
 ' Labels
 ' ##################################
 
-!global $LEGEND_SHADOW_TEXT = "shadow"
-!global $LEGEND_NO_SHADOW_TEXT = "no shadow"
-!global $LEGEND_NO_FONT_BG_TEXT = "last text and back color"
-!global $LEGEND_NO_FONT_TEXT = "last text color"
-!global $LEGEND_NO_BG_TEXT = "last back color"
-!global $LEGEND_NO_LINE_TEXT = "last line color"
-!global $LEGEND_ROUNDED_BOX = "rounded box"
-!global $LEGEND_EIGHT_SIDED = "eight sided"
-!global $LEGEND_DOTTED_LINE = "dotted"
-!global $LEGEND_DASHED_LINE = "dashed"
-!global $LEGEND_BOLD_LINE = "bold"
-!global $LEGEND_BOUNDARY = "boundary"
-!global $LEGEND_DASHED_BOUNDARY = "dashed"
+!$LEGEND_SHADOW_TEXT ?= "shadow"
+!$LEGEND_NO_SHADOW_TEXT ?= "no shadow"
+!$LEGEND_NO_FONT_BG_TEXT ?= "last text and back color"
+!$LEGEND_NO_FONT_TEXT ?= "last text color"
+!$LEGEND_NO_BG_TEXT ?= "last back color"
+!$LEGEND_NO_LINE_TEXT ?= "last line color"
+!$LEGEND_ROUNDED_BOX ?= "rounded box"
+!$LEGEND_EIGHT_SIDED ?= "eight sided"
+!$LEGEND_DOTTED_LINE ?= "dotted"
+!$LEGEND_DASHED_LINE ?= "dashed"
+!$LEGEND_BOLD_LINE ?= "bold"
+!$LEGEND_BOUNDARY ?= "boundary"
+!$LEGEND_DASHED_BOUNDARY ?= "dashed"
 ' ignore transparent atm, that the legend is smaller
-'!global $LEGEND_DASHED_TRANSPARENT_BOUNDARY = "dashed, transparent"
-!global $LEGEND_DASHED_TRANSPARENT_BOUNDARY = "dashed"
+'$LEGEND_DASHED_TRANSPARENT_BOUNDARY ?= "dashed, transparent"
+!$LEGEND_DASHED_TRANSPARENT_BOUNDARY ?= "dashed"
 
-!global $SKETCH_FOOTER_WARNING = "Warning:"
-!global $SKETCH_FOOTER_TEXT = "Created for discussion, needs to be validated"
+!$SKETCH_FOOTER_WARNING ?= "Warning:"
+!$SKETCH_FOOTER_TEXT ?= "Created for discussion, needs to be validated"
 
 ' Styling
 ' ##################################
 
-!global $TECHN_FONT_SIZE = 12
-!global $ROUNDED_BOX_SIZE = 25
-!global $EIGHT_SIDED_SIZE = 18
+!$STEREOTYPE_FONT_SIZE ?= 12
+!global $TRANSPARENT_STEREOTYPE_FONT_SIZE = $STEREOTYPE_FONT_SIZE/2
+!$TECHN_FONT_SIZE ?= 12
 
-!global $LEGEND_DETAILS_SMALL_SIZE = 10
-!global $LEGEND_DETAILS_NORMAL_SIZE = 14
+!$ARROW_FONT_SIZE ?= 12
+
+!$LEGEND_DETAILS_SMALL_SIZE ?= 10
+!$LEGEND_DETAILS_NORMAL_SIZE ?= 14
 !global $LEGEND_DETAILS_SIZE = $LEGEND_DETAILS_SMALL_SIZE
+
+' element symbols typically 4 times too big in legend
+!$LEGEND_IMAGE_SIZE_FACTOR ?= 0.25
+
+!$ROUNDED_BOX_SIZE ?= 25
+!$EIGHT_SIDED_SIZE ?= 18
+
+' Default element wrap width (of an element)
+!$DEFAULT_WRAP_WIDTH ?= 200
+' Maximum size in pixels, of a message (in a sequence diagram?)
+!$MAX_MESSAGE_SIZE ?= 150
+' PlantUML supports no DETERMINISTIC/automatic line breaks of "PlantUML line" (C4 Relationships)
+' therefore Rel...() implements an automatic line break based on spaces (like in all other objects).
+' If a $type contains \n then these are used (and no automatic space based line breaks are done)
+' $REL_TECHN_MAX_CHAR_WIDTH defines the automatic line break position
+!$REL_TECHN_MAX_CHAR_WIDTH ?= 35
+!$REL_DESCR_MAX_CHAR_WIDTH ?= 32
+
+' internal 
+' ##################################
 
 !global $ROUNDED_BOX = "roundedBox"
 !global $EIGHT_SIDED = "eightSided"
@@ -83,63 +108,55 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 
 skinparam defaultTextAlignment center
 
-skinparam wrapWidth 200
-skinparam maxMessageSize 150
+skinparam wrapWidth $DEFAULT_WRAP_WIDTH
+skinparam maxMessageSize $MAX_MESSAGE_SIZE
 
-skinparam LegendBorderColor transparent
-skinparam LegendBackgroundColor transparent
 skinparam LegendFontColor $LEGEND_FONT_COLOR
+skinparam LegendBackgroundColor $LEGEND_BG_COLOR
+skinparam LegendBorderColor $LEGEND_BORDER_COLOR
 
-skinparam shadowing<<legendArea>> false
-' #00000000 is transparent
 skinparam rectangle<<legendArea>> {
-    backgroundcolor #00000000
-    bordercolor #00000000
+    backgroundcolor $LEGEND_BG_COLOR
+    bordercolor $LEGEND_BORDER_COLOR
 }
 
 skinparam rectangle {
-    StereotypeFontSize 12
-    shadowing false
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
 }
 
 skinparam database {
-    StereotypeFontSize 12
-    shadowing false
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
 }
 
 skinparam queue {
-    StereotypeFontSize 12
-    shadowing false
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
 }
 
 skinparam arrow {
     Color $ARROW_COLOR
-    FontColor $ARROW_COLOR
-    FontSize 12
+    FontColor $ARROW_FONT_COLOR
+    FontSize $ARROW_FONT_SIZE
 }
 
 skinparam person {
-    StereotypeFontSize 12
-    shadowing false
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
 }
 
 skinparam actor {
-    StereotypeFontSize 12
-    shadowing false
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
     style awesome
 }
 
 ' Some boundary skinparams have to be set as package skinparams too (PlantUML uses internal packages)
 ' UpdateBoundaryStyle() called in boundary section below
 skinparam rectangle<<boundary>> {
-    Shadowing false
-    StereotypeFontSize 6
+    StereotypeFontSize $TRANSPARENT_STEREOTYPE_FONT_SIZE
     StereotypeFontColor $BOUNDARY_BG_COLOR
-    BorderStyle dashed
+    BorderStyle $BOUNDARY_BORDER_STYLE
 }
 
 skinparam package {
-    StereotypeFontSize 6
+    StereotypeFontSize $TRANSPARENT_STEREOTYPE_FONT_SIZE
     StereotypeFontColor $BOUNDARY_BG_COLOR
     FontStyle plain
     BackgroundColor $BOUNDARY_BG_COLOR
@@ -465,9 +482,9 @@ $elementSkin
   ' ,scale= ... has to be first (...,color=black,scale=0.25... is invalid too)
   !if (%strpos($sprite, "=") < 0)
     !if (%substr($sprite, 0, 4) == "img:")
-      !$smallSprite = $sprite + "{scale=0.25}"
+      !$smallSprite = $sprite + "{scale=" + $LEGEND_IMAGE_SIZE_FACTOR + "}"
     !else
-      !$smallSprite = $sprite + ",scale=0.25"
+      !$smallSprite = $sprite + ",scale=" + $LEGEND_IMAGE_SIZE_FACTOR
     !endif
   !else
     !$smallSprite = $sprite
@@ -538,6 +555,7 @@ $elementSkin
   !endif
   !if ($legendText == "")
     !if ($tagStereo == "boundary")
+      ' #00000000 is transparent
       !if ($bgColor == "#00000000" || %lower($bgColor) == "transparent")
         !$tagEntry = $tagEntry + " " + $LEGEND_BOUNDARY + " "
         !$tagDetails = $tagDetails + $LEGEND_DASHED_TRANSPARENT_BOUNDARY + ", "
@@ -583,7 +601,7 @@ $elementSkin
         !$tagDetails = $tagDetails + $LEGEND_NO_BG_TEXT + ", "
       !endif
     !endif
-    !if ($tagDetails=="(")
+    !if ($tagDetails=="(" || $tagDetails=="(, ")
       !$tagDetails = "</size>"
     !else
       !$tagDetails = %substr($tagDetails, 0, %strlen($tagDetails)-2)
@@ -618,7 +636,7 @@ $elementSkin
 
   !if ($tc == "")
     !if ($PlantUMLSupportsDynamicLegendColor)
-      !$tc = $flatLegend($ARROW_COLOR)
+      !$tc = $flatLegend($ARROW_FONT_COLOR)
     !else
       !$tc = $LEGEND_DARK_COLOR
     !endif
@@ -869,13 +887,6 @@ $elementSkin
 ' Line breaks
 ' ##################################
 
-' PlantUML supports no DETERMINISTIC/automatic line breaks of "PlantUML line" (C4 Relationships)
-' therefore Rel...() implements an automatic line break based on spaces (like in all other objects).
-' If a $type contains \n then these are used (and no automatic space based line breaks are done)
-' $REL_TECHN_MAX_CHAR_WIDTH defines the automatic line break position
-!global $REL_TECHN_MAX_CHAR_WIDTH = 35
-!global $REL_DESCR_MAX_CHAR_WIDTH = 32
-
 !unquoted function $breakText($text, $usedNewLine, $widthStr="-1")
 !$width = %intval($widthStr)
 !$multiLine = ""
@@ -1039,7 +1050,7 @@ hide stereotype
 
 !procedure $getLegendTable($detailsFormat)
 !global $LEGEND_DETAILS_SIZE = $getLegendDetailsSize($detailsFormat)
-<#00000000,#00000000>|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
+<$colorWithHash(transparent),$colorWithHash(transparent)>|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
 $showActiveLegendEntries($tagDefaultLegend)
 $showActiveLegendEntries($tagCustomLegend)
 !endprocedure
@@ -1087,9 +1098,10 @@ hide stereotype
   }
   !if $ARROW_COLOR == "#666666"
     !global $ARROW_COLOR = $SKETCH_FONT_COLOR
+    !global $ARROW_FONT_COLOR = $SKETCH_FONT_COLOR
     skinparam arrow {
       Color $ARROW_COLOR
-      FontColor $ARROW_COLOR
+      FontColor $ARROW_FONT_COLOR
     }
   !endif
   !if $BOUNDARY_COLOR == "#444444"

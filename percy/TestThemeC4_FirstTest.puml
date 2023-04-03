@@ -1,0 +1,11 @@
+@startuml
+
+!$UseTheme=C4_FirstTest
+
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./TestThemeTemplate.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestThemeTemplate.puml
+!endif
+
+@enduml

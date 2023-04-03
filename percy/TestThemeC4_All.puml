@@ -1,0 +1,95 @@
+@startuml
+
+!$UseTheme=C4_blue
+
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./TestThemeTemplate.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestThemeTemplate.puml
+!endif
+
+@enduml
+
+@startuml
+
+!$UseTheme=C4_brown
+
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./TestThemeTemplate.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestThemeTemplate.puml
+!endif
+
+@enduml
+
+@startuml
+
+!$UseTheme=C4_FirstTest
+
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./TestThemeTemplate.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestThemeTemplate.puml
+!endif
+
+@enduml
+
+@startuml
+
+!$UseTheme=C4_green
+
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./TestThemeTemplate.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestThemeTemplate.puml
+!endif
+
+@enduml
+
+@startuml
+
+!$UseTheme=C4_sandstone
+
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./TestThemeTemplate.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestThemeTemplate.puml
+!endif
+
+@enduml
+
+@startuml
+
+!$UseTheme=C4_superhero
+
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./TestThemeTemplate.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestThemeTemplate.puml
+!endif
+
+@enduml
+
+@startuml
+
+!$UseTheme=C4_united
+
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./TestThemeTemplate.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestThemeTemplate.puml
+!endif
+
+@enduml
+
+@startuml
+
+!$UseTheme=C4_violet
+
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./TestThemeTemplate.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestThemeTemplate.puml
+!endif
+
+@enduml

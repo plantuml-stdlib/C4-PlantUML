@@ -1,0 +1,19 @@
+@startuml
+
+!$ThemeToBeCHecked=C4_FirstTest
+
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  ' !theme C4_FirstTest from %get_variable_value("RELATIVE_INCLUDE")/themes
+  !theme $ThemeToBeCHecked from ./../themes
+!else
+  !theme $ThemeToBeCHecked from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!endif
+
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./TestAllElementsWithLegend.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestAllElementsWithLegend.puml
+!endif
+
+@enduml

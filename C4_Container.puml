@@ -13,17 +13,24 @@
 ' Colors
 ' ##################################
 
-!global $CONTAINER_BG_COLOR = "#438DD5"
-!global $CONTAINER_BORDER_COLOR = "#3C7FC0"
-!global $EXTERNAL_CONTAINER_BG_COLOR = "#B3B3B3"
-!global $EXTERNAL_CONTAINER_BORDER_COLOR = "#A6A6A6"
+!$CONTAINER_FONT_COLOR ?= $ELEMENT_FONT_COLOR
+!$CONTAINER_BG_COLOR ?= "#438DD5"
+!$CONTAINER_BORDER_COLOR ?= "#3C7FC0"
+
+!$CONTAINER_BOUNDARY_COLOR ?= $BOUNDARY_COLOR
+!$CONTAINER_BOUNDARY_BG_COLOR ?= $BOUNDARY_BG_COLOR
+!$CONTAINER_BOUNDARY_BORDER_STYLE ?= $BOUNDARY_BORDER_STYLE
+
+!$EXTERNAL_CONTAINER_FONT_COLOR ?= $ELEMENT_FONT_COLOR
+!$EXTERNAL_CONTAINER_BG_COLOR ?= "#B3B3B3"
+!$EXTERNAL_CONTAINER_BORDER_COLOR ?= "#A6A6A6"
 
 ' Styling
 ' ##################################
-UpdateElementStyle("container", $CONTAINER_BG_COLOR, $ELEMENT_FONT_COLOR, $CONTAINER_BORDER_COLOR)
-UpdateElementStyle("external_container", $EXTERNAL_CONTAINER_BG_COLOR, $ELEMENT_FONT_COLOR, $EXTERNAL_CONTAINER_BORDER_COLOR)
+UpdateElementStyle("container", $CONTAINER_BG_COLOR, $CONTAINER_FONT_COLOR, $CONTAINER_BORDER_COLOR)
+UpdateElementStyle("external_container", $EXTERNAL_CONTAINER_BG_COLOR, $EXTERNAL_CONTAINER_FONT_COLOR, $EXTERNAL_CONTAINER_BORDER_COLOR)
 
-UpdateBoundaryStyle("container", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR, $type="Container")
+UpdateBoundaryStyle("container", $bgColor=$CONTAINER_BOUNDARY_BG_COLOR, $fontColor=$CONTAINER_BOUNDARY_COLOR, $borderColor=$CONTAINER_BOUNDARY_COLOR, $type="Container")
 
 ' shortcuts with default colors
 !unquoted procedure AddContainerTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
@@ -33,7 +40,7 @@ UpdateBoundaryStyle("container", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDA
   $addElementTagInclReuse("external_container", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $techn, $legendText, $legendSprite)
 !endprocedure
 
-!unquoted procedure UpdateContainerBoundaryStyle($bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR, $shadowing="", $shape="", $type="Container", $legendText="")
+!unquoted procedure UpdateContainerBoundaryStyle($bgColor=$CONTAINER_BOUNDARY_BG_COLOR, $fontColor=$CONTAINER_BOUNDARY_COLOR, $borderColor=$CONTAINER_BOUNDARY_COLOR, $shadowing="", $shape="", $type="Container", $legendText="")
   UpdateBoundaryStyle("container", $bgColor, $fontColor, $borderColor, $shadowing, $shape, $type, $legendText)
 !endprocedure
 

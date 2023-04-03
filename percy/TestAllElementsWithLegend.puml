@@ -1,0 +1,82 @@
+@startuml 
+
+' displays all elements, relationship and legend (can be included in the theme test)
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Deployment.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!endif
+
+SetDefaultLegendEntries("person\nsystem\ncontainer\ncomponent\nexternal_person\nexternal_system\nexternal_container\nexternal_component\nnode\nenterprise_boundary\nsystem_boundary\ncontainer_boundary\nboundary")
+
+title Overview of all elements, relationship and legend
+
+footer theme $THEME drawn with PlantUML v. %version() and C4-PlantUML v. C4Version()
+
+Boundary(b2, "Boundary 2") {
+  System(system, "System", "Optional Description")
+  System_Ext(externalSystem, "External System", "Optional Description")
+  Rel_R(system, externalSystem, "uses")
+
+  SystemDb(systemDb, "SystemDb", "Optional Description")
+  SystemDb_Ext(externalSystemDb, "External SystemDb", "Optional Description")
+  SystemQueue(systemQueue, "SystemQueue", "Optional Description")
+  SystemQueue_Ext(externalSystemQueue, "External SystemQueue", "Optional Description")    
+}
+
+Boundary(b1, "Boundary 1") {
+  Person(person, "Person", "Optional Description")
+  Person_Ext(externalPerson, "External Person", "Optional Description")
+  Rel_R(person, externalPerson, "uses")
+}
+
+Boundary(b3, "Boundary 3") {
+  Container(container, "Container", "Technology", "Optional Description")
+  Container_Ext(externalContainer, "External Container", "Technology", "Optional Description")
+  Rel_R(container, externalContainer, "uses")
+
+  ContainerDb(containerDb, "ContainerDb", "Technology", "Optional Description")
+  ContainerDb_Ext(externalContainerDb, "External ContainerDb", "Technology", "Optional Description")
+  ContainerQueue(containerQueue, "ContainerQueue", "Technology", "Optional Description")
+  ContainerQueue_Ext(externalContainerQueue, "External ContainerQueue", "Technology", "Optional Description")
+}
+
+Boundary(b4, "Boundary 4") {
+  Component(component, "Component", "Technology", "Optional Description")
+  Component_Ext(externalComponent, "External Component", "Technology", "Optional Description")
+  Rel_R(component, externalComponent, "uses")
+
+  ComponentDb(componentDb, "ComponentDb", "Technology", "Optional Description")
+  ComponentDb_Ext(externalComponentDb, "External ComponentDb", "Technology", "Optional Description")
+  ComponentQueue(componentQueue, "ComponentQueue", "Technology", "Optional Description")
+  ComponentQueue_Ext(externalComponentQueue, "External ComponentQueue", "Technology", "Optional Description")
+}
+
+Boundary(b5, "Boundary 5") {
+  Node(node, "Node", "Type", "Optional Description")
+}
+
+Boundary(b6, "Boundary 6") {
+  Enterprise_Boundary(eb, "Enterprise Boundary") {
+  }
+
+  System_Boundary(sb, "System Boundary") {
+  }
+
+  Container_Boundary(cb, "Container Boundary") {
+  }
+
+  Lay_R(eb,sb)
+  Lay_R(sb,cb)
+}
+
+Lay_D(b2,b3)
+Lay_R(b2,b1)
+Lay_D(b3,b4)
+Lay_D(b4,b5)
+Lay_R(b5,b6)
+
+SHOW_FLOATING_LEGEND()
+@enduml

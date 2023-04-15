@@ -797,16 +797,16 @@ $addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $sha
 !endprocedure
 
 !unquoted procedure $addElementTagInclReuse($elementName, $tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
-  !$bgColor=$restoreEmpty($elementName, "bgColor", $bgColor, %true())
-  !$fontColor=$restoreEmpty($elementName, "fontColor", $fontColor, %true())
-  !$borderColor=$restoreEmpty($elementName, "borderColor", $borderColor, %true())
-  !$shadowing=$restoreEmpty($elementName, "shadowing", $shadowing, %true())
-  !$shape=$restoreEmpty($elementName, "shape", $shape, %true())
-  !$sprite=$restoreEmpty($elementName, "sprite", $sprite, %true())
-  !$techn=$restoreEmpty($elementName, "techn", $techn, %true())
+  !$bgColor=$restoreEmpty($elementName, "bgColor", $bgColor, %false())
+  !$fontColor=$restoreEmpty($elementName, "fontColor", $fontColor, %false())
+  !$borderColor=$restoreEmpty($elementName, "borderColor", $borderColor, %false())
+  !$shadowing=$restoreEmpty($elementName, "shadowing", $shadowing, %false())
+  !$shape=$restoreEmpty($elementName, "shape", $shape, %false())
+  !$sprite=$restoreEmpty($elementName, "sprite", $sprite, %false())
+  !$techn=$restoreEmpty($elementName, "techn", $techn, %false())
   ' new style should has its own legend text
-  ' !$legendText=$restoreEmpty($elementName, "legendText", $legendText, %true())
-  !$legendSprite=$restoreEmpty($elementName, "legendSprite", $legendSprite, %true())
+  ' !$legendText=$restoreEmpty($elementName, "legendText", $legendText, %false())
+  !$legendSprite=$restoreEmpty($elementName, "legendSprite", $legendSprite, %false())
 
   AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $techn, $legendText, $legendSprite)
 !endprocedure

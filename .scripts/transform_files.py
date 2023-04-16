@@ -17,7 +17,7 @@
 #   - and "deployed_version" This is the next "plantuml(/plantuml-stdlib)" version
 #                            which should be updated with this release (e.g. "V1.2023.2")
 #                            If it is undefined it is calculated via the running PlantUML web service
-#   are defined as environment variable (or they will be calculated it possible)
+#   are defined as environment variable (or they will be calculated if possible)
 
 # Supported transformations/functions are
 #
@@ -377,6 +377,21 @@ def create_plantuml_stdlib_c4_folder(target_path):
         re.compile(r"\{release version without v\}"),
         release_version[1:],
     )
+
+    themes_path = target_path+"/themes"
+    os.makedirs(themes_path, exist_ok=True)
+    paths = glob.glob("./themes/puml-theme-C4_*.puml")
+    for path in paths:
+        file = os.path.basename(path)
+        if file == "puml-theme-C4_FirstTest.puml":
+            continue
+        # print(f"    {path}")
+        replace_first_regex_copy_file(
+            path,
+            os.path.join(themes_path, file),
+            re.compile("DOES NOT EXIST"),
+            "DOES NOT EXIST",
+        )
 
     print(f"all C4 related plantuml-stdlib files copied into {target_path}.")
 

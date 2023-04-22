@@ -1,25 +1,24 @@
 [![release][Release Badge]][Release Page]
 [![license MIT][License Badge]][License Page]
  &nbsp; &nbsp; &nbsp;
+[![integrated in PlantUML][Integrated Badge]][Integrated Page]
+ &nbsp; &nbsp; &nbsp;
 [![commits since][Commits Since Badge]][Commit Page]
-[![last commit][Last Commit Badge]][Commit Page]
-[![build result][Tests Badge]][Tests Page]
 
-[Release Badge]: https://img.shields.io/github/v/release/plantuml-stdlib/C4-PlantUML?display_name=tag
-[Release Page]: https://github.com/plantuml-stdlib/C4-PlantUML/releases/latest
+[Release Badge]: https://img.shields.io/badge/release-v2.6.0-blue
+[Release Page]: https://github.com/plantuml-stdlib/C4-PlantUML/releases/v2.6.0
 [License Badge]: https://img.shields.io/github/license/plantuml-stdlib/C4-PlantUML
 [License Page]: https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/LICENSE
+[Integrated Badge]: https://img.shields.io/badge/C4--PlantUML%20%20v2.6.0%20integrated%20in%20PlantUML%20Standard%20Library-V1.2023.6-orange
+[Integrated Page]: https://plantuml.com/stdlib#062f75176513a666
 
-[Commits Since Badge]: https://img.shields.io/github/commits-since/plantuml-stdlib/C4-PlantUML/latest?label=new%20unreleased%20changes
-[Last Commit Badge]: https://img.shields.io/github/last-commit/plantuml-stdlib/C4-PlantUML?color=yellow
+[Commits Since Badge]: https://img.shields.io/github/commits-since/plantuml-stdlib/C4-PlantUML/latest?label=new%20unreleased%20changes%20in%20master%20branch
 [Commit Page]: https://github.com/plantuml-stdlib/C4-PlantUML/commits
-[Tests Badge]: https://github.com/plantuml-stdlib/C4-PlantUML/actions/workflows/run-percy-tests.yml/badge.svg
-[Tests Page]: https://github.com/plantuml-stdlib/C4-PlantUML/actions/workflows/run-percy-tests.yml
 
-# C4-PlantUML
+# C4-PlantUML (v2.6.0)
 
 [comment]: # ("image is based on percy/C4_Container Diagram Sample - bigbankplc-styles.puml")
-[![Container diagram for Internet Banking System](https://www.plantuml.com/plantuml/png/hLRVZzf647xdhvYGH0690rLfNYgT50xSvYAuey0bVKDZxs1MMU-wksiuLFL_xwmnDYOdvI5zkMDdThxls_anyD5vjBx8LEST94RloNgG7WxIxm25a5uQZOfTMOPQW9AQ06rQPAGzt4oNqMoyllyIRUuV9hEdQNJR7Ow6movu0uKZK2P1fOwTLt8BR_Te9SQADlGidNUzxdLmjzy1U2LreWf1y3OblwbZzgWAUYbaDFbrCp7Q8okpmpoyv1KfHvTGE-zpzzjePF4mJFbbHSpYRC9HfFsGtpRA5UgGXHldXP8nWzuiWkbfFXjbw3pP5tcqaDjEP_NfyUjc4IrNZm-RnwVrxFuXwlKvdsjC7RWYputre0su71Do83Nu7O76ZA0NeoC1vcGgj23BAPOwXS19nXzpSWCux6Io0s7qEry3LcYeZvcnr1y2CzvlQxCbiFHtGOmZpfIAKfOygFw3f-UgqcKGxD25miK4WhPIa-YCXOWKXLhpMthT69Dl75YdeJk0Dri-J8mozlPDD8lcqSDwy_iZ_vaypXwNx8_JaxVx-ltx3zFnXn3ZTfZJRIJJdLz9GM8Lphq-UqxArYpizim6oPaEUXH2m8MOVhSVv2r9bTBG7NKIiFbHPptZvP8Bqr8J-lVIstAi_57HxHJTZiHCQbRKeWWCe_-HntZVy7Iyz8gWJYq8YQd53BR6mhtsP3Lvk4FzBJJ7wkWyPPtEWgmpkfSKpfkCx00czQVk6CvcCDko_3573qu5pyj0LAKDC4bCeRthieuJzEQE3GBjiPVymbZN0hfz-AS308tUte7Y3UOvN_vACOppNCa4m_Reikapxd40gzm6yVClas2Raf9xbb5ASvxl9b2D9A0MfRdcZSyFNunPP9lPvSXmAtOhkbbWIe7zpBfAhCpz0COwBHJQO5vOivSYp8XIBxDi2vsS5f_qH_2cpgI3lSGG8otmWo6svk38VYSfCx5KLELZ7WwrgCdh0Vo56N8gsc90oKo6ONL5xCXpqNv2t4a02DhBXAxbJUEUG8zXzOGwL1-3cjMVCsYTlR7a86nBi9HAvsrPKv2Q-p8hFmzWLquCOE5ta5WIfBr4vGQXhyWvK2Rb0_ba-5sYgXddJCdGielxbpjdQlYQRU9QcVj1Xa9I6BYSMKpTxNTRZ4NzM_TzzEnxbA5K6rSQc2YwcVEvchd0lDuHo98K5SnbOeqpMm_HSx93dHAS8Xds0hFIrg0ofjvQpEXgg2_IZagTko1XG_s-Y-G3ngRmJGiCwbaUWBUe7PQPQDBVMPAws1VDr3uvSe7xqtgzMF75zZsNum_lL4tVm5LqcuUmjcFJx8WIhja05L9fR3L4JLXktG5yvc_OKKdULBDqLGYDWfy3sjnnS2Ex6POsw99GEDXQavKBws2b9mVU1AAAPtetOSWQyo9RLqssObW7T1Ei9KOZvAeVsnhQSONZ_cZeL_FrWe5QDMY5NtLbawVckuwtrNnsdQl6pV2dtp-pw8_eOThhTxR6UB8WB1xqwSlc_4iAzaDu6mekZUxrovmrlxE2buzVpkxEHrPPPEe_ "Container diagram for Internet Banking System")](https://www.plantuml.com/plantuml/uml/hLRVZzf647xdhvYGH0690rLfNYgT50xSvYAuey0bVKDZxs1MMU-wksiuLFL_xwmnDYOdvI5zkMDdThxls_anyD5vjBx8LEST94RloNgG7WxIxm25a5uQZOfTMOPQW9AQ06rQPAGzt4oNqMoyllyIRUuV9hEdQNJR7Ow6movu0uKZK2P1fOwTLt8BR_Te9SQADlGidNUzxdLmjzy1U2LreWf1y3OblwbZzgWAUYbaDFbrCp7Q8okpmpoyv1KfHvTGE-zpzzjePF4mJFbbHSpYRC9HfFsGtpRA5UgGXHldXP8nWzuiWkbfFXjbw3pP5tcqaDjEP_NfyUjc4IrNZm-RnwVrxFuXwlKvdsjC7RWYputre0su71Do83Nu7O76ZA0NeoC1vcGgj23BAPOwXS19nXzpSWCux6Io0s7qEry3LcYeZvcnr1y2CzvlQxCbiFHtGOmZpfIAKfOygFw3f-UgqcKGxD25miK4WhPIa-YCXOWKXLhpMthT69Dl75YdeJk0Dri-J8mozlPDD8lcqSDwy_iZ_vaypXwNx8_JaxVx-ltx3zFnXn3ZTfZJRIJJdLz9GM8Lphq-UqxArYpizim6oPaEUXH2m8MOVhSVv2r9bTBG7NKIiFbHPptZvP8Bqr8J-lVIstAi_57HxHJTZiHCQbRKeWWCe_-HntZVy7Iyz8gWJYq8YQd53BR6mhtsP3Lvk4FzBJJ7wkWyPPtEWgmpkfSKpfkCx00czQVk6CvcCDko_3573qu5pyj0LAKDC4bCeRthieuJzEQE3GBjiPVymbZN0hfz-AS308tUte7Y3UOvN_vACOppNCa4m_Reikapxd40gzm6yVClas2Raf9xbb5ASvxl9b2D9A0MfRdcZSyFNunPP9lPvSXmAtOhkbbWIe7zpBfAhCpz0COwBHJQO5vOivSYp8XIBxDi2vsS5f_qH_2cpgI3lSGG8otmWo6svk38VYSfCx5KLELZ7WwrgCdh0Vo56N8gsc90oKo6ONL5xCXpqNv2t4a02DhBXAxbJUEUG8zXzOGwL1-3cjMVCsYTlR7a86nBi9HAvsrPKv2Q-p8hFmzWLquCOE5ta5WIfBr4vGQXhyWvK2Rb0_ba-5sYgXddJCdGielxbpjdQlYQRU9QcVj1Xa9I6BYSMKpTxNTRZ4NzM_TzzEnxbA5K6rSQc2YwcVEvchd0lDuHo98K5SnbOeqpMm_HSx93dHAS8Xds0hFIrg0ofjvQpEXgg2_IZagTko1XG_s-Y-G3ngRmJGiCwbaUWBUe7PQPQDBVMPAws1VDr3uvSe7xqtgzMF75zZsNum_lL4tVm5LqcuUmjcFJx8WIhja05L9fR3L4JLXktG5yvc_OKKdULBDqLGYDWfy3sjnnS2Ex6POsw99GEDXQavKBws2b9mVU1AAAPtetOSWQyo9RLqssObW7T1Ei9KOZvAeVsnhQSONZ_cZeL_FrWe5QDMY5NtLbawVckuwtrNnsdQl6pV2dtp-pw8_eOThhTxR6UB8WB1xqwSlc_4iAzaDu6mekZUxrovmrlxE2buzVpkxEHrPPPEe_)
+[![Container diagram for Internet Banking System](https://www.plantuml.com/plantuml/png/hLPTRzis57tNhxXrMrG677jRspqCC537rjOKTk9PJhetWvAkPQ8KgP6K4sFOVz-blYmvmGPiUqdCIzrx3k_78JyPoxGjCk6zWrZ98seBtC8ZjmTWIS8jLv89sieo9XCGN28mdHOPIWjNYqsmd6rl7eBTpUryURy8feFnP3mUW5LG60IXOYR4oNl5z_3so3HdaS0TFd5ZZJ-uT1uCFO1NNCQYI13UfcXthS-HYG9VSfdCF-pcIbf6pFGuToTvXS9WDzJ1sjpyD9bezZXEwMH5HEGq7TVIASPqjaakc7HPk38s4JoYe5ThPxfVBIV77yO_Zhzx4KScVEzvuUUxhxjri0dlRdTtzzlbpMtW3ocVMvOQC4MUAqggL61o5gC1Bi4U42JB4Fo86Kn0LQP29gWfnLocO2ngLFQKend1uu771qYKV6VRW7Kq9a-PqZWS0o7Ux5kpHj3uUu4K9saW1QP4ULJ_1ujFTQLB9pWmumeN8IIufsCctYn90e6krdGMVn2n-1ivjcaOZE3DdXPp9PIUlWcMmIgutUv-lgC_yxlbtORsexJQ7Rn-__xZOlRH-PW3ot4QyFHWGvvW4hgrFwITYjcMY4qRDDUM5Hpuw5p0E9yXTGlHsw0egJ5pah6BxGvLyvbjDbIO7XlNlxtTxaPeJmAd2sOEc2nfxGzx40vXyZ_YA6lFE9xbLY2qgOM4irIp3FPAmmqrgfPeuPh9RwuvmXELDVEyDMgZf1yNngeCzGZcxQ_131epg7rP_eYyHrN1yzAH1jlPWCMnAgGrb5Al2hsx9aF2zCcFlwTObmG6G_Y31WpEVFr7Z7Oip-dZhnZ1BCy5ZvbJ3qhMu0ixiX64kNRaLmzpPrkWu2GtfgH6AcHv3FL8WfCQPsvne-RWwrcf4braQbuA5zAsmAirIz6XDwXXh7bkHp2JQI6OwzZ1MgiZTH3DY10le-mB6LV2n-t9ZKIJIGD7pfmFrq07XaYhHrAIPvGo5N4IhIeVgtBHa9g_7i5lB2DTatqofAqPTyDgYiWGcRfe_uvSHO3c-CXZlAItYFo4MUQanzMX_kdOXBykeRUs92t6IRacDKb9jdLPKn8Kwiki_3roka4J0woWneer9bH1pWJ95lKL6aEtG4eBjF7uMQBg6QTCSTUowvkNEsUXw3CDNU4vP-uVCkIIGe7BcIL1dZvNiQ7tPzltmPFrCMDSx4nf8A3WQaNhUkOSyfRAmajG6g0LZxKoQcyXU8eFJ5BxLPuKjXEpvdQEIZ7bNhixe3_KdRIx_gox82P3UxvEye55gh3d5XYripm2gfKqhCp4EVqUgLb7ByvJUs_GEEpFs-qwf0_xtrKpzlVVz9g-_BI2szqwsOvKHoEgS8q2r95AOxyX6i1ITKVmXMxOIGNULhCIv2f2by5_2RIx9kSpxVEmz8Dka2K6zbfbfM0zQXfVTuCwe1fdSJrlik1YTh9rqMGXXJM0LyvQnZWJkUZ7FeU-Ns6SEBVmuMgxhWErX-cvF-lA9a_dkuxKYjv05xdgN8N3-lsp37u9RXVqxjahPTtzHOyjMLqspKiAZcDw1LB1gIFzOPcppZlBxSu_F3JRtYTYIQ-ilm0= "Container diagram for Internet Banking System")](https://www.plantuml.com/plantuml/uml/hLPTRzis57tNhxXrMrG677jRspqCC537rjOKTk9PJhetWvAkPQ8KgP6K4sFOVz-blYmvmGPiUqdCIzrx3k_78JyPoxGjCk6zWrZ98seBtC8ZjmTWIS8jLv89sieo9XCGN28mdHOPIWjNYqsmd6rl7eBTpUryURy8feFnP3mUW5LG60IXOYR4oNl5z_3so3HdaS0TFd5ZZJ-uT1uCFO1NNCQYI13UfcXthS-HYG9VSfdCF-pcIbf6pFGuToTvXS9WDzJ1sjpyD9bezZXEwMH5HEGq7TVIASPqjaakc7HPk38s4JoYe5ThPxfVBIV77yO_Zhzx4KScVEzvuUUxhxjri0dlRdTtzzlbpMtW3ocVMvOQC4MUAqggL61o5gC1Bi4U42JB4Fo86Kn0LQP29gWfnLocO2ngLFQKend1uu771qYKV6VRW7Kq9a-PqZWS0o7Ux5kpHj3uUu4K9saW1QP4ULJ_1ujFTQLB9pWmumeN8IIufsCctYn90e6krdGMVn2n-1ivjcaOZE3DdXPp9PIUlWcMmIgutUv-lgC_yxlbtORsexJQ7Rn-__xZOlRH-PW3ot4QyFHWGvvW4hgrFwITYjcMY4qRDDUM5Hpuw5p0E9yXTGlHsw0egJ5pah6BxGvLyvbjDbIO7XlNlxtTxaPeJmAd2sOEc2nfxGzx40vXyZ_YA6lFE9xbLY2qgOM4irIp3FPAmmqrgfPeuPh9RwuvmXELDVEyDMgZf1yNngeCzGZcxQ_131epg7rP_eYyHrN1yzAH1jlPWCMnAgGrb5Al2hsx9aF2zCcFlwTObmG6G_Y31WpEVFr7Z7Oip-dZhnZ1BCy5ZvbJ3qhMu0ixiX64kNRaLmzpPrkWu2GtfgH6AcHv3FL8WfCQPsvne-RWwrcf4braQbuA5zAsmAirIz6XDwXXh7bkHp2JQI6OwzZ1MgiZTH3DY10le-mB6LV2n-t9ZKIJIGD7pfmFrq07XaYhHrAIPvGo5N4IhIeVgtBHa9g_7i5lB2DTatqofAqPTyDgYiWGcRfe_uvSHO3c-CXZlAItYFo4MUQanzMX_kdOXBykeRUs92t6IRacDKb9jdLPKn8Kwiki_3roka4J0woWneer9bH1pWJ95lKL6aEtG4eBjF7uMQBg6QTCSTUowvkNEsUXw3CDNU4vP-uVCkIIGe7BcIL1dZvNiQ7tPzltmPFrCMDSx4nf8A3WQaNhUkOSyfRAmajG6g0LZxKoQcyXU8eFJ5BxLPuKjXEpvdQEIZ7bNhixe3_KdRIx_gox82P3UxvEye55gh3d5XYripm2gfKqhCp4EVqUgLb7ByvJUs_GEEpFs-qwf0_xtrKpzlVVz9g-_BI2szqwsOvKHoEgS8q2r95AOxyX6i1ITKVmXMxOIGNULhCIv2f2by5_2RIx9kSpxVEmz8Dka2K6zbfbfM0zQXfVTuCwe1fdSJrlik1YTh9rqMGXXJM0LyvQnZWJkUZ7FeU-Ns6SEBVmuMgxhWErX-cvF-lA9a_dkuxKYjv05xdgN8N3-lsp37u9RXVqxjahPTtzHOyjMLqspKiAZcDw1LB1gIFzOPcppZlBxSu_F3JRtYTYIQ-ilm0=)
 
 C4-PlantUML combines the benefits of [PlantUML](https://plantuml.com/) and the [C4 model](https://c4model.com/) for providing a simple way of describing and communicate software architectures – especially during up-front design sessions – with an intuitive language using open source and platform independent tools.
 
@@ -94,13 +93,13 @@ If you don't need the up-to-date version, PlantUML includes the last released `C
 
 ### Now let's create a C4 Container diagram
 
-\(If you don't want run PlantUML locally you can use e.g. the [PlantUML Web Server](https://www.plantuml.com/plantuml/uml/ZOvFIyGm4CNl-HIrfowupSMJfvNrk6BnprccwT069fEGcI3zzhO5YoAAf_VcmVlDEub2rXB8N7bsL0Qi9jKajzPcU6z7hrFfYs1saHLPMnU3JGIyTewY0_dUdc-EtHgzFbni057CI_HsNXhW6NERLhxfC4la9croHnxakgelq2FLYtbCwYC3LVSeBlljgWzcXpJkq_selg2RE58Svpz0pxCeXaOs-UztyuJqVV3lAtR4bpa7Sq8UIg0F) too.)
+\(If you don't want run PlantUML locally you can use e.g. the [PlantUML Web Server](https://www.plantuml.com/plantuml/uml/ZOz1QyCm38Nl_XLPJYciTYbbXvqokcF7mhQUY-E8ng38nb9Qyk-R15esHiTExqdmFZsLB3P9tw5wyEImRo1hHI8_6vFiMH-zj7tTCoGNI814kz2PY9Qcp9AbGL-RxMPPJQlzsywSrlf9hyRLOJich2T8EavyLK7YG4MSvGMzvSSitzaQC1_DUnGVo6Bs2koIdwTyeMwGmbtTh-WNk9O2XkFm1-XpO86ku5d-Urrz0FuiVB_53V6jpaALGCtu_GK=) too.)
 
 After you have included `C4_Container.puml` you can use the defined macro definitions for the C4 elements: `Person`, `Person_Ext`, `System`, `System_Ext`, `Container`, `Relationship`, `Boundary`, and `System_Boundary`
 
 ```plantuml
 @startuml C4_Elements
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml
 
 Person(personAlias, "Label", "Optional Description")
 Container(containerAlias, "Label", "Technology", "Optional Description")
@@ -110,7 +109,7 @@ Rel(personAlias, containerAlias, "Label", "Optional Technology")
 @enduml
 ```
 
-![test](https://www.plantuml.com/plantuml/png/ZOvFIyGm4CNl-HIrfowupSMJfvNrk6BnprccwT069fEGcI3zzhO5YoAAf_VcmVlDEub2rXB8N7bsL0Qi9jKajzPcU6z7hrFfYs1saHLPMnU3JGIyTewY0_dUdc-EtHgzFbni057CI_HsNXhW6NERLhxfC4la9croHnxakgelq2FLYtbCwYC3LVSeBlljgWzcXpJkq_selg2RE58Svpz0pxCeXaOs-UztyuJqVV3lAtR4bpa7Sq8UIg0F "test")
+![test](https://www.plantuml.com/plantuml/png/ZOz1QyCm38Nl_XLPJYciTYbbXvqokcF7mhQUY-E8ng38nb9Qyk-R15esHiTExqdmFZsLB3P9tw5wyEImRo1hHI8_6vFiMH-zj7tTCoGNI814kz2PY9Qcp9AbGL-RxMPPJQlzsywSrlf9hyRLOJich2T8EavyLK7YG4MSvGMzvSSitzaQC1_DUnGVo6Bs2koIdwTyeMwGmbtTh-WNk9O2XkFm1-XpO86ku5d-Urrz0FuiVB_53V6jpaALGCtu_GK= "test")
 
 In addition to this, it is also possible to define a system or component boundary.
 
@@ -118,7 +117,7 @@ Take a look at the following sample of a C4 Container Diagram:
 
 ```plantuml
 @startuml Basic Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml
 
 Person(admin, "Administrator")
 System_Boundary(c1, "Sample System") {
@@ -131,13 +130,13 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![Basic Sample](https://www.plantuml.com/plantuml/png/JK_BJkim4DtdA-RcRbAfJLJ4YbL3X611KKHIM5PECb1BVbZsM565-7V6QcdnPkGvZpbd4qXuYbfb_wGPLPmG3aGkt5ML5tFvAUaGXnZGZzOG6Yf7gokdX4cQLQ19oQ5gRbTjMksspvKMWT3pQj-mGaY3ldJ9FslH1siACMbfbf3NQSf0Nf3r-IBhZYpK-tiRpIJyiHZNJEg4TWhXXEKB-Cg0tyMvc77O2-UO-Ou3rCufEGgIrkIyQluleUxQykMXPub7k2dNi7rh4bOhPUS0gLa0ii2rd62AZefaEjdFahW8aDIe-5RWYD_da0MTGFOvqnZCNb7zbhl6sWLMydpg-xPZLY9TqAlD8rBWBwRnuQt-AzcWcQ9MFm00 "Basic Sample")
+![Basic Sample](https://www.plantuml.com/plantuml/png/JL39JiCm4BtdAqouf5Bhq0fnuDGG8JXG594KZf6J3DIIDzaJeWhnxupL3L-UD6-PDru751v7hP8hQNer3i1sY2xSvxaN4_-Ik1kxCO3lhK4mo7khSwU4YPv5m479BYzl5rKSRJSl-VUAt_4R6hKbEOGquBcB-Ka5FbYJYK5BCsTf4L46z0AjJsT9lGy8kdsmenc4tsVzaaIrq4u1Et3fZFqaZDuvEPkWQuLpfFo0ZXNEATaBbDQaD2glvwoeA_xws9350rln9Tkybv4hbB9JOF6omD0oEii9akXHeOmhcqaYWcSeDIZQ5QZYxx5aXWUISeuo8fCtKAVZBhMsWPo4pqrJrQIAeZDxYNa2f1eJHFZqLl-thC4Cz85_ "Basic Sample")
 
 Entities can also be decorated with icons/sprites using the $sprite parameter, for example:
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml
 
 !define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
 !define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
@@ -159,13 +158,13 @@ Rel_R(api, db, "Reads/Writes")
 @enduml
 ```
 
-![Sprites/Icons](https://www.plantuml.com/plantuml/png/hP9BZzem4CVl-HHUr0ChBPj3sqkbIek0Tf5uK1v5FQ59F05NZfrw9l3rEmvXD-f3wg4dE_EV-VyyCtaYXi1rQPCxut9RQrGdvee-f6c0o-FHyAdEQiAGUyVe-37tPLfPSB5cGAojoTBHky4gXdRpMLe2CGO97KPI0SPXUAoYVtAdiP1FDPvydOwMYyq_WBYkG8Uthq0Zwg2GZ05LmJ3IZQVn73LweNnQBhR3_MIpd4_-AwY9mGN9bpXu_pgrMrSfk6DjeMtwT_axdE5lMaa_x84mdF7NyautQNmxjJET3RyjTzl3VhfzFimcdoUBSVy-ILQIu5q_9ZwetgWczYM6djnNw2kBYa_0oY5gLGMlwvn9n3VNJZ_s6a3lFdbPO9ygaEBDQXWzsWRZTNj2LKgACeun592trYpnlCLUDH26kiZikw2RKnS5bH7ZuMeQ_UEmulaCJbia1TOgsPqa4YdhZoRlsiNihjSuw-jCgiV0a05XT9gRF7Zo1QlDbrbZxQscsnWUb0yQWnASFFliJOvo5ZwKmCQxBgopAs4cQxJjlA-psX5Ij6z-FKc8UgD8Vt-M3-jhxysJrmYQqdr4HVa9dPPz_mG0 "Sprites/Icons")
+![Sprites/Icons](https://www.plantuml.com/plantuml/png/hLBBRjim4BphAnYX1mU8fAAlGu02CMotCU1N_QZHax4MrpOBYbIvbFtxMKfo8hGfq4DFedPsPtQ6V20FpbU5ZcwKoNKbKPoyB-a-onnSqgFofsfV4RhS6e_6fxajibA32JC9UQdLFXjyI1QXj9bEilExz5Fwbakx0K-0CkZICl17Dn8F_2k6e-_ZmNos-WSXNvKWtViNGSLeSk2EX4gdF59M07bqcSHpmEXPvSjyjkvlHwlvTFHVXUeQN91iWSd7bzIkhZ8mnqf3Q_fF-2USuMzOGR_qZZSxu-_Z7JTPs9tQJ2Vz7_FDUhSThnztaz7NqMpOkusY1JTOqmkDTo8ULEHvMHVpUO6sr2Zy2RmmY5AKpiegzyJWcyRfvxWMY6-ZvmliKGayl5hq0qThC1pN9nG5jmZ5KRe3v2srvthUoZOOi8QuSFPTeIjJLmfAnSJznJZmXx32zn6Cr4W2j1PyTzn89BGzghnBLtTtk8Rxdjppz10yx84mC4rLxYpPWnUhRvEQscf9rnZkX7MILsOvNlji5HjIvc1T0LvPqnNht1LhHalKRTvDLXl2a6bSFprk27YDDFvUWNVBndkzyX91KhQjNnx33sWat_SJ "Sprites/Icons")
 
 Similar to icons/sprites is it possible to add links to all elements and relationships:
 
 ```plantuml
 @startuml Basic Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml
 
 Person(admin, "Administrator", $sprite="person2", $link="https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/LayoutOptions.md#hide_person_sprite-or-show_person_spritesprite")
 System_Boundary(c1, "Sample System", $link="https://github.com/plantuml-stdlib/C4-PlantUML") {
@@ -182,13 +181,13 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS", $link="https://plantuml.com/l
 > Github does not support `svg` links in README.md.
 > If you click on the image a new window is opened and there you can use the links.
 
-![Click on the image that the links are working](https://www.plantuml.com/plantuml/svg/jP9FYzH04CNl-HHjhuTPc4dOnPCmiECWUjZLOB9w39rqQHhxJrDL8GpYTxTxizb5F8W3vf0chrBl_NZ93R52dfmjNXW_s4c369aZlQugL7FvpV0uzHC13i4pU2w7uAfebSyxEs9jJLyTN-tgBDtVtLPE4GCcgJkc3MKyO1cpVr43Kl0RfPtnMo4F-JJ4g3YWt8gN5D4mx6LyUEywIzRuxtkv0YqmVoNeRUXNZ5jr2XD_Z6o2fzBfYz5ew9Q4RWdS1TpH6ERVrUKkBulcb8nSzoPCNYiyROQhnDue5os8PNOkgBmKFmgHhgUYDZFqdOen9No1NXnYj6PGcLqcwNYn5OUcBZ-yRTCAWhWkhyJTvsFErq03xkN1sZ2JoD-B10UH2A9246woR39nEnjcGC76GM86-Yyjfzf-FXQtuIKnyJzcdrzNKNm2k_u_prNT4r3kvttRrisVxglbWtyU9QFiysJmJFWEcD8ZvECh1lUFhZVWTP9-0G00 "Click on the image that the links are working")
+![Click on the image that the links are working](https://www.plantuml.com/plantuml/svg/jP9VIyCm5CNV-obYviE4hNL3V106cqFqmUbmcpwMjBswOFwHt5g6-DszMJT5V105-z30IUuvlvns751uhBLA3gGfLLq1MoEwS9PbNZJfayHrNTG1V6aDWi6qj3fpIfWuqmzOALbaqvF-F4ghsNNsCanFqsEIyYbD26d0foxw9tFmmPgkgBGqFSOdSPK1lK3hUOyT1kSbmeYxxRbXb9GqpoE-1sfXVYGeb2qoBGA2pwx5njPuwr1Q4r9TTTQoWhnDoDl0llNziBRDLxLzywDaiI4ZdP_RsbJ2RxhbWDWNGZi5hDtxAoW_Ogy9e-UZg6u3HIwSeuG7ADZ4EILB4TafWqyxFJPPpDERYoMDU633TC1czzEONq4e_OXFbB9DOF5x1OQM4O4JT5BN2cKaNZOIgHU6KWCnG_YNbgcsjrrnNMmJYN-N_VUwakGErFx_-Qng5RRNu5VBvNpntNrlkVMFMsGKVJuCFWal0Qcs1kBowAt-fUiOJ4NIEm== "Click on the image that the links are working")
 
 Elements and relationships can be decorated with tags and explained via a calculated legend, for example:
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml
 
 AddElementTag("v1.0", $borderColor="#d73027")
 AddElementTag("v1.1", $fontColor="#d73027")
@@ -215,7 +214,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![tags](https://www.plantuml.com/plantuml/png/bLJTRjfC4BtFK-pdhnT6JN3I7qMgX1G4gAb4MWg9Sed6ti5ikzwrTjRGl7rdrn08jLBrQj7CcJbppeov8G_EDvK--q-PGZSInThxcZvbcODjlrH-tUGDeIkiyMXylx1LLcimeUQ2lDGgpqOVBcOXz70tpIeWZuv3on5NW3Be-dNeVpQKSgAnuYRtKAR9vgf_cPoBDxbr4jt8Qki6oV_o-ltbk-karu6-2kWLD_qRDeVYPrEVeAq3KoA30tgE-WJfyTS9aeEQf-yCBloJHZ4GOw0roYb7qXvtdg4ZQz9Wrxb8HWrvMw7ZecI6jkOAlmOl3A8KjREoAJmblNqLo4ePXWx3gyWxyFQFMZWaaJY4put4Ha4C6DoAu9RWJTNMi2aK1K99WsWZKpwl9gKQc68n6mOcbjXeYAJttAbYY536erj1qGuG6OgTi3O7WNpBTn8dY5izfhiyfHiUwnJTp73imR-Ei3VW5TLGgp31x4iW_04R2Eyj6AcH16Wj-EGPI2IqBLKXql1jz0_Myh6W8MKDzLwAVNjADSvJcNFpCNZ8WJ0GtQd2MR8hBnRVfv7PQadxJPwB-448deRLRQmgaD-LTHLuPdofmnLhjS6WfVsLX9-DL3uCNYfJXi22JMHT7yKJWZiSm_xw-N3dg7TNszx30o65olXNm82GZnashZkzdBUcHh5p14dPerCUT-dzTH_jlvkZJRz6D6s93j9RdW2ha0XAx9IukFtsk9nEFa--ZjFUsGqQsLJwDm00 "tags")
+![tags](https://www.plantuml.com/plantuml/png/bLJRRjim37tFLsZU7cmijTFkKc10W0P9i0v8jonfqSU0jXX7comPakoiVp_ATYxDqWrxia4Uyl2Gnxwn3eoh2jbx9LGcAuviurnfFoM9WMsS2xUfqigYoRHog5oSwI8f9IXVSs4Tbo9DnkylvZxqS3TBwgluOpoWq6fC5I0KchZq_NiZpgSI2sfo3taOr9Vn8EYpDwas7CrOIss6mMj-_MvmTHr4Pz2N7hscfl_2ff3zhCeJj3QWSYImHozGdY0T_Zf1Kb3Iz6U3I_SaaGtP1Em6-OmYOKITvsYiLg5VLvy5uyewNQ2Xec2EkgGAjm77529dfT6yofobWRegu8LG11tvfx3EWDD_rC8XYPP2k6_4QW5DGE6M-MqnkbIf5It5DW8XjyDsZL5lVvhGba0Ko_d8Cv74Ia93Ua-T2e8mGMStQyYw0Jn3rWbhS-39j-IJPeBTLVTqWrEwqR5ETfuPZdVmloFi5l0NrL0AFy7yYoVy0JNuvoqeBcch82KZonFGMYPrBZ8M-cyZFgoMp8BA2griz5pisrEgIHhob9fFm44ArZiek1EPqLQl7Lj-dpNCMdAxksIVDHy4esb8NQq5wHPghKq1ZXYVwp3PHjJejRHlljkeuiBvmNEXSXzOqX99rmVsX62EpD2vdunBtqFdsjOF3nOzBcX-1GJm-IRJBkvCUhLebzg8NI1mcpmQGIRjgZjt7zt_1Ouk_JBHh2KwIEzuwAsWYq6EPoKkRxyzhcRJpzElap3gtQ3Yz5Fw3G== "tags")
 
 ## Supported Diagram Types
 
@@ -223,7 +222,7 @@ SHOW_LEGEND()
 > - `?arg`: argument optional (e.g. `?tags`); an optional argument can be directly set via its keyword `$arg=...` (e.g. `$tags="specificTag"`) without the other optional arguments
 
 - System Context & System Landscape diagrams
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Context.puml`
   - Macros:
     - `Person(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
     - `Person_Ext`
@@ -245,7 +244,7 @@ SHOW_LEGEND()
   - C4 Model extension: Person() and System() support `$type` argument too. Is uses the same notation as `$techn`, e.g. `$type="characteristic A"` is displayed as `[characteristic A]`
 
 - Container diagram
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml`
   - Additional Macros:
     - `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     - `ContainerDb`
@@ -256,7 +255,7 @@ SHOW_LEGEND()
     - `Container_Boundary(alias, label, ?tags, ?link)`
 
 - Component diagram
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Component.puml`
   - Additional Macros:
     - `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     - `ComponentDb`
@@ -266,7 +265,7 @@ SHOW_LEGEND()
     - `ComponentQueue_Ext`
 
 - Dynamic diagram
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Dynamic.puml`
   - Additional Macros:
     - `RelIndex(index, from, to, label, ?tags, ?link)`
     - (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
@@ -278,7 +277,7 @@ SHOW_LEGEND()
     - `SetIndex($new_index)`: returns new set index and calculates next index (function which can be used as argument)
 
 - Deployment diagram
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Deployment.puml`
   - Additional Macros:
     - `Deployment_Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`
     - `Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: short name of Deployment_Node()
@@ -303,7 +302,7 @@ In following sample a person uses different systems, and a group of persons whic
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml
 HIDE_STEREOTYPE()
 
 Person(a, "A")
@@ -330,7 +329,7 @@ Rel_L(x, s4, "uses")
 @enduml
 ```
 
-![(unidirectional) relationship versus bidirectional relationship](https://www.plantuml.com/plantuml/png/RP11QuD044Rl_eeq9mED4lNKKneLMh1KD87s9AiEZNHTPNSaxR_lZ59KoF6zntuCUpGeD0wjj1uQLScXXiqLiJTFhgl5pVbgy3gKWm5TTGf1eLDrhTjBeVZDtc0jcz8DWttAwlAMkAqm29fK4T8BqIZGJi_xBwzHNEJdE8lVpvzfREyiAmLjEcMBnytsURlxnvBmD6D56CvO4qOp0c5CQ9sQ36HnuJ4UG26_DpUwdjgKCaxLtHHngk-cX1Eiqdpu3_aFulpN8BIsEH3dXuNmM7WBuRFm5o9W4V3cT3vDZZE30KDsEfobjvRHAFsrJ4OPpF88ggQ__mC0 "(unidirectional) relationship versus bidirectional relationship")
+![(unidirectional) relationship versus bidirectional relationship](https://www.plantuml.com/plantuml/png/RP31QeD048RlFeNDoK3ZDYevz9H6XHOi5KsWFScwkoIITHLtRTgtxumID2N7x_kPVuRPQaCxqzVIUgWKapqNzicOLZyJqj6BUwpCgIzxBJhMA2EKSLbJarPIXJChRRYiIX86gnJLuJqXtvwxSPz05I5Cq4g9pcsn__KjYejy7sVnn_uhZPsbPQMYqurowAEzU5aihrW2xYPaWE64732QK036WDQkoeGi3bY61ORAits1wo4RemmZTZUACE9temGZyI-wBly1_mcS_seZQaUlWVFrJ7Wel9dmKVWp4Q08i7Cy7og76dYv1ZiUZjAxbT4W_LkP33AOv5Oe3h__0m== "(unidirectional) relationship versus bidirectional relationship")
 
 ## Layout (arrange) elements (without relationships)
 
@@ -345,7 +344,7 @@ In following sample a person uses different systems, and a group of persons whic
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml
 HIDE_STEREOTYPE()
 
 Person(a, "A")
@@ -372,7 +371,7 @@ Rel_L(x, s4, "uses")
 @enduml
 ```
 
-![Relationship versus Layout](https://www.plantuml.com/plantuml/png/LSt1QeD04CRnkq-HvgJGA55FFQLLeGLBHIEq9rbrQ8HrbTrPshnzPmn5Svl_3_RRaq6XqOxIUHXK9sqFkmlYR9w2G8iV_tl0Yssj0TrD2a6XtqrZC4kX-Ct1O2-7DaZYGy5Kl-V1A0o29ceIUY461TgVUV_rBSsQwfoLsSVvgyXSpt4Aq6PIhdZSxP_ttd-sb2zhTfJ9cZrbkYPGPfHEBgvDpLEjjzmbtztjJldkRtVEDwoV_zB09mrKLuCmkkP8NHqt43A46uWOeWt43361Ku9iQfvSPgm1GyfOBXZUOxfWT8_vWl6A9r2z7UKV "Relationship versus Layout")
+![Relationship versus Layout](https://www.plantuml.com/plantuml/png/LP31QeD048RlFaMQaqApDYevz9H65rgmL3I1zYIh3ecWgxXhsxnzPpQKDRV_-s3-6MQlj9Zqt7VEGolhRcvWTT5wLC--FuaVTcxrPQvc1LCzI0rIithe_R4JacOsIZTTM_bnjCb8dTvJ_pjWE_Q4gennGhGI9ZPI_-jRmilYo7F-SVpAkEivJWQJ6gGh7bVhbxNtZnNYmMAD65ji41EBWCWHdLHSonDLLPx9EUNwbXFApIsdbC4k_yM2Jomehaf3xwejSh5TY814i10XYN0X8X8H7P53XqTWfQd1jocq97CZWtkP61dUozJ8oCezo0R_zmS= "Relationship versus Layout")
 
 (In combination with [SHOW_FLOATING_LEGEND()](LayoutOptions.md#show_floating_legendalias-hidestereotype-details-and-legend)) a greater distance between an element and the
 e.g. floating legend could be required that all e.g. corners of the drawing area can be reached.
@@ -384,7 +383,7 @@ In following sample the floating legend should be in the left bottom corner of t
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml
 
 !define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
 !define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
@@ -407,7 +406,7 @@ Lay_Distance(LEGEND(), db, 1)
 @enduml
 ```
 
-![db below legend, 1 unit distance](https://www.plantuml.com/plantuml/png/hL5DZzem4BtdLtXH3o0jH5NRIwLAYu3THUA30bkEqH0FuCgnKyy4r7_VCIIxKQjAFVGKvptFUtvl7eWXS5NOvCwut5OQrOcvfCzf6k0oE1e-LVkACEJUCJeUvBv8ImikplI9jJNxTFInluhGotoM5a2CGQ1i91DW78P16VMJEuq7-LNZoRVfQBdO_8CHLoNeyE7Dq0ZRFyYDFfN1C5BZf_4SENfrULmkjiFTPBESJ_whqHM32v8liF-fQUqjLGhkM5ceG_z9VuSp_8qhw8VD2CCPVnjlfqdZswdkT2L7xxeHkbUTKKNi2mmTEQ_GbnOLdu2LGzIg35vNEPEGxswPldIkKfrUyhggBfKWmvlLC6hKKU9nUq9Lo1Lb76CuG5vBi-1vRNlZG3pKHLfk6pLARIieZGWFLzEe7sk9tsTmsY8fi5R9bkGYaRB-QFAsNBpTrXhlktelqsDWs0DXL9gRF7Zo1rQRhxEhjBUQcXhkbGyQWn8xUVRPcnpbU_2X03RUjSrQMn7FP8ssxllMrGiX2HxXAn1ZjT5iVKjwVU0QGLEwYyAHJZRFortsE5iEjzF5KpQRF4qMusulcS7FR6o8mUNORT2RnFjUye1Eo_P_0G00 "db below legend, 1 unit distance")
+![db below legend, 1 unit distance](https://www.plantuml.com/plantuml/png/hLDDZzem4BtdLtXH3o0jf9zxg5Hf4R2xI7oam9PZDCG3k7BirEE0zjztd8GbwgfI3pt5UJFpthpdv9uyE5_cEhfH9jEbH77qlg2lSUpWF3WeVont9Q7BhF5e_22pULneC66cJrvgjOj7d_j9W9xdi_ZqSN0tUCzGEk89K0RTe0ZyqOt4FR-AyUJ7TBHShFz1o9S5IFVfAgYusjzpHvyAfpnId0DvTB74KwZHgyh3Sh4PRYVhvNpoNuKg3Cv8DiV-bsjg5rSnc4EfeJ7zjlmJJl2tMaw_TCgRdV3FyPQREEnEJQO97wtf1kXMT4ObULxBTVYSe2qq2dy4BmoY58MpiimySV5TxUbRfwBgzABNg-fI0JoyJeQ1ex4IZfiZYfnRXEBGt1woXjepdZMoTGrOGvmvvRRGXQaj1OLYuc4o3VmXbl1y0YCraW2j1TyIDn89RGygQzDLtIskyQuhTpmz1Wyx80nCSvKvItRlnVhxhAAsMj8bXbjXdUILMOxNFbd5XfJPMvU3LzQqnLgtmfhH2dMJTvtLCs68CC0LKDkwekcgTbejk4AG56-hBogGhP-Ms_HXjXnkfel7T3Pvd2p6tLuqWvTqhFZND1bsBsXDyQ4NtQEHVFk_0G== "db below legend, 1 unit distance")
 
 ## Global Layout Options
 
@@ -435,7 +434,7 @@ C4-PlantUML offers predefined person and robot sprites which can be directly use
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Component.puml
 
 Person(pB, "Sam", $sprite="person2")
 Person_Ext(pA, "Bob", $sprite="person")
@@ -447,7 +446,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![Predefined person and robot sprites](https://www.plantuml.com/plantuml/png/PSp1IiD04CRnUvuY1Wyfj5qGJuBGf0OzL2qMyHXsayKkxEuCCxEeRsysY2YvVlER_uv5awJWYmiN1vz6Mvv5a6-K8lsnVNToJYQnfG6Ys2ZR0O92hsF-sR2CtXcrlzuSy_JwU511irYQfduF0I7c7ypzucY98TROhilgf4ErBYyPoOczhN0-NLMh7zHtdr9ZCy4Mp19EhZXziTWmGmAJcozWGChcBwSyvUn_tVpgTg7dziFpMt_exhkdktfLx6mSK_3V "Predefined person and robot sprites")
+![Predefined person and robot sprites](https://www.plantuml.com/plantuml/png/PS_D2e9050NWlKzXqaB1d91e4GHfIIsif8YMukXGWZDtcBdsy_Ov4b6qFVSx1-v2Ow6mvOqrg4NPj1MphuXIpmXHnJsur7XjQQkPAa4W4nYKm8bi2c4w8urLKrEod8mo4vssARc5mJGOTr6-12v1c8uq-rR6b0RXojYtdMF17TyUQgbgP7D7zgVGyTueJnxeogY3CT1_s3dh-DJ8U0yLKBDv00feHzzScSZC_khee-C_tMzlzkSyJTR9RkLwreA9gdlW1G== "Predefined person and robot sprites")
 
 Additional `$sprite` (images) can be defined with following PlantUML supported options:
 
@@ -462,7 +461,7 @@ Color of the displayed images can be changed with `,color={color}`.
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml
 
 'stdlib users.puml defines sprite "users"
 !include <office/users/users.puml>
@@ -484,7 +483,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![Sprite, image and OpenIconic](https://www.plantuml.com/plantuml/png/bP91RzGm48Nl_XL3L45MsYP5XSkAe5PB1KWBMwL572itddKjENPaEvGLuhypjfTi3d3OKvonvvltddtb0tTXx3LxeKodHu7m5CBWLtNj-7CbLNWQ7qUFhhCce0bLP_jwqDp4ddCVX5QFzVhD-MqiVVkogNlk0pegFQofWok3hXeYdxtAfo7IVAg1m1qTyE07fm92aRQAevHtThTJ7TQfNXyRtpF6heLeKTzpMHP_zHHBE0luCwojjgufpgxRTllzORtTRDkufMdMVxQoWAPGlLn5_wjwCfaSQoljPJKO-SjtN6DpKLt-JaYKQCJToTslPzttfBWfA5zlDK9mIafqA8e5OxTas9eo6b_cT40wEmuWbAS9UnJmJ3S4_93Wt4hEaY1ikeYoowj4cwePaPG9u4P05pEYzNP0yvbQL3VdljnPBOYGhRojBfRfV2CTtyTnTtiVi2zz-j2S_7_GQK3rNE99aKTeY_gGmiIbKe9c8fG_58V0fLz4U5mqntUnc06c3EQCoQhvbzTawnEzbytDnvkl7ye5kq8Z2Fm7 "Sprite, image and OpenIconic")
+![Sprite, image and OpenIconic](https://www.plantuml.com/plantuml/png/bP9DJyCm38Rl-HMXGj19ensV1qGHQ2106WmD44SK6Yz4IfCgIO49yTznqgth0GwScjhnOx-lS-Oyixwf5DcGkbGD1_hcVUsEyzooZqn8_zQyDWviQRG7xRFIL7cjc0urEyvp9L_pyS7EVGWztKxozxtiA1jXw6MC5Kngi5aT-6IxlKq3pSKOvJ372uwwsaeFD8cfP3tAYPdFPGbvZEVhmbD2o3ddCr2FJAJ9QfvaI3SzVFgnKSOMoURvR3PzVXbF9zDPI2dizKUg7Q18P2MEWtwKlu96nSe8iv_LMdovaYaeHjd-TqI20CqV_bszswj-n8cB1FrrHW7rLWe15dWo8EGU1HkT1k73rXqgh6bgogN33WlWz0CtHDdImRwKrak4a6uHQRaw8QsBjeWu6QTCSre6Z_0yhK7VO8ai-zojkL4S2QsKmsmqZFSBOTaYj7jOE0zLwk87-xJ_oparbHKJy2_B0nGtlNIXusAeXKOYJTybevu9DuYl00_5-bqCUe2-1nsZawf_qnfbNUDxcLnUNTvTf0DoXdj3y0y= "Sprite, image and OpenIconic")
 
 Relationship specific sprites are typically smaller and therefore following options are possible:
 
@@ -494,7 +493,7 @@ Relationship specific sprites are typically smaller and therefore following opti
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Context.puml
 
 Person(user, "User")
 Person(user1, "User 1")
@@ -535,7 +534,7 @@ Rel_D(user, user1, "requests", "async message", "if sprite starts with &, it def
 @enduml
 ```
 
-![Relationship with sprite or OpenIconic](https://www.plantuml.com/plantuml/png/bLJVQnin37w_lq8DeMiXoQN9DiWWKDPnCDRHqjBdujXAOkgpRvPlMHdxt-SVSPEikK7rujCdIzyd8TybEMPTMwlYH6gkMe6mTgwXJsLfsMQqacxTBbf2oursgDs8cxfi5DCXPqXEABaehzuFRmFqyFswh1avj1vwl0ePlzoe2TMBMxHaz5aeDO3UWpzwv_lWnHQ5YqDyal798JxD-DJZnVspPwtFA1u-almGUGVQs9efeCPAXmJC8ZXZO25NKDoXUhpUYifiKYzz1lNy9pUjbMZ3PtSL7-qdUDvhei198YRE58g35FCKAU_sAAUTb4VoRxuTOHl4Y_Fnw4FYvQPUI8tRH61Q92bUC33GkDb6YfF-zgguxwpu1hsvMBVYV_YysZ2c1haCe_NpLMXViZdJiC30AOg4GTzPoVHA8VmkmDjuPpk_ElIhpzN__6escrNTVlKnMDNbLzDaLPUVRVnAxvyysRJyBwjhh40RHniUOZZZOF9O1g3a4u9R8oGyZsH_CJAMza4kyoh4nqwmaMuDfuEC2bnAZGGCRXhKNxdHaWyywfXK18IxNuBNAcCu_WQClrt6BhxizYC-P8i_MYGNks3qh3dKICHM681EET8TbP8QFaNz4vMd779b2CMkNPX3xrNqlBX4BTfQ_GK0 "Relationship with sprite or OpenIconic")
+![Relationship with sprite or OpenIconic](https://www.plantuml.com/plantuml/png/bLHjQzim4FxkNt4reMiXiTDaBMGGAEimZ7MqjFHpaULB8YfBdYGtAwF_VIVPRfmrBanVx7jET_VScowjOyRLfOoEXEAoBX0spbNsIveQjatMmctglBPek5OEbKkuBjDACkLj9jOLKkJfrUV9hOSUVbwdpxFa8faIz7ZbBNwxfFBUeriqLgiJxseCyGDzujC-UDQYSBQFppfyje_FEtnEU7J_OXsM9pPyIDF8NlC9b3Obas0h8nnQO0R1QGsvM4DqX_BnkYNLHHDgHHOsfb-kQoE8AVqEUo7jg86NSHK8pfh0bZE9nPw9VWeXxteXvuCX3zZV_3WGRHmkBgV9UHENMfGBXQqXC5KqL8WmC52uRJNHqQYzMjmFUlmFlfspOSR_n2EslamLSk5BI_MLrD3EcZC5EVgOHTIcCd96CBMcLFv4G6UwEpivsvUphzb7ShPOBB9XERlm9nkIitbpiY6vEzDtV5zxbQNXVnjTRGfgWg-dNyGm1xumNLd68CKJjNA3JS6WAqb_CDwmC0zYrOr2M7OBMzfgE1vtQ84hwWcr2sugLDzfqmKV4-gOa1Oixfu4uYg2EZm3ccwd8OjllVdmYspmLutMXIoOVL4SIhIMhJt9U92ES0UfD0aVetf6II4dN6eQYLswi8JudVOqkaHLqClp5m== "Relationship with sprite or OpenIconic")
 
 ## Custom tags/stereotypes support and skinparam updates
 
@@ -615,7 +614,7 @@ Like the element specific tag definitions exist boundary specific calls with the
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml
 
 UpdateElementStyle(person, $fontColor="green")
 AddElementTag("v1.0", $fontColor="#d73027", $borderColor="#d73027")
@@ -655,13 +654,13 @@ SHOW_LEGEND(false)
 @enduml
 ```
 
-![merged tags](https://www.plantuml.com/plantuml/png/jLLHRzis47xthxXvGsV1hbrxnGeC2D0ipTO2sHR42VOOdCIpn8qYDVBa9Fz-Hz4AvCfRq8Vw8PJ8xxxxxjCTypumUcvhC_b6syAqYg1YRi9FgvN7XsMfkMhpDf0ld6Mol2nSlMeCsXZpEh0oEbzTl7rz7RVkVhjQrHYOl6pTNqW4Qaj-sKJ-oLsZaEdIK2qyMtuoD6l81sSNyDrEi1VEE7ysBJsHdMQJSwKEs5iiPzFzUlbcUepyLhtxuStcNTpDdLVaZ_TFSgm_vzZ9Bz-DETB-QHslJX8ff1_NOwAqFoRQeJ4v5dzt4MMFVjlz13tv7Zxj83HOK03q19x-QIamAT0Mk28mL99LYyCAJ8yC3vgh50GL1c07EO6YdROIDujVU0cI5vmGU42bD6jdqGY6KPimKbdhmhij-RqkA2eD5JPqTgdBYhTQaTh6zrac9qd6hQWuIr4GKXZCAC8XH7m6C-iwhGkGXsW05B7sR9gbacKtD5HeDC1OWiMQ0eJAjKPrnUZG67nADlGMI0mzDaONceTsfCgx4a67pa7jen5YmRZuP3Esx6faNGZc2UHlqHhaAFnpQm8xZ-N0bHlNMYdnP_TuS2Nhc_w6J6hut4Z12-YMpcivIMJ9gwv_H7hVLQ9sUWgtYJYZBRs0Mx_g0yR49oacprCx2mqkOBgzFf_AWhOK7tnylAq8Qe60jan-5tkDA-Ik9uisY7taqnaM759BxZL2Fy6CPJXByvmTfpjNjRQIeLlXT6QCPpgmHx7_IoLOUe0qkmCPwoCPsEYeuFfJJFWNxZ6k7z4gGw4RdRmD0Wm1Z2jrqGzLpmnYCTcWdGtPKPPqQSpZqtoKL6hV9AytNytiUN_Xd7HzCxHzy_LzxyNqNWmbfOuDqP33OnJ1L5JscU3uOXfMjDE6jcaq9UeNUOD-KiSi_Oa8aCb9BPywu2wajDr_GpbFnyci_y7SNoMImnTDupy2tGoe-gV_W7Vu3waj1ywqahf_NtSUSwK3n5jhK5qwZ_w-pB9vWMNJimm-qB7NkUFgcRqpNPRJfEFxQTxlp0Vv9jkFV_nvVtNvw-Nl7sRICe6ooNkoggtDlm00 "merged tags")
+![merged tags](https://www.plantuml.com/plantuml/png/jLPXRzCm4FtUNt4KD1grj6kPG4AQnDW6cpHWMZVnSNBZQs9mx60xtVRlETj9bxP10mdwOKxiy_ExvtUNlRUE6LSLilTCg5HM725thhJl9XF3xiQPS7crg2oQL2k7oerJNKnAoPJVyyewBiLYSdpmwj9FtNo-cAncupVZVPgwFQOTJ2WquzBZzsvApXoUIYm8P-uU90vAD5Qh4RnOKkonbjeSzZE3gFf9xuZpElQQPOF-QZhUxsz6FkTlN-_FtlhPXJOSpTPy5yPq6sD9lyLo5wEUx-Inrmd46RwPTW35-HsW9PDomT8VOKVMH1-47qNtNiBv4cp9KhJ038B1dnLQXno40fSZICnGyL4zWiDx1tTqNt4JvCo2qx10uBYaQ-0my3Sy1ZeND04OO9mB9xHYacBehgJTOLc8rEWvcfL8qJErEIlny5HakPiBZdpktmS9hKGQryJYCEu26xV107quM1-Vm43fm7K4zE05WDJddb3E8MMQjIMcWaWvbe5Y1GbWSrr97f8Hbkpt46Le9A0zU5zAaGgt8KV8FAG8mWO5XV52U0bsamyoiyhfWZcHKim3qD-qacHR8hujZNNQiAobofMk5ANuGT_NgYIDwQzGHiCl92KyWZ04hMabWaMjWdyyzTeFnBRV5JVpSP9kzOcuwLvxmnPm5qHlNRK3ij48-lFB8mhiCvMH3iO_NfFt2WgX2t1ebjvhBcSkU3AjI9M2h1NMMEfijEHAC6Wgc6xL7iPwJZQFE-A5e6xG3oDqdypych3EC9B_Roael8EcTjSqfXiqM2ayWyjpV-1tjc9-F6EAIr-7v1lgXXHeBKYTYRGfgWQPV4XjqfAlRBAPR6WQG_yqt3cKSfz5hMV_JUpXkk5qgJvhozv5uX_htf1fj6XJYewrNf3wqPDmcERg4M2ZCRKpMWg9yrYQjEiZlS5ZfMwZD2j4W2edMZuwuCR6OyFNaDRhvTgYlusvlOWWzOt6yjy9kcf1jM-W8pp4dqHRjfIXJx9jtgT1OvTJY_DTgvLTqrIIFq2PFO4oMwCy0cnglT3-urCl1j5fU8BQkZyDcvbXwxpU_EphjzkBqq-dNqu6P1cBIUyzTNVwV-8N "merged tags")
 
 ### Sample with tag dependent sprites and custom legend text
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml
 
 !define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
 !include osaPuml/Common.puml
@@ -714,13 +713,13 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![tags with sprites and custom legend](https://www.plantuml.com/plantuml/png/dLJTRkCs4xttKt2DlN00nyewNxu0HRDOnqwxNJYRr3_DfJ0Inx9QYbH9AevHzDqxf6tHiPMVDbSHvvmpXpE7_c8iQ5iLelKXbwceEBAbjQNv8Oeqh7fPRfTLKXdKgP8MfUsbgeXA0T9nJetb8a-YuVzExztH_7OS5M0iQZgAXyI0NABkbKw_zO7ZWZwPCd1F1-_eCzHWbiYBNF9er-1KbIWDffNExHfqkimjfhRIs3_DYMks1i9rjksYeIeA9RsNu-BSa6SGObCEzH_LOf6d64rHFw8s4GSB2HYCZJ_u_39oaOjteA0iHPw2pPLy6Ko3JB6q9d88EeZtMA_15xd65GZnkTKQS7xpP55B4FVKLyaPP9qsI2NNXQfCZ4-stMKVJKbJnQksCX2xPSI9WFIFU0c-AZ13oMU4lGfKvd3j4zTXJpcjZ5K5waPH0Jh3EDEgAezaiqnZ1XPviowuC3IAGiLpsqsLKFfA8m_2qsQaIK7WrLclVn58HsvSjznOxKUzS-GirTdshbQO3CfotzRnNW-rYSC8nTAT4YaV2VDaNpI4hq4nb5-NTBaq-whke5dHbzYczBee5Gy6q13LGtKY6INmQ0fEVeB22-yYxBYMM4E_glR7mMHozn0FxyPt4ozBrAPIC5GhrOi_Vsdl0UlCRC8Nq-lfr9dtEUgozhLAl378pDN1OphP4ZiXqJlM58ek--LHIGpa-hq4thFirHrHInve7kHSJjV6OX5VgqfoqEjE-ed05jEbrNc2flUxQP_yrMBqLo-kGmbqwo7W0sLny6nHxM_m25tctexCsErlmowRgOBAxBBt5FflWt_oN7cKT3IAc2UaGulqcY3OQ9jF9t-xdluwPXUzYtqrdXmgTNnQ_Ts8z9EBu-QcRVSvc9tt0zj36wn8PVuK1F-kN4jdWasjqXiRIcPgTCtwlVuRHggIW_Khc6_-sms9NJgK3x8RHTYeaflH_DrgqH2EmXEcFpTedDhNsUn-6WH223q_vEY_2Xm6wj-AU9MQiBTXu8Ojj2eOICvMxhaPPfKJeub7tqRNb9vIQSlEpy_-lt4JTCA6dsaTmdPR38Zz_Qt89IkriYfLOjkiVtdswN9hEvw71RvXd53mbliWT-3_eRxy4IvSe7bSxxxE6DRnf7vWeJsLfb_fbszyy_FDzr7dfFK59QyAyGy0 "tags with sprites and custom legend")
+![tags with sprites and custom legend](https://www.plantuml.com/plantuml/png/bLPTKzim47pthn0U7fAPO4CePQRJT0W9BML2eKaeZnxPKXotikHACY7JwN_loTzn4g1v8jBjtjxTdiA5qbZgD6RMGSG3bXAAbbedweFhIhnomaWlKpzLL0Q2Qygr4uZOJHZc1dEaD66HxuxU7TsReuVRYVlKTzuxnt3aZG218qwbanX-wu3G1Nn5Gk5xE7X3df74Qab9777YbWcEH4Avea4g8xt6CbX6cWOwbRH_505MkJ5Mcigwd2ATEn9nB7YkPUlo0JAxcB5IQdd_KImMKK3T6PLFL2gNO8rzhAYdieDF-oCN4Nj354uI5WLOHuBl3uP61ZJHoZKHSE0rK2-5Bo99Lr3K9yiQ4dBr36tXcDr3Ni7dEEpOc0k-ZaMgFFgixHuwL0bqbGviQ8jdXk7v30U_l2NERXaDAITpY1tKK6JYxAx9q60EKgL531UxI1cM8VL2AT9aYpOC9GsnfcGtBpPcs4cAKnBfNY2Oa0D9IKqysnsf0ipeuDZfd-q25MfCjaXfcRMwL6GaLTxELAseFqoIfgpjkRQv0OCW2WKbKrxh9Z7ncwGjyxKPo-kNAOqlLPErOTGsexb2-TNBf73PQi0EgxRPpROAID3kWg6VKbQepIrii1fGesnKzk5mEhrxz4PtaxjfHWlGFLTrcJbJDVZJ_NElieAOt7mUR4-dNXVZX1woBqKs7ur3DMWjKxS0Tcf7bwWPZdlewvFWj0PN-rBZDhnNPOGL9esSsJg0ojaQ7htOknGf9rYkEy491CF3kDGoygboVYgx-yT2yAa6rm47cl50u2DuSRWnAFi6F-4UChl3GtJxOzH3Sn73DJftdklyXV6xcynZloCfyuWFF338Z1CpD2xyQUXlrxFl4tJcd3NPmEqjfaxcrgms07qsTimhDHoVX_FJVetEZRqjXGlrcq7uDs5I6X5efeNCPGWUYl4bwZlzLuIa2QnNDeA7_A-oIUZSH6L6BbQWc6Y-4bthhsL14xRCKtSVVdlCGjhNy_dzh5bFPS8Ct_RHVnFiCjJ_a6Gi5Q0nOKmKMaWH8ym9MfbrKqWBGmOTTs_6b-2UH4YDJa-FtnTgAfwD2TTSxR1oYes8nlnMe18bKcW1ErqawvyVdvmNihs7Ue2l23Ulw6lgctGR-X-huhVYjWlORjURofdWjJUj5gnERrw1QtZv9bTVhhwDErth0jup-6_c7m== "tags with sprites and custom legend")
 
 ### Sample with different boundary tag combinations
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Component.puml
 
 ' Update the generic boundary style and the "system", "enterprise", "container" boundaries styles too
 UpdateBoundaryStyle($bgColor="gold", $fontColor="brown", $borderColor="brown")
@@ -763,7 +762,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![custom border tags](https://www.plantuml.com/plantuml/png/bLHHRzem47xFhxX5bKYa0ghKfqr8fO3QXm8Lj9hwX9puIAmcTcGxfMZQVvyF4vg6RTgUsllkxlEN--wuCPPfMvT5y4N8jAWvGcvjPRuEXvhj1fcmUPtK1dMgf4Lf1wagXrN19FNqZUM5I8QJw_uZGS_pXs79Z4NjeCr4bPMIr5CHVz23vuepYs1pX0mbQf52ech9cTw3iVi2WKb-I8TcxsZAy192Hu2wqi8WHII32TSRDgq2ZMysO9KA_1ktHzer9QAB99keGkbHcAc2EvgBhQCvGebMEqbOeZH7_GcDdUXeXVtOivg3DY-jezny0urzWnQQnu2zAS4Dz2Af867fAwG4npqG4WhCKFAMuFM1z3zaxt9XiIExGUCWQ9YYn0rj34qOnl0Z-1a4asQCcrDXwYjFcRCUB_6ZmVW63vzLzu3Zrl4OO21n1rxcqMPQjK4RjliAWp7d3SiJow9GOwMCiCgHNa9h61fH_liq23KvusedP3OAhQuRg48OmOfUHFVm-vgGA7OvKZCAxuIzhnDegMZFDRrUeMaoRX1_kOcGA5bcHkqleZ41d6uaqiZu71tHQZQUpcU3aWmFvqo_Sh-9DDEFfIC-O9f6QL5BLXHxm7UBz2sm4pQ7tgOfxe7DcGLXeJO7FxZORb6Zj21PYM0gbc90LS80IfOKQ5erM619VvdatQM7hTB-9eZ7QIB2SoFVhZuPM8WijxzpqMDT5pqQ4-lCI_aZgSRkcH3I9IIiRIMJokQecvYscf3s2PoMudRvl9YELo_mzF8uEnbBOZg6Dgmde4LxmWu4cEPo54wMyyVbOhPuEcEc_pcQr2dtZLqpoDQMNwwlvQlnvYVkPNYxydkJCjdfyNRwBNjW-ysAVZVI93u6gOkCYmxXz91hht_SD7MEeZDOLxQ-NtxVFCpkPejf50StABaxcLy0 "custom border tags")
+![custom border tags](https://www.plantuml.com/plantuml/png/bLHHRzem47xFhxX5bKYa0kjKxM4JKYcWzg501QscFY4dFeBLO4UsWQ5f_ttdc8G0swG-WJ_VVVVvlhlS6SkqtQppu9EGQRxX22jh2_EjszLiryc4NMsIZK6TAcbHsawgrjqYPzBbj8tbkKYwWzlsiuDUnq_TxPVEryvdWXO3jIwKT3c5umzQy5fmPX7i2Y53YLgaaAYDv4plmTXzZi0aBwz3ipSMr-4rX4I0kj32e3iv6KnGRbYb2ZG-sO1LAl0rxW-qStSHNINPGELAzy9CvPnehfP4Su0IhNRIOOdI7FK96fFeQ8RjsBEQKfkNTgRSV0UDROCMgcB0jafm0wr8AaXO-WwfW-CM20avKWDuG_2y9Fs0xDrAMBoGxT4u22gcAA6czQ4wXZ7y2du7mQ1guw8EJ7raVNEHuoKU4unFyF15T0iuBed700E9E_0o3pQxKUiqORilCEXpNh6yi2mADHRA2Ak8z1eQpT28yWFT8DIi65Sx8RDUQFMcWWg47inSHQJ2F-SEYMAwSsfwuOEmZvi46YgQVKrlPsYg6sh4VtR2bRCiCxtcYroR0EeTYJGoFaOYcetwm_6eitQ6XsEctxcVnBAdzT0vFc3QjPBMGx8ytmF-f0sbjy2EjXPQYoguHMFBB0WBjCZE3owMIzHK5IHRqq0NBCN0HGa3A5dYTkaOWpcktQ_RpREXXoNDURaJZeSqbOGNHcvlJWpCHRQoVtEnnavSz6ZiM4TUoZz9DPwloG4v8NHOqqec5Rr1LsStrHuv3dKz5FVJrycmFtk3bxVdqT5O4dDkw86r1XgqDLOIOBgIlN0m7JzF9wF9ooKp_UTeKb9U9vwQGROs_AfiyBuQRtv2bM5xu-ScPV8inzlff-o9xHSpzzr8a_XmSDy6GwVoE2plckCVLqbdIt7MM0gRFqv_B9v63wF9C8g3EnfNMfa_ "custom border tags")
 
 ### Custom schema definitions (via UpdateElementStyle())
 
@@ -773,7 +772,7 @@ If the corresponding section is stored in a separate file then it can be reused 
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Context.puml
 
 ' <<<<< this section could be stored in a separate file and reused in all other diagrams too
 ' it defines new default colors, different default sprites and legend 
@@ -813,7 +812,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![custom schema](https://www.plantuml.com/plantuml/png/dLJlJ-904FtUlsBicHmcAbXGcijnKRZcpWJ1y2DttvfjTmgDsrsoEututz-MHIs8PsBvGFlUl9StivEzDiGqbONmZdAPYf8ZB8bMvbkpgTdZ-IAdPPcK1dMg9A6ayrGLpPLWijAS6U8YJvg3pjbz1StlXis26K9jeNXGATPqlghSlQ_mlNg0bha1WodbIaAgIi4XGJ2aD7B89J1BhfXcX93b0e593XfBisM504LBrC1pjj2iC41AMVESW6EMIpGWyR5wPwKWI9LGsfpQwYn3RVE_C6QbSqApyHUuGFld7HqFniFn9Bw9Bw47_fTkravQeL_3EniyQL-6hQiwtjxWs0g3YquT3pPunfFmgbt7BnoEs4fgFgDeFflS31tNhNwlN7-huI5dcDJnm6KAMCA3EkuoXQrkcwLrtFLmsGcwOLZ7NSy1RxKwDVz9D8o7jwFeW9aZPz7VsGxfpLUS4KO22vGqfIU13N-5sYZfdy9niXXKXz9xdRK5CoN9mRkZgEgLvgZtD1UMC4l6rMCk5psVT8cLjpl86QwfvzzAGYsPW6fx_PE3gN3jQk9tu_K_4SyUrLwMQFrn5lDa28k34-fyOaA19ToEztoj4aNxyncN6j8b8qj1mWnoS0a-6jMxEVkVo6ctzxrHxQMPe719ZaKkqPdihQXr8klXkBqDFR5tn8_g0PGSLFPy1NdU_URe6sbfI1MeJy5tY8tGP_B1xXSCjfmDCzsaQYIEsGx3Qjos8Rrefi_njvBODjOeM2vUDT6P_QurkbieCyqAj6Ltp-y7lErKQidVf9eRDBRCLiLzbZxKIdUJJ55o0xZ9Ou3KLZF2VB5CbDvhzxzg9tshg3MqJULDVu__nCFeLpJwsJZnhgrBMOX_ "custom schema")
+![custom schema](https://www.plantuml.com/plantuml/png/dLNRRfj047tdApOqKXqfiGbsObJLLOABsaYE7VcYzWqjx61G5jRQNNBv-yu2Zd7YD5BmW_4vCyEPiyFuIcagTPbpwoWhObuo8AdM6_MjrvFqiRlET5f6fG8PYq93eRkno7iRJWkJSwOqurdK6m_ExWoqkftq7jpkPTT1A1oRZ2VTtPZgrbVotLn4fvaY2cATYOB4ekICH42K5X8OoGf2aTnGIJMG9ED0QC6815HGivmJeLEGX6LqBMckY1O2YsUQC4Yo0XGfuD7Sqv9hV00NKfrYT9A0HFqlZDh8J6EqgSzX3VXb7HsFPvFPFBmEByY8s5-6IJzoFBk53oeywbzupcKRxrSuE9vxFcZZReKdBF8k-stylCO1dAXLPngiblFhISqDpMV7-KqEynY5g8tNpuXS6Z6tZTUQF6VOft4Rhtku6BX3pslZTSykSvn1g_uyc8IJcsbmi9WXby7VvHvfhJOCZo_WaAFX2_tCeMDlG2fHsAVaE5gFpQ6CTbuZcE2ixC6D5IPUI0RoLSuv4YgbJ3ncnNfaQrc2gLqVv1AdRcJVuFJ9Wd9YfjS-EQWA0wkOy5rv_YVa-PMyjfRWwMCjwbbfo0ywDFY4Gwvng9hnaIr59FHhVsQb975ADL8aekRzQXHyODMxElrFwFGhdGUjUgLc3hnMSipnBTyhiXrHh6GMpXlEJEW9xeWVvYBcJHV9TWLPrbrrz9sun1sKWpmbTesW19yMzpXVPDnmA6PHgUf4DTEOWJdrj85-oLbivJSf8JRMoMd6Tpd1cVczQtG_i4XmlG66tMxl3zH6LrhAtwXQAL0OXb6XJ-FxLkY-aWMQeWXKUin6RNAcaArJFBKtxVudkquzbF7IKAFAMloU_GadmQzW-hDpObrX5Vod-0S= "custom schema")
 
 ## Element and Relationship properties
 
@@ -830,7 +829,7 @@ Following sample uses all 3 different property definitions (and the aligned depl
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Deployment.puml
 
 ' default header Property, Value
 AddProperty("Name", "Flash")
@@ -859,7 +858,7 @@ Rel(personAlias, containerAlias, "Label", "Optional Technology", "Optional Descr
 @enduml
 ```
 
-![properties sample](https://www.plantuml.com/plantuml/png/XP9HRzCm4CVVyobCNfPANR9L82IUDdKWaCfMGG69b-gQ78qbnsVPPqP0V7TiQrsxBYLFFfz_T_R_Vxvo39Pzfx8NKjVADoXQPkFUL9M5-t8hkVKRxz3Mf1arbpLrbL6WOysvuqR9JJL_URwCgIyV5rK7Zj66rFe6ZQA-YqKcNf2TYGP_W5SiMeG6hLXQCcYvdugle3ncrqspInNvBNIOJqN-Je5hyydJmpkx1Ir_0qlI4VfEn6Ga77Ch8XNFFsX6gv75srz6aKKhNfSN0LwYTQGBavPh9S45U04RJ5Lt9lO79MxGrLQcdIZkWoUFIip3LG-I9g5dzXbvzuBtALlaktq-pQFK9EoWwV6pOtGPcGJ7AD0CKhdB8NJsYCuEq5b0zpDOtrA3wqMXmt9QwAetEAAyzewf6n0k_cIP4Dy2G_xOW4auUVRi-LvY28UHlRGGHcHEEgZJeMUzYvx9MM7TQbAqxV-lXVpW0F-64VQEiIjSMeRi6kyeqQNVS2OSGzZghKZ-_IndvQloGbXK40kTSDuOieU5WecoKqwE-ZZguYTKJx_yaPL3KiSz3OslK3U-K_y0 "properties sample")
+![properties sample](https://www.plantuml.com/plantuml/png/bLFVRzCm47xFNs7oibJgaZRYXyJJfWm4KjagA23nKhd9qLXoV9PzsGY8_vspMTUkQwbuidt-xhlxFfylF4b7VQUJPyhKkcz0j4JMlouA9-_ojQAsN_KUN8s6m51UOrTOBKt8EVVKQBKggkVdyn3w_65Mt9Rvotp2eUKLM8r35v9iA92SYGQ-orwJQ44suCJSeGL7mrXyaRg7vB9fDg4ilPOTf6EHljNIj-deyUMDMqkZVafIQ0Be6oAXLN8Vjq3KuVuzD-yCa7ZpWvjoNFjLFc7m79n7azcuN6ebFODdSWKnwyO6Vgd55VZQgNWIsHrxyg34tfUwbpHYpkGJqAQ3Tp6QfPjpEawZrC2-GxhVTjXD0oQ2ft_H99NsqqFGyW5Qxa1BXcxVO7cD3IndcU7bkD35OE64yhhtXDq1uU9NaWZnbJ7OxnimufidRLTRYLNGTGYobLQL4LBn74fbcBFUx9x8MK3T6jIu7lwjXViyz82_-Ga7Jz1bFYx_CHSxZ0fyd8Op4R-OCciH_RlDo_n5FX4ET1nVBtnlBRhTH468oJ4dJ_fuqiMFe1-F_74hjvDnqbCclW3Jy5V_0m== "properties sample")
 
 ## Version information
 
@@ -870,7 +869,7 @@ C4-PlantUML offers version information like PlantUML with its `%version()` call.
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml
 
 ' existing plantuml version as text
 %version()
@@ -886,7 +885,7 @@ footer drawn with PlantUML v. %version() and C4-PlantUML v. C4Version()
 @enduml
 ```
 
-![version sample](https://www.plantuml.com/plantuml/png/ZOynJyCm48Nt_8fZGBH3dQKJKwKmWiG2Axh4r-GavnBvpgG_dvXWjGjIfqJltllytaaDewKnL0yiNKYUO32RzRck8owkPnjIcvHYDucHcEkciPu3IiuSr7pWjcwEX_SiVRozrYEgKLobhsPD80j5DsT-zGHqOJMM7We0lYagJmAeO7Inwl5FsEspNsY1pFx73LLp_Bp7xycGWy8kJtHGkfRx_XU8RQ0hy6MBRDp2EIVfRFrHI4eUM81Sx-0yJKQnsZxW8ou22zjmyv23wp90yQLckTuEEP7ujVqF "version sample")
+![version sample](https://www.plantuml.com/plantuml/png/ZP0nRm8n38Nt_0ftg0e3IOKGGoUaOomIIxjMkOiv8WNdb3WSFxz9hn4tC30bUlRxRBzTP1quNPnuiTIvP13Ep4FyK2heKVQMpwbD4KFdYP5OTlwY1gUfU5QHZREjQZQhOv6-3f_gkfPR-PwbdoOxj2KCSYXyyGPuiv4jzL01SCKGhIVG4HXlB5x_XSMoz1EEKDaFka4qc-zd-WtcHLo4HJbHGjsrrfT_GDqwl0FtasNYLiufKSVv4o4dOi0IeEmbdBnd369wmEJS2COSt6oGXFjbeCd0BB9IdH-oGp9v-ry= "version sample")
 
 ## Snippets for Visual Studio Code
 
@@ -935,13 +934,13 @@ The core diagram samples from [c4model.com](https://c4model.com/#coreDiagrams) a
 
 Source: [C4_Container Diagram Sample - techtribesjs.puml](samples/C4_Container%20Diagram%20Sample%20-%20techtribesjs.puml)
 
-![techtribesjs](https://www.plantuml.com/plantuml/png/ZLHDR-Cs4BthLqnzMGVGshj9jm5wMYTEazqw7uta1Zq9b3YMcLAaIb9nZAB_lKDAaQsuWEk39G_V3D-RUUElrZ7Zcah2o66nTaRaQ9_jAFf1g48s767jN6r_dauDsqnAuTPDtbWqXLOEbPiKkfhMaYbVugDrN8fyUldZnmSVMjukfXMp3Ws5ialAO4AXcTI4ZJv0eoYveYBWrWWhBQNU25M2910mnM5mB8obDmrqEKXTC2ctLADdUNX1j9ZzSRzCi_J-8PlVFzsDJw8FNMYMPCclL-db3SMwqDEtz2PRN5rVtSqf64KFQAnMsTMh6pEbrRRIZSsyy1X6ixS0B2amEkd0OrQM1alcaFV8Fl8UoYkXX7M6EQ5L3nz4trAYP6iTLjc5RXHdPZikFiVxqvhGk4x-Ze0-uQllmtY3USRgcj1FcCEihgKeGkaHXRwp5nP3KXlVyzlVBsD8TKN7S3vvzUSpFmyBdfhrZNyHk84QTIqnXlRc63eRn80lzA30iyxf6rqnWPNH5Ssk6nTumZ5mGHvYCiptMmeM2wUzo27pUJusA3EU4uz7b84p9SsPOpcpwEdTRfFV5l1bygLbcr0Pj0VymXCgh79IiHOrHPZyqxxdcpDUUlYrS3TD3WPhtQaue3PU2OasJ8Ik_OL-G3kVaVyvIyzEz-XOPAPOWr0SNz7-bqobxL-I4kuqoGa28UG6YLgLUdu1fvFJWSZGsCSacSuSlQmGkOLnBdK9HDlPaz1Sjq5qzf1-KtFcWjkMxTkR5-3SewoMw9qowW4MQgE3wBWhEknJkAtp0MW536onHjv8v4334fx3Fxs9_KAvZN0jXRHz8yJUSVidGwVjBSD3BzFIsGKzWxg8_76meZlZqmvPh-KcJHyImXDwkAV7uSDTFPeISlhZFHiptetEDsnZX6-jqpwLHZ_zFh-W5QorSN1szkadAZIeitFTeDPxMB3J4B5df8qmwAVfTA5bTzdf-QVFvntjRDdRunXnGh4Zx0Vb1loVUl47k23WIBl-hvnTrPtZhj7rXWQXLjfKOQoxdUdRrazqK6hdJe8EA-IwSL0tkHG559fZkn_2QIFmIDNErg5elqoD5QhqYnx8zSi-BEMrBjWsU-p_CNUjfgElg7XJoNy1 "techtribesjs")WWWW
+![techtribesjs](https://www.plantuml.com/plantuml/png/ZLLTSviw47tdL-prIyaCnQdJDZFtgKwS9csTZmPyC_U94R2srIiGLn9nF9t-zwu4nX2ta_h1YDLgzvpTi-A3DaoPkX0mCfYjZU8fwczwvFt5oqpKESBQc4h_FHuhjWbNtAphjDQeCbaQB4sOoM9S2LRQ4A-roGLFn-TlNzzPq-9wFdwSXE_3Op8bvtI2yH9LM96lzmhgaWuN50JC6c4fXP0RNgv0a1EmCeV1DbUQLX8eEGYPCI6s5AD3UPZ0cq__lLt4INnxbynk7sxy8-zLQvf6IVJb8Zw_8bjhUlWKNoNpYykBcnaPFUyEbPPbSl5aV5RASbl8MYUMU02ZwSu02pACZbfddwrM2bVCODvvTfRdhdd1IwwDOePJcftxmBexuaLRRR18pcHTvanj_UnDqEzMIEqw-ku1_TnVLmT_Wsd2gegy7p25QLK9dhdG8p9zPeyiWAXIjkRN_vm74Ck2jk4qVBBxKziFRUkjj2ty8ySDL2WhWG4qcGDePH00FjA33DzaIlzeiX2MIXQkTwvTO047a7FI4BtP_dwAGMDcf2CvG3vBVOKYoLF2SO_2OQP3CsPOoZHQUDVRwEiSteNl6hGHXK5zWCyzeS0Y9HPhJgMWvF_fvtXJbg-i-oKtLtKA2YlPiZY0vY-vGEqwGca_qWiq_R4eFaxZaqaFZaQciZNmCiSdrB-YMKhzlw03DzBIiGJ1dNKKPRcIipEOX9C1ILVO-oWQJmqjbeYv1ZyLSWK4s-WZLropGJI7AVswoacFLcsBPhNJ0fnQBos942bbr3bGKPLqf8CswB1ExQWw7G2fbe7ErfZNWaHFpU8MmuzEn7QWp8QR1aBShCYZjzrSChJRP1bkMfe4O7HcdvQTH_eu6D6zy6c6jELo5STt4Vaxx-Tp-eBxhsRrzqVScMwx9sEMjwsp1TieRajhfElhr_duy-oCHh2Ioi39oV7xDdSNPw2wVQpdRZivzJnwGjfmXRQRHcPIjCacfyTlJblOoM8lZnU0vrQfBw3lXnlWV-Z87_WT4ZWirv_IsKVTA-wIzBiJDCtbKggYkMptCzELhI-2BjHUdTPr426LjO6gJkcMfO6WZvAR3qv3o_65g3jPkw2xOQgrlPffq1suth3tGrckSxPDxhiRSrzgslg0PKvVmvy= "techtribesjs")WWWW
 
 ### Message Bus and Microservices
 
 Source: [C4_Container Diagram Sample - message bus.puml](samples/C4_Container%20Diagram%20Sample%20-%20message%20bus.puml)
 
-![messagebus](https://www.plantuml.com/plantuml/png/ZLLDR-Cs4BtxLqpT0dK09yOMFHK8iFumkhjm4gzbOoy5Z94qbeYbI8Aad7MB_lSE9LjX4WLD3Z4vd7dlpGUfZywZzNKb1py9bSaw9oYzD-wFoSJYuqqXV5cdjIERQUL9-PjCLnCZKOMOQ-TpATB9_FVhTJ3jxbQJ2fqdowRzd2DGAB8t9k3_2hNYu8f1m9S41osbVXIg0CbEW2g7PyV2EbvfO7AGEaCfJupHgNnDC9Zc-L9IGDXYCHfM8hCw8NiK6Gt7y8ihqT3jKXIbJqHEUHBseoi-IOkvbjhU3kVQgWEh8ZkJTHDqO8xpuMCfV6EJL93Aj_J3txOau5gMlnG5T701VdZrKf3psc8HQTdeMh7dJF_eqI8ReTzFRobX_47owU7RVhtS90_t-uVTTlNvVZbYyvgiqsgKrSnOaHt3l5iDft0nDm0dxbQrdmKXQ4-Zx0ExNBpXipfeMw4NMWslu9y1y5zNz14Q4pjFZP4YQvtP_WMFw38hZ1_3L1MrH1lCqz1qrsbmeSCLAYmeT5rOC5OVXEJiNh1T8lRdMiVKNPDRsZ4aneR1ccdjWt5R4XWjb0Tz0CmoSWuuiqu5Y2XHBhN7mi4jn1FqMb35A2nxdzQEAUxQ7Sng5nWtcAR2ttrjs2qgPxJr3IUx2nK4q96KTwzWBGLNLXybkhdOuamtTNeAltDBwCc12Xb8uIY773qsPBOBDBKrsf5xTtfOvy976gPX7_FFVvxSt2-tORcs-YXorg1jWKguff3NZso21YO8E60c92_VBs6HFZKzJ-D-Bz1ZYgwHyM0namGVVil2Bl7QallVnhOtiOSnAZzJnfMFEUzEoTTLH8UNulzDEHp9EgPhHatAhjzFJS4SIftrzAPNONzR-3HgIjW5EKiUgMxRgOjg09Zgsfz73to97aey4lypXXJb_Gh-7Gms9FUBw45fx_wk5JtyjDsk4tOykpM7FVTrPxW6RtG7GfcA08RkfB8nVE4tRV8CUDVp1hGw4bAvwxBI0UKRfOdElfFdwBU2enlSWNJQwaPi1DhWzA34CzhLl6csQ1_2nMn-Jk7vcz5tqzyd8ePfRzZx8IvIUjWxKsygBVKBjdWSkuYMguqPhF2qt_ImFTTz-PQjbdykxnVy3Vl8MTIL_0y0 "messagebus")
+![messagebus](https://www.plantuml.com/plantuml/png/ZLNRRjiu47ttLynw2wm3E7PR57rO841ymxQ5axYMZRuiO8meMYP2aG99ENMB_VSTKhOiEGeIlrWSSSuvSzMjTMXSaSdE7q8nMIGSTixbzk_XqE3J81LkLyI5vOPfvRXo0wQpOIvHUPzhwn8fuk7aq_N2czPty-7-u-3pu3sPDXFoGA6u6UGU_oye53bd109kns6hfTHFGgKWwHAWIg3nMXXBJng87AHcAEM1C2gLpmaweoIPIUuHLfZskfbWHaVSx0NZtJwyiplC-SrCf3iNYOGdaJ_thkXDd4wqrEQcEz56RKaLDsDP1ASjSHnVFks42pR9KwwI5V_fRaeIi2NBlufxTB0UldjrASWwRJ2jQLdgGj7DiVxPeaK6eO-75vLSTJhHbuSVcyLi6JtSRnxMg_dN-rcFp0jkh5OzLX1ZnaqV9jLJTmGdSm0uMCUppTWBGNFeiGzqvNGRlggjDXaweLNt2dvtW7vLqdkOv_NBepoNWfMNoVuDzsYP4RdhmqYbXKJZpIDVT5jfiBx26IfAYw-wC90RlHNIHzTaEtbiZhckKv-B76Zx4EN6DzPOQ-UDA-gdN0lgBBq5P8nRI-rdAXKWQe5IgXsc5cwWsK6NWZ928TaRcWwYk2jFC2wiPrnY70jtzpsm6rGsryO5JhfExYI0xwalx3DOm_rLKbyBT7corIDT5l71_qyCHySjA1-159OdaA33G5Q1GLwON5jktnmU5ebmDGqZVwxpJ_uS3kvdA_-uC7fFBMz1cnILi26HrqzaWW3Z1MoH2KcFRvSmZSz5J-9wlQSKNumso7Wmo2I73n-PFqKqOjo-MjZJ93vdFAS_K9upN-UyEqJVvpKwF2N_5oL_JrrDTA7Lf3pNkoeA9h3Jx9NQlA3mL1RFUowAFtavCzzIv-DHNIq7WB4ktB7rQE3GmGxtjF9fbhcYdTMguBzEPydbPbfRAENihqlHtI-hrIBowwIy5bwspEiwJqAdjbK7V9fI3uRse5WVlj5E6pQ0roqxeDGHqJgsLLJQe_pWSQJP8tVa_P9pSu9Ba4fR4SJMG0DE2qgpHuyv3yKMvIASZYV749exestItoQY0NCvgAz318mMzelUlmYbfBvWQxRZqUF85NmwSpnibcri3QJJjsm--sTsFwLls2r5GH_r_m4= "messagebus")
 
 ## Background
 

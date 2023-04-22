@@ -6,7 +6,7 @@
 ' !if %variable_exists("RELATIVE_INCLUDE")
 '   !include ./TestThemeTemplate.puml
 ' !else
-'   !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestThemeTemplate.puml
+'   !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/percy/TestThemeTemplate.puml
 ' !endif
 ' [At]enduml
 
@@ -23,7 +23,7 @@
 !if %variable_exists("RELATIVE_INCLUDE")
   !include ./TestAllElementsWithLegend.puml
 !else
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestAllElementsWithLegend.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/percy/TestAllElementsWithLegend.puml
 !endif
 
 @enduml

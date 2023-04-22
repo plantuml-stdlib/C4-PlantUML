@@ -1,6 +1,6 @@
 # Themes
 
-![Theme sample](https://www.plantuml.com/plantuml/png/hLRHRzks4txtNt5r-qCTG8dnGzkN0G7gsDwQmauyosttCC0uYMU9A4Lg91N76FQ_xqXRLknqw83r9J6FlE_x-F5uudldqVgcKhqNlgIAOFnstMZfIS36cWfAxsltqt1eSNjLI5ysMUF8vaPxqlugDzMmLgW3mANpGibiE7vxkGYXJ_FPi4BdoGuZikkza3fNZQ0V0yf2nvo1KfEzgiCEUkc7-o_hnNIPtj-jxp-jPhTtqy55xpMii73WchesreCsu6hCoO7KmCf0OqKmoD2H0BCFDLgGLL9BNK0W8-DtDRa4jgNCIn16l_OjO8k6UbSPInTNm8otcsFO4bZweo764IsbeeAqI0x_mTEZXoqRiK-24Xru0nc1e8tK97eZ8QQAAjAUzpBePvX_vSJZ_li9lDhmO6oKiTUlfhFfV7gtMlzypt_6zxFx9SzdnNws__BDctUJqRkGuqgiwNegYzAdKf18mtXmmJDxPIiMTjsoGTxI_Quff80BEVsBe6v9AYf3jzDvWEOzjN96ooMVIwj3CS8_JgH-f-XwWguaCPEQjPoW1_3XZw4mtdSKFI-z8ZZw2K9YOR62ZR5mgprPJHvkK7yD5P7kdAUgrrkGTKOFyiPvKv5DO7pyrHz16mQpYMUUSNQoF-Kw9gAACS0yDutshiywzj3h6mu8jBj1_d_6EXVGlu0_Um3GwHriALjZNVFYBvJ1gAwLpD5Be_iS-eWFc41Qso1-_daSOXDIye5bH6dEyzeS3XSGK8iOFl9cxSON8nPvokngPBYKfnLTBh2WmDwofhcLjKzWf8j6eGtXXJKFKf03LEhRB9j6vq4wAkbtu0qx6Orqy20nf4WBl5_8hDawiiyKLIQJYWvspEEWrJH-cS1lMA6L-bGBA5d5fkUQp947i_dNsjmpSNi18EX1vdGkRv8D17eCxIOSm-5dK9F-EeEJiJUM78JM29OAwRoDHmfISrbMyNS2PRmhW8ql8RSaI7k9oYMXhCWvKARW0VdywfbHXtlDJibGiOlRRnVEnF0os-MTEFSTXu8f31nlAnRk-bddOb5_7Sj--kW7LA5KQnS3J3IzdFFuSEK2yweaa94K5SnbReqp6m_Jnxn4NH3iCnds2UP1MuVAc7fZiQApEztP7igphOAS0-t-dfeFc9d6ToMG7Azo0jwYTXYTwEplBKazQHVTfVtao0Nk3wlL8kM5f-jSZTzTqnPz1xUdMz-5LfsPhaL4kAu1791YyBGWMiBORnFuo5_LOIJlJZDE7H0w1VyDQ7t3oPtixhASWYu9XOjlbDYljbPwSk1D83hmJ6x637d4VEBMMP6b3Ek0BaCqOdH2JklnJCDfNkEuFZhwTBvQx86wpPoadrLbvrFtbUDkDP-TUzLDC_p-pJER_ZAzc_1RPsEC9ml2ubRllpNjimaUhk1_uS2bqOEBw5buL7MpFFpSJlVUiygcKdy3 "Theme sample")
+![Theme sample](https://www.plantuml.com/plantuml/png/hLPRRzis57xNhpXrEzG657jRqpqC2537rjOKTknPJhk70GP57Tj4AL8ZAJl6iF--Gzri9Tq5wFBWY8Syt_dEbNnd7JEko6JmmkqnGvXSRmeb7AQmDJg3lNEv_N4qCkmut0ctBvB2ek5QELHko7KsoYLJ7k3AkbIAP3IvlbfwqSDyDigOTMX69R8DNWZ5PP7YLu8UlX_-CFoMH9i9QJ2Xq0npxq4GlrzysYoZLRoutomUrhEx-wW_25x3ckqis2BFjN6WDDYSSRGW510pK8pSxYVCai-w4XKgHIE54ce7tWFKxfIZ3U6u5tmFgLQlNGjOep5rohJ1mH38ujss5Hi4WxyNQ7rCQvCITwZIiFuF3XyT72aGbHBicGMd8K58SKl-fS4uJID9GLIEVEdt4iO_asBhVo-4LrjQJBJKvkPLD8lcqVrwyzE2VYQBsM95-yckskszVFFcxNJyrklOFSln9XAxlOj5Ycdir_q1xLJCraJifh46l37tcqAl0jRhz0QUtGfboOpPa-8UsljKqnclLfINXWU55Vzs8tOdYJTJPlUOpcZT7tJGFVZe_p6XdJkR29nmacg_SH1ImNQ6PR3L1kweB8r21xTCVVOL4PyebraGBD5OhVgyi4vdQ4AOj5-zCJHYqDiovmbfXrMMyrAHoL86Z7DTA6Sfa445lRabGShCgS-_8wod17e3-2C0-clvze-OR5YUq-5FcC0upwNWp0cjA4wz3-p0GeXpuydFFqwyR8fI78X6IOrcW1CSwWQaIavBSMitQHnVZebarp9LBC75j2tnQibswAqtLcDkHEv26AjT8PalqzxIw0EL3JM6b5-siYqKzzIP5Exa-u0NPI0j70JpAi80-Gk9qKSQ6yyOPJeH4kjmpCj5msdoCeHVMSOe4bqk84LM3ZrR99Qur3dxBzpiCt8L0UhTW-3ubDuqwQVCCJzkV1hgJyyc_cK6dRMZSMB1ZqQQ83jXdIbJIaE4oZ8hlqC_AwXNW1LKLznWIWaKJDAeeh92Qq7g7ItGyU6pGDLzJP4IlcANTrykdAccOmOkXyqvSlyI8HyK0YwxbORmpVF9DGZ-RCi-UdHzp9YG6riAo51qDQTrtNBUyfhI8agZr3zpmOssUkiWUkHxfgZwAas2lS2ikPrH2LDjZP_xtPw-2BilpxeAE0bQ_ow23opHXJkNGDYsSWYKAsLP6Obp-0EQOnVZujoq3nQjj_r-lLx6TB1xhcgnVpxJAVhoQ6LkS-z7TQ8lHaG5rmo06gaKTWkYCLZEsn0-qAqwgeotsQn6SOLmoU1hW3Qtf7ocVMwMBkWAMMghDugVLqT3xUjlJM-ejZEzdJHHy9WNqNfIP371Mi0hBoqnpaIUr6ENGrUli7usj-RZ-NfP0xNETDIVLMKJf_CjHzEA7ZnFOdLn2GxgDyyi-Zcwdz9RPwkryzSNlQnKTTSqpoOu3E4Rdt2goFwWZDd5eyhlJgu_Djl1Es99Jwg_00== "Theme sample")
 
 - [📄 C4-PlantUML](README.md#c4-plantuml)
 - [📄 Layout Options](LayoutOptions.md#layout-options)
@@ -48,7 +48,7 @@ In order to invoke a local theme `C4_foo`, you have to use the following directi
 
 !theme C4_united from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
 
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.6.0/C4_Container.puml
 
 Person(admin, "Administrator")
 System_Boundary(c1, "Sample System") {
@@ -63,7 +63,7 @@ SHOW_FLOATING_LEGEND()
 @enduml
 ```
 
-![Theme sample](https://www.plantuml.com/plantuml/png/hL5Dxz8m6B_lKzHv6ScVBHXEdfWJmOINnGqvBjtsA4twqhHFin3ZT_Sf8FW1tALPV-_foYDt69HCadTu0GMiMdP12uIH_N16iGkYzH-Bml4f_odm4lhWmGr68sZC1wCAAxcE3dEFenHzKItdTRmwxNU5uXx15JTdJn523pACy7zSgMb52YuqkDpUDjJWlD4P7vNGRomjuoayEex6fREakP9GTPzCq2DtrsnO4AdXoafWTooTiLy9e-_fd4tGTznQOfwXPwMrKWmSXT4fNLNltrZPrFbXtPB40VkGBzZ-UnMnKaepUHQNUOQ6qIpBYQA2H14ZsqaWWcCe54ZAybJnzwDaXdUGV1uq0fDl8F-EUzKwUV0nRzksTKEiI7gYBviDeATVY4TysdybIRCzdhilksFPVZrikjrwipvypcR92lGObFm3 "Theme sample")
+![Theme sample](https://www.plantuml.com/plantuml/png/fL5DJy904BttLwnuAGcqIem7JzIAO898R95ZixIZRB9VsPtQ4ED_TnOGlBkNIUQzUVFUxDWZTzWg6KKNk0K5BB-fMYqG6lRkZ69RHEllqjJnBlaGk6qthGTN6usWCQcDIgtaEYWCFJPIRDByPhWChTNpF5NS8xXqh-nfXT2rR1luf-hdABbDhgXLvJJ1XGQNs7s69JXlTCmR9VI0zR9GXKV7qRXUFofsP4TLzwRL3NUxkBucKi6LbS0EMA_FlY96xwGSTx2fkBN4NCE6PTPAKNCKHlUebLyEM5OiayMaf147R9HSi-UtF62PbARpB2Jp30sZM9OJHRKIHLXPTWBfF0o50acxF5dyFfgCyG2Ipf56OFGAyZVSsTRAqoJLMLak2s85qWazoqm1oKO7eOIl_JiI5RENTVKuVydAfyMqca-cayL3t8_6e1iwx0y= "Theme sample")
 
 ## List of available C4-themes
 
@@ -77,7 +77,7 @@ Theme [C4_blue](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/ma
 !theme C4_blue from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hO-noeD048Hxdq8VGBUn-Yj_99s150afmwaR5VRMutQEaBVFcMT8DSF0zy5q1XUHl1GLLlPSzkrZbCJbC-w-N85WVqJHlPfbmvh6P1odNS6APjez1N5wuBLXbcsalgqlntGx3-ITWIDzlLPKcqwIPlwDD6JYJLSs_8kSX3qhx9vj0o-iSnEEIrrkEJy0)
+![](https://www.plantuml.com/plantuml/png/fO_12i8m44Jl_Ohs0veLAHuyLOgt5Zme7YLDrxQmIKDse_Zt9lw2fna6vWtJikWWqL9HoO8MowvvZ1InV8RDbek8voD0q6yrhxB4CJ86ipb19yfi5Znfb-iroqJh25rJNt9q6tgmcWK3_BXSLAip52Vy4_hQguFQWK-D3roHvKHqfhJWXE-9rkECRb8-NsgJI_e5)
 
 ### C4_brown
 
@@ -87,7 +87,7 @@ Theme [C4_brown](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/m
 !theme C4_brown from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hOyn2eD044LxJw47q6ciKXaadO4K2Id3gXCLPcUNcLaajy-QCwJwdm_lmU_Kd5ZoL5IseiUoRr-ZX9tBjmHVhcPHJm3YzcRPR4rZKfGfi25RCmKFaHmVVAqsqpP2tzQtOtfS1_1E3GL-OYsgZITAC_v76ZFnWJkgdOakX3wp-ios0HVakOd7fowtd5y0)
+![](https://www.plantuml.com/plantuml/png/fO-z2i9048JxFCNb0N8h4Yoi8i4kWeLYAPTaJG9xFzpk6NnxBxw2rGm3ymtJi9WeoL9HoemMLLi_--XNfrxHMpMB13u2HBFgQP4vzOan3ju9Ej63jn38kArViOoqzD3MrNMBxfSEh67123ym5-NY1aeZ_Wbzx_L1xo3anWTko78YEbDUSCAFJEjmGZVgi7rgiilw1G==)
 
 
 ### C4_green
@@ -98,7 +98,7 @@ Theme [C4_green](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/m
 !theme C4_green from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hO-noeD048Hxdq8VGBUn-Yj_99s150afmwaJ5VREOtUFaBVFcMT8DSF0zy5qQauiUIugM-5HzkrZ4I2KJzbzkPf5_ICIzsgMpTOq9eLCUp04QwRTKsGN3hvMctaRgM_hop7TpWDvfmQXhrYBQWiJfnc_aSPClEaAjN_c4yDdLk_PDc11c9juVEfoo_a1)
+![](https://www.plantuml.com/plantuml/png/fO-n3e9044HxlW8-W5jZY8KLXjX1Og6nD0UiGBAtN6xtDFwzXxzWDPD9vasc5hL1ewEiq1aTvatrc08Yvy-mkdnMzN842FPjfaNds4V1CAoio6g6rO4dork_51rfwQ6foiiMtReMd1N503-mPCN20yKH_uI-zkPWTk1JumDN53qHdIajiCezqLgSa4VZjqzrSac_)
 
 ### C4_sandstone
 
@@ -108,7 +108,7 @@ Theme [C4_sandstone](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantU
 !theme C4_sandstone from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hS-noeD03C3ntQVG1z0iJj_aXtIpqA6bOpczL8KaTrnobBvzppv3fuJ0_mSPr5oop5GrjY5ZFVOFTUBLWc3zJ87hpIpg7q1ohsxTRSjpLanB44EnRWaCaPmSHglcQPzXxDlBSRgT9s2dXWc-k5RDBWjbZxz1OodUS4MrVw8J8PTMxqMRS4NnNJp-6ifMvWS0)
+![](https://www.plantuml.com/plantuml/png/fO_12i8m44Jl_Ohs0veLAHuyLOgt5Zme7YLjrhQGR49se_Ztflw2fna6vWtJikWeoTcYaWKTbbtpO4s6nHEMp-XTkOW4FW94_LRpAaiQ4sESF0cIgCax25RJngXPZ5r7w9hwiaMteGUdMJ323yv5jT9aay4_eQ-zEgWTXDpum1LPJjQURLuWuNkczJWZ6HMsNsrsMRy=)
 
 ### C4_superhero
 
@@ -118,7 +118,7 @@ Theme [C4_superhero](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantU
 !theme C4_superhero from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hS-noeD03C3ntQVG1z0iJj_aXtIpqA6bOparzOJaxaXobBvzppv3fuJ0_mSPr9nOPgeQyyXOZ_r3SqBnAB5-IkJQcoNz0n3twhRTV9wpeYmn60RhbiYGo8N3QDLMscSO-_Pod6xd2TYfeS0NrwhPmq9vnT-WgHHlkABQFz69a4khzw9Dk65OktJyDPIjp0y0)
+![](https://www.plantuml.com/plantuml/png/fOyx3i8m44Jxd28vGBm8HHHKGH5Ta2X0bCWuInnf_P5t3UBsE5o1QaPJl9dfMNIIxAXgnAB3UkZkd2CcYodKpnHSRKKYxm6IVgjv4PiVcJ6Pu0MzA1CSHD9-PRGi4oqF6Bhsl4RNqmXEis227vohPl66yeH_GbzRjLCRA3FD1ox8SY0wKcdmmhT26t56Fwcu_kgBA_e5)
 
 ### C4_united
 
@@ -128,7 +128,7 @@ Theme [C4_united](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/
 !theme C4_united from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hSyngiCm3CRnFQT83f1eoVIcF4At53gqT2nEh2O6sJ7MPqflNwTdw2GX-Fz0Wy8aP2zLWuqzrsF_oC61RVrCkwyt8EeVKJAlRdNOyfoLqx87S42tx9wYc700hSAAcsdisyjnkfqdyaR1YRwoLeqBYsJBlq5ZATvqPSM_o4dObrRlHPjuvM2xU3mrbAtC3m00)
+![](https://www.plantuml.com/plantuml/png/fO_12i8m44Jl_Ohs0veLAHuyLOgt5Zme7YLjrZQmIKDse_Ztflw2fna6vWtJikWeoL5HoO8Eowvv96y5JVcCgoiNaS17WAZVQhQof34nncdrWbxKj3e8fFq6g5aCsH6wfhviqMtemMaMZF0ZSr5PFr4o-2VqjLS7jOEG6n-u8ik9w4nvmGlVCwt76RrHOJlLPfVr2m==)
 
 ### C4_violet
 
@@ -138,7 +138,7 @@ Theme [C4_violet](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/
 !theme C4_violet from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hS_12i8m383X-vvYUu0jbvqyJOQt2HuKZz9jSIiaRMbInRUtzHay9GJ-3pA8cgY9gMfqHyPwx1ylwmcrVaRFzQuQv00GpRlRhEvfJe9nyKxHQRTuXa365Q0LNSdECFRjfPnkvmdOY6A4donLOzr2QSN_e24N7xYYw97eHCYvbNlM9jpGhLqeJmrvo_CB)
+![](https://www.plantuml.com/plantuml/png/fO-z2i9048JxF4No0BaL2HPMaM0NmKAnb4ko9WTxFzpkHNnxBxw2rGm3ymtJikWeoL9HoO8MowvvhiOJIlcAtfQBIE0ZGDHlDHjPqf0Ou-YTe1CrUWk1jDi0DSj4Pe2kgQzRTB_qO3KBHlYHkQYC6obD-2TqtQk3sa78ZG_SaEL4TAQyu8GVcTRZZ6vIOJlLPfVr2m==)
 
 ## Write custom themes
 

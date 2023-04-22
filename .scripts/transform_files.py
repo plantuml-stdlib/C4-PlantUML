@@ -77,7 +77,7 @@ def plantuml_decode(plantuml_url):
 # <<<<< plant uml decoder from ryardley/plant_uml_decoder.py
 
 
-def read_environment_variable(env_var, is_required = True):
+def read_environment_variable(env_var, is_required=True):
     if env_var not in os.environ:
         if is_required:
             sys.stderr.write(
@@ -176,14 +176,14 @@ def read_next_plantuml_version():
     # the returned SVG response stores the version inclusive beta in a text element; e.fg. "...<text ...>1.2022.16beta2</text>..."
     # and this function returns "V" + the parsed version number  (e.g. "V1.2022.16")
     print(
-        f"calculates the next deployed_version based on the running PlantUML web server response ..."
+        "calculates the next deployed_version based on the running PlantUML web server response ..."
     )
     resp = requests.get(
         "http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSf8JKn9BL9GBKijAixCpzFGv798pKi1oW00"
     )
     if resp.status_code != 200:
         sys.stderr.write(
-            f"cannot read the svg response (with the next release version) from the PlantUML web server; please check http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSf8JKn9BL9GBKijAixCpzFGv798pKi1oW00"
+            "cannot read the svg response (with the next release version) from the PlantUML web server; please check http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuSf8JKn9BL9GBKijAixCpzFGv798pKi1oW00"
         )
         sys.exit(4)
 
@@ -193,7 +193,7 @@ def read_next_plantuml_version():
     svgbody = resp.content
     svg = svgbody.decode("utf-8")
     # this regex ignore beta2 of the text section too: "<text [^>]+>(?P<version>[0-9\.]+)"
-    r = re.compile("<text [^>]+>(?P<version>[0-9\.]+)")
+    r = re.compile(r"<text [^>]+>(?P<version>[0-9\.]+)")
     v = r.search(svg)["version"]
     version = "V" + v
 
@@ -211,9 +211,9 @@ def update_c4_release_version():
         f"updating C4Version() definition in C4.puml with new release_version {release_version[1:]} ..."
     )
     replace_first_regex_in_file(
-        "C4.puml", '!\$c4Version  =  ".+"', f'!$c4Version  =  "{release_version[1:]}"'
+        "C4.puml", r'!\$c4Version  =  ".+"', f'!$c4Version  =  "{release_version[1:]}"'
     )
-    print(f"C4Version() updated")
+    print("C4Version() updated")
 
 
 def update_c4_next_beta_version():
@@ -222,9 +222,9 @@ def update_c4_next_beta_version():
         f"updating C4Version() definition in C4.puml with new release_version {release_version[1:]} ..."
     )
     replace_first_regex_in_file(
-        "C4.puml", '!\$c4Version  =  ".+"', f'!$c4Version  =  "{next_version[1:]}beta1"'
+        "C4.puml", r'!\$c4Version  =  ".+"', f'!$c4Version  =  "{next_version[1:]}beta1"'
     )
-    print(f"C4Version() updated")
+    print("C4Version() updated")
 
 
 def update_all_includes():
@@ -240,7 +240,7 @@ def update_all_includes():
                 f"!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/{release_version}/",
             )
 
-    print(f"include paths updated")
+    print("include paths updated")
 
 
 def process_url_match(m: re.Match[str]):
@@ -301,7 +301,7 @@ def update_all_images():
         )
         sys.exit(3)
 
-    print(f"include paths in images updated")
+    print("include paths in images updated")
 
 
 def replace_readme_header():
@@ -323,7 +323,7 @@ def replace_readme_header():
     with open("README.md", "w") as file:
         file.write(filedata)
 
-    print(f"release README.md updated with new version and badges")
+    print("release README.md updated with new version and badges")
 
 
 def create_plantuml_stdlib_c4_folder(target_path):
@@ -331,7 +331,7 @@ def create_plantuml_stdlib_c4_folder(target_path):
         f"prepare C4 folder of plantuml-stdlib repository in folder {target_path} ..."
     )
     # remove whole begin inclusive "!endif" in the specific C4_*.puml files
-    inclusiveEndif = re.compile(r"'[^']+!endif", re.M)
+    inclusive_endif = re.compile(r"'[^']+!endif", re.M)
 
     os.makedirs(target_path, exist_ok=True)
     replace_first_regex_copy_file(
@@ -343,31 +343,31 @@ def create_plantuml_stdlib_c4_folder(target_path):
     replace_first_regex_copy_file(
         "C4_Component.puml",
         os.path.join(target_path, "C4_Component.puml"),
-        inclusiveEndif,
+        inclusive_endif,
         "!include <C4/C4_Container>",
     )
     replace_first_regex_copy_file(
         "C4_Container.puml",
         os.path.join(target_path, "C4_Container.puml"),
-        inclusiveEndif,
+        inclusive_endif,
         "!include <C4/C4_Context>",
     )
     replace_first_regex_copy_file(
         "C4_Context.puml",
         os.path.join(target_path, "C4_Context.puml"),
-        inclusiveEndif,
+        inclusive_endif,
         "!include <C4/C4>",
     )
     replace_first_regex_copy_file(
         "C4_Deployment.puml",
         os.path.join(target_path, "C4_Deployment.puml"),
-        inclusiveEndif,
+        inclusive_endif,
         "!include <C4/C4_Container>",
     )
     replace_first_regex_copy_file(
         "C4_Dynamic.puml",
         os.path.join(target_path, "C4_Dynamic.puml"),
-        inclusiveEndif,
+        inclusive_endif,
         "!include <C4/C4_Component>",
     )
 

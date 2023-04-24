@@ -219,7 +219,7 @@ def update_c4_release_version():
 def update_c4_next_beta_version():
     # $c4Version is defined without starting 'v'
     print(
-        f"updating C4Version() definition in C4.puml with new release_version {release_version[1:]} ..."
+        f"updating C4Version() definition in C4.puml with new release_version {next_version[1:]} ..."
     )
     replace_first_regex_in_file(
         "C4.puml", r'!\$c4Version  =  ".+"', f'!$c4Version  =  "{next_version[1:]}beta1"'

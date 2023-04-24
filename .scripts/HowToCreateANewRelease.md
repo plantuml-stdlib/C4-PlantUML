@@ -80,7 +80,7 @@ Following script calls
 - Update README.md with the new release header and title (based on the `readme_release_header.txt` template)
 
 ```bash
-python ./.scripts/transform_files.py UpdateC4WithReleaseVersion
+python ./.scripts/transform_files.py UpdateAllIncludes
 python ./.scripts/transform_files.py UpdateAllImages
 python ./.scripts/transform_files.py ReplaceREADMEHeader
 ```
@@ -91,6 +91,8 @@ Following commit all changes and tag it locally with `$release_version` (e.g. `v
 
 ```bash
 git checkout release/$release_version
+git add -u *.md
+git add -u *.puml
 git add -u **/*.md
 git add -u **/*.puml
 git commit -m "Create release (branch) $release_version"

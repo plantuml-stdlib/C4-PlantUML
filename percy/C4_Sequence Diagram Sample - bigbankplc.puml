@@ -1,0 +1,37 @@
+@startuml
+
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./../themes/puml-theme-C4_united.puml
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Sequence.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4_united.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Sequence.puml
+!endif
+
+!include <office/Servers/application_server>
+AddContainerTag("webApp", $sprite="application_server", $bgColor=$INFO_DARK, $legendText="web app container")
+
+' description and properties are not supported (by the elements); the display size would be too big
+Container(c1, "Single-Page Application", "JavaScript and Angular", "DESC IGNORED", $tags="webApp", $link="https://github.com/plantuml-stdlib/C4-PlantUML")
+' TODO: HELMUT box support missing 
+' Container_Boundary(b, "API Application") {
+  Component(c2, "Sign In Controller", "Spring MVC Rest Controller", "Allows users to sign in to the Internet Banking System.")
+  Component(c3, "Security Component", "Spring Bean", "Provides functionality Related to signing in, changing passwords, etc.")
+' TODO: HELMUT box support missing
+' }
+ContainerDb(c4, "Database", "Relational Database Schema", "DESC IGNORED")
+
+Rel(c1, c2, "Submits credentials to", "JSON/HTTPS", $link="https://github.com/plantuml-stdlib/C4-PlantUML", $sprite="robot2,scale=0.25")
+Rel(c2, c3, "Calls isAuthenticated() on")
+Rel(c3, c4, "select * from users where username = ?", "JDBC")
+
+' calls with special (calculated) index
+RelIndex(SetIndex("4a"), c3, c4, "a parallel call")
+RelIndex(SetIndex("4b"), c3, c4, "another parallel call")
+
+' calls with special relation definition (details see plantuml sequenze definiton)
+RelSpecialIndex("?->", SetIndex(5), "", c2, "short call from outside")
+
+SHOW_LEGEND()
+@enduml

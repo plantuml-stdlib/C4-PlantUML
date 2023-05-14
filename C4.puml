@@ -965,6 +965,17 @@ $elementSkin
   !return $element
 !endfunction
 
+!function $getElementLine($umlShape, $elementType, $alias, $label, $techn, $descr, $sprite, $tags, $link)
+  !$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", $elementType)
+  !$techn=$toElementArg($techn, $tags, "ElementTagTechn", $elementType)
+  !$baseProp = $getElementBase($label, $techn, $descr, $sprite) + $getProps()
+  !$stereo = $toStereos($elementType,$tags)
+  !$calcLink = $getLink($link)
+  
+  !$line = $umlShape + " " + %chr(34) + $baseProp + %chr(34) +" " + $stereo + " as " + $alias + $calcLink
+  !return $line
+!endfunction
+
 ' Element properties
 ' ##################################
 

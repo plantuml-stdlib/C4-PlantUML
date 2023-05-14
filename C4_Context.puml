@@ -354,10 +354,6 @@ UpdateElementStyle("external_person")
   !return $getElementBase($label, $type, $descr, $sprite)
 !endfunction
 
-!function $getSystem($label, $type, $descr, $sprite)
-  !return $getElementBase($label, $type, $descr, $sprite)
-!endfunction
-
 !unquoted procedure Person($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
 !$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "person")
 ' $type reuses $techn definition of $tags
@@ -385,45 +381,33 @@ rectangle "$getPerson($label, $type, $descr, $sprite)$getProps()" $toStereos("ex
 !endprocedure
 
 !unquoted procedure System($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "system")
-' $type reuses $techn definition of $tags
-!$type=$toElementArg($type, $tags, "ElementTagTechn", "system")
-rectangle "$getSystem($label, $type, $descr, $sprite)$getProps()" $toStereos("system", $tags) as $alias $getLink($link)
-!endprocedure
-
-!unquoted procedure System_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "external_system")
-' $type reuses $techn definition of $tags
-!$type=$toElementArg($type, $tags, "ElementTagTechn", "external_system")
-rectangle "$getSystem($label, $type, $descr, $sprite)$getProps()" $toStereos("external_system", $tags) as $alias $getLink($link)
+  ' $type reuses $techn definition of $tags
+  $getElementLine("rectangle", "system", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure SystemDb($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "system")
-' $type reuses $techn definition of $tags
-!$type=$toElementArg($type, $tags, "ElementTagTechn", "system")
-database "$getSystem($label, $type, $descr, $sprite)$getProps()" $toStereos("system", $tags) as $alias $getLink($link)
+  ' $type reuses $techn definition of $tags
+  $getElementLine("database", "system", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure SystemQueue($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "system")
-' $type reuses $techn definition of $tags
-!$type=$toElementArg($type, $tags, "ElementTagTechn", "system")
-queue "$getSystem($label, $type, $descr, $sprite)$getProps()" $toStereos("system", $tags) as $alias $getLink($link)
+  ' $type reuses $techn definition of $tags
+  $getElementLine("queue", "system", $alias, $label, $type, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure System_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
+  ' $type reuses $techn definition of $tags
+  $getElementLine("rectangle", "external_system", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure SystemDb_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "external_system")
-' $type reuses $techn definition of $tags
-!$type=$toElementArg($type, $tags, "ElementTagTechn", "external_system")
-database "$getSystem($label, $type, $descr, $sprite)$getProps()" $toStereos("external_system", $tags) as $alias $getLink($link)
+  ' $type reuses $techn definition of $tags
+  $getElementLine("database", "external_system", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure SystemQueue_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "external_system")
-' $type reuses $techn definition of $tags
-!$type=$toElementArg($type, $tags, "ElementTagTechn", "external_system")
-queue "$getSystem($label, $type, $descr, $sprite)$getProps()" $toStereos("external_system", $tags) as $alias $getLink($link)
+  ' $type reuses $techn definition of $tags
+  $getElementLine("queue", "external_system", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
 
 ' Boundaries

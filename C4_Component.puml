@@ -58,42 +58,26 @@ endlegend
 ' Elements
 ' ##################################
 
-!function $getComponent($label, $techn, $descr, $sprite)
-  !return $getElementBase($label, $techn, $descr, $sprite)
-!endfunction
-
 !unquoted procedure Component($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "component")
-!$techn=$toElementArg($techn, $tags, "ElementTagTechn", "component")
-rectangle "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("component",$tags) as $alias $getLink($link)
+  $getElementLine("rectangle", "component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure ComponentDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "component")
-!$techn=$toElementArg($techn, $tags, "ElementTagTechn", "component")
-database "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("component",$tags) as $alias $getLink($link)
+  $getElementLine("database", "component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure ComponentQueue($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "component")
-!$techn=$toElementArg($techn, $tags, "ElementTagTechn", "component")
-queue "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("component",$tags) as $alias $getLink($link)
+  $getElementLine("queue", "component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Component_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "external_component")
-!$techn=$toElementArg($techn, $tags, "ElementTagTechn", "external_component")
-rectangle "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_component",$tags) as $alias $getLink($link)
+  $getElementLine("rectangle", "external_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure ComponentDb_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "external_component")
-!$techn=$toElementArg($techn, $tags, "ElementTagTechn", "external_component")
-database "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_component",$tags) as $alias $getLink($link)
+  $getElementLine("database", "external_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure ComponentQueue_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "external_component")
-!$techn=$toElementArg($techn, $tags, "ElementTagTechn", "external_component")
-queue "$getComponent($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_component",$tags) as $alias $getLink($link)
+  $getElementLine("queue", "external_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure

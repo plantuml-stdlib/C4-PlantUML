@@ -30,6 +30,13 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
     - [Including the C4-PlantUML library](#including-the-c4-plantuml-library)
     - [Now let's create a C4 Container diagram](#now-lets-create-a-c4-container-diagram)
   - [Supported Diagram Types](#supported-diagram-types)
+    - [System Context & System Landscape diagrams](#system-context-system-landscape-diagrams)
+    - [Container diagram](#container-diagram)
+    - [Component diagram](#component-diagram)
+    - [Dynamic diagram](#dynamic-diagram)
+    - [(C4 styled) Sequence diagram](#c4-styled-sequence-diagram)
+    - [Deployment diagram](#deployment-diagram)
+    - [Samples](#samples)
   - [Relationship Types](#relationship-types)
   - [Layout (arrange) elements (without relationships)](#layout-arrange-elements-without-relationships)
   - [Global Layout Options](#global-layout-options)
@@ -222,7 +229,8 @@ SHOW_LEGEND()
 > - `arg`: argument required (e.g. `alias`)
 > - `?arg`: argument optional (e.g. `?tags`); an optional argument can be directly set via its keyword `$arg=...` (e.g. `$tags="specificTag"`) without the other optional arguments
 
-- System Context & System Landscape diagrams
+### System Context & System Landscape diagrams
+
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
   - Macros:
     - `Person(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
@@ -244,7 +252,8 @@ SHOW_LEGEND()
 
   - C4 Model extension: Person() and System() support `$type` argument too. Is uses the same notation as `$techn`, e.g. `$type="characteristic A"` is displayed as `[characteristic A]`
 
-- Container diagram
+### Container diagram
+
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
   - Additional Macros:
     - `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
@@ -255,7 +264,8 @@ SHOW_LEGEND()
     - `ContainerQueue_Ext`
     - `Container_Boundary(alias, label, ?tags, ?link)`
 
-- Component diagram
+### Component diagram
+
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
   - Additional Macros:
     - `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
@@ -265,9 +275,10 @@ SHOW_LEGEND()
     - `ComponentDb_Ext`
     - `ComponentQueue_Ext`
 
-- Dynamic diagram
+### Dynamic diagram
+
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml`
-  - Additional Macros:
+  - Additional Macros (based on the component diagram macros):
     - `RelIndex(index, from, to, label, ?tags, ?link)`
     - (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
     - (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
@@ -277,13 +288,53 @@ SHOW_LEGEND()
     - `Index($offset=1)`: returns current index and calculates next index (function which can be used as argument)
     - `SetIndex($new_index)`: returns new set index and calculates next index (function which can be used as argument)
 
-- Deployment diagram
+### Deployment diagram
+
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml`
-  - Additional Macros:
+  - Additional Macros (based on **container** diagram macros):
     - `Deployment_Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`
     - `Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: short name of Deployment_Node()
     - `Node_L(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: left aligned Node()
     - `Node_R(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: right aligned Node()
+
+### (C4 styled) Sequence diagram
+
+C4-PlantUML **does not offer** a full sequence diagram support.
+It only enables the reuse of existing element as participants and relationships as calls in the corresponding styles
+
+> **!!! Contrary to all other diagrams, please define boundaries without `{` and `}` and mark a boundary end with `Boundary_End()` !!!**
+
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Sequence.puml`
+  - Macros (based on **component** diagram macros):
+    - Basically all element specific macros (Person, System, Container...) can be reused with following differences:
+      - element descriptions are not displayed (?descr argument is ignored); size would be too big
+      - element technology/type (?techn/?type) supports no line breaks
+      - **boundaries have to be defined without `{` and `}`** and instead of `}` the **`Boundary_End()`** macro has to be called
+    - Additional (element specific) Macros:
+      - `Boundary_End()`
+    - Only following 3 relationship specific macros are supported:
+      - `Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")`
+      - `RelIndex($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")`
+      - `RelSpecialIndex($rel, $e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")`:
+        `$rel` enables the definition of all PlantUML specific arrow types, details see e.g.
+        [All arrow types](https://plantuml.com/sequence-diagram#4764f83f72ed032f) and
+        [Slanted or odd arrows](https://plantuml.com/sequence-diagram#5bd6712206960fab)
+    - The 5 index related macros (like the dynamic diagram)
+      - (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
+      - (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
+      - `LastIndex()`: return the last used index (function which can be used as argument)
+
+      following 2 macros requires V1.2020.24Beta4 (can be already tested with <https://www.plantuml.com/plantuml/>)
+      - `Index($offset=1)`: returns current index and calculates next index (function which can be used as argument)
+      - `SetIndex($new_index)`: returns new set index and calculates next index (function which can be used as argument)
+
+  - (Typically additional used) PlantUML statements:
+    - [Grouping message](https://plantuml.com/sequence-diagram#425ba4350c02142c)
+    - [Divider or separator](https://plantuml.com/sequence-diagram#d4b2df53a72661cc)
+    - [Reference](https://plantuml.com/sequence-diagram#63d5049791d9d79d)
+    - [Delay](https://plantuml.com/sequence-diagram#8f497c1a3d15af9e)
+
+### Samples
 
 Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).
 

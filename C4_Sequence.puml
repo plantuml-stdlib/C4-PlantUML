@@ -12,7 +12,7 @@
 '     container - see component diagram.
 ' Intended audience: Technical and non-technical people, inside and outside of the software development team.
 
-' Dynamic diagram introduces (automatically) numbered interactions:
+' Sequence diagram introduces (automatically) numbered interactions:
 '     (lowercase) increment($offset=1): increase current index (procedure which has no direct output)
 '     (lowercase) setIndex($new_index): set the new index (procedure which has no direct output)
 '
@@ -23,7 +23,23 @@
 ' enables multi-level boxes
 !pragma teoz true
 
-' Elements
+
+' Legend redefintion
+' ##################################
+' sequence has no dashed boxes
+!if ($LEGEND_DASHED_BOUNDARY == "dashed")
+  !$LEGEND_DASHED_BOUNDARY = ""
+!endif
+!if ($LEGEND_DASHED_TRANSPARENT_BOUNDARY == "dashed")
+  !$LEGEND_DASHED_TRANSPARENT_BOUNDARY = ""
+!endif
+UpdateBoundaryStyle("", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR)
+UpdateBoundaryStyle("enterprise", $bgColor=$ENTERPRISE_BOUNDARY_BG_COLOR, $fontColor=$ENTERPRISE_BOUNDARY_COLOR, $borderColor=$ENTERPRISE_BOUNDARY_COLOR, $type="Enterprise")
+UpdateBoundaryStyle("system", $bgColor=$SYSTEM_BOUNDARY_BG_COLOR, $fontColor=$SYSTEM_BOUNDARY_COLOR, $borderColor=$SYSTEM_BOUNDARY_COLOR, $type="System")
+UpdateBoundaryStyle("container", $bgColor=$CONTAINER_BOUNDARY_BG_COLOR, $fontColor=$CONTAINER_BOUNDARY_COLOR, $borderColor=$CONTAINER_BOUNDARY_COLOR, $type="Container")
+
+
+' Elements redefinition
 ' ##################################
 
 ' all elements have to be displayed as participant
@@ -53,14 +69,13 @@ $calcTech
 ]
 !endprocedure
 
+
 !unquoted procedure Person($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
-  ' TODO - HELMUT correct default Person sprite handling is missing
   ' $type reuses $techn definition of $tags
   $getParticipant("person", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Person_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
-  ' TODO - HELMUT correct default Person sprite handling is missing 
   ' $type reuses $techn definition of $tags
   $getParticipant("external_person", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
@@ -147,6 +162,68 @@ $calcTech
   $getParticipant("external_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
+
+' Boundary redefinition
+' ##################################
+
+' all boundaries have to be displayed as box and 
+' !!! important changes: without { at the end; and boundary ends with Boundary_End() instead of }
+
+' alias ignored
+' $breakLabel() not required by participant
+
+!unquoted procedure Boundary($alias, $label, $type="", $tags="", $link="")
+!$boundaryTags = $addBoundaryPostfix($tags)
+' nodes $type reuses $techn definition of $boundaryTags
+!$type=$toElementArg($type, $boundaryTags, "ElementTagTechn", "boundary")
+!if ($link != "")
+  !$usedNewLine = ']]\n== [[' + $link + ' '
+  !$labelType = '== [[' + $link + ' ' + $breakText($label, $usedNewLine) + ']]'
+!else
+  !$usedNewLine = '\n== '
+  !$labelType = $breakText($label, $usedNewLine)
+!endif
+!if (type != "")
+    !$labelType = $labelType + '\n<size:' + $TECHN_FONT_SIZE + '>[' + $type + ']</size>'
+!endif
+box "$labelType" $toStereos("boundary", $boundaryTags)
+!endprocedure
+
+!procedure Boundary_End()
+end box
+!endprocedure
+
+!unquoted procedure Enterprise_Boundary($alias, $label, $tags="", $link="")
+  !if ($tags != "")
+    !$allTags = $tags + '+enterprise'
+  !else
+    !$allTags = 'enterprise'
+  !endif
+  ' $type defined via $tag style
+  Boundary($alias, $label, "", $allTags, $link)
+!endprocedure
+
+!unquoted procedure System_Boundary($alias, $label, $tags="", $link="")
+  !if ($tags != "")
+    !$allTags = $tags + '+system'
+  !else
+    !$allTags = 'system'
+  !endif
+  ' $type defined via $tag style
+  Boundary($alias, $label, "", $allTags, $link)
+!endprocedure
+
+!unquoted procedure Container_Boundary($alias, $label, $tags="", $link="")
+  !if ($tags != "")
+    !$allTags = $tags + '+container'
+  !else
+    !$allTags = 'container'
+  !endif
+  ' $type defined via $tag style
+  Boundary($alias, $label, "", $allTags, $link)
+!endprocedure
+
+
 ' Index
 ' ##################################
 
@@ -179,10 +256,7 @@ $calcTech
   !return $lastIndex
 !endfunction
 
-' Relationship override
-' ##################################
-
-' Relationship
+' Relationship (redefinition)
 ' ##################################
 
 !unquoted procedure Rel_($e_index, $alias1, $alias2, $label, $direction)

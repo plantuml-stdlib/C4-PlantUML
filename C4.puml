@@ -359,6 +359,7 @@ skinparam package {
   !$tagSkin = $tagSkin + $elementTagSkinparams("actor", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "")
   ' sequence requires participant
   !$tagSkin = $tagSkin + $elementTagSkinparams("participant", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
+  !$tagSkin = $tagSkin + $elementTagSkinparams("sequencebox", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
   !if (%strpos($tagStereo, "boundary") >= 0 && $bgColor != "")
     !$tagSkin = $tagSkin + "skinparam package<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
     !$tagSkin = $tagSkin + "skinparam rectangle<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
@@ -899,8 +900,16 @@ $elementSkin
 !if (%strpos($text, "\n") >= 0)
   !while (%strpos($text, "\n") >= 0)
     !$brPos = %strpos($text, "\n")
-    !$multiLine = $multiLine + %substr($text, 0, $brPos) + $usedNewLine
+    !if ($brPos > 0)
+      !$multiLine = $multiLine + %substr($text, 0, $brPos) + $usedNewLine
+    !else
+      ' <U+00A0> non breaking change that newLine breaks with formats can be used with \n\n 
+      !$multiLine = $multiLine + "<U+00A0>" + $usedNewLine
+    !endif
     !$text = %substr($text, $brPos+2)
+    !if (%strlen($text) == 0)
+      !$text = "<U+00A0>"
+    !endif
   !endwhile
 !else
   !while ($width>0 && %strlen($text) > $width)

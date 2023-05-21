@@ -1464,7 +1464,7 @@ $from -[hidden]L- $to
 !endprocedure
 
 ' PlantUML bug: lines which does "not match" with the orientation/direction of the diagram
-' uses the same length therefore the method offers no direction at all.
+' use the same length therefore the method offers no direction at all.
 ' If a direction is required the Lay_...() methods can be used
 !unquoted procedure Lay_Distance($from, $to, $distance="0")
 $from $getHiddenLine($distance) $to

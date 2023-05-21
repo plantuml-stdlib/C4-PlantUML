@@ -311,6 +311,7 @@ but existing elements and relationships can be reused as participants and calls 
       - **boundaries have to be defined without `{` and `}`** and instead of `}` the **`Boundary_End()`** macro has to be called
     - Additional (element specific) Macros:
       - `Boundary_End()`
+    - Additional (element specific) Layout Options:
       - `SHOW_ELEMENT_DESCRIPTIONS(?show)`
       - `SHOW_FOOT_BOXES(?show)`
     - Only following 3 relationship specific macros are supported:

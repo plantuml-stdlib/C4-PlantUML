@@ -16,6 +16,7 @@
     - [C4_violet](#c4_violet)
   - [Write custom themes](#write-custom-themes)
     - [Following variables could be set in a theme, additional to the skinparams and styles](#following-variables-could-be-set-in-a-theme-additional-to-the-skinparams-and-styles)
+    - [(C4 styled) Sequence diagram and themes](#c4-styled-sequence-diagram-and-themes)
 - samples
   - [📄 C4 Model Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
 

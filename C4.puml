@@ -124,6 +124,10 @@ skinparam rectangle {
     StereotypeFontSize $STEREOTYPE_FONT_SIZE
 }
 
+skinparam collections {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+
 skinparam database {
     StereotypeFontSize $STEREOTYPE_FONT_SIZE
 }
@@ -347,6 +351,7 @@ skinparam package {
 !unquoted procedure $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
   ' only rectangle supports shape(d corners)
   !$tagSkin = $elementTagSkinparams("rectangle", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+  !$tagSkin = $tagSkin + $elementTagSkinparams("collections", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
   !$tagSkin = $tagSkin + $elementTagSkinparams("database", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
   !$tagSkin = $tagSkin + $elementTagSkinparams("queue", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
   ' plantuml.jar bug - actor have to be after person

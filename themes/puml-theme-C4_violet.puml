@@ -30,3 +30,58 @@
 !$EXTERNAL_COMPONENT_BG_COLOR ?= "#CCCCCC" 
 !$EXTERNAL_COMPONENT_BORDER_COLOR ?= "#BFBFBF" 
 
+' <<<<<<<<<<<<< sequence diagram is styled via skinparam and style
+
+' $BOUNDARY_BG_COLOR... have to be defined in theme itself that it can be used in styles,...
+' (no default values which are defined in C4.puml) 
+' If skinparams and styles are defined with concrete values no variables are required 
+!$BOUNDARY_BG_COLOR ?= "transparent"
+!$BOUNDARY_COLOR ?= "#444444"
+!$ARROW_COLOR ?= "#666666"
+
+' replace transparent with concrete background that it can be used as font color too
+!if ($BOUNDARY_BG_COLOR == "transparent")
+  !$SEQUENCE_BG_COLOR = white
+!else
+  !$SEQUENCE_BG_COLOR = $BOUNDARY_BG_COLOR
+!endif
+
+' "C4 styled" default is no foot boxes
+hide footbox
+' "C4 styled" default is that lifeline is arrow color
+skinparam SequenceLifelineBorderColor $ARROW_COLOR
+
+skinparam SequenceGroupBodyBackgroundColor $SEQUENCE_BG_COLOR
+skinparam SequenceGroupFontColor $BOUNDARY_COLOR
+skinparam SequenceGroupBackgroundColor $BOUNDARY_COLOR
+skinparam SequenceGroupHeaderFontColor $SEQUENCE_BG_COLOR
+skinparam SequenceGroupBorderColor $BOUNDARY_COLOR
+
+skinparam SequenceReferenceBackgroundColor $SEQUENCE_BG_COLOR
+skinparam SequenceReferenceFontColor $BOUNDARY_COLOR
+skinparam SequenceReferenceHeaderBackgroundColor $BOUNDARY_COLOR
+' VIA STYLE
+' skinparam SequenceReferenceHeaderFontColor $SEQUENCE_BG_COLOR
+<style>
+referenceHeader {
+  fontcolor $SEQUENCE_BG_COLOR
+}
+</style>
+skinparam SequenceReferenceBorderColor $BOUNDARY_COLOR
+
+skinparam SequenceDividerBackgroundColor $SEQUENCE_BG_COLOR
+skinparam SequenceDividerFontColor $BOUNDARY_COLOR
+skinparam SequenceDividerBorderColor $BOUNDARY_COLOR
+
+' VIA STYLE
+' skinparam SequenceDelayFontColor green
+<style>
+sequenceDiagram {
+  delay {
+    FontColor $BOUNDARY_COLOR
+  }
+}
+</style>
+
+' <<<<<<<<<<<<< end sequence diagram
+

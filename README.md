@@ -30,6 +30,13 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
     - [Including the C4-PlantUML library](#including-the-c4-plantuml-library)
     - [Now let's create a C4 Container diagram](#now-lets-create-a-c4-container-diagram)
   - [Supported Diagram Types](#supported-diagram-types)
+    - [System Context & System Landscape diagrams](#system-context-system-landscape-diagrams)
+    - [Container diagram](#container-diagram)
+    - [Component diagram](#component-diagram)
+    - [Dynamic diagram](#dynamic-diagram)
+    - [Deployment diagram](#deployment-diagram)
+    - [(C4 styled) Sequence diagram](#c4-styled-sequence-diagram)
+    - [Samples](#samples)
   - [Relationship Types](#relationship-types)
   - [Layout (arrange) elements (without relationships)](#layout-arrange-elements-without-relationships)
   - [Global Layout Options](#global-layout-options)
@@ -222,7 +229,8 @@ SHOW_LEGEND()
 > - `arg`: argument required (e.g. `alias`)
 > - `?arg`: argument optional (e.g. `?tags`); an optional argument can be directly set via its keyword `$arg=...` (e.g. `$tags="specificTag"`) without the other optional arguments
 
-- System Context & System Landscape diagrams
+### System Context & System Landscape diagrams
+
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
   - Macros:
     - `Person(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
@@ -244,7 +252,8 @@ SHOW_LEGEND()
 
   - C4 Model extension: Person() and System() support `$type` argument too. Is uses the same notation as `$techn`, e.g. `$type="characteristic A"` is displayed as `[characteristic A]`
 
-- Container diagram
+### Container diagram
+
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
   - Additional Macros:
     - `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
@@ -255,7 +264,8 @@ SHOW_LEGEND()
     - `ContainerQueue_Ext`
     - `Container_Boundary(alias, label, ?tags, ?link)`
 
-- Component diagram
+### Component diagram
+
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
   - Additional Macros:
     - `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
@@ -265,9 +275,10 @@ SHOW_LEGEND()
     - `ComponentDb_Ext`
     - `ComponentQueue_Ext`
 
-- Dynamic diagram
+### Dynamic diagram
+
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml`
-  - Additional Macros:
+  - Additional Macros (based on the component diagram macros):
     - `RelIndex(index, from, to, label, ?tags, ?link)`
     - (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
     - (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
@@ -277,13 +288,53 @@ SHOW_LEGEND()
     - `Index($offset=1)`: returns current index and calculates next index (function which can be used as argument)
     - `SetIndex($new_index)`: returns new set index and calculates next index (function which can be used as argument)
 
-- Deployment diagram
+### Deployment diagram
+
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml`
-  - Additional Macros:
+  - Additional Macros (based on **container** diagram macros):
     - `Deployment_Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`
     - `Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: short name of Deployment_Node()
     - `Node_L(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: left aligned Node()
     - `Node_R(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: right aligned Node()
+
+### (C4 styled) Sequence diagram
+
+C4-PlantUML **does not offer** a full sequence diagram support,
+but existing elements and relationships can be reused as participants and calls in the corresponding styles.
+
+> **!!! Contrary to all other diagrams, please define boundaries without `{` and `}` and mark a boundary end with `Boundary_End()` !!!**
+
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Sequence.puml`
+  - Macros (based on **component** diagram macros):
+    - Basically all element specific macros (Person, System, Container...) can be reused with following differences:
+      - element descriptions are typically not displayed (can be activated via SHOW_ELEMENT_DESCRIPTIONS())
+      - **boundaries have to be defined without `{` and `}`** and instead of `}` the **`Boundary_End()`** macro has to be called
+    - Additional (element specific) Macros:
+      - `Boundary_End()`
+    - Additional (element specific) Layout Options:
+      - `SHOW_ELEMENT_DESCRIPTIONS(?show)`
+      - `SHOW_FOOT_BOXES(?show)`
+    - Only following 3 relationship specific macros are supported:
+      - `Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")`
+      - `RelIndex($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")`
+      - `RelSpecialIndex($rel, $e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")`:
+        `$rel` enables the definition of all PlantUML specific arrow types, details see e.g.
+        [All arrow types](https://plantuml.com/sequence-diagram#4764f83f72ed032f) and
+        [Slanted or odd arrows](https://plantuml.com/sequence-diagram#5bd6712206960fab)
+    - The 5 index related macros (like the dynamic diagram)
+      - (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
+      - (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
+      - `LastIndex()`: return the last used index (function which can be used as argument)
+      - `Index($offset=1)`: returns current index and calculates next index (function which can be used as argument)
+      - `SetIndex($new_index)`: returns new set index and calculates next index (function which can be used as argument)
+
+  - (Typically additional used) PlantUML statements:
+    - [Grouping message](https://plantuml.com/sequence-diagram#425ba4350c02142c)
+    - [Divider or separator](https://plantuml.com/sequence-diagram#d4b2df53a72661cc)
+    - [Reference](https://plantuml.com/sequence-diagram#63d5049791d9d79d)
+    - [Delay](https://plantuml.com/sequence-diagram#8f497c1a3d15af9e)
+
+### Samples
 
 Take a look at each of the [C4 Model Diagram Samples](samples/C4CoreDiagrams.md).
 
@@ -935,13 +986,21 @@ The core diagram samples from [c4model.com](https://c4model.com/#coreDiagrams) a
 
 Source: [C4_Container Diagram Sample - techtribesjs.puml](samples/C4_Container%20Diagram%20Sample%20-%20techtribesjs.puml)
 
-![techtribesjs](https://www.plantuml.com/plantuml/png/ZLHDR-Cs4BthLqnzMGVGshj9jm5wMYTEazqw7uta1Zq9b3YMcLAaIb9nZAB_lKDAaQsuWEk39G_V3D-RUUElrZ7Zcah2o66nTaRaQ9_jAFf1g48s767jN6r_dauDsqnAuTPDtbWqXLOEbPiKkfhMaYbVugDrN8fyUldZnmSVMjukfXMp3Ws5ialAO4AXcTI4ZJv0eoYveYBWrWWhBQNU25M2910mnM5mB8obDmrqEKXTC2ctLADdUNX1j9ZzSRzCi_J-8PlVFzsDJw8FNMYMPCclL-db3SMwqDEtz2PRN5rVtSqf64KFQAnMsTMh6pEbrRRIZSsyy1X6ixS0B2amEkd0OrQM1alcaFV8Fl8UoYkXX7M6EQ5L3nz4trAYP6iTLjc5RXHdPZikFiVxqvhGk4x-Ze0-uQllmtY3USRgcj1FcCEihgKeGkaHXRwp5nP3KXlVyzlVBsD8TKN7S3vvzUSpFmyBdfhrZNyHk84QTIqnXlRc63eRn80lzA30iyxf6rqnWPNH5Ssk6nTumZ5mGHvYCiptMmeM2wUzo27pUJusA3EU4uz7b84p9SsPOpcpwEdTRfFV5l1bygLbcr0Pj0VymXCgh79IiHOrHPZyqxxdcpDUUlYrS3TD3WPhtQaue3PU2OasJ8Ik_OL-G3kVaVyvIyzEz-XOPAPOWr0SNz7-bqobxL-I4kuqoGa28UG6YLgLUdu1fvFJWSZGsCSacSuSlQmGkOLnBdK9HDlPaz1Sjq5qzf1-KtFcWjkMxTkR5-3SewoMw9qowW4MQgE3wBWhEknJkAtp0MW536onHjv8v4334fx3Fxs9_KAvZN0jXRHz8yJUSVidGwVjBSD3BzFIsGKzWxg8_76meZlZqmvPh-KcJHyImXDwkAV7uSDTFPeISlhZFHiptetEDsnZX6-jqpwLHZ_zFh-W5QorSN1szkadAZIeitFTeDPxMB3J4B5df8qmwAVfTA5bTzdf-QVFvntjRDdRunXnGh4Zx0Vb1loVUl47k23WIBl-hvnTrPtZhj7rXWQXLjfKOQoxdUdRrazqK6hdJe8EA-IwSL0tkHG559fZkn_2QIFmIDNErg5elqoD5QhqYnx8zSi-BEMrBjWsU-p_CNUjfgElg7XJoNy1 "techtribesjs")WWWW
+![techtribesjs](https://www.plantuml.com/plantuml/png/ZLHDR-Cs4BthLqnzMGVGshj9jm5wMYTEazqw7uta1Zq9b3YMcLAaIb9nZAB_lKDAaQsuWEk39G_V3D-RUUElrZ7Zcah2o66nTaRaQ9_jAFf1g48s767jN6r_dauDsqnAuTPDtbWqXLOEbPiKkfhMaYbVugDrN8fyUldZnmSVMjukfXMp3Ws5ialAO4AXcTI4ZJv0eoYveYBWrWWhBQNU25M2910mnM5mB8obDmrqEKXTC2ctLADdUNX1j9ZzSRzCi_J-8PlVFzsDJw8FNMYMPCclL-db3SMwqDEtz2PRN5rVtSqf64KFQAnMsTMh6pEbrRRIZSsyy1X6ixS0B2amEkd0OrQM1alcaFV8Fl8UoYkXX7M6EQ5L3nz4trAYP6iTLjc5RXHdPZikFiVxqvhGk4x-Ze0-uQllmtY3USRgcj1FcCEihgKeGkaHXRwp5nP3KXlVyzlVBsD8TKN7S3vvzUSpFmyBdfhrZNyHk84QTIqnXlRc63eRn80lzA30iyxf6rqnWPNH5Ssk6nTumZ5mGHvYCiptMmeM2wUzo27pUJusA3EU4uz7b84p9SsPOpcpwEdTRfFV5l1bygLbcr0Pj0VymXCgh79IiHOrHPZyqxxdcpDUUlYrS3TD3WPhtQaue3PU2OasJ8Ik_OL-G3kVaVyvIyzEz-XOPAPOWr0SNz7-bqobxL-I4kuqoGa28UG6YLgLUdu1fvFJWSZGsCSacSuSlQmGkOLnBdK9HDlPaz1Sjq5qzf1-KtFcWjkMxTkR5-3SewoMw9qowW4MQgE3wBWhEknJkAtp0MW536onHjv8v4334fx3Fxs9_KAvZN0jXRHz8yJUSVidGwVjBSD3BzFIsGKzWxg8_76meZlZqmvPh-KcJHyImXDwkAV7uSDTFPeISlhZFHiptetEDsnZX6-jqpwLHZ_zFh-W5QorSN1szkadAZIeitFTeDPxMB3J4B5df8qmwAVfTA5bTzdf-QVFvntjRDdRunXnGh4Zx0Vb1loVUl47k23WIBl-hvnTrPtZhj7rXWQXLjfKOQoxdUdRrazqK6hdJe8EA-IwSL0tkHG559fZkn_2QIFmIDNErg5elqoD5QhqYnx8zSi-BEMrBjWsU-p_CNUjfgElg7XJoNy1 "techtribesjs")
 
 ### Message Bus and Microservices
 
 Source: [C4_Container Diagram Sample - message bus.puml](samples/C4_Container%20Diagram%20Sample%20-%20message%20bus.puml)
 
 ![messagebus](https://www.plantuml.com/plantuml/png/ZLLDR-Cs4BtxLqpT0dK09yOMFHK8iFumkhjm4gzbOoy5Z94qbeYbI8Aad7MB_lSE9LjX4WLD3Z4vd7dlpGUfZywZzNKb1py9bSaw9oYzD-wFoSJYuqqXV5cdjIERQUL9-PjCLnCZKOMOQ-TpATB9_FVhTJ3jxbQJ2fqdowRzd2DGAB8t9k3_2hNYu8f1m9S41osbVXIg0CbEW2g7PyV2EbvfO7AGEaCfJupHgNnDC9Zc-L9IGDXYCHfM8hCw8NiK6Gt7y8ihqT3jKXIbJqHEUHBseoi-IOkvbjhU3kVQgWEh8ZkJTHDqO8xpuMCfV6EJL93Aj_J3txOau5gMlnG5T701VdZrKf3psc8HQTdeMh7dJF_eqI8ReTzFRobX_47owU7RVhtS90_t-uVTTlNvVZbYyvgiqsgKrSnOaHt3l5iDft0nDm0dxbQrdmKXQ4-Zx0ExNBpXipfeMw4NMWslu9y1y5zNz14Q4pjFZP4YQvtP_WMFw38hZ1_3L1MrH1lCqz1qrsbmeSCLAYmeT5rOC5OVXEJiNh1T8lRdMiVKNPDRsZ4aneR1ccdjWt5R4XWjb0Tz0CmoSWuuiqu5Y2XHBhN7mi4jn1FqMb35A2nxdzQEAUxQ7Sng5nWtcAR2ttrjs2qgPxJr3IUx2nK4q96KTwzWBGLNLXybkhdOuamtTNeAltDBwCc12Xb8uIY773qsPBOBDBKrsf5xTtfOvy976gPX7_FFVvxSt2-tORcs-YXorg1jWKguff3NZso21YO8E60c92_VBs6HFZKzJ-D-Bz1ZYgwHyM0namGVVil2Bl7QallVnhOtiOSnAZzJnfMFEUzEoTTLH8UNulzDEHp9EgPhHatAhjzFJS4SIftrzAPNONzR-3HgIjW5EKiUgMxRgOjg09Zgsfz73to97aey4lypXXJb_Gh-7Gms9FUBw45fx_wk5JtyjDsk4tOykpM7FVTrPxW6RtG7GfcA08RkfB8nVE4tRV8CUDVp1hGw4bAvwxBI0UKRfOdElfFdwBU2enlSWNJQwaPi1DhWzA34CzhLl6csQ1_2nMn-Jk7vcz5tqzyd8ePfRzZx8IvIUjWxKsygBVKBjdWSkuYMguqPhF2qt_ImFTTz-PQjbdykxnVy3Vl8MTIL_0y0 "messagebus")
+
+### (C4 styled) Sequence diagram
+
+TODO: better sample is missing ...
+
+Source: [C4_Sequence Diagram Sample - complex.puml](samples/C4_Sequence%20Diagram%20Sample%20-%20complex.puml)
+
+![sequence](https://www.plantuml.com/plantuml/png/hP1FQzn03CNlyocKd19ex2saby12jabe2saQTbjw3BDZkHQHDQwbsK8_VMMd8OSD_GCPi8sUzNvlf7ErE5hfEHnOXpt2nUbT4J9ie1rp3vtPe6TrFSOVrJUohcoBufYo68fLAVVrm54cm8bQmxIjBqvFRYVfoyVhkezgEDOpMSC1IUBIuCj0_Q8R_5vG4bR3D42unL6p7AsO4hw2m_bxUFmelyrR5_tjKeZ9Q1SDmUiGriYFBgydQx4EnIX5eoomddBKPYCRQ4a9LTl2aA9Y03yJOlREd7t4oYs3OUCCP4NGt2FSapIGMsWZSHaVG9pp0AyNYmKOJKk3tsVlZfSt6rYPnNJlJF23qeJf2IEsa7SumbC_d049sJEZTiYSdV3aSjrvdpjII55WYv351KN_6HcO17KA0dU4i5p21oTJPFhvCEfo-JyR_TlYrgX35aLlzIml1pJwGuvajuyG_palxZdsSgkgWZVGanH31OxcxQuz4vyYiyAE8WnTbjcyUV_fwztrrRkhcykZut2EqfIUVm40 "sequence")
 
 ## Background
 

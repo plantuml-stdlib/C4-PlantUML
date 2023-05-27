@@ -59,3 +59,26 @@
 !$LEGEND_FONT_COLOR ?= $LIGHT
 !$LEGEND_BG_COLOR ?= $SECONDARY
 !$LEGEND_BORDER_COLOR ?= $SECONDARY_DARK
+
+' <<<<<<<<<<<<< sequence diagram is styled via skinparam and style
+
+' "C4 styled" default is no foot boxes
+hide footbox
+
+' fix wrong ReferenceHeaderFontColor
+<style>
+referenceHeader {
+  fontcolor $INFO
+}
+</style>
+
+' fix invisible SequenceDelayFontColor
+<style>
+sequenceDiagram {
+  delay {
+    FontColor $DARK
+  }
+}
+</style>
+
+' <<<<<<<<<<<<< end sequence diagram

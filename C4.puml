@@ -132,6 +132,10 @@ skinparam queue {
     StereotypeFontSize $STEREOTYPE_FONT_SIZE
 }
 
+skinparam participant {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+
 skinparam arrow {
     Color $ARROW_COLOR
     FontColor $ARROW_FONT_COLOR
@@ -353,6 +357,9 @@ skinparam package {
   !$tagSkin = $tagSkin + $elementTagSkinparams("person", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
   ' actor has style awesome, therefore $fontColor is ignored and text uses $bgColor too
   !$tagSkin = $tagSkin + $elementTagSkinparams("actor", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "")
+  ' sequence requires participant
+  !$tagSkin = $tagSkin + $elementTagSkinparams("participant", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
+  !$tagSkin = $tagSkin + $elementTagSkinparams("sequencebox", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
   !if (%strpos($tagStereo, "boundary") >= 0 && $bgColor != "")
     !$tagSkin = $tagSkin + "skinparam package<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
     !$tagSkin = $tagSkin + "skinparam rectangle<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
@@ -893,8 +900,16 @@ $elementSkin
 !if (%strpos($text, "\n") >= 0)
   !while (%strpos($text, "\n") >= 0)
     !$brPos = %strpos($text, "\n")
-    !$multiLine = $multiLine + %substr($text, 0, $brPos) + $usedNewLine
+    !if ($brPos > 0)
+      !$multiLine = $multiLine + %substr($text, 0, $brPos) + $usedNewLine
+    !else
+      ' <U+00A0> non breaking change that newLine breaks with formats can be used with \n\n 
+      !$multiLine = $multiLine + "<U+00A0>" + $usedNewLine
+    !endif
     !$text = %substr($text, $brPos+2)
+    !if (%strlen($text) == 0)
+      !$text = "<U+00A0>"
+    !endif
   !endwhile
 !else
   !while ($width>0 && %strlen($text) > $width)
@@ -963,6 +978,17 @@ $elementSkin
     !$element = $element + '\n\n' + $descr
   !endif
   !return $element
+!endfunction
+
+!function $getElementLine($umlShape, $elementType, $alias, $label, $techn, $descr, $sprite, $tags, $link)
+  !$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", $elementType)
+  !$techn=$toElementArg($techn, $tags, "ElementTagTechn", $elementType)
+  !$baseProp = $getElementBase($label, $techn, $descr, $sprite) + $getProps()
+  !$stereo = $toStereos($elementType,$tags)
+  !$calcLink = $getLink($link)
+  
+  !$line = $umlShape + " " + %chr(34) + $baseProp + %chr(34) +" " + $stereo + " as " + $alias + $calcLink
+  !return $line
 !endfunction
 
 ' Element properties
@@ -1438,7 +1464,7 @@ $from -[hidden]L- $to
 !endprocedure
 
 ' PlantUML bug: lines which does "not match" with the orientation/direction of the diagram
-' uses the same length therefore the method offers no direction at all.
+' use the same length therefore the method offers no direction at all.
 ' If a direction is required the Lay_...() methods can be used
 !unquoted procedure Lay_Distance($from, $to, $distance="0")
 $from $getHiddenLine($distance) $to

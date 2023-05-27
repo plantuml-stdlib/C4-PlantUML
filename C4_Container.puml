@@ -65,44 +65,28 @@ endlegend
 ' Elements
 ' ##################################
 
-!function $getContainer($label, $techn, $descr, $sprite)
-  !return $getElementBase($label, $techn, $descr, $sprite)
-!endfunction
-
 !unquoted procedure Container($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "container")
-!$techn=$toElementArg($techn, $tags, "ElementTagTechn", "container")
-rectangle "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("container", $tags) as $alias $getLink($link)
+  $getElementLine("rectangle", "container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure ContainerDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "container")
-!$techn=$toElementArg($techn, $tags, "ElementTagTechn", "container")
-database "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("container", $tags) as $alias $getLink($link)
+  $getElementLine("database", "container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure ContainerQueue($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "container")
-!$techn=$toElementArg($techn, $tags, "ElementTagTechn", "container")
-queue "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("container", $tags) as $alias $getLink($link)
+  $getElementLine("queue", "container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure Container_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "external_container")
-!$techn=$toElementArg($techn, $tags, "ElementTagTechn", "external_container")
-rectangle "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_container", $tags) as $alias $getLink($link)
+  $getElementLine("rectangle", "external_container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure ContainerDb_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "external_container")
-!$techn=$toElementArg($techn, $tags, "ElementTagTechn", "external_container")
-database "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_container", $tags) as $alias $getLink($link)
+  $getElementLine("database", "external_container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure ContainerQueue_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-!$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", "external_container")
-!$techn=$toElementArg($techn, $tags, "ElementTagTechn", "external_container")
-queue "$getContainer($label, $techn, $descr, $sprite)$getProps()" $toStereos("external_container", $tags) as $alias $getLink($link)
+  $getElementLine("queue", "external_container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 ' Boundaries

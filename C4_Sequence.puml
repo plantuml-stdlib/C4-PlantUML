@@ -1,0 +1,419 @@
+' convert it with additional command line argument -DRELATIVE_INCLUDE="relative/absolute" to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include ./C4_Component.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!endif
+
+' Scope: Interactions in an enterprise, software system or container.
+' Primary and supporting elements: Depends on the diagram scope -
+'     enterprise - people and software systems Related to the enterprise in scope
+'     software system - see system context or container diagrams,
+'     container - see component diagram.
+' Intended audience: Technical and non-technical people, inside and outside of the software development team.
+
+' Sequence diagram introduces (automatically) numbered interactions:
+'     (lowercase) increment($offset=1): increase current index (procedure which has no direct output)
+'     (lowercase) setIndex($new_index): set the new index (procedure which has no direct output)
+'
+'     (Uppercase) LastIndex(): return the last used index (function which can be used as argument)
+'     (Uppercase) Index($offset=1): returns current index and calculates next index (function which can be used as argument)
+'     (Uppercase) SetIndex($new_index): returns new set index and calculates next index (function which can be used as argument)
+
+' enables multi-level boxes
+!pragma teoz true
+
+
+' Legend redefintion
+' ##################################
+' sequence has no dashed boxes
+!if ($LEGEND_DASHED_BOUNDARY == "dashed")
+  !$LEGEND_DASHED_BOUNDARY = ""
+!endif
+!if ($LEGEND_DASHED_TRANSPARENT_BOUNDARY == "dashed")
+  !$LEGEND_DASHED_TRANSPARENT_BOUNDARY = ""
+!endif
+UpdateBoundaryStyle("", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR)
+UpdateBoundaryStyle("enterprise", $bgColor=$ENTERPRISE_BOUNDARY_BG_COLOR, $fontColor=$ENTERPRISE_BOUNDARY_COLOR, $borderColor=$ENTERPRISE_BOUNDARY_COLOR, $type="Enterprise")
+UpdateBoundaryStyle("system", $bgColor=$SYSTEM_BOUNDARY_BG_COLOR, $fontColor=$SYSTEM_BOUNDARY_COLOR, $borderColor=$SYSTEM_BOUNDARY_COLOR, $type="System")
+UpdateBoundaryStyle("container", $bgColor=$CONTAINER_BOUNDARY_BG_COLOR, $fontColor=$CONTAINER_BOUNDARY_COLOR, $borderColor=$CONTAINER_BOUNDARY_COLOR, $type="Container")
+
+' Styling and Layout
+' ##################################
+
+!global $display_element_description = %false()
+
+' typically the element/participant descriptions are not displayed in a sequence diagram, but it can be activated with this call
+!unquoted procedure SHOW_ELEMENT_DESCRIPTIONS($show="true")
+!if ($show == "true")
+  !global $display_element_description = %true()
+!else
+  !global $display_element_description = %false()
+!endif
+!endprocedure
+
+' typically the foot boxes descriptions are not displayed in a sequence diagram, but it can be activated with this call
+!unquoted procedure SHOW_FOOT_BOXES($show="true")
+!if ($show == "true")
+  show footbox
+!else
+  hide footbox
+!endif
+!endprocedure
+
+' ======= if no theme is defined hide foot box and activate C4_blue styles
+!if (%variable_exists("$THEME"))
+!else
+' $BOUNDARY_BG_COLOR... have to be defined in theme itself that it can be used in styles,...
+' (no default values which are defined in C4.puml) 
+' If skinparams and styles are defined with concrete values no variables are required 
+!$BOUNDARY_BG_COLOR ?= "transparent"
+!$BOUNDARY_COLOR ?= "#444444"
+!$ARROW_COLOR ?= "#666666"
+
+' replace transparent with concrete background that it can be used as font color too
+!if ($BOUNDARY_BG_COLOR == "transparent")
+  !$SEQUENCE_BG_COLOR = white
+!else
+  !$SEQUENCE_BG_COLOR = $BOUNDARY_BG_COLOR
+!endif
+
+' "C4 styled" default is no foot boxes
+hide footbox
+' "C4 styled" default is that lifeline is arrow color
+skinparam SequenceLifelineBorderColor $ARROW_COLOR
+
+skinparam SequenceGroupBodyBackgroundColor $SEQUENCE_BG_COLOR
+skinparam SequenceGroupFontColor $BOUNDARY_COLOR
+skinparam SequenceGroupBackgroundColor $BOUNDARY_COLOR
+skinparam SequenceGroupHeaderFontColor $SEQUENCE_BG_COLOR
+skinparam SequenceGroupBorderColor $BOUNDARY_COLOR
+
+skinparam SequenceReferenceBackgroundColor $SEQUENCE_BG_COLOR
+skinparam SequenceReferenceFontColor $BOUNDARY_COLOR
+skinparam SequenceReferenceHeaderBackgroundColor $BOUNDARY_COLOR
+' VIA STYLE
+' skinparam SequenceReferenceHeaderFontColor $SEQUENCE_BG_COLOR
+<style>
+referenceHeader {
+  fontcolor $SEQUENCE_BG_COLOR
+}
+</style>
+skinparam SequenceReferenceBorderColor $BOUNDARY_COLOR
+
+skinparam SequenceDividerBackgroundColor $SEQUENCE_BG_COLOR
+skinparam SequenceDividerFontColor $BOUNDARY_COLOR
+skinparam SequenceDividerBorderColor $BOUNDARY_COLOR
+
+' VIA STYLE
+' skinparam SequenceDelayFontColor green
+<style>
+sequenceDiagram {
+  delay {
+    FontColor $BOUNDARY_COLOR
+  }
+}
+</style>
+!endif
+' ======= if no theme is defined hide foot box and activate C4_blue styles
+
+' Elements redefinition
+' ##################################
+
+' all elements have to be displayed as participant
+' participants requires ` %newline()` instead of `\n`
+
+!unquoted function $breakWithNewline($text, $lineEnd, $lineStart, $widthStr="-1")
+!$width = %intval($widthStr)
+!$multiLine = ""
+!if (%strpos($text, "\n") >= 0)
+  !while (%strpos($text, "\n") >= 0)
+    !$brPos = %strpos($text, "\n")
+    !if ($brPos > 0)
+      !$multiLine = $multiLine + %substr($text, 0, $brPos) + $lineEnd + %newline() + $lineStart
+    !else
+      ' <U+00A0> non breaking change that newLine breaks with formats can be used with \n\n 
+      !$multiLine = $multiLine + "<U+00A0>" + $lineEnd + %newline() + $lineStart
+    !endif
+    !$text = %substr($text, $brPos+2)
+    !if (%strlen($text) == 0)
+      !$text = "<U+00A0>"
+    !endif
+  !endwhile
+!else
+  !while ($width>0 && %strlen($text) > $width)
+    !$brPos = $width
+    !while ($brPos > 0 && %substr($text, $brPos, 1) != ' ')
+      !$brPos = $brPos - 1
+    !endwhile
+
+    !if ($brPos < 1)
+      !$brPos = %strpos($text, " ")
+    !else
+    !endif
+
+    !if ($brPos > 0)
+      !$multiLine = $multiLine + %substr($text, 0, $brPos) + $lineEnd + %newline() + $lineStart
+      !$text = %substr($text, $brPos + 1)
+    !else
+      !$multiLine = $multiLine+ $text
+      !$text = ""
+    !endif
+  !endwhile
+!endif
+!if (%strlen($text) > 0)
+  !$multiLine = $multiLine + $text
+!endif
+!return $multiLine
+!endfunction
+
+!unquoted function $breakNewLineLabel($text)
+!$multiLine = $breakWithNewline($text, "", "==")
+!return $multiLine
+!endfunction
+
+!unquoted function $breakNewLineDescr($text)
+  !return $breakWithNewline($text, "", "", $REL_DESCR_MAX_CHAR_WIDTH)
+!endfunction
+
+!unquoted function $breakNewLineTechn($text)
+  !$lineStart = "</size>//"
+  !$lineEnd = '//<size:'+$TECHN_FONT_SIZE+'>'
+  !return $breakWithNewline($text, $lineStart, $lineEnd, $REL_TECHN_MAX_CHAR_WIDTH)
+!endfunction
+
+' description is not displayed (size too big, line breaks not supported)
+' properties are not displayed in sequence diagram (size would be too big)
+' $breakLabel() not required by participant
+!procedure $getParticipant($elementType, $alias, $label, $techn, $descr, $sprite, $tags, $link)
+  !$sprite=$toElementArg($sprite, $tags, "ElementTagSprite", $elementType)
+  !$techn=$toElementArg($techn, $tags, "ElementTagTechn", $elementType)
+  !$stereo = $toStereos($elementType,$tags)
+  !$calcLabel = "== " + $breakNewLineLabel($label)
+  !$calcTech = "//<size:" + $TECHN_FONT_SIZE + ">[" + $breakNewLineTechn($techn) + "]</size>//"
+  !$calcDescr = $breakNewLineDescr($descr)
+  !$calcLink = $getLink($link)
+
+participant $alias $stereo $calcLink [
+!if ($sprite != "")
+$getSprite($sprite)
+!endif
+!if ($label != "")
+$calcLabel
+!endif
+!if ($techn != "")
+$calcTech
+!endif
+!if ($display_element_description == %true() && $descr != "")
+
+$calcDescr
+!endif
+]
+!endprocedure
+
+
+!unquoted procedure Person($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
+  ' $type reuses $techn definition of $tags
+  $getParticipant("person", $alias, $label, $type, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure Person_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
+  ' $type reuses $techn definition of $tags
+  $getParticipant("external_person", $alias, $label, $type, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure System($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
+  ' $type reuses $techn definition of $tags
+  $getParticipant("system", $alias, $label, $type, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure SystemDb($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
+  ' $type reuses $techn definition of $tags
+  $getParticipant("system", $alias, $label, $type, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure SystemQueue($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
+  ' $type reuses $techn definition of $tags
+  $getParticipant("system", $alias, $label, $type, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure System_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
+  ' $type reuses $techn definition of $tags
+  $getParticipant("external_system", $alias, $label, $type, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure SystemDb_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
+  ' $type reuses $techn definition of $tags
+  $getParticipant("external_system", $alias, $label, $type, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure SystemQueue_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
+  ' $type reuses $techn definition of $tags
+  $getParticipant("external_system", $alias, $label, $type, $descr, $sprite, $tags, $link)
+!endprocedure
+
+
+
+!unquoted procedure Container($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getParticipant("container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure ContainerDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getParticipant("container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure ContainerQueue($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getParticipant("container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure Container_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getParticipant("external_container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure ContainerDb_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getParticipant("external_container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure ContainerQueue_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getParticipant("external_container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+
+
+!unquoted procedure Component($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getParticipant("component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure ComponentDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getParticipant("component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure ComponentQueue($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getParticipant("component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure Component_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getParticipant("external_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure ComponentDb_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getParticipant("external_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure ComponentQueue_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getParticipant("external_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+
+' Boundary redefinition
+' ##################################
+
+' all boundaries have to be displayed as box and 
+' !!! important changes: without { at the end; and boundary ends with Boundary_End() instead of }
+
+' alias ignored
+' $breakLabel() not required by participant
+
+!unquoted procedure Boundary($alias, $label, $type="", $tags="", $link="")
+!$boundaryTags = $addBoundaryPostfix($tags)
+' nodes $type reuses $techn definition of $boundaryTags
+!$type=$toElementArg($type, $boundaryTags, "ElementTagTechn", "boundary")
+!if ($link != "")
+  !$usedNewLine = ']]\n== [[' + $link + ' '
+  !$labelType = '== [[' + $link + ' ' + $breakText($label, $usedNewLine) + ']]'
+!else
+  !$usedNewLine = '\n== '
+  !$labelType = $breakText($label, $usedNewLine)
+!endif
+!if (type != "")
+    !$labelType = $labelType + '\n<size:' + $TECHN_FONT_SIZE + '>[' + $type + ']</size>'
+!endif
+box "$labelType" $toStereos("boundary", $boundaryTags)
+!endprocedure
+
+!procedure Boundary_End()
+end box
+!endprocedure
+
+!unquoted procedure Enterprise_Boundary($alias, $label, $tags="", $link="")
+  !if ($tags != "")
+    !$allTags = $tags + '+enterprise'
+  !else
+    !$allTags = 'enterprise'
+  !endif
+  ' $type defined via $tag style
+  Boundary($alias, $label, "", $allTags, $link)
+!endprocedure
+
+!unquoted procedure System_Boundary($alias, $label, $tags="", $link="")
+  !if ($tags != "")
+    !$allTags = $tags + '+system'
+  !else
+    !$allTags = 'system'
+  !endif
+  ' $type defined via $tag style
+  Boundary($alias, $label, "", $allTags, $link)
+!endprocedure
+
+!unquoted procedure Container_Boundary($alias, $label, $tags="", $link="")
+  !if ($tags != "")
+    !$allTags = $tags + '+container'
+  !else
+    !$allTags = 'container'
+  !endif
+  ' $type defined via $tag style
+  Boundary($alias, $label, "", $allTags, $link)
+!endprocedure
+
+
+' Index
+' ##################################
+
+!$lastIndex = 0
+!$index = 1
+
+!procedure increment($offset=1)
+  !$lastIndex = $index
+  !$index = $index + $offset
+!endprocedure
+
+!procedure setIndex($new_index)
+  !$lastIndex = $index
+  !$index = $new_index
+!endprocedure
+
+!function Index($offset=1)
+  !$lastIndex = $index
+  !$index = $lastIndex + $offset
+  !return $lastIndex
+!endfunction
+
+!function LastIndex()
+  !return $lastIndex
+!endfunction
+
+!function SetIndex($new_index, $offset=1)
+  !$lastIndex = $new_index
+  !$index = $new_index + $offset
+  !return $lastIndex
+!endfunction
+
+' Relationship (redefinition)
+' ##################################
+
+!unquoted procedure Rel_($e_index, $alias1, $alias2, $label, $direction)
+$getRel($direction, $alias1, $alias2, $e_index + ": " + $label, "", "", "", "", "")
+!endprocedure
+!unquoted procedure Rel_($e_index, $alias1, $alias2, $label, $techn, $direction)
+$getRel($direction, $alias1, $alias2, $e_index + ": " + $label, $techn, "", "", "", "")
+!endprocedure
+
+!unquoted procedure Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("->", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+!unquoted procedure RelIndex($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("->", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+!unquoted procedure RelSpecialIndex($rel, $e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($rel, $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure

@@ -19,9 +19,9 @@ C4-PlantUML comes with some layout options.
     - [Using SHOW_PERSON_PORTRAIT()](#using-show_person_portrait)
     - [Using SHOW_PERSON_OUTLINE()](#using-show_person_outline)
   - [(C4 styled) Sequence diagram specific layout options](#c4-styled-sequence-diagram-specific-layout-options)
-    - [`SHOW_ELEMENT_DESCRIPTIONS(?show)`](#show_element_descriptionsshow)
-    - [`SHOW_FOOT_BOXES(?show)`](#show_foot_boxesshow)
-    - [`SHOW_INDEX(?show)`](#show_indexshow)
+    - [SHOW_ELEMENT_DESCRIPTIONS(?show)](#show_element_descriptionsshow)
+    - [SHOW_FOOT_BOXES(?show)](#show_foot_boxesshow)
+    - [SHOW_INDEX(?show)](#show_indexshow)
 - [📄 Themes](Themes.md#themes)
 - samples
   - [📄 C4 Model Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
@@ -570,7 +570,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 show is defined with `$show=true` and hide is defined with `$show=false`
 
-### `SHOW_ELEMENT_DESCRIPTIONS(?show)`
+### SHOW_ELEMENT_DESCRIPTIONS(?show)
 
 ```plantuml
 @startuml
@@ -592,7 +592,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![SHOW_ELEMENT_DESCRIPTIONS() Sample](https://www.plantuml.com/plantuml/png/LL1DRzD04BtxLmpX44TARHLnujHWB5gfIQtQfKThx9qsA-t7iZihgqByTtOX8U3Boc_Unvkv2OoUerR5Esbc5GN1aTc5JtNjSQbU9H_Z50FvsHecmzLiTUqKcgov2YoKdEhcurMNeQVzVQqnCFa4ZJrzZsHcgbosB_hRX-UnlM_txM4OlxHzytZN3NSFXxxS54L7FbXJej3IR66rowyCx96jNoMW8-iK0H-H0Iz32WaYSDwAE7DOROh-BSNhyREDHg1_A-VhBQnxr4cztXIGliOQHcd8bmjD8pgNx9zfWfrpIix8qfgSsBpVmgxlgaCx98ad-51Tm_vRasSxfUmI89yb05kOhNQOA3egbhddi4Xcyi1IaqfPkTaQf064SBeA28cl7ZMSguwj4UK6ZlZRSg9iBv8cCA40-mBm0tuM_xDFwvRy9ozLEoMdlEAHrFcWbqsV0eMymkqmT7rYPTBVwSNcAt58lvIV5s_rlv8RCY9gzGi0 "SHOW_ELEMENT_DESCRIPTIONS() Sample")
 
-### `SHOW_FOOT_BOXES(?show)`
+### SHOW_FOOT_BOXES(?show)
 
 ```plantuml
 @startuml
@@ -614,7 +614,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![SHOW_FOOT_BOXES() Sample](https://www.plantuml.com/plantuml/png/LL1DRzD04BtlhnZ28OwKsYhYnAbf5EY1aWYxb9irzawRbVPZsPrLL27-ExEY8U3Bo3FluxszoOo9YxFgZV6pBPhWo1ppXwvBU6gV3H_BL3AbENWcp-qSN1Sj-igvogojcRhj-wj3NJtSV-uSPgOagx6d7uNyJ6siygg_sp-E7_VxORpTVz_rpKgf0wKSV8FQ6R-6nQPEapaXXxHOgVv5fDnu6uhNc5wQ-NeDonvTjBHSAP1lAw7GU4hDYQOHOnILHvfW4wCrCx89VY6hxTirRFf3-sKt22KHl6kluVxRjjusrePJXben0mUGVX45uefb8qumd0nB8s3Zo8fNbcHBC1uGycj3q0QV4peuHnrtNZShE6ALX8cgl1QEz44DuGdW9_nI_w7FTHl-uoVHNft5JtqbUtwcIzE7B65atWt3eHTK1VszNcG-4MVvfJgUKd3_Kcx8w-BiRm00 "SHOW_FOOT_BOXES() Sample")
 
-### `SHOW_INDEX(?show)`
+### SHOW_INDEX(?show)
 
 ```plantuml
 @startuml

@@ -1293,6 +1293,57 @@ rectangle "$getBoundary($label, $type)" $toStereos("boundary", $boundaryTags) as
 ' Boundary Styling
 UpdateBoundaryStyle("", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR)
 
+' Index
+' ##################################
+
+' Dynamic/Sequence diagram supports (automatically) numbered interactions:
+'     preferred function calls
+'     (Uppercase) LastIndex(): return the last used index (function which can be used as argument)
+'     (Uppercase) Index($offset=1): returns current index and calculates next index (function which can be used as argument)
+'     (Uppercase) SetIndex($new_index): returns new set index and calculates next index (function which can be used as argument)
+
+'     old procedures calls
+'     (lowercase) increment($offset=1): increase current index (procedure which has no direct output)
+'     (lowercase) setIndex($new_index): set the new index (procedure which has no direct output)
+
+!$lastIndex = 0
+!$index = 1
+
+!procedure increment($offset=1)
+  !$lastIndex = $index
+  !$index = $index + $offset
+!endprocedure
+
+!procedure setIndex($new_index)
+  !$lastIndex = $index
+  !$index = $new_index
+!endprocedure
+
+!function Index($offset=1)
+  !$lastIndex = $index
+  !$index = $lastIndex + $offset
+  !return $lastIndex
+!endfunction
+
+!function LastIndex()
+  !return $lastIndex
+!endfunction
+
+!function SetIndex($new_index, $offset=1)
+  !$lastIndex = $new_index
+  !$index = $new_index + $offset
+  !return $lastIndex
+!endfunction
+
+!unquoted function $getPrefix($index)
+  !if ($index == "")
+    !$pre = Index() + ": "
+  !else
+    !$pre = $index + ": "
+  !endif
+  !return $pre
+!endfunction
+
 ' Relationship
 ' ##################################
 

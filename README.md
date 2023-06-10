@@ -255,7 +255,7 @@ SHOW_LEGEND()
 ### Container diagram
 
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
-  - Additional Macros:
+  - Additional Macros  (based on context diagram macros):
     - `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     - `ContainerDb`
     - `ContainerQueue`
@@ -267,7 +267,7 @@ SHOW_LEGEND()
 ### Component diagram
 
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
-  - Additional Macros:
+  - Additional Macros (based on container diagram macros):
     - `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     - `ComponentDb`
     - `ComponentQueue`
@@ -278,8 +278,7 @@ SHOW_LEGEND()
 ### Dynamic diagram
 
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml`
-  - Additional Macros (based on the component diagram macros):
-    - `RelIndex(index, from, to, label, ?tags, ?link)`
+  - Additional Macros (based on component diagram macros):
     - (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
     - (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
     - `LastIndex()`: return the last used index (function which can be used as argument)
@@ -287,6 +286,11 @@ SHOW_LEGEND()
     following 2 macros requires V1.2020.24Beta4 (can be already tested with <https://www.plantuml.com/plantuml/>)
     - `Index($offset=1)`: returns current index and calculates next index (function which can be used as argument)
     - `SetIndex($new_index)`: returns new set index and calculates next index (function which can be used as argument)
+
+  -  All relationship macros are extended with `?index= `:
+
+     > All `RelIndex...()` calls are obsolete and can be replaced with calls like Rel($index=..., ...) or Rel(..., $index=).
+     > A full sample see [samples/C4_Dynamic Diagram Sample - message bus.puml](samples/C4_Dynamic%20Diagram%20Sample%20-%20message%20bus.puml)
 
 ### Deployment diagram
 
@@ -311,22 +315,22 @@ but existing elements and relationships can be reused as participants and calls 
       - **boundaries have to be defined without `{` and `}`** and instead of `}` the **`Boundary_End()`** macro has to be called
     - Additional (element specific) Macros:
       - `Boundary_End()`
-    - Additional (element specific) Layout Options:
+    - Additional Layout Options:
       - `SHOW_ELEMENT_DESCRIPTIONS(?show)`
       - `SHOW_FOOT_BOXES(?show)`
-    - Only following 3 relationship specific macros are supported:
-      - `Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")`
-      - `RelIndex($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")`
-      - `RelSpecialIndex($rel, $e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")`:
+      - `SHOW_INDEX(?show)`
+    - Only following (extended) relationship specific macros is supported:
+      - `Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="", $index="", $rel="")`  
+        `$index` enables the definition of active/next index with e.g. the related index macros below  
         `$rel` enables the definition of all PlantUML specific arrow types, details see e.g.
         [All arrow types](https://plantuml.com/sequence-diagram#4764f83f72ed032f) and
         [Slanted or odd arrows](https://plantuml.com/sequence-diagram#5bd6712206960fab)
-    - The 5 index related macros (like the dynamic diagram)
-      - (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
-      - (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
-      - `LastIndex()`: return the last used index (function which can be used as argument)
+    - The index related macros (like the dynamic diagram)
       - `Index($offset=1)`: returns current index and calculates next index (function which can be used as argument)
       - `SetIndex($new_index)`: returns new set index and calculates next index (function which can be used as argument)
+      - `LastIndex()`: return the last used index (function which can be used as argument)
+      - (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
+      - (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
 
   - (Typically additional used) PlantUML statements:
     - [Grouping message](https://plantuml.com/sequence-diagram#425ba4350c02142c)

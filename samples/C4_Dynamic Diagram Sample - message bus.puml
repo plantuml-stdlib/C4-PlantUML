@@ -1,4 +1,3 @@
-
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml
 
@@ -21,12 +20,15 @@ Rel_D(customer, app, "Updates his profile using", "HTTPS")
 Rel(app, customer_service, "Updates customer information using", "JSON/HTTPS")
 Rel_R(customer_service, customer_db, "Stores data in", "JDBC")
 
-RelIndex_D(Index()-1, customer_service, message_bus, "Sends customer update events to", "async")
-RelIndex_U(LastIndex()-2, customer_service, app, "Confirm update to", "async")
+Rel_D(customer_service, message_bus, "Sends customer update events to", "async", $index=Index()-1)
+Rel_U(customer_service, app, "Confirm update to", "async", $index=LastIndex()-2)
 
-RelIndex_L(Index()-1, message_bus, reporting_service, "Sends customer update events to", "async")
-RelIndex(Index()-1, reporting_service, reporting_db, "Stores data in")
+Rel_L(message_bus, reporting_service, "Sends customer update events to", "async", $index=Index()-1)
+Rel(reporting_service, reporting_db, "Stores data in", $index=Index()-1)
 
-RelIndex_R(SetIndex(5)-2, message_bus, audit_service, "Sends customer update events to", "async")
-RelIndex(Index()-2, audit_service, audit_store, "Stores events in")
+' $index cab be first arg too (like the old RelIndex... calls), as long it is written with $index=.... 
+Rel_R($index=SetIndex(5)-2, message_bus, audit_service, "Sends customer update events to", "async")
+Rel($index=Index()-2, audit_service, audit_store, "Stores events in")
+
+SHOW_LEGEND()
 @enduml

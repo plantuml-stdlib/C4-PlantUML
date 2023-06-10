@@ -61,6 +61,16 @@ UpdateBoundaryStyle("container", $bgColor=$CONTAINER_BOUNDARY_BG_COLOR, $fontCol
 !endif
 !endprocedure
 
+!global $show_index = %false()
+' All relation specific (default) ordinary index numbers can be shown with this call
+!unquoted procedure SHOW_INDEX($show="true")
+!if ($show == "true")
+  !global $show_index = %true()
+!else
+  !global $show_index = %false()
+!endif
+!endprocedure
+
 ' ======= if no theme is defined hide foot box and activate C4_blue styles
 !if (%variable_exists("$THEME"))
 !else
@@ -365,55 +375,20 @@ end box
   Boundary($alias, $label, "", $allTags, $link)
 !endprocedure
 
-
-' Index
-' ##################################
-
-!$lastIndex = 0
-!$index = 1
-
-!procedure increment($offset=1)
-  !$lastIndex = $index
-  !$index = $index + $offset
-!endprocedure
-
-!procedure setIndex($new_index)
-  !$lastIndex = $index
-  !$index = $new_index
-!endprocedure
-
-!function Index($offset=1)
-  !$lastIndex = $index
-  !$index = $lastIndex + $offset
-  !return $lastIndex
-!endfunction
-
-!function LastIndex()
-  !return $lastIndex
-!endfunction
-
-!function SetIndex($new_index, $offset=1)
-  !$lastIndex = $new_index
-  !$index = $new_index + $offset
-  !return $lastIndex
-!endfunction
-
 ' Relationship (redefinition)
 ' ##################################
 
-!unquoted procedure Rel_($e_index, $alias1, $alias2, $label, $direction)
-$getRel($direction, $alias1, $alias2, $e_index + ": " + $label, "", "", "", "", "")
-!endprocedure
-!unquoted procedure Rel_($e_index, $alias1, $alias2, $label, $techn, $direction)
-$getRel($direction, $alias1, $alias2, $e_index + ": " + $label, $techn, "", "", "", "")
-!endprocedure
+' only Rel is supported in sequence diagram
 
-!unquoted procedure Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("->", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
-!endprocedure
-!unquoted procedure RelIndex($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel("->", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
-!endprocedure
-!unquoted procedure RelSpecialIndex($rel, $e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-$getRel($rel, $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+' don't add empty lines in procedure otherwise & calls are not working anymore '& a -> b: call' are not working anymore
+!unquoted procedure Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="", $index="", $rel="")
+  !if ($show_index == %true())
+    !$pre = $getPrefix($index)
+  !else
+    !$pre = ""
+  !endif
+  !if ($rel == "")
+    !$rel = "->"
+  !endif
+$getRel($rel, $from, $to, $pre + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure

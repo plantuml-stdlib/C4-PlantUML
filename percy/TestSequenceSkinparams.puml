@@ -71,12 +71,14 @@ sequenceDiagram {
   !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Sequence.puml
 !endif
 
+SHOW_INDEX(true)
+
 Person(Alice, "Alice")
 Person(Bob, "Bob")
 
 activate Bob
 
-Rel(Alice, Bob, "Authentication Request")
+Rel(Alice, Bob, "Authentication Request", $index = SetIndex(1), $rel= "->(39)")
 
 alt successful case
     Rel(Bob, Alice, "Authentication Accepted")

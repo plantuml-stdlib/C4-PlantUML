@@ -14,6 +14,7 @@
     - [C4_superhero](#c4_superhero)
     - [C4_united](#c4_united)
     - [C4_violet](#c4_violet)
+  - [Matt Weagle themes](#matt-weagle-themes)
   - [Write custom themes](#write-custom-themes)
     - [Following variables could be set in a theme, additional to the skinparams and styles](#following-variables-could-be-set-in-a-theme-additional-to-the-skinparams-and-styles)
     - [(C4 styled) Sequence diagram and themes](#c4-styled-sequence-diagram-and-themes)
@@ -42,7 +43,18 @@ In order to invoke a local theme `C4_foo`, you have to use the following directi
 !theme C4_foo from /path/to/themes/folder
 ```
 
-(It is planed that included themes can be loaded via `!theme C4_united from <C4/themes>` too, but this requires a PlantUML extension with is missing atm)
+Starting with PlantUML v1.2023.8 the C4 themes can be invoked via C4-Stdlib or calculated paths too:
+
+```plantuml
+' theme from C4-Stdlib
+!theme C4_united from <C4/themes>
+
+' another alternative: theme with calculated from
+!RELATIVE_INCLUDE = "https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master"
+!theme C4_united from %get_variable_value("RELATIVE_INCLUDE")/themes
+```
+
+Following simple sample uses the C4_united theme from the official remote repository path.
 
 ```plantuml
 @startuml
@@ -140,6 +152,35 @@ Theme [C4_violet](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/
 ```
 
 ![](https://www.plantuml.com/plantuml/png/hS_12i8m383X-vvYUu0jbvqyJOQt2HuKZz9jSIiaRMbInRUtzHay9GJ-3pA8cgY9gMfqHyPwx1ylwmcrVaRFzQuQv00GpRlRhEvfJe9nyKxHQRTuXa365Q0LNSdECFRjfPnkvmdOY6A4donLOzr2QSN_e24N7xYYw97eHCYvbNlM9jpGhLqeJmrvo_CB)
+
+## Matt Weagle themes
+
+Matt Weagle published a set of impressive themes based on ColorBrewer and Seaborn palettes (thank you Matt).
+
+https://github.com/mweagle/C4-PlantUML-Themes contains an overview of all his themes.
+
+They can be simply invoked like the `cb_seq_YlOrBr_9` theme
+
+```plantuml
+@startuml
+!theme cb_seq_YlOrBr_9 from https://raw.githubusercontent.com/mweagle/C4-PlantUML-Themes/main/palettes
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(admin, "Administrator")
+System_Boundary(c1, "Sample System") {
+    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
+}
+System(twitter, "Twitter")
+
+Rel(admin, web_app, "Uses", "HTTPS")
+Rel(web_app, twitter, "Gets tweets from", "HTTPS")
+
+SHOW_FLOATING_LEGEND()
+@enduml
+```
+
+![Matt theme sample - cb_div_BrBG_11](https://www.plantuml.com/plantuml/png/ZL5DRzD04BtlhzY6YoCrjegumAck2IbIcbZOfUAqMjj3izBi1pjZMHNYlxEhGDjZVHbvtflteRqcrf5dY-A2Js11ZeCY-AL-u37UHFLH_epUoXDpe4zL5VLIFXe-pSDC44Vl61oNexULNK0_8bJDXqsBsl7ztNxJPq6gh3Qk2Xg16KY82-D6d2TuWsX0xNAs3V64PdWjNbbD336jLECT9mk8PSWzH0kHl2lqP8sxbAiwJqCSDVkuMelkAHrQTUDdD-duL8nNYTHf6n3a6LkjvMyXq_UiN2mmA1r2OZx08EiGq8oQZNUhj6hUNSgwQyl3jayd4UJxyahUVMyoLYFwXMHkHfAz7BqDEb7iZ6ooPRyOPeYIZGLCNfGY_laNik0pc7JEj9nVV0FyN-ubrZq1PR_Rlc-xnCgaP_H5PWTCwHVoo2_x-aHqjyS7zML_hFklXvtQRtVRm-TYBQx1JRF5lm00 "Matt theme sample - cb_div_BrBG_11")
 
 ## Write custom themes
 

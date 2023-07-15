@@ -387,6 +387,12 @@ def create_plantuml_stdlib_c4_folder(target_path):
         inclusive_endif,
         "!include <C4/C4_Component>",
     )
+    replace_first_regex_copy_file(
+        "C4_Sequence.puml",
+        os.path.join(target_path, "C4_Sequence.puml"),
+        inclusive_endif,
+        "!include <C4/C4_Component>",
+    )
 
     replace_first_regex_copy_file(
         "./.scripts/plantuml_stdlib_info.txt",

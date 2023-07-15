@@ -1,6 +1,6 @@
 @startuml
-!theme C4_united from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Sequence.puml
+!theme C4_united from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/themes
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Sequence.puml
 
 Person(Alice, "Alice")
 Person(Bob, "Bob")

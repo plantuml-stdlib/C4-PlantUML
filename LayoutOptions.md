@@ -65,7 +65,7 @@ With the two macros `LAYOUT_TOP_DOWN()` and `LAYOUT_LEFT_RIGHT()` it is possible
 
 ```plantuml
 @startuml LAYOUT_TOP_DOWN Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 /' Not needed because this is the default '/
 LAYOUT_TOP_DOWN()
@@ -81,13 +81,13 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![LAYOUT_TOP_DOWN Sample](https://www.plantuml.com/plantuml/png/JL1DZzCm4BtxLmpba5Jg9bh4YTE6WE2msqOaPSKfSk8fjUGFovuegX3_dR4eBRayPTx7FCzJ8XbfiKQyqMusYq8u4uNqeQwZNAkVcixBj2ICitU4ZghPspeOwRBd8P4oUghRzmzT7XrVdcih4s7aqTYoGsg7iGevNzG5x3s1GrIeOC9PSYxGMIVGYH51uKakXg2enNFput0Snk7GZPyEh_joAqI7CNbNIcMrsy6coQWJHKa-RhQYl_1YEtxqYrCoNihvSGT5BsqmM6pXbm3-RfNA5QTHXi0vhpX14uBHioJjtOP7xTiTD7rNxJyFR8a8xwf7UFdUPgunngy9yacuj0U-Hv0iiLnSyouOLas44KXRDBmhSRVVrtOb_IKvvofZKdn3y-zLzrh7n4x6hyFGzQpAeXjxZ_c2bFWNCvoYj_zRdj0fllmV "LAYOUT_TOP_DOWN Sample")
+![LAYOUT_TOP_DOWN Sample](https://www.plantuml.com/plantuml/png/JL1BIyD04BxdLuprq1JQn1P1yDGOHGzz19jQF8LDChKBczrbTs8eudztWhLrMHYOxp7VpDoJSDGsAhYIkb9jZN0Wilu-ZfteeWz9XxPiFRhAQ49DKMMQs2gXUyt4Kwra6QUtawnlRPUB-7CMtKKtt2fILWYfqKMszm_Y8QmCWKQiiOOIAy6-G0VfWJyT46hSYrOH3EDWaRoljtcHhxFYSRrRXQCWoD1veqDHDrAFOP3qLNfoWemRZ8BDqHCsnODfTItSCQocOnXkH6CL3aVm5G2_SwImmx8GrhBF3aj8h5Mo4YID7d0hlHv3iicYrLFE4eSmYwQmV4jxB57AT1xwat1e0tmFAvZIS739io3l914w8DcWubcUitsVqeNq2xBFYSPWy8hgRwjBhArd9TUNFCyspEf9P_HYyup4CJhiozwPvhzaZhhco_y0 "LAYOUT_TOP_DOWN Sample")
 
 `LAYOUT_LEFT_RIGHT()` rotates the flow visualization to *from Left to Right* and directed relations like `Rel_Left()`, `Rel_Right()`, `Rel_Up()` and `Rel_Down()` are rotated too.
 
 ```plantuml
 @startuml LAYOUT_LEFT_RIGHT Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 LAYOUT_LEFT_RIGHT()
 
@@ -102,13 +102,13 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![LAYOUT_LEFT_RIGHT Sample](https://www.plantuml.com/plantuml/png/JKzDR-8m4BtdLtZP0q62HApsj2Uo4OLAq4OajEefSf9fiUGFonuhGbN_UySgXVeoyhoFUM_baJiCIYQ_XEvb682T4At_b-UEZzcRm5FeWWVN6usWCUkDogtaEceM7WSfkhpykwZYwhZVvOfx14UhjYG55nfSPgD_iYjU7ezDkrlVDUtXVhDjqbcILE2yqIaVbD1pDYdY51uTH-CciwG-avjg_vkW1-xEQR-SisdDbPKmdR7tXD6xtab7w5fkBVayGySAQwNeEGgZ9xGgVyzPKLVPmxeXYGFs9rko_LCPiK9ACteMUtg6Xb59oucYWaH1jrWp2gHQ38K2IRSyPVkuf4ln2oIV2ut0v03okzKjrj6JakQsQQgQM95qHMys6q1FNuZZrHdrKx82FGGbFm40 "LAYOUT_LEFT_RIGHT Sample")
+![LAYOUT_LEFT_RIGHT Sample](https://www.plantuml.com/plantuml/png/JL1BIyD04BxdLwprq1JQn8eWU6eCjHLQ3MsgU0gRPBGB-s9tOYZYVtSMQ-jU1kPxpiuySeUTaj65q8tiMc1xHEllqjJnFlaGkE_gpeDhZ4RGc3H6fLPo7JGJZwqKTPhVJ8gmsgrNwUTrSfjSqQhAIS651fVOu1-jihVdNLcjvWzbjNbSBCju54K5E6zqp5ibz9WDiZ25HyVHkC4esXuyWghkJQTRxWvnCnspuPOhAs4uObyHetVAYNkeAsuj-Rn2pJ9hfMWu2gC7jCelnopR5idJl2I90tQTJDdw9GzO9gNfFGjtUeQ6qP6M4qLr4WLbiR8NYE0O2WMIiZnr-pwsY_4N99yZZS1e0_BlgdEjdISbpMLP5bjY1T89FTii0Ab63s6yEwF-IsQWM_hE7m== "LAYOUT_LEFT_RIGHT Sample")
 
 `LAYOUT_LANDSCAPE()` rotates the default flow visualization to *from Left to Right* like `LAYOUT_LEFT_RIGHT()` additional **directed relations** like Rel_Left(), Rel_Right(), Rel_Up() and Rel_Down() **are not rotated** anymore.
 
 ```plantuml
 @startuml LAYOUT_LANDSCAPE Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 LAYOUT_LANDSCAPE()
 
@@ -137,7 +137,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![LAYOUT_LANDSCAPE Sample](https://www.plantuml.com/plantuml/png/NOzFRvj04CNlV8gjUmYM75kfUkef5ApaG1nae55FQ0sJUANzizeTXAAgtxqpCNQiSa7lDxFllRcFA0EEHeio-_tSDbsPxOewpwgjgANn6f8lolPw740S4NtyiTa4EQtV51x7mnWXzCuYM5ptpcoybfQzRYCEMXqs-VVRYb7xL6wCZ0Y1K9VJ2waiXBMdtIJvFpXT9aa58JgRoi4eknABZFygOf3emcAPrEzaPhgVRhI33EzfVxSIDwU-Dqln9n7qNMBI2GwTz9vyNk0WCk-rwYKgPnU4ygyhaTNLUhTjw4a0yMrz9vv-vJpBj7PJ57nc5EW4tUWbhPXHew8iqKmA4O90PK1JLgHkV-TsAPw6v3ElqJ3PWpvVzLchZH0vxx5fgfgsUEao_RHv08maWN-lmPdh9-VGUhLWULOjIT7wAr8mATnahrZ9h8HNl69xPdlrTiIvTjTwSXTrouNPaHaRVT22A8kPiza7Bucpc3aRdWPx6bpiwyVdbwxSFcntHKho7kmm6lqF "LAYOUT_LANDSCAPE Sample")
+![LAYOUT_LANDSCAPE Sample](https://www.plantuml.com/plantuml/png/NP91RwCm48Nl_8hPxA54Ig6jLbffJsKXQWyqHJ6qsXDom6qi6TkoXw9gjVzznmbDetAn-DxCcpU6Mu_SuJWeABC_ZqtTbjccO7bMhO7nmIeHVPEwKsClO8ze_QyqTNnANYNknzteXUkCHg4nwSoGMiLryBhqs2kvI_CVbrL0pKEPljqaFvChGcrE7LnguH9BjL7qTN2yZA9AE6zqpFj1wXKiid1AZuwZSOjbnDuzYg7zRKRTS_SUTzShk3ZclLZ2tmZeEOs99x5hkRNayonsa5chPCTH6hqWb7zVGSQgPBEkgSK9k4ckuU4f3rgcb9ayX3Kze07QqN8g6KQ5acP1FKb4uG3b81JDyfJjtvmkngD8FdCPYT5Mg8-jFcCrdZhflA_hYb5LA3gfdpPt0Yd69CBnuinmtl8nbAqMx7H1CMle5HfxHef02ZFfCrO6LeeNF6FRmBRoTOzpxBQnv0vaIO7jCMKRZ0wq83gx1XxC3hmaFZi7VZ0y25iIJlRi_l6vBTTtwqqHllwjq3tz6ly1 "LAYOUT_LANDSCAPE Sample")
 
 ## LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype, ?details)
 
@@ -149,7 +149,7 @@ This can be enabled with `LAYOUT_WITH_LEGEND()`.
 
 ```plantuml
 @startuml LAYOUT_WITH_LEGEND Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 LAYOUT_WITH_LEGEND()
 
@@ -164,7 +164,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![LAYOUT_WITH_LEGEND Sample](https://www.plantuml.com/plantuml/png/JKzDJy904BttLwnue2JG1kF94xKIC05iR95uQhRjA9linsPtceOO_xkp4S6zJ7RUnxotyCWTzaf6DqAtik-07H6jVqXJnuVaK-2nRteFhZKQGMFI6fLQoNNGp3nsKZHfVZyhmcg_tQIAUmH7gped1HSQN6A3VxJ9tb_sLNruhjRrPhbQxfxYIHGLuBpHCU-Kq5Csoi8K7Xr7uqQJg3oHdQeVJQyxxavnEv-oSScLbJ2UiA-8qRiSYWTeQcuj-HoWOPcrKhGSXT4ZMkMtKvQLHR9RLYHnmEwIETk-vG7Bf3I3Pw6ePsWOjRISAAgNAEWMgmQ1r8kXK23fbgTit-TqCVw2v7Ec4HYzWlnhTOsrzwIakQwgeYHM85tGgyqAqDCNmlXmHlsNB41tlP8_ "LAYOUT_WITH_LEGEND Sample")
+![LAYOUT_WITH_LEGEND Sample](https://www.plantuml.com/plantuml/png/JL1VIyCm47_lfuZpOHrihHk2uDDg7PkmpM8xXqybRKyNI9EGN2r3_EvUS6xcvU1-VozpXznYryhWIgXQTWsm0w9nzt5iUHzz23nqLUV0rbeXA8ngtSP6SkKr4uUD55MStauolzfjrl7dBBgBRcXLfgJWGe6DZFSFridRywuezq_5gbmlbeljOpWAWWoiqohaJIlKc0qIFuL3or7RmIZ8ZmwXBHzqfnfkZs4z7RDXpbiZOJXYNm6ZTmuAUwXARWpvxA5YYJ5Ir1o5LWDQfTTZbkHPj5qK9B70Pj6KRLvJZoLIwjunVwXZg1bTQJXHsawYe2nMz08HB4FHWgGiHzs-J-r2_0N9vqGZC7W1-NVLfTREaPBcgYYod5YUT4OlDaj0gj637-zMj_ybSr0D_USF "LAYOUT_WITH_LEGEND Sample")
 
 Instead of a static legend (activated with `LAYOUT_WITH_LEGEND()`) a calculated legend can be activated with `SHOW_LEGEND(?hideStereotype, ?details)`.
 
@@ -182,7 +182,7 @@ The calculated legend has following differences:
 
 ```plantuml
 @startuml SHOW_LEGEND Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 Person(admin, "Administrator")
 System_Boundary(c1, 'Sample') {
@@ -197,7 +197,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![SHOW_LEGEND Sample](https://www.plantuml.com/plantuml/png/JL5Dgzf05DtFhxYr2oDeWgMhhfgceWkreObr6IR9RHsOZs7cXY3b_VTtWpurcqlEn-4Svdia6MWm6ghThtEptsmtnvzGIUCrYa_ATdhe4Iv4FdxBiY37z9-Yoz0E4KFdBA6bj7CcyrhQAMOLgTUgpOglgtA2JeTzPcGa30mr1JkaiXXIpreXIWpHsKJsHjabpFBfgaX1aWkpXQYkR3JD3pVONePhqgsNCBzrco_Wlm3-7f79Y6qZlUUSCxQGUwzL9qavEsEe-Bo4l2hJuwPcIq3uagxXyAUOk5nhDqQO9aKW1xp7IvQOGPFo6g4U5H4686LGAukHkxtTsoLq8pddBcDI_4RziUfPwnJPoNTNrsN5gadqO9ynMwJ8lpYTly6PLujuUQLa8Tu1 "SHOW_LEGEND Sample")
+![SHOW_LEGEND Sample](https://www.plantuml.com/plantuml/png/JL5DQy904BtlhvZQWn4qgQLGwAbfAdfG6ngjnx19jdLXlzYTD4ZfV-y4hRgN1_C-vWtx791xRBM2Ol6sAvUp-Mpz2WNNJWbs8qsjsaR07j65foJnl8k_9ExRgWt2rzQWC1ZNLYTESTF7J08sIbP9zZ39-z5sjKo-x-F7-8v6PKOEBetmiICjOxdmmPg8DrgQCGpI7cL0pz7wmOWLXu12bo-sDGttXwYUZc5ux3OSmGy3UkV8g1DLoPsZd9se87LEoPgZj6P0e-ns36cHn-lPXYnUm7qyXTL7rdEfKhOBq9yK02tGFOwJHBSA9Us2JISHXGUKMYZQ5QZRxwbTX4UISauo8jcxKFzNNMfj0pa95vjDNf2g5vtPIynS8DNeH0-Vtkfh2xlwfMZ4_W0= "SHOW_LEGEND Sample")
 
 Legend labels and details can be defined via `\n` in `$legendTest` arguments too.
 
@@ -207,7 +207,7 @@ Legend labels and details can be defined via `\n` in `$legendTest` arguments too
 !if %variable_exists("RELATIVE_INCLUDE")
   !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
 !else
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 !endif
 ' $legendText with \n defines the label and details of the legend entry ("backend container" is label, "eight sided shape" is details) 
 AddElementTag("backendContainer", $fontColor=$ELEMENT_FONT_COLOR, $bgColor="#335DA5", $shape=EightSidedShape(), $legendText="backend container\neight sided shape")
@@ -229,7 +229,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![SHOW_LEGEND Sample, $legendText defines legend details](https://www.plantuml.com/plantuml/png/hLDHRo8t47xdLqpsSYf815HTxwKIqd6mxUL480BIzk4aDBiUm3gllR9dIL3L_zxnRjWIagelvG7js9xFt_VDvq-1qNDLcCuFa3jx8C-W6Hurxm6LqgoTHIDRHO5MWT6M0FskAiWot4oNwMoyllqjtTpE9xE7QJfA1iF1805sK0K2ut8qvjYvqbjuVq2lCJEqeISTE7IJo-Qarm6uqZOtbI9uloFUj3q7D1MzrJAS_BIPECiepFoWZ4gko0GwXzepb-7duT3Zus0dogfCoFbSkaJ5GBGDIuCskd0JM1cT2UZDVLnwk9iD2mnC_irxhD9RCUxQq4w-r_JqxDmt2ugsSZ80xmaCPcGW-gT804m0jsqswZuG5lu8tIJ3_7kiyzCz2UZGTFSX8RtRCmIjI47OOqbnzuJOWyvOgTHG7CmQTorOopdfm_LMYeappe-kqrbwbyxNcryMyZTPp1PBsSzspMxoxiE7ZzFnnzXJNpLAu-MhUFSgrjrU_rprw3NrR_OrtzuRNhcAp-rorXm16ysrf2MPMWw6eyqZ7wQdauRnShdulIKVi_cl6oi-6XfDCUn9pQI-5D3WGunhJLC2QzqBiWr35HdWBZgF5Ri2MTSHlvYpB9q_7wL3QV182ahlIlAiIVeznQxJ1C_5HYx3_qUnOpufxdKwgsDWAZQVNMKL-cCt_r62TMkPl2M6psY_QxjBUl1d1-JNPgTRk4mRsc1Polcxke1nMIPIJTxruGyiq6iRotll3bf5UM1qeJaElye2yIdpxMrPSnjiAvitFcaM7ntaLH1doGSuQ8mzsaD301GTT2v1kg3td3xXfuN2-FusaZCwnuWRMNt50_PXwkIO_wVldEz_yOfK13XfvXz6hzwNaFhhv6_wnDrdc4sebw9jScphiQ2Jpz2SZYnMx7pqp9YJJRaij5IaqVcYLWEOnIVJUjG7p7CP9yiNUxG1Qz9I4US38TMHKBsOtqkp7W85OT3almzVLulvyCjwVRzgbJPRWYH0ctbyrPcxiFn2Qujw5cG9oTti4laivp6SNoJ2i_JNT3xjzZgV1BqgpDy0 "SHOW_LEGEND Sample, $legendText defines legend details")
+![SHOW_LEGEND Sample, $legendText defines legend details](https://www.plantuml.com/plantuml/png/hLHDRzj64BtpLumP1nK1cMgR1WKA28WYiOq3MJ8akUqXW30aLzGYorrYTwcOAFhVEqDIicovwAKNWlinC--zURCVd4Vhwr85tq5cz45O3zB3D-dtW7aklJGQ5HsL9UeSbDG2q1PrARI7czagcKysjxydszl5TFumIyPXF8hZ4Bo1sWbG9aEbck1Axk3j0Qt4L8cjU9JEkq7uCZYC0e0hgJDLvmBU5i9lJp47LBLuBMGq_MaxDTeZ8RDnnKokX7BYFDNU-yhzCXfP_1ONnAnE2PmbkfvOnCHjL2dKhCADyxcIAIMzkUUjXxlvwF1Z_7Fy_QjrT2vt9Dor4WNzRyHZhzmN3RdOqKq7VayoO2eKi7wve0JAWTbr1sqS40hRm21CCVlAw-nO9mJfkkWXX48MUmzEvY87jyTAjATznWY2IPudId1ZDbYSafqmXqEutj5YQfInu-jadjmbYytsroLzfilvSaNdQT6TXc_UlNi_cxpdcBRKEE7YQwwzvlKW6fwp7bz2_w8lyKQlQ6LgVowNqQe1x1LZIYkXMZhe6fqn7a-HFOV9QhNyumIUlVcl1slVA36UeTkBV4xh2m9jVc2xjZ39iDey0ziXp1a15gmyrjwKw6LhyHTzfgtpyScb8uSr94HbJKKp9eagMj56zHqy9yjOHlyFO-FzaN4K1El6UL5kFvfQvsYRGVO36UkMvi1guU4ZwgzI5s44Vz7u09oyCoXDAcaAiQhe_bsxW4bL4Rfm-cO8Vs99WwfvUM_DWLhkk8cob9wRNwUEilUUFrLBksgmgtNMwIHzmoz7LZjILbW71uaS8orq04YhWyn4-r2Sm-lTH_WaGPZStp8uHPtXl8pgCnvm23D3rooSZyGJtl_0nL0eSTZrtuqlvoiA_ZxgcppwGPzcwzejbeskxIoMugWpTBSPnTeRovgHRNgPCjeuGQ50OykM3M3A8tFIQ0YOPTHEJt_UedROWgQLy5bCe08orRF-FHVhmGd725gt3U7pUhaOVTfixjTFJ3iZHfnek-2fJiqBoI-u7hC-6PbCGc_fYyndFcTpVY8BpvFVaiLi40KVA3kzily0 "SHOW_LEGEND Sample, $legendText defines legend details")
 
 Legend details can be deactivated via `SHOW_LEGEND($details=None())`
 
@@ -239,7 +239,7 @@ Legend details can be deactivated via `SHOW_LEGEND($details=None())`
 !if %variable_exists("RELATIVE_INCLUDE")
   !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
 !else
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 !endif
 ' $legendText with \n defines the label and details of the legend entry ("backend container" is label, "eight sided shape" is details) 
 AddElementTag("backendContainer", $fontColor=$ELEMENT_FONT_COLOR, $bgColor="#335DA5", $shape=EightSidedShape(), $legendText="backend container\neight sided shape")
@@ -261,7 +261,7 @@ SHOW_LEGEND($details=None())
 @enduml
 ```
 
-![SHOW_LEGEND Sample, hide details with $details=None()](https://www.plantuml.com/plantuml/png/hLDHZ-8s47xdLypczbIGM51rlPTAICT1sjiJ2ojWspwS54tY8LZds97ji8kg_lUE4nAbx5PzAGyeu_7CVDytdpyvZzPNXHhy09dH9x8Uf8TdwO-0GaWlZKR5gQ90BK19JO0shmhI7kwMstWrtz__5YVtwyNgQHdFeibqCed06wWSWJ8PAdKUtCW3l3-XbPWgIkX5Ek-6qNLnD1e0t4YTgKeGlC_99rtD2LL5RvLC5pyb2wCzCZ8xAGEJ6rAE-gsEtfVkv-dKulCaPsPLok1inbNCOiBSfgL27LIuSruecNBJkyTmzFImcXReFDatvsWX3opShQASl_VqSb7kcmP11xxfm1y95AQa8EWdY1ie1-PG9vewO1Js3CCenUnxYBDsJWJIDTLZY4ZcHmzE2XBWZbXIoBOTHp2O2n4h2elPOzurwp17OxWzSB0mojZPRRoA7-BrFlbbmt-BpMgpvNoQDzdetOSF7vVpZw6c7ZMBm_1TcBqByN0qxhEUlOR-JR_6Etf3ArFvlbn6gpDWmxccj2LLqq5trbd0u-cbvJ3VRZU_T-23D_yriVDdHRCbkYE95SVN19h-4EnQmsJ3QjE_SK4e0WBCW_9OULEWbxN5h_RCH_td8wHZXvr9G6bDITPBudfBeQhTO9zim3BzVnWRxrl6ey5WTtQUYkIpgRH0UnvcFxAnxhKdgyd3PzJVfSwZ4Vmv0FvrtXaM9fMA4YnBllzG1p0louYZnRin_845Mgb3-6ZDIOf03vGif0_Bhr97llLyDorjfi6XqbcZa_Iieu6iSgmiMGSdYQ56McW0WA2JpDX8L_0kxcDyaY7C7-y3E2Kp37q3ggzumZ4i3L-pqDNryVuNhW256qVD_jtirVjYK7-r-iOlVdXfaxZwACZ6rmuM2sfrXkPsGB7pnWRDb6fbolYWWyA5nXOr6y0qF9bEep5Wbl4wFNzvYzfX3PeZyjc4GGtOLFtzmJ_5UdBa647Z_p5ytMtMqo_x_UEkOzgak1CtIjRXLQVcIl9hhctNdf7P90-hgyvzdmTpVc4Bh-9Vu_LoU7jv5RErQQpxYOTLXVeR "SHOW_LEGEND Sample, hide details with $details=None()")
+![SHOW_LEGEND Sample, hide details with $details=None()](https://www.plantuml.com/plantuml/png/hLJVRzf847xdhvYuYGeICNVNLfLEGYe5zvg8G0JaUW-LqDXUp2hhNMjtJM9Lzx_VZ6q82JdrfI-MzyVCVDytt-mdvz7wCbUTjv0OlHFMW_Jm8FqMC4sbbqQZegCyHvs2abe0sgpCXVPmELb4qz7gwkzeVJKRJ-ycqJ081s4OW3TGEW7A9AXKrJcJ6xZOePKOAx4MZz9vrmrU1WUz3i2Pr8agKm4NcV3hGymELIbU2ncCtw_7HdiaP3OicCcPK4uSfzfwNxW_1mEB3s56pCgOm5cYwub5IDm6XKBDAbmwdoePKzBBMzwwkvaETd-47yFVNgsZKxaXuSwLoEX_9HvRvRvhICM6RZhmMv81Ow60zKi59L0EpAOvgEE0KDWAka6CoJslatsT0AHheliG29bjFJYPYXJS5WjHdxOPUz0PfMca13TcXTaXsG5pq8Vp3It6HXaxF8-cqKqqMws_pEapda_d2pgFi-OqUFFktOV9w0F7rAM64HTVSkqbhxkz_Z7huIdqx_eKR-yLhKpfZ-KoMbM0hM9CQI5KJGTTfHF6uocovJ1QBERV3k3Pc_zxiFIL4iC9kgr8fxG-8L3d1xPh3PCCgyqpi0t2b15WnifZwKsENjOMVz5dsZeUdrGwSbX5GXJM53HZagYY5NLKsy5Zienby6iO6-_tZ7kTph9oNkJhpwRKATggc_nEnhgYER1QUFYC-bxgBEZ13neVW8Dtkhc99KqX5WNTlwaNC2eAGXUCt_JX7ynfK3KlRwtPKSiTDr7cqdFpozXHzjRpXsfnKmqsfKuQdQIl-EL8IaVA2kjW9v5Zf8K606crauce7ufZUAtx29ya2AFRAmQdg3ESbr5TumxxC35qpSBnI3pX_GakXaA9WwR_RdWwNxtEltjzeqVVRTEiNRt5ij6rZSLSx7M6vZQZM7fZMJEoJIjJGXi7A1HeR5wp0OnvP0uQzG6JXDhfwSzRr0vhqBGIFWa9L8TCzQn_pyMwSy8nWjfjVRXUpcU3hwlLxVA9QMF47YTQptYgO_D2yXEk-wnFHYQJq5lw8lEHpzcSNyd2q-YlQ3RfdhTJCPoPnhgVg1Wzkly1 "SHOW_LEGEND Sample, hide details with $details=None()")
 
 ## SHOW_FLOATING_LEGEND(?alias, ?hideStereotype, ?details) and LEGEND()
 
@@ -269,7 +269,7 @@ SHOW_LEGEND($details=None())
 
 ```plantuml
 @startuml Layout With Whitespace Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 Person(a, "Person A")
 Container(b, "Container B", "techn")
@@ -286,7 +286,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![Layout With Whitespace Sample](https://www.plantuml.com/plantuml/png/LSwnReCm40RWtK_XCZbI0qkdJca1jGDjew2A4HdxL91iOzbdjNdx7eb4meJlk_y_SOWe0oPhU2FFSqBUJJZoRfmGefSAU2kjDy0U9gTCqi17H1-VYoB8t_o7icb84OAQ7OB3NCssy4QwvU8-eZRJK9HF--D2tnzDOML424HzIGqvEGYvfonZHmXnTa8-ykpwv2_PZgqfCT1YdVXhHYE26Xs5sZCTjK8HNP-yt5JrfbhTLrVkwpyKG1lwvloMhk_Jx0IcFot_E90gQKmaNR0I98emHRWPWTuObGbWCQybNfYrxrzTtzHlzMSbTkm0JYTh_W40 "Layout With Whitespace Sample")
+![Layout With Whitespace Sample](https://www.plantuml.com/plantuml/png/LP11IyGm48Nl-HMnfowugOWWUDgrBNgekhH8ZoLD1bj8qz1CrFttJbpexfuoyyrxayViFCe5msHu9OzpGDwEEF1s616yamfu8oTdWDsCLfcWWG-8pZzbsI9_n1TfGnyyB6gs21Q5cgVC6MdZngr7RSO-on-sXuW-twhi-ruyYZj2NKuEELfOX2CjOmTO_6nJUSkJKydtoOQjghIdmThnvuHQ13LO4ZL7Zp2bYj2fvFcLLLzPYqlhYhlo5rEW2Rs2dzNbfPhLOBewPenfb3J64usmYFbY03h6cH7GrwoEOU8tmMc9_vWrhnzjLvKlvNkHRjWEhAQ3_04= "Layout With Whitespace Sample")
 
 Therefore a floating legend can be added via SHOW_FLOATING_LEGEND(), positioned with Lay_Distance() and existing whitespace is reused like below.
 
@@ -295,7 +295,7 @@ Therefore a floating legend can be added via SHOW_FLOATING_LEGEND(), positioned 
 
 ```plantuml
 @startuml Compact Legend Layout Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 Person(a, "Person A")
 Container(b, "Container B", "techn")
@@ -313,7 +313,7 @@ Lay_Distance(LEGEND(), e, 1)
 @enduml
 ```
 
-![Compact Legend Layout Sample](https://www.plantuml.com/plantuml/png/RP5DQxD04CVl-obMUU1HQ9H2JuL2qcZJWar2qjBZigwJH5XNsHrfy-qxniH4w4LdVl-N4Pmwb1RRIZElD4gt1V03OkCUuzZAxsXVug7DMmTMrGR1OAJgAcwqD5rcuh3GPHxF7oRh3ds-Pt4b7O8b9EQKaAK16pLTFsDhiAusWRpZVZ_ocH-omHRa90mRV_PfHL07GwRjaLghG17gHpuVHOjHDBcD3bYaFnW0AVIE-DMTthhP1hJOTD-O4rLIQqUqWqb0H15i7LmPWMB4A4m0EjOK4a-OURlMA2nhmxDqaIwJ86IU1MojuVvErn9BinSQzc0AdtdqlFZPzdNr9LworUpZRRaGv_Ib96IPF8gaT2YDWW6Vpj_JMVQVU_zwof-utnyGqeBqIVgp-cmFIHzrd_cbUaf5z5D_0G00 "Compact Legend Layout Sample")
+![Compact Legend Layout Sample](https://www.plantuml.com/plantuml/png/RP5VIyCm5CNVyodI8jY2QrK4GH0srpg5kerDyJ5aQRO5ihGaj_xvzjwiMxU2Bqtok-USUzCC7N0BpKwJG1cXcrBIBK3j7jBKykzaes3Rh1edhQWCI0E9g7PfhRdnde63KgjLEhuRp3twU2lIhzlaFhb6nCReuCf8czG-dv2vjAuo4R-YORkbep0cdInQOQ4xqQSGZo35rg1e-Uj0xYA1gDtISSzQzgpPkRN3BF-1I685ruIUrFcvcYoaPWi_evz6SAqTKWypFvyV0F_6YI4e-spXX_5jchhaiCSaM3T6WC8R5_aadsPHJ08heR66XcjTSL1cmxJSI5E69C3lKK-MBxDFzbpCHk-lqmaxk8yXCIduByiKlg4HiiFxzZVObbpIuAAbz966RGF6hUGXblwDFiXZhFUo3_mOFSGWVDG_ "Compact Legend Layout Sample")
 
 ## LAYOUT_AS_SKETCH() and SET_SKETCH_STYLE(?bgColor, ?fontColor, ?warningColor, ?fontName, ?footerWarning, ?footerText)
 
@@ -331,7 +331,7 @@ With `LAYOUT_AS_SKETCH()` you can make a difference.
 
 ```plantuml
 @startuml LAYOUT_AS_SKETCH Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 LAYOUT_AS_SKETCH()
 
@@ -346,7 +346,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![LAYOUT_AS_SKETCH Sample](https://www.plantuml.com/plantuml/png/NL1DI_D04BxlhvYtxw4fj0aLJvuQGx5Wgy6aYgUmILQxi1_BxeHGnF_kBDLMp6N8pFFnFBiAo3qEMi4sVttSrqrUDTNzkYusK77jb63_fEdKq0iu8BfmasMUZ-cxnCFG3a7upXeK1jFEwimfRgBM8c2lP9iLruiohlQxRQPvGE5frHJ4uD88dph2ClRNE9anLWeVh4buhwMPmoIFKmRq7AsVp5Xr937TtDh1zDmVasuvX-afxtG67mpeEziaesWRxXpfl8WMSkUKx3XAQoQqAlxF8Q_Az65T4yKBk4gNi7ikuYrNoeu1Oiq0Q84wEauGFIYKv0NrA95Q0Kej57a5olRvdIx1qv5qJh0Od3q9zTFg4ciVY4bpKzTbHQW8EbylCdS20_sAEDwyrRyfAs7w-9fV "LAYOUT_AS_SKETCH Sample")
+![LAYOUT_AS_SKETCH Sample](https://www.plantuml.com/plantuml/png/NL1VIyCm47_FfpZdmphOMZS4mQVLCXouQR6TubF9skW2QHAIgsM8tzqBcvkObuFx_RtCFNA7NQjWbRuzRSegBQhYOL5cIoXuQvLW5rBNgci4x12jlqqIn_luG-AkstPUkDfe51hZshI9LLm7hud7HibjabrFyh3Qh5V9voo-YQzeLMMau58B5rlYClO_E1enbWldZOvuqqezXa4QflJeE1et6B5Yxr6qrPtfTCFTFggdOnWU-Wv7yCM0tYacwiMsujQIpwlOGcgjaZL7QVI0Ljdb6D8YZnyN9KcSW5ayXVLB5h1KATDx26TwG0Dqe-L4QJk5ahAWx2MYS82o5OgoF7NxFhQBy02Ipv5687iMwlUgSwsD9oNDPLdc1R42wOIURUu5KerUXF7kJFjNCXUw2R_v0m== "LAYOUT_AS_SKETCH Sample")
 
 Additional styles and the footer text can be changed with SET_SKETCH_STYLE():
 
@@ -359,7 +359,7 @@ PNG does not support fallback fonts based on a PlantUML [bug](https://forum.plan
 
 ```plantuml
 @startuml LAYOUT_AS_SKETCH Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 SET_SKETCH_STYLE($bgColor="lightblue", $fontColor="darkblue", $warningColor="darkred", $footerWarning="Sketch", $footerText="Created for discussion")
 
@@ -384,11 +384,11 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 PNG with font `jlm_cmmi10`
 
-![LAYOUT_AS_SKETCH with custom style png Sample](https://www.plantuml.com/plantuml/png/VL9TQzim57tFhxZp2ad1JTQnfq6WcGajhCt2xBRqoSZoJQD57qQwMXR6_lkkcgJEO5jUP9rxFiv5kGeaF4MZ1s-KbJgs26kYBdoSJBpOZfyLhMCJ0thfBA6biNHcqcbXa-OYKAjLCoa-N2mJT7ztEp4Y47g6we8LGbdquoxv3yfvLPUVvrLnKvVLq-ryTDOy5quxFysqUbvJeoDcEPojM7V0Zz1MUAliaTqAl_7OxhcEqnxtusbMRf3akXzK-8EcMU5H4BQmSXvQ5MGCGJcRdGy6GrWkhc7BIq9AXM_QrD8OTVaEHhJhb1HQxq1OHslqUueA40EsvtzP9yqNmk0qwttsAUN3COKD6o4tBru1xaguPcybyy8P9Q4KDe4vz5V-NWkzQPpmBPJpusY14NEGqGVrdJy2Coy2UhKwBPuYNIJ8NdEupX3-r_nVZKuA_TddfCwnJLycRNyxU_foNzMpyf0vOco9FZWx4grHDeTibauLo0jodZNbBX2Q-fEBjXL-DvANEGnBOJgDmtFuEG3-lVwxHbjiQj5rxFE83SowJlFwb5wOeU9j3hDoELxCAvPuXFVZIxXxAD9ifhNRlZod3q0Ef3ETO8g9cXHdGRLLHEY1b47DMO6x_Jgq6z5-o3u7MbhsA-hZLdsj-y1AFc-gQbaoYqbzwTxc6Ydm5TEnyiwSIgxGjj7etm00 "LAYOUT_AS_SKETCH with custom style png Sample")
+![LAYOUT_AS_SKETCH with custom style png Sample](https://www.plantuml.com/plantuml/png/VLFRQjj047ttLqpLG1HGv2GK2WL3N64IQEAQhfAG9x6Inl7MUn6xexYczDyx6ryBRVMoqioPSyxiZAu3IK-zqODtoZQwRn4MH5tuD1nwkSfV52twkW_e6sS9BUMDCyDEInjhpWErMjN3uiFvB8OUxk-6hrVvn_o2GrN15L9Pz7aN-GTYKbRYowGiRYjHFjzDqfFwfN3Q-L6YrSk2QjrZai79dEksyLre9RrLTeTkfLzwR3TOH-YVDkbH8fP8pUAGAF47ZPB2eoHiOUuyj2eqVGZAsUHiC3Y5sVG6LjmaH5NuhatL6ACkBo2bTQSQgVKQf7MqGB-1g01y7UtPNzg9-QaqE4eEF1iLyRXJOS9QDiithW3t0cwOMpLPuOngG4WRWnaSFlbz8VMoTjAt82Qxr1HxpA3fVL2l_18OUSvJKlDZur7IzGJ9NeVji9l_EF-NeoD3V_evihDpSp0JkxyRFtzzAAkns6gc79kX3ywciZNAPf2Cuwa2UKdESurO1q9JVNQzvLclq-OoWrCXJQVnz0n-3e2V_NQbAwmhsNNCyuGrZBjES_iK9yoXudq6Op7BfvEIIpp2LNu9zuz5p8srTgktSVe0v81NkvCCCRqcnLfGyWNo5W4fWvgr0dlxjNMNqYR9F5jORFORwbrN1riFWIlvl2tBcM1K1Esp1veRv8sW5SPZxfqvBhb6s_9Fz1i= "LAYOUT_AS_SKETCH with custom style png Sample")
 
 SVG with fallback fonts MS Gothic,Comic Sans MS,Comic Sans,Chalkboard SE,Comic Neue,cursive,sans-serif
 
-![LAYOUT_AS_SKETCH with custom style svg Sample](https://www.plantuml.com/plantuml/svg/VP9lQzim4CRVvrFSl49TS9DrxDKWqCo45jPcONPR-ih8ygNHeZz6EYqBOzzz9vBK6MFB6rbtpptFxr2k0mbFqUZH6sMbZXt2cgWF7oSJBxRZ5qNhsCQ0NZfBQ6aidPdqMjWqSnceqwgTb1ykbwdqS7ytCI8GUYur9Ky8PT6F--G_gkPrKtsUr-LjKzNFT_Fyh7qfdNP-ccdrigPMHymAE5lntA5-B6s5jyeUrPtm6u_TNkiuxMdVdcRL1ackXqQDFsYQbHu5OGShvw5JGSOGbBFPnMXq3il53MnvIKYfy4sRHXgZhjv1JhjUIQ7r3eHrj4Q_bwW0CM1tmRD_BvGK2s5mcWrE-vpgyPZ3bgsG6qZQ0FSLtB2xaaNfZ99G2PkA1GnN_buBlMcTy1rd7biBZ5Y0Z3wex_mHM7aPqAlLANgAT94WUyrXdFzn_uld1ETFcXEO8yk0adQ_cpr_UQYRMNN8pBcsH1-SpKLdb2qWcwLJ1VA2d4-0kq1ecayksaxuNIwl2ZYlXEardb_0pn7mx_NVbM-nRKJViyyJjZ3hUytBKtfXBfLl2vXLo_5YNlE8HtW_leBxnpBrPbgxRNfEfW5o89tf1KjCrAGu2-gj8a8Ff0ngpWhCzkj0bzE-oJu7MLhsA-hZLWFMG-19Fc_hUbcnYaK3z61pWnJuYkbOUMTEHwxHTj7etm00 "LAYOUT_AS_SKETCH with custom style svg Sample")
+![LAYOUT_AS_SKETCH with custom style svg Sample](https://www.plantuml.com/plantuml/svg/VLFRQjj047ttLqpLW1LGv2GK2WL3N64SgEsQIad8arX9utZhlOZTKLnJ-k-TZQ-bj7fPQURCEMTsHdUUXADEgzuxQMhLDGWhejP_6WoSsAGlabPTrNbqjJM4XjBQwa6hX0arLvuQ9Qj1zk5g4K8Fi-dWzJRzc5vpgCouGaY3Bcq3VoyV5sN-PLnazsLUF4_7yKNrabbbtJ1IycL5bUemIk1YoNNx-26q4Sv8Sq0tmgqTDZki9NHFk_GmojT8zUgKAF073QFCeI1iO6aTDDBNdVVIckYor-l3OZw13JS9GHM-ArtMMikRQuXfsyfQABK5OIojqEqWqWDVHtF9jNyt511peN4OdPXsEldZGOSfAr6ltzWyp7AOCBkiayngMKCkJ0WcSFhazvLGwyeArx3c8JN73XEeE-VbAxzuHbxndEJot7gGj1r1TDHXE__p_Iy_PtR-T7Dcvk3bP2NqFXqzVtqeob6-rumvja3dhOb5ewL981g5KtfoWgmB1hUUK9UVRMTurjkulacWdmlTAknVmiyUy7FShdY3LIdQbdcUi89HsofkdiA4EPIzJs2KBzBvkE0IXt2Rti3iCGkvaL9sypPEvu4iy6gtWY6wKoHP2mg-FjuY8AbHiPPdRx_sxcBQ9Pbd3mlDVaDrwEfawy5p9P_tHR786HL0n-o9PeAy3xJ1S2oTrUSbTsWQ_eb-0m== "LAYOUT_AS_SKETCH with custom style svg Sample")
 
 All available (PNG) fonts can be displayed with
 
@@ -405,7 +405,7 @@ This can be enabled with `HIDE_STEREOTYPE()`.
 
 ```plantuml
 @startuml HIDE_STEREOTYPE Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 HIDE_STEREOTYPE()
 
@@ -420,7 +420,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![HIDE_STEREOTYPE Sample](https://www.plantuml.com/plantuml/png/JKzDQ-Cm4BtxLsYpXpYGs6JPqvxYTKrJQ5eJEoqz6TcUDW9z26c42QN_lIEQ9jLbqBoFUM_ZaJiCIYQ_X1va684T4Qt_b-UEJzcRm6FeWmSt68sWCHkCogtaEcfM7aSf-hpykwhZwh2xpnNt28vMNKaABZIup4R_P7jtKtLDM-shn_Qbhj95ajJWlD4f7vNGIpOhuXGU7KVZPekaEP6NwlwRe4VkJkcmNh9vmvMLC5-mzuJHkrn99-WxRYtvF4FF2ckb63WAesUqAdylMT7KsKFLaiG1-vEjsUwfZ5WXfPayYoqzGyEeekL4KK6Ye5kidGHIAOP2WQHRdh9zdDEb-0MIpvb6OB87-Ttg6klWIKbpsxPrGwn8kg1Ncrj0Jr-8uzKPzLEo0Jq69Jy1 "HIDE_STEREOTYPE Sample")
+![HIDE_STEREOTYPE Sample](https://www.plantuml.com/plantuml/png/JL1BIyD04BxdLwprq1JQn1P1yDHOWnMiXYPLF8LDCjg5VR4xCHJnlpkBrRgNWVcUiqkFt66lP7GcT2lx3jWUqVhhD7LyIDu5xlkcz-1Qen4q9grHgPLS1ytCOoT5awukPqLOxJOFwSSYkKekQ5MlIC651fVOu1-jxs_pkgpoRVvKlHPvF8cY0fmtEkQT4dhAHbcOmgFZQDne4fK7Zw3g6zFhZhj3tCwdR5noPIMC9-mpOlJ-Kk81cffRIpulqB3CMYbQZiBe4QrMvrEMbKNoc5SaSS0MoPnjdbS1owGqWsVXIi_GC3hHSgAeNgAWB5OD0X4SGw50KfQdRb_7TZ7-WEHpf14ORK7-NdMgjVEafBckgg8aLY3zeIUREq2gCK0ORywe_v8bw8u-yni= "HIDE_STEREOTYPE Sample")
 
 ## HIDE_PERSON_SPRITE(), SHOW_PERSON_SPRITE(?sprite), SHOW_PERSON_PORTRAIT() and SHOW_PERSON_OUTLINE()
 
@@ -436,20 +436,20 @@ With the macros `HIDE_PERSON_SPRITE()`, `SHOW_PERSON_SPRITE()` and `SHOW_PERSON_
 
 ```plantuml
 @startuml predefined sprites Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 Person(userA, "User A", "with predefined sprite person", "person")
 Person(userB, "User B", "with predefined sprite person2", "person2")
 @enduml
 ```
 
-![Predefined sprites Sample](https://www.plantuml.com/plantuml/png/XOxDIiKm48NtUOfuLrxmDY2kNFLdgr2GhYLjHXj89c5cGb_VH2m8BbpDOVZupkbPB4c9GMS21nyUmMdEv0LOlzcO0wWxZrie3lGkaldP6B97z-bbBsjXe2sX04gtfMXoiDXiDnON_6gcfzlSNilhYucM1QY-tgU4OciJTRcoIir0dF2-oOO7VLdgrSEbfgEM_1scypVVW9zq_QqOJyNuh-An4MUygXxGrK5V "Predefined sprites Sample")
+![Predefined sprites Sample](https://www.plantuml.com/plantuml/png/XOxD2i8m48JlVOhOau9Df0Y2f_vS5GhIiyHcjO4q3Sd6lhvRKHGyUDfXcFrcYe3IOnmCSnuKNBK5nOBp6Y6manoSWMIXRMUY0jOZkh0Nmik9tpJsyH83-6wq21PvDmx26MbdMXPG6NqHzJPhPgiz7iGzvpk-8UjSquUa9iyTPPEa0Hz6kvnXvPgbBLrMfgGcAlaTnjmpFmTUQlMDgDw8wYyY_p1oWXHW5Grw00== "Predefined sprites Sample")
 
 ### Using HIDE_PERSON_SPRITE()
 
 ```plantuml
 @startuml HIDE_PERSON_SPRITE Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 HIDE_PERSON_SPRITE()
 
@@ -464,13 +464,13 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![HIDE_PERSON_SPRITE Sample](https://www.plantuml.com/plantuml/png/PL1TgzD047tVNp7MXvj2Ry8LdtowCGPRi3KqgJw6JJBQXVrOTYU48lvtPsbj1VCoPCwPyx6laMIWsMZOxZxLVLCVsw-7lcsEkww6LXglKRnHTjJpX70cyl53KGIvv3yLdUTXZXX6PmajvQCpXTVI9hNdI9DMGr6zVsxIwhJ_KXWP2GEl-eelfB8OSizS8VwtpjP2D1YYivcSZB8RM9LfgaX1aWkhjMWlaT3q7zri9naksVYoWQThugSr_1B0tzqeMt3efVUiynq7ABtNQfIad5tngdgxWR9jyaFTyKb0U9U_mFvRbR1IQxT4I4KZa0DkwILJpAn9iHTqYoB20AGCQlQAdEttBLr6Lv1rRZG6nH7rtrQFMAU8CVbjkwvfcPL8T_GXynafyY-cyICuy-_9AzeflUSV "HIDE_PERSON_SPRITE Sample")
+![HIDE_PERSON_SPRITE Sample](https://www.plantuml.com/plantuml/png/PL1RIyCm57xFhuZpOHrihHk2uDDg7MxWPbaxVInf6rqWDv9Jon3_koTiRe9vEN2-wydS0tFGAKcNgyT5bI-snSkcAlBjgbpGWYahERaIkf5To-aUmFhx976iZpy4xBkwyzmrHWFN43T69LOo7Tmc7befwYIxdUHXjLi_9v-p-2w-mLMLeO89pLriaKl8_-XeH4ZEdJSwOgqIUam7QPZ2WsDWt614YeC7hge7q-cMkKFKJCTqU6my7D4lGl6TWwAUrnMp5dtUU4rJQwLe60YZ1xZAhiSqBV9uioXHuZYTnLEwViq2baffUa_3ePw2eNYbPKXHdGI1MRJi1G1t58JY4hCyTli-jOlW2ABFYOOWsNBvUzMbriwZ4kUoBFC2MO5qHYysJnomHi_3U7T6_PNCkMx3V_u0 "HIDE_PERSON_SPRITE Sample")
 
 ### Using SHOW_PERSON_SPRITE()
 
 ```plantuml
 @startuml SHOW_PERSON_SPRITE Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 /' Not needed because this is the default with sprite "person" '/
 SHOW_PERSON_SPRITE()
@@ -486,13 +486,13 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![SHOW_PERSON_SPRITE Sample](https://www.plantuml.com/plantuml/png/PL5DQzmm4BthLqpTWxsmiKdfgQUuPcaApSQidUPeP6lI5UX3I6DCAFtl7JLfjb1V1i-yz-QzqKqY6Mcr1eRR-yUfFvo6--CqzAUlum46QOD1yKwxnQmAuKmKqgUcYNAhVsWwh_EQC2xU4Jgg5s-ROAJBQbU9bD5pqtsywdFhuUvROsKYZDoQEcP8xJ3MWR52D2KSFO53LAXWnaMoBj1P9z29AuB29xaQWestGWfH4q8HC2Rl2YWRyR_vQYT4_mTGIMMrsqFHvgeJHKa-5ZinFBCXEttsgrCoFbVBzHxAbypb3duAuE_DQhNXFCaGMESHPsX3C7gHfDa0jxhtUsY7lZuUHgP4X0_rDTnzx_AiDSPl2VAf4f07lbEG3B4SIFCk63aLOGJI5WtlIkpjrwkxYbw6hFCAuw4ueVcRwcBh8J6Jw-quzWEZCkXjUf7vWfJu5tDvYjx-Ixb1f_AB_0O0 "SHOW_PERSON_SPRITE Sample")
+![SHOW_PERSON_SPRITE Sample](https://www.plantuml.com/plantuml/png/PL7lIyCm4FsUl-AS7zR1rkeG13-jZg62RcMjxcD9sviBf4b8hXOH_tUlEd-08N1mxzsxzv958EcfQpNajvjTcQss-MPTvjdshbX1BbkdKPmeK-kkGJWGkN2L95xsyREYGrTr0Nrj3Q6XkBPjuhGqWzeiKADLbImlPjdGUdouJrxcyMLyngrooHDI6VInOwuGoHZMbi0WDjX0XRLaNQ232i2N3WWDxcMd2NhU2i5vHGWZXpvOCu9n8lwRZoP2P9-4I3QjCbCOfKDLWRmawqSJaRy6mhQyjfrff7-DwlCfZByoZoVm9e3FZzMenwgKph7E3Yj8dTEgbgJO0BUMfrD8yonUhmeUyGZp-1mUdfO3bcfj-m33Kt4O2_nEJZAbvK2ATq71gGWza6fHywx0tjwFxYBw0bddI6DGR55_f_grzHXuakjjKMGvimRI3_ehSuF4DdeSojxRzk_80aqp_CW7 "SHOW_PERSON_SPRITE Sample")
 
 ### Using SHOW_PERSON_SPRITE(sprite)
 
 ```plantuml
 @startuml SHOW_PERSON_SPRITE(sprite) Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 !define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
 !include osaPuml/Common.puml
 !include osaPuml/User/all.puml
@@ -510,13 +510,13 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![SHOW_PERSON_SPRITE(sprite) Sample](https://www.plantuml.com/plantuml/png/ZL1DQzj04BthLspTGnIm9H9wwYckC4sXIOGbDqUnbYRnmduiCxCOK_hVEzieTkcfkYmpx-EzqHsnHaxE5X-C7ssQG1sO8tskQzJ7wjNm8UqJ0Ox1CtYknk3gQBNFcXNnPCs-RZwjshpQFNoldIO6bDNGY48R3rZ5F_uJlCYa0kbMvl-8QL3J0IPd_5I_-wz214ym9ZHyqZWU3CF82U5sPKHBS_xbcZckRe9pmSzL_WLtabnhQz_Wehj_UXxQpRPxUXowTlkjtvGBeGwvuF2A07uuHo-kYw85fE1BdQikrMATNqECcWCAtfs8mGrVGlAJnbCvtYpLLQTTj71rhNuMIhxppogFi1zqZEBp37krZj6QKRC9VY6hvkDIhRksUjpq8a5GjzMDUlZHP6njRJYIoYL9SL1ZS54BnINBHh9KVpJCW8gD0ojP9Dr-pUrAVWF5PwRbmxPWtw-wrDeHKCwxx_ks4rOcdT6BpLTWaX7oyuB1_Isv0pybPty3 "SHOW_PERSON_SPRITE(sprite)")
+![SHOW_PERSON_SPRITE(sprite) Sample](https://www.plantuml.com/plantuml/png/ZL1DIyD04BtdLwprq1JQh1P1y6GDnGf-X2RgCMoJqIxi5xiJGn7_kxFsIpovbs7dlNdlpLm751uxhP8JQHhLjS3MY2vSSUv5dxrBN7UhBe1lh44mc3LMSwU4YJEJWAsIAvvVJ8hOUdwuvn_Jx38xerQTquIG1dpcVlHRUACViq4KzF-7JUv5M4EhfMdvNdzY7PW0JUSbReHlrXAXmSx3T29fDd0j0e8_RhEpuxdLsffTbB_WCpbpeTGMJih5qsjTp9VbqsDT5ikxQfuEY5h7WFMx1p3rmNemIf82VB0c5J7gc0rciSg0Ng3rX9SRYgJh6zkPLlXDsfoFsR0KsYaOZjXdmkWTZfNsiAg5SwJp2YisSqx9Hg2qPa2j_7JCPcMHFSuh6l70fjavUtZ98pPJolQ1nP21eMLqGYU8eZk5ahnOrKkasp2K6XHv1ShsjKkNuXOadHqjBhO4jT_g68kE5QBVeggAabYHT42FChU05AE7MDwyrRz7hi6qTEbl "SHOW_PERSON_SPRITE(sprite)")
 
 ### Using SHOW_PERSON_PORTRAIT()
 
 ```plantuml
 @startuml SHOW_PERSON_PORTRAIT() Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 SHOW_PERSON_PORTRAIT()
 
@@ -534,7 +534,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![SHOW_PERSON_PORTRAIT() Sample](https://www.plantuml.com/plantuml/png/RL1BQzj04BxhLqpTGcHm919wAXIYcj0KcbXOIdCKAsbYB-nZsPd5cDB_tbcKHm_LGRixyptccnjY5JbP0ztTxcbeR_VTxc5eT_j-t_peopLqoWQ3nGVj9fDcX2Dpe2zr7TMfEcW-fZ4HniaxHiVLv6qTZ79PyP9uDdgijvylsrnwlFzPMqMCKKh3LXXAEunL46nH_D--A5gCv5sfPglT1bPDFZLnLEpZQbrqPsAqmpUVtApYkPokDd2np7onXjy5oFTcLPvm75G8elE48pGX63qfrjwjfBJzk86cQwk7srue4U6wkeBxNzlSQupn9u8SbO0zICwW16AJOIrUq9yqCqPWRT685ybiVrwcAtbfYiuBJ9h51UXdK10mvmDDMNCKvWo2EKg7GjICm4Tq-GSH9rRk86P6dNtYp4aaU7MGTA-BMlJ4QdalOekK1FcqtBwk5jXr7cIFvdMzx_jv9AGS_AxlsqvG6VJMVS_p7PdaYVbuZjx-Ixb1DoTh_W80 "SHOW_PERSON_PORTRAIT()")
+![SHOW_PERSON_PORTRAIT() Sample](https://www.plantuml.com/plantuml/png/RL5DIyGm4BttLuohi5rOMrq4GH2iYwYWRjbMFPQq7NS3QHAIgMKH_xiJwzV173hfp9ltvaqkF0b7VQUWk5azL_dLkbWzLFbgNQwpspAUGI4wgp3QaxfHVOkm9RB-B4sT69ADf6rVznvTOpIXfgGnNMgLq87nq5EhP9qkJmxpa7gylqjV5ybfSiIfQiaTGcfqYMLi5Fql7qKvEczqBDfEwZbCiX2b9oV8kCaiAdQUiAikJQzRuNPnSpo7wJZpT0Pl4V3vaOe7h2jXBVCyOmsPjKesWgJH4qujz-UG5NdoS5LoYqDO9CTm_xGCjKmfCtW8LZsG0VPf1KEwNf5aBIW7IOGEI7QeMClpREzVqyKq5fdd2yR5Q0ho1GJOJtyWVU2ikRC5ncovugsJX41RrE433XiIUiDYIknCJw671sf1RDZTzw96FfOQ_qUoaOgD78otyya8MuH1rgY-r_kxdqVF5ZZUb6LUC2g0Vgg_VgwHU1y3Xl3YJFUtvG9roq_x0G== "SHOW_PERSON_PORTRAIT()")
 
 ### Using SHOW_PERSON_OUTLINE()
 
@@ -542,7 +542,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ```plantuml
 @startuml SHOW_PERSON_OUTLINE() Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Container.puml
 
 SHOW_PERSON_OUTLINE()
 
@@ -560,7 +560,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![SHOW_PERSON_OUTLINE() Sample](https://www.plantuml.com/plantuml/png/RL5BQzj04BxhLqpTWcLm919wAXJY6jCK4bj4SdCK8sbYB-nZsHqXJEb_xopAeuVeeDNEV8_vHhUHCV1eDDHtXwUssZtMXtrxE3Rtl_QxV0Kr6gyf-wHihyU1uCpiuxUo33WL9yNdiHiZXTvP9ij5xqpfDTeaU1LvqAehjr-lgbGwFjoN1YDJa5Ax5GOgIw7mWiso3zsphA8GdSrnCCgkOR59fueSa5rOhBBw8dgc_U56Es2uvFtr6fRpoCiL_Cb0dZUdVAAkHUz5vuaws7YlLO-id5r8QVjv3PkwAlQxHYY1uAQuXeVVszJRQEsc22bf17OWCJqAn8oQbNX1CocMOC3Aa1QlABFzVPakvxafEYymQMPBKC-0u2db0nMJPYVC0GHpbaxqGJ41dycc5mJg6Ur9p3HUtCY9CqR1uqdIlIvgrXEh-JwBpL8IvClyzNqnmsxI88-aNzVxlfzZb0XotZLDLGigWTwwxtb-4aUvKZgUWpF_Ksx93kdF_WC0 "SHOW_PERSON_OUTLINE()")
+![SHOW_PERSON_OUTLINE() Sample](https://www.plantuml.com/plantuml/png/RL7VIyCm47xlNt5EOHtCLeSW289p31LqAxRJnvAsvnP8av1SBKFytxrOVpsOXrvwzztttNUvyYGSTQs2_7RzN6RBntozAjURulvkjOmda8lMAemEfAvLro3iYAo_I5Cd-cGhQTTLdKTN6qseAQbDcrebT20yzjGeMQMBi-Cif3OFz-dhB3bFJZXLBhX3I8qkiOoDed_LeoX3vusEHTDAFONHF4JfoGaoRZI9yhqdRCjhq-b6k7rSdqvXF8mydi1R17n-bE8Ugr9OoppFMC7SMYLhGTBe4QSMXrEOvrcoMXRSuX1coIayF2r2RQwKwJq4fnx80DkqWY5jfqYo5XIz948795jKhELvjlUlwM8QYipp1UDYD0Rv0WBifp-GFd1MtDa0OtPSyTP9Gg0Twl01XpK9lMKn9VQcez330pKWjkpkUr437qiD_mFPGCL6ZeRRvMY0pS8WZwY-r_kxdurd2nnlYoBB6HL0FzLVFpT8l8yUGtXnfltRSeMw2I_x0G== "SHOW_PERSON_OUTLINE()")
 
 ## (C4 styled) Sequence diagram specific layout options
 
@@ -574,7 +574,7 @@ show is defined with `$show=true` and hide is defined with `$show=false`
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Sequence.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Sequence.puml
 
 SHOW_ELEMENT_DESCRIPTIONS()
 
@@ -590,13 +590,13 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![SHOW_ELEMENT_DESCRIPTIONS() Sample](https://www.plantuml.com/plantuml/png/LL1DRzD04BtxLmpX44TARHLnujHWB5gfIQtQfKThx9qsA-t7iZihgqByTtOX8U3Boc_Unvkv2OoUerR5Esbc5GN1aTc5JtNjSQbU9H_Z50FvsHecmzLiTUqKcgov2YoKdEhcurMNeQVzVQqnCFa4ZJrzZsHcgbosB_hRX-UnlM_txM4OlxHzytZN3NSFXxxS54L7FbXJej3IR66rowyCx96jNoMW8-iK0H-H0Iz32WaYSDwAE7DOROh-BSNhyREDHg1_A-VhBQnxr4cztXIGliOQHcd8bmjD8pgNx9zfWfrpIix8qfgSsBpVmgxlgaCx98ad-51Tm_vRasSxfUmI89yb05kOhNQOA3egbhddi4Xcyi1IaqfPkTaQf064SBeA28cl7ZMSguwj4UK6ZlZRSg9iBv8cCA40-mBm0tuM_xDFwvRy9ozLEoMdlEAHrFcWbqsV0eMymkqmT7rYPTBVwSNcAt58lvIV5s_rlv8RCY9gzGi0 "SHOW_ELEMENT_DESCRIPTIONS() Sample")
+![SHOW_ELEMENT_DESCRIPTIONS() Sample](https://www.plantuml.com/plantuml/png/LL5BJzj04BxxLqp38OuKx88gLUg9rBK0YGGBctAqrjw1hBIlxewn4Ef_xsmR6jZBI3FpFURRYqWYq6HqzadPKKyIOK_auxUo368kdXJjfs6A64Pd2IqLepEbry8cp6aagTLGLbzEczIwtzwKp-V5r-8pj_eMVqreHonyei_Qgzk7lhwfj_Mkwt_KRNLttNJNjxisNsLPWo4wcmjfb5t3OfEgYXG4kR3WHeFEQmJQ2m9n76Ba5e8FJauZnSKgQryYeUc_kybA4LxoyMmDorOOHYzN6V2h-12XB8Pyng4NtZFz0mwmyLwhKP1oDYbM9slOj4sngpk618JpuWosFwiqssZjvWWf5ZRWW3FnWbVCf4abdzsiY300AOEQjPAp9IWB0k8X5P1AF0LXuCrgNrkPhs0l_b8EcEWbO_WU8S4z0hp2x-pZzk7SdFxfiRM3CkjbTwZV0ZrUUX_P3DUhhcjQtafB_wT7caiajZ5ZAe_1cVUG2xIIV_GF "SHOW_ELEMENT_DESCRIPTIONS() Sample")
 
 ### SHOW_FOOT_BOXES(?show)
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Sequence.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Sequence.puml
 
 SHOW_FOOT_BOXES()
 
@@ -612,13 +612,13 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![SHOW_FOOT_BOXES() Sample](https://www.plantuml.com/plantuml/png/LL1DRzD04BtlhnZ28OwKsYhYnAbf5EY1aWYxb9irzawRbVPZsPrLL27-ExEY8U3Bo3FluxszoOo9YxFgZV6pBPhWo1ppXwvBU6gV3H_BL3AbENWcp-qSN1Sj-igvogojcRhj-wj3NJtSV-uSPgOagx6d7uNyJ6siygg_sp-E7_VxORpTVz_rpKgf0wKSV8FQ6R-6nQPEapaXXxHOgVv5fDnu6uhNc5wQ-NeDonvTjBHSAP1lAw7GU4hDYQOHOnILHvfW4wCrCx89VY6hxTirRFf3-sKt22KHl6kluVxRjjusrePJXben0mUGVX45uefb8qumd0nB8s3Zo8fNbcHBC1uGycj3q0QV4peuHnrtNZShE6ALX8cgl1QEz44DuGdW9_nI_w7FTHl-uoVHNft5JtqbUtwcIzE7B65atWt3eHTK1VszNcG-4MVvfJgUKd3_Kcx8w-BiRm00 "SHOW_FOOT_BOXES() Sample")
+![SHOW_FOOT_BOXES() Sample](https://www.plantuml.com/plantuml/png/LL79JiCm4BtdAuPoQ2gL110I4YTALU00j28fS8kSUA2Ml65FY13Ytnb3sNmPQVnM-pII2DGRdUqes-bU8co8V3mfoo26uadHfc_xYA5pbj1IqJbJUYriukn5abgrvVneRvLMw-khykMmE2xsUTLK-DoZxR3mIJwhBfVtpVboMJTdouT5bK-oR8KXEfiBQPITmcYMfeeK1BamccJLQoGqpPdhhHJXDUyEfZ2kXF4QnvCC-Cmvb50MGpvWsmZlMUKUMvXvhrKdI3axujLyTmgpQbNSB6gc18J3uW2kx-RfRgQr6oAaYX780VVpWY6crwJO2Uf14M40KWOrUqLEDWPbGK3SDWIfn5CG1hwZDWihymbinATaYqbUCeVx20dk4U0DthF_w6tTdBxyEDhMcVsoMzJVp_JRT1qv3C_BkbvLZ4gWdzjVcGiaZZ5W6e_1cR-KKxIIV-S3 "SHOW_FOOT_BOXES() Sample")
 
 ### SHOW_INDEX(?show)
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Sequence.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.7.0/C4_Sequence.puml
 
 SHOW_INDEX()
 
@@ -634,5 +634,5 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-![SHOW_INDEX() Sample](https://www.plantuml.com/plantuml/png/LL1DRzD04BtlhnZ28OwKsYhYnAaXH1I9bWYxb9irzawRbVPZsPsLLI7-ExEYeU3Bo3Fluxszoeo9YxFgbV6pBPhWn1ppkwvBkBIFXazbAfdI73oJvtOEheiMVULSPDRMJDt-xSMnhkvkFdSECrEIrTZJZq9-fZPMUTLVVxaVFzr-E7nlDaeTAUNW6zJE-2siTdMQp0avfDL6zK-YuiRteNYDwQcPBxUmxj55I-kD0ldsaWUDfzGiD8qOewZSqmIx6AsPaKtmArdjNszXrn_RsyCWb4Jmfhs4cs_xUjjP6vOCjLq63Y3L8Wh45Sj6d61O34iPOEF8YbUMP6im7X3oSpdG1XyJEZX77GzUDniuOPM4YQgy5exqGGtX0U0d_5B_eSzr6_xZ9z6UdSLFVILxVgQNfdTPmiYy7ePZBwWA-djzaVb8dEMNwdX8mVrBkIAlYxE_0G00 "SHOW_INDEX() Sample")
+![SHOW_INDEX() Sample](https://www.plantuml.com/plantuml/png/LL5PImCn47xVNp7MXswXtLKH19-ijQZWKTnwl2tPpTG6SfdCkeZutvrewv6NWSbt9YUHHA3Ew6n7sLPt4c5DvEDnMGRH5y-ArbtJHGojiuIMYjQPqcjX4sSIIMhLbBF3oIAjxg-lojU3ugZOurLTuKk7jiN29_cikhXzh2zlpkPF-IZB5XYYixcGHjan3APfgaX1a0k3KLQzHK9JdxhEIX7UydP_3CDA6AznECg0pupp26Knv3qsjV2ULHwnWQdtMhM2bBC3Nirsnp2j5iNDVCcKW71GxCFrmopTJRLsVOJKBW8vu6fUCCHqcXGxmR9NH1Y0b47DNf6J3K5P410tvK0gyHo4WMtKUcvbFeAr-99iCCbBvd0V8S6j0DxX8_kFtjJDwTkFessSsI-xGxrzfj-czv73yBnOBXSLenBev_PNvXo9O_IOnYeuyvToWbRontm2 "SHOW_INDEX() Sample")
 

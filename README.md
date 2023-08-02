@@ -30,7 +30,7 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
     - [Including the C4-PlantUML library](#including-the-c4-plantuml-library)
     - [Now let's create a C4 Container diagram](#now-lets-create-a-c4-container-diagram)
   - [Supported Diagram Types](#supported-diagram-types)
-    - [System Context & System Landscape diagrams](#system-context-system-landscape-diagrams)
+    - [System Context & System Landscape diagrams](#system-context--system-landscape-diagrams)
     - [Container diagram](#container-diagram)
     - [Component diagram](#component-diagram)
     - [Dynamic diagram](#dynamic-diagram)

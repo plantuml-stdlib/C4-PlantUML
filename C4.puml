@@ -4,7 +4,7 @@
 ' ##################################
 !function C4Version()
   ' 2 spaces and ' are used as unique marker, that the release scripts makes the correct version update
-  !$c4Version  =  "2.8.0beta1"
+  !$c4Version  =  "2.8.0beta2"
   !return $c4Version
 !end function
 
@@ -53,11 +53,17 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 !$LEGEND_DOTTED_LINE ?= "dotted"
 !$LEGEND_DASHED_LINE ?= "dashed"
 !$LEGEND_BOLD_LINE ?= "bold"
+!$LEGEND_SOLID_LINE ?= "solid"
+
 !$LEGEND_BOUNDARY ?= "boundary"
-!$LEGEND_DASHED_BOUNDARY ?= "dashed"
-' ignore transparent atm, that the legend is smaller
-'$LEGEND_DASHED_TRANSPARENT_BOUNDARY ?= "dashed, transparent"
-!$LEGEND_DASHED_TRANSPARENT_BOUNDARY ?= "dashed"
+' ignore (boundary) transparent atm, that the legend is smaller
+' !$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= "transparent, "
+!$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= ""
+' (boundary) dashed should not be ignored atm
+!$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= "dashed, "
+' !$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= ""
+
+!$LEGEND_THICKNESS ?= "thickness"
 
 !$SKETCH_FOOTER_WARNING ?= "Warning:"
 !$SKETCH_FOOTER_TEXT ?= "Created for discussion, needs to be validated"
@@ -100,7 +106,9 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 
 !global $DOTTED_LINE = "dotted"
 !global $DASHED_LINE = "dashed"
-!global $BOLD_LINE = "bold"
+!global $BOLD_LINE ?= "bold"
+' solid is not defined in plantUML, but works as reset of all other styles too
+!global $SOLID_LINE ?= "solid"
 
 !global $LEGEND_DETAILS_NONE = "none"
 !global $LEGEND_DETAILS_NORMAL = "normal"
@@ -314,7 +322,7 @@ skinparam package {
   !return ""
 !endfunction
 
-!function $elementTagSkinparams($element, $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+!function $elementTagSkinparams($element, $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $borderStyle, $borderThickness)
   !$elementSkin = "skinparam " + $element + "<<" + $tagStereo + ">> {" + %newline()
   !if ($fontColor != "")
     !if (%strpos($tagStereo, "boundary") < 0)
@@ -344,22 +352,28 @@ skinparam package {
       !$elementSkin = $elementSkin + "    DiagonalCorner " + $EIGHT_SIDED_SIZE+ %newline()
     !endif
   !endif
+  !if ($borderStyle != "")
+    !$elementSkin = $elementSkin + "    BorderStyle " + $borderStyle + %newline()
+  !endif
+  !if ($borderThickness != "")
+    !$elementSkin = $elementSkin + "    BorderThickness " + $borderThickness + %newline()
+  !endif
   !$elementSkin = $elementSkin + "}" + %newline()
   !return $elementSkin
 !endfunction
 
-!unquoted procedure $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+!unquoted procedure $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $borderStyle, $borderThickness)
   ' only rectangle supports shape(d corners)
-  !$tagSkin = $elementTagSkinparams("rectangle", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
-  !$tagSkin = $tagSkin + $elementTagSkinparams("database", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
-  !$tagSkin = $tagSkin + $elementTagSkinparams("queue", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
+  !$tagSkin = $elementTagSkinparams("rectangle", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $borderStyle, $borderThickness)
+  !$tagSkin = $tagSkin + $elementTagSkinparams("database", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+  !$tagSkin = $tagSkin + $elementTagSkinparams("queue", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
   ' plantuml.jar bug - actor have to be after person
-  !$tagSkin = $tagSkin + $elementTagSkinparams("person", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
+  !$tagSkin = $tagSkin + $elementTagSkinparams("person", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
   ' actor has style awesome, therefore $fontColor is ignored and text uses $bgColor too
-  !$tagSkin = $tagSkin + $elementTagSkinparams("actor", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "")
+  !$tagSkin = $tagSkin + $elementTagSkinparams("actor", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
   ' sequence requires participant
-  !$tagSkin = $tagSkin + $elementTagSkinparams("participant", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
-  !$tagSkin = $tagSkin + $elementTagSkinparams("sequencebox", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "")
+  !$tagSkin = $tagSkin + $elementTagSkinparams("participant", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+  !$tagSkin = $tagSkin + $elementTagSkinparams("sequencebox", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
   !if (%strpos($tagStereo, "boundary") >= 0 && $bgColor != "")
     !$tagSkin = $tagSkin + "skinparam package<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
     !$tagSkin = $tagSkin + "skinparam rectangle<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
@@ -447,7 +461,7 @@ $elementSkin
   !return "1"
 !endfunction
 
-!function $tagLegendMask($bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite)
+!function $tagLegendMask($bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $borderStyle, $borderThickness)
   !$mask = ""
   !$mask = $addMaskFlag($mask, $bgColor)
   !$mask = $addMaskFlag($mask, $fontColor)
@@ -455,11 +469,13 @@ $elementSkin
   !$mask = $addMaskFlag($mask, $shadowing)
   !$mask = $addMaskFlag($mask, $shape)
   !$mask = $addMaskFlag($mask, $sprite)
+  !$mask = $addMaskFlag($mask, $borderStyle)
+  !$mask = $addMaskFlag($mask, $borderThickness)
   !return $mask
 !endfunction
 
 !function $resetMask()
-  !return "000000"
+  !return "00000000"
 !endfunction
 
 !function $combineMasks($mask1, $mask2)
@@ -470,6 +486,8 @@ $elementSkin
   !$mask = $mask + $orFlags(%substr($mask1, 3, 1), %substr($mask2, 3, 1))
   !$mask = $mask + $orFlags(%substr($mask1, 4, 1), %substr($mask2, 4, 1))
   !$mask = $mask + $orFlags(%substr($mask1, 5, 1), %substr($mask2, 5, 1))
+  !$mask = $mask + $orFlags(%substr($mask1, 6, 1), %substr($mask2, 6, 1))
+  !$mask = $mask + $orFlags(%substr($mask1, 7, 1), %substr($mask2, 7, 1))
   !return $mask
 !endfunction
 
@@ -511,7 +529,7 @@ $elementSkin
   !return $formatted
 !endfunction
 
-!function $setTagLegendVariables($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
+!function $setTagLegendVariables($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite, $borderStyle, $borderThickness)
   !$bg = $bgColor
   !$fo = $fontColor
   !$bo = $borderColor
@@ -560,31 +578,28 @@ $elementSkin
   !if ($legendSprite != "")
     !$tagEntry = $tagEntry + $getSprite($legendSprite) + " "
   !endif
+
+  !$isBoundary = 0
   !if ($legendText == "")
-    !if ($tagStereo == "boundary")
-      ' #00000000 is transparent
-      !if ($bgColor == "#00000000" || %lower($bgColor) == "transparent")
+    !if (%strpos($tagStereo, "boundary") >= 0)
+      !if ($tagStereo == "boundary")
+        !$isBoundary = 1
         !$tagEntry = $tagEntry + " " + $LEGEND_BOUNDARY + " "
-        !$tagDetails = $tagDetails + $LEGEND_DASHED_TRANSPARENT_BOUNDARY + ", "
       !else
-        !$tagEntry = $tagEntry + " " + $LEGEND_BOUNDARY + " "
-        !$tagDetails = $tagDetails + $LEGEND_DASHED_BOUNDARY + ", "
-      !endif
-    !elseif (%strpos($tagStereo, "boundary") >= 0)
-      ' if contains/ends with _boundary remove _boundary and add "boundary (dashed)"
-      !$pos = %strpos($tagStereo, "_boundary")
-      !if ($pos > 0)
-        !$tagEntry = $tagEntry + " " + %substr($tagStereo, 0 ,$pos)
-        !if ($bgColor == "#00000000" || %lower($bgColor) == "transparent")
-          !$tagEntry = $tagEntry + " " + $LEGEND_BOUNDARY + " "
-          !$tagDetails = $tagDetails + $LEGEND_DASHED_TRANSPARENT_BOUNDARY + ", "
-        !else
-          !$tagEntry = $tagEntry + " " + $LEGEND_BOUNDARY + " "
-          !$tagDetails = $tagDetails + $LEGEND_DASHED_BOUNDARY + ", "
+        ' if contains/ends with _boundary remove _boundary and add "boundary (dashed)"
+        !$pos = %strpos($tagStereo, "_boundary")
+        !if ($pos > 0)
+          !$isBoundary = 1
+          !$tagEntry = $tagEntry + " " + %substr($tagStereo, 0 ,$pos) + " " +$LEGEND_BOUNDARY + " "
         !endif
       !endif
-    !else
+    !endif
+    !if ($isBoundary == 0)
       !$tagEntry = $tagEntry + " " + $tagStereo + " "
+    !endif
+
+    !if ($isBoundary == 1 && ($bgColor == "#00000000" || %lower($bgColor) == "transparent"))
+       !$tagDetails = $tagDetails + $LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA
     !endif
     !if ($shadowing == "true")
       !$tagDetails = $tagDetails + $LEGEND_SHADOW_TEXT + ", "
@@ -607,6 +622,26 @@ $elementSkin
       !if ($bgColor == "")
         !$tagDetails = $tagDetails + $LEGEND_NO_BG_TEXT + ", "
       !endif
+    !endif
+    !if ($borderStyle != "")
+      !if ($borderStyle == $DOTTED_LINE)
+        !$tagDetails = $tagDetails + $LEGEND_DOTTED_LINE + ", "
+      !elseif ($borderStyle == $DASHED_LINE)
+        !if ($isBoundary == 1)
+          !$tagDetails = $tagDetails + $LEGEND_BOUNDARY_DASHED_INCL_COMA
+        !else
+          !$tagDetails = $tagDetails + $LEGEND_DASHED_LINE + ", "
+        !endif
+      !elseif ($borderStyle == $BOLD_LINE)
+        !$tagDetails = $tagDetails + $LEGEND_BOLD_LINE + ", "
+      !elseif ($borderStyle == $SOLID_LINE)
+        !$tagDetails = $tagDetails + $LEGEND_SOLID_LINE + ", "
+      !else
+        !$tagDetails = $tagDetails + $lineStyle + ", "
+      !endif
+    !endif
+    !if ($borderThickness != "")
+      !$tagDetails = $tagDetails + $LEGEND_THICKNESS + " " + $borderThickness + ", "
     !endif
     !if ($tagDetails=="(" || $tagDetails=="(, ")
       !$tagDetails = "</size>"
@@ -684,7 +719,7 @@ $elementSkin
       !endif
     !endif
     !if ($lineThickness != "")
-      !$tagDetails = $tagDetails + "thickness " + $lineThickness + ") "
+      !$tagDetails = $tagDetails + $LEGEND_THICKNESS + " " + $lineThickness + ", "
     !endif
     !if ($tagDetails=="(")
       !$tagDetails = "</size>"
@@ -715,14 +750,14 @@ $elementSkin
   !return $tagEntry
 !endfunction
 
-!unquoted procedure $addTagToLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $legendText="", $legendSprite="")
+!unquoted procedure $addTagToLegend($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $legendText="", $legendSprite="", $borderStyle="", $borderThickness="")
 '' if a combined element tag is defined (e.g. "v1.0&v1.1") then it is typically a merged color,
 '' like a new $fontColor="#fdae61" therefore it should be added to the legend
 '' and the & combined tags will be not removed
 '  !if (%strpos($tagStereo, "&") < 0)
-  !$dummyAlreadyVariables = $setTagLegendVariables($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
+  !$dummyAlreadyVariables = $setTagLegendVariables($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite, $borderStyle, $borderThickness)
   !$tagCustomLegend = $tagCustomLegend + $tagStereo + "\n"
-  !$tagMask = $tagLegendMask( $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite)
+  !$tagMask = $tagLegendMask( $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $borderStyle, $borderThickness)
 %set_variable_value("$" + $tagStereo + "LegendMask", $tagMask)
 '  !endif
 !endprocedure
@@ -788,9 +823,13 @@ $line
 !return $BOLD_LINE
 !endfunction
 
+!function SolidLine()
+!return $SOLID_LINE
+!endfunction
+
 ' used by new defined tags
-!unquoted procedure AddElementTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
-$defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+!unquoted procedure AddElementTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="", $borderStyle="", $borderThickness="")
+$defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $borderStyle, $borderThickness)
   !if ($sprite!="")
 %set_variable_value("$" + $tagStereo + "ElementTagSprite", $sprite)
     !if ($legendSprite == "")
@@ -800,10 +839,10 @@ $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $s
   !if ($techn != "")
 %set_variable_value("$" + $tagStereo + "ElementTagTechn", $techn)
   !endif
-$addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
+$addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite, $borderStyle, $borderThickness)
 !endprocedure
 
-!unquoted procedure $addElementTagInclReuse($elementName, $tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
+!unquoted procedure $addElementTagInclReuse($elementName, $tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="", $borderStyle="", $borderThickness="")
   !$bgColor=$restoreEmpty($elementName, "bgColor", $bgColor, %false())
   !$fontColor=$restoreEmpty($elementName, "fontColor", $fontColor, %false())
   !$borderColor=$restoreEmpty($elementName, "borderColor", $borderColor, %false())
@@ -814,8 +853,10 @@ $addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $sha
   ' new style should has its own legend text
   ' !$legendText=$restoreEmpty($elementName, "legendText", $legendText, %false())
   !$legendSprite=$restoreEmpty($elementName, "legendSprite", $legendSprite, %false())
+  !$borderStyle=$restoreEmpty($elementName, "borderStyle", $borderStyle, %false())
+  !$borderThickness=$restoreEmpty($elementName, "borderThickness", $borderThickness, %false())
 
-  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $techn, $legendText, $legendSprite)
+  AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $techn, $legendText, $legendSprite, $borderStyle, $borderThickness)
 !endprocedure
 
 ' used by new defined rel tags
@@ -835,7 +876,7 @@ $addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, 
 !endprocedure
 
 ' update the style of existing elements like person, ...
-!unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="")
+!unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="", $borderStyle="", $borderThickness="")
 !$bgColor=$restoreEmpty($elementName, "bgColor", $bgColor, %true())
 !$fontColor=$restoreEmpty($elementName, "fontColor", $fontColor, %true())
 !$borderColor=$restoreEmpty($elementName, "borderColor", $borderColor, %true())
@@ -845,7 +886,10 @@ $addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, 
 !$techn=$restoreEmpty($elementName, "techn", $techn, %true())
 !$legendText=$restoreEmpty($elementName, "legendText", $legendText, %true())
 !$legendSprite=$restoreEmpty($elementName, "legendSprite", $legendSprite, %true())
-$defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape)
+!$borderStyle=$restoreEmpty($elementName, "borderStyle", $borderStyle, %true())
+!$borderThickness=$restoreEmpty($elementName, "borderThickness", $borderThickness, %true())
+
+$defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $borderStyle, $borderThickness)
   !if ($sprite != "")
 %set_variable_value("$" + $elementName + "ElementTagSprite", $sprite)
     !if ($legendSprite == "")
@@ -855,9 +899,9 @@ $defineSkinparams($elementName, $bgColor, $fontColor, $borderColor, $shadowing, 
   !if ($techn != "")
 %set_variable_value("$" + $elementName + "ElementTagTechn", $techn)
   !endif
-  !$dummyAlreadyVariables = $setTagLegendVariables($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite)
+  !$dummyAlreadyVariables = $setTagLegendVariables($elementName, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $legendText, $legendSprite, $borderStyle, $borderThickness)
   ' default tags sets at least bgColor and fontColor
-  !$tagMask = $tagLegendMask("CHANGED", "CHANGED", $borderColor, $shadowing, $shape, $sprite)
+  !$tagMask = $tagLegendMask("CHANGED", "CHANGED", $borderColor, $shadowing, $shape, $sprite, $borderStyle, $borderThickness)
 %set_variable_value("$" + $elementName + "LegendMask", $tagMask)
 !endprocedure
 
@@ -1237,22 +1281,22 @@ $getLegendArea($alias, $hideStereotype, $details)
 ' Boundaries
 ' ##################################
 
-!unquoted procedure UpdateBoundaryStyle($elementName="", $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $type="", $legendText="")
+!unquoted procedure UpdateBoundaryStyle($elementName="", $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $type="", $legendText="", $borderStyle="", $borderThickness="")
   !if ($elementName != "")
     !$elementBoundary = $elementName + '_boundary'
-    UpdateElementStyle($elementBoundary, $bgColor, $fontColor, $borderColor, $shadowing, $shape, "", $type, $legendText, "")
+    UpdateElementStyle($elementBoundary, $bgColor, $fontColor, $borderColor, $shadowing, $shape, "", $type, $legendText, "", $borderStyle, $borderThickness)
   !else
-    UpdateElementStyle("boundary", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "", $type, $legendText, "")
+    UpdateElementStyle("boundary", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "", $type, $legendText, "", $borderStyle, $borderThickness)
     ' simulate color inheritance
-    UpdateBoundaryStyle("enterprise", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "Enterprise", "")
-    UpdateBoundaryStyle("system", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "System", "")
-    UpdateBoundaryStyle("container", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "Container", "")
+    UpdateBoundaryStyle("enterprise", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "Enterprise", "", $borderStyle, $borderThickness)
+    UpdateBoundaryStyle("system", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "System", "", $borderStyle, $borderThickness)
+    UpdateBoundaryStyle("container", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "Container", "", $borderStyle, $borderThickness)
   !endif
 !endprocedure
 
-!unquoted procedure AddBoundaryTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $type="", $legendText="")
+!unquoted procedure AddBoundaryTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $type="", $legendText="", $borderStyle="", $borderThickness="")
     !$tagBoundary = $tagStereo + '_boundary'
-    AddElementTag($tagBoundary, $bgColor, $fontColor, $borderColor, $shadowing, $shape, "", $type, $legendText, "")
+    AddElementTag($tagBoundary, $bgColor, $fontColor, $borderColor, $shadowing, $shape, "", $type, $legendText, "", $borderStyle, $borderThickness)
 !endprocedure
 
 ' add _boundary to all tags that short tag version can be used
@@ -1291,7 +1335,7 @@ rectangle "$getBoundary($label, $type)" $toStereos("boundary", $boundaryTags) as
 !endprocedure
 
 ' Boundary Styling
-UpdateBoundaryStyle("", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR)
+UpdateBoundaryStyle("", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR, $borderStyle=DashedLine())
 
 ' Index
 ' ##################################

@@ -596,11 +596,11 @@ Rel_D(user, user1, "requests", "async message", "if sprite starts with &, it def
 
 Additional tags/stereotypes can be added to the existing element stereotypes (component, ...) and highlight,... specific aspects:
 
-- `AddElementTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`:
+- `AddElementTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite, ?borderStyle, ?borderThickness)`:
   Introduces a new element tag. The styles of the tagged elements are updated and the tag is displayed in the calculated legend.
 - `AddRelTag(tagStereo, ?textColor, ?lineColor, ?lineStyle, ?sprite, ?techn, ?legendText, ?legendSprite, ?lineThickness)`:
   Introduces a new Relationship tag. The styles of the tagged relationships are updated and the tag is displayed in the calculated legend.
-- `AddBoundaryTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText)`:
+- `AddBoundaryTag(tagStereo, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText, ?borderStyle, ?borderThickness)`:
   Introduces a new Boundary tag. The styles of the tagged boundaries are updated and the tag is displayed in the calculated legend.
 - `UpdateElementStyle(elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?sprite, ?techn, ?legendText, ?legendSprite)`:
   This call updates the default style of the elements (component, ...) and creates no additional legend entry.
@@ -611,9 +611,10 @@ Additional tags/stereotypes can be added to the existing element stereotypes (co
   If the element name is "" then it updates generic, enterprise, system and container boundary style in on call.
 - `RoundedBoxShape()`: This call returns the name of the rounded box shape and can be used as ?shape argument.
 - `EightSidedShape()`: This call returns the name of the eight sided shape and can be used as ?shape argument.
-- `DashedLine()`: This call returns the name of the dashed line and can be used as ?lineStyle argument.
-- `DottedLine()`: This call returns the name of the dotted line and can be used as ?lineStyle argument.
-- `BoldLine()`: This call returns the name of the bold line and can be used as ?lineStyle argument.
+- `DashedLine()`: This call returns the name of the dashed line and can be used as ?lineStyle or ?borderStyle argument.
+- `DottedLine()`: This call returns the name of the dotted line and can be used as ?lineStyle or ?borderStyle argument.
+- `BoldLine()`: This call returns the name of the bold line and can be used as ?lineStyle or ?borderStyle argument.
+- `SolidLine()`: This call returns the name of the solid line and can be used as ?lineStyle or ?borderStyle argument (enables e.g. a reset of dashed boundaries).
 
 Each element can be extended with one or multiple custom tags via the keyword argument `$tags="..."`, like `Container(spaAdmin, "Admin SPA", $tags="v1.1")`.
 Multiple tags can be combined with `+`, like `Container(api, "API", $tags="v1.0+v1.1")`.

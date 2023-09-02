@@ -380,6 +380,7 @@ end box
 
 ' only Rel is supported in sequence diagram
 
+' first Rel() supports the $index and $rel argument too; second Rel() overwrites C4.puml definition
 ' don't add empty lines in procedure otherwise & calls are not working anymore '& a -> b: call' are not working anymore
 !unquoted procedure Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="", $index="", $rel="")
   !if ($show_index == %true())
@@ -391,4 +392,7 @@ end box
     !$rel = "->"
   !endif
 $getRel($rel, $from, $to, $pre + $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+!unquoted procedure Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+Rel($from, $to, $label, $techn, $descr, $sprite, $tags, $link, "", "")
 !endprocedure

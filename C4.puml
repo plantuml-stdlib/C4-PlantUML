@@ -106,9 +106,9 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 
 !global $DOTTED_LINE = "dotted"
 !global $DASHED_LINE = "dashed"
-!global $BOLD_LINE ?= "bold"
+!$BOLD_LINE ?= "bold"
 ' solid is not defined in plantUML, but works as reset of all other styles too
-!global $SOLID_LINE ?= "solid"
+!$SOLID_LINE ?= "solid"
 
 !global $LEGEND_DETAILS_NONE = "none"
 !global $LEGEND_DETAILS_NORMAL = "normal"

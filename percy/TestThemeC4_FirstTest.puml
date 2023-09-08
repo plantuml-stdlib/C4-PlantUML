@@ -5,7 +5,7 @@
 !if %variable_exists("RELATIVE_INCLUDE")
   !include ./TestThemeTemplate.puml
 !else
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/percy/TestThemeTemplate.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.8.0/percy/TestThemeTemplate.puml
 !endif
 
 @enduml

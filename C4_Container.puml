@@ -77,6 +77,10 @@ endlegend
   $getElementLine("queue", "container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
+!unquoted procedure ContainerFolder($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("folder", "container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
 !unquoted procedure Container_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
   $getElementLine("rectangle", "external_container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure

@@ -70,6 +70,10 @@ endlegend
   $getElementLine("queue", "component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
+!unquoted procedure ComponentFolder($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+  $getElementLine("folder", "component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
 !unquoted procedure Component_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
   $getElementLine("rectangle", "external_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure

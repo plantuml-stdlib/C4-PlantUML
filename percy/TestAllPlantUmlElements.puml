@@ -1,11 +1,15 @@
 @startuml
+
+' If UNLOCK_ALL_PLANT_ELEMENTS is set BEFORE the first C4_* file is loaded,
+' nearly "all" PlantUML elements can be used like
+'   Component(StorageA, "Storage A ", $plant="storage")
+!UNLOCK_ALL_PLANT_ELEMENTS = 1
+
 ' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
 !if %variable_exists("RELATIVE_INCLUDE")
-  !include %get_variable_value("RELATIVE_INCLUDE")/Unlock_All_Elements.puml
   !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
 !else
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/Unlock_All_Elements.puml
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+  !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/feature/all_plantuml_elements/C4_Component.puml
 !endif
 
 ' !theme C4_united from <C4/themes>

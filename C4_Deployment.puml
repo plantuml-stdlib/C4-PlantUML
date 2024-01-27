@@ -31,7 +31,7 @@ skinparam rectangle<<node>> {
 ' node specific: $techn is only used in old scripts, new scripts uses $type ($techn has to remain, it could be called via named argument)
 !unquoted procedure AddNodeTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $type="", $legendText="", $legendSprite="", $techn="", $borderStyle="", $borderThickness="")
   !$type=$type+$techn
-  $addElementTagInclReuse("node", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $type, $legendText, $legendSprite, "", $borderStyle, $borderThickness)
+  $addElementTagInclReuse("node", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $type, $legendText, $legendSprite, $borderStyle, $borderThickness)
 !endprocedure
 
 ' Layout

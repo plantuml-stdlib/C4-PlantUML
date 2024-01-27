@@ -1,0 +1,73 @@
+@startuml 
+
+' displays all elements, relationship and legend (can be included in the theme test)
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Deployment.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!endif
+
+SetDefaultLegendEntries("person\nsystem\ncontainer\ncomponent\nexternal_person\nexternal_system\nexternal_container\nexternal_component\nnode\nenterprise_boundary\nsystem_boundary\ncontainer_boundary\nboundary")
+
+AddElementTag("elementTag", $bgColor="lightRed", $fontColor="darkRed", $borderColor="darkRed", $shadowing="true", $borderThickness="5")
+AddRelTag("relTag", $textColor="darkGreen", $lineColor="darkGreen", $lineThickness="5")
+AddBoundaryTag("boundaryTag", $borderColor="orange", $borderThickness="3")
+AddSystemTag("systemTag", $borderColor="orange", $borderThickness="3")
+AddExternalSystemTag("exSystemTag", $borderColor="brown", $borderThickness="5")
+AddPersonTag("personTag", $borderColor="orange", $borderThickness="3")
+AddExternalPersonTag("exPersonTag", $borderColor="brown", $borderThickness="5")
+AddContainerTag("containerTag", $borderColor="orange", $borderThickness="3")
+AddExternalContainerTag("exContainerTag", $borderColor="brown", $borderThickness="5")
+AddComponentTag("componentTag", $borderColor="orange", $borderThickness="3")
+AddExternalComponentTag("exComponentTag", $borderColor="brown", $borderThickness="5")
+AddNodeTag("nodeTag", $borderColor="orange", $borderThickness="3")
+
+Boundary(b2, "Boundary 2", $tags="boundaryTag") {
+  System(system, "System", "Optional Description - elementTag", $tags="elementTag")
+  System_Ext(externalSystem, "External System", "Optional Description")
+  Rel_R(system, externalSystem, "uses - relTag", $tags="relTag")
+
+  SystemDb(systemDb, "SystemDb", "Optional Description - systemTag", $tags="systemTag")
+  SystemDb_Ext(externalSystemDb, "External SystemDb", "Optional Description - exSystemTag", $tags="exSystemTag")
+}
+
+Boundary(b1, "Boundary 1") {
+  Person(person, "Person", "Optional Description")
+  Person(person2, "Person 2", "Optional Description - personTag", $tags="personTag")
+  Person_Ext(externalPerson, "External Person", "Optional Description")
+  Person_Ext(externalPerson2, "External Person 2", "Optional Description - exPersonTag", $tags="exPersonTag")
+  Rel_R(person, externalPerson, "uses")
+}
+
+Boundary(b3, "Boundary 3") {
+  Container(container, "Container", "Technology", "Optional Description",$tags="containerTag")
+  Container_Ext(externalContainer, "External Container", "Technology", "Optional Description", $tags="exContainerTag")
+  Rel_R(container, externalContainer, "uses")
+
+  ContainerDb(containerDb, "ContainerDb", "Technology", "Optional Description")
+  ContainerDb_Ext(externalContainerDb, "External ContainerDb", "Technology", "Optional Description")
+}
+
+Boundary(b4, "Boundary 4") {
+  Component(component, "Component", "Technology", "Optional Description", $tags="componentTag")
+  Component_Ext(externalComponent, "External Component", "Technology", "Optional Description", $tags="exComponentTag")
+  Rel_R(component, externalComponent, "uses")
+
+  ComponentDb(componentDb, "ComponentDb", "Technology", "Optional Description")
+  ComponentDb_Ext(externalComponentDb, "External ComponentDb", "Technology", "Optional Description")
+}
+
+Boundary(b5, "Boundary 5") {
+  Node(node, "Node", "Type", "Optional Description", $tags="nodeTag")
+  Node(node2, "Node2", "Type", "Optional Description")
+}
+
+Lay_D(b1,b2)
+Lay_D(b2,b3)
+Lay_D(b3,b4)
+Lay_R(b4,b5)
+
+SHOW_FLOATING_LEGEND()
+@enduml

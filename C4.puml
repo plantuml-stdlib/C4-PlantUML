@@ -1274,7 +1274,7 @@ SHOW_LEGEND($hideStereotype)
 !endfunction
 
 ' enables that legend can be located in drawing area of the diagram. It has to be last call in diagram followed by Lay_Distance()
-!unquoted procedure SHOW_FLOATING_LEGEND($alias=LEGEND(), $hideStereotype="true", $details=Normal())
+!unquoted procedure SHOW_FLOATING_LEGEND($alias=LEGEND(), $hideStereotype="true", $details=Small())
 $getLegendArea($alias, $hideStereotype, $details)
 !endprocedure
 

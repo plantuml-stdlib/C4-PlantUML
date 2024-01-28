@@ -1,18 +1,20 @@
 @startuml
 
-' If UNLOCK_ALL_PLANT_ELEMENTS is set BEFORE the first C4_* file is loaded,
+' If ENABLE_ALL_PLANT_ELEMENTS is set BEFORE the first C4_* file is loaded,
 ' nearly "all" PlantUML elements can be used like
 '   Component(StorageA, "Storage A ", $plant="storage")
-!UNLOCK_ALL_PLANT_ELEMENTS = 1
+!ENABLE_ALL_PLANT_ELEMENTS = 1
+
+!theme C4_united from <C4/themes>
+' !theme C4_green from <C4/themes>
 
 ' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
 !if %variable_exists("RELATIVE_INCLUDE")
   !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
 !else
-  !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/feature/all_plantuml_elements/C4_Component.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !endif
 
-' !theme C4_united from <C4/themes>
 
 LAYOUT_TOP_DOWN()
 
@@ -33,7 +35,7 @@ Component(actorComponent, "Component actor", "actor", "A component with actor el
 Component(actorBCComponent, "Component actor/", "actor/", "A component with actor/ element", $plant="actor/")
 Component(agentComponent, "Component agent", "agent", "A component with agent element", $plant="agent")
 Component(artifactComponent, "Component artifact", "artifact", "A component with artifact element", $plant="artifact")
-Component(boundaryComponent, "Component boundary", "boundary", "A component with boundary element", $plant="boundary")
+Component(boundaryComponent, "Component boundary", "boundary", "A component with boundary element", $plant="boundary") 
 Component(cardComponent, "Component card", "card", "A component with card element", $plant="card")
 Component(circleComponent, "Component circle", "circle", "A component with circle element", $plant="circle")
 Component(cloudComponent, "Component cloud", "cloud", "A component with cloud element", $plant="cloud")

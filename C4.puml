@@ -2,12 +2,12 @@
 
 ' Global pre-settings
 ' ##################################
-' UNLOCK_ALL_PLANT_ELEMENTS
-'   If UNLOCK_ALL_PLANT_ELEMENTS is set BEFORE the first C4_* file is loaded, nearly "all" PlantUML elements can be used like
+' ENABLE_ALL_PLANT_ELEMENTS
+'   If ENABLE_ALL_PLANT_ELEMENTS is set BEFORE the first C4_* file is loaded, nearly "all" PlantUML elements can be used like
 '     Component(StorageA, "Storage A ", $plant="storage")
-'   UNLOCK_ALL_PLANT_ELEMENTS can be set via 
-'     !UNLOCK_ALL_PLANT_ELEMENTS = 1
-'   or with additional command line argument -DUNLOCK_ALL_PLANT_ELEMENTS=1
+'   ENABLE_ALL_PLANT_ELEMENTS can be set via 
+'     !ENABLE_ALL_PLANT_ELEMENTS = 1
+'   or with additional command line argument -DENABLE_ALL_PLANT_ELEMENTS=1
 
 'Version
 ' ##################################
@@ -168,7 +168,7 @@ skinparam actor {
     style awesome
 }
 
-!if %variable_exists("UNLOCK_ALL_PLANT_ELEMENTS")
+!if %variable_exists("ENABLE_ALL_PLANT_ELEMENTS")
 skinparam agent {
     StereotypeFontSize $STEREOTYPE_FONT_SIZE
 }
@@ -447,7 +447,7 @@ skinparam package {
     !$tagSkin = $tagSkin + "skinparam package<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
     !$tagSkin = $tagSkin + "skinparam rectangle<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
   !endif
-  !if %variable_exists("UNLOCK_ALL_PLANT_ELEMENTS")
+  !if %variable_exists("ENABLE_ALL_PLANT_ELEMENTS")
     !$tagSkin = $tagSkin + $elementTagSkinparams("agent", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
     !$tagSkin = $tagSkin + $elementTagSkinparams("artifact", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
     !$tagSkin = $tagSkin + $elementTagSkinparams("card", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)

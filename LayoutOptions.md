@@ -22,9 +22,34 @@ C4-PlantUML comes with some layout options.
     - [SHOW_ELEMENT_DESCRIPTIONS(?show)](#show_element_descriptionsshow)
     - [SHOW_FOOT_BOXES(?show)](#show_foot_boxesshow)
     - [SHOW_INDEX(?show)](#show_indexshow)
+  - [Optional support of additional PlantUML elements](#optional-support-of-additional-plantuml-elements)
+    - [List of supported PlantUML elements](#list-of-supported-plantuml-elements)
 - [📄 Themes](Themes.md#themes)
 - samples
   - [📄 C4 Model Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
+
+<!--TOC-->
+  - [Layout Guidance and Practices](#layout-guidance-and-practices)
+    - [Overall Guidance](#overall-guidance)
+    - [Layout Practices](#layout-practices)
+  - [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT() or LAYOUT_LANDSCAPE()](#layout_top_down-or-layout_left_right-or-layout_landscape)
+  - [LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype, ?details)](#layout_with_legend-or-show_legendhidestereotype-details)
+  - [SHOW_FLOATING_LEGEND(?alias, ?hideStereotype, ?details) and LEGEND()](#show_floating_legendalias-hidestereotype-details-and-legend)
+  - [LAYOUT_AS_SKETCH() and SET_SKETCH_STYLE(?bgColor, ?fontColor, ?warningColor, ?fontName, ?footerWarning, ?footerText)](#layout_as_sketch-and-set_sketch_stylebgcolor-fontcolor-warningcolor-fontname-footerwarning-footertext)
+  - [HIDE_STEREOTYPE()](#hide_stereotype)
+  - [HIDE_PERSON_SPRITE(), SHOW_PERSON_SPRITE(?sprite), SHOW_PERSON_PORTRAIT() and SHOW_PERSON_OUTLINE()](#hide_person_sprite-show_person_spritesprite-show_person_portrait-and-show_person_outline)
+    - [Using HIDE_PERSON_SPRITE()](#using-hide_person_sprite)
+    - [Using SHOW_PERSON_SPRITE()](#using-show_person_sprite)
+    - [Using SHOW_PERSON_SPRITE(sprite)](#using-show_person_spritesprite)
+    - [Using SHOW_PERSON_PORTRAIT()](#using-show_person_portrait)
+    - [Using SHOW_PERSON_OUTLINE()](#using-show_person_outline)
+  - [(C4 styled) Sequence diagram specific layout options](#c4-styled-sequence-diagram-specific-layout-options)
+    - [SHOW_ELEMENT_DESCRIPTIONS(?show)](#show_element_descriptionsshow)
+    - [SHOW_FOOT_BOXES(?show)](#show_foot_boxesshow)
+    - [SHOW_INDEX(?show)](#show_indexshow)
+  - [Optional support of additional PlantUML elements](#optional-support-of-additional-plantuml-elements)
+    - [List of supported PlantUML elements](#list-of-supported-plantuml-elements)
+<!--/TOC-->
 
 ## Layout Guidance and Practices
 
@@ -83,7 +108,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![LAYOUT_TOP_DOWN Sample](https://www.plantuml.com/plantuml/png/JL1DZzCm4BtxLmpba5Jg9bh4YTE6WE2msqOaPSKfSk8fjUGFovuegX3_dR4eBRayPTx7FCzJ8XbfiKQyqMusYq8u4uNqeQwZNAkVcixBj2ICitU4ZghPspeOwRBd8P4oUghRzmzT7XrVdcih4s7aqTYoGsg7iGevNzG5x3s1GrIeOC9PSYxGMIVGYH51uKakXg2enNFput0Snk7GZPyEh_joAqI7CNbNIcMrsy6coQWJHKa-RhQYl_1YEtxqYrCoNihvSGT5BsqmM6pXbm3-RfNA5QTHXi0vhpX14uBHioJjtOP7xTiTD7rNxJyFR8a8xwf7UFdUPgunngy9yacuj0U-Hv0iiLnSyouOLas44KXRDBmhSRVVrtOb_IKvvofZKdn3y-zLzrh7n4x6hyFGzQpAeXjxZ_c2bFWNCvoYj_zRdj0fllmV "LAYOUT_TOP_DOWN Sample")
 
-`LAYOUT_LEFT_RIGHT()` rotates the flow visualization to *from Left to Right* and directed relations like `Rel_Left()`, `Rel_Right()`, `Rel_Up()` and `Rel_Down()` are rotated too.
+`LAYOUT_LEFT_RIGHT()` rotates the flow visualization to _from Left to Right_ and directed relations like `Rel_Left()`, `Rel_Right()`, `Rel_Up()` and `Rel_Down()` are rotated too.
 
 ```plantuml
 @startuml LAYOUT_LEFT_RIGHT Sample
@@ -104,7 +129,7 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![LAYOUT_LEFT_RIGHT Sample](https://www.plantuml.com/plantuml/png/JKzDR-8m4BtdLtZP0q62HApsj2Uo4OLAq4OajEefSf9fiUGFonuhGbN_UySgXVeoyhoFUM_baJiCIYQ_XEvb682T4At_b-UEZzcRm5FeWWVN6usWCUkDogtaEceM7WSfkhpykwZYwhZVvOfx14UhjYG55nfSPgD_iYjU7ezDkrlVDUtXVhDjqbcILE2yqIaVbD1pDYdY51uTH-CciwG-avjg_vkW1-xEQR-SisdDbPKmdR7tXD6xtab7w5fkBVayGySAQwNeEGgZ9xGgVyzPKLVPmxeXYGFs9rko_LCPiK9ACteMUtg6Xb59oucYWaH1jrWp2gHQ38K2IRSyPVkuf4ln2oIV2ut0v03okzKjrj6JakQsQQgQM95qHMys6q1FNuZZrHdrKx82FGGbFm40 "LAYOUT_LEFT_RIGHT Sample")
 
-`LAYOUT_LANDSCAPE()` rotates the default flow visualization to *from Left to Right* like `LAYOUT_LEFT_RIGHT()` additional **directed relations** like Rel_Left(), Rel_Right(), Rel_Up() and Rel_Down() **are not rotated** anymore.
+`LAYOUT_LANDSCAPE()` rotates the default flow visualization to _from Left to Right_ like `LAYOUT_LEFT_RIGHT()` additional **directed relations** like Rel_Left(), Rel_Right(), Rel_Up() and Rel_Down() **are not rotated** anymore.
 
 ```plantuml
 @startuml LAYOUT_LANDSCAPE Sample
@@ -209,9 +234,9 @@ Legend labels and details can be defined via `\n` in `$legendTest` arguments too
 !else
   !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 !endif
-' $legendText with \n defines the label and details of the legend entry ("backend container" is label, "eight sided shape" is details) 
+' $legendText with \n defines the label and details of the legend entry ("backend container" is label, "eight sided shape" is details)
 AddElementTag("backendContainer", $fontColor=$ELEMENT_FONT_COLOR, $bgColor="#335DA5", $shape=EightSidedShape(), $legendText="backend container\neight sided shape")
-' $legendText without \n defines only a label 
+' $legendText without \n defines only a label
 AddRelTag("async", $textColor=$ARROW_FONT_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DashedLine(), $legendText="async call")
 ' if no $legendText defined, $tag is automatically the label and all additional displayed properties are the details
 AddRelTag("sync/async", $textColor=$ARROW_FONT_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DottedLine())
@@ -241,9 +266,9 @@ Legend details can be deactivated via `SHOW_LEGEND($details=None())`
 !else
   !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 !endif
-' $legendText with \n defines the label and details of the legend entry ("backend container" is label, "eight sided shape" is details) 
+' $legendText with \n defines the label and details of the legend entry ("backend container" is label, "eight sided shape" is details)
 AddElementTag("backendContainer", $fontColor=$ELEMENT_FONT_COLOR, $bgColor="#335DA5", $shape=EightSidedShape(), $legendText="backend container\neight sided shape")
-' $legendText without \n defines only a label 
+' $legendText without \n defines only a label
 AddRelTag("async", $textColor=$ARROW_FONT_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DashedLine(), $legendText="async call")
 ' if no $legendText defined, $tag is automatically the label and all additional displayed properties are the details
 AddRelTag("sync/async", $textColor=$ARROW_FONT_COLOR, $lineColor=$ARROW_COLOR, $lineStyle=DottedLine())
@@ -636,3 +661,97 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 
 ![SHOW_INDEX() Sample](https://www.plantuml.com/plantuml/png/LL1DRzD04BtlhnZ28OwKsYhYnAaXH1I9bWYxb9irzawRbVPZsPsLLI7-ExEYeU3Bo3Fluxszoeo9YxFgbV6pBPhWn1ppkwvBkBIFXazbAfdI73oJvtOEheiMVULSPDRMJDt-xSMnhkvkFdSECrEIrTZJZq9-fZPMUTLVVxaVFzr-E7nlDaeTAUNW6zJE-2siTdMQp0avfDL6zK-YuiRteNYDwQcPBxUmxj55I-kD0ldsaWUDfzGiD8qOewZSqmIx6AsPaKtmArdjNszXrn_RsyCWb4Jmfhs4cs_xUjjP6vOCjLq63Y3L8Wh45Sj6d61O34iPOEF8YbUMP6im7X3oSpdG1XyJEZX77GzUDniuOPM4YQgy5exqGGtX0U0d_5B_eSzr6_xZ9z6UdSLFVILxVgQNfdTPmiYy7ePZBwWA-djzaVb8dEMNwdX8mVrBkIAlYxE_0G00 "SHOW_INDEX() Sample")
 
+## Optional support of additional PlantUML elements
+
+More often a full support of all PlantUML elements are requested.  
+They can be set via the new optional `plant="...."` argument of the calls
+
+- `System(..., ?plant)`,
+- `System_Ext(..., ?plant)`,
+- `Container(..., ?plant)`,
+- `Container_Ext(..., ?plant)`,
+- `Component(..., ?plant)`,
+- `Component_Ext(..., ?plant)`
+
+The already specified `...Db...()` and `...Queue...()` calls are not extended.
+
+But based on the additional (internal) overhead it has to be explicit enabled
+via `ENABLE_ALL_PLANT_ELEMENTS`. It can be set with following 2 options
+
+- `!ENABLE_ALL_PLANT_ELEMENTS = 1` directly in the scripts file
+  BEFORE the first C4\_\* file is loaded, like e.g.
+
+```plantuml
+@startuml
+!ENABLE_ALL_PLANT_ELEMENTS = 1
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+...
+@enduml
+```
+
+- or via additional command line parameter `-DENABLE_ALL_PLANT_ELEMENTS=1`
+
+If `ENABLE_ALL_PLANT_ELEMENTS` is not set, the diagrams displays the requested "PlantUML element"
+but the style is not correct displayed.
+
+**A simple sample with additional "PlantUML elements":**
+
+```plantuml
+@startuml
+!ENABLE_ALL_PLANT_ELEMENTS = 1
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Component(comp, "Copy component")
+
+Component(config, "Config component", $plant="package")
+
+ComponentDb(dbA, "DB A")
+' alternative syntax for ComponentDb() with $plant="database"
+Component(dbB, "DB B", $plant="database")
+
+Rel_U(comp, config, "Configured by")
+Rel_L(comp, dbA, "Reads from")
+Rel_R(comp, dbB, "Writes to")
+
+SHOW_LEGEND()
+@enduml
+```
+
+![Sample with PlantUML elements](https://www.plantuml.com/plantuml/png/NP1VQy8m5CNV-ockPJ05jGpsD11iDMmFiHF_u6D9cgXbRLAIspc__HBjIjtRpRs_Sy-vcLja1fkg30OaZHDAifZIR4tZT9SHIbOatMrX1Y_1e51vsGW9PyJQlaMHOPVfgS1pmnihJQuLIeNJN5THNJBbLquiYhBWqU9rilQj_Of65RCeZMjb2rtLMdbDxUs3xZtCNJM6SA7hA-H_tN3qYAXZSRf1lkXXOtYw-S_2ckLVx2GVX4i-53nskcK2iPiy0ojT7iMm-9PWhmhP3norWRvY11TtPxTNC6ISMHdsyWYUt9SclG0Tw19iP9djsyl-XM-C5C2lZl8GRQ5xp8ramiBHwAeTRxgnDpoO0gK5rDvY-_5vo2Xv9-boE0hcKWdthxy0)
+
+### List of supported PlantUML elements
+
+| PlantUML element | Support  | Comment                                                                                                               |
+| ---------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
+| rectangle        | &#x2705; | already supported (works even without ENABLE_ALL_PLANT_ELEMENTS)                                                      |
+| database         | &#x2705; | already supported (works even without ENABLE_ALL_PLANT_ELEMENTS)                                                      |
+| queue            | &#x2705; | already supported (works even without ENABLE_ALL_PLANT_ELEMENTS)                                                      |
+| node             | &#x274C; | **should not be used**, already defined for Node() (works even without ENABLE_ALL_PLANT_ELEMENTS)                     |
+| person           | &#x274C; | **should not be used**, already defined for Person() (works even without ENABLE_ALL_PLANT_ELEMENTS)                   |
+|                  |          |                                                                                                                       |
+| actor            | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| agent            | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| artifact         | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| boundary         | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| card             | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| circle           | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| cloud            | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| collections      | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| control          | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| entity           | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| file             | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| folder           | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| frame            | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| hexagon          | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| interface        | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| package          | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| stack            | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| storage          | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| usecase          | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| usecase/         | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+|                  |          |                                                                                                                       |
+| actor/           | &#x274C; | requires ENABLE_ALL_PLANT_ELEMENTS, not working (font color not changed to $bkColor) - and/or conflict with existing? |
+| label            | &#x274C; | requires ENABLE_ALL_PLANT_ELEMENTS, not working (font color not changed to $bkColor)                                  |
+
+If `ENABLE_ALL_PLANT_ELEMENTS` is not set, the diagrams displays the requested "PlantUML element"
+but the style is not correct.

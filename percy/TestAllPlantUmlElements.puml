@@ -1,20 +1,22 @@
-@startuml
+  @startuml
 
 ' If ENABLE_ALL_PLANT_ELEMENTS is set BEFORE the first C4_* file is loaded,
 ' nearly "all" PlantUML elements can be used like
 '   Component(StorageA, "Storage A ", $plant="storage")
 !ENABLE_ALL_PLANT_ELEMENTS = 1
 
-!theme C4_united from <C4/themes>
-' !theme C4_green from <C4/themes>
-
 ' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
 !if %variable_exists("RELATIVE_INCLUDE")
-  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
+  ' percy runs (sometimes) with 1.2023.7
+  ' !theme C4_united from %get_variable_value("RELATIVE_INCLUDE")/themes
+  !theme C4_united from ./../themes
+  ' !theme C4_green from ./../themes
+  !include ./../C4_Component.puml
 !else
+  !theme C4_united from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+  ' !theme C4_green from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
   !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !endif
-
 
 LAYOUT_TOP_DOWN()
 

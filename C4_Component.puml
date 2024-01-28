@@ -2,7 +2,7 @@
 !if %variable_exists("RELATIVE_INCLUDE")
   !include ./C4_Container.puml
 !else
-  !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/feature/all_plantuml_elements/C4_Container.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 !endif
 
 ' Scope: A single container.

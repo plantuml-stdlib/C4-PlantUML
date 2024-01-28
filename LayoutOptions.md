@@ -28,29 +28,6 @@ C4-PlantUML comes with some layout options.
 - samples
   - [📄 C4 Model Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
 
-<!--TOC-->
-  - [Layout Guidance and Practices](#layout-guidance-and-practices)
-    - [Overall Guidance](#overall-guidance)
-    - [Layout Practices](#layout-practices)
-  - [LAYOUT_TOP_DOWN() or LAYOUT_LEFT_RIGHT() or LAYOUT_LANDSCAPE()](#layout_top_down-or-layout_left_right-or-layout_landscape)
-  - [LAYOUT_WITH_LEGEND() or SHOW_LEGEND(?hideStereotype, ?details)](#layout_with_legend-or-show_legendhidestereotype-details)
-  - [SHOW_FLOATING_LEGEND(?alias, ?hideStereotype, ?details) and LEGEND()](#show_floating_legendalias-hidestereotype-details-and-legend)
-  - [LAYOUT_AS_SKETCH() and SET_SKETCH_STYLE(?bgColor, ?fontColor, ?warningColor, ?fontName, ?footerWarning, ?footerText)](#layout_as_sketch-and-set_sketch_stylebgcolor-fontcolor-warningcolor-fontname-footerwarning-footertext)
-  - [HIDE_STEREOTYPE()](#hide_stereotype)
-  - [HIDE_PERSON_SPRITE(), SHOW_PERSON_SPRITE(?sprite), SHOW_PERSON_PORTRAIT() and SHOW_PERSON_OUTLINE()](#hide_person_sprite-show_person_spritesprite-show_person_portrait-and-show_person_outline)
-    - [Using HIDE_PERSON_SPRITE()](#using-hide_person_sprite)
-    - [Using SHOW_PERSON_SPRITE()](#using-show_person_sprite)
-    - [Using SHOW_PERSON_SPRITE(sprite)](#using-show_person_spritesprite)
-    - [Using SHOW_PERSON_PORTRAIT()](#using-show_person_portrait)
-    - [Using SHOW_PERSON_OUTLINE()](#using-show_person_outline)
-  - [(C4 styled) Sequence diagram specific layout options](#c4-styled-sequence-diagram-specific-layout-options)
-    - [SHOW_ELEMENT_DESCRIPTIONS(?show)](#show_element_descriptionsshow)
-    - [SHOW_FOOT_BOXES(?show)](#show_foot_boxesshow)
-    - [SHOW_INDEX(?show)](#show_indexshow)
-  - [Optional support of additional PlantUML elements](#optional-support-of-additional-plantuml-elements)
-    - [List of supported PlantUML elements](#list-of-supported-plantuml-elements)
-<!--/TOC-->
-
 ## Layout Guidance and Practices
 
 PlantUML uses [Graphviz](https://www.graphviz.org/) for its graph visualization. Thus the rendering itself is done automatically for you - that it one of the biggest advantages of using PlantUML.

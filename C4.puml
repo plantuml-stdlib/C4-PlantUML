@@ -4,7 +4,7 @@
 ' ##################################
 ' ENABLE_ALL_PLANT_ELEMENTS
 '   If ENABLE_ALL_PLANT_ELEMENTS is set BEFORE the first C4_* file is loaded, nearly "all" PlantUML elements can be used like
-'     Component(StorageA, "Storage A ", $plant="storage")
+'     Component(StorageA, "Storage A ", $baseShape="storage")
 '   ENABLE_ALL_PLANT_ELEMENTS can be set via 
 '     !ENABLE_ALL_PLANT_ELEMENTS = 1
 '   or with additional command line argument -DENABLE_ALL_PLANT_ELEMENTS=1

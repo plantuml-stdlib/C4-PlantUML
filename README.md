@@ -235,10 +235,10 @@ SHOW_LEGEND()
   - Macros:
     - `Person(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
     - `Person_Ext(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
-    - `System(alias, label, ?descr, ?sprite, ?tags, ?link, ?type, ?plant)`
+    - `System(alias, label, ?descr, ?sprite, ?tags, ?link, ?type, ?baseShape)`
     - `SystemDb(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
     - `SystemQueue(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
-    - `System_Ext(alias, label, ?descr, ?sprite, ?tags, ?link, ?type, ?plant)`
+    - `System_Ext(alias, label, ?descr, ?sprite, ?tags, ?link, ?type, ?baseShape)`
     - `SystemDb_Ext(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
     - `SystemQueue_Ext(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
     - `Boundary(alias, label, ?type, ?tags, ?link)`
@@ -256,10 +256,10 @@ SHOW_LEGEND()
 
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
   - Additional Macros  (based on context diagram macros):
-    - `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?plant)`
+    - `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?baseShape)`
     - `ContainerDb(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     - `ContainerQueue(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
-    - `Container_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?plant)`
+    - `Container_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?baseShape)`
     - `ContainerDb_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     - `ContainerQueue_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     - `Container_Boundary(alias, label, ?tags, ?link)`
@@ -268,10 +268,10 @@ SHOW_LEGEND()
 
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
   - Additional Macros (based on container diagram macros):
-    - `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?plant)`
+    - `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?baseShape)`
     - `ComponentDb(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     - `ComponentQueue(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
-    - `Component_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?plant)`
+    - `Component_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?baseShape)`
     - `ComponentDb_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     - `ComponentQueue_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
 

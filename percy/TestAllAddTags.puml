@@ -5,8 +5,8 @@
   !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
   !include %get_variable_value("RELATIVE_INCLUDE")/C4_Deployment.puml
 !else
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.9.0/C4_Component.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.9.0/C4_Deployment.puml
 !endif
 
 SetDefaultLegendEntries("person\nsystem\ncontainer\ncomponent\nexternal_person\nexternal_system\nexternal_container\nexternal_component\nnode\nenterprise_boundary\nsystem_boundary\ncontainer_boundary\nboundary")

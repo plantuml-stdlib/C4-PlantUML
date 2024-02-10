@@ -7,7 +7,7 @@
   ' !theme C4_FirstTest from %get_variable_value("RELATIVE_INCLUDE")/themes
   !theme $UseTheme from ./../themes
 !else
-  !theme $UseTheme from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+  !theme $UseTheme from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.9.0/themes
 !endif
 
 ' <<<<<<<<<<<<<<<<<< PART OF THEME 
@@ -68,7 +68,7 @@ sequenceDiagram {
 !if %variable_exists("RELATIVE_INCLUDE")
   !include %get_variable_value("RELATIVE_INCLUDE")/C4_Sequence.puml
 !else
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Sequence.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.9.0/C4_Sequence.puml
 !endif
 
 SHOW_INDEX(true)

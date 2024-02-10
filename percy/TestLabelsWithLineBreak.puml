@@ -4,8 +4,8 @@
   !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
   !include %get_variable_value("RELATIVE_INCLUDE")/C4_Deployment.puml
 !else
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.9.0/C4_Component.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.9.0/C4_Deployment.puml
 !endif
 
 Enterprise_Boundary(eb, "Enterprise\nBoundary") {
@@ -30,7 +30,7 @@ Node(n2, "A node label", "PlantUML packages have no automatic line breaks, type 
 !if %variable_exists("RELATIVE_INCLUDE")
   !include %get_variable_value("RELATIVE_INCLUDE")/C4_Dynamic.puml
 !else
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.9.0/C4_Dynamic.puml
 !endif
 
 Component(from, "From component")

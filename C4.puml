@@ -1,10 +1,19 @@
 ' C4-PlantUML
 
+' Global pre-settings
+' ##################################
+' ENABLE_ALL_PLANT_ELEMENTS
+'   If ENABLE_ALL_PLANT_ELEMENTS is set BEFORE the first C4_* file is loaded, nearly "all" PlantUML elements can be used like
+'     Component(StorageA, "Storage A ", $baseShape="storage")
+'   ENABLE_ALL_PLANT_ELEMENTS can be set via 
+'     !ENABLE_ALL_PLANT_ELEMENTS = 1
+'   or with additional command line argument -DENABLE_ALL_PLANT_ELEMENTS=1
+
 'Version
 ' ##################################
 !function C4Version()
   ' 2 spaces and ' are used as unique marker, that the release scripts makes the correct version update
-  !$c4Version  =  "2.9.0beta1"
+  !$c4Version  =  "2.10.0beta1"
   !return $c4Version
 !end function
 
@@ -158,6 +167,66 @@ skinparam actor {
     StereotypeFontSize $STEREOTYPE_FONT_SIZE
     style awesome
 }
+
+!if %variable_exists("ENABLE_ALL_PLANT_ELEMENTS")
+skinparam agent {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam artifact {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam boundary {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam card {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam circle {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam cloud {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam collections {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam control {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam entity {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam file {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam folder {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam frame {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam hexagon {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam interface {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam label {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam stack {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam storage {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam usecase {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+skinparam person {
+    StereotypeFontSize $STEREOTYPE_FONT_SIZE
+}
+!endif
 
 ' Some boundary skinparams have to be set as package skinparams too (PlantUML uses internal packages)
 ' UpdateBoundaryStyle() called in boundary section below
@@ -377,6 +446,29 @@ skinparam package {
   !if (%strpos($tagStereo, "boundary") >= 0 && $bgColor != "")
     !$tagSkin = $tagSkin + "skinparam package<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
     !$tagSkin = $tagSkin + "skinparam rectangle<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
+  !endif
+  !if %variable_exists("ENABLE_ALL_PLANT_ELEMENTS")
+    !$tagSkin = $tagSkin + $elementTagSkinparams("agent", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("artifact", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("card", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("cloud", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("collections", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("file", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("folder", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("frame", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("hexagon", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("package", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("stack", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("storage", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("usecase", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    ' elements without background: font uses $bgColor
+    !$tagSkin = $tagSkin + $elementTagSkinparams("boundary", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("circle", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("control", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("entity", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("interface", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+    ' label uses wrong font color? (should be $bgColor too)
+    !$tagSkin = $tagSkin + $elementTagSkinparams("label", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
   !endif
 $tagSkin
 !endprocedure
@@ -1274,7 +1366,7 @@ SHOW_LEGEND($hideStereotype)
 !endfunction
 
 ' enables that legend can be located in drawing area of the diagram. It has to be last call in diagram followed by Lay_Distance()
-!unquoted procedure SHOW_FLOATING_LEGEND($alias=LEGEND(), $hideStereotype="true", $details=Normal())
+!unquoted procedure SHOW_FLOATING_LEGEND($alias=LEGEND(), $hideStereotype="true", $details=Small())
 $getLegendArea($alias, $hideStereotype, $details)
 !endprocedure
 

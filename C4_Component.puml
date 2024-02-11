@@ -58,8 +58,8 @@ endlegend
 ' Elements
 ' ##################################
 
-!unquoted procedure Component($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-  $getElementLine("rectangle", "component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!unquoted procedure Component($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="", $baseShape="rectangle")
+  $getElementLine($baseShape, "component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure ComponentDb($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
@@ -70,8 +70,8 @@ endlegend
   $getElementLine("queue", "component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Component_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
-  $getElementLine("rectangle", "external_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
+!unquoted procedure Component_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="", $baseShape="rectangle")
+  $getElementLine($baseShape, "external_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure ComponentDb_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")

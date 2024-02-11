@@ -380,9 +380,9 @@ rectangle "$getPerson($label, $type, $descr, $sprite)$getProps()" $toStereos("ex
 !endif
 !endprocedure
 
-!unquoted procedure System($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
+!unquoted procedure System($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="", $baseShape="rectangle")
   ' $type reuses $techn definition of $tags
-  $getElementLine("rectangle", "system", $alias, $label, $type, $descr, $sprite, $tags, $link)
+  $getElementLine($baseShape, "system", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure SystemDb($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
@@ -395,9 +395,9 @@ rectangle "$getPerson($label, $type, $descr, $sprite)$getProps()" $toStereos("ex
   $getElementLine("queue", "system", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure System_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
+!unquoted procedure System_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="", $baseShape="rectangle")
   ' $type reuses $techn definition of $tags
-  $getElementLine("rectangle", "external_system", $alias, $label, $type, $descr, $sprite, $tags, $link)
+  $getElementLine($baseShape , "external_system", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
 
 !unquoted procedure SystemDb_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")

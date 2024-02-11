@@ -234,16 +234,16 @@ SHOW_LEGEND()
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
   - Macros:
     - `Person(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
-    - `Person_Ext`
-    - `System(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
-    - `SystemDb`
-    - `SystemQueue`
-    - `System_Ext`
-    - `SystemDb_Ext`
-    - `SystemQueue_Ext`
+    - `Person_Ext(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
+    - `System(alias, label, ?descr, ?sprite, ?tags, ?link, ?type, ?baseShape)`
+    - `SystemDb(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
+    - `SystemQueue(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
+    - `System_Ext(alias, label, ?descr, ?sprite, ?tags, ?link, ?type, ?baseShape)`
+    - `SystemDb_Ext(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
+    - `SystemQueue_Ext(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
     - `Boundary(alias, label, ?type, ?tags, ?link)`
     - `Enterprise_Boundary(alias, label, ?tags, ?link)`
-    - `System_Boundary`
+    - `System_Boundary(alias, label, ?tags, ?link)`
   - Sprites:
     - `person`
     - `person2`
@@ -256,24 +256,24 @@ SHOW_LEGEND()
 
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
   - Additional Macros  (based on context diagram macros):
-    - `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
-    - `ContainerDb`
-    - `ContainerQueue`
-    - `Container_Ext`
-    - `ContainerDb_Ext`
-    - `ContainerQueue_Ext`
+    - `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?baseShape)`
+    - `ContainerDb(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
+    - `ContainerQueue(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
+    - `Container_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?baseShape)`
+    - `ContainerDb_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
+    - `ContainerQueue_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     - `Container_Boundary(alias, label, ?tags, ?link)`
 
 ### Component diagram
 
   - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
   - Additional Macros (based on container diagram macros):
-    - `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
-    - `ComponentDb`
-    - `ComponentQueue`
-    - `Component_Ext`
-    - `ComponentDb_Ext`
-    - `ComponentQueue_Ext`
+    - `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?baseShape)`
+    - `ComponentDb(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
+    - `ComponentQueue(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
+    - `Component_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?baseShape)`
+    - `ComponentDb_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
+    - `ComponentQueue_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
 
 ### Dynamic diagram
 

@@ -232,7 +232,7 @@ $calcDescr
   $getParticipant("external_person", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure System($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
+!unquoted procedure System($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="", $baseShape="rectangle")
   ' $type reuses $techn definition of $tags
   $getParticipant("system", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
@@ -247,7 +247,7 @@ $calcDescr
   $getParticipant("system", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure System_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="")
+!unquoted procedure System_Ext($alias, $label, $descr="", $sprite="", $tags="", $link="", $type="", $baseShape="rectangle")
   ' $type reuses $techn definition of $tags
   $getParticipant("external_system", $alias, $label, $type, $descr, $sprite, $tags, $link)
 !endprocedure
@@ -264,7 +264,7 @@ $calcDescr
 
 
 
-!unquoted procedure Container($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+!unquoted procedure Container($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="", $baseShape="rectangle")
   $getParticipant("container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
@@ -276,7 +276,7 @@ $calcDescr
   $getParticipant("container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Container_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+!unquoted procedure Container_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="", $baseShape="rectangle")
   $getParticipant("external_container", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
@@ -290,7 +290,7 @@ $calcDescr
 
 
 
-!unquoted procedure Component($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+!unquoted procedure Component($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="", $baseShape="rectangle")
   $getParticipant("component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
@@ -302,7 +302,7 @@ $calcDescr
   $getParticipant("component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Component_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+!unquoted procedure Component_Ext($alias, $label, $techn="", $descr="", $sprite="", $tags="", $link="", $baseShape="rectangle")
   $getParticipant("external_component", $alias, $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 

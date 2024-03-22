@@ -729,7 +729,7 @@ $elementSkin
       !elseif ($borderStyle == $SOLID_LINE)
         !$tagDetails = $tagDetails + $LEGEND_SOLID_LINE + ", "
       !else
-        !$tagDetails = $tagDetails + $lineStyle + ", "
+        !$tagDetails = $tagDetails + $borderStyle + ", "
       !endif
     !endif
     !if ($borderThickness != "")

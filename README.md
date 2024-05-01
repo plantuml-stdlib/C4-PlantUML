@@ -241,9 +241,9 @@ SHOW_LEGEND()
     - `System_Ext(alias, label, ?descr, ?sprite, ?tags, ?link, ?type, ?baseShape)`
     - `SystemDb_Ext(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
     - `SystemQueue_Ext(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
-    - `Boundary(alias, label, ?type, ?tags, ?link)`
-    - `Enterprise_Boundary(alias, label, ?tags, ?link)`
-    - `System_Boundary(alias, label, ?tags, ?link)`
+    - `Boundary(alias, label, ?type, ?tags, ?link, ?descr)`
+    - `Enterprise_Boundary(alias, label, ?tags, ?link, ?descr)`
+    - `System_Boundary(alias, label, ?tags, ?link, ?descr)`
   - Sprites:
     - `person`
     - `person2`
@@ -262,7 +262,7 @@ SHOW_LEGEND()
     - `Container_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?baseShape)`
     - `ContainerDb_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
     - `ContainerQueue_Ext(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
-    - `Container_Boundary(alias, label, ?tags, ?link)`
+    - `Container_Boundary(alias, label, ?tags, ?link, ?descr)`
 
 ### Component diagram
 

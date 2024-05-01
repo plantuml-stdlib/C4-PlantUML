@@ -413,22 +413,22 @@ rectangle "$getPerson($label, $type, $descr, $sprite)$getProps()" $toStereos("ex
 ' Boundaries
 ' ##################################
 
-!unquoted procedure Enterprise_Boundary($alias, $label, $tags="", $link="")
+!unquoted procedure Enterprise_Boundary($alias, $label, $tags="", $link="", $descr = "")
   !if ($tags != "")
     !$allTags = $tags + '+enterprise'
   !else
     !$allTags = 'enterprise'
   !endif
   ' $type defined via $tag style
-  Boundary($alias, $label, "", $allTags, $link)
+  Boundary($alias, $label, "", $allTags, $link, $descr)
 !endprocedure
 
-!unquoted procedure System_Boundary($alias, $label, $tags="", $link="")
+!unquoted procedure System_Boundary($alias, $label, $tags="", $link="", $descr = "")
   !if ($tags != "")
     !$allTags = $tags + '+system'
   !else
     !$allTags = 'system'
   !endif
   ' $type defined via $tag style
-  Boundary($alias, $label, "", $allTags, $link)
+  Boundary($alias, $label, "", $allTags, $link, $descr)
 !endprocedure

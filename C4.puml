@@ -36,6 +36,7 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 !$BOUNDARY_BORDER_STYLE ?= "dashed"
 ' boundary symbols written in the same line, typically only 50% of the size in element
 !$BOUNDARY_IMAGE_SIZE_FACTOR ?= 0.5
+!$BOUNDARY_DESCR_MAX_CHAR_WIDTH ?= 35
 
 !$LEGEND_TITLE_COLOR ?= "#000000"
 !$LEGEND_FONT_COLOR ?= "#FFFFFF"
@@ -926,9 +927,11 @@ $line
 $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $borderStyle, $borderThickness)
   !if ($sprite!="")
 %set_variable_value("$" + $tagStereo + "ElementTagSprite", $sprite)
+!log "DefinedlegendSprite:" + $legendSprite
     !if ($legendSprite == "")
       !$legendSprite = $smallVersionSprite($sprite)
     !endif
+!log "CalculatedlegendSprite:" + $legendSprite
   !endif
   !if ($techn != "")
 %set_variable_value("$" + $tagStereo + "ElementTagTechn", $techn)
@@ -1412,24 +1415,28 @@ $getLegendArea($alias, $hideStereotype, $details)
   !return $boundaryTags
 !endfunction
 
-!function $getBoundary($sprite, $label, $type)
+!function $getBoundary($label, $type, $descr, $sprite)
   !$line = '== '
   !if ($sprite != "")
+    ' add sprite in label line that it is more compact
     !$line = $line + $getSprite($smallVersionSprite($sprite, $BOUNDARY_IMAGE_SIZE_FACTOR)) + ' '
   !endif
   !$line = $line + $breakLabel($label)
   !if ($type != "")
     !$line = $line + '\n<size:' + $TECHN_FONT_SIZE + '>[' + $type + ']</size>'
   !endif
+  !if ($descr != "")
+    !$line = $line + '\n\n' + $breakDescr($descr, $BOUNDARY_DESCR_MAX_CHAR_WIDTH)
+  !endif
   !return $line
 !endfunction
 
-!unquoted procedure Boundary($alias, $label, $type="", $tags="", $link="")
+!unquoted procedure Boundary($alias, $label, $type="", $tags="", $link="", $descr = "")
 !$boundaryTags = $addBoundaryPostfix($tags)
 ' boundary $type reuses $techn definition of $boundaryTags
 !$type=$toElementArg($type, $boundaryTags, "ElementTagTechn", "boundary")
 !$sprite=$toElementArg("", $boundaryTags, "ElementTagSprite", "boundary")
-rectangle "$getBoundary($sprite, $label, $type)" $toStereos("boundary", $boundaryTags) as $alias $getLink($link)
+rectangle "$getBoundary($label, $type, $descr, $sprite)" $toStereos("boundary", $boundaryTags) as $alias $getLink($link)
 !endprocedure
 
 ' Boundary Styling

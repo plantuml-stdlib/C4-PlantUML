@@ -92,12 +92,12 @@ endlegend
 ' Boundaries
 ' ##################################
 
-!unquoted procedure Container_Boundary($alias, $label, $tags="", $link="")
+!unquoted procedure Container_Boundary($alias, $label, $tags="", $link="", $descr = "")
   !if ($tags != "")
     !$allTags = $tags + '+container'
   !else
     !$allTags = 'container'
   !endif
   ' $type defined via $tag style
-  Boundary($alias, $label, "", $allTags, $link)
+  Boundary($alias, $label, "", $allTags, $link, $descr)
 !endprocedure

@@ -71,10 +71,16 @@ sequenceDiagram {
   !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Sequence.puml
 !endif
 
+SHOW_ELEMENT_DESCRIPTIONS()
 SHOW_INDEX(true)
 
+AddPersonTag("chatBot", $sprite="robot")
+AddBoundaryTag("chatBotSystem", $type="ChatGPT", $bgColor="lightgreen", $fontColor=$PERSON_BG_COLOR, $borderColor=$PERSON_BG_COLOR, $shadowing="true", $sprite="robot2")
+
 Person(Alice, "Alice")
-Person(Bob, "Bob")
+System_Boundary(system, "System", $tags="chatBotSystem", $descr="ChatGPT with model gpt-3.5-turbo. It has been updated to feature higher accuracy at responding in requested formats")
+Component(Bob, "Bob", $descr="This chatbot should act like a person", $tags="chatBot")
+Boundary_End()
 
 activate Bob
 

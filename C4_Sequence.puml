@@ -1,4 +1,4 @@
-' convert it with additional command line argument -DRELATIVE_INCLUDE="relative/absolute" to use locally
+﻿' convert it with additional command line argument -DRELATIVE_INCLUDE="relative/absolute" to use locally
 !if %variable_exists("RELATIVE_INCLUDE")
   !include ./C4_Component.puml
 !else
@@ -192,7 +192,6 @@ sequenceDiagram {
   !return $breakWithNewline($text, $lineStart, $lineEnd, $REL_TECHN_MAX_CHAR_WIDTH)
 !endfunction
 
-' description is not displayed (size too big, line breaks not supported)
 ' properties are not displayed in sequence diagram (size would be too big)
 ' $breakLabel() not required by participant
 !procedure $getParticipant($elementType, $alias, $label, $techn, $descr, $sprite, $tags, $link)
@@ -324,19 +323,28 @@ $calcDescr
 ' alias ignored
 ' $breakLabel() not required by participant
 
-!unquoted procedure Boundary($alias, $label, $type="", $tags="", $link="")
+!unquoted procedure Boundary($alias, $label, $type="", $tags="", $link="", $descr = "")
 !$boundaryTags = $addBoundaryPostfix($tags)
-' nodes $type reuses $techn definition of $boundaryTags
+' boundary $type reuses $techn definition of $boundaryTags
 !$type=$toElementArg($type, $boundaryTags, "ElementTagTechn", "boundary")
+!$sprite=$toElementArg("", $boundaryTags, "ElementTagSprite", "boundary")
+!$labelSprite=""
+!if ($sprite != "")
+  ' add sprite in label line that it is more compact
+  !$labelSprite = $getSprite($smallVersionSprite($sprite, $BOUNDARY_IMAGE_SIZE_FACTOR)) + ' '
+!endif
 !if ($link != "")
   !$usedNewLine = ']]\n== [[' + $link + ' '
-  !$labelType = '== [[' + $link + ' ' + $breakText($label, $usedNewLine) + ']]'
+  !$labelType = '== [[' + $link + ' ' + $labelSprite + $breakText($label, $usedNewLine) + ']]'
 !else
   !$usedNewLine = '\n== '
-  !$labelType = $breakText($label, $usedNewLine)
+  !$labelType = $labelSprite + $breakText($label, $usedNewLine)
 !endif
 !if (type != "")
     !$labelType = $labelType + '\n<size:' + $TECHN_FONT_SIZE + '>[' + $type + ']</size>'
+!endif
+!if ($display_element_description == %true() && $descr != "")
+    !$labelType = $labelType + '\n\n' + $breakDescr($descr, $BOUNDARY_DESCR_MAX_CHAR_WIDTH)
 !endif
 box "$labelType" $toStereos("boundary", $boundaryTags)
 !endprocedure
@@ -345,34 +353,34 @@ box "$labelType" $toStereos("boundary", $boundaryTags)
 end box
 !endprocedure
 
-!unquoted procedure Enterprise_Boundary($alias, $label, $tags="", $link="")
+!unquoted procedure Enterprise_Boundary($alias, $label, $tags="", $link="", $descr = "")
   !if ($tags != "")
     !$allTags = $tags + '+enterprise'
   !else
     !$allTags = 'enterprise'
   !endif
   ' $type defined via $tag style
-  Boundary($alias, $label, "", $allTags, $link)
+  Boundary($alias, $label, "", $allTags, $link, $descr)
 !endprocedure
 
-!unquoted procedure System_Boundary($alias, $label, $tags="", $link="")
+!unquoted procedure System_Boundary($alias, $label, $tags="", $link="", $descr = "")
   !if ($tags != "")
     !$allTags = $tags + '+system'
   !else
     !$allTags = 'system'
   !endif
   ' $type defined via $tag style
-  Boundary($alias, $label, "", $allTags, $link)
+  Boundary($alias, $label, "", $allTags, $link, $descr)
 !endprocedure
 
-!unquoted procedure Container_Boundary($alias, $label, $tags="", $link="")
+!unquoted procedure Container_Boundary($alias, $label, $tags="", $link="", $descr = "")
   !if ($tags != "")
     !$allTags = $tags + '+container'
   !else
     !$allTags = 'container'
   !endif
   ' $type defined via $tag style
-  Boundary($alias, $label, "", $allTags, $link)
+  Boundary($alias, $label, "", $allTags, $link, $descr)
 !endprocedure
 
 ' Relationship (redefinition)

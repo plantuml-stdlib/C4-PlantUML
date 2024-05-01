@@ -6,11 +6,11 @@
   !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !endif
 
-UpdateBoundaryStyle($bgColor="gold", $fontColor="brown", $borderColor="brown")
+UpdateBoundaryStyle($bgColor="gold", $fontColor="brown", $borderColor="brown", $sprite="person,scale=1", $legendSprite="person2,scale=0.5")
 ' re-set $bgColor avoids '(no back color)' in legend
-UpdateSystemBoundaryStyle($bgColor="gold", $fontColor="white", $borderColor="white")
+UpdateSystemBoundaryStyle($bgColor="gold", $fontColor="white", $borderColor="white", $sprite=robot, $legendSprite="robot2")
 
-AddBoundaryTag("specialSystem", $bgColor="green", $fontColor="white", $borderColor="blue", $shadowing="true", $shape = RoundedBoxShape(), $type="A SPECIAL SYSTEM BOUNDARY")
+AddBoundaryTag("specialSystem", $bgColor="green", $fontColor="white", $borderColor="blue", $shadowing="true", $shape = RoundedBoxShape(), $type="A SPECIAL SYSTEM BOUNDARY", $sprite="robot,scale=0.5,color=black", $legendSprite="robot2,scale=0.3,color=black")
 AddBoundaryTag("existingContainersBoundary", $bgColor="red", $fontColor="white", $borderColor="white", $type="Existing CONTAINER BOUNDARY", $legendText="container boundary with existing components")
 
 System_Boundary(sb, "A System Boundary") {

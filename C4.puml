@@ -927,11 +927,9 @@ $line
 $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $borderStyle, $borderThickness)
   !if ($sprite!="")
 %set_variable_value("$" + $tagStereo + "ElementTagSprite", $sprite)
-!log "DefinedlegendSprite:" + $legendSprite
     !if ($legendSprite == "")
       !$legendSprite = $smallVersionSprite($sprite)
     !endif
-!log "CalculatedlegendSprite:" + $legendSprite
   !endif
   !if ($techn != "")
 %set_variable_value("$" + $tagStereo + "ElementTagTechn", $techn)

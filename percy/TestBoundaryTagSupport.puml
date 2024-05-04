@@ -6,19 +6,21 @@
   !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !endif
 
-UpdateBoundaryStyle($bgColor="gold", $fontColor="brown", $borderColor="brown")
+UpdateBoundaryStyle($bgColor="gold", $fontColor="brown", $borderColor="brown", $sprite="person", $legendSprite="person2,scale=0.3")
 ' re-set $bgColor avoids '(no back color)' in legend
-UpdateSystemBoundaryStyle($bgColor="gold", $fontColor="white", $borderColor="white")
+UpdateSystemBoundaryStyle($bgColor="gold", $fontColor="white", $borderColor="white", $sprite=robot, $legendSprite="robot2,scale=0.3")
 
-AddBoundaryTag("specialSystem", $bgColor="green", $fontColor="white", $borderColor="blue", $shadowing="true", $shape = RoundedBoxShape(), $type="A SPECIAL SYSTEM BOUNDARY")
-AddBoundaryTag("existingContainersBoundary", $bgColor="red", $fontColor="white", $borderColor="white", $type="Existing CONTAINER BOUNDARY", $legendText="container boundary with existing components")
+AddElementTag("special", $sprite="person", $legendSprite="person,scale=0.3")
+
+AddBoundaryTag("specialSystem", $bgColor="green", $fontColor="white", $borderColor="blue", $shadowing="true", $shape = RoundedBoxShape(), $type="A SPECIAL SYSTEM BOUNDARY", $sprite="robot,scale=0.5,color=black", $legendSprite="robot2,scale=0.3,color=black")
+AddBoundaryTag("existingContainersBoundary", $bgColor="red", $fontColor="white", $borderColor="white", $type="Existing CONTAINER BOUNDARY", $legendText="container boundary with existing components", $sprite="robot")
 
 System_Boundary(sb, "A System Boundary") {
 }
 
-System_Boundary(sb1, "Special System 1 Boundary", $tags="specialSystem") {
-  Container_Boundary(cb1, "Container Boundary\nwith tag", $tags="existingContainersBoundary") {
-    Component(e1, "existing 1", "xyz")
+System_Boundary(sb1, "Special System 1 Boundary", $tags="specialSystem", $descr="A long description ... A long description ... A long description ... A long description") {
+  Container_Boundary(cb1, "Container Boundary\nwith tag", $tags="existingContainersBoundary", $descr="A long description ... A long description ... A long description ... A long description") {
+    Component(e1, "existing 1", "xyz", $tags="special")
     Component(e2, "existing 2", "xyz")
   }
   Container_Boundary(cb2, "A Container Boundary") {
@@ -38,7 +40,7 @@ Boundary(anotherBoundary, "Another Boundary", $type="BOUNDARY TYPE", $tags="v1")
   Component(anotherComponent, "Another Component", $techn="COMPONENT TYPE", $tags="v1", $descr="Component and boundary use different tag name spaces that both v1 tags can use different styles")
 }
 
-Boundary(aBoundary, "A Boundary") {
+Boundary(aBoundary, "A Boundary", $descr="A long description\nwith concrete line breaks\nNew line\nNewLine") {
 }
 
 Lay_R(sb, sb1)

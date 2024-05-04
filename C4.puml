@@ -34,6 +34,9 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 !$BOUNDARY_COLOR ?= "#444444"
 !$BOUNDARY_BG_COLOR ?= "transparent"
 !$BOUNDARY_BORDER_STYLE ?= "dashed"
+' boundary symbols written in the same line, typically only 50% of the size in element
+!$BOUNDARY_IMAGE_SIZE_FACTOR ?= 0.5
+!$BOUNDARY_DESCR_MAX_CHAR_WIDTH ?= 35
 
 !$LEGEND_TITLE_COLOR ?= "#000000"
 !$LEGEND_FONT_COLOR ?= "#FFFFFF"
@@ -608,13 +611,13 @@ $elementSkin
 !endfunction
 
 ' element symbols typically 4 times too big in legend
-!function $smallVersionSprite($sprite)
+!function $smallVersionSprite($sprite, $imageScale = $LEGEND_IMAGE_SIZE_FACTOR)
   ' ,scale= ... has to be first (...,color=black,scale=0.25... is invalid too)
   !if (%strpos($sprite, "=") < 0)
     !if (%substr($sprite, 0, 4) == "img:")
-      !$smallSprite = $sprite + "{scale=" + $LEGEND_IMAGE_SIZE_FACTOR + "}"
+      !$smallSprite = $sprite + "{scale=" + $imageScale + "}"
     !else
-      !$smallSprite = $sprite + ",scale=" + $LEGEND_IMAGE_SIZE_FACTOR
+      !$smallSprite = $sprite + ",scale=" + $imageScale
     !endif
   !else
     !$smallSprite = $sprite
@@ -1386,22 +1389,22 @@ $getLegendArea($alias, $hideStereotype, $details)
 ' Boundaries
 ' ##################################
 
-!unquoted procedure UpdateBoundaryStyle($elementName="", $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $type="", $legendText="", $borderStyle="", $borderThickness="")
+!unquoted procedure UpdateBoundaryStyle($elementName="", $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $type="", $legendText="", $borderStyle="", $borderThickness="", $sprite="", $legendSprite="")
   !if ($elementName != "")
     !$elementBoundary = $elementName + '_boundary'
-    UpdateElementStyle($elementBoundary, $bgColor, $fontColor, $borderColor, $shadowing, $shape, "", $type, $legendText, "", $borderStyle, $borderThickness)
+    UpdateElementStyle($elementBoundary, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $type, $legendText, $legendSprite, $borderStyle, $borderThickness)
   !else
-    UpdateElementStyle("boundary", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "", $type, $legendText, "", $borderStyle, $borderThickness)
+    UpdateElementStyle("boundary", $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $type, $legendText, $legendSprite, $borderStyle, $borderThickness)
     ' simulate color inheritance
-    UpdateBoundaryStyle("enterprise", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "Enterprise", "", $borderStyle, $borderThickness)
-    UpdateBoundaryStyle("system", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "System", "", $borderStyle, $borderThickness)
-    UpdateBoundaryStyle("container", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "Container", "", $borderStyle, $borderThickness)
+    UpdateBoundaryStyle("enterprise", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "Enterprise", "", $borderStyle, $borderThickness, $sprite, $legendSprite)
+    UpdateBoundaryStyle("system", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "System", "", $borderStyle, $borderThickness, $sprite, $legendSprite)
+    UpdateBoundaryStyle("container", $bgColor, $fontColor, $borderColor, $shadowing, $shape, "Container", "", $borderStyle, $borderThickness, $sprite, $legendSprite)
   !endif
 !endprocedure
 
-!unquoted procedure AddBoundaryTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $type="", $legendText="", $borderStyle="", $borderThickness="")
+!unquoted procedure AddBoundaryTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $type="", $legendText="", $borderStyle="", $borderThickness="", $sprite="", $legendSprite="")
     !$tagBoundary = $tagStereo + '_boundary'
-    AddElementTag($tagBoundary, $bgColor, $fontColor, $borderColor, $shadowing, $shape, "", $type, $legendText, "", $borderStyle, $borderThickness)
+    AddElementTag($tagBoundary, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $type, $legendText, $legendSprite, $borderStyle, $borderThickness)
 !endprocedure
 
 ' add _boundary to all tags that short tag version can be used
@@ -1423,20 +1426,28 @@ $getLegendArea($alias, $hideStereotype, $details)
   !return $boundaryTags
 !endfunction
 
-!function $getBoundary($label, $type)
-  !if ($type == "")
-    !return '== ' + $breakLabel($label)
+!function $getBoundary($label, $type, $descr, $sprite)
+  !$line = '== '
+  !if ($sprite != "")
+    ' add sprite in label line that it is more compact
+    !$line = $line + $getSprite($smallVersionSprite($sprite, $BOUNDARY_IMAGE_SIZE_FACTOR)) + ' '
   !endif
-  !if (type != "")
-    !return '== ' + $breakLabel($label) + '\n<size:' + $TECHN_FONT_SIZE + '>[' + $type + ']</size>'
+  !$line = $line + $breakLabel($label)
+  !if ($type != "")
+    !$line = $line + '\n<size:' + $TECHN_FONT_SIZE + '>[' + $type + ']</size>'
   !endif
+  !if ($descr != "")
+    !$line = $line + '\n\n' + $breakDescr($descr, $BOUNDARY_DESCR_MAX_CHAR_WIDTH)
+  !endif
+  !return $line
 !endfunction
 
-!unquoted procedure Boundary($alias, $label, $type="", $tags="", $link="")
+!unquoted procedure Boundary($alias, $label, $type="", $tags="", $link="", $descr = "")
 !$boundaryTags = $addBoundaryPostfix($tags)
-' nodes $type reuses $techn definition of $boundaryTags
+' boundary $type reuses $techn definition of $boundaryTags
 !$type=$toElementArg($type, $boundaryTags, "ElementTagTechn", "boundary")
-rectangle "$getBoundary($label, $type)" $toStereos("boundary", $boundaryTags) as $alias $getLink($link)
+!$sprite=$toElementArg("", $boundaryTags, "ElementTagSprite", "boundary")
+rectangle "$getBoundary($label, $type, $descr, $sprite)" $toStereos("boundary", $boundaryTags) as $alias $getLink($link)
 !endprocedure
 
 ' Boundary Styling

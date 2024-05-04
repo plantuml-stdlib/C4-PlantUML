@@ -62,11 +62,11 @@ UpdateBoundaryStyle("enterprise", $bgColor=$ENTERPRISE_BOUNDARY_BG_COLOR, $fontC
   $addElementTagInclReuse("external_system", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $type, $legendText, $legendSprite, $borderStyle, $borderThickness)
 !endprocedure
 
-!unquoted procedure UpdateEnterpriseBoundaryStyle($bgColor=$ENTERPRISE_BOUNDARY_BG_COLOR, $fontColor=$ENTERPRISE_BOUNDARY_COLOR, $borderColor=$ENTERPRISE_BOUNDARY_COLOR, $shadowing="", $shape="", $type="Enterprise", $legendText="", $borderStyle="", $borderThickness="")
-  UpdateBoundaryStyle("enterprise", $bgColor, $fontColor, $borderColor, $shadowing, $shape, $type, $legendText, $borderStyle, $borderThickness)
+!unquoted procedure UpdateEnterpriseBoundaryStyle($bgColor=$ENTERPRISE_BOUNDARY_BG_COLOR, $fontColor=$ENTERPRISE_BOUNDARY_COLOR, $borderColor=$ENTERPRISE_BOUNDARY_COLOR, $shadowing="", $shape="", $type="Enterprise", $legendText="", $borderStyle="", $borderThickness="", $sprite="", $legendSprite="")
+  UpdateBoundaryStyle("enterprise", $bgColor, $fontColor, $borderColor, $shadowing, $shape, $type, $legendText, $borderStyle, $borderThickness, $sprite, $legendSprite)
 !endprocedure
-!unquoted procedure UpdateSystemBoundaryStyle($bgColor=$SYSTEM_BOUNDARY_BG_COLOR, $fontColor=$SYSTEM_BOUNDARY_COLOR, $borderColor=$SYSTEM_BOUNDARY_COLOR, $shadowing="", $shape="", $type="System", $legendText="", $borderStyle="", $borderThickness="")
-  UpdateBoundaryStyle("system", $bgColor, $fontColor, $borderColor, $shadowing, $shape, $type, $legendText, $borderStyle, $borderThickness)
+!unquoted procedure UpdateSystemBoundaryStyle($bgColor=$SYSTEM_BOUNDARY_BG_COLOR, $fontColor=$SYSTEM_BOUNDARY_COLOR, $borderColor=$SYSTEM_BOUNDARY_COLOR, $shadowing="", $shape="", $type="System", $legendText="", $borderStyle="", $borderThickness="", $sprite="", $legendSprite="")
+  UpdateBoundaryStyle("system", $bgColor, $fontColor, $borderColor, $shadowing, $shape, $type, $legendText, $borderStyle, $borderThickness, $sprite, $legendSprite)
 !endprocedure
 
 ' Sprites
@@ -413,22 +413,22 @@ rectangle "$getPerson($label, $type, $descr, $sprite)$getProps()" $toStereos("ex
 ' Boundaries
 ' ##################################
 
-!unquoted procedure Enterprise_Boundary($alias, $label, $tags="", $link="")
+!unquoted procedure Enterprise_Boundary($alias, $label, $tags="", $link="", $descr = "")
   !if ($tags != "")
     !$allTags = $tags + '+enterprise'
   !else
     !$allTags = 'enterprise'
   !endif
   ' $type defined via $tag style
-  Boundary($alias, $label, "", $allTags, $link)
+  Boundary($alias, $label, "", $allTags, $link, $descr)
 !endprocedure
 
-!unquoted procedure System_Boundary($alias, $label, $tags="", $link="")
+!unquoted procedure System_Boundary($alias, $label, $tags="", $link="", $descr = "")
   !if ($tags != "")
     !$allTags = $tags + '+system'
   !else
     !$allTags = 'system'
   !endif
   ' $type defined via $tag style
-  Boundary($alias, $label, "", $allTags, $link)
+  Boundary($alias, $label, "", $allTags, $link, $descr)
 !endprocedure

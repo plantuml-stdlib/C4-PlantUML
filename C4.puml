@@ -469,6 +469,19 @@ skinparam package {
     !$tagSkin = $tagSkin + $elementTagSkinparams("interface", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
     ' label uses wrong font color? (should be $bgColor too)
     !$tagSkin = $tagSkin + $elementTagSkinparams("label", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
+' label colors cannot be set via skinparam use additional style
+    !$tagSkin = $tagSkin + "<style>" + %newline()
+    ' componentDiagram {
+    !$tagSkin = $tagSkin + "  label {" + %newline()
+    !$tagSkin = $tagSkin + "    ." + $tagStereo + " {" + %newline()
+    !$tagSkin = $tagSkin + "      StereotypeFontColor " + $bgColor + %newline()
+    !$tagSkin = $tagSkin + "      Fontcolor " + $bgColor + %newline()
+    !$tagSkin = $tagSkin + "      BackgroundColor " + $bgColor + %newline()
+    !$tagSkin = $tagSkin + "      BorderColor " + $borderColor + %newline()
+    !$tagSkin = $tagSkin + "    }" + %newline()
+    !$tagSkin = $tagSkin + "  }" + %newline()
+    ' }
+    !$tagSkin = $tagSkin + "</style>" + %newline()
   !endif
 $tagSkin
 !endprocedure

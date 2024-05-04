@@ -721,6 +721,7 @@ SHOW_LEGEND()
 | frame            | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
 | hexagon          | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
 | interface        | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
+| label            | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
 | package          | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
 | stack            | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
 | storage          | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
@@ -728,7 +729,6 @@ SHOW_LEGEND()
 | usecase/         | &#x2611; | requires ENABLE_ALL_PLANT_ELEMENTS                                                                                    |
 |                  |          |                                                                                                                       |
 | actor/           | &#x274C; | requires ENABLE_ALL_PLANT_ELEMENTS, not working (font color not changed to $bkColor) - and/or conflict with existing? |
-| label            | &#x274C; | requires ENABLE_ALL_PLANT_ELEMENTS, not working (font color not changed to $bkColor)                                  |
 
 If `ENABLE_ALL_PLANT_ELEMENTS` is not set, the diagrams displays the requested "PlantUML element"
 but the style is not correct.

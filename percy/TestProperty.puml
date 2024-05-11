@@ -1,0 +1,36 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Deployment.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!endif
+
+' default header Property, Value
+AddProperty("Name", "Flash")
+AddProperty("Organization", "Zootopia")
+AddProperty("Tool", "Internet Explorer 7.0")
+Person(personAlias, "Label", "Optional Description (with default property header)")
+
+SetPropertyHeader("Property","Value", "Description")
+AddProperty("Prop1", "Value1", "Details1")
+AddProperty("Prop2", "Value2", "Details2")
+Deployment_Node_L(nodeAlias, "Label", "Optional Type", "Optional Description (with custom property header)") {
+
+  WithoutPropertyHeader()
+  AddProperty("PropC1", "ValueC1")
+  AddProperty("PropC2", "ValueC2")
+  Container(containerAlias, "Label", "Technology", "Optional Description (without property header)")
+}
+
+SetPropertyHeader("Property")
+AddProperty("Value1")
+AddProperty("Value2")
+System(systemAlias, "Label", "Optional Description\n(single column property)")
+
+' starting with v.2.5.0 relationships support properties too
+WithoutPropertyHeader()
+AddProperty("PropC1", "ValueC1")
+AddProperty("PropC2", "ValueC2")
+Rel(personAlias, containerAlias, "Label", "Optional Technology", "Optional Description")
+@enduml

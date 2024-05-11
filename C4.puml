@@ -1151,9 +1151,12 @@ $elementSkin
 !global $propTableCaption = ""
 !global $propColCaption = "="
 
-!unquoted function SetPropertyHeader($col1Name, $col2Name, $col3Name = "", $col4Name = "")
+!unquoted function SetPropertyHeader($col1Name, $col2Name = "", $col3Name = "", $col4Name = "")
   !$propColCaption = ""
-  !$propTableCaption = "|= " + $col1Name + " |= " + $col2Name + " |"
+  !$propTableCaption = "|= " + $col1Name + " |"
+  !if ($col2Name != "")
+    !$propTableCaption = $propTableCaption + "= " + $col2Name + " |"
+  !endif
   !if ($col3Name != "")
     !$propTableCaption = $propTableCaption + "= " + $col3Name + " |"
   !endif
@@ -1169,7 +1172,7 @@ $elementSkin
   !return ""
 !endfunction
 
-!unquoted function AddProperty($col1, $col2, $col3 = "", $col4 = "")
+!unquoted function AddProperty($col1, $col2 = "", $col3 = "", $col4 = "")
   !if ($propTable == "")
     !if ($propTableCaption != "")
       !$propTable = $propTableCaption + "\n"
@@ -1177,7 +1180,10 @@ $elementSkin
   !else
     !$propTable = $propTable + "\n"
   !endif
-  !$propTable = $propTable + "| " + $col1 + " |" + $propColCaption + " " + $col2 + " |"
+  !$propTable = $propTable + "| " + $col1 + " |"
+  !if ($col2 != "")
+    !$propTable = $propTable + $propColCaption + " " + $col2 + " |"
+  !endif
   !if ($col3 != "")
     !$propTable = $propTable + " " + $col3 + " |"
   !endif

@@ -875,11 +875,11 @@ SHOW_LEGEND()
 
 A model can be extended with (a table of) properties that concrete deployments or more detailed concepts can be documented:
 
-- `SetPropertyHeader(col1Name, col2Name, ?col3Name, ?col4Name)`
+- `SetPropertyHeader(col1Name, ?col2Name, ?col3Name, ?col4Name)`
   The properties table can have up to 4 columns. The default header uses the column names "Name", "Description".
 - `WithoutPropertyHeader()`
   If no header is used, then the second column is bold.
-- `AddProperty(col1, col2, ?col3, ?col4)`
+- `AddProperty(col1, ?col2, ?col3, ?col4)`
   (All columns of) a property which will be added to the next element.
 
 Following sample uses all 3 different property definitions (and the aligned deployment node).

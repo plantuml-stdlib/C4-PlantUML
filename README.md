@@ -523,14 +523,14 @@ Color of the displayed images can be changed with `,color={color}`.
 !include <office/users/users.puml>
 
 
-AddRelTag("plantuml", $textColor="$ARROW_FONT_COLOR", $lineColor="$ARROW_COLOR", $sprite="img:http://plantuml.com/logo3.png{scale=0.3}", $legendSprite="img:http://plantuml.com/logo3.png{scale=0.1}", $legendText="console triggered")
+AddRelTag("plantuml", $textColor="$ARROW_FONT_COLOR", $lineColor="$ARROW_COLOR", $sprite="img:https://plantuml.com/logo3.png{scale=0.3}", $legendSprite="img:https://plantuml.com/logo3.png{scale=0.1}", $legendText="console triggered")
 
 Person(user, "user group displayed with a sprite", $sprite="users")
 
 
 Container(container, "Container with scaled and colored OpenIconic", $sprite="&folder,scale=5.0,color=gray")
 
-System(system, "System with an image", $sprite="img:http://plantuml.com/logo3.png")
+System(system, "System with an image", $sprite="img:https://plantuml.com/logo3.png")
 
 Rel(user, system, "Rel with image (via tags)", $tags="plantuml")
 Rel(user, container, "Rel with OpenIconinc", $sprite="&folder")

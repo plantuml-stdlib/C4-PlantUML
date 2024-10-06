@@ -20,7 +20,7 @@ Rel_(p1, c1, "A relation\nwith custom direction", "o-DOWN->>")
 Rel_(p1, c2, "A relation\nwith custom direction", "and technology\nwith LBs", "o-RIGHT-o")
 
 Rel(c1, c2, "A label\nwith\nline breaks", "and technology\nwith LBs")
-Rel(c1, s1, "A linked label\nwith\nline breaks", "and technology\nwith LBs", $link = "http://www.plantuml.com")
+Rel(c1, s1, "A linked label\nwith\nline breaks", "and technology\nwith LBs", $link = "https://www.plantuml.com")
 
 Node(n1, "A node label\nwith\nline breaks", "type with\nline break", "description\nwith line break")
 Node(n2, "A node label", "PlantUML packages have no automatic line breaks, type breaks added", "PlantUML packages have no automatic line breaks, description breaks added") {

@@ -27,12 +27,12 @@ AddContainerTag("mysql_db", $sprite="database_server", $techn="MySQL 5.5.x", $le
 AddContainerTag("mongo_db", $sprite="database_server", $techn="MongoDB 2.2.x", $legendText="MongoDb database container")
 AddContainerTag("files", $sprite="file_server", $legendText="file server container")
 
-AddContainerTag("conApp", $sprite="img:http://plantuml.com/logo3.png{scale=0.3}", $legendSprite="img:http://plantuml.com/logo3.png{scale=0.1}", $legendText="console application")
+AddContainerTag("conApp", $sprite="img:https://plantuml.com/logo3.png{scale=0.3}", $legendSprite="img:https://plantuml.com/logo3.png{scale=0.1}", $legendText="console application")
 
 UpdateElementStyle("external_system", $bgColor=$EXTERNAL_SYSTEM_BG_COLOR, $fontColor=$EXTERNAL_SYSTEM_FONT_COLOR, $borderColor=$EXTERNAL_SYSTEM_BORDER_COLOR, $sprite = "osa_server", , $legendText="external system")
 
 AddRelTag("firewall", $textColor="$ARROW_FONT_COLOR", $lineColor="$ARROW_COLOR", $sprite="&envelope-closed", $techn="HTTPS", $legendText="firewall")
-AddRelTag("plantuml", $textColor="$ARROW_FONT_COLOR", $lineColor="$ARROW_COLOR", $sprite="img:http://plantuml.com/logo3.png{scale=0.1}", $legendText="console triggered")
+AddRelTag("plantuml", $textColor="$ARROW_FONT_COLOR", $lineColor="$ARROW_COLOR", $sprite="img:https://plantuml.com/logo3.png{scale=0.1}", $legendText="console triggered")
 
 Person_Ext(anonymous_user, "Bob", $tags="anonymous_ext")
 Person(aggregated_user, "Sam, Ivone", $tags="customer")

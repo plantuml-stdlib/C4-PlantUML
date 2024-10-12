@@ -25,12 +25,20 @@
 !$EXTERNAL_CONTAINER_BG_COLOR ?= "#B3B3B3"
 !$EXTERNAL_CONTAINER_BORDER_COLOR ?= "#A6A6A6"
 
+' Labels
+' ##################################
+
+!$CONTAINER_LEGEND_TEXT ?= "container"
+!$CONTAINER_BOUNDARY_TYPE ?= "container"
+!$CONTAINER_BOUNDARY_LEGEND_TEXT ?= "container boundary"
+!$EXTERNAL_CONTAINER_LEGEND_TEXT ?= "external container"
+
 ' Styling
 ' ##################################
-UpdateElementStyle("container", $CONTAINER_BG_COLOR, $CONTAINER_FONT_COLOR, $CONTAINER_BORDER_COLOR)
-UpdateElementStyle("external_container", $EXTERNAL_CONTAINER_BG_COLOR, $EXTERNAL_CONTAINER_FONT_COLOR, $EXTERNAL_CONTAINER_BORDER_COLOR)
+UpdateElementStyle("container", $CONTAINER_BG_COLOR, $CONTAINER_FONT_COLOR, $CONTAINER_BORDER_COLOR, $legendText="$CONTAINER_LEGEND_TEXT")
+UpdateElementStyle("external_container", $EXTERNAL_CONTAINER_BG_COLOR, $EXTERNAL_CONTAINER_FONT_COLOR, $EXTERNAL_CONTAINER_BORDER_COLOR, $legendText="$EXTERNAL_CONTAINER_LEGEND_TEXT")
 
-UpdateBoundaryStyle("container", $bgColor=$CONTAINER_BOUNDARY_BG_COLOR, $fontColor=$CONTAINER_BOUNDARY_COLOR, $borderColor=$CONTAINER_BOUNDARY_COLOR, $type="Container")
+UpdateBoundaryStyle("container", $bgColor=$CONTAINER_BOUNDARY_BG_COLOR, $fontColor=$CONTAINER_BOUNDARY_COLOR, $borderColor=$CONTAINER_BOUNDARY_COLOR, $type="$CONTAINER_BOUNDARY_TYPE", $legendText="$CONTAINER_BOUNDARY_LEGEND_TEXT")
 
 ' shortcuts with default colors
 !unquoted procedure AddContainerTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="", $borderStyle="", $borderThickness="")

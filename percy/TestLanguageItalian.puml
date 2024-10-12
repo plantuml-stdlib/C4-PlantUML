@@ -1,0 +1,21 @@
+﻿@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !theme C4Language_italian from %get_variable_value("RELATIVE_INCLUDE")/themes
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
+!else
+  !theme C4Language_italian from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!endif
+
+Person(admin, "Administrator")
+System_Boundary(c1, 'Sample') {
+    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
+}
+System(twitter, "Twitter")
+
+Rel(admin, web_app, "Uses", "HTTPS")
+Rel(web_app, twitter, "Gets tweets from", "HTTPS")
+
+SHOW_LEGEND()
+@enduml

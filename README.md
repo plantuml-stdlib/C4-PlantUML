@@ -62,7 +62,7 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
   - [Background](#background)
   - [License](#license)
 - [📄 Layout Options](LayoutOptions.md#layout-options)
-- [📄 Themes](Themes.md#themes)
+- [📄 Themes (different styles and languages)](Themes.md#themes)
 - samples
   - [📄 C4 Model Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
 
@@ -653,6 +653,13 @@ Like the element specific tag definitions exist boundary specific calls with the
 - `UpdateContainerBoundaryStyle(?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText, ?borderStyle, ?borderThickness, ?sprite, ?legendSprite)`
 - `UpdateSystemBoundaryStyle(?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText, ?borderStyle, ?borderThickness, ?sprite, ?legendSprite)`
 - `UpdateEnterpriseBoundaryStyle(?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText, ?borderStyle, ?borderThickness, ?sprite, ?legendSprite)`
+
+### Define a new legend title
+
+All the above described `Update....(..., ?legendText, ...)` calls can define a new legend text.
+Only the legend title cannot be changed. Therefore, the following call is added to allow it to be changed as well:
+
+- `UpdateLegendTitle(newTitle)`
 
 ### Comments
 

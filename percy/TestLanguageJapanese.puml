@@ -1,0 +1,30 @@
+﻿@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !theme C4Language_japanese from %get_variable_value("RELATIVE_INCLUDE")/themes
+  
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
+!else
+  !theme C4Language_japanese from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!endif
+
+LAYOUT_LANDSCAPE()
+' sketch mode changes the font to 'Comic Sans MS' but ex. Japanese requires a unicode
+' font like Dialog but it could be that different user have different fonts.
+' Global solution in language theme files themselves are missing.
+' !$SKETCH_FONT_NAME="Dialog"
+' LAYOUT_AS_SKETCH()
+
+Person(admin, "管理者")
+System_Boundary(c1, 'サンプル') {
+    Container(web_app, "ウェブアプリケーション", "C#, ASP.NET Core 2.1 MVC", "複数のTwitterタイムラインを比較することができます")
+}
+System(twitter, "Twitter")
+
+Rel(admin, web_app, "使用する", "HTTPS")
+Rel(web_app, twitter, "ツイートを取得する", "HTTPS")
+
+SHOW_LEGEND()
+@enduml

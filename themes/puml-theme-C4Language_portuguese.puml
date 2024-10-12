@@ -1,0 +1,51 @@
+﻿!$THEME = "C4Language_portuguese"
+
+!$BOUNDARY_LEGEND_TEXT ?= "limite"
+
+!$LEGEND_TITLE_TEXT ?= "Legenda"
+
+!$LEGEND_BOUNDARY ?= "limite"
+!$LEGEND_BOUNDARY_PRE_PART ?= "limite do "
+!$LEGEND_BOUNDARY_POST_PART ?= ""
+
+!$LEGEND_SHADOW_TEXT ?= "sombra"
+!$LEGEND_NO_SHADOW_TEXT ?= "sem sombra"
+!$LEGEND_NO_FONT_BG_TEXT ?= "última cor do texto e do fundo"
+!$LEGEND_NO_FONT_TEXT ?= "última cor do texto"
+!$LEGEND_NO_BG_TEXT ?= "última cor do fundo"
+!$LEGEND_NO_LINE_TEXT ?= "última cor da linha"
+!$LEGEND_ROUNDED_BOX ?= "caixa arredondada"
+!$LEGEND_EIGHT_SIDED ?= "oito lados"
+!$LEGEND_DOTTED_LINE ?= "pontilhado"
+!$LEGEND_DASHED_LINE ?= "tracejado"
+!$LEGEND_BOLD_LINE ?= "negrito"
+!$LEGEND_SOLID_LINE ?= "sólido"
+' !$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= "transparent, "
+!$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= ""
+!$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= "tracejado, "
+' !$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= ""
+!$LEGEND_THICKNESS ?= "espessura"
+
+!$SKETCH_FOOTER_WARNING ?= "Aviso:"
+!$SKETCH_FOOTER_TEXT ?= "Criado para discussão, precisa ser validado"
+
+!$COMPONENT_LEGEND_TEXT ?= "componente"
+!$EXTERNAL_COMPONENT_LEGEND_TEXT ?= "componente externo"
+
+!$CONTAINER_LEGEND_TEXT ?= "contêiner"
+!$CONTAINER_BOUNDARY_TYPE ?= "contêiner"
+!$CONTAINER_BOUNDARY_LEGEND_TEXT ?= "limite do contêiner"
+!$EXTERNAL_CONTAINER_LEGEND_TEXT ?= "contêiner externo"
+
+!$PERSON_LEGEND_TEXT ?= "pessoa"
+!$EXTERNAL_PERSON_LEGEND_TEXT ?= "pessoa externa"
+
+!$SYSTEM_LEGEND_TEXT ?= "sistema"
+!$SYSTEM_BOUNDARY_TYPE ?= "sistema"
+!$SYSTEM_BOUNDARY_LEGEND_TEXT ?= "limite do sistema"
+!$EXTERNAL_SYSTEM_LEGEND_TEXT ?= "sistema externo"
+
+!$ENTERPRISE_BOUNDARY_TYPE ?= "empresa"
+!$ENTERPRISE_BOUNDARY_LEGEND_TEXT ?= "limite da empresa"
+
+!$NODE_LEGEND_TEXT ?= "nó"

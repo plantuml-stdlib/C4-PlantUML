@@ -1,0 +1,51 @@
+﻿!$THEME = "C4Language_french"
+
+!$BOUNDARY_LEGEND_TEXT ?= "frontière"
+
+!$LEGEND_TITLE_TEXT ?= "Légende"
+
+!$LEGEND_BOUNDARY ?= "frontière"
+!$LEGEND_BOUNDARY_PRE_PART ?= "frontière du "
+!$LEGEND_BOUNDARY_POST_PART ?= ""
+
+!$LEGEND_SHADOW_TEXT ?= "ombre"
+!$LEGEND_NO_SHADOW_TEXT ?= "pas d'ombre"
+!$LEGEND_NO_FONT_BG_TEXT ?= "dernière couleur de texte et de fond"
+!$LEGEND_NO_FONT_TEXT ?= "dernière couleur de texte"
+!$LEGEND_NO_BG_TEXT ?= "dernière couleur de fond"
+!$LEGEND_NO_LINE_TEXT ?= "dernière couleur de ligne"
+!$LEGEND_ROUNDED_BOX ?= "boîte arrondie"
+!$LEGEND_EIGHT_SIDED ?= "octogonal"
+!$LEGEND_DOTTED_LINE ?= "pointillé"
+!$LEGEND_DASHED_LINE ?= "tiret"
+!$LEGEND_BOLD_LINE ?= "gras"
+!$LEGEND_SOLID_LINE ?= "solide"
+' !$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= "transparent, "
+!$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= ""
+!$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= "tiret, "
+' !$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= ""
+!$LEGEND_THICKNESS ?= "épaisseur"
+
+!$SKETCH_FOOTER_WARNING ?= "Attention:"
+!$SKETCH_FOOTER_TEXT ?= "Créé pour discussion, doit être validé"
+
+!$COMPONENT_LEGEND_TEXT ?= "composant"
+!$EXTERNAL_COMPONENT_LEGEND_TEXT ?= "composant externe"
+
+!$CONTAINER_LEGEND_TEXT ?= "conteneur"
+!$CONTAINER_BOUNDARY_TYPE ?= "conteneur"
+!$CONTAINER_BOUNDARY_LEGEND_TEXT ?= "frontière du conteneur"
+!$EXTERNAL_CONTAINER_LEGEND_TEXT ?= "conteneur externe"
+
+!$PERSON_LEGEND_TEXT ?= "personne"
+!$EXTERNAL_PERSON_LEGEND_TEXT ?= "personne externe"
+
+!$SYSTEM_LEGEND_TEXT ?= "système"
+!$SYSTEM_BOUNDARY_TYPE ?= "système"
+!$SYSTEM_BOUNDARY_LEGEND_TEXT ?= "frontière du système"
+!$EXTERNAL_SYSTEM_LEGEND_TEXT ?= "système externe"
+
+!$ENTERPRISE_BOUNDARY_TYPE ?= "entreprise"
+!$ENTERPRISE_BOUNDARY_LEGEND_TEXT ?= "frontière de l'entreprise"
+
+!$NODE_LEGEND_TEXT ?= "nœud"

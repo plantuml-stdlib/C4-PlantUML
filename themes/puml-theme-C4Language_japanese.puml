@@ -27,7 +27,7 @@
 !$LEGEND_THICKNESS ?= "厚さ"
 
 !$SKETCH_FOOTER_WARNING ?= "警告:"
-!$SKETCH_FOOTER_TEXT ?= "議論のために作成され、検証が必要です"
+!$SKETCH_FOOTER_TEXT ?= "議論用に作成されたもので、検証が必要です"
 
 !$COMPONENT_LEGEND_TEXT ?= "コンポーネント"
 !$EXTERNAL_COMPONENT_LEGEND_TEXT ?= "外部コンポーネント"

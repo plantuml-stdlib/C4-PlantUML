@@ -1,0 +1,51 @@
+﻿' all available language specific text labels (orig. English)
+!$THEME = "C4Language_danish"
+
+!$BOUNDARY_LEGEND_TEXT ?= "skillelinje"
+
+!$LEGEND_TITLE_TEXT ?= "Signaturforklaring"
+
+!$LEGEND_BOUNDARY ?= "skillelinje"
+' !$LEGEND_BOUNDARY_PRE_PART ?= ""
+' !$LEGEND_BOUNDARY_POST_PART ?= " " + $LEGEND_BOUNDARY
+
+!$LEGEND_SHADOW_TEXT ?= "skygge"
+!$LEGEND_NO_SHADOW_TEXT ?= "ingen skygge"
+!$LEGEND_NO_FONT_BG_TEXT ?= "sidste tekst og sidste farve"
+!$LEGEND_NO_FONT_TEXT ?= "sidste tekstfarve"
+!$LEGEND_NO_BG_TEXT ?= "sidste baggrundsfarve"
+!$LEGEND_NO_LINE_TEXT ?= "sidste linjefarve"
+!$LEGEND_ROUNDED_BOX ?= "rundet boks"
+!$LEGEND_EIGHT_SIDED ?= "ottesidet"
+!$LEGEND_DOTTED_LINE ?= "prikket"
+!$LEGEND_DASHED_LINE ?= "stiplet"
+!$LEGEND_BOLD_LINE ?= "fed"
+!$LEGEND_SOLID_LINE ?= "solid"
+' !$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= "transparent, "
+!$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= ""
+!$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= "stiplet, "
+' !$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= ""
+!$LEGEND_THICKNESS ?= "tykkelse"
+!$SKETCH_FOOTER_WARNING ?= "Advarsel:"
+!$SKETCH_FOOTER_TEXT ?= "Oprettet til diskussion, skal valideres"
+
+!$COMPONENT_LEGEND_TEXT ?= "komponent"
+!$EXTERNAL_COMPONENT_LEGEND_TEXT ?= "ekstern komponent"
+
+!$CONTAINER_LEGEND_TEXT ?= "container"
+!$CONTAINER_BOUNDARY_TYPE ?= "container"
+!$CONTAINER_BOUNDARY_LEGEND_TEXT ?= "container skillelinje"
+!$EXTERNAL_CONTAINER_LEGEND_TEXT ?= "ekstern container"
+
+!$PERSON_LEGEND_TEXT ?= "person"
+!$EXTERNAL_PERSON_LEGEND_TEXT ?= "ekstern person"
+
+!$SYSTEM_LEGEND_TEXT ?= "system"
+!$SYSTEM_BOUNDARY_TYPE ?= "system"
+!$SYSTEM_BOUNDARY_LEGEND_TEXT ?= "system skillelinje"
+!$EXTERNAL_SYSTEM_LEGEND_TEXT ?= "eksternt system"
+
+!$ENTERPRISE_BOUNDARY_TYPE ?= "enterprise"
+!$ENTERPRISE_BOUNDARY_LEGEND_TEXT ?= "enterprise skillelinje"
+
+!$NODE_LEGEND_TEXT ?= "node"

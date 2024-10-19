@@ -22,7 +22,8 @@
     - [(C4 styled) Sequence diagram and themes](#c4-styled-sequence-diagram-and-themes)
   - [List of available C4 language themes](#list-of-available-c4-language-themes)
     - [C4Language_english](#c4language_english)
-    - [C4Language_dutch](#c4language_dutch)
+    - [C4Language_chinese](#c4language_chinese)
+    - [C4Language_danish](#c4language_danish)
     - [C4Language_dutch](#c4language_dutch)
     - [C4Language_german](#c4language_german)
     - [C4Language_italian](#c4language_italian)
@@ -535,6 +536,16 @@ Theme [C4Language_chinese](https://raw.githubusercontent.com/plantuml-stdlib/C4-
 
 ![](https://www.plantuml.com/plantuml/png/hL7DRfmm4BxxAIRRGq3QW5Bbr5CeGSc1R51X6_M434mNI_wnxB5GLFNTQwlfRXyWN4RCzytt0_UUkAEW9BkY5HL2VTToVGhyXEEy2eqUuQSp2bOYwx-KfUDRSHAqXYbuTBFHX9gAsQZIIgwJqesdHOgfhEzkkhGwFhUbufxGbSa2FRiIUfPXmGyHZQknZXSyXdM5JLLOM_ruEGvZMnqU-hhgcYndh4FdZSxueeJUmwvAKtXod8pRvQn_yuHg_6g2NhXxo-RRFLptN5c9rpdyOX2ViqssuJHoQwFEAqvGMIl5p4aOlOkh-jCUghuh3iqGJnp2v-8Mdh_N2QkaD9k7LDC36OWTBOyK5II9w0N39eZG0Gc5Cdt_cEttUxgC_e9HvvqMGVODvRzMbrX7ZpxvFGr3rqTM8ftHYymZae-lc4RwpV-ViFxfvNLicyVcy93bx1xr4fJy0m00)
 
+### C4Language_danish
+
+Theme [C4Language_danish](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_danish.puml) can be activated with
+
+```plantuml
+!theme C4Language_danish from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+```
+
+![](https://www.plantuml.com/plantuml/png/hL7DRjim3BxhATZiK0T8RNJeQQTwRj0UtDIOdHKx6OhDnGBq8qWKZ6BOku_QkdOFC5y8azyFF-esaWoKZ1ONjA11Q6vQQSz9dd6S4qqBV0_Em4BauwUg2d8jpugMT4eHm-GieQLoSgRoMjgiSnLfrkfKDJTNNMuT7zlAo4WOgjy6KLmeE-aqutyHvTROC4CgYw7qEOXewszFns5iwyDTtzJTljWAqM68pXPoDihkO5FdgY85IIvijg9_OJ4pVdR9pZAy5DFr3YvxQRp6ooty4C3VcqsnuccKthFECvwWzbwhIP9oTiEjviCEwhuh3_k1AG7XOtaDZr-RFAkrTck473C2EU2CNZB494sAlM1O5N4g86LGirVatNw-RbVGdo7hlC9uABwW_flgVQrZP2RNXs7eUaPbqDlqNUOUAV8lvfAV-L-Aw1-UdiTsVxy_tF41Rz7EVDnV)
+
 ### C4Language_dutch
 
 Theme [C4Language_dutch](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_dutch.puml) can be activated with
@@ -543,7 +554,7 @@ Theme [C4Language_dutch](https://raw.githubusercontent.com/plantuml-stdlib/C4-Pl
 !theme C4Language_dutch from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hL7DRjim3BxhATZiK0T8RNJeQQTwRj0UtDIOdHKx6OhDnGBq8qWKZ6BOku_QkdOFC5y8azyFF-esaWoKZ1ONjA11Q6vQQSz9dd6S4qqBV0_Em4BauwUg2d8jpugMT4eHm-GieQLoSgRoMjgiSnLfrkfKDJTNNMuT7zlAo4WOgjy6KLmeE-aqutyHvTROC4CgYw7qEOXewszFns5iwyDTtzJTljWAqM68pXPoDihkO5FdgY85IIvijg9_OJ4pVdR9pZAy5DFr3YvxQRp6ooty4C3VcqsnuccKthFECvwWzbwhIP9oTiEjviCEwhuh3_k1AG7XOtaDZr-RFAkrTck473C2EU2CNZB494sAlM1O5N4g86LGirVatNw-RbVGdo7hlC9uABwW_flgVQrZP2RNXs7eUaPbqDlqNUOUAV8lvfAV-L-Aw1-UdiTsVxy_tF41Rz7EVDnV)
+![](https://www.plantuml.com/plantuml/png/hL7DRfmm4BxxAIRRGrXf0qgLKq-X12K7ia65RTGJCZ1TBFd7iWUXgEgxTzocIH-WN4RCV3_pZMyZoK2hqUA25ZG8rKqZxNcLPnncQLLSu7jm1XOY7pyLHP1RVbQqhECQCKpE4bhA9sSAhwLDGbUHPgt6ehgvQbFhzDWKHaR2KFnsYE92sKclC_uNKMuD5JEaiXXodvA8flpsTEg7fZpUTLNPrjbUY1P3T3QJir7s0BioLHKfI79XjnVT2ukPuRDRxIp3IpPT7-2oayPhlDp33m7ylTba6uw3z9vrdd64qdkj9adAsHstgWy7ABisFzOzKmB2n_mQ7hzMQLPgxRO8AMO4Si0PlMI8MJKfze9-KyIfW9H1pLwHT_lvkbr6VuQiymhZeVY2-c-gzxLEaPbS7_g-xHYLG6_JTvbxfCY_c4fwvdyfedjuUXwQ-hu-tl41Rz7EVDnV)
 
 ### C4Language_german
 

@@ -1,0 +1,52 @@
+﻿!$THEME = "C4Language_ukrainian"
+
+!$BOUNDARY_LEGEND_TEXT ?= "межа"
+
+!$LEGEND_TITLE_TEXT ?= "Легенда"
+
+!$LEGEND_BOUNDARY ?= "межа"
+!$LEGEND_BOUNDARY_PRE_PART ?= $LEGEND_BOUNDARY + ""
+' !$LEGEND_BOUNDARY_POST_PART ?= " " + $LEGEND_BOUNDARY
+
+!$LEGEND_SHADOW_TEXT ?= "тінь"
+!$LEGEND_NO_SHADOW_TEXT ?= "без тіні"
+!$LEGEND_NO_FONT_BG_TEXT ?= "останній колір тексту та фону"
+
+!$LEGEND_NO_FONT_TEXT ?= "останній колір тексту"
+!$LEGEND_NO_BG_TEXT ?= "останній колір фону"
+!$LEGEND_NO_LINE_TEXT ?= "останній колір лінії"
+!$LEGEND_ROUNDED_BOX ?= "округлий блок"
+!$LEGEND_EIGHT_SIDED ?= "восьмикутний"
+!$LEGEND_DOTTED_LINE ?= "пунктирна лінія"
+!$LEGEND_DASHED_LINE ?= "штрихова лінія"
+!$LEGEND_BOLD_LINE ?= "жирна лінія"
+!$LEGEND_SOLID_LINE ?= "суцільна лінія"
+' !$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= "transparent, "
+!$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= ""
+!$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= "штрихова, "
+' !$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= ""
+!$LEGEND_THICKNESS ?= "товщина"
+
+!$SKETCH_FOOTER_WARNING ?= "Попередження:"
+!$SKETCH_FOOTER_TEXT ?= "Створено для обговорення, потребує перевірки"
+
+!$COMPONENT_LEGEND_TEXT ?= "компонент"
+!$EXTERNAL_COMPONENT_LEGEND_TEXT ?= "зовнішній компонент"
+
+!$CONTAINER_LEGEND_TEXT ?= "контейнер"
+!$CONTAINER_BOUNDARY_TYPE ?= "контейнер"
+!$CONTAINER_BOUNDARY_LEGEND_TEXT ?= "межа контейнера"
+!$EXTERNAL_CONTAINER_LEGEND_TEXT ?= "зовнішній контейнер"
+
+!$PERSON_LEGEND_TEXT ?= "особа"
+!$EXTERNAL_PERSON_LEGEND_TEXT ?= "зовнішня особа"
+
+!$SYSTEM_LEGEND_TEXT ?= "система"
+!$SYSTEM_BOUNDARY_TYPE ?= "система"
+!$SYSTEM_BOUNDARY_LEGEND_TEXT ?= "межа системи"
+!$EXTERNAL_SYSTEM_LEGEND_TEXT ?= "зовнішня система"
+
+!$ENTERPRISE_BOUNDARY_TYPE ?= "підприємства"
+!$ENTERPRISE_BOUNDARY_LEGEND_TEXT ?= "межа підприємства"
+
+!$NODE_LEGEND_TEXT ?= "вузол"

@@ -17,15 +17,22 @@
 !$COMPONENT_BG_COLOR ?= "#85BBF0"
 !$COMPONENT_BORDER_COLOR ?= "#78A8D8"
 
+!$EXTERNAL_COMPONENT_LEGEND_TEXT ?= "external component"
 !$EXTERNAL_COMPONENT_FONT_COLOR ?= $COMPONENT_FONT_COLOR
 !$EXTERNAL_COMPONENT_BG_COLOR ?= "#CCCCCC"
 !$EXTERNAL_COMPONENT_BORDER_COLOR ?= "#BFBFBF"
 
+' Labels
+' ##################################
+
+!$COMPONENT_LEGEND_TEXT ?= "component"
+!$EXTERNAL_COMPONENT_LEGEND_TEXT ?= "external component"
+
 ' Styling
 ' ##################################
 
-UpdateElementStyle("component", $COMPONENT_BG_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR)
-UpdateElementStyle("external_component", $EXTERNAL_COMPONENT_BG_COLOR, $EXTERNAL_COMPONENT_FONT_COLOR, $EXTERNAL_COMPONENT_BORDER_COLOR)
+UpdateElementStyle("component", $COMPONENT_BG_COLOR, $COMPONENT_FONT_COLOR, $COMPONENT_BORDER_COLOR, $legendText="$COMPONENT_LEGEND_TEXT")
+UpdateElementStyle("external_component", $EXTERNAL_COMPONENT_BG_COLOR, $EXTERNAL_COMPONENT_FONT_COLOR, $EXTERNAL_COMPONENT_BORDER_COLOR, $legendText="$EXTERNAL_COMPONENT_LEGEND_TEXT")
 
 ' shortcuts with default colors
 !unquoted procedure AddComponentTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="", $borderStyle="", $borderThickness="")

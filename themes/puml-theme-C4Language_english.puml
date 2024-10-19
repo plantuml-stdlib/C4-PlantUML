@@ -1,0 +1,51 @@
+﻿' all available language specific text labels (orig. English)
+!$THEME = "C4Language_english"
+
+!$BOUNDARY_LEGEND_TEXT ?= "boundary"
+
+!$LEGEND_TITLE_TEXT ?= "Legend"
+
+!$LEGEND_BOUNDARY ?= "boundary"
+' !$LEGEND_BOUNDARY_PRE_PART ?= ""
+' !$LEGEND_BOUNDARY_POST_PART ?= " " + $LEGEND_BOUNDARY
+
+!$LEGEND_SHADOW_TEXT ?= "shadow"
+!$LEGEND_NO_SHADOW_TEXT ?= "no shadow"
+!$LEGEND_NO_FONT_BG_TEXT ?= "last text and back color"
+!$LEGEND_NO_FONT_TEXT ?= "last text color"
+!$LEGEND_NO_BG_TEXT ?= "last back color"
+!$LEGEND_NO_LINE_TEXT ?= "last line color"
+!$LEGEND_ROUNDED_BOX ?= "rounded box"
+!$LEGEND_EIGHT_SIDED ?= "eight sided"
+!$LEGEND_DOTTED_LINE ?= "dotted"
+!$LEGEND_DASHED_LINE ?= "dashed"
+!$LEGEND_BOLD_LINE ?= "bold"
+!$LEGEND_SOLID_LINE ?= "solid"
+' !$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= "transparent, "
+!$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= ""
+!$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= "dashed, "
+' !$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= ""
+!$LEGEND_THICKNESS ?= "thickness"
+!$SKETCH_FOOTER_WARNING ?= "Warning:"
+!$SKETCH_FOOTER_TEXT ?= "Created for discussion, needs to be validated"
+
+!$COMPONENT_LEGEND_TEXT ?= "component"
+!$EXTERNAL_COMPONENT_LEGEND_TEXT ?= "external component"
+
+!$CONTAINER_LEGEND_TEXT ?= "container"
+!$CONTAINER_BOUNDARY_TYPE ?= "container"
+!$CONTAINER_BOUNDARY_LEGEND_TEXT ?= "container boundary"
+!$EXTERNAL_CONTAINER_LEGEND_TEXT ?= "external container"
+
+!$PERSON_LEGEND_TEXT ?= "person"
+!$EXTERNAL_PERSON_LEGEND_TEXT ?= "external person"
+
+!$SYSTEM_LEGEND_TEXT ?= "system"
+!$SYSTEM_BOUNDARY_TYPE ?= "system"
+!$SYSTEM_BOUNDARY_LEGEND_TEXT ?= "system boundary"
+!$EXTERNAL_SYSTEM_LEGEND_TEXT ?= "external system"
+
+!$ENTERPRISE_BOUNDARY_TYPE ?= "enterprise"
+!$ENTERPRISE_BOUNDARY_LEGEND_TEXT ?= "enterprise boundary"
+
+!$NODE_LEGEND_TEXT ?= "node"

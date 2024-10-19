@@ -34,9 +34,9 @@
   !$LEGEND_DASHED_TRANSPARENT_BOUNDARY = ""
 !endif
 UpdateBoundaryStyle("", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR)
-UpdateBoundaryStyle("enterprise", $bgColor=$ENTERPRISE_BOUNDARY_BG_COLOR, $fontColor=$ENTERPRISE_BOUNDARY_COLOR, $borderColor=$ENTERPRISE_BOUNDARY_COLOR, $type="Enterprise")
-UpdateBoundaryStyle("system", $bgColor=$SYSTEM_BOUNDARY_BG_COLOR, $fontColor=$SYSTEM_BOUNDARY_COLOR, $borderColor=$SYSTEM_BOUNDARY_COLOR, $type="System")
-UpdateBoundaryStyle("container", $bgColor=$CONTAINER_BOUNDARY_BG_COLOR, $fontColor=$CONTAINER_BOUNDARY_COLOR, $borderColor=$CONTAINER_BOUNDARY_COLOR, $type="Container")
+UpdateBoundaryStyle("enterprise", $bgColor=$ENTERPRISE_BOUNDARY_BG_COLOR, $fontColor=$ENTERPRISE_BOUNDARY_COLOR, $borderColor=$ENTERPRISE_BOUNDARY_COLOR, $type="$ENTERPRISE_BOUNDARY_TYPE")
+UpdateBoundaryStyle("system", $bgColor=$SYSTEM_BOUNDARY_BG_COLOR, $fontColor=$SYSTEM_BOUNDARY_COLOR, $borderColor=$SYSTEM_BOUNDARY_COLOR, $type="$SYSTEM_BOUNDARY_TYPE")
+UpdateBoundaryStyle("container", $bgColor=$CONTAINER_BOUNDARY_BG_COLOR, $fontColor=$CONTAINER_BOUNDARY_COLOR, $borderColor=$CONTAINER_BOUNDARY_COLOR, $type="$CONTAINER_BOUNDARY_TYPE")
 
 ' Styling and Layout
 ' ##################################

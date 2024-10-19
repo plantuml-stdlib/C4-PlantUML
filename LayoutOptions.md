@@ -24,7 +24,7 @@ C4-PlantUML comes with some layout options.
     - [SHOW_INDEX(?show)](#show_indexshow)
   - [Optional support of additional PlantUML elements](#optional-support-of-additional-plantuml-elements)
     - [List of supported PlantUML elements](#list-of-supported-plantuml-elements)
-- [📄 Themes](Themes.md#themes)
+- [📄 Themes (different styles and languages)](Themes.md#themes)
 - samples
   - [📄 C4 Model Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
 

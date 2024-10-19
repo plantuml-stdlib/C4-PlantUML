@@ -54,6 +54,9 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 ' Labels
 ' ##################################
 
+!$BOUNDARY_LEGEND_TEXT ?= "boundary"
+
+!$LEGEND_TITLE_TEXT ?= "Legend"
 !$LEGEND_SHADOW_TEXT ?= "shadow"
 !$LEGEND_NO_SHADOW_TEXT ?= "no shadow"
 !$LEGEND_NO_FONT_BG_TEXT ?= "last text and back color"
@@ -68,6 +71,9 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 !$LEGEND_SOLID_LINE ?= "solid"
 
 !$LEGEND_BOUNDARY ?= "boundary"
+!$LEGEND_BOUNDARY_PRE_PART ?= ""
+!$LEGEND_BOUNDARY_POST_PART ?= " " + $LEGEND_BOUNDARY
+
 ' ignore (boundary) transparent atm, that the legend is smaller
 ' !$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= "transparent, "
 !$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= ""
@@ -692,13 +698,13 @@ $elementSkin
     !if (%strpos($tagStereo, "boundary") >= 0)
       !if ($tagStereo == "boundary")
         !$isBoundary = 1
-        !$tagEntry = $tagEntry + " " + $LEGEND_BOUNDARY + " "
+        !$tagEntry = $LEGEND_BOUNDARY_PRE_PART + $tagEntry + $LEGEND_BOUNDARY_POST_PART + " "
       !else
         ' if contains/ends with _boundary remove _boundary and add "boundary (dashed)"
         !$pos = %strpos($tagStereo, "_boundary")
         !if ($pos > 0)
           !$isBoundary = 1
-          !$tagEntry = $tagEntry + " " + %substr($tagStereo, 0 ,$pos) + " " +$LEGEND_BOUNDARY + " "
+          !$tagEntry = $tagEntry + " " + $LEGEND_BOUNDARY_PRE_PART + %substr($tagStereo, 0 ,$pos) + $LEGEND_BOUNDARY_POST_PART + " "
         !endif
       !endif
     !endif
@@ -1027,6 +1033,10 @@ UpdateElementStyle($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
 $elementSkin
 !endprocedure
 
+!unquoted procedure UpdateLegendTitle($newTitle)
+  !$LEGEND_TITLE_TEXT = $newTitle
+!endprocedure
+
 ' tags/stereotypes have to be delimited with \n
 !unquoted procedure SetDefaultLegendEntries($tagStereoEntries)
   !$tagDefaultLegend = $tagStereoEntries
@@ -1234,7 +1244,7 @@ hide stereotype
 
 !procedure $getLegendTable($detailsFormat)
 !global $LEGEND_DETAILS_SIZE = $getLegendDetailsSize($detailsFormat)
-<$colorWithHash(transparent),$colorWithHash(transparent)>|<color:$LEGEND_TITLE_COLOR>**Legend**</color> |
+<$colorWithHash(transparent),$colorWithHash(transparent)>|<color:$LEGEND_TITLE_COLOR>**$LEGEND_TITLE_TEXT **</color> |
 $showActiveLegendEntries($tagDefaultLegend)
 $showActiveLegendEntries($tagCustomLegend)
 !endprocedure
@@ -1457,7 +1467,7 @@ rectangle "$getBoundary($label, $type, $descr, $sprite)" $toStereos("boundary", 
 !endprocedure
 
 ' Boundary Styling
-UpdateBoundaryStyle("", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR, $borderStyle=DashedLine())
+UpdateBoundaryStyle("", $bgColor=$BOUNDARY_BG_COLOR, $fontColor=$BOUNDARY_COLOR, $borderColor=$BOUNDARY_COLOR, $borderStyle=DashedLine(), $legendText="$BOUNDARY_LEGEND_TEXT")
 
 ' Index
 ' ##################################

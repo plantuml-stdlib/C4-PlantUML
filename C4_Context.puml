@@ -37,16 +37,30 @@
 !$ENTERPRISE_BOUNDARY_BG_COLOR ?= $BOUNDARY_BG_COLOR
 !$ENTERPRISE_BOUNDARY_BORDER_STYLE ?= $BOUNDARY_BORDER_STYLE
 
+' Labels
+' ##################################
+
+!$PERSON_LEGEND_TEXT ?= "person"
+!$EXTERNAL_PERSON_LEGEND_TEXT ?= "external person"
+
+!$SYSTEM_LEGEND_TEXT ?= "system"
+!$SYSTEM_BOUNDARY_TYPE ?= "system"
+!$SYSTEM_BOUNDARY_LEGEND_TEXT ?= "system boundary"
+!$EXTERNAL_SYSTEM_LEGEND_TEXT ?= "external system"
+
+!$ENTERPRISE_BOUNDARY_TYPE ?= "enterprise"
+!$ENTERPRISE_BOUNDARY_LEGEND_TEXT ?= "enterprise boundary"
+
 ' Styling
 ' ##################################
 
-UpdateElementStyle("person", $PERSON_BG_COLOR, $PERSON_FONT_COLOR, $PERSON_BORDER_COLOR)
-UpdateElementStyle("external_person", $EXTERNAL_PERSON_BG_COLOR, $EXTERNAL_PERSON_FONT_COLOR, $EXTERNAL_PERSON_BORDER_COLOR)
-UpdateElementStyle("system", $SYSTEM_BG_COLOR, $SYSTEM_FONT_COLOR, $SYSTEM_BORDER_COLOR)
-UpdateElementStyle("external_system", $EXTERNAL_SYSTEM_BG_COLOR, $EXTERNAL_SYSTEM_FONT_COLOR, $EXTERNAL_SYSTEM_BORDER_COLOR)
+UpdateElementStyle("person", $PERSON_BG_COLOR, $PERSON_FONT_COLOR, $PERSON_BORDER_COLOR, $legendText="$PERSON_LEGEND_TEXT")
+UpdateElementStyle("external_person", $EXTERNAL_PERSON_BG_COLOR, $EXTERNAL_PERSON_FONT_COLOR, $EXTERNAL_PERSON_BORDER_COLOR, $legendText="$EXTERNAL_PERSON_LEGEND_TEXT")
+UpdateElementStyle("system", $SYSTEM_BG_COLOR, $SYSTEM_FONT_COLOR, $SYSTEM_BORDER_COLOR, $legendText="$SYSTEM_LEGEND_TEXT")
+UpdateElementStyle("external_system", $EXTERNAL_SYSTEM_BG_COLOR, $EXTERNAL_SYSTEM_FONT_COLOR, $EXTERNAL_SYSTEM_BORDER_COLOR, $legendText="$EXTERNAL_SYSTEM_LEGEND_TEXT")
 
-UpdateBoundaryStyle("system", $bgColor=$SYSTEM_BOUNDARY_BG_COLOR, $fontColor=$SYSTEM_BOUNDARY_COLOR, $borderColor=$SYSTEM_BOUNDARY_COLOR, $type="System")
-UpdateBoundaryStyle("enterprise", $bgColor=$ENTERPRISE_BOUNDARY_BG_COLOR, $fontColor=$ENTERPRISE_BOUNDARY_COLOR, $borderColor=$ENTERPRISE_BOUNDARY_COLOR, $type="Enterprise")
+UpdateBoundaryStyle("system", $bgColor=$SYSTEM_BOUNDARY_BG_COLOR, $fontColor=$SYSTEM_BOUNDARY_COLOR, $borderColor=$SYSTEM_BOUNDARY_COLOR, $type="$SYSTEM_BOUNDARY_TYPE", $legendText="$SYSTEM_BOUNDARY_LEGEND_TEXT")
+UpdateBoundaryStyle("enterprise", $bgColor=$ENTERPRISE_BOUNDARY_BG_COLOR, $fontColor=$ENTERPRISE_BOUNDARY_COLOR, $borderColor=$ENTERPRISE_BOUNDARY_COLOR, $type="$ENTERPRISE_BOUNDARY_TYPE", $legendText="$ENTERPRISE_BOUNDARY_LEGEND_TEXT")
 
 ' shortcuts with default colors
 !unquoted procedure AddPersonTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $legendText="", $legendSprite="", $type="", $borderStyle="", $borderThickness="")

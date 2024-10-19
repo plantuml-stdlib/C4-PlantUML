@@ -1,0 +1,51 @@
+﻿!$THEME = "C4Language_russian"
+
+!$BOUNDARY_LEGEND_TEXT ?= "граница"
+
+!$LEGEND_TITLE_TEXT ?= "Легенда"
+
+!$LEGEND_BOUNDARY ?= "граница"
+!$LEGEND_BOUNDARY_PRE_PART ?= $LEGEND_BOUNDARY + " "
+!$LEGEND_BOUNDARY_POST_PART ?= ""
+
+!$LEGEND_SHADOW_TEXT ?= "тень"
+!$LEGEND_NO_SHADOW_TEXT ?= "без тени"
+!$LEGEND_NO_FONT_BG_TEXT ?= "последний цвет текста и фона"
+!$LEGEND_NO_FONT_TEXT ?= "последний цвет текста"
+!$LEGEND_NO_BG_TEXT ?= "последний цвет фона"
+!$LEGEND_NO_LINE_TEXT ?= "последний цвет линии"
+!$LEGEND_ROUNDED_BOX ?= "округлая коробка"
+!$LEGEND_EIGHT_SIDED ?= "восьмиугольный"
+!$LEGEND_DOTTED_LINE ?= "пунктирная линия"
+!$LEGEND_DASHED_LINE ?= "штриховая линия"
+!$LEGEND_BOLD_LINE ?= "жирная линия"
+!$LEGEND_SOLID_LINE ?= "сплошная линия"
+' !$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= "transparent, "
+!$LEGEND_BOUNDARY_TRANSPARENT_INCL_COMA ?= ""
+!$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= "штриховая линия, "
+' !$LEGEND_BOUNDARY_DASHED_INCL_COMA ?= ""
+!$LEGEND_THICKNESS ?= "толщина"
+
+!$SKETCH_FOOTER_WARNING ?= "Предупреждение:"
+!$SKETCH_FOOTER_TEXT ?= "Создано для обсуждения, требует проверки"
+
+!$COMPONENT_LEGEND_TEXT ?= "компонент"
+!$EXTERNAL_COMPONENT_LEGEND_TEXT ?= "внешний компонент"
+
+!$CONTAINER_LEGEND_TEXT ?= "контейнер"
+!$CONTAINER_BOUNDARY_TYPE ?= "контейнер"
+!$CONTAINER_BOUNDARY_LEGEND_TEXT ?= "граница контейнера"
+!$EXTERNAL_CONTAINER_LEGEND_TEXT ?= "внешний контейнер"
+
+!$PERSON_LEGEND_TEXT ?= "человек"
+!$EXTERNAL_PERSON_LEGEND_TEXT ?= "внешний человек"
+
+!$SYSTEM_LEGEND_TEXT ?= "система"
+!$SYSTEM_BOUNDARY_TYPE ?= "система"
+!$SYSTEM_BOUNDARY_LEGEND_TEXT ?= "граница системы"
+!$EXTERNAL_SYSTEM_LEGEND_TEXT ?= "внешняя система"
+
+!$ENTERPRISE_BOUNDARY_TYPE ?= "предприятия"
+!$ENTERPRISE_BOUNDARY_LEGEND_TEXT ?= "граница предприятия"
+
+!$NODE_LEGEND_TEXT ?= "узел"

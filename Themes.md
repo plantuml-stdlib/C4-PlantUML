@@ -1,8 +1,8 @@
 # Themes - different styles and languages
 
-![Theme style sample](https://www.plantuml.com/plantuml/png/hLRHRzks4txtNt5r-qCTG8dnGzkN0G7gsDwQmauyosttCC0uYMU9A4Lg91N76FQ_xqXRLknqw83r9J6FlE_x-F5uudldqVgcKhqNlgIAOFnstMZfIS36cWfAxsltqt1eSNjLI5ysMUF8vaPxqlugDzMmLgW3mANpGibiE7vxkGYXJ_FPi4BdoGuZikkza3fNZQ0V0yf2nvo1KfEzgiCEUkc7-o_hnNIPtj-jxp-jPhTtqy55xpMii73WchesreCsu6hCoO7KmCf0OqKmoD2H0BCFDLgGLL9BNK0W8-DtDRa4jgNCIn16l_OjO8k6UbSPInTNm8otcsFO4bZweo764IsbeeAqI0x_mTEZXoqRiK-24Xru0nc1e8tK97eZ8QQAAjAUzpBePvX_vSJZ_li9lDhmO6oKiTUlfhFfV7gtMlzypt_6zxFx9SzdnNws__BDctUJqRkGuqgiwNegYzAdKf18mtXmmJDxPIiMTjsoGTxI_Quff80BEVsBe6v9AYf3jzDvWEOzjN96ooMVIwj3CS8_JgH-f-XwWguaCPEQjPoW1_3XZw4mtdSKFI-z8ZZw2K9YOR62ZR5mgprPJHvkK7yD5P7kdAUgrrkGTKOFyiPvKv5DO7pyrHz16mQpYMUUSNQoF-Kw9gAACS0yDutshiywzj3h6mu8jBj1_d_6EXVGlu0_Um3GwHriALjZNVFYBvJ1gAwLpD5Be_iS-eWFc41Qso1-_daSOXDIye5bH6dEyzeS3XSGK8iOFl9cxSON8nPvokngPBYKfnLTBh2WmDwofhcLjKzWf8j6eGtXXJKFKf03LEhRB9j6vq4wAkbtu0qx6Orqy20nf4WBl5_8hDawiiyKLIQJYWvspEEWrJH-cS1lMA6L-bGBA5d5fkUQp947i_dNsjmpSNi18EX1vdGkRv8D17eCxIOSm-5dK9F-EeEJiJUM78JM29OAwRoDHmfISrbMyNS2PRmhW8ql8RSaI7k9oYMXhCWvKARW0VdywfbHXtlDJibGiOlRRnVEnF0os-MTEFSTXu8f31nlAnRk-bddOb5_7Sj--kW7LA5KQnS3J3IzdFFuSEK2yweaa94K5SnbReqp6m_Jnxn4NH3iCnds2UP1MuVAc7fZiQApEztP7igphOAS0-t-dfeFc9d6ToMG7Azo0jwYTXYTwEplBKazQHVTfVtao0Nk3wlL8kM5f-jSZTzTqnPz1xUdMz-5LfsPhaL4kAu1791YyBGWMiBORnFuo5_LOIJlJZDE7H0w1VyDQ7t3oPtixhASWYu9XOjlbDYljbPwSk1D83hmJ6x637d4VEBMMP6b3Ek0BaCqOdH2JklnJCDfNkEuFZhwTBvQx86wpPoadrLbvrFtbUDkDP-TUzLDC_p-pJER_ZAzc_1RPsEC9ml2ubRllpNjimaUhk1_uS2bqOEBw5buL7MpFFpSJlVUiygcKdy3 "Theme style sample")
+![Theme style sample](https://www.plantuml.com/plantuml/png/hLPRRzis57xNhpXrEzG657jPqvS10UhOsfh2ZZtBRVSmmA2eOvieHMeaPSSOzjztg9kjfBi0QnuSyP3dEz-vak-iOyOLcGnUk3rc29ERJQ64mnIsHcUmTowtFuv6XXs7E-7sHL9OD5mhXyeDkSv6kMJA0rnPbqgHZ2OtLqil-ZYVZGu_3A-lXz-FIcWRl12AooB5RuHAL2UameH2Cyoz3q7yVl5viunMyU9Xi_Yudjq_HFr1y1hMR6V15dckZGEbmUQCemMXWAY1OkHuFs6MlDQLg50f6YcKK3km3WrgTyhHXd3S2xw7LAlNhWMiqPWwPThWO0XayNxRYWs2mTyBj3wgjKc9ErHfMFy7XuyEZXI9IWdsp8BJa22ak2N_qc2Sff6aA2f7llHx2UDVIB7rlnV2goqj9bfgS_igcaNpw66z-Mb1FvF5RB6Y_MHNxVPUlddpTZf-wtNidkLu6udTtiKYnJJsw_w0TYfcQo9ssrW3tfZxJQ5N0UjrUWFFReMoPCRiIN4FxNsgwOnNAyfBmuF2Yd-x4RkJnDifitjCPxJk3phe7dpqRKnevyuc0YUSfEfl78HKi9rX6MorWNkgIwFGmHrJNtn5n2VAPHO4IpHMgpulhDCPcX0cxLTl38qOzBRCUKBQOPNbl5HaifG1urmNobaAP511R-v8a39pwlDhmdfAe3U0FmAWlvPl_uZ9XkKv7VwC2OppN0hEdD2AujJxm0uiX3WtdlpyqyJBfYZ5WMYKr6WAEC6Xxa2gvBGKjtQJnl7bc4XsBLF54bnCsnAlbco7tdfZDUP6v2w4iTeLalaoxIsDFb3PK6D8-NKhsq9nJvr9uKw-3tXH1jB2GJ2l8WoGlv0OVQIvyOnHfXCXiGx7l5mqd2OlG_YLPOmYqUK2KcJbsBD5OebBdRF_miq-8rSHeDuz28vFwKsJVieSy-F6fw7-z6pYNsRGMJiQ9nRyRAG9iXFMcJAbD4IeBBFoE_IpWde5M45rnGscb43198qgAYkq5gJUqG8T7puBLDtN52dXAtPv__N2cMewPk1os9mZzoyHya4XuB9RQGZVFfzSW-3FjkoZHzV7Z0cviQM034LNSrhNBUSjhoajeZHA_JCNt6YhjmwYHxvdYgglqYJO2yoQsncLCDNM-BdVxUcBiFlohAk0aw3rxoBum19Tk7C9X6qhXq2vKfQLaJY7Fw0vTZ4kpatxqQBrjj-lrykO3dRFLItspsSwHLyUhSnj7loeJlJ5YAZWcW5G8vN2Ra4q1ijv6y87kbL7bV4sczKehX0k6VmVeCqTAPzfdvkb2xf2bjhgbUBdrT5G-_fRqnkgxKpl9aqKFEP5j9uKMKom5l3AIqkCCv4dzTZbqDKhh9_DhVbulbxMGAqp7VLdLTd4wNpBqRIY5y-JM5rSWeFwpJEBVeuUflJMsMhj_FL5JojLtJNDkmaEG_ZE9vmgiZyeOtRnglAxavjFpNRmZbZIa-el "Theme style sample")
 
-![Theme language sample](https://www.plantuml.com/plantuml/png/hP5FQzH06CRlyoccww5Ps2PKUlBKDLti8Tq6aogUmknct8qaap2Pi1GHp8n_11L5QuitbMAhGbKMyRAs7-QrtVqOJjBQ7hoQKtZUv_szpvCivu9mKIGncXD3cb1iBpc43GeoeC4TaX56SuflypJ1Go6o_8fbSJ8o1v4O5hqYfxoVCa6PCFjfOcKnOHLg8HTX7FKiUsd1hQIDDSTAI2uej-eREPgBM3ykGlfVe5eARBr18aQvcLLTaDE-jRxX1qwxk-BPRRTZD15oASzJPf0mYLWBDwO7xwSl7ytkFsmqaRUfGKbmDIrOIFYcqLziuNcGFq2DGUs0-ZBVn7SHri_v8MD4Um79Caq2-H7a7gXja1zg-sUGtq5DGFu4fVLnGvliIotSzbops_4rX5DysLp4QpViQZRRVNpovXkK1_ue4heHo2EGkw3UWVfKlun1lZhvkZMRA2ZVWdmAvMiezw5y1kKUbC-XFDIwxd7lh8aXJa6QVORKGtITnd_RNuJ__UjekhL_YgsohFg-wsbtPJvtNU10FQWJJK0zqQ6ENsmV7-xykusyrVMRWTEvrkckw6-_J5ce_yiV "Theme language sample")
+![Theme language sample](https://www.plantuml.com/plantuml/png/hP7DRjD058NtVeffMDIHKfkWh5Wrk15TkAc5tQAkh4ay94Rss1gFYIg4X6VugGI8gYsjs06gQ06fW2B49hGFSscJns2SbdR1bbcDxZttk-VCp6SSCvx7aJR3-oGco6hOcFPot2F-VPnYIZA2xh4aHdtEq-ocQJ8yC7eXx-UTF2Eicr1EA3UwIMoc4QObQYxZGHHsJAinvvIbbINRV733gDUDw-PqIQRDXBGRvG7vJrIhuLjg18UKC2CjqsXsSsrvnVFjPdl1jPfEIwzgcaDObb0T1t58QwWoFde_tdmsUVoqKjNSzOoJsB-Lv3J0R5tlrcje5iGFa4EGUo2_p5RHGmsfSxb87v2EZzDKaK1y1740SXV4XwdyCuZl84SWVe9KzM55YQnhDTHq7QFTyXI44QJCewLLg-nDzf-VlVa6nP4t23ad3CG9Y7sGxq1-cbw68BRElkvCHXAAjo1UGB4DnI4KBw4uWE8L5CUghd8ykaYYytEGObyWLLExGwA_wQ_C__vrCjuvFCUMNXOzpt6LkXHVggvm89zC7Or0RYXJfwztJu_t_ftMtCNbkxxTkjrgBwYtdoSqKF_o1m== "Theme language sample")
 
 - [📄 C4-PlantUML](README.md#c4-plantuml)
 - [📄 Layout Options](LayoutOptions.md#layout-options)
@@ -42,14 +42,14 @@ Similar to PlantUML themes supports C4-PlantUML `C4_...` specific themes too (so
 
 Additional to the standard themes with skinparam and style definitions requires C4-PlantUML corresponding variable definitions.
 Therefore we started with the convention that all C4-PlantUML compatible themes start with `C4_...` in the name
-(e.g. theme [`C4_united`](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4_united.puml)
+(e.g. theme [`C4_united`](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4_united.puml)
 bases on the [`united`](https://raw.githubusercontent.com/plantuml/plantuml/master/themes/puml-theme-united.puml) theme
 and contains all additional required C4-PlantUML settings that it can be directly used in all C4-PlantUML diagrams).
 
 E.g. in order to invoke theme `C4_united` from a remote repository, you have to use the following directive:
 
 ```plantuml
-!theme C4_united from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4_united from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
 In order to invoke a local theme `C4_foo`, you have to use the following directive:
@@ -74,9 +74,9 @@ Following simple sample uses the C4_united theme from the official remote reposi
 ```plantuml
 @startuml
 
-!theme C4_united from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4_united from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/C4_Container.puml
 
 Person(admin, "Administrator")
 System_Boundary(c1, "Sample System") {
@@ -91,7 +91,7 @@ SHOW_FLOATING_LEGEND()
 @enduml
 ```
 
-![Theme sample](https://www.plantuml.com/plantuml/png/hL5Dxz8m6B_lKzHv6ScVBHXEdfWJmOINnGqvBjtsA4twqhHFin3ZT_Sf8FW1tALPV-_foYDt69HCadTu0GMiMdP12uIH_N16iGkYzH-Bml4f_odm4lhWmGr68sZC1wCAAxcE3dEFenHzKItdTRmwxNU5uXx15JTdJn523pACy7zSgMb52YuqkDpUDjJWlD4P7vNGRomjuoayEex6fREakP9GTPzCq2DtrsnO4AdXoafWTooTiLy9e-_fd4tGTznQOfwXPwMrKWmSXT4fNLNltrZPrFbXtPB40VkGBzZ-UnMnKaepUHQNUOQ6qIpBYQA2H14ZsqaWWcCe54ZAybJnzwDaXdUGV1uq0fDl8F-EUzKwUV0nRzksTKEiI7gYBviDeATVY4TysdybIRCzdhilksFPVZrikjrwipvypcR92lGObFm3 "Theme sample")
+![Theme sample](https://www.plantuml.com/plantuml/png/hL79JiCm4BtdAqouf599AEg94o6K5gcRI0h7o4q6QicRx0bHXVXtngMqV02-ZEItp7lsdKVki5CoYYvm1mfOCQuxBH1QzkQCOZj4ws-ppF4-VHUuwxQT1zSOZQ0nROpAhEGwE5nvRANOPiNuQXskDejvzd6JZaRfTNQmzhH3w4PsBVoJBMKjICA51fVQGuirE6zqmbibz935UPZ2e-DeN3o8ohr7KFMzwNJBtJvfHaGgkR8Is0yM3zXdnEYSd9CUjZMtbfYli6MvjL8q78NHCLqLbqEMb-jqEQb8ue1HDhPuAGAMIsbwpq8rpz0mwcKvKLGdKOILLIyGmJ4K2YJjyXJnwnWomH-GV8uq0gDdaB_bph4sdfGqPrMrBeaLI2VqR3C5f1WzX14-zwyaAcUhr_fnlighf-Mqda-ca-L3CeZkGBVqiDy= "Theme sample")
 
 ## List of available C4 style themes
 
@@ -99,74 +99,74 @@ SHOW_FLOATING_LEGEND()
 
 C4_blue theme is the original theme and need no activation.
 
-Theme [C4_blue](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4_blue.puml) can be activated with
+Theme [C4_blue](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4_blue.puml) can be activated with
 
 ```plantuml
-!theme C4_blue from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4_blue from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hO-noeD048Hxdq8VGBUn-Yj_99s150afmwaR5VRMutQEaBVFcMT8DSF0zy5q1XUHl1GLLlPSzkrZbCJbC-w-N85WVqJHlPfbmvh6P1odNS6APjez1N5wuBLXbcsalgqlntGx3-ITWIDzlLPKcqwIPlwDD6JYJLSs_8kSX3qhx9vj0o-iSnEEIrrkEJy0)
+![](https://www.plantuml.com/plantuml/png/hO-z3e9048HxdW8UW5inL5OOOeU9XSRI7CSA97i_kTtJ-FOUFeFLJ2QPRp8TYuwIB1MLB6YnxDl7I0dBP_IsN4G27m2YVgjvbIMDYJ4QxmITAECj1D9kgzSi4wqZz6rzsQBRUO3NNZMDsi4Fp4MrEaDfmZzHGwvyu8eiHw8JvGadVC-u0MTqamhRgIwxh5y=)
 
 ### C4_brown
 
-Theme [C4_brown](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4_brown.puml) can be activated with
+Theme [C4_brown](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4_brown.puml) can be activated with
 
 ```plantuml
-!theme C4_brown from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4_brown from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hOyn2eD044LxJw47q6ciKXaadO4K2Id3gXCLPcUNcLaajy-QCwJwdm_lmU_Kd5ZoL5IseiUoRr-ZX9tBjmHVhcPHJm3YzcRPR4rZKfGfi25RCmKFaHmVVAqsqpP2tzQtOtfS1_1E3GL-OYsgZITAC_v76ZFnWJkgdOakX3wp-ios0HVakOd7fowtd5y0)
+![](https://www.plantuml.com/plantuml/png/hO-z2i9048JxF4LyWDmQIMKL2NOHB1HBoS-Q1FRsZjizWs_lnMUmcc5Wlc5gqIvej9JjT4QBULCz--1Mpb_1sNnMzN842DrgfaNds4V1C3XMP3M3i-2fuwrVY8wqzD1KnNMBxfSMtWTJbcOFFx9akuK7YYF-YUfJvGCt53qHdIbDiCeZuLgSa4VZjrTrSac_)
 
 
 ### C4_green
 
-Theme [C4_green](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4_green.puml) can be activated with
+Theme [C4_green](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4_green.puml) can be activated with
 
 ```plantuml
-!theme C4_green from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4_green from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hO-noeD048Hxdq8VGBUn-Yj_99s150afmwaJ5VREOtUFaBVFcMT8DSF0zy5qQauiUIugM-5HzkrZ4I2KJzbzkPf5_ICIzsgMpTOq9eLCUp04QwRTKsGN3hvMctaRgM_hop7TpWDvfmQXhrYBQWiJfnc_aSPClEaAjN_c4yDdLk_PDc11c9juVEfoo_a1)
+![](https://www.plantuml.com/plantuml/png/hO-z2i9048JxF4No0Baraieg4kmYM2YMafyr2Upj7RTxYc_lnMUmcc5Wlc4QqJvej9GLkg35lAqVSq3a_1cSpHTLBmU0qB_DlEeIXoWOHiUAh6Pq5ZprlFLBqOdM0Tgwl6pHxTp1Qs-gokpWHvQiM7caEE6Vg3vLFd15qIFHYT84gzmJhiCPUJ9-UzKab_GB)
 
 ### C4_sandstone
 
-Theme [C4_sandstone](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4_sandstone.puml) can be activated with
+Theme [C4_sandstone](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4_sandstone.puml) can be activated with
 
 ```plantuml
-!theme C4_sandstone from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4_sandstone from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hS-noeD03C3ntQVG1z0iJj_aXtIpqA6bOpczL8KaTrnobBvzppv3fuJ0_mSPr5oop5GrjY5ZFVOFTUBLWc3zJ87hpIpg7q1ohsxTRSjpLanB44EnRWaCaPmSHglcQPzXxDlBSRgT9s2dXWc-k5RDBWjbZxz1OodUS4MrVw8J8PTMxqMRS4NnNJp-6ifMvWS0)
+![](https://www.plantuml.com/plantuml/png/hO_12i8m44Jl_Ohs0vgrqfEdIl5MmOFYKT9cRGl99cGtYdzlwZTucc5WtZ0TYuwId2qgMT1XsRSFrcHOF67vZDwLYqZW0q3KRpMligGnCSR9ao29cho3O3LjZ9h5s7M4lgqlMtGx3_3QgwPHE_ZHkQXMccmo-2Tgo9KFN97bQEt9vWaIlcVSW3EIKM5xrcMNzGi=)
 
 ### C4_superhero
 
-Theme [C4_superhero](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4_superhero.puml) can be activated with
+Theme [C4_superhero](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4_superhero.puml) can be activated with
 
 ```plantuml
-!theme C4_superhero from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4_superhero from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hS-noeD03C3ntQVG1z0iJj_aXtIpqA6bOparzOJaxaXobBvzppv3fuJ0_mSPr9nOPgeQyyXOZ_r3SqBnAB5-IkJQcoNz0n3twhRTV9wpeYmn60RhbiYGo8N3QDLMscSO-_Pod6xd2TYfeS0NrwhPmq9vnT-WgHHlkABQFz69a4khzw9Dk65OktJyDPIjp0y0)
+![](https://www.plantuml.com/plantuml/png/hO-z3e9048HxdW8UW5inL5OOOeU9XSRImB5o97i_kTtJ-FOUFeFLJARuPgPZ6QCaIqKb1YsMVVlW530QZBvyHczB8nBu0137jrfMCMbAZ55x9-X4QMyXqEWsHiqoqpf1tzQNBRgT1tZjLTEe7VpeN5IhqvHc_1Cr3zKVk2BBaUX4kS89tpDkm0NThCBshCikwnS=)
 
 ### C4_united
 
-Theme [C4_united](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4_united.puml) can be activated with
+Theme [C4_united](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4_united.puml) can be activated with
 
 ```plantuml
-!theme C4_united from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4_united from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hSyngiCm3CRnFQT83f1eoVIcF4At53gqT2nEh2O6sJ7MPqflNwTdw2GX-Fz0Wy8aP2zLWuqzrsF_oC61RVrCkwyt8EeVKJAlRdNOyfoLqx87S42tx9wYc700hSAAcsdisyjnkfqdyaR1YRwoLeqBYsJBlq5ZATvqPSM_o4dObrRlHPjuvM2xU3mrbAtC3m00)
+![](https://www.plantuml.com/plantuml/png/hO_12i8m44Jl_Ohs0vgrqfEdIl5MmOFYKTfcRGERJKWsYdzlwZTucc5WtZ1Tb358ibHKigB5icyVYOsWBf_1sN8LyV404CQtMeoiQKeHm-nOa4NDpeAdaJT07KMJcQ1lwyiMtSu3lFQgQTGEVkXOL8PdIXh_HFMvye4hHZaIdIXFiCHxnWsu86lbjrjTTbc_)
 
 ### C4_violet
 
-Theme [C4_violet](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4_violet.puml) can be activated with
+Theme [C4_violet](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4_violet.puml) can be activated with
 
 ```plantuml
-!theme C4_violet from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4_violet from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hS_12i8m383X-vvYUu0jbvqyJOQt2HuKZz9jSIiaRMbInRUtzHay9GJ-3pA8cgY9gMfqHyPwx1ylwmcrVaRFzQuQv00GpRlRhEvfJe9nyKxHQRTuXa365Q0LNSdECFRjfPnkvmdOY6A4donLOzr2QSN_e24N7xYYw97eHCYvbNlM9jpGhLqeJmrvo_CB)
+![](https://www.plantuml.com/plantuml/png/hOzB3e9044Jtd08EmBGOLgumn1qaBZGk3PyM9kdvPBe7u-qTF8EhgbHIhr8Don0a6ieAMT5WtjRFJJj2oL_1cNmLyNm22CDRBLhME4R6C3ahQ4LDpe2dmUw0acKcFK9RbzSzklSTR4TLLUe0FpHdXROJnHd_HFMfye4Rifo9BfGchF0ZuJfSqCxAxxUQv99-0G==)
 
 ## Matt Weagle themes
 
@@ -180,7 +180,7 @@ They can be simply invoked like the `cb_seq_YlOrBr_9` theme
 @startuml
 !theme cb_seq_YlOrBr_9 from https://raw.githubusercontent.com/mweagle/C4-PlantUML-Themes/main/palettes
 
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/C4_Container.puml
 
 Person(admin, "Administrator")
 System_Boundary(c1, "Sample System") {
@@ -195,7 +195,7 @@ SHOW_FLOATING_LEGEND()
 @enduml
 ```
 
-![Matt theme sample - cb_div_BrBG_11](https://www.plantuml.com/plantuml/png/ZL5DRzD04BtlhzY6YoCrjegumAck2IbIcbZOfUAqMjj3izBi1pjZMHNYlxEhGDjZVHbvtflteRqcrf5dY-A2Js11ZeCY-AL-u37UHFLH_epUoXDpe4zL5VLIFXe-pSDC44Vl61oNexULNK0_8bJDXqsBsl7ztNxJPq6gh3Qk2Xg16KY82-D6d2TuWsX0xNAs3V64PdWjNbbD336jLECT9mk8PSWzH0kHl2lqP8sxbAiwJqCSDVkuMelkAHrQTUDdD-duL8nNYTHf6n3a6LkjvMyXq_UiN2mmA1r2OZx08EiGq8oQZNUhj6hUNSgwQyl3jayd4UJxyahUVMyoLYFwXMHkHfAz7BqDEb7iZ6ooPRyOPeYIZGLCNfGY_laNik0pc7JEj9nVV0FyN-ubrZq1PR_Rlc-xnCgaP_H5PWTCwHVoo2_x-aHqjyS7zML_hFklXvtQRtVRm-TYBQx1JRF5lm00 "Matt theme sample - cb_div_BrBG_11")
+![Matt theme sample - cb_div_BrBG_11](https://www.plantuml.com/plantuml/png/ZL7BJiCm4BpxAqovf19DAE829q8f1Qcq5GaWJf6JBAqblx0tH1NYtrchq7B4bvLsPcTdrbS1XSTEAtQ46z30cxeAy5wzggM_zjK5V_DMymsY2vTPvaMVhYLkkheBu1jh40ocZTMPxa6i5MIJyz5A2ODF3_DH6GL3feKqcHCA424mTYHDexeM_Y7geX9v6mLibQp_YcSVP-bud9vIhvhG2Eq0dxeOXAt01siIqMffJlWWZrK6z0Aj7mnPiGq8khgsdMc5toRDc4Y5q4u1ts638VzadDvUEUcXheHpn7o1ckVEATa8bDOCg3KvFk5viKeNqv96F73onX-U9n7BbR9zu35Qu6WvvNA2ABfJAEFAifTq6CzHQb2qAv35hn-J2Uv0qlcX4SWUGVs6EzXw2ZH9zQuiLmMn8ccF7cHcW6IZXrZYr_uTOSNTygMwdI_pydung-RJsNHnampP5PYM3liD "Matt theme sample - cb_div_BrBG_11")
 
 ## Write custom themes
 
@@ -452,7 +452,7 @@ sequenceDiagram {
 
 Following sample could be used as starting point for custom themes with sequence diagram support:
 
-[![](https://www.plantuml.com/plantuml/svg/hLPjRzis4FxENt7sKYG16Zi3idqeagv-SLu0DyaSfqC_6RHqieZIf4UUd6P3__kEr2mxbPFKG0aabgXxdhjxxgZJ1q_IKJ7NGZJsxZsESvmZd46pTpAPEKJJ568V4ckMw0WKmOEY76IQAbBMICsFvdDfKj3A84WtA-Pe28xwey6mCxxwD9XSNVU6z_t1MRFLRhMQG1OAZw1j8hL-50sLmPkbT4fEDKxmg_Ba3vhVWvk70c0V6XIZuz3EbVCqHa-GEJk7DpEaISMobBh0RIJjYFS2LaphZ2DDY71bqq3jyLdBd6ZXtxNRJZwqPgn8CUMa7Cj4QAZ5chGNMfgWwv6dLAjfktToT1ksxZyEstFf2TtQaqbL5cG-hIsuxOp6S7CEuyl1nm44extkpVrrlpFwFEbUJ7etmvjHgzM2N2unQ3j5I35J1bDG1ihO5NdK6T_8MC54cc1M-DB6qwD6_vP9cFp0s82NXIQ8Cdfuo5MIWtIRn5o2reAJEmJ6N6NWloYpa4xEFOHUA2cVO6BRi3w9Gy8LDJihYxQoTlXteHoRYqOzJVY3svASD9vTeQ7cfj7QufUJkCBJpcXqyzVcez_ZYYtja2kK86mGVXVaL2PVPiuM9jqgdVIGMKDihwq3iZRsyi6MkC-UnXsRkR5tD_ZpVd3T6spO1Qq9gzRRRbDtiEwWS6nBzTDcLKSLXSwi9PZQh-X5hbACztpxF2Rch5M6yMIhK21d7yfqHLLmkEEIeKbm-BzbrxeKNI-Aiba0iGLpmUekkZPzx5PIby1wui-XpwsXY5dhyZ9WxMeds2LAJYjwsp72jI1rPrim8ypGXOjTDAcZTz6b0fL9lgRGFdowwi3T-FDmmDUlqhsesMbilFV2FSN0lmBYwKgU0tuJf-qI-wA6ksdVLql5zhihlyRkeFiAycAGhudTHoqVrqxZoAvKzPKZEMDGL3KDW7W5y7om0Dys9MRNxskhDfjscEKDPH9TfFZ3avjd_YhbE7cgbsJ5z3D6SirDzMgzHUUjEUXebU1RQCRVvk5gkskdlCd_UKl8XDHI4WBV2p52lKALLfs2SZIa4adA6XW5TvuYK1Fu8adG-wpGaCYO842WYDZ8KwVeC6H1c39740MydIDmfwHWCyYaqeKhYRIr2_Zr-FWOI9NVGUMgnTY_leCE4P-3M2q0La64lt1GmIxHmTeUte4oYhQacgFMbXagL9G4O9mhlvgbrl26HtueTVo8zC4HC4887fnNpAoaLl-KgPwTxQBeQyADq2-iyLp8w6k42oJrWXzZ6Uv0_h0_MKFK_8QFjzzWhan1w45BOdFUs-8-aLfxM2e9YzoQ21PtbpnVXuEBmNN_u51yOEMuQVy3)](https://www.plantuml.com/plantuml/uml/hLPjRzis4FxENt7sKYG16Zi3idqeagv-SLu0DyaSfqC_6RHqieZIf4UUd6P3__kEr2mxbPFKG0aabgXxdhjxxgZJ1q_IKJ7NGZJsxZsESvmZd46pTpAPEKJJ568V4ckMw0WKmOEY76IQAbBMICsFvdDfKj3A84WtA-Pe28xwey6mCxxwD9XSNVU6z_t1MRFLRhMQG1OAZw1j8hL-50sLmPkbT4fEDKxmg_Ba3vhVWvk70c0V6XIZuz3EbVCqHa-GEJk7DpEaISMobBh0RIJjYFS2LaphZ2DDY71bqq3jyLdBd6ZXtxNRJZwqPgn8CUMa7Cj4QAZ5chGNMfgWwv6dLAjfktToT1ksxZyEstFf2TtQaqbL5cG-hIsuxOp6S7CEuyl1nm44extkpVrrlpFwFEbUJ7etmvjHgzM2N2unQ3j5I35J1bDG1ihO5NdK6T_8MC54cc1M-DB6qwD6_vP9cFp0s82NXIQ8Cdfuo5MIWtIRn5o2reAJEmJ6N6NWloYpa4xEFOHUA2cVO6BRi3w9Gy8LDJihYxQoTlXteHoRYqOzJVY3svASD9vTeQ7cfj7QufUJkCBJpcXqyzVcez_ZYYtja2kK86mGVXVaL2PVPiuM9jqgdVIGMKDihwq3iZRsyi6MkC-UnXsRkR5tD_ZpVd3T6spO1Qq9gzRRRbDtiEwWS6nBzTDcLKSLXSwi9PZQh-X5hbACztpxF2Rch5M6yMIhK21d7yfqHLLmkEEIeKbm-BzbrxeKNI-Aiba0iGLpmUekkZPzx5PIby1wui-XpwsXY5dhyZ9WxMeds2LAJYjwsp72jI1rPrim8ypGXOjTDAcZTz6b0fL9lgRGFdowwi3T-FDmmDUlqhsesMbilFV2FSN0lmBYwKgU0tuJf-qI-wA6ksdVLql5zhihlyRkeFiAycAGhudTHoqVrqxZoAvKzPKZEMDGL3KDW7W5y7om0Dys9MRNxskhDfjscEKDPH9TfFZ3avjd_YhbE7cgbsJ5z3D6SirDzMgzHUUjEUXebU1RQCRVvk5gkskdlCd_UKl8XDHI4WBV2p52lKALLfs2SZIa4adA6XW5TvuYK1Fu8adG-wpGaCYO842WYDZ8KwVeC6H1c39740MydIDmfwHWCyYaqeKhYRIr2_Zr-FWOI9NVGUMgnTY_leCE4P-3M2q0La64lt1GmIxHmTeUte4oYhQacgFMbXagL9G4O9mhlvgbrl26HtueTVo8zC4HC4887fnNpAoaLl-KgPwTxQBeQyADq2-iyLp8w6k42oJrWXzZ6Uv0_h0_MKFK_8QFjzzWhan1w45BOdFUs-8-aLfxM2e9YzoQ21PtbpnVXuEBmNN_u51yOEMuQVy3)
+[![](https://www.plantuml.com/plantuml/svg/hLPjRzis4FwkNt7sKiG16ZaPidqeagv-KH83hfCfJeT-CcZfP1EbIPMad6P3__kEb5zZEx674KWiKVVSS_VSISTFnZ9jYua8WihHey7-62S8Lr1jNGn66b5MW-0O4YMdg2rm2q_SZe6bARTSIIReqMJ2P0g2ImIcHyK4fONJTXnr6_tEbsZGwRMwZ-tegXhMmx0ALa5X48HAc13FGOLdy6xAD6T3WGFymOqrjUfBSFKa03Y6YlNHKMZNN1lRHsCXqse2xqPe1milKoOAtEQaxl66VCqyBJFsRbo4SviA2eCxBSVMvkP3lQxPKpWYHOeX9QL99alPXwH9FHTCEbrFZKq57zPR5wVtRklnSxS-_JKyFm_FbbGovPdJ-N9ZmNqZxiFTDVHleyyHEAEZvjrZhzs8lmwQDuFMNVSk3iCGncoAJjmXGeeP5IC5Bg4Cdbk38gCRvakOCEdCA69lO-opGFEUd93pcbGEpmfXmUjeu6dC4ogvNdFSkWXpoku42DF9m7pZCcUQJGouPYXThc5ytv10YKQBSzT4DgzQQQtnUy4rcLCtRgG9Vr1VMisa8IhIkRfgjBJuvS8lzxGHntT_hJxwtI_VqngfH0bfjdJu8iWXIxwDj2eeeMtICGCP5PpiXT8alVBDNDiIzzMBk5qtLuuUeZyVeruhMh5pMbjSzjvMcqs2bGwYzxPKFwqkwiYzq9bI5eRg1pNScAVex-bsDyRdB7Y6_jNcha1QFPNf1ek2mmEL36M2tPbbK-aKTSkBibg0O0lcXjJDcofzRYwadW4t4j-5lgOIp33hlR2JxYNLVh1RP9JM2jlU4Qu9ye9i2oR63BMx-4-QBD27wB80bKc-fT0nVEaquA7_jHlHzPlkNjNiqZVUnq2lO-0VQd_tTYMxW3-3o_eC-vg6XsdVvbE-JO1zb9zX3z5zJlTQa6-9tKR1dfUaVcOlL3KB8ZPo8ATgwW3-2c1ti00_LoKcweyRQsCs7J3CArmceg3FqBwZcuR-F6K_UPOVoRcd_sScR-4flwttg8sIjORW2Rw7gl-bL6RRJJMaJVfFMm5BB9yocY1q7mGnYZcgj6eKD9QbvGbpPoY87Psn7aXVNbCa2HgJ5NIsOZv30EV2OnViwouQ1CajVRzF0gSA64LJdreb1PL1nhWeTEb8A9N3-TdP6LXUdeJAjH5Zk_S03MlfHV3b0Y0L0lVdtbHGT1g4fJrye2C1jrjI7QCGocMsG3b90FfZcYUpOQeaRHYaXtIST1F4E2AQpoGwJSuEUUPCyB_BLA-k3b7qBU5YDBcInXNISSMOe-Mly4X5S0riRpws2x7aTQUtts32PM7f52IeRpIumzWclJio6vXo1lbOIGyE7cvfm7QZcwZNhfq4dqWvQjf_0G==)](https://www.plantuml.com/plantuml/uml/hLPjRzis4FwkNt7sKiG16ZaPidqeagv-KH83hfCfJeT-CcZfP1EbIPMad6P3__kEb5zZEx674KWiKVVSS_VSISTFnZ9jYua8WihHey7-62S8Lr1jNGn66b5MW-0O4YMdg2rm2q_SZe6bARTSIIReqMJ2P0g2ImIcHyK4fONJTXnr6_tEbsZGwRMwZ-tegXhMmx0ALa5X48HAc13FGOLdy6xAD6T3WGFymOqrjUfBSFKa03Y6YlNHKMZNN1lRHsCXqse2xqPe1milKoOAtEQaxl66VCqyBJFsRbo4SviA2eCxBSVMvkP3lQxPKpWYHOeX9QL99alPXwH9FHTCEbrFZKq57zPR5wVtRklnSxS-_JKyFm_FbbGovPdJ-N9ZmNqZxiFTDVHleyyHEAEZvjrZhzs8lmwQDuFMNVSk3iCGncoAJjmXGeeP5IC5Bg4Cdbk38gCRvakOCEdCA69lO-opGFEUd93pcbGEpmfXmUjeu6dC4ogvNdFSkWXpoku42DF9m7pZCcUQJGouPYXThc5ytv10YKQBSzT4DgzQQQtnUy4rcLCtRgG9Vr1VMisa8IhIkRfgjBJuvS8lzxGHntT_hJxwtI_VqngfH0bfjdJu8iWXIxwDj2eeeMtICGCP5PpiXT8alVBDNDiIzzMBk5qtLuuUeZyVeruhMh5pMbjSzjvMcqs2bGwYzxPKFwqkwiYzq9bI5eRg1pNScAVex-bsDyRdB7Y6_jNcha1QFPNf1ek2mmEL36M2tPbbK-aKTSkBibg0O0lcXjJDcofzRYwadW4t4j-5lgOIp33hlR2JxYNLVh1RP9JM2jlU4Qu9ye9i2oR63BMx-4-QBD27wB80bKc-fT0nVEaquA7_jHlHzPlkNjNiqZVUnq2lO-0VQd_tTYMxW3-3o_eC-vg6XsdVvbE-JO1zb9zX3z5zJlTQa6-9tKR1dfUaVcOlL3KB8ZPo8ATgwW3-2c1ti00_LoKcweyRQsCs7J3CArmceg3FqBwZcuR-F6K_UPOVoRcd_sScR-4flwttg8sIjORW2Rw7gl-bL6RRJJMaJVfFMm5BB9yocY1q7mGnYZcgj6eKD9QbvGbpPoY87Psn7aXVNbCa2HgJ5NIsOZv30EV2OnViwouQ1CajVRzF0gSA64LJdreb1PL1nhWeTEb8A9N3-TdP6LXUdeJAjH5Zk_S03MlfHV3b0Y0L0lVdtbHGT1g4fJrye2C1jrjI7QCGocMsG3b90FfZcYUpOQeaRHYaXtIST1F4E2AQpoGwJSuEUUPCyB_BLA-k3b7qBU5YDBcInXNISSMOe-Mly4X5S0riRpws2x7aTQUtts32PM7f52IeRpIumzWclJio6vXo1lbOIGyE7cvfm7QZcwZNhfq4dqWvQjf_0G==)
 
 ## List of available C4 language themes
 
@@ -466,8 +466,8 @@ Ex. following Japanese sample still displays an English legend (you could change
 ```plantuml
 @startuml
  ' first diagram without the C4Language_japanese theme
- ' !theme C4Language_japanese from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
- !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+ ' !theme C4Language_japanese from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
+ !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/C4_Container.puml
 
 LAYOUT_LANDSCAPE()
 
@@ -484,15 +484,15 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![Japanese sample without C4Language_japanese theme](https://www.plantuml.com/plantuml/png/hP7DRjD058NtynJJi4WYfR6AkcBLu4PqaQOHTa6ih4ayJOpiiJKUAweG4fxX1maG24ehTe0gMa0ge0Yn2Ut3NDhaCRXEIxk09LwDpfpvxZc-IwbYKcLHICfq8v2fedx0-f95T1YeGPmfgWQSseij9lePwtFlDakOu2alz8WJMgPpnUdVdWqPHtIWL99UiIp9XlK-GhDkbdBPYuNYGjLxSMGb8HD5XlbK-M7GjUp5-KuXhQ-sh8YbYajhDYCbT2uGlJ3p-N-XekJP-885WijwWbv2MerRQ-kkrsgqbnsxqMbMgeHqk4nZKM5-58WQBKqEtarUF9pUUr2g4cSJGP5tDSw4p-HcfRTGesNGty6CmEo0-LokqZk4udS-g3BaNOyb2P90Vm2z1sORzFkP_HFeRs36e7-0GNrKGfDzgKORJgVURhe8aPnUhY_GrHjsSJVTVNJo-Yla1owk2nk1FWAz2-Ojc8-pmmZqovClMzEnWVmDw2UGlu9y7_AdaEz1_WpoGzInnzsp9XLr2aBs6H8loNKU_cb_4VxNpwF9rlufjiYouheT1zs5-TnrWGDpVvPe3EOnXZf-ldrykFFtQ-AihDtqMirhpVOo_libBdpSosy0)
+![Japanese sample without C4Language_japanese theme](https://www.plantuml.com/plantuml/png/hP7FRjD04CRlVefjE2IHKfkWd3Wrk14zkAc5tI9ErYRU9aRssbglYIg4X7VvKmaG24ehRe0gMa0ge0Xn2Ut336to6ApTqXxWo9v6Cz_-vfkPXPHZnhCerAfeFM0fHtw01mn7Q1JmOPnnn8S4cIqBqq661yIxZHDCIKgAV4GqL4LpPVHFpJgB8pJaF4cl6WR38tsWe5alImdhnvGJolL-71b9Y6dXOJxbVXZq3BCrRnUfrMNBk7D5RpRroqRP9DNGN43xOUQJ_uGrMvwflk204gOdnHuqgtrhPTNrh7PtqJ7RTgTMrpIRi3IcDUn70MsWolJWtVJ5ezdzXvMwvcoad4JUjJYZFcORjNwpWQeWleCSWzm1-RbQHtSrfDvvezg8z3oS98e4uWE8FP3R8DwNyayWle6SWFW1KkN75IKoBpLGsx7rRiTL44QGCe-MryoYDjjzVFBwA-G7hZeO9mp44OXTa6z1VYo3COYN9r-sPXC9-HiGJo1_1Va-v4yXtuFy6UI7Ag_ck7SsIOsVWXJx3AcAsWqI_fd-mloldqVJhVrJRE5boNLjHwaByRdg0WVoGUbe0d9JcJf-ldrykFFtRyrPMhdfMPthdUwYslq2eRwwosy=)
 
 But if you activate the `C4Language_japanese` theme, the legend is translated too:
 
 ```plantuml
 @startuml
 ' with the C4Language_japanese theme ex. the predefined legend labels are translated too
-!theme C4Language_japanese from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!theme C4Language_japanese from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/C4_Container.puml
 
 LAYOUT_LANDSCAPE()
 
@@ -509,7 +509,7 @@ SHOW_LEGEND()
 @enduml
 ```
 
-![Japanese sample with C4Language_japanese theme](https://www.plantuml.com/plantuml/png/hP5FRzD04CNl-ocsuP14IcqLzSIfmOte8KqZae8uMPjucWJPQskzLgWG4lRo1maG24ehRe0gMa0ge0XnAUs76ThaOp1EItk0OtsnzURDRz_pBiHQA9q4FYlouK3tkUu3T-RhGlOIqGFtjeY4X1XoFG0ETwof8rBWmTf0WiTzw86ab-Y07tEXoAg4Z7sXQQZ3aCtag_-7hgamu7sje_YARIinj7eK8UaaCQXkA3L8RNN3m8vy8VECix7s_477TkPdcxcqkbot0n5hKFRqZ9ZD36JNJpou42X9haCRWdegAo8lO_NghPNLjbklDXPRJhLPAvKPQuAAGraINZ2G5LuOxxqVltmqkV-mK6QjTG85xjKmaPvGwwNkN8KNCVk1PeHc2ysNOfdVPPoUiuDAG-Yu8eg8XDb7p7RGR6BsOMh_ZDbtDFkO_KH3-gX09kTIXLTRJQjHQnD40RzipV7b6qu-csm_Fdxp3TEzDjqjDSBi4BDjDE_GV9f-Z31xTVnrOx9lC7sBsLDCNsEwY-apJ7SmVOxf0UdKuzvfav8-0H7x54b3TXtyl-tFm__-TJZUs3t1vbcMskrcYzov-SnrZaFpW1BbvSmJ2dNqOlFeOElVRTPQMhdfrclNQer5-lSB83swbpy0)
+![Japanese sample with C4Language_japanese theme](https://www.plantuml.com/plantuml/png/hPBFRjD04CRlVefjE2IHKfkWd3Wrk14zk6c4NH0dQnDlao1xRQtNX0eXrLx-L2e81AKLDq0LBI0LK8IuXFPXXZPv3CP9QGzmP2-xcldcjz_ix48igP19u6j5CkZB7f4zHioQHNateLtctg4HvIncUJnWXDtJfuf8C8-jzJdpYC-wZED6syoF2HKe5PJ7FfMOb66epSrA_mLT4s50Ub96yLN347IWTz52qavY9ZeXbunBlHC6HkHJddkSZwNdzzk6MPjlvQ7LPSkuUqMlLlNBnlIIM9lhyuwVUEm_KSsQQs89nKw57kNFf5drsokhZclLcuksMMyrIcLDQp4HXxn4lQ3FAwGmFdmtVl5uil6eKDRizLYomBqM9joZOhtKgLP84RBle8QWTa5zBfR9VOtWEh-eD61jbqOHaY3x0Da-g1t8ta_bdo3x1ce4sGzG61yMK6HUgf2wtTAR3GSXE00qJvPlcdbkilVazFLNI0yTdAva0h9ZoFP0lGNrSNeOGlRozClsPAGWVGFP5gIl83s0z2ca-v0-W_G8uzZ7WxDEId86GlOP4fFQ3UR_wVx2_A-Vn-FjWnaszxBaE2qRrRduN7M10_LmwcW4QXDDdJpVEJdQ_RjQivTMRhbMutgZkOXllu2V3-Vo6m==)
 
 In the following list you can find all available C4 language themes
 (the diagram contents themselves are not translated that you simpler see the differences):
@@ -518,120 +518,120 @@ In the following list you can find all available C4 language themes
 
 C4Language_english theme is the original language theme and need no activation.
 
-Theme [C4Language_english](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_english.puml) can be activated with
+Theme [C4Language_english](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4Language_english.puml) can be activated with
 
 ```plantuml
-!theme C4Language_english from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4Language_english from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hL7DRfmm4BxxAIRRGrXf0qgLKq-XP9KSo0OLjb5FoC0KBFd7iWUXgEgxTzocIH-WN4RCV3_pZMyZoK2hqUA25ZG8rKqjxRpA6NkqirPnWU_16LY8VFnK545k-QneMOSrOXYT9RIKZyuKNakRbAuYJLeDHNLprQJM-R4kZ8o4eVXj4SM5igDU9_mlejpgAsP8PJ7aFaKHTVdjwTprTNcwQwkoEMPx8HeCqTbCJaRP0-pAL5Ma8Cc5tLwqBonc-izkjPCCBzbuVO3BLXglyN8FFmJmzsQJRJZqqdlMUSO1Ik-r6YKfPtVSgZuSe6oR_7Jic18GFkRNyFYrIhDIQxT5I34Za0FEw2L3pAf9iHTqco9E1QGCQlQAlDlFr-qo-ZDadLSO3yKNr7zJlQzrZipa-j1rJSke17gRlilS8qN-nLJIC_zB4Ut3qtDV7--Ffpi-u2tQYO_x2m00)
+![](https://www.plantuml.com/plantuml/png/hL5BJyCm3BxdLuHne9Esbg6TEAsK2GvbLBG3SQgorcoHybBYKY74VyVX_GF8nPBjx-Mi0WgFWrRi20-WWHVBKfZz8FRGWjah6GxyoLlD3uWkd6UP5sEwbtWOTaC0trc3O33jhCwS4YOopGFsIkwoOZclOcjxKsRFP-bYaPvc7ng17KdJgQ67Vs8jbcr1424D-DJ5CApC7s-tJLlccykwoAjrCcMi0X-iIKIlfPdnIHwh3EW5MZ-Pileb8EZsmWwc5_ubwHOpVb8BxHISJFahu_H-P98HTgrmZdWUOCTpvvJi14fh9jGgZcSyhwjqisu8ue6JKNvpNyHPhfGT0uyv0qVBAQGJjA87XPAqU3DAHF0SfGP5Me6ylNsvI_1pI3nVQpHaTw2-K_tQsWP2KhrkcggchRZqC_sbkG8a6oF44Z_wBuJLrxSFRRc-McykwO0hC3qTznq=)
 
 ### C4Language_chinese
 
-Theme [C4Language_chinese](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_chinese.puml) can be activated with
+Theme [C4Language_chinese](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4Language_chinese.puml) can be activated with
 
 ```plantuml
-!theme C4Language_chinese from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4Language_chinese from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hL7DRfmm4BxxAIRRGq3QW5Bbr5CeGSc1R51X6_M434mNI_wnxB5GLFNTQwlfRXyWN4RCzytt0_UUkAEW9BkY5HL2VTToVGhyXEEy2eqUuQSp2bOYwx-KfUDRSHAqXYbuTBFHX9gAsQZIIgwJqesdHOgfhEzkkhGwFhUbufxGbSa2FRiIUfPXmGyHZQknZXSyXdM5JLLOM_ruEGvZMnqU-hhgcYndh4FdZSxueeJUmwvAKtXod8pRvQn_yuHg_6g2NhXxo-RRFLptN5c9rpdyOX2ViqssuJHoQwFEAqvGMIl5p4aOlOkh-jCUghuh3iqGJnp2v-8Mdh_N2QkaD9k7LDC36OWTBOyK5II9w0N39eZG0Gc5Cdt_cEttUxgC_e9HvvqMGVODvRzMbrX7ZpxvFGr3rqTM8ftHYymZae-lc4RwpV-ViFxfvNLicyVcy93bx1xr4fJy0m00)
+![](https://www.plantuml.com/plantuml/png/hL7BJiCm4BpxAqmva4fjGb5Fd1f21OTG8fA2E4LkihIM_9Az8KA8VsVD-mFmPINFxEpCxYgWy3XenOxm01fuiIo5sGzY3srta0O2y2TlDJyWkd2UPLwCwLxYOTWD0Nnd3OB1jBCwSqgOg3GFs2kvouhbl8fVsvioUpvB5ulqDFkO4TYHD9qQUlWdrMBP5jGYoAvFNGp3olpnTjkqPRwvh8kyMYTJnYhmmPf4z5gQ6P_aiSg0Ng3raochNmA2RY_iO7hXNv9kCUCdjT1EmScKlp9ExsTCCiAk5SwHpWFiUEwSafr0QSs4lehZ6S_hAjsi6shnmCaelxal8fOhPSV0Oyx0qN8AwGHHzA1GqYpUZ18HF4UfGSKBaBUtBtS9VeAayqKZaDs1-axrQsiRg9FgTTDKDR4YwGVzbRa291iZn18F_RU5rTUt3ssvlbflBcc1Ap0zBVST)
 
 ### C4Language_danish
 
-Theme [C4Language_danish](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_danish.puml) can be activated with
+Theme [C4Language_danish](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4Language_danish.puml) can be activated with
 
 ```plantuml
-!theme C4Language_danish from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4Language_danish from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hL7DRjim3BxhATZiK0T8RNJeQQTwRj0UtDIOdHKx6OhDnGBq8qWKZ6BOku_QkdOFC5y8azyFF-esaWoKZ1ONjA11Q6vQQSz9dd6S4qqBV0_Em4BauwUg2d8jpugMT4eHm-GieQLoSgRoMjgiSnLfrkfKDJTNNMuT7zlAo4WOgjy6KLmeE-aqutyHvTROC4CgYw7qEOXewszFns5iwyDTtzJTljWAqM68pXPoDihkO5FdgY85IIvijg9_OJ4pVdR9pZAy5DFr3YvxQRp6ooty4C3VcqsnuccKthFECvwWzbwhIP9oTiEjviCEwhuh3_k1AG7XOtaDZr-RFAkrTck473C2EU2CNZB494sAlM1O5N4g86LGirVatNw-RbVGdo7hlC9uABwW_flgVQrZP2RNXs7eUaPbqDlqNUOUAV8lvfAV-L-Aw1-UdiTsVxy_tF41Rz7EVDnV)
+![](https://www.plantuml.com/plantuml/png/hL5BJyCm3BxdLuHne9Esbg6TEAsK2GvbLBG3SQgorcoHybBYKY74VyVX_GF8nPBjx-Mi0WgFWrRi20-WWHVBKfZz8FRGzWDs1_xahUO7H1VEiyoBCTrBF0ox8O3lh44mc7PMPqu94tdc0NibTrcnd5UnjRqfi-UpTB58JxCFXS2EfEdKqCC_iHRBjY28a0Pywc8KLkQFjzkcBVFDPLtarJgPCbQ13zOaejVIpFWaZrK6z0AjdqnP_H8GT7jX1zCB_v9qYna_gOLs2awc_9LnUZyooGYxLZX7F0-muxbpIdO2fJKJQXN7CvxNLRfPDmJnmCaelxaluYnNoew1nvo1e-KKqWbQqOD2ILgy6IKYU8vIWoAjGDxUljmb-3aadgyr6h8xKD-fVcrj0o6fNZTDLTDMNFgP_j9S0PAD4MA97_qNmkhhsuUsN5-jDvTqm1MOdexx3W==)
 
 ### C4Language_dutch
 
-Theme [C4Language_dutch](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_dutch.puml) can be activated with
+Theme [C4Language_dutch](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4Language_dutch.puml) can be activated with
 
 ```plantuml
-!theme C4Language_dutch from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4Language_dutch from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hL7DRfmm4BxxAIRRGrXf0qgLKq-X12K7ia65RTGJCZ1TBFd7iWUXgEgxTzocIH-WN4RCV3_pZMyZoK2hqUA25ZG8rKqZxNcLPnncQLLSu7jm1XOY7pyLHP1RVbQqhECQCKpE4bhA9sSAhwLDGbUHPgt6ehgvQbFhzDWKHaR2KFnsYE92sKclC_uNKMuD5JEaiXXodvA8flpsTEg7fZpUTLNPrjbUY1P3T3QJir7s0BioLHKfI79XjnVT2ukPuRDRxIp3IpPT7-2oayPhlDp33m7ylTba6uw3z9vrdd64qdkj9adAsHstgWy7ABisFzOzKmB2n_mQ7hzMQLPgxRO8AMO4Si0PlMI8MJKfze9-KyIfW9H1pLwHT_lvkbr6VuQiymhZeVY2-c-gzxLEaPbS7_g-xHYLG6_JTvbxfCY_c4fwvdyfedjuUXwQ-hu-tl41Rz7EVDnV)
+![](https://www.plantuml.com/plantuml/png/hL5BJyCm3BxdLuHne9Esbg6TEAsK2GvbLBG3SQgorcoHybBYKY74VyVX_GF8nPBjx-Mi0WgFWrRi20-WWHVBKfZz8FRGziB8SE1Ftcf-G7JXFCky6DEznCEm6mBupXe4WsbdTUQKC95e7h1NSfSLotaLMzkRCdi-InUBz3Jxa0ZiI9fE3Jty4sknR0k226d0fovcOMN-UBjjsZBVNDP5NgsJAMCL-61D8dejpOnFybXbG2_G-icKrIy1GRSNTZ2zy2z9jvZnarfef-1aobyPf_SZauomQuLpnFC0EvuxfsGdK5epeLPnFEDvNQMRTKCG3voCyflx8ivofUmOUCmPE5fE8PsW5JqebAJ5cr4YWkSeDIZI2kJjxSjTWfz3ulbQeo6x0_MTwjVMDX2IwdNJL3LjnQMVwI_D5I3P626M-D5_8Qo-ldreo_NLUdD91ro1wUcuxm==)
 
 ### C4Language_german
 
-Theme [C4Language_german](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_german.puml) can be activated with
+Theme [C4Language_german](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4Language_german.puml) can be activated with
 
 ```plantuml
-!theme C4Language_german from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4Language_german from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hL7DRfmm4BxxAIRRGrXf0qgLKq-X12K7ia65RTGJCZ1bBVd7iWUXgEgxTzocIH-WN4RCV3_pZMyZoK2hqUA2pcWGgfj6scML2muB1YCjV0_Em9d8nqz54UIMBuhEwxX639EpX9RooPd2QscJq5MaMQkng6wksjGwFJQ5aP4m5ByTehXGTjBhZFz5b5j3nGofB8RSfoIYARyzdVgXAOztNLMsTRONeiKGdStaR9GzmAvCLKKAabpOxKNtmc9c-EnMEylmaatN1xZifF4QB_VmGm1_RpRPXkCWlMUTPnoXz5whIP9oTiUjwiC1ogxDZtNFb83mCR-6nwzLcfLQkor2YXc17716BnbYLasAlQ3V574g86LGirVatNw-RfVHdo7hlC9uABwW_flgVQrJP2RNXxvlEqObqDlqNUOUAV8lffAU-L-Aw1wUdeUclg-FTtp0MxGp7_SN)
+![](https://www.plantuml.com/plantuml/png/hL5BJyCm3BxdLuHne9Esbg6TEAsK2GvbLBG3SQgorcoHybBYKY74VyVX_GF8nPBjx-Mi0WgFWrRi20-WWHVBKfZz8FRGxi5hOVYJjveV45qupp8lndGlyJ3iXW2-imR1ODfPdJabJ2IQ1-oLt6N5Sbx5rlQcp9xFqiKYFSq-908xagPJGm__n5eisu8WGXhmgOjPM9a_tcwRjimtbtMHL-jaobW5FbYJY5vBC-EJF5OPq0kqVZ9bzKj0qEs57Kml_4lIBMRyf1RQAJYPybV6wVt892FiMk4SyJp0ZkVEATa9bDPCg5KSptXUL-bctH340oUZ_EQ-YBDSAJi67dC6ZfPJI2TeHGyA9MdnPfI8u3bA3Ogq0dbx-tANuEUGUBxMQCZkG7sd-hMr3OIaUjqqLKrRSUbd-ajp1KWsHeWbVlHV2AklRn_QSdsrtbpI0LTWUZhkEm==)
 
 ### C4Language_italian
 
-Theme [C4Language_italian](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_italian.puml) can be activated with
+Theme [C4Language_italian](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4Language_italian.puml) can be activated with
 
 ```plantuml
-!theme C4Language_italian from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4Language_italian from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hL7DRjim3BxhATZiK0T8RNJeQQTwRj0UtDIOdHKx6OpD9GBq8qWqWcBOku_QkdOFC5y8azyFF-esCKPUh54NV29BqDoqw8uB7cdKZ4QZW-_HMpWnX_IfgYAUowFcqt9O4iN9EoR7vUHj5Gowh7ILU3RwK3KtLrrkxH_Roc9YYjLlYwGkj9lCCjD_4PNMs0W3jQDOXXn5jVMtf_qmjlNkhc_gRbkibUee9kyAdArs6rZLkUh44Td7rLhrBo9cnyz-SJF6bsAwti1bZpOOkbp33mNolTaKPpgC68BeFDC1wX2Cdf2rTojfDHysKFTTkTiEGea47yjhUFpQv5bjZ3ydo34Ji0V9650WTZ6inGk6isP91Qmj6V5AijlFr-qA_ZCKdLUO3DKNCdzJlQ-rJyAK-Z0CNI-e37gRlilS4oVvfLpoC_zBKVt3q_FORk-tkpivu2svMOxx2m00)
+![](https://www.plantuml.com/plantuml/png/hL5BJyCm3BxdLuHne9Esbg6TEAsK2GvbLBG3SQgorcoHybBYKY74VyVX_GF8nPBjx-Mi0WgFWrRi20-WWHVBKfZz8FRGIXHA2iEVlDNyWEZ2UPPvCQPxYOTXDmJmdJK81jFEwimfOIBJF62lv2uhblCgjhOtPVPybYuMwMdseH7OaJIT6dhu9zPYsHO44TA0JrqCmyhyyNRRj6M-kQoBl5edKyOgyC6QHFHQcXcVvB7AW5wWzPCfgry2Wculx61wuL-IRZ7Z9xNGJi79bByoJkz79XbXrmhdYES1TZntJibEeBHcGgtYUCRpkaetwuOW7ZWPvJVtHPpbIjany9WpSBISGZf1AtfGA4cBDwD41CzHQb2a5SZRsvUx13-7nFErHaDs1-exrQ-jRI0arUkcgMhQYai_qr-QAq2oCK8iyQF_GbXzVVlGbkkhzUQI3hW2qzDntm4=)
 
 ### C4Language_japanese
 
-Theme [C4Language_japanese](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_japanese.puml) can be activated with
+Theme [C4Language_japanese](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4Language_japanese.puml) can be activated with
 
 ```plantuml
-!theme C4Language_japanese from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4Language_japanese from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hL7DRfmm4BxxAPpj8Qoq0QNAgQTGWf83sQ32Dke93J3TTUKVonw4eghltd6RPli0uJ9YvlkPRtmR2G8jHeiBEg51MTqqO8yB777u0HuiHfJVWpFoHEJZfw88iEP7HQTbN2A6oLb2I_daJE4rs2Hr5MdMQYogcwisjGwFJM4W4eRYZqSK5yfEUfdnNKIvDLJC06Knv3vb4KtvxUdG3qsvl-kgigsphH0jXkXi1hDHTYStPQegKW1oORCLtGkBcU6pM-mCuIMRhdVoiWFZDLvkvKyX-NkpoLOS1_2UTPvnbANtMar0ojaDjweFErbsRRwlUwO4b1_pQ_dujKgpKcktHfbYHabESaOF336B9iLUibyLSIf9og1chyYx_NhTBgE_GzPvXV5GV47zBzLvhKDa9jU7lcyxHYNGs_GiSuyK-HTJIS_yFqLq3q_FGrFVr_ixFk0jsfcF-ni0)
+![](https://www.plantuml.com/plantuml/png/hL5BJyCm3BxdLuHne9D6oz1Ed2XbWaCP5Ur0dAgiDLjGNafSAeJuxpYynWyW5qkslvTp7b1u7BHY1xW33RnObC9i1x65zbauOI00V_9MynsY2sTPviMORYNkXiqGm7VM81XCEwipfuI9LCS1UoKtMR4uhc9hVLDcBwVfV9wUP9yYWHr8qwcXXtzYBHPjGH0X3VZKnJIip1zlrqrRvglBkiYhPJ9bh08Vh4b4hwMPyKaUgmpe1Le_cRBwDI3ezi8EfXV-DUdcCtvK2-qK74tv6-FqVcMI4JQjS8vu7c33S-UKx0HAQoRKAWvdFA-hTBLi2EA1ar5-Sr_4MQwK7GEFEGD7ooca4xIY1uMIj7WpIaJm7AK6HLg1lBr_kqlmQqWytsiqP7UWVbBjRQq38QbUDqrLqrPS-ftkQQu0oSO8iSIF_WjXzVNjGrikhvQhIphWEPYUZli1)
 
 ### C4Language_korean
 
-Theme [C4Language_korean](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_korean.puml) can be activated with
+Theme [C4Language_korean](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4Language_korean.puml) can be activated with
 
 ```plantuml
-!theme C4Language_korean from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4Language_korean from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hL7DRfmm4BxxAIRRGrXf0qgLKq-X12K7ia65RTGJCZ3TjUeVonw4eghltd6RPli0uJ9YvlkPRtmRIGPQZ1ONT4A3KDqqqXuNUSJXXmieBNmFpi29oCTFHH7acXyLdPPnYHWcPmajvPCpXTVI9g6hIBDMOr7TNBMfTNXi2YCZOIZ-E4HneUoabndVHPHRGyKCgIo6tASaeYc_FHtweIdtTrrLjdMs5QB549tDv6oKtS6cJ5L52f9Ss6n5zy9YPlZi5ZlBy99DrpkuxAJn6Y-ty5C0VsyssOhZ8BrddMSSeVHUgqcISdR3hUh33igkpVTrpvI0y36_XiUlLPgLMhirGeePWHnmHYyPOXPDYhsWNnLnAY1bKBDNvDr-lMwNqTyXwxp2U2Y-eFwNwhpM8JAJwqFVjnsZ4kXjUfQvHuhyYwcaP_wV8hg7f-UXgU_h_HqVy1RjpCVz3G00)
+![](https://www.plantuml.com/plantuml/png/hL5BJyCm3BxdLuHne9D6oz1Ed2XbWaCP5Ur0dAgiDLj4NafSAeJuxpYynWyW5qkslvTp7b1u7BHY1xW33RnObC9i1x65zjbw48O_UQlv3j65ioppOaot4dV3PWZWEsiG3AQTrPbJmaIYuu2zafkiM1nNiRM-ARENqtG-Jq-oJud03gJfrD33Fx4MYxOWY906VEfY5bRcZxVhfYtprMLTvDKocJ9MWG_M9ABNqipu98zL1lG2hPzCMVqQ47HxOGVJ2_-QTFCPFwg5TWgEfloDSNg_Cia8crOuHpmFiE6vSqfs0gKr4seLXpEUrrMwMZO4yS39AB-vB-8iLygEWSUSWQFb5D89Mj63GabQl1ab8dYEKeCYhK3Uth_T9VWr99xlDHgoEr0_gVQsre6GLA-RfgffAoxzJlSqLu1aOuHOuaV_XR3w-lQXBPTNozKb7V0SJ4_7_G0=)
 
 ### C4Language_portuguese
 
-Theme [C4Language_portuguese](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_portuguese.puml) can be activated with
+Theme [C4Language_portuguese](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4Language_portuguese.puml) can be activated with
 
 ```plantuml
-!theme C4Language_portuguese from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4Language_portuguese from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hL7BRjmm3BphAvZj8LvWOoD5JZt5THR9mTaOjRT1JuRMPhq2z10a2aPGzDzBjMdI3wWlX3cS6Gvr6qa6IaQB2pgZGMXkMccN91SSlMDaIHWHlWTdu4pauwUg2d8j5qNdT4eHm-GieQLoSgRoMjeiTXLfrkfKDJTNNMuT7zlAo4WOgjykKLmeE-aqutyHvTROC4CgYw7qEOrewszFns5iwyDTtzJTljWAqM68pXPoDihkO5FdgY85IIvijg9_OJ4pVdR9pZAy5DFr3YvxQRp6ooty4C3VcqsnuccKthFECvwWzbwhIP9oTiEjviCEwhuh3_k1AG7XOtaDZr-RZDLQkpL2ZXc17716Btd494sAlM1O5N4g86LGirVatNw-RbVG7v1rNiSO55zG_qtrljOnCfFhmp1qFK_beJVqNUOUAV8lvfAV-L-Aw1-UdiTsVxy_tF41Rz7EVDnV)
+![](https://www.plantuml.com/plantuml/png/hL7BJiCm4BpxAqmva4fjGb5Fd1f21OTG8fA2E4LkihIM_9Az8KA8VsVD-mFmPQMTsPdPzIgWy3XenOxm01fuiIo5sGzY3wspXEm72C2VlDNyWEZ2UPPvCQPxYOTXDmJmdJK81jFEwimfOQBOF62lv2uhblCgjhOtPVPybYuMwMdsOHFOaJIT6dhu9zLYsHOq8gG1dxgu3olpnzjjqvRvvh8kycgTJ1chm0Th4j5hQMPyaiSg0tg1ra-ch7u92Bgzi8FfXNz9kiMCdzH2EmKdK_xAEBqVcsI4NIkS8vq7sF7SEIKxWTAQ2RMAundFwohTh1iQyS0fAB-vBoAMAsN7mEEUWQFbjAGJHD63GabUl1ab8dYEKeCYhq3PthxI9VW9aiuNZK1s1-fxgzzOsq2JLA-Rfgg95Ka_wA_C5I35626M-D5_HrXzVVlGbkkhzUQI3hW2qzDntm4=)
 
 ### C4Language_russian
 
-Theme [C4Language_russian](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_russian.puml) can be activated with
+Theme [C4Language_russian](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4Language_russian.puml) can be activated with
 
 ```plantuml
-!theme C4Language_russian from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4Language_russian from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hL7DRjim3BxhATZiK0T8RNJeQQTwRj0UtDIOdHKx6RBD9GBq8qWKZ6BOku_QkdOFC5y8azyFF-esaWoKZ1ONT4Q3qDoqqfwIFE4OKenAMlWUd84paO-VgYh8jJmfEgSfHGopiuIMojcPocjfiz9Lf4MhgMfkhhhSEZwsbP6HC5I_BQAuK7RMQS7_8igjiM66L1P3wNCKqTRVdex3sDQ7kxwfktsn5QB349qjv6AKtS6cpbL52f9Ss6n5_y9YPlpiabraU2dcwnrSzj9uZPTR-260lpUROiLfbDwppZDEK7klrIn9ERlXLlDX1tNVbOVzm9I0yB6yXiUlJPxLMhirGeuPWHnmHYyPOf8cnLumh8eu5P0ogDahycu_NxShwC-GTLvXF1HVKFzDzRxMCJAJwyCmT3sZCkXj-YvpZnJv5tF9p_mlHVGFJyzZkx_V7-xuWBTe5pxkBm00)
+![](https://www.plantuml.com/plantuml/png/hL5BJyCm3BxdLuHne9Esbg6TEAsK2GvbLBG3SQgorcoHybBYKY74VyVX_GF8nPBjx-Mi0WgFWrRi20-WWHVBKfZz8FRG-Y44AGn_ybRp0w8BvrdcnPZk9Hw6tH30TzOW64mxgpEdX8bCyu2zahkiMCwhsDhUbDdpMRfOfAVPXqPWHz9qQkZXdrYBPLiGH4W3FdKn32lpnzjjqvRvvh8kycgTJ1chm0Th4j5hQMPyaiSg0tg1ra-ch7u92Bgzi8FfXNz9kiMCdzH2EmKdK_xAEBqVcMI4NIkS8vu7sF7SEIKxWTAQ2RMAundFwohTh1k2UE1abD_S5t6MAsN7m6FEmD5o2ka4hUX1eIGjtemI4Jn7gK6HLY1lRr_k4lmS4i_N6WtP7QZlLB-sje6GLA-RfgffAoxzJ7zfhW39nWYnn8_-2s7rzUr3MwwlrfjBEk0AJ4_7VGS=)
 
 ### C4Language_spanish
 
-Theme [C4Language_spanish](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_spanish.puml) can be activated with
+Theme [C4Language_spanish](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4Language_spanish.puml) can be activated with
 
 ```plantuml
-!theme C4Language_spanish from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4Language_spanish from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hL7DRfmm4BxxAIRRGrXf0qgLKq-X12K7ia65RTGJCZ1TBFd7iWUXgEgxTzocIH-WN4RCV3_pZMyZoK2hqUA25ZG8rKqZxNcLPnoYbrR51Ru7Ps0Xyl5JKGIvvMT5opgk4SFaBA6bV7Acy5hQf7GLQTPgBAgRgpQrJezDOMGa3CLlYoWkb9tqEkD_4UNMK353AeiXzocAQCflJwT-QChZNLULRPtjXMWnH6SpEHjb3x0hKrMHWYGNTdlHlR2O6JwxrSuol6JJzG4kEscyniiz_130tvjDjk4uIEzPvnb7ABtNQfAadDrng_fmWB9hysFTCoKWVColuV5hbMQbrcwBa69680USqKk6c5MJOY_eDqMS2aWPrEmLURUVhzjbz6V8Egym7eelgF-cUb_h59d9zQ7lsuvH2VGsVPUvHuhyYwcaP_wN8hg7f-UXgU_hunqVy1RjpCVz1G00)
+![](https://www.plantuml.com/plantuml/png/hL5BJyCm3BxdLuHne9Esbg6TEAsK2GvbLBG3SQgorcoHybBYKY74VyVX_GF8nPBjx-Mi0WgFWrRi20-WWHVBKfZz8FRG1YUC30V-vAtc1qGNphFCYp7TIpmCko60xwn1C9XsLcTE2HEPvW5x9NTPiPnNiRMzARFditInI4-p3ut0ZgJfrD33Fx4MoxOWY906VEfY65RcZxVRfYtppMLTvDKwcJ9MWG_M9ABNqipu98zL1lG2hPzCMVqI47HxOGVJ2_-IT8iPFwc5TWfEfloLSNe_Cia8krOuHpmFiEEvSqfs0gKr4seLnpEUrrMwMJS4yS39AB-vB-8iLygEWSUSWQFb5D89Mj63GabQl1ab8dYEKeCYhK3UthxS9VWv99wlDHgoEr3VgNvjRGCXgLutJLNJLbpwcVxIN06IZH5YYH_z5yBgwzk7jbnVhJUNTC0Lc9wE-mu=)
 
 ### C4Language_ukrainian
 
-Theme [C4Language_ukrainian](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes/puml-theme-C4Language_ukrainian.puml) can be activated with
+Theme [C4Language_ukrainian](https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes/puml-theme-C4Language_ukrainian.puml) can be activated with
 
 ```plantuml
-!theme C4Language_ukrainian from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+!theme C4Language_ukrainian from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.11.0/themes
 ```
 
-![](https://www.plantuml.com/plantuml/png/hL7DRfmm4BxxAIRRGrXf0qgLKq-XP9KSo0OLjb5FoC1qrwf_B7ii55LzzuxLDEa3bCk8cU_d--0saWoKZ1ONT4Q3qDoqqfwIFE6OVWIfh98MlWTdu4pauwUg2d8jJuhEQKeHm-mieQLoTgRoMjgiTHLfqMggcfkhBg-EZsrbP2GC5MMJA2wKdNLQyB-8ycficC5XCPG-bn5j_UtfE8njVRZhcxhR5riXEWpHsK8kHjaTREeyLQGWoONDLlGlB6R6poxPHOQNOhxUmMKlZTTukOMV0lXviobMd4RfFUiyumIrzrhDafIp6rur7tPGzrrvs0zC2GWVosju_DhaMwsrMoFacX780NVqaY4cQLBi1SEgY300AOEQlI9d-_MQhg0_HzPvXV5HV47zjzLxh6Da9i-7OUXwHcNGs_LTvXufyYlcaN_plnJHFpmzZ-t-Vd-uumzuYtP9Hly6)
+![](https://www.plantuml.com/plantuml/png/hL5BJyCm3BxdLuHne9D6oz1Ed2XbWaCP5Ur0dAgiDLj4NafSAeJuxpYynWyW5qkslvTp7b1u7BHY1xW33RnObC9i1x65TdZsGXef37_oLlCTeWjdMUR5c6ubxeRD4C1trY0OJ3khCwU4YLp70NibDrcnEAvYQtrJPY-dwNoUdcIVAe4TIDEfeOT_OYqMRK4GiWi-TJ4EA_F7stNJbldgiYxoQfbC6Ql01siIqMjfPdoInoe3Ue7MJwQiVWq8khsmW-c5Vqsw-OmVrK8x1KTJ_iOulL-PP8HDAvmZdWVOyDmv9Jk1qfe9jOh36S_hAbqj6u9uu6IKtzmNSPOhPSV0Oyx0qN8AwGIjw46X92tUZ18HF4UfGP5M86_lt-uI_1eIp_SQ3TaTg9zKUrlhG4YgrqrJrRGLbtwdUvehGB8nGYpne_z2M7rz-z2Mowlbwf8EU0wcf-D-00==)

@@ -2,7 +2,7 @@
 
 !$BOUNDARY_LEGEND_TEXT ?= "confine"
 
-!$LEGEND_TITLE_TEXT ?= "Leggenda"
+!$LEGEND_TITLE_TEXT ?= "Legenda"
 
 !$LEGEND_BOUNDARY ?= "confine"
 !$LEGEND_BOUNDARY_PRE_PART ?= "confine del "

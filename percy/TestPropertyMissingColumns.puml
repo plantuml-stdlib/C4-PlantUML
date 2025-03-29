@@ -1,0 +1,19 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Deployment.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!endif
+
+' missing columns 3 and 4 are added that all columns are displayed
+SetPropertyHeader("", $col2Name="2")
+AddProperty($col1="col1")
+AddProperty("", $col2="col2")
+AddProperty(" ", " ", $col3="col3")
+' missing columns 2 and 3 are inserted with empty values
+AddProperty("", $col4="col4")
+
+Container(c, "Container")
+
+@enduml

@@ -1161,28 +1161,107 @@ $elementSkin
 !global $propTableCaption = ""
 !global $propColCaption = "="
 
+!global $isFirstProp = 1
+!global $firstPropCol = 1
+!global $lastPropCol = 1
+
+!function $fillMissing($col, $colNext)
+  !if ($col == "" && $colNext != "")
+    !return " "
+  !endif
+  !return $col 
+!endfunction
+
+!function $updatePropColumns($colIdx)
+  !if ($isFirstProp == 1 && $colIdx > $firstPropCol)
+    !$firstPropCol = $colIdx
+  !endif    
+  !if ($isFirstProp == 0 && $colIdx > $lastPropCol)
+    !$lastPropCol = $colIdx
+  !endif    
+  !return "" 
+!endfunction
+
+' add missing header columns, if a following row has more columns
+' (fixed in PlantUML v1.2025.1beta9; only required in older versions)
+!function $fixHeaderColumns()
+  ' the number of displayed columns considers only the first row
+  ' if another row has more columns the first has to be filled with missing columns 
+  !if ($lastPropCol > $firstPropCol)
+    !$delta = $lastPropCol - $firstPropCol
+    !$delta = $delta * 2
+    !$fix = %substr(" | | | |", 0, $delta)
+
+    ' basically the line break \n should be the split
+    ' but \n is not encoded (anymore?) therefore split only via
+    ' \ and remove the last obsolete  \ (changed order with add 
+    ' \ at the beginning is not working). 
+    ' "\n" would split \ and n ==> n would be an unwanted line break 
+    !$lines = %splitstr($propTable, "\")
+    ' !$lines = %splitstr_regex($propTable, "(?=[\x000A])")
+    !$first = 1
+    !$newTab = ""
+    !foreach $item in $lines
+      !if ($first == 1)
+        !$item = $item + $fix
+        !$first = 0
+      !endif
+      !$newTab = $newTab + $item + "\"
+    !endfor
+    
+    !$fixLen = %strlen($newTab) - 1
+    !$newTab = %substr($newTab, 0, $fixLen)
+
+    !$propTable = $newTab
+  !endif    
+
+  !$isFirstProp = 1
+  !$firstPropCol = 1
+  !$lastPropCol = 1
+
+  !return "" 
+!endfunction
+
 !unquoted function SetPropertyHeader($col1Name, $col2Name = "", $col3Name = "", $col4Name = "")
+  !$col3Name = $fillMissing($col3Name, $col4Name)
+  !$col2Name = $fillMissing($col2Name, $col3Name)
+  !$col1Name = $fillMissing($col1Name, $col2Name)
+
   !$propColCaption = ""
   !$propTableCaption = "|= " + $col1Name + " |"
   !if ($col2Name != "")
     !$propTableCaption = $propTableCaption + "= " + $col2Name + " |"
+    $updatePropColumns(2)
   !endif
   !if ($col3Name != "")
     !$propTableCaption = $propTableCaption + "= " + $col3Name + " |"
+    $updatePropColumns(3)
   !endif
   !if ($col4Name != "")
     !$propTableCaption = $propTableCaption + "= " + $col4Name + " |"
+    $updatePropColumns(4)
   !endif
+
+  !$isFirstProp = 0
   !return ""
 !endfunction
 
 !unquoted function WithoutPropertyHeader()
   !$propTableCaption = ""
   !$propColCaption = "="
+
+  !$isFirstProp = 1
+  !$firstPropCol = 1
+  !$lastPropCol = 1
+
   !return ""
 !endfunction
 
 !unquoted function AddProperty($col1, $col2 = "", $col3 = "", $col4 = "")
+  !$col3 = $fillMissing($col3, $col4)
+  !$col2 = $fillMissing($col2, $col3)
+  !$col1 = $fillMissing($col1, $col2)
+
   !if ($propTable == "")
     !if ($propTableCaption != "")
       !$propTable = $propTableCaption + "\n"
@@ -1190,20 +1269,28 @@ $elementSkin
   !else
     !$propTable = $propTable + "\n"
   !endif
+
   !$propTable = $propTable + "| " + $col1 + " |"
   !if ($col2 != "")
     !$propTable = $propTable + $propColCaption + " " + $col2 + " |"
+    $updatePropColumns(2)
   !endif
   !if ($col3 != "")
     !$propTable = $propTable + " " + $col3 + " |"
+    $updatePropColumns(3)
   !endif
   !if ($col4 != "")
     !$propTable = $propTable + " " + $col4 + " |"
+    $updatePropColumns(4)
   !endif
+
+  !$isFirstProp = 0
   !return ""
 !endfunction
 
 !unquoted function $getProps($alignedNL = "\n")
+  $fixHeaderColumns()
+
   !if ($propTable != "")
     !$retTable = $alignedNL + $propTable
     !$propTable = ""

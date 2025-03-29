@@ -9,6 +9,16 @@
 '     !ENABLE_ALL_PLANT_ELEMENTS = 1
 '   or with additional command line argument -DENABLE_ALL_PLANT_ELEMENTS=1
 
+' C4-PlantUML v2.12 fixed a missing rotation bug in Lay_* calls in combination with LAYOUT_LANDSCAPE() call
+' (details see https://github.com/plantuml-stdlib/C4-PlantUML/issues/376)
+' If older diagrams should remain unchanged the bugfix can be deactivated with following statement
+'     !NO_LAY_ROTATE = 1
+' or with follwing additional command line argument 
+'     -DNO_LAY_ROTATE=1
+' like
+'    java -jar plantuml.jar -DNO_LAY_ROTATE=1 ...
+!global NO_LAY_ROTATE ?= 0
+
 'Version
 ' ##################################
 !function C4Version()
@@ -1749,32 +1759,64 @@ $getRel($right("<<-","->>"), $from, $to, $label, $techn, $descr, $sprite, $tags,
   !return '-[hidden]' + %substr('------------', 0, %intval($distance) + 1)
 !endfunction
 
+!function $l_down($start,$end)
+  !if (NO_LAY_ROTATE == 0)
+    !return $down($start,$end)
+  !else
+    !return $start+"DOWN"+$end
+  !endif
+!endfunction
+
+!function $l_up($start,$end)
+  !if (NO_LAY_ROTATE == 0)
+    !return $up($start,$end)
+  !else
+    !return $start+"UP"+$end
+  !endif
+!endfunction
+
+!function $l_left($start,$end)
+  !if (NO_LAY_ROTATE == 0)
+    !return $left($start,$end)
+  !else
+    !return $start+"LEFT"+$end
+  !endif
+!endfunction
+
+!function $l_right($start,$end)
+  !if (NO_LAY_ROTATE == 0)
+    !return $right($start,$end)
+  !else
+    !return $start+"RIGHT"+$end
+  !endif
+!endfunction
+
 !unquoted procedure Lay_D($from, $to)
-$from -[hidden]D- $to
+$from $l_down("-[hidden]","-") $to
 !endprocedure
 !unquoted procedure Lay_Down($from, $to)
-$from -[hidden]D- $to
+$from $l_down("-[hidden]","-") $to
 !endprocedure
 
 !unquoted procedure Lay_U($from, $to)
-$from -[hidden]U- $to
+$from $l_up("-[hidden]","-") $to
 !endprocedure
 !unquoted procedure Lay_Up($from, $to)
-$from -[hidden]U- $to
+$from $l_up("-[hidden]","-") $to
 !endprocedure
 
 !unquoted procedure Lay_R($from, $to)
-$from -[hidden]R- $to
+$from $l_right("-[hidden]","-") $to
 !endprocedure
 !unquoted procedure Lay_Right($from, $to)
-$from -[hidden]R- $to
+$from $l_right("-[hidden]","-") $to
 !endprocedure
 
 !unquoted procedure Lay_L($from, $to)
-$from -[hidden]L- $to
+$from $l_left("-[hidden]","-") $to
 !endprocedure
 !unquoted procedure Lay_Left($from, $to)
-$from -[hidden]L- $to
+$from $l_left("-[hidden]","-") $to
 !endprocedure
 
 ' PlantUML bug: lines which does "not match" with the orientation/direction of the diagram

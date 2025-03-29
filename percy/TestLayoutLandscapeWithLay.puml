@@ -1,0 +1,47 @@
+@startuml
+
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
+!else
+  ' !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+  !include https://raw.githubusercontent.com/kirchsth/C4-PlantUML/extended/C4_Container.puml
+!endif
+
+LAYOUT_LANDSCAPE()
+
+' C4-PlantUML v2.12 fixed a missing rotation bug in Lay_* calls in combination with LAYOUT_LANDSCAPE call
+' (details see https://github.com/plantuml-stdlib/C4-PlantUML/issues/376)
+' If older diagrams should remain unchanged the bugfix can be deactivated with following statement
+'     !NO_LAY_ROTATE = 1
+' Or if the conversion is started via command line with following argument
+'     -NO_LAY_ROTATE=1
+' like
+'    java -jar plantuml.jar -NO_LAY_ROTATE=1 ...
+
+'!NO_LAY_ROTATE = 1
+
+Person(x, "X")
+System(sUp, "S up")
+System(sRight, "S right")
+System(sDown, "S down")
+System(sLeft, "S left")
+
+Rel_U(x, sUp, "uses")
+Rel_R(x, sRight, "uses")
+Rel_D(x, sDown, "uses")
+Rel_L(x, sLeft, "uses")
+
+Person(a, "A")
+Person(bUp, "B up")
+Person(cRight, "C right")
+Person(dDown, "D down")
+Person(eLeft, "E left")
+
+Lay_U(a, bUp)
+Lay_R(a, cRight)
+Lay_D(a, dDown)
+Lay_L(a, eLeft)
+
+HIDE_STEREOTYPE()
+@enduml

@@ -18,6 +18,7 @@ The following samples are reproductions with C4-PlantUML from [C4 model core dia
       - [Deployment Diagram](#deployment-diagram)
     - [Styles](#styles)
     - [Icons](#icons)
+    - [Themes](#themes)
 
 ## Core Diagrams
 

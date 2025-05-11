@@ -262,6 +262,19 @@ skinparam package {
     BackgroundColor $BOUNDARY_BG_COLOR
 }
 
+' PlantUML compatibility utilities
+' ##################################
+
+' PlantUML v1.2025.1beta6 introduced a new %breakline() function.
+' This should be used instead of the old %newline(), if a command ends.
+' (%newline() should be only used in multiline labels,...)
+!function $bl()
+  !if (%function_exists("%breakline"))
+    !return %breakline()
+  !endif
+  !return %newline()
+!endfunction
+
 ' Legend and Tags
 ' ##################################
 !global $tagDefaultLegend = ""
@@ -411,42 +424,42 @@ skinparam package {
 !endfunction
 
 !function $elementTagSkinparams($element, $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $borderStyle, $borderThickness)
-  !$elementSkin = "skinparam " + $element + "<<" + $tagStereo + ">> {" + %newline()
+  !$elementSkin = "skinparam " + $element + "<<" + $tagStereo + ">> {" + $bl()
   !if ($fontColor != "")
     !if (%strpos($tagStereo, "boundary") < 0)
-      !$elementSkin = $elementSkin + "    StereotypeFontColor " + $fontColor + %newline()
+      !$elementSkin = $elementSkin + "    StereotypeFontColor " + $fontColor + $bl()
     !endif
-    !$elementSkin = $elementSkin + "    FontColor " + $fontColor + %newline()
+    !$elementSkin = $elementSkin + "    FontColor " + $fontColor + $bl()
   !endif
   !if ($bgColor != "")
-    !$elementSkin = $elementSkin + "    BackgroundColor " + $bgColor + %newline()
+    !$elementSkin = $elementSkin + "    BackgroundColor " + $bgColor + $bl()
   !endif
   !if ($borderColor != "")
-    !$elementSkin = $elementSkin + "    BorderColor " + $borderColor+ %newline()
+    !$elementSkin = $elementSkin + "    BorderColor " + $borderColor+ $bl()
   !endif
   !if ($shadowing == "true")
-    !$elementSkin = $elementSkin + "    Shadowing<<" + $tagStereo + ">> " + "true" + %newline()
+    !$elementSkin = $elementSkin + "    Shadowing<<" + $tagStereo + ">> " + "true" + $bl()
   !endif
   !if ($shadowing == "false")
-    !$elementSkin = $elementSkin + "    Shadowing<<" + $tagStereo + ">> " + "false" + %newline()
+    !$elementSkin = $elementSkin + "    Shadowing<<" + $tagStereo + ">> " + "false" + $bl()
   !endif
   ' only rectangle supports shape(d corners), define both skinparam that overlays are working
   !if ($shape != "" && $element == "rectangle")
     !if ($shape == $ROUNDED_BOX)
-      !$elementSkin = $elementSkin + "    RoundCorner " + $ROUNDED_BOX_SIZE+ %newline()
-      !$elementSkin = $elementSkin + "    DiagonalCorner " + "0" + %newline()
+      !$elementSkin = $elementSkin + "    RoundCorner " + $ROUNDED_BOX_SIZE+ $bl()
+      !$elementSkin = $elementSkin + "    DiagonalCorner " + "0" + $bl()
     !elseif ($shape == $EIGHT_SIDED)
-      !$elementSkin = $elementSkin + "    RoundCorner " + "0" + %newline()
-      !$elementSkin = $elementSkin + "    DiagonalCorner " + $EIGHT_SIDED_SIZE+ %newline()
+      !$elementSkin = $elementSkin + "    RoundCorner " + "0" + $bl()
+      !$elementSkin = $elementSkin + "    DiagonalCorner " + $EIGHT_SIDED_SIZE+ $bl()
     !endif
   !endif
   !if ($borderStyle != "")
-    !$elementSkin = $elementSkin + "    BorderStyle " + $borderStyle + %newline()
+    !$elementSkin = $elementSkin + "    BorderStyle " + $borderStyle + $bl()
   !endif
   !if ($borderThickness != "")
-    !$elementSkin = $elementSkin + "    BorderThickness " + $borderThickness + %newline()
+    !$elementSkin = $elementSkin + "    BorderThickness " + $borderThickness + $bl()
   !endif
-  !$elementSkin = $elementSkin + "}" + %newline()
+  !$elementSkin = $elementSkin + "}" + $bl()
   !return $elementSkin
 !endfunction
 
@@ -463,8 +476,8 @@ skinparam package {
   !$tagSkin = $tagSkin + $elementTagSkinparams("participant", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
   !$tagSkin = $tagSkin + $elementTagSkinparams("sequencebox", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
   !if (%strpos($tagStereo, "boundary") >= 0 && $bgColor != "")
-    !$tagSkin = $tagSkin + "skinparam package<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
-    !$tagSkin = $tagSkin + "skinparam rectangle<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + %newline()
+    !$tagSkin = $tagSkin + "skinparam package<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + $bl()
+    !$tagSkin = $tagSkin + "skinparam rectangle<<" + $tagStereo + ">>StereotypeFontColor " + $bgColor + $bl()
   !endif
   !if %variable_exists("ENABLE_ALL_PLANT_ELEMENTS")
     !$tagSkin = $tagSkin + $elementTagSkinparams("agent", $tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
@@ -489,18 +502,18 @@ skinparam package {
     ' label uses wrong font color? (should be $bgColor too)
     !$tagSkin = $tagSkin + $elementTagSkinparams("label", $tagStereo, $bgColor, $bgColor, $borderColor, $shadowing, "", $borderStyle, $borderThickness)
 ' label colors cannot be set via skinparam use additional style
-    !$tagSkin = $tagSkin + "<style>" + %newline()
+    !$tagSkin = $tagSkin + "<style>" + $bl()
     ' componentDiagram {
-    !$tagSkin = $tagSkin + "  label {" + %newline()
-    !$tagSkin = $tagSkin + "    ." + $tagStereo + " {" + %newline()
-    !$tagSkin = $tagSkin + "      StereotypeFontColor " + $bgColor + %newline()
-    !$tagSkin = $tagSkin + "      Fontcolor " + $bgColor + %newline()
-    !$tagSkin = $tagSkin + "      BackgroundColor " + $bgColor + %newline()
-    !$tagSkin = $tagSkin + "      BorderColor " + $borderColor + %newline()
-    !$tagSkin = $tagSkin + "    }" + %newline()
-    !$tagSkin = $tagSkin + "  }" + %newline()
+    !$tagSkin = $tagSkin + "  label {" + $bl()
+    !$tagSkin = $tagSkin + "    ." + $tagStereo + " {" + $bl()
+    !$tagSkin = $tagSkin + "      StereotypeFontColor " + $bgColor + $bl()
+    !$tagSkin = $tagSkin + "      Fontcolor " + $bgColor + $bl()
+    !$tagSkin = $tagSkin + "      BackgroundColor " + $bgColor + $bl()
+    !$tagSkin = $tagSkin + "      BorderColor " + $borderColor + $bl()
+    !$tagSkin = $tagSkin + "    }" + $bl()
+    !$tagSkin = $tagSkin + "  }" + $bl()
     ' }
-    !$tagSkin = $tagSkin + "</style>" + %newline()
+    !$tagSkin = $tagSkin + "</style>" + $bl()
   !endif
 $tagSkin
 !endprocedure
@@ -514,7 +527,7 @@ $tagSkin
 !endfunction
 
 !unquoted procedure $defineRelSkinparams($tagStereo, $textColor, $lineColor, $lineStyle, $lineThickness)
-  !$elementSkin = "skinparam arrow<<" + $tagStereo + ">> {" + %newline()
+  !$elementSkin = "skinparam arrow<<" + $tagStereo + ">> {" + $bl()
   !if ($lineColor != "") || ($textColor != "") || ($lineStyle != "")
     !$elementSkin = $elementSkin + "    Color "
     !if ($lineColor != "")
@@ -526,12 +539,12 @@ $tagSkin
     !if ($lineStyle != "")
       !$elementSkin = $elementSkin + ";line." + $lineStyle
     !endif
-    !$elementSkin = $elementSkin + %newline()
+    !$elementSkin = $elementSkin + $bl()
   !endif
   !if ($lineThickness != "")
-    !$elementSkin = $elementSkin + "    thickness " + $lineThickness + %newline()
+    !$elementSkin = $elementSkin + "    thickness " + $lineThickness + $bl()
   !endif
-  !$elementSkin = $elementSkin + "}" + %newline()
+  !$elementSkin = $elementSkin + "}" + $bl()
 $elementSkin
 !endprocedure
 
@@ -1036,10 +1049,10 @@ UpdateElementStyle($elementName, $bgColor, $fontColor, $borderColor, $shadowing)
 
 ' update the style of default relation, it has to set both properties (combined statement not working)
 !unquoted procedure UpdateRelStyle($textColor, $lineColor)
-  !$elementSkin = "skinparam arrow {" + %newline()
-  !$elementSkin = $elementSkin + "    Color " + $lineColor + %newline()
-  !$elementSkin = $elementSkin + "    FontColor " + $textColor + %newline()
-  !$elementSkin = $elementSkin + "}" + %newline()
+  !$elementSkin = "skinparam arrow {" + $bl()
+  !$elementSkin = $elementSkin + "    Color " + $lineColor + $bl()
+  !$elementSkin = $elementSkin + "    FontColor " + $textColor + $bl()
+  !$elementSkin = $elementSkin + "}" + $bl()
 $elementSkin
 !endprocedure
 

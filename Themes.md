@@ -46,6 +46,9 @@ Therefore we started with the convention that all C4-PlantUML compatible themes 
 bases on the [`united`](https://raw.githubusercontent.com/plantuml/plantuml/master/themes/puml-theme-united.puml) theme
 and contains all additional required C4-PlantUML settings that it can be directly used in all C4-PlantUML diagrams).
 
+> [!WARNING]
+> The !theme statement has to be BEFORE the !include statements.
+
 E.g. in order to invoke theme `C4_united` from a remote repository, you have to use the following directive:
 
 ```plantuml

@@ -30,7 +30,7 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
     - [Including the C4-PlantUML library](#including-the-c4-plantuml-library)
     - [Now let's create a C4 Container diagram](#now-lets-create-a-c4-container-diagram)
   - [Supported Diagram Types](#supported-diagram-types)
-    - [System Context & System Landscape diagrams](#system-context--system-landscape-diagrams)
+    - [System Context \& System Landscape diagrams](#system-context--system-landscape-diagrams)
     - [Container diagram](#container-diagram)
     - [Component diagram](#component-diagram)
     - [Dynamic diagram](#dynamic-diagram)
@@ -39,11 +39,13 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
     - [Samples](#samples)
   - [Relationship Types](#relationship-types)
   - [Layout (arrange) elements (without relationships)](#layout-arrange-elements-without-relationships)
+    - [Compatibility mode `NO_LAY_ROTATE=1`](#compatibility-mode-no_lay_rotate1)
   - [Global Layout Options](#global-layout-options)
   - [Sprites and other images](#sprites-and-other-images)
   - [Custom tags/stereotypes support and skinparam updates](#custom-tagsstereotypes-support-and-skinparam-updates)
     - [Element specific tag definitions](#element-specific-tag-definitions)
     - [Boundary specific tag definitions](#boundary-specific-tag-definitions)
+    - [Define a new legend title](#define-a-new-legend-title)
     - [Comments](#comments)
     - [Sample with different tag combinations](#sample-with-different-tag-combinations)
     - [Sample with tag dependent sprites and custom legend text](#sample-with-tag-dependent-sprites-and-custom-legend-text)
@@ -59,12 +61,19 @@ C4-PlantUML includes macros, stereotypes, and other goodies (like VSCode Snippet
   - [Advanced Samples](#advanced-samples)
     - [techtribes.js](#techtribesjs)
     - [Message Bus and Microservices](#message-bus-and-microservices)
+    - [(C4 styled) Sequence diagram sample](#c4-styled-sequence-diagram-sample)
   - [Background](#background)
   - [License](#license)
 - [📄 Layout Options](LayoutOptions.md#layout-options)
 - [📄 Themes (different styles and languages)](Themes.md#themes)
 - samples
   - [📄 C4 Model Diagrams](samples/C4CoreDiagrams.md#c4-model-diagrams)
+
+> [!IMPORTANT]
+> **PlantUML v2.12.0:** Layout could be changed based on bugfix.  
+If `LAYOUT_LANDSCAPE()` is combined with `Lay_*()` calls then the elements are correct positioned based on the new implementation.
+The old implementation swapped up<->left and down<->right (details see [issue 376](https://github.com/plantuml-stdlib/C4-PlantUML/issues/376)).
+The old behavior can be re-activated with `!NO_LAY_ROTATE=1`. Details see [Compatibility mode `NO_LAY_ROTATE=1`](#compatibility-mode-no_lay_rotate1).
 
 ## Getting Started
 
@@ -463,6 +472,66 @@ Lay_Distance(LEGEND(), db, 1)
 ```
 
 ![db below legend, 1 unit distance](https://www.plantuml.com/plantuml/png/hL5DZzem4BtdLtXH3o0jH5NRIwLAYu3THUA30bkEqH0FuCgnKyy4r7_VCIIxKQjAFVGKvptFUtvl7eWXS5NOvCwut5OQrOcvfCzf6k0oE1e-LVkACEJUCJeUvBv8ImikplI9jJNxTFInluhGotoM5a2CGQ1i91DW78P16VMJEuq7-LNZoRVfQBdO_8CHLoNeyE7Dq0ZRFyYDFfN1C5BZf_4SENfrULmkjiFTPBESJ_whqHM32v8liF-fQUqjLGhkM5ceG_z9VuSp_8qhw8VD2CCPVnjlfqdZswdkT2L7xxeHkbUTKKNi2mmTEQ_GbnOLdu2LGzIg35vNEPEGxswPldIkKfrUyhggBfKWmvlLC6hKKU9nUq9Lo1Lb76CuG5vBi-1vRNlZG3pKHLfk6pLARIieZGWFLzEe7sk9tsTmsY8fi5R9bkGYaRB-QFAsNBpTrXhlktelqsDWs0DXL9gRF7Zo1rQRhxEhjBUQcXhkbGyQWn8xUVRPcnpbU_2X03RUjSrQMn7FP8ssxllMrGiX2HxXAn1ZjT5iVKjwVU0QGLEwYyAHJZRFortsE5iEjzF5KpQRF4qMusulcS7FR6o8mUNORT2RnFjUye1Eo_P_0G00 "db below legend, 1 unit distance")
+
+### Compatibility mode `NO_LAY_ROTATE=1`
+
+Based on the bugfix of [issue 376](https://github.com/plantuml-stdlib/C4-PlantUML/issues/376)
+the layout of old diagrams could be changed if they contain a combination of
+`LAYOUT_LANDSCAPE()` and `Lay_*()` commands like below.
+
+```plantuml
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+LAYOUT_LANDSCAPE()
+
+Person(a, "A")
+System(sUp, "B up\nbefore bugfix left")
+System(sRight, "C right\nbefore bugfix down")
+System(sDown, "D down\nbefore bugfix right")
+System(sLeft, "E left\nbefore bugfix up")
+
+Lay_U(a, sUp)
+Lay_R(a, sRight)
+Lay_D(a, sDown)
+Lay_L(a, sLeft)
+
+HIDE_STEREOTYPE()
+@enduml
+```
+
+![bugfix changes old layout](https://www.plantuml.com/plantuml/png/NP3FQeGm6CJlFaMw9uMkNdhgQQqABQHTySzXeI1HemPY3CaNjllsJR8NyPOPVZFVa8i6ei2iF7XXOk1cf6W1aFezIHIvnpE3nVH6KpLi0gY0UDZMH78YNEQiOUIiJxAtS-cizXidAz50bRMwp2O84rJ5qlNZz7PjcmwdFtcTfMKHHa5GKgKt4P9NT4fFKL0_R7ODTIkjyO6C_1KzdJP5KM_cYVqXJYVOSHMR5x1eXfHx7UbnkuiTdLjfuTpxHzONx61C9zTS-9D7s4XB1fWykjPjjtiZhogl_AgdaJl37tvgxBJljldFhxpewgQeYcjpy_zneM8qA_y7 "bugfix changes old layout")
+
+The new repositioning of the elements could damage old diagrams.
+Therefore a compatibility mode NO_LAY_ROTATE is introduced.
+This mode can be directly activated in the old diagrams with `!NO_LAY_ROTATE=1`
+or with the additional command line argument `-DNO_LAY_ROTATE=1` (like `java -jar plantuml.jar -DNO_LAY_ROTATE=1 ...`)
+
+If this value is set then non of the Lay_*() calls itself has to be updated like below.
+
+```plantuml
+@startuml
+'  the bugfix is deactivated with following statement
+!NO_LAY_ROTATE = 1
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+LAYOUT_LANDSCAPE()
+
+Person(a, "A")
+System(sUp, "B up\nbefore bugfix left")
+System(sRight, "C right\nbefore bugfix down")
+System(sDown, "D down\nbefore bugfix right")
+System(sLeft, "E left\nbefore bugfix up")
+
+Lay_U(a, sUp)
+Lay_R(a, sRight)
+Lay_D(a, sDown)
+Lay_L(a, sLeft)
+
+HIDE_STEREOTYPE()
+@enduml
+```
+
+![deactivated bugfix reproduces old layout](https://www.plantuml.com/plantuml/png/NP1HQxim5CNVyobk-_9luT_AO4-3GPqA6xXQh3uK1X8rQa2Z93Tp_VQxfZ1Att8EltFFpJqOv1hjqBD_0DW9A6tRo1-G1ch1AvJV74KDiyGEch7lnrcg5WoIEmY5R7LCYjY_56cI-La4h_34s4ggghUrW0vnCY-Uf_cyRsc2BQqHkXeLKdHVZOCtzLmjxJk3TIzBBtZUdHOh_uozWHiKcgmYe0INIkZzH2oZlYJFgFOOdWF_56ssZ9s4DgFQyF-mzjTRThvITjYOV2BZ3UpqfKhHZFhlVxrey8vBPTiXeG7evVL8r-EixkYG9C6XynzPD-0EZgc9uCXLFi9s8fB5_5hao-wqxzQfr2ctrSq8dR4KttIyQ3URykyVOLISioYDakpYxd4GggPJ_G80 "deactivated bugfix reproduces old layout")
 
 ## Global Layout Options
 
@@ -1006,7 +1075,7 @@ Source: [C4_Container Diagram Sample - message bus.puml](samples/C4_Container%20
 
 ![messagebus](https://www.plantuml.com/plantuml/png/ZLLDR-Cs4BtxLqpT0dK09yOMFHK8iFumkhjm4gzbOoy5Z94qbeYbI8Aad7MB_lSE9LjX4WLD3Z4vd7dlpGUfZywZzNKb1py9bSaw9oYzD-wFoSJYuqqXV5cdjIERQUL9-PjCLnCZKOMOQ-TpATB9_FVhTJ3jxbQJ2fqdowRzd2DGAB8t9k3_2hNYu8f1m9S41osbVXIg0CbEW2g7PyV2EbvfO7AGEaCfJupHgNnDC9Zc-L9IGDXYCHfM8hCw8NiK6Gt7y8ihqT3jKXIbJqHEUHBseoi-IOkvbjhU3kVQgWEh8ZkJTHDqO8xpuMCfV6EJL93Aj_J3txOau5gMlnG5T701VdZrKf3psc8HQTdeMh7dJF_eqI8ReTzFRobX_47owU7RVhtS90_t-uVTTlNvVZbYyvgiqsgKrSnOaHt3l5iDft0nDm0dxbQrdmKXQ4-Zx0ExNBpXipfeMw4NMWslu9y1y5zNz14Q4pjFZP4YQvtP_WMFw38hZ1_3L1MrH1lCqz1qrsbmeSCLAYmeT5rOC5OVXEJiNh1T8lRdMiVKNPDRsZ4aneR1ccdjWt5R4XWjb0Tz0CmoSWuuiqu5Y2XHBhN7mi4jn1FqMb35A2nxdzQEAUxQ7Sng5nWtcAR2ttrjs2qgPxJr3IUx2nK4q96KTwzWBGLNLXybkhdOuamtTNeAltDBwCc12Xb8uIY773qsPBOBDBKrsf5xTtfOvy976gPX7_FFVvxSt2-tORcs-YXorg1jWKguff3NZso21YO8E60c92_VBs6HFZKzJ-D-Bz1ZYgwHyM0namGVVil2Bl7QallVnhOtiOSnAZzJnfMFEUzEoTTLH8UNulzDEHp9EgPhHatAhjzFJS4SIftrzAPNONzR-3HgIjW5EKiUgMxRgOjg09Zgsfz73to97aey4lypXXJb_Gh-7Gms9FUBw45fx_wk5JtyjDsk4tOykpM7FVTrPxW6RtG7GfcA08RkfB8nVE4tRV8CUDVp1hGw4bAvwxBI0UKRfOdElfFdwBU2enlSWNJQwaPi1DhWzA34CzhLl6csQ1_2nMn-Jk7vcz5tqzyd8ePfRzZx8IvIUjWxKsygBVKBjdWSkuYMguqPhF2qt_ImFTTz-PQjbdykxnVy3Vl8MTIL_0y0 "messagebus")
 
-### (C4 styled) Sequence diagram
+### (C4 styled) Sequence diagram sample
 
 TODO: better sample is missing ...
 

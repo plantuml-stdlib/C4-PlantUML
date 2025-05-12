@@ -1035,8 +1035,11 @@ It is possible to save them directly inside VS Code: [Creating your own snippets
 
 ### Prerequisites
 
-[Graphviz download](https://graphviz.gitlab.io/download/)  
-[PlantUML Integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration)
+Download and install [Graphviz](https://graphviz.gitlab.io/download/) plus the [PlantUML Integration for IntelliJ](https://plugins.jetbrains.com/plugin/7017-plantuml-integration).
+
+OR
+
+Install the [AsciiDoc plugin for IntelliJ](https://plugins.jetbrains.com/plugin/7391-asciidoc) if you work with AsciiDoc files rather than `.puml` files.
 
 ### Install
 
@@ -1045,6 +1048,12 @@ It is possible to save them directly inside VS Code: [Creating your own snippets
 3. Specify the path to the downloaded ZIP file: `c4_live_template.zip`.
 4. In the Import Settings dialog, select the Live templates checkbox and click OK.
 5. Restart IntelliJ.
+
+Alternatively
+
+1. Download [IntelliJ live template](intellij/c4_live_template.zip) ZIP file.
+2. Unzip it and copy its `c4.xml` to the `/template` directory in the [IntelliJ settings directory](https://intellij-support.jetbrains.com/hc/en-us/articles/206544519-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs).
+3. Restart IntelliJ.
 
 ### Usage
 

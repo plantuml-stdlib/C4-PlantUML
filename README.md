@@ -1,22 +1,21 @@
 [![release][Release Badge]][Release Page]
 [![license MIT][License Badge]][License Page]
  &nbsp; &nbsp; &nbsp;
+[![integrated in PlantUML][Integrated Badge]][Integrated Page]
+ &nbsp; &nbsp; &nbsp;
 [![commits since][Commits Since Badge]][Commit Page]
-[![last commit][Last Commit Badge]][Commit Page]
-[![build result][Tests Badge]][Tests Page]
 
-[Release Badge]: https://img.shields.io/github/v/release/plantuml-stdlib/C4-PlantUML?display_name=tag
-[Release Page]: https://github.com/plantuml-stdlib/C4-PlantUML/releases/latest
+[Release Badge]: https://img.shields.io/badge/release-v2.12.0-blue
+[Release Page]: https://github.com/plantuml-stdlib/C4-PlantUML/releases/v2.12.0
 [License Badge]: https://img.shields.io/github/license/plantuml-stdlib/C4-PlantUML
 [License Page]: https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/LICENSE
+[Integrated Badge]: https://img.shields.io/badge/C4--PlantUML%20%20v2.12.0%20integrated%20in%20PlantUML%20Standard%20Library-V1.2025.4-orange
+[Integrated Page]: https://plantuml.com/stdlib#062f75176513a666
 
-[Commits Since Badge]: https://img.shields.io/github/commits-since/plantuml-stdlib/C4-PlantUML/latest?label=new%20unreleased%20changes
-[Last Commit Badge]: https://img.shields.io/github/last-commit/plantuml-stdlib/C4-PlantUML?color=yellow
+[Commits Since Badge]: https://img.shields.io/github/commits-since/plantuml-stdlib/C4-PlantUML/latest?label=new%20unreleased%20changes%20in%20master%20branch
 [Commit Page]: https://github.com/plantuml-stdlib/C4-PlantUML/commits
-[Tests Badge]: https://github.com/plantuml-stdlib/C4-PlantUML/actions/workflows/run-percy-tests.yml/badge.svg
-[Tests Page]: https://github.com/plantuml-stdlib/C4-PlantUML/actions/workflows/run-percy-tests.yml
 
-# C4-PlantUML
+# C4-PlantUML (v2.12.0)
 
 [comment]: # ("image is based on percy/C4_Container Diagram Sample - bigbankplc-styles.puml")
 [![Container diagram for Internet Banking System](https://www.plantuml.com/plantuml/png/hLRVZzf647xdhvYGH0690rLfNYgT50xSvYAuey0bVKDZxs1MMU-wksiuLFL_xwmnDYOdvI5zkMDdThxls_anyD5vjBx8LEST94RloNgG7WxIxm25a5uQZOfTMOPQW9AQ06rQPAGzt4oNqMoyllyIRUuV9hEdQNJR7Ow6movu0uKZK2P1fOwTLt8BR_Te9SQADlGidNUzxdLmjzy1U2LreWf1y3OblwbZzgWAUYbaDFbrCp7Q8okpmpoyv1KfHvTGE-zpzzjePF4mJFbbHSpYRC9HfFsGtpRA5UgGXHldXP8nWzuiWkbfFXjbw3pP5tcqaDjEP_NfyUjc4IrNZm-RnwVrxFuXwlKvdsjC7RWYputre0su71Do83Nu7O76ZA0NeoC1vcGgj23BAPOwXS19nXzpSWCux6Io0s7qEry3LcYeZvcnr1y2CzvlQxCbiFHtGOmZpfIAKfOygFw3f-UgqcKGxD25miK4WhPIa-YCXOWKXLhpMthT69Dl75YdeJk0Dri-J8mozlPDD8lcqSDwy_iZ_vaypXwNx8_JaxVx-ltx3zFnXn3ZTfZJRIJJdLz9GM8Lphq-UqxArYpizim6oPaEUXH2m8MOVhSVv2r9bTBG7NKIiFbHPptZvP8Bqr8J-lVIstAi_57HxHJTZiHCQbRKeWWCe_-HntZVy7Iyz8gWJYq8YQd53BR6mhtsP3Lvk4FzBJJ7wkWyPPtEWgmpkfSKpfkCx00czQVk6CvcCDko_3573qu5pyj0LAKDC4bCeRthieuJzEQE3GBjiPVymbZN0hfz-AS308tUte7Y3UOvN_vACOppNCa4m_Reikapxd40gzm6yVClas2Raf9xbb5ASvxl9b2D9A0MfRdcZSyFNunPP9lPvSXmAtOhkbbWIe7zpBfAhCpz0COwBHJQO5vOivSYp8XIBxDi2vsS5f_qH_2cpgI3lSGG8otmWo6svk38VYSfCx5KLELZ7WwrgCdh0Vo56N8gsc90oKo6ONL5xCXpqNv2t4a02DhBXAxbJUEUG8zXzOGwL1-3cjMVCsYTlR7a86nBi9HAvsrPKv2Q-p8hFmzWLquCOE5ta5WIfBr4vGQXhyWvK2Rb0_ba-5sYgXddJCdGielxbpjdQlYQRU9QcVj1Xa9I6BYSMKpTxNTRZ4NzM_TzzEnxbA5K6rSQc2YwcVEvchd0lDuHo98K5SnbOeqpMm_HSx93dHAS8Xds0hFIrg0ofjvQpEXgg2_IZagTko1XG_s-Y-G3ngRmJGiCwbaUWBUe7PQPQDBVMPAws1VDr3uvSe7xqtgzMF75zZsNum_lL4tVm5LqcuUmjcFJx8WIhja05L9fR3L4JLXktG5yvc_OKKdULBDqLGYDWfy3sjnnS2Ex6POsw99GEDXQavKBws2b9mVU1AAAPtetOSWQyo9RLqssObW7T1Ei9KOZvAeVsnhQSONZ_cZeL_FrWe5QDMY5NtLbawVckuwtrNnsdQl6pV2dtp-pw8_eOThhTxR6UB8WB1xqwSlc_4iAzaDu6mekZUxrovmrlxE2buzVpkxEHrPPPEe_ "Container diagram for Internet Banking System")](https://www.plantuml.com/plantuml/uml/hLRVZzf647xdhvYGH0690rLfNYgT50xSvYAuey0bVKDZxs1MMU-wksiuLFL_xwmnDYOdvI5zkMDdThxls_anyD5vjBx8LEST94RloNgG7WxIxm25a5uQZOfTMOPQW9AQ06rQPAGzt4oNqMoyllyIRUuV9hEdQNJR7Ow6movu0uKZK2P1fOwTLt8BR_Te9SQADlGidNUzxdLmjzy1U2LreWf1y3OblwbZzgWAUYbaDFbrCp7Q8okpmpoyv1KfHvTGE-zpzzjePF4mJFbbHSpYRC9HfFsGtpRA5UgGXHldXP8nWzuiWkbfFXjbw3pP5tcqaDjEP_NfyUjc4IrNZm-RnwVrxFuXwlKvdsjC7RWYputre0su71Do83Nu7O76ZA0NeoC1vcGgj23BAPOwXS19nXzpSWCux6Io0s7qEry3LcYeZvcnr1y2CzvlQxCbiFHtGOmZpfIAKfOygFw3f-UgqcKGxD25miK4WhPIa-YCXOWKXLhpMthT69Dl75YdeJk0Dri-J8mozlPDD8lcqSDwy_iZ_vaypXwNx8_JaxVx-ltx3zFnXn3ZTfZJRIJJdLz9GM8Lphq-UqxArYpizim6oPaEUXH2m8MOVhSVv2r9bTBG7NKIiFbHPptZvP8Bqr8J-lVIstAi_57HxHJTZiHCQbRKeWWCe_-HntZVy7Iyz8gWJYq8YQd53BR6mhtsP3Lvk4FzBJJ7wkWyPPtEWgmpkfSKpfkCx00czQVk6CvcCDko_3573qu5pyj0LAKDC4bCeRthieuJzEQE3GBjiPVymbZN0hfz-AS308tUte7Y3UOvN_vACOppNCa4m_Reikapxd40gzm6yVClas2Raf9xbb5ASvxl9b2D9A0MfRdcZSyFNunPP9lPvSXmAtOhkbbWIe7zpBfAhCpz0COwBHJQO5vOivSYp8XIBxDi2vsS5f_qH_2cpgI3lSGG8otmWo6svk38VYSfCx5KLELZ7WwrgCdh0Vo56N8gsc90oKo6ONL5xCXpqNv2t4a02DhBXAxbJUEUG8zXzOGwL1-3cjMVCsYTlR7a86nBi9HAvsrPKv2Q-p8hFmzWLquCOE5ta5WIfBr4vGQXhyWvK2Rb0_ba-5sYgXddJCdGielxbpjdQlYQRU9QcVj1Xa9I6BYSMKpTxNTRZ4NzM_TzzEnxbA5K6rSQc2YwcVEvchd0lDuHo98K5SnbOeqpMm_HSx93dHAS8Xds0hFIrg0ofjvQpEXgg2_IZagTko1XG_s-Y-G3ngRmJGiCwbaUWBUe7PQPQDBVMPAws1VDr3uvSe7xqtgzMF75zZsNum_lL4tVm5LqcuUmjcFJx8WIhja05L9fR3L4JLXktG5yvc_OKKdULBDqLGYDWfy3sjnnS2Ex6POsw99GEDXQavKBws2b9mVU1AAAPtetOSWQyo9RLqssObW7T1Ei9KOZvAeVsnhQSONZ_cZeL_FrWe5QDMY5NtLbawVckuwtrNnsdQl6pV2dtp-pw8_eOThhTxR6UB8WB1xqwSlc_4iAzaDu6mekZUxrovmrlxE2buzVpkxEHrPPPEe_)
@@ -116,7 +115,7 @@ After you have included `C4_Container.puml` you can use the defined macro defini
 
 ```plantuml
 @startuml C4_Elements
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 
 Person(personAlias, "Label", "Optional Description")
 Container(containerAlias, "Label", "Technology", "Optional Description")
@@ -134,7 +133,7 @@ Take a look at the following sample of a C4 Container Diagram:
 
 ```plantuml
 @startuml Basic Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 
 Person(admin, "Administrator")
 System_Boundary(c1, "Sample System") {
@@ -153,7 +152,7 @@ Entities can also be decorated with icons/sprites using the $sprite parameter, f
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 
 !define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
 !define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
@@ -181,7 +180,7 @@ Similar to icons/sprites is it possible to add links to all elements and relatio
 
 ```plantuml
 @startuml Basic Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 
 Person(admin, "Administrator", $sprite="person2", $link="https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/LayoutOptions.md#hide_person_sprite-or-show_person_spritesprite")
 System_Boundary(c1, "Sample System", $link="https://github.com/plantuml-stdlib/C4-PlantUML") {
@@ -204,7 +203,7 @@ Elements and relationships can be decorated with tags and explained via a calcul
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 
 AddElementTag("v1.0", $borderColor="#d73027")
 AddElementTag("v1.1", $fontColor="#d73027")
@@ -240,7 +239,7 @@ SHOW_LEGEND()
 
 ### System Context & System Landscape diagrams
 
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Context.puml`
   - Macros:
     - `Person(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
     - `Person_Ext(alias, label, ?descr, ?sprite, ?tags, ?link, ?type)`
@@ -263,7 +262,7 @@ SHOW_LEGEND()
 
 ### Container diagram
 
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml`
   - Additional Macros  (based on context diagram macros):
     - `Container(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?baseShape)`
     - `ContainerDb(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
@@ -275,7 +274,7 @@ SHOW_LEGEND()
 
 ### Component diagram
 
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Component.puml`
   - Additional Macros (based on container diagram macros):
     - `Component(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link, ?baseShape)`
     - `ComponentDb(alias, label, ?techn, ?descr, ?sprite, ?tags, ?link)`
@@ -286,7 +285,7 @@ SHOW_LEGEND()
 
 ### Dynamic diagram
 
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Dynamic.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Dynamic.puml`
   - Additional Macros (based on component diagram macros):
     - (lowercase) `increment($offset=1)`: increase current index (procedure which has no direct output)
     - (lowercase) `setIndex($new_index)`: set the new index (procedure which has no direct output)
@@ -303,7 +302,7 @@ SHOW_LEGEND()
 
 ### Deployment diagram
 
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Deployment.puml`
   - Additional Macros (based on **container** diagram macros):
     - `Deployment_Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`
     - `Node(alias, label, ?type, ?descr, ?sprite, ?tags, ?link)`: short name of Deployment_Node()
@@ -317,7 +316,7 @@ but existing elements and relationships can be reused as participants and calls 
 
 > **!!! Contrary to all other diagrams, please define boundaries without `{` and `}` and mark a boundary end with `Boundary_End()` !!!**
 
-  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Sequence.puml`
+  - Import: `!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Sequence.puml`
   - Macros (based on **component** diagram macros):
     - Basically all element specific macros (Person, System, Container...) can be reused with following differences:
       - element descriptions are typically not displayed (can be activated via SHOW_ELEMENT_DESCRIPTIONS())
@@ -367,7 +366,7 @@ In following sample a person uses different systems, and a group of persons whic
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 HIDE_STEREOTYPE()
 
 Person(a, "A")
@@ -409,7 +408,7 @@ In following sample a person uses different systems, and a group of persons whic
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 HIDE_STEREOTYPE()
 
 Person(a, "A")
@@ -448,7 +447,7 @@ In following sample the floating legend should be in the left bottom corner of t
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 
 !define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
 !define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
@@ -481,7 +480,7 @@ the layout of old diagrams could be changed if they contain a combination of
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 LAYOUT_LANDSCAPE()
 
 Person(a, "A")
@@ -513,7 +512,7 @@ If this value is set then non of the Lay_*() calls itself has to be updated like
 '  the bugfix is deactivated with following statement
 !NO_LAY_ROTATE = 1
 
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 LAYOUT_LANDSCAPE()
 
 Person(a, "A")
@@ -559,7 +558,7 @@ C4-PlantUML offers predefined person and robot sprites which can be directly use
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Component.puml
 
 Person(pB, "Sam", $sprite="person2")
 Person_Ext(pA, "Bob", $sprite="person")
@@ -586,7 +585,7 @@ Color of the displayed images can be changed with `,color={color}`.
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 
 'stdlib users.puml defines sprite "users"
 !include <office/users/users.puml>
@@ -618,7 +617,7 @@ Relationship specific sprites are typically smaller and therefore following opti
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Context.puml
 
 Person(user, "User")
 Person(user1, "User 1")
@@ -747,7 +746,7 @@ Only the legend title cannot be changed. Therefore, the following call is added 
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 
 UpdateElementStyle(person, $fontColor="green")
 AddElementTag("v1.0", $fontColor="#d73027", $borderColor="#d73027")
@@ -793,7 +792,7 @@ SHOW_LEGEND(false)
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 
 !define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
 !include osaPuml/Common.puml
@@ -852,7 +851,7 @@ SHOW_LEGEND()
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Component.puml
 
 ' Update the generic boundary style and the "system", "enterprise", "container" boundaries styles too
 UpdateBoundaryStyle($bgColor="gold", $fontColor="brown", $borderColor="brown")
@@ -905,7 +904,7 @@ If the corresponding section is stored in a separate file then it can be reused 
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Context.puml
 
 ' <<<<< this section could be stored in a separate file and reused in all other diagrams too
 ' it defines new default colors, different default sprites and legend 
@@ -962,7 +961,7 @@ Following sample uses all 3 different property definitions (and the aligned depl
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Deployment.puml
 
 ' default header Property, Value
 AddProperty("Name", "Flash")
@@ -1002,7 +1001,7 @@ C4-PlantUML offers version information like PlantUML with its `%version()` call.
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 
 ' existing plantuml version as text
 %version()

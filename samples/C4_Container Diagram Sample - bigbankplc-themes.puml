@@ -2,7 +2,7 @@
 ' theme from C4-Stdlib (The !theme statement has to be BEFORE the !include statements.)
 !theme C4_united from <C4/themes>
 
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.12.0/C4_Container.puml
 
 title Container diagram for Internet Banking System
 

@@ -151,6 +151,16 @@ def replace_first_regex_copy_file(
         file.write(filedata)
 
 
+def replace_regex_copy_file(
+    source_path, target_path, compiled_search_regex, replace
+):
+    with open(source_path, "r") as file:
+        filedata = file.read()
+    filedata = compiled_search_regex.sub(replace, filedata)
+    with open(target_path, "w") as file:
+        file.write(filedata)
+
+
 # Calculates the next version (inclusive starting v) based on the give version values.
 # If v3 == 0 then v2 is increased otherwise v3
 def calculate_next_version(release, v1, v2, v3):
@@ -394,13 +404,6 @@ def create_plantuml_stdlib_c4_folder(target_path):
         "!include <C4/C4_Component>",
     )
 
-    replace_first_regex_copy_file(
-        "./.scripts/plantuml_stdlib_info.txt",
-        os.path.join(target_path, "INFO"),
-        re.compile(r"\{release version without v\}"),
-        release_version[1:],
-    )
-
     themes_path = target_path+"/themes"
     os.makedirs(themes_path, exist_ok=True)
     paths = glob.glob("./themes/puml-theme-C4_*.puml")
@@ -415,6 +418,23 @@ def create_plantuml_stdlib_c4_folder(target_path):
             re.compile("DOES NOT EXIST"),
             "DOES NOT EXIST",
         )
+
+    replace_regex_copy_file(
+        "./.scripts/plantuml-stdlib_C4_README.txt",
+        os.path.join(target_path, "README.md"),
+        re.compile(r"\{release version without v\}"),
+        release_version[1:],
+    )
+
+    with open("./.scripts/plantuml-stdlib_README_section.txt", "r") as f:
+        section = f.read()
+    updatedSection = re.sub(r"\{release version without v\}", release_version[1:], section)
+    with open(os.path.join(target_path, "./../../README.md"), "r") as f:
+        content = f.read()
+    pattern = r'<!-- start C4 section -->.*?<!-- end C4 section -->'
+    updated_content = re.sub(pattern, updatedSection, content, flags=re.DOTALL)
+    with open(os.path.join(target_path, "./../../README.md"), "w") as f:
+        f.write(updated_content)
 
     print(f"all C4 related plantuml-stdlib files copied into {target_path}.")
 

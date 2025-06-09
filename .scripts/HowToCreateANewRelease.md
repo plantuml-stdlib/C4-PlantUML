@@ -182,10 +182,10 @@ git -C $deploy_repository_folder branch C4$release_version
 git -C $deploy_repository_folder checkout C4$release_version
 ```
 
-### 4.2. prepare the C4_*.puml and INFO file
+### 4.2. prepare the C4_*.puml, themes and README.md files
 
 ```bash
-python ./.scripts/transform_files.py CreatePlantUMLStdlibC4Folder $deploy_repository_folder/C4
+python ./.scripts/transform_files.py CreatePlantUMLStdlibC4Folder $deploy_repository_folder/stdlib/C4
 ```
 
 ### 4.3. Commit changes with comment "Update C4-PlantUML to $release_version"

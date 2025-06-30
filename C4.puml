@@ -1392,7 +1392,25 @@ hide stereotype
 !endprocedure
 
 !procedure LAYOUT_AS_SKETCH()
+!$counter=0
+!foreach $versionPart in %splitstr(%version(), ".")
+  !$counter=$counter+1
+
+  !if ($counter == 2)
+    !$year=$versionPart
+  !endif
+
+  !if ($counter == 3)
+    !$minor=$versionPart
+  !endif
+!endfor
+
+!if ($year < 2025) || ($year == 2025 && $minor == 0)
   skinparam handwritten true
+!else
+  !option handwritten true
+!endif
+
 !if $SKETCH_BG_COLOR > ""
   skinparam backgroundColor $SKETCH_BG_COLOR
 !endif

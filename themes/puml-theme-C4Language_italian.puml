@@ -14,6 +14,7 @@
 !$LEGEND_NO_FONT_TEXT ?= "ultimo colore del testo"
 !$LEGEND_NO_BG_TEXT ?= "ultimo colore dello sfondo"
 !$LEGEND_NO_LINE_TEXT ?= "ultimo colore della linea"
+!$LEGEND_SHARP_CORNER ?= "scatola"
 !$LEGEND_ROUNDED_BOX ?= "scatola arrotondata"
 !$LEGEND_EIGHT_SIDED ?= "otto lati"
 !$LEGEND_DOTTED_LINE ?= "punteggiato"

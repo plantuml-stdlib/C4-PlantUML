@@ -1,13 +1,13 @@
 ' C4-PlantUML
-
+ 
 ' Global pre-settings
 ' ##################################
-' USE_NEW_STYLE
-'   If USE_NEW_STYLE is set BEFORE the first C4_* file is loaded, new C4 layout style is used
-'   USE_NEW_STYLE can be set via 
-'     !USE_NEW_STYLE = 1
-'   or with additional command line argument -DUSE_NEW_STYLE=1
-!global USE_NEW_STYLE ?= 0
+' NEW_C4_STYLE
+'   If NEW_C4_STYLE is set BEFORE the first C4_* file is loaded, new C4 layout style is used
+'   NEW_C4_STYLE can be set via 
+'     !NEW_C4_STYLE = 1
+'   or with additional command line argument -DNEW_C4_STYLE=1
+!global NEW_C4_STYLE ?= 0
 
 ' ENABLE_ALL_PLANT_ELEMENTS
 '   If ENABLE_ALL_PLANT_ELEMENTS is set BEFORE the first C4_* file is loaded, nearly "all" PlantUML elements can be used like
@@ -81,7 +81,7 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 !$LEGEND_NO_FONT_TEXT ?= "last text color"
 !$LEGEND_NO_BG_TEXT ?= "last back color"
 !$LEGEND_NO_LINE_TEXT ?= "last line color"
-!$LEGEND_SHARP_CORNER ?= "sharp box"
+!$LEGEND_SHARP_CORNER ?= "box"
 !$LEGEND_ROUNDED_BOX ?= "rounded box"
 !$LEGEND_EIGHT_SIDED ?= "eight sided"
 !$LEGEND_DOTTED_LINE ?= "dotted"
@@ -141,7 +141,7 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 !global $SHARP_CORNER = "sharpCorner"
 !global $ROUNDED_BOX = "roundedBox"
 !global $EIGHT_SIDED = "eightSided"
-!if (USE_NEW_STYLE == 1)
+!if (NEW_C4_STYLE == 1)
   !$DEFAULT_SHAPE ?= $ROUNDED_BOX
 !else
   !$DEFAULT_SHAPE ?= $SHARP_CORNER
@@ -993,7 +993,7 @@ $line
 ' used by new defined tags
 !unquoted procedure AddElementTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="", $borderStyle="", $borderThickness="")
 
-!if (USE_NEW_STYLE == 1)
+!if (NEW_C4_STYLE == 1)
   !$swap=$bgColor
   !$bgColor=$fontColor
   !$fontColor=$swap
@@ -1014,6 +1014,15 @@ $addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $sha
 !endprocedure
 
 !unquoted procedure $addElementTagInclReuse($elementName, $tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="", $borderStyle="", $borderThickness="")
+
+'stored tags are already swapped (swap before comparing)
+!if (NEW_C4_STYLE == 1)
+  !$swap=$bgColor
+  !$bgColor=$fontColor
+  !$fontColor=$swap
+  !$borderColor=$swap
+!endif
+
   !$bgColor=$restoreEmpty($elementName, "bgColor", $bgColor, %false())
   !$fontColor=$restoreEmpty($elementName, "fontColor", $fontColor, %false())
   !$borderColor=$restoreEmpty($elementName, "borderColor", $borderColor, %false())
@@ -1026,6 +1035,14 @@ $addTagToLegend($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $sha
   !$legendSprite=$restoreEmpty($elementName, "legendSprite", $legendSprite, %false())
   !$borderStyle=$restoreEmpty($elementName, "borderStyle", $borderStyle, %false())
   !$borderThickness=$restoreEmpty($elementName, "borderThickness", $borderThickness, %false())
+
+' swap back
+!if (NEW_C4_STYLE == 1)
+  !$swap=$bgColor
+  !$bgColor=$fontColor
+  !$fontColor=$swap
+  !$borderColor=$swap
+!endif
 
   AddElementTag($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $techn, $legendText, $legendSprite, $borderStyle, $borderThickness)
 !endprocedure
@@ -1049,7 +1066,7 @@ $addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, 
 ' update the style of existing elements like person, ...
 !unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="", $borderStyle="", $borderThickness="")
 
-!if (USE_NEW_STYLE == 1)
+!if (NEW_C4_STYLE == 1)
   !$swap=$bgColor
   !$bgColor=$fontColor
   !$fontColor=$swap
@@ -1577,7 +1594,7 @@ $getLegendArea($alias, $hideStereotype, $details)
 
 !unquoted procedure UpdateBoundaryStyle($elementName="", $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $type="", $legendText="", $borderStyle="", $borderThickness="", $sprite="", $legendSprite="")
 
-!if (USE_NEW_STYLE == 1)
+!if (NEW_C4_STYLE == 1)
   !$swap=$bgColor
   !$bgColor=$fontColor
   !$fontColor=$swap

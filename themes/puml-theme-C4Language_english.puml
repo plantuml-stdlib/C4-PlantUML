@@ -15,6 +15,7 @@
 !$LEGEND_NO_FONT_TEXT ?= "last text color"
 !$LEGEND_NO_BG_TEXT ?= "last back color"
 !$LEGEND_NO_LINE_TEXT ?= "last line color"
+!$LEGEND_SHARP_CORNER ?= "box"
 !$LEGEND_ROUNDED_BOX ?= "rounded box"
 !$LEGEND_EIGHT_SIDED ?= "eight sided"
 !$LEGEND_DOTTED_LINE ?= "dotted"

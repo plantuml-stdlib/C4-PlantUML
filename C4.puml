@@ -2,6 +2,13 @@
 
 ' Global pre-settings
 ' ##################################
+' USE_NEW_STYLE
+'   If USE_NEW_STYLE is set BEFORE the first C4_* file is loaded, new C4 layout style is used
+'   USE_NEW_STYLE can be set via 
+'     !USE_NEW_STYLE = 1
+'   or with additional command line argument -DUSE_NEW_STYLE=1
+!global USE_NEW_STYLE ?= 0
+
 ' ENABLE_ALL_PLANT_ELEMENTS
 '   If ENABLE_ALL_PLANT_ELEMENTS is set BEFORE the first C4_* file is loaded, nearly "all" PlantUML elements can be used like
 '     Component(StorageA, "Storage A ", $baseShape="storage")
@@ -9,6 +16,7 @@
 '     !ENABLE_ALL_PLANT_ELEMENTS = 1
 '   or with additional command line argument -DENABLE_ALL_PLANT_ELEMENTS=1
 
+' NO_LAY_ROTATE
 ' C4-PlantUML v2.12 fixed a missing rotation bug in Lay_* calls in combination with LAYOUT_LANDSCAPE() call
 ' (details see https://github.com/plantuml-stdlib/C4-PlantUML/issues/376)
 ' If older diagrams should remain unchanged the bugfix can be deactivated with following statement
@@ -73,6 +81,7 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 !$LEGEND_NO_FONT_TEXT ?= "last text color"
 !$LEGEND_NO_BG_TEXT ?= "last back color"
 !$LEGEND_NO_LINE_TEXT ?= "last line color"
+!$LEGEND_SHARP_CORNER ?= "sharp box"
 !$LEGEND_ROUNDED_BOX ?= "rounded box"
 !$LEGEND_EIGHT_SIDED ?= "eight sided"
 !$LEGEND_DOTTED_LINE ?= "dotted"
@@ -129,8 +138,14 @@ rectangle C4VersionDetailsArea <<legendArea>> [
 ' internal 
 ' ##################################
 
+!global $SHARP_CORNER = "sharpCorner"
 !global $ROUNDED_BOX = "roundedBox"
 !global $EIGHT_SIDED = "eightSided"
+!if (USE_NEW_STYLE == 1)
+  !$DEFAULT_SHAPE ?= $ROUNDED_BOX
+!else
+  !$DEFAULT_SHAPE ?= $SHARP_CORNER
+!endif
 
 !global $DOTTED_LINE = "dotted"
 !global $DASHED_LINE = "dashed"
@@ -445,7 +460,10 @@ skinparam package {
   !endif
   ' only rectangle supports shape(d corners), define both skinparam that overlays are working
   !if ($shape != "" && $element == "rectangle")
-    !if ($shape == $ROUNDED_BOX)
+    !if ($shape == $SHARP_CORNER)
+      !$elementSkin = $elementSkin + "    RoundCorner " + "0" + $bl()
+      !$elementSkin = $elementSkin + "    DiagonalCorner " + "0" + $bl()
+    !elseif ($shape == $ROUNDED_BOX)
       !$elementSkin = $elementSkin + "    RoundCorner " + $ROUNDED_BOX_SIZE+ $bl()
       !$elementSkin = $elementSkin + "    DiagonalCorner " + "0" + $bl()
     !elseif ($shape == $EIGHT_SIDED)
@@ -744,10 +762,13 @@ $elementSkin
     !if ($shadowing == "false")
       !$tagDetails = $tagDetails + $LEGEND_NO_SHADOW_TEXT + ", "
     !endif
-    !if ($shape == $ROUNDED_BOX)
+    !if ($shape == $SHARP_CORNER && $shape != $DEFAULT_SHAPE)
+      !$tagDetails = $tagDetails + $LEGEND_SHARP_CORNER + ", "
+    !endif
+    !if ($shape == $ROUNDED_BOX && $shape != $DEFAULT_SHAPE)
       !$tagDetails = $tagDetails + $LEGEND_ROUNDED_BOX + ", "
     !endif
-    !if ($shape == $EIGHT_SIDED)
+    !if ($shape == $EIGHT_SIDED && $shape != $DEFAULT_SHAPE)
       !$tagDetails = $tagDetails + $LEGEND_EIGHT_SIDED + ", "
     !endif
     !if ($fontColor == "" && $bgColor == "")
@@ -940,6 +961,11 @@ $line
   !endif
 !endprocedure
 
+' normal rectangle
+!function SharpCornerShape()
+!return $SHARP_CORNER
+!endfunction
+
 !function RoundedBoxShape()
 !return $ROUNDED_BOX
 !endfunction
@@ -966,6 +992,14 @@ $line
 
 ' used by new defined tags
 !unquoted procedure AddElementTag($tagStereo, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="", $borderStyle="", $borderThickness="")
+
+!if (USE_NEW_STYLE == 1)
+  !$swap=$bgColor
+  !$bgColor=$fontColor
+  !$fontColor=$swap
+  !$borderColor=$swap
+!endif
+
 $defineSkinparams($tagStereo, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $borderStyle, $borderThickness)
   !if ($sprite!="")
 %set_variable_value("$" + $tagStereo + "ElementTagSprite", $sprite)
@@ -1014,6 +1048,14 @@ $addRelTagToLegend($tagStereo, $textColor, $lineColor, $lineStyle, $legendText, 
 
 ' update the style of existing elements like person, ...
 !unquoted procedure UpdateElementStyle($elementName, $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $sprite="", $techn="", $legendText="", $legendSprite="", $borderStyle="", $borderThickness="")
+
+!if (USE_NEW_STYLE == 1)
+  !$swap=$bgColor
+  !$bgColor=$fontColor
+  !$fontColor=$swap
+  !$borderColor=$swap
+!endif
+
 !$bgColor=$restoreEmpty($elementName, "bgColor", $bgColor, %true())
 !$fontColor=$restoreEmpty($elementName, "fontColor", $fontColor, %true())
 !$borderColor=$restoreEmpty($elementName, "borderColor", $borderColor, %true())
@@ -1534,6 +1576,14 @@ $getLegendArea($alias, $hideStereotype, $details)
 ' ##################################
 
 !unquoted procedure UpdateBoundaryStyle($elementName="", $bgColor="", $fontColor="", $borderColor="", $shadowing="", $shape="", $type="", $legendText="", $borderStyle="", $borderThickness="", $sprite="", $legendSprite="")
+
+!if (USE_NEW_STYLE == 1)
+  !$swap=$bgColor
+  !$bgColor=$fontColor
+  !$fontColor=$swap
+  !$borderColor=$swap
+!endif
+
   !if ($elementName != "")
     !$elementBoundary = $elementName + '_boundary'
     UpdateElementStyle($elementBoundary, $bgColor, $fontColor, $borderColor, $shadowing, $shape, $sprite, $type, $legendText, $legendSprite, $borderStyle, $borderThickness)

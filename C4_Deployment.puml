@@ -27,7 +27,7 @@
 !$NODE_TYPE_MAX_CHAR_WIDTH ?= 35
 !$NODE_DESCR_MAX_CHAR_WIDTH ?= 32
 
-UpdateElementStyle("node", $bgColor=$NODE_BG_COLOR, $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR, $legendText="$NODE_LEGEND_TEXT")
+UpdateElementStyle("node", $bgColor=$NODE_BG_COLOR, $fontColor=$NODE_FONT_COLOR, $borderColor=$NODE_BORDER_COLOR, $shape=$DEFAULT_SHAPE, $legendText="$NODE_LEGEND_TEXT")
 skinparam rectangle<<node>> {
     FontStyle normal
 }

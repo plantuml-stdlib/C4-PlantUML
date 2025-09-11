@@ -15,6 +15,7 @@
 !$LEGEND_NO_FONT_TEXT ?= "letzte Textfarbe"
 !$LEGEND_NO_BG_TEXT ?= "letzte Hintergrundfarbe"
 !$LEGEND_NO_LINE_TEXT ?= "letzte Linienfarbe"
+!$LEGEND_SHARP_CORNER ?= "Kästchen"
 !$LEGEND_ROUNDED_BOX ?= "abgerundetes Kästchen"
 !$LEGEND_EIGHT_SIDED ?= "achtseitig"
 !$LEGEND_DOTTED_LINE ?= "gepunktet"

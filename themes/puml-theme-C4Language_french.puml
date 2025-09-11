@@ -14,6 +14,7 @@
 !$LEGEND_NO_FONT_TEXT ?= "dernière couleur de texte"
 !$LEGEND_NO_BG_TEXT ?= "dernière couleur de fond"
 !$LEGEND_NO_LINE_TEXT ?= "dernière couleur de ligne"
+!$LEGEND_SHARP_CORNER ?= "boîte"
 !$LEGEND_ROUNDED_BOX ?= "boîte arrondie"
 !$LEGEND_EIGHT_SIDED ?= "octogonal"
 !$LEGEND_DOTTED_LINE ?= "pointillé"

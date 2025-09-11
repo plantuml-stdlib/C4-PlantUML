@@ -15,6 +15,7 @@
 !$LEGEND_NO_FONT_TEXT ?= "останній колір тексту"
 !$LEGEND_NO_BG_TEXT ?= "останній колір фону"
 !$LEGEND_NO_LINE_TEXT ?= "останній колір лінії"
+!$LEGEND_SHARP_CORNER ?= "блок"
 !$LEGEND_ROUNDED_BOX ?= "округлий блок"
 !$LEGEND_EIGHT_SIDED ?= "восьмикутний"
 !$LEGEND_DOTTED_LINE ?= "пунктирна лінія"

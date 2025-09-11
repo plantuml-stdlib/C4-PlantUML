@@ -14,6 +14,7 @@
 !$LEGEND_NO_FONT_TEXT ?= "最后的文字颜色"
 !$LEGEND_NO_BG_TEXT ?= "最后的背景颜色"
 !$LEGEND_NO_LINE_TEXT ?= "最后的线条颜色"
+!$LEGEND_SHARP_CORNER ?= "角框"
 !$LEGEND_ROUNDED_BOX ?= "圆角框"
 !$LEGEND_EIGHT_SIDED ?= "八边形"
 !$LEGEND_DOTTED_LINE ?= "点线"

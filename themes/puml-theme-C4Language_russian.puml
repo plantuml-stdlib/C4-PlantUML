@@ -14,6 +14,7 @@
 !$LEGEND_NO_FONT_TEXT ?= "последний цвет текста"
 !$LEGEND_NO_BG_TEXT ?= "последний цвет фона"
 !$LEGEND_NO_LINE_TEXT ?= "последний цвет линии"
+!$LEGEND_SHARP_CORNER ?= "коробка"
 !$LEGEND_ROUNDED_BOX ?= "округлая коробка"
 !$LEGEND_EIGHT_SIDED ?= "восьмиугольный"
 !$LEGEND_DOTTED_LINE ?= "пунктирная линия"

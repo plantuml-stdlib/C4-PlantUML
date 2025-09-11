@@ -15,6 +15,7 @@
 !$LEGEND_NO_FONT_TEXT ?= "sidste tekstfarve"
 !$LEGEND_NO_BG_TEXT ?= "sidste baggrundsfarve"
 !$LEGEND_NO_LINE_TEXT ?= "sidste linjefarve"
+!$LEGEND_SHARP_CORNER ?= "boks"
 !$LEGEND_ROUNDED_BOX ?= "rundet boks"
 !$LEGEND_EIGHT_SIDED ?= "ottesidet"
 !$LEGEND_DOTTED_LINE ?= "prikket"

@@ -678,6 +678,7 @@ Additional tags/stereotypes can be added to the existing element stereotypes (co
 - `UpdateBoundaryStyle(?elementName, ?bgColor, ?fontColor, ?borderColor, ?shadowing, ?shape, ?type, ?legendText, ?borderStyle, ?borderThickness, ?sprite, ?legendSprite)`:
   This call updates the default style of the existing boundaries and creates no additional legend entry.
   If the element name is "" then it updates generic, enterprise, system and container boundary style in on call.
+- `SharpCornerShape()`: This call returns the name of the sharp corner shape and can be used as ?shape argument (default).
 - `RoundedBoxShape()`: This call returns the name of the rounded box shape and can be used as ?shape argument.
 - `EightSidedShape()`: This call returns the name of the eight sided shape and can be used as ?shape argument.
 - `DashedLine()`: This call returns the name of the dashed line and can be used as ?lineStyle or ?borderStyle argument.

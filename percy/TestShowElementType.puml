@@ -4,14 +4,14 @@
 '   language themes not working on build agent (percy tests)
 '   !theme C4Language_japanese from %get_variable_value("RELATIVE_INCLUDE")/themes
 !else
-  !theme C4Language_japanese from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+  !theme C4Language_japanese from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.14.0/themes
 !endif
 
 ' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
 !if %variable_exists("RELATIVE_INCLUDE")
   !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
 !else
-  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.14.0/C4_Container.puml
 !endif
 
 SHOW_ELEMENT_TYPE()

@@ -9,7 +9,7 @@
 [Release Page]: https://github.com/plantuml-stdlib/C4-PlantUML/releases/v2.14.0
 [License Badge]: https://img.shields.io/github/license/plantuml-stdlib/C4-PlantUML
 [License Page]: https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/LICENSE
-[Integrated Badge]: https://img.shields.io/badge/C4--PlantUML%20%20v2.14.0%20integrated%20in%20PlantUML%20Standard%20Library-V1.2026.8-orange
+[Integrated Badge]: https://img.shields.io/badge/C4--PlantUML%20%20v2.14.0%20integrated%20in%20PlantUML%20Standard%20Library-V1.2026.9-orange
 [Integrated Page]: https://plantuml.com/stdlib#062f75176513a666
 
 [Commits Since Badge]: https://img.shields.io/github/commits-since/plantuml-stdlib/C4-PlantUML/latest?label=new%20unreleased%20changes%20in%20master%20branch
